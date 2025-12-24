@@ -1,0 +1,38 @@
+name: QA (E2E & Lighthouse)
+
+on:
+  pull_request:
+    branches: [main, master, develop, development]
+
+jobs:
+  e2e-and-lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install deps
+        run: |
+          npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Start preview
+        run: |
+          npm run preview &
+          sleep 3
+
+      - name: Run Cypress tests
+        uses: cypress-io/github-action@v5
+        with:
+          browser: chrome
+
+      - name: Run Lighthouse CI
+        run: |
+          npx lhci autorun --config=lhci.config.js

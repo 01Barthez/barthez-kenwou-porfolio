@@ -1,0 +1,51 @@
+name: CI
+
+on:
+  push:
+    branches: [main, master, development, develop]
+  pull_request:
+    branches: [main, master, development, develop]
+
+jobs:
+  build:
+    name: Build & Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: |
+          if [ -f package-lock.json ]; then npm ci; else npm install; fi
+
+      - name: Install Husky hooks
+        run: |
+          npm run prepare || npx husky install || true
+
+      - name: Format check
+        run: npm run format:check
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Run tests (CI)
+        run: npm run test:ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload dist (artifact)
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist

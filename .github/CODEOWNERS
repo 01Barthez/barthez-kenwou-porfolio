@@ -1,0 +1,8 @@
+# Code owners
+# Update these entries to match your GitHub teams or individual usernames.
+
+# Default owners for everything
+* @your-org/your-team
+
+# Feature owners (example)
+/src/features/* @your-org/feature-team

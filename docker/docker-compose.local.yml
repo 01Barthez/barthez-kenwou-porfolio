@@ -1,0 +1,38 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: ..
+      # Use the Dockerfile inside the docker/ folder (path is relative to context)
+      dockerfile: docker/Dockerfile
+      target: runner
+    image: frontend-starter:local
+    ports:
+      - "8080:80"
+    environment:
+      - VITE_APP_URL=http://localhost:8080
+    restart: unless-stopped
+
+  dev:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - ../:/app:delegated
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+      - NODE_ENV=development
+      - PORT=5173
+    # Expose Vite on 0.0.0.0 so the container port is accessible from the host
+    command: sh -c "npm install --silent && npm run dev -- --host 0.0.0.0"
+    ports:
+      - "5173:5173"
+    stdin_open: true
+    tty: true
+
+# Notes:
+# - This compose file lives inside the `docker/` folder. It builds using the
+#   repository root as build context (`context: ..`) so the Dockerfile can COPY
+#   repository files normally (e.g. `COPY . .`).
+# - Use `docker compose -f docker/docker-compose.local.yml up --build app` to
+#   build and run the production-like container, or `... up dev` for development.

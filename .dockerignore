@@ -1,0 +1,13 @@
+# Ignore node modules and local build artifacts
+node_modules
+dist
+.turbo
+.cache
+npm-debug.log
+yarn-error.log
+.env
+.env.*
+.git
+/.vscode
+/.idea
+.DS_Store

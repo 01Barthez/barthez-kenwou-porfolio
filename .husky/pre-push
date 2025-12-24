@@ -1,0 +1,8 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+echo "[husky] running tests before push..."
+npm run test:ci || {
+  echo "Tests failed — push aborted. Fix tests before pushing." >&2
+  exit 1
+}
