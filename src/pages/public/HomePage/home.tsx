@@ -1,13 +1,14 @@
 import React from 'react';
 
-export const CustomerDashboardPage: React.FC = () => {
+export const HomePage: React.FC = () => { 
   return (
+    <>
     <div className="min-h-screen max-w-screen mx-auto">
       <div className="container">
-        Customer Page
+        Home page
       </div>
     </div>
+    </>
+
   );
 };
-
-// named export at declaration

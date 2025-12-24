@@ -1,83 +1,86 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <!-- Meta de base -->
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0F172A" />
 
-    <!-- SEO & Social -->
-    <title>Mon Produit — Proposition de valeur claire</title>
-    <meta name="description" content="Description claire et orientée bénéfice (150–160 caractères)." />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://www.example.com/" />
+<head>
+  <!-- Meta de base -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0F172A" />
 
-    <!-- Open Graph / Twitter -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Mon Produit — Titre court" />
-    <meta property="og:description" content="Pitch court et impactant" />
-    <meta property="og:image" content="/og-image.png" />
-    <meta property="og:url" content="https://www.example.com/" />
+  <!-- SEO & Social -->
+  <title>Barthez Kenwou — Full Stcack developer & Devops Engeneer, Specialist on AWS Cloud</title>
+  <meta name="description"
+    content="Hello, I'm Barthez Kenwou | Full Stack Developer & DevOps Engineer, AWS Cloud Specialist. I design and deploy modern, scalable, and high-performance web applications with deep expertise in AWS cloud architecture." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.barthez-kenwou-porfolio.com/" />
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Mon Produit — Titre court" />
-    <meta name="twitter:description" content="Pitch court" />
-    <meta name="twitter:image" content="/og-image.png" />
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Mon Produit — Titre court" />
+  <meta property="og:description" content="Pitch court et impactant" />
+  <meta property="og:image" content="/og-image.png" />
+  <meta property="og:url" content="https://www.barthez-kenwou-porfolio.com/" />
 
-    <!-- Performance & loading -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Mon Produit — Titre court" />
+  <meta name="twitter:description" content="Pitch court" />
+  <meta name="twitter:image" content="/og-image.png" />
 
-    <!-- Preload critical resources (adjust paths if you move assets) -->
-    <link rel="preload" href="/hero.avif" as="image" type="image/avif" />
-    <link rel="preload" href="/hero.webp" as="image" type="image/webp" />
-    <link rel="preload" href="/src/main.tsx" as="script" />
+  <!-- Performance & loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 
-    <!-- Branding / Icons / PWA manifest -->
-    <link rel="icon" href="/favicon.ico" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <link rel="manifest" href="/manifest.webmanifest" />
+  <!-- Preload critical resources (adjust paths if you move assets) -->
+  <link rel="preload" href="/hero.avif" as="image" type="image/avif" />
+  <link rel="preload" href="/hero.webp" as="image" type="image/webp" />
+  <link rel="preload" href="/src/main.tsx" as="script" />
 
-    <!-- Sécurité -->
-    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
-    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com;" />
+  <!-- Branding / Icons / PWA manifest -->
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.webmanifest" />
 
-    <!-- Compatibilité -->
-    <meta name="format-detection" content="telephone=no" />
+  <!-- Sécurité -->
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="Content-Security-Policy"
+    content="default-src 'self'; script-src 'self' https://www.googletagmanager.com 'sha256-C13jTwUL6yPC0XUmABsGK6y/qPUt3roU1WmCDsau//M='; connect-src 'self' https://www.google-analytics.com; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com;" />
 
-    <!-- Analytics (optionnel, remplacez G-XXXX par votre ID) -->
-    <!--
-      Pour activer : décommenter les deux balises ci-dessous et remplacer G-XXXX.
-      Vous pouvez aussi charger l'init via un fichier externe pour éviter l'inline.
-    -->
-    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);} 
-      gtag('js', new Date());
-      gtag('config', 'G-XXXX');
-    </script> -->
+  <!-- Compatibilité -->
+  <meta name="format-detection" content="telephone=no" />
 
-    <!-- Minimal: theme-color for iOS status bar -->
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-  </head>
-  <body>
-    <!-- ACCESSIBILITÉ : fallback when JS disabled -->
-    <noscript>
-      <div style="padding:1rem;background:#fff;color:#000;text-align:center;">
-        Cette application nécessite JavaScript pour fonctionner. Veuillez activer JavaScript ou utiliser un navigateur moderne.
-      </div>
-    </noscript>
+  <!-- Analytics (optionnel, remplacez G-XXXX par votre ID) -->
 
-    <!-- Root React -->
-    <div id="root"></div>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-XXXX');
+  </script>
 
-    <!-- Scripts (module) -->
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+  <!-- Minimal: theme-color for iOS status bar -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+</head>
+
+<body>
+  <!-- ACCESSIBILITÉ : fallback when JS disabled -->
+  <noscript>
+    <div style="padding:1rem;background:#fff;color:#000;text-align:center;">
+      Cette application nécessite JavaScript pour fonctionner. Veuillez activer JavaScript ou utiliser un navigateur
+      moderne.
+    </div>
+  </noscript>
+
+  <!-- Root React -->
+  <div id="root"></div>
+
+  <!-- Scripts (module) -->
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
 </html>

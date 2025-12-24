@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { analytics } from './analytics';
-import InternalErrorPage from '@/pages/public/Errors/InternalErrorPage';
+import InternalErrorPage from '@/pages/Errors/InternalErrorPage';
 import { reportError } from './errorReporter';
 
 interface Props {

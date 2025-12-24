@@ -6,8 +6,7 @@ export function prefetchRoutes() {
 
   const doPrefetch = () => {
     // Adjust the list below to include routes/pages you want eagerly preloaded.
-    void import('@/pages/public/HomePage');
-    void import('@/pages/public/MenuPage');
+    void import('@/pages/public/HomePage/home');
   };
 
   // Use requestIdleCallback when available otherwise setTimeout fallback.
@@ -19,9 +18,7 @@ export async function prefetchRoute(path: string) {
   // Map route to module dynamic import for on-demand prefetching (e.g. on hover)
   switch (path) {
     case '/':
-      return import('@/pages/public/HomePage');
-    case '/menu':
-      return import('@/pages/public/MenuPage');
+      return import('@/pages/public/HomePage/home');
     case '/dashboard':
       return import('@/pages/app/Customer/DashboardPage');
     case '/admin':
