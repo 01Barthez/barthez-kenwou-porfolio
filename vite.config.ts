@@ -9,8 +9,7 @@ import viteImagemin from 'vite-plugin-imagemin';
 // https://vite.dev/config/
 export default defineConfig(() => {
   const enablePwa =
-    (process.env.VITE_ENABLE_PWA || (process.env.NODE_ENV === 'production' ? 'true' : 'false')) ===
-    'true';
+    (process.env.VITE_ENABLE_PWA && process.env.NODE_ENV === 'production') === 'true';
   const plugins = [react(), tailwindcss()];
 
   if (enablePwa) {

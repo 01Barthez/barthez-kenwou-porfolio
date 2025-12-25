@@ -31,7 +31,10 @@ export const publicRoutes: RouteConfig[] = [
 
   {
     path: '/projects/:projectID',
-    component: lazyPage(() => import('@/pages/public/ProjectPage/projectDetails'), 'ProjectDetailPage'),
+    component: lazyPage(
+      () => import('@/pages/public/ProjectPage/projectDetails'),
+      'ProjectDetailPage',
+    ),
     meta: {
       title: 'Projet Détails',
       layout: 'public',

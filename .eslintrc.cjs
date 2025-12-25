@@ -3,6 +3,6 @@ module.exports = {
   plugins: ['jsx-a11y'],
   rules: {
     // Project-specific accessibility rules can be tightened here.
-    'jsx-a11y/anchor-is-valid': 'off'
-  }
+    'jsx-a11y/anchor-is-valid': 'off',
+  },
 };

@@ -11,7 +11,7 @@ fi
 
 echo "[scripts] build: running TypeScript & Vite build"
 if command -v bun >/dev/null 2>&1; then
-  bun run build
+  bunx vite build
 else
-  npm run build
+  npx vite build
 fi

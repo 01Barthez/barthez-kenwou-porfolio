@@ -55,7 +55,7 @@ For a deeper dive, please see the [**Architecture Documentation**](./docs/archit
 
 1. **Clone the repository:**
 
-```bash
+````bash
     git clone https://github.com/org/frontend-app.git
     cd frontend-app
     ```
@@ -79,7 +79,7 @@ To start the local development server, run:
 
 ```bash
 bun run dev
-```
+````
 
 The application will be available at `http://localhost:5173`.
 
@@ -87,17 +87,17 @@ The application will be available at `http://localhost:5173`.
 
 This project comes with a set of useful scripts defined in `package.json`:
 
-| Script | Description |
-| :--- | :--- |
-| `bun run dev` | Starts the development server with Hot Module Replacement. |
-| `bun run build` | Compiles the app for production. |
-| `bun run preview` | Serves the production build locally for preview. |
-| `bun run lint` | Lints all source files using ESLint. |
-| `bun run format` | Formats all source files using Prettier. |
-| `bun run test` | Runs all unit and integration tests with Vitest. |
-| `bun run test:coverage` | Generates a test coverage report. |
-| `bun run e2e:open` | Opens the Cypress test runner for E2E testing. |
-| `bun run storybook` | Starts the Storybook component explorer. |
+| Script                  | Description                                                |
+| :---------------------- | :--------------------------------------------------------- |
+| `bun run dev`           | Starts the development server with Hot Module Replacement. |
+| `bun run build`         | Compiles the app for production.                           |
+| `bun run preview`       | Serves the production build locally for preview.           |
+| `bun run lint`          | Lints all source files using ESLint.                       |
+| `bun run format`        | Formats all source files using Prettier.                   |
+| `bun run test`          | Runs all unit and integration tests with Vitest.           |
+| `bun run test:coverage` | Generates a test coverage report.                          |
+| `bun run e2e:open`      | Opens the Cypress test runner for E2E testing.             |
+| `bun run storybook`     | Starts the Storybook component explorer.                   |
 
 ## Testing
 

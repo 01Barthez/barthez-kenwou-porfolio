@@ -9,7 +9,9 @@ export const NotFoundPage: React.FC = () => {
         <div className="text-center">
           <h1 className="text-6xl font-extrabold text-gray-900 mb-4">404</h1>
           <p className="text-xl text-gray-700 mb-6">Page non trouvée</p>
-          <p className="text-gray-600 mb-8">Désolé, la page demandée n'existe pas ou a été déplacée.</p>
+          <p className="text-gray-600 mb-8">
+            Désolé, la page demandée n'existe pas ou a été déplacée.
+          </p>
 
           <div className="flex justify-center gap-4">
             <Link to="/">

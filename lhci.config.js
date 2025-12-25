@@ -2,10 +2,10 @@ module.exports = {
   ci: {
     collect: {
       numberOfRuns: 1,
-      url: ['http://localhost:5173']
+      url: ['http://localhost:5173'],
     },
     upload: {
-      target: 'temporary-public-storage'
-    }
-  }
+      target: 'temporary-public-storage',
+    },
+  },
 };

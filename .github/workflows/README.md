@@ -2,13 +2,13 @@
 
 Each workflow in `.github/workflows` is documented below with triggers, jobs and required secrets.
 
-1) `ci.yml` (CI)
+1. `ci.yml` (CI)
 
 - Triggers: `push` and `pull_request` on `main`, `develop`.
 - Jobs: `build` — runs Format check, Lint, Typecheck, Tests (CI) and Build.
 - Artifacts: uploads `dist` on success.
 
-2) `deploy-vercel.yml` (Production deploy)
+2. `deploy-vercel.yml` (Production deploy)
 
 - Triggers: `push` on `main` only.
 - Requirements: repository `VERCEL_TOKEN` secret (and optionally `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID`).

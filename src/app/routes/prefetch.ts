@@ -10,7 +10,11 @@ export function prefetchRoutes() {
   };
 
   // Use requestIdleCallback when available otherwise setTimeout fallback.
-  const rIC = (window as any).requestIdleCallback ?? function (cb: any) { return setTimeout(cb, 200); };
+  const rIC =
+    (window as any).requestIdleCallback ??
+    function (cb: any) {
+      return setTimeout(cb, 200);
+    };
   rIC(doPrefetch, { timeout: 2000 });
 }
 

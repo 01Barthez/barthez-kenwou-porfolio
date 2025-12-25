@@ -47,11 +47,14 @@ class ApiClient {
         }
 
         if (error.request) {
-          return Promise.reject({ message: 'No response received', statusCode: undefined } as ApiError);
+          return Promise.reject({
+            message: 'No response received',
+            statusCode: undefined,
+          } as ApiError);
         }
 
         return Promise.reject({ message: error.message } as ApiError);
-      }
+      },
     );
   }
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Sun, Moon } from 'lucide-react';
 import { Button } from '../Button/Button.ui';
-import { useThemeStore } from '../../state/useThemeStore';
+import { useThemeStore } from '@/shared/state/useThemeStore';
 
 export const ThemeToggle: React.FC<{ className?: string }> = ({ className = '' }) => {
   const theme = useThemeStore((s) => s.theme);
@@ -21,5 +21,3 @@ export const ThemeToggle: React.FC<{ className?: string }> = ({ className = '' }
     </div>
   );
 };
-
-export default ThemeToggle;

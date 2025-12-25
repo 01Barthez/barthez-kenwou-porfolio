@@ -20,19 +20,22 @@ export async function reportError(error: Error, info?: ErrorReportInfo) {
   }
 
   // Try to forward to Sentry if available at runtime (opt-in via env and install)
-    try {
-      if (typeof process !== 'undefined' && (process.env.SENTRY_DSN || (window as any).__SENTRY_DSN__)) {
-        // Attempt a runtime import using a dynamically-created function so bundlers
-        // (Vite/Rollup) do not attempt to statically analyze and resolve the module.
-        // This keeps `@sentry/browser` optional and avoids build-time errors when
-        // it's not installed.
-        const runtimeImport = new Function('modulePath', 'return import(modulePath);');
-        const Sentry = await runtimeImport('@sentry/browser').catch(() => null);
-        if (Sentry && (Sentry as any).captureException) {
-          (Sentry as any).captureException(error, { extra: info });
-        }
+  try {
+    if (
+      typeof process !== 'undefined' &&
+      (process.env.SENTRY_DSN || (window as any).__SENTRY_DSN__)
+    ) {
+      // Attempt a runtime import using a dynamically-created function so bundlers
+      // (Vite/Rollup) do not attempt to statically analyze and resolve the module.
+      // This keeps `@sentry/browser` optional and avoids build-time errors when
+      // it's not installed.
+      const runtimeImport = new Function('modulePath', 'return import(modulePath);');
+      const Sentry = await runtimeImport('@sentry/browser').catch(() => null);
+      if (Sentry && (Sentry as any).captureException) {
+        (Sentry as any).captureException(error, { extra: info });
       }
-    } catch (e) {
-      // ignore failures — this package is optional and should not crash the app
     }
+  } catch (e) {
+    // ignore failures — this package is optional and should not crash the app
+  }
 }
