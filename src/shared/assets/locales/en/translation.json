@@ -4,9 +4,82 @@
     "about": "About",
     "skills": "Skills",
     "projects": "Projects",
-    "services": "Services",
-    "blog": "Blog",
     "contact": "Contact",
-    "cv": "My CV"
+    "cv": "Download CV",
+    "services": "Services",
+    "blog": "Blog"
+  },
+  "hero": {
+    "greeting": "Hello, I'm",
+    "title": "Full Stack Developer",
+    "subtitle": "& DevOps Engineer",
+    "specialization": "AWS Cloud Specialist",
+    "description": "I design and deploy modern, scalable, and high-performance web applications with deep expertise in AWS cloud architecture.",
+    "cta": {
+      "projects": "View my projects",
+      "contact": "Contact me"
+    }
+  },
+  "about": {
+    "title": "About me",
+    "subtitle": "Passionate about technological innovation",
+    "description": "Full Stack Developer and DevOps Engineer with a passion for creating innovative cloud solutions. As an AWS expert, I transform complex ideas into high-performance, scalable applications.",
+    "experience": "Years of experience",
+    "projects": "Completed projects",
+    "certifications": "Certifications",
+    "uptime": "Uptime"
+  },
+  "skills": {
+    "title": "My Skills",
+    "subtitle": "Technologies and tools I master",
+    "filter": {
+      "all": "All",
+      "cloud": "AWS Cloud",
+      "devops": "DevOps",
+      "backend": "Backend",
+      "frontend": "Frontend",
+      "database": "Database",
+      "tools": "Tools"
+    },
+    "certifications": "Certifications & Training",
+    "achievements": "My Achievements in Numbers"
+  },
+  "projects": {
+    "title": "My Projects",
+    "subtitle": "Discover my recent work",
+    "filter": {
+      "all": "All",
+      "web": "Web App",
+      "cloud": "Cloud",
+      "devops": "DevOps"
+    },
+    "demo": "View demo",
+    "code": "Source code",
+    "details": "View details"
+  },
+  "contact": {
+    "title": "Contact Me",
+    "subtitle": "Let's discuss your next project",
+    "form": {
+      "name": "Your name",
+      "email": "Your email",
+      "subject": "Subject",
+      "message": "Your message",
+      "send": "Send message"
+    },
+    "info": {
+      "email": "Email",
+      "location": "Location",
+      "availability": "Availability",
+      "available": "Available for projects"
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved"
+  },
+  "sidebar": {
+    "title": "Full Stack Developer",
+    "expand": "Expand",
+    "collapse": "Collapse"
   }
 }
