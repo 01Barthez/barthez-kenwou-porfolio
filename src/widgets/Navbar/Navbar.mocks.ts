@@ -1,4 +1,5 @@
 export const navItems = [
+  { id: '/', labelKey: 'nav.home' },
   { id: '/about', labelKey: 'nav.about' },
   { id: '/skills', labelKey: 'nav.skills' },
   { id: '/projects', labelKey: 'nav.projects' },

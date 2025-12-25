@@ -12,6 +12,15 @@ export const publicRoutes: RouteConfig[] = [
   },
 
   {
+    path: '/about',
+    component: lazyPage(() => import('@/pages/public/AboutPage/About'), 'AboutPage'),
+    meta: {
+      title: 'À propos',
+      layout: 'public',
+    },
+  },
+
+  {
     path: '/skills',
     component: lazyPage(() => import('@/pages/public/SkillPage/skill'), 'SkillPage'),
     meta: {
