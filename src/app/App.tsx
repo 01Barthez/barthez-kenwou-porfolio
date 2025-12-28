@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { routes } from './routes';
 import { LoadingSpinner } from '@/shared/ui/Spinner/Spinner.ui';
 import { ProtectedRoute } from './routes/config/ProtectedRoute';
+import { PublicLayout } from '@/pages/public/Layout';
 
 export const App: React.FC = () => {
   React.useEffect(() => {
@@ -10,12 +11,25 @@ export const App: React.FC = () => {
     import('./routes/prefetch').then((m) => m.prefetchRoutes()).catch(() => {});
   }, []);
 
+  const publicRoutes = routes.filter((route) => route.meta?.layout === 'public');
+  const otherRoutes = routes.filter((route) => route.meta?.layout !== 'public');
+
   return (
     <Router>
       <div className="min-h-screen bg-background text-foreground">
         <Suspense fallback={<LoadingSpinner />}>
           <Routes>
-            {routes.map((route) => (
+            <Route element={<PublicLayout />}>
+              {publicRoutes.map((route) => (
+                <Route
+                  key={route.path}
+                  path={route.path}
+                  element={<route.component />}
+                />
+              ))}
+            </Route>
+
+            {otherRoutes.map((route) => (
               <Route
                 key={route.path}
                 path={route.path}

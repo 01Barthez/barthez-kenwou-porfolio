@@ -79,7 +79,9 @@
   },
   "sidebar": {
     "title": "Développeur Full Stack",
+    "subtitle": "Spécialiste AWS Cloud",
     "expand": "Agrandir",
-    "collapse": "Réduire"
+    "collapse": "Réduire",
+    "see_more": "Voir plus"
   }
 }

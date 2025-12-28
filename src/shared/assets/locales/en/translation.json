@@ -79,7 +79,9 @@
   },
   "sidebar": {
     "title": "Full Stack Developer",
+    "subtitle": "AWS Cloud Specialist",
     "expand": "Expand",
-    "collapse": "Collapse"
+    "collapse": "Collapse",
+    "see_more": "See more"
   }
 }

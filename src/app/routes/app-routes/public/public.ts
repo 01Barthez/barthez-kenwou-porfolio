@@ -60,10 +60,10 @@ export const publicRoutes: RouteConfig[] = [
   },
 
   {
-    path: '/blogs',
+    path: '/blog',
     component: lazyPage(() => import('@/pages/public/BlogPage/blog'), 'BlogPage'),
     meta: {
-      title: 'blogs',
+      title: 'blog',
       layout: 'public',
     },
   },
