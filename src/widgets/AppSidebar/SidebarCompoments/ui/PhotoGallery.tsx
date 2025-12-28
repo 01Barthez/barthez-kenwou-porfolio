@@ -1,9 +1,8 @@
-import { useState } from "react";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
-import { Dialog, DialogContent } from "@/shared/ui/dialog";
-import { Image } from "@/shared/ui/Image";
-import { PhotoGalleryProps } from "../types/type";
-
+import { useState } from 'react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Dialog, DialogContent } from '@/shared/ui/dialog';
+import { Image } from '@/shared/ui/Image';
+import { PhotoGalleryProps } from '../types/type';
 
 export const PhotoGallery = ({ photos, isOpen, onClose, initialIndex = 0 }: PhotoGalleryProps) => {
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
@@ -17,14 +16,14 @@ export const PhotoGallery = ({ photos, isOpen, onClose, initialIndex = 0 }: Phot
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "ArrowLeft") handlePrev();
-    if (e.key === "ArrowRight") handleNext();
-    if (e.key === "Escape") onClose();
+    if (e.key === 'ArrowLeft') handlePrev();
+    if (e.key === 'ArrowRight') handleNext();
+    if (e.key === 'Escape') onClose();
   };
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent 
+      <DialogContent
         className="max-w-7xl w-full h-[80vh] p-0 bg-background/95 backdrop-blur-2xl border-border"
         onKeyDown={handleKeyDown}
         showCloseButton={false}
@@ -77,8 +76,8 @@ export const PhotoGallery = ({ photos, isOpen, onClose, initialIndex = 0 }: Phot
               onClick={() => setCurrentIndex(index)}
               className={`w-2.5 h-2.5 rounded-full transition-all ${
                 index === currentIndex
-                  ? "bg-primary w-6"
-                  : "bg-muted-foreground/50 hover:bg-muted-foreground"
+                  ? 'bg-primary w-6'
+                  : 'bg-muted-foreground/50 hover:bg-muted-foreground'
               }`}
               aria-label={`Go to photo ${index + 1}`}
               title={`Go to photo ${index + 1}`}

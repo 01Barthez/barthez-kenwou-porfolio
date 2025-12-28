@@ -1,7 +1,13 @@
-import { Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarHeader } from "@/shared/ui/sidebar.tsx";
-import { SidebarHeaderSection } from "./SidebarCompoments/SidebarHeader";
-import { SidebarContentSection } from "./SidebarCompoments/SidebarContent";
-import { SidebarFooterSection } from "./SidebarCompoments/SidebarFooter";
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarGroup,
+  SidebarHeader,
+} from '@/shared/ui/sidebar.tsx';
+import { SidebarHeaderSection } from './SidebarCompoments/SidebarHeader';
+import { SidebarContentSection } from './SidebarCompoments/SidebarContent';
+import { SidebarFooterSection } from './SidebarCompoments/SidebarFooter';
 
 export function AppSidebar() {
   return (
@@ -19,9 +25,9 @@ export function AppSidebar() {
       </SidebarContent>
 
       {/* Sidebar Footer */}
-      <SidebarFooter >
+      <SidebarFooter>
         <SidebarFooterSection />
       </SidebarFooter>
     </Sidebar>
-  )
+  );
 }

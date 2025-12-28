@@ -14,7 +14,6 @@ export const SidebarHeaderSection: React.FC = () => {
   return (
     <div className="p-3 border-b">
       <Link to="/" className="flex items-center gap-3">
-
         {/* Profile Section */}
         <div className="flex flex-col items-center gap-3 px-4">
           <button
@@ -27,11 +26,12 @@ export const SidebarHeaderSection: React.FC = () => {
               src={profilePhotos[0]}
               alt="Barthez Kenwou"
               priority
-              className={`object-cover transition-all duration-300 scale-110 group-hover/picture:scale-120 ${isExpanded ? "h-full w-full" : "h-12 w-12"}`
-              }
+              className={`object-cover transition-all duration-300 scale-110 group-hover/picture:scale-120 ${
+                isExpanded ? 'h-full w-full' : 'h-12 w-12'
+              }`}
             />
             <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover/picture:opacity-100 transition-opacity flex items-center justify-center">
-              <span className="text-xs font-medium text-background">{t("sidebar.see_more")}</span>
+              <span className="text-xs font-medium text-background">{t('sidebar.see_more')}</span>
               <ArrowRight size={16} color="#000000" strokeWidth={1.25} />
             </div>
           </button>
@@ -39,22 +39,20 @@ export const SidebarHeaderSection: React.FC = () => {
           {isExpanded && (
             <div className="text-center animate-fade-in">
               <h2 className="text-lg font-bold text-foreground">Barthez Kenwou</h2>
-              <p className="text-xs text-muted-foreground font-mono">{t("sidebar.title")}</p>
-              <p className="text-xs text-primary font-medium mt-1">{t("sidebar.subtitle")}</p>
+              <p className="text-xs text-muted-foreground font-mono">{t('sidebar.title')}</p>
+              <p className="text-xs text-primary font-medium mt-1">{t('sidebar.subtitle')}</p>
             </div>
           )}
         </div>
 
         {/* Gallery Modal */}
-        {
-          isGalleryOpen && (
-            <PhotoGallery
-              photos={profilePhotos}
-              isOpen={isGalleryOpen}
-              onClose={() => setIsGalleryOpen(false)}
-            />
-          )
-        }
+        {isGalleryOpen && (
+          <PhotoGallery
+            photos={profilePhotos}
+            isOpen={isGalleryOpen}
+            onClose={() => setIsGalleryOpen(false)}
+          />
+        )}
       </Link>
     </div>
   );
