@@ -12,8 +12,7 @@ export const Navbar: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    // <header className="fixed top-4 left-1/2 z-50 hidden -translate-x-1/2 lg:block lg:left-[calc(50%+8rem)]">
-    <header className="sticky left-96 z-40 hidden xl:block">
+    <header className="w-fit sticky left-1/4 z-40 hidden xl:block">
       <nav className="glass rounded-2xl px-6 py-3 flex items-center gap-6">
         {/* Navigation Links */}
         <div className="flex items-center md:gap-4 lg:gap-6">

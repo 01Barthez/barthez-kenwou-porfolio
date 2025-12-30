@@ -1,5 +1,5 @@
 import { ID } from '../../../shared/types';
-import { Dish } from '../../dish/model/dish.types';
+import { Dish } from '../../userProfile/model/dish.types';
 
 export type OrderStatus =
   | 'pending'
