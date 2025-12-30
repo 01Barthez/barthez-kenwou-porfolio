@@ -86,6 +86,15 @@ export const publicRoutes: RouteConfig[] = [
     },
   },
 
+  {
+    path: '/cv',
+    component: lazyPage(() => import('@/pages/public/CvPage/cv'), 'CvPage'),
+    meta: {
+      title: 'CV',
+      layout: 'public',
+    },
+  },
+
   // Catch-all 404 route (should be last)
   {
     path: '*',

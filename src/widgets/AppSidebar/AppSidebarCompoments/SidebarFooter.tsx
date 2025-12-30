@@ -1,14 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FileDown } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
-import { Button } from '@/shared/ui/Button';
 import { ThemeToggle } from '@/shared/ui/ThemeToggle';
 import { LanguageToggle } from '@/shared/ui/LanguageToggle';
-import { socialLinks } from './ui/socialLink';
+import { socialLinks } from '@/shared/constants/socialLink.const';
+import { CvButton } from '@/shared/ui/CvButton/CvButton';
 
 export const SidebarFooterSection: React.FC = () => {
-  const { t } = useTranslation();
   const [isExpanded, setIsExpanded] = React.useState(true);
 
   return (
@@ -41,12 +38,8 @@ export const SidebarFooterSection: React.FC = () => {
         </div>
       </div>
 
-      <Button asChild className="w-full">
-        <Link to="/cv">
-          <FileDown className="mr-2 h-4 w-4" />
-          {t('nav.cv')}
-        </Link>
-      </Button>
+      {/* CV Button */}
+      <CvButton />
     </div>
   );
 };

@@ -1,16 +1,15 @@
-import { LanguageToggle } from '@/shared/ui/LanguageToggle';
-import { ThemeToggle } from '@/shared/ui/ThemeToggle';
 import { SidebarTrigger } from '@/shared/ui/sidebar';
 import React from 'react';
+import { MobileNavbar, Navbar } from '../Navbar';
 
 export const Header: React.FC = () => {
   return (
-    <header className="flex items-center justify-between p-4 border-b">
+    <header className="w-full flex items-center justify-between p-4 border-b">
       <SidebarTrigger />
 
-      <div className="flex items-center gap-4">
-        <LanguageToggle />
-        <ThemeToggle />
+      <div className="relative w-full">
+        <Navbar />
+        <MobileNavbar />
       </div>
     </header>
   );

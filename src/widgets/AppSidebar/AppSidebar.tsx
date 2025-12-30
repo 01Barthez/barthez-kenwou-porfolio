@@ -5,9 +5,9 @@ import {
   SidebarGroup,
   SidebarHeader,
 } from '@/shared/ui/sidebar.tsx';
-import { SidebarHeaderSection } from './SidebarCompoments/SidebarHeader';
-import { SidebarContentSection } from './SidebarCompoments/SidebarContent';
-import { SidebarFooterSection } from './SidebarCompoments/SidebarFooter';
+import { SidebarHeaderSection } from './AppSidebarCompoments/SidebarHeader';
+import { SidebarContentSection } from './AppSidebarCompoments/SidebarContent';
+import { SidebarFooterSection } from './AppSidebarCompoments/SidebarFooter';
 
 export function AppSidebar() {
   return (
