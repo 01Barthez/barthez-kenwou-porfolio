@@ -26,7 +26,7 @@ export const SEO: React.FC<SEOProps> = ({
   openGraph,
   additionalMeta = [],
 }) => {
-  const siteName = 'Frontend Starter';
+  const siteName = 'Portfolio Barthez Kenwou';
   const pageTitle = title ? `${title} | ${siteName}` : siteName;
 
   return (
