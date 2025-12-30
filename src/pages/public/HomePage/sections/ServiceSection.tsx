@@ -1,7 +1,7 @@
 import { services } from '@/shared/mocks/services.mocks';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { ArrowRight } from 'lucide-react';
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 export const ServiceSection: React.FC = () => {
@@ -12,10 +12,14 @@ export const ServiceSection: React.FC = () => {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="section-title">
-            <span className="gradient-text">{language === "fr" ? "Mes Services" : "My Services"}</span>
+            <span className="gradient-text">
+              {language === 'fr' ? 'Mes Services' : 'My Services'}
+            </span>
           </h2>
           <p className="section-subtitle">
-            {language === "fr" ? "Des solutions sur mesure pour vos projets" : "Tailored solutions for your projects"}
+            {language === 'fr'
+              ? 'Des solutions sur mesure pour vos projets'
+              : 'Tailored solutions for your projects'}
           </p>
         </div>
 
@@ -31,10 +35,10 @@ export const ServiceSection: React.FC = () => {
                   <Icon className="h-6 w-6 text-primary" />
                 </div>
                 <h3 className="text-lg font-semibold text-foreground mb-2">
-                  {language === "fr" ? service.titleFr : service.titleEn}
+                  {language === 'fr' ? service.titleFr : service.titleEn}
                 </h3>
                 <p className="text-sm text-muted-foreground">
-                  {language === "fr" ? service.descFr : service.descEn}
+                  {language === 'fr' ? service.descFr : service.descEn}
                 </p>
               </div>
             );
@@ -46,12 +50,11 @@ export const ServiceSection: React.FC = () => {
             to="/services"
             className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
           >
-            {language === "fr" ? "Voir tous les services" : "View all services"}
+            {language === 'fr' ? 'Voir tous les services' : 'View all services'}
             <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </div>
     </section>
-  )
-}
-
+  );
+};

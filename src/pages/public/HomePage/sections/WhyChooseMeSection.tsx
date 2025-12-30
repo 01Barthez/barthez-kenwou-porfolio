@@ -1,6 +1,6 @@
 import { whyMe } from '@/shared/mocks/whyMe.mocks';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
-import React from 'react'
+import React from 'react';
 
 export const WhyChooseMeSection: React.FC = () => {
   const { language } = useLanguageStore();
@@ -10,7 +10,9 @@ export const WhyChooseMeSection: React.FC = () => {
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="section-title">
-            <span className="gradient-text">{language === "fr" ? "Pourquoi Me Choisir ?" : "Why Choose Me?"}</span>
+            <span className="gradient-text">
+              {language === 'fr' ? 'Pourquoi Me Choisir ?' : 'Why Choose Me?'}
+            </span>
           </h2>
         </div>
 
@@ -27,13 +29,13 @@ export const WhyChooseMeSection: React.FC = () => {
                   <Icon className="h-5 w-5 text-primary" />
                 </div>
                 <span className="text-foreground">
-                  {language === "fr" ? item.textFr : item.textEn}
+                  {language === 'fr' ? item.textFr : item.textEn}
                 </span>
               </div>
             );
           })}
         </div>
       </div>
-    </section>)
-}
-
+    </section>
+  );
+};

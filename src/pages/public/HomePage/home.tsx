@@ -10,7 +10,7 @@ export const HomePage: React.FC = () => {
   return (
     <>
       <SEO
-        title='Barthez Kenwou | Passionate DevOps & Full-Stack JS Developer'
+        title="Barthez Kenwou | Passionate DevOps & Full-Stack JS Developer"
         description="Passionné par le développement web et le cloud computing depuis plus de 3 ans, je me spécialise dans la création d'applications web modernes, performantes et évolutives. Toujours à la recherche de nouveaux défis, je m'investis continuellement dans l'apprentissage de nouvelles technologies et les meilleures pratiques du secteur."
       />
 

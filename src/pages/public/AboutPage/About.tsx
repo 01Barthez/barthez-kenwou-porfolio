@@ -10,10 +10,10 @@ export const AboutPage: React.FC = () => {
   return (
     <>
       <SEO
-        title='About Barthez Kenwou | Passionate DevOps & Full-Stack JS Developer'
+        title="About Barthez Kenwou | Passionate DevOps & Full-Stack JS Developer"
         description="Mon expertise couvre l'ensemble du cycle de développement, de la conception à la mise en production, en passant par l'optimisation des performances et la sécurité. Je maîtrise les technologies AWS et les pratiques DevOps pour garantir des déploiements fiables et automatisés."
       />
-      
+
       <div className="min-h-screen max-w-screen mx-auto">
         <div className="min-h-screen py-20 px-6">
           <div className="max-w-6xl mx-auto py-12">
@@ -43,7 +43,7 @@ export const AboutPage: React.FC = () => {
             </div>
           </div>
         </div>
-      </div >
+      </div>
     </>
   );
 };

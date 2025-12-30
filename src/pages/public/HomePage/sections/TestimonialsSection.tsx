@@ -1,7 +1,7 @@
-import { testimonials } from '@/shared/mocks/testimonials.mocks'
+import { testimonials } from '@/shared/mocks/testimonials.mocks';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
-import { Star } from 'lucide-react'
-import React from 'react'
+import { Star } from 'lucide-react';
+import React from 'react';
 
 export const TestimonialsSection: React.FC = () => {
   const { language } = useLanguageStore();
@@ -11,7 +11,9 @@ export const TestimonialsSection: React.FC = () => {
       <div className="max-w-4xl mx-auto">
         <div className="text-center mb-12">
           <h2 className="section-title">
-            <span className="gradient-text">{language === "fr" ? "Témoignages Clients" : "Client Testimonials"}</span>
+            <span className="gradient-text">
+              {language === 'fr' ? 'Témoignages Clients' : 'Client Testimonials'}
+            </span>
           </h2>
         </div>
 
@@ -27,14 +29,14 @@ export const TestimonialsSection: React.FC = () => {
                 ))}
               </div>
               <p className="text-muted-foreground mb-4 italic">
-                "{language === "fr" ? testimonial.textFr : testimonial.textEn}"
+                "{language === 'fr' ? testimonial.textFr : testimonial.textEn}"
               </p>
               <div>
                 <p className="font-semibold text-foreground">
-                  {language === "fr" ? testimonial.nameFr : testimonial.nameEn}
+                  {language === 'fr' ? testimonial.nameFr : testimonial.nameEn}
                 </p>
                 <p className="text-sm text-muted-foreground">
-                  {language === "fr" ? testimonial.roleFr : testimonial.roleEn}
+                  {language === 'fr' ? testimonial.roleFr : testimonial.roleEn}
                 </p>
               </div>
             </div>
@@ -42,6 +44,5 @@ export const TestimonialsSection: React.FC = () => {
         </div>
       </div>
     </section>
-  )
-}
-
+  );
+};

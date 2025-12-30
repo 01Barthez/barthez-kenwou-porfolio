@@ -1,4 +1,4 @@
-import { socialLinks } from "../constants/socialLink.const";
+import { socialLinks } from '../constants/socialLink.const';
 
 export const contactsInfo = {
   whatsappLink: 'https://wa.me/237655646688',
@@ -7,4 +7,4 @@ export const contactsInfo = {
   github: socialLinks[0].href,
   linkedin: socialLinks[1].href,
   facebook: '',
-}
+};

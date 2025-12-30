@@ -1,5 +1,5 @@
-import React from 'react'
-import { ArrowRight, Award } from "lucide-react";
+import React from 'react';
+import { ArrowRight, Award } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
@@ -15,11 +15,11 @@ export const CTASection: React.FC = () => {
         <div className="p-10 rounded-3xl bg-linear-to-br from-primary/20 to-accent/20 border border-primary/30">
           <Award className="h-12 w-12 text-primary mx-auto mb-6" />
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
-            {language === "fr" ? "Prêt à Démarrer Votre Projet ?" : "Ready to Start Your Project?"}
+            {language === 'fr' ? 'Prêt à Démarrer Votre Projet ?' : 'Ready to Start Your Project?'}
           </h2>
           <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
-            {language === "fr"
-              ? "Discutons de vos besoins et construisons ensemble une solution qui dépasse vos attentes."
+            {language === 'fr'
+              ? 'Discutons de vos besoins et construisons ensemble une solution qui dépasse vos attentes.'
               : "Let's discuss your needs and build together a solution that exceeds your expectations."}
           </p>
 
@@ -29,7 +29,7 @@ export const CTASection: React.FC = () => {
               to="/contact"
               className="group flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-lg font-semibold text-primary-foreground transition-all hover:glow-primary hover:scale-105"
             >
-              {t("hero.cta.contact")}
+              {t('hero.cta.contact')}
               <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
             </Link>
 
@@ -45,6 +45,5 @@ export const CTASection: React.FC = () => {
         </div>
       </div>
     </section>
-  )
-}
-
+  );
+};
