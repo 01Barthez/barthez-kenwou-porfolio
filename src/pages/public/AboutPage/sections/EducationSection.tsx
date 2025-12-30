@@ -8,7 +8,7 @@ export const EducationSection: React.FC = () => {
   const { language } = useLanguageStore();
 
   return (
-    <div className="glass rounded-2xl p-8 border border-border animate-fade-in">
+    <section className="glass rounded-2xl p-8 border border-border animate-fade-in">
       {/* title */}
       <div className="flex items-center gap-3 mb-6">
         <div className="p-3 rounded-xl bg-accent/10">
@@ -51,6 +51,6 @@ export const EducationSection: React.FC = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };

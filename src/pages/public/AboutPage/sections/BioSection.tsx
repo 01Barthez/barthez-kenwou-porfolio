@@ -6,7 +6,7 @@ export const BioSection: React.FC = () => {
   const { language } = useLanguageStore();
 
   return (
-    <div className="glass rounded-2xl p-8 border border-border animate-fade-in">
+    <section className="glass rounded-2xl p-8 border border-border animate-fade-in">
       <div className="flex items-center gap-3 mb-6">
         <div className="p-3 rounded-xl bg-primary/10">
           <User className="h-6 w-6 text-primary" />
@@ -30,6 +30,6 @@ export const BioSection: React.FC = () => {
             : 'Always looking for new challenges, I continuously invest in learning new technologies and industry best practices.'}
         </p>
       </div>
-    </div>
+    </section>
   );
 };
