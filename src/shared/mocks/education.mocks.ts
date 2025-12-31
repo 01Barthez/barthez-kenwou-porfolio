@@ -1,5 +1,12 @@
 export const education = [
   {
+    degreeFr: 'Parcours master Professionnel',
+    degreeEn: "Professionnal master's course",
+    school: 'Université Yaoundé 1',
+    period: '2026 - Now',
+  },
+
+  {
     degreeFr: 'Licence en Informatique',
     degreeEn: 'Bachelor in Computer Science',
     school: 'Université Yaoundé 1',

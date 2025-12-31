@@ -2,6 +2,7 @@ import { AppSidebar } from '@/widgets/AppSidebar';
 import { Header } from '@/widgets/Header';
 import { SidebarProvider } from '@/shared/ui/sidebar.tsx';
 import { Outlet } from 'react-router-dom';
+import { Footer } from '@/widgets/Footer';
 
 export const PublicLayout = () => {
   return (
@@ -15,6 +16,8 @@ export const PublicLayout = () => {
           <main className="flex-1 p-8">
             <Outlet />
           </main>
+
+          <Footer />
         </div>
       </div>
     </SidebarProvider>

@@ -18,7 +18,7 @@ export const SidebarHeaderSection: React.FC = () => {
         <div className="flex flex-col items-center gap-3 px-4">
           <button
             onClick={() => setIsGalleryOpen(true)}
-            className="group/picture relative overflow-hidden rounded-2xl border-2 border-primary/50 hover:border-primary transition-all duration-300 hover:glow-primary"
+            className="group/picture relative overflow-hidden min-w-28 min-h-28 lg:min-w-40 lg:min-h-40 flex items-center justify-center rounded-2xl border-2 border-primary/50 hover:border-primary transition-all duration-300 hover:glow-primary"
             aria-label="View profile photos"
             title="View profile photos"
           >
