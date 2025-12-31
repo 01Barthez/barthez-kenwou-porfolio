@@ -2,6 +2,7 @@ import { certifications } from '@/shared/mocks/certifications.mocks';
 import { Award } from 'lucide-react';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
 
 export const CertificationSection: React.FC = () => {
   const { t } = useTranslation();
@@ -25,14 +26,14 @@ export const CertificationSection: React.FC = () => {
             <p className="text-sm text-muted-foreground">{cert.issuer}</p>
             <span className="text-xs font-mono text-primary">{cert.year}</span>
             {cert.link && (
-              <a
-                href={cert.link}
+              <Link
+                to={cert.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block mt-2 text-xs text-primary hover:underline"
               >
                 Voir le certificat
-              </a>
+              </Link>
             )}
           </div>
         ))}

@@ -2,6 +2,7 @@ import React from 'react';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { Link } from 'react-router-dom';
 import { ArrowRight, MessageCircle } from 'lucide-react';
+import { contactsInfo } from '@/shared/mocks/constContactInfo.mocks';
 
 export const CTADetailsSection: React.FC = () => {
   const { language } = useLanguageStore();
@@ -25,15 +26,16 @@ export const CTADetailsSection: React.FC = () => {
             {language === 'fr' ? 'Me Contacter' : 'Contact Me'}
             <ArrowRight className="h-4 w-4" />
           </Link>
-          <a
-            href="https://wa.me/23765564688"
+
+          <Link
+            to={contactsInfo.whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-green-600 text-white font-semibold hover:bg-green-700 transition-all"
           >
             <MessageCircle className="h-4 w-4" />
             WhatsApp
-          </a>
+          </Link>
         </div>
       </div>
     </section>

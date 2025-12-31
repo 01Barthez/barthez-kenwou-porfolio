@@ -1,7 +1,7 @@
 import React from 'react'
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { Calendar, Clock, ExternalLink, Github } from 'lucide-react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { projectsData } from '@/shared/mocks/projectData.mocks';
 
 export const TitleMeta: React.FC = () => {
@@ -35,25 +35,26 @@ export const TitleMeta: React.FC = () => {
           </span>
         ))}
       </div>
+      
       <div className="flex gap-4">
-        <a
-          href={project.github}
+        <Link
+          to={project.github}
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 px-4 py-2 rounded-xl bg-secondary text-foreground hover:bg-secondary/80 transition-colors"
         >
           <Github className="h-4 w-4" />
           {language === 'fr' ? 'Code Source' : 'Source Code'}
-        </a>
-        <a
-          href={project.demo}
+        </Link>
+        <Link
+          to={project.demo}
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground hover:glow-primary transition-all"
         >
           <ExternalLink className="h-4 w-4" />
           {language === 'fr' ? 'Voir la Démo' : 'View Demo'}
-        </a>
+        </Link>
       </div>
     </div>)
 }

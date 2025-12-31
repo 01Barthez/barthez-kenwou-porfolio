@@ -2,6 +2,8 @@ import React from 'react';
 import { Mail, MapPin, Clock, Github, Linkedin, ExternalLink } from 'lucide-react';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { useTranslation } from 'react-i18next';
+import { Link } from 'react-router-dom';
+import { contactsInfo } from '@/shared/mocks/constContactInfo.mocks';
 
 export const ContactInfoSection: React.FC = () => {
   const { language } = useLanguageStore();
@@ -17,12 +19,12 @@ export const ContactInfoSection: React.FC = () => {
           </div>
           <div>
             <h3 className="font-semibold text-foreground">{t('contact.info.email')}</h3>
-            <a
-              href="mailto:contact@barthezkenwou.dev"
+            <Link
+              to={`mailto:${contactsInfo.email}`}
               className="text-sm text-muted-foreground hover:text-primary transition-colors"
             >
               contact@barthezkenwou.dev
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -57,8 +59,8 @@ export const ContactInfoSection: React.FC = () => {
           {language === 'fr' ? 'Réseaux sociaux' : 'Social Networks'}
         </h3>
         <div className="space-y-3">
-          <a
-            href="https://github.com/01Barthez"
+          <Link
+            to={contactsInfo.github}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 p-3 rounded-xl bg-secondary/30 hover:bg-secondary/50 transition-colors group"
@@ -68,9 +70,9 @@ export const ContactInfoSection: React.FC = () => {
               GitHub
             </span>
             <ExternalLink className="h-4 w-4 ml-auto text-muted-foreground" />
-          </a>
-          <a
-            href="https://cm.linkedin.com/in/barthez-kenwou"
+          </Link>
+          <Link
+            to={contactsInfo.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 p-3 rounded-xl bg-secondary/30 hover:bg-secondary/50 transition-colors group"
@@ -80,7 +82,7 @@ export const ContactInfoSection: React.FC = () => {
               LinkedIn
             </span>
             <ExternalLink className="h-4 w-4 ml-auto text-muted-foreground" />
-          </a>
+          </Link>
         </div>
       </div>
 
@@ -92,15 +94,15 @@ export const ContactInfoSection: React.FC = () => {
         <p className="text-sm text-muted-foreground mb-3">
           Full Stack Development - OpenClassrooms
         </p>
-        <a
-          href="https://credsverse.com/credentials/cc4d79b0-24b1-4270-bb66-f106886acba3"
+        <Link
+          to="https://credsverse.com/credentials/cc4d79b0-24b1-4270-bb66-f106886acba3"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center gap-2 text-sm text-primary hover:underline"
         >
           {language === 'fr' ? 'Voir le certificat' : 'View certificate'}
           <ExternalLink className="h-4 w-4" />
-        </a>
+        </Link>
       </div>
     </section>
   );
