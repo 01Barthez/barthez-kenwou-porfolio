@@ -6,7 +6,7 @@ import { WhyChooseMeSection } from './sections/WhyChooseMeSection';
 import { TestimonialsSection } from './sections/TestimonialsSection';
 import { CTASection } from './sections/CTASection';
 import { SplashCursor } from '@/components/nurui/splash-cursor';
-import { PresentationVideoSection } from './sections/PresentationVideoSection';
+import { PresentationVideo } from '@/widgets/PresentationVideo/PresentationVideo';
 
 export const HomePage: React.FC = () => {
   return (
@@ -20,7 +20,7 @@ export const HomePage: React.FC = () => {
         <HeroSection />
 
         {/* Présentation vidéo */}
-        <PresentationVideoSection />
+        <PresentationVideo />
 
         {/* Services Section */}
         <ServiceSection />

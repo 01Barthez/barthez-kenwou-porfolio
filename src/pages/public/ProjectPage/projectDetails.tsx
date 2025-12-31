@@ -14,6 +14,7 @@ import { CTADetailsSection } from './sections/CTADetailsSection';
 import { useParams } from 'react-router-dom';
 import { SEO } from '@/shared/ui/SEO/SEO';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
+import { truncatText } from '@/shared/utils/truncatText';
 
 export const ProjectDetailPage = () => {
   const { id } = useParams();
@@ -25,9 +26,10 @@ export const ProjectDetailPage = () => {
   return (
     <>
       <SEO
-        title={`${language === 'fr' ? project?.titleFr : project?.titleEn
+        title={`${language === 'fr' ? truncatText(project?.titleFr || '', 24) : truncatText(project?.titleFr || '', 24)
           } | Barthez Kenwou - Passionate DevOps & Full-Stack JS Developer `}
-        description="Passionné par le développement web et le cloud computing depuis plus de 3 ans, je me spécialise dans la création d'applications web modernes, performantes et évolutives. Toujours à la recherche de nouveaux défis, je m'investis continuellement dans l'apprentissage de nouvelles technologies et les meilleures pratiques du secteur."
+        description={`${language === 'fr' ? truncatText(project.descriptionFr || '', 160) : truncatText(project.descriptionEn || '', 160)
+          } | Barthez Kenwou - Passionate DevOps & Full-Stack JS Developer `}
       />
 
       <div className="min-h-screen py-10 px-6">

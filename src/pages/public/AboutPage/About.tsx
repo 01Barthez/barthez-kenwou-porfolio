@@ -5,14 +5,14 @@ import { BioSection } from './sections/BioSection';
 import { EducationSection } from './sections/EducationSection';
 import { ExperienceSection } from './sections/ExperienceSection';
 import { SEO } from '@/shared/ui/SEO/SEO';
-import { PresentationVideoSection } from '../HomePage/sections/PresentationVideoSection';
+import { PresentationVideo } from '@/widgets/PresentationVideo/PresentationVideo';
 
 export const AboutPage: React.FC = () => {
   return (
     <>
       <SEO
         title="About - Barthez Kenwou | Passionate DevOps & Full-Stack JS Developer"
-        description="Mon expertise couvre l'ensemble du cycle de développement, de la conception à la mise en production, en passant par l'optimisation des performances et la sécurité. Je maîtrise les technologies AWS et les pratiques DevOps pour garantir des déploiements fiables et automatisés."
+        description="Passioné par l'innovation technologique - Mon expertise couvre l'ensemble du cycle de développement, de la conception à la mise en production, en passant par l'optimisation des performances et la sécurité. Je maîtrise les technologies AWS et les pratiques DevOps pour garantir des déploiements fiables et automatisés."
       />
 
       <div className="min-h-screen max-w-screen mx-auto">
@@ -44,7 +44,7 @@ export const AboutPage: React.FC = () => {
             </div>
 
             {/* Présentation vidéo */}
-            <PresentationVideoSection />
+            <PresentationVideo />
           </div>
         </div>
       </div>

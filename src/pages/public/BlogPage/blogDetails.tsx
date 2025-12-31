@@ -11,6 +11,7 @@ import { ShareSection } from './sections/ShareSection';
 import { ArticleContentSection } from './sections/ArticleContentSection';
 import { SEO } from '@/shared/ui/SEO/SEO';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
+import { truncatText } from '@/shared/utils/truncatText';
 
 export const BlogDetailPage = () => {
   const { id } = useParams();
@@ -22,10 +23,10 @@ export const BlogDetailPage = () => {
   return (
     <>
       <SEO
-        title={`${
-          language === 'fr' ? post?.titleFr : post?.titleEn
-        } | Barthez Kenwou - Passionate DevOps & Full-Stack JS Developer `}
-        description="Passionné par le développement web et le cloud computing depuis plus de 3 ans, je me spécialise dans la création d'applications web modernes, performantes et évolutives. Toujours à la recherche de nouveaux défis, je m'investis continuellement dans l'apprentissage de nouvelles technologies et les meilleures pratiques du secteur."
+        title={`${language === 'fr' ? truncatText(post?.titleFr || '', 24) : truncatText(post?.titleFr || '', 24)
+          } | Barthez Kenwou - Passionate DevOps & Full-Stack JS Developer `}
+        description={`${language === 'fr' ? truncatText(post?.contentFr || '', 160) : truncatText(post?.contentEn || '', 160)
+          } | Barthez Kenwou - Passionate DevOps & Full-Stack JS Developer `}
       />
 
       <div className="min-h-screen py-10 px-6">

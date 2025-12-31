@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { analytics } from './analytics';
-import InternalErrorPage from '@/pages/Errors/InternalErrorPage';
 import { reportError } from './errorReporter';
+import { InternalErrorPage } from '@/pages/Errors/InternalErrorPage/InternalError';
 
 interface Props {
   children: React.ReactNode;

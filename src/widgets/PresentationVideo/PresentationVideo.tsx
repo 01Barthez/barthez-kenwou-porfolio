@@ -1,7 +1,7 @@
 import { HeroVideoDialog } from '@/shared/ui/hero-video-dialog'
 import React from 'react'
 
-export const PresentationVideoSection: React.FC = () => {
+export const PresentationVideo: React.FC = () => {
   return (
     <div className="py-10 border-2 rounded-xl  flex justify-center">
       <HeroVideoDialog

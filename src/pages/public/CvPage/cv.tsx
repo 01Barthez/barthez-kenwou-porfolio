@@ -13,7 +13,7 @@ export const CvPage = () => {
     <>
       <SEO
         title="CV - Barthez Kenwou | Passionate DevOps & Full-Stack JS Developer"
-        description="Passionné par le développement web et le cloud computing depuis plus de 3 ans, je me spécialise dans la création d'applications web modernes, performantes et évolutives. Toujours à la recherche de nouveaux défis, je m'investis continuellement dans l'apprentissage de nouvelles technologies et les meilleures pratiques du secteur."
+        description="Développeur Full Stack passionné et ingénieur DevOps certifié AWS avec plus de 3 ans d'expérience dans la conception, le développement et le déploiement d'applications web modernes et d'infrastructures cloud. Expert en architecture microservices, CI/CD, et solutions serverless. Orienté résultats avec une forte capacité à transformer des idées complexes en produits fonctionnels et performants."
       />
 
       <div className="min-h-screen py-10 px-4 md:px-6">
