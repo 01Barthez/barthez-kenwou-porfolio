@@ -2,6 +2,7 @@ import { HeroSection } from './sections/HeroSection';
 import { ContactInfoSection } from './sections/ContactInfoSection';
 import { ContactFormSection } from './sections/ContactFormSection';
 import { SEO } from '@/shared/ui/SEO/SEO';
+import { CanvasCursor } from '@/components/nurui/canvas-cursor';
 
 export const ContactPage = () => {
   return (
@@ -26,6 +27,9 @@ export const ContactPage = () => {
             </div>
           </div>
         </div>
+
+        {/* Background on contact page */}
+        <CanvasCursor />
       </div>
     </>
   );

@@ -23,8 +23,8 @@ export const ServiceSection: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {services.map((service, index) => {
+        <div className="mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.slice(0, 3).map((service, index) => {
             const Icon = service.icon;
             return (
               <div

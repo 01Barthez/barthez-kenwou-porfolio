@@ -5,6 +5,7 @@ import { BioSection } from './sections/BioSection';
 import { EducationSection } from './sections/EducationSection';
 import { ExperienceSection } from './sections/ExperienceSection';
 import { SEO } from '@/shared/ui/SEO/SEO';
+import { PresentationVideoSection } from '../HomePage/sections/PresentationVideoSection';
 
 export const AboutPage: React.FC = () => {
   return (
@@ -41,6 +42,9 @@ export const AboutPage: React.FC = () => {
                 <EducationSection />
               </div>
             </div>
+
+            {/* Présentation vidéo */}
+            <PresentationVideoSection />
           </div>
         </div>
       </div>

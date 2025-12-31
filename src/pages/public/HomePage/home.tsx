@@ -5,6 +5,8 @@ import { ServiceSection } from './sections/ServiceSection';
 import { WhyChooseMeSection } from './sections/WhyChooseMeSection';
 import { TestimonialsSection } from './sections/TestimonialsSection';
 import { CTASection } from './sections/CTASection';
+import { SplashCursor } from '@/components/nurui/splash-cursor';
+import { PresentationVideoSection } from './sections/PresentationVideoSection';
 
 export const HomePage: React.FC = () => {
   return (
@@ -14,8 +16,11 @@ export const HomePage: React.FC = () => {
         description="Passionné par le développement web et le cloud computing depuis plus de 3 ans, je me spécialise dans la création d'applications web modernes, performantes et évolutives. Toujours à la recherche de nouveaux défis, je m'investis continuellement dans l'apprentissage de nouvelles technologies et les meilleures pratiques du secteur."
       />
 
-      <div className="min-h-screen relative overflow-hidden">
+      <div className="relative min-h-screen relative overflow-hidden">
         <HeroSection />
+
+        {/* Présentation vidéo */}
+        <PresentationVideoSection />
 
         {/* Services Section */}
         <ServiceSection />
@@ -28,6 +33,9 @@ export const HomePage: React.FC = () => {
 
         {/* CTA Section */}
         <CTASection />
+
+        {/* Background On Home Page */}
+        <SplashCursor />
       </div>
     </>
   );
