@@ -1,5 +1,4 @@
 import { useParams } from 'react-router-dom';
-import { blogPostsData } from '@/shared/mocks/blog.mocks';
 import { NotFoundPost } from './sections/NotFoundPost';
 import { BackSection } from './sections/BackSection';
 import { HeroDetailSection } from './sections/HeroDetailSection';
@@ -11,7 +10,8 @@ import { ShareSection } from './sections/ShareSection';
 import { ArticleContentSection } from './sections/ArticleContentSection';
 import { SEO } from '@/shared/ui/SEO/SEO';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
-import { truncatText } from '@/shared/utils/truncatText';
+import { truncateFonction } from '@/shared/utils/truncateText/helpers';
+import { blogPostsData } from '@/shared/mocks/blog.mocks';
 
 export const BlogDetailPage = () => {
   const { id } = useParams();
@@ -23,10 +23,16 @@ export const BlogDetailPage = () => {
   return (
     <>
       <SEO
-        title={`${language === 'fr' ? truncatText(post?.titleFr || '', 24) : truncatText(post?.titleFr || '', 24)
-          } | Barthez Kenwou - Passionate DevOps & Full-Stack JS Developer `}
-        description={`${language === 'fr' ? truncatText(post?.contentFr || '', 160) : truncatText(post?.contentEn || '', 160)
-          } | Barthez Kenwou - Passionate DevOps & Full-Stack JS Developer `}
+        title={`${
+          language === 'fr'
+            ? truncateFonction(post?.titleFr || '', 24)
+            : truncateFonction(post?.titleFr || '', 24)
+        } | Barthez Kenwou - Passionate DevOps & Full-Stack JS Developer `}
+        description={`${
+          language === 'fr'
+            ? truncateFonction(post?.contentFr || '', 160)
+            : truncateFonction(post?.contentEn || '', 160)
+        } | Barthez Kenwou - Passionate DevOps & Full-Stack JS Developer `}
       />
 
       <div className="min-h-screen py-10 px-6">

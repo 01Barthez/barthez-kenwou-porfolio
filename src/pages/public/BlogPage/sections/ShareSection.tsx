@@ -1,14 +1,14 @@
 import { blogPostsData } from '@/shared/mocks/blog.mocks';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { Share2 } from 'lucide-react';
-import React from 'react'
+import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 
 export const ShareSection: React.FC = () => {
   const { language } = useLanguageStore();
   const { id } = useParams();
 
-  const post = blogPostsData.find((p) => p.id === id) || ;
+  const post = blogPostsData.find((p) => p.id === id) || { titleFr: '', titleEn: '' };
 
   return (
     <div className="flex items-center gap-4 p-6 rounded-2xl bg-secondary/30 mb-12">
@@ -40,6 +40,6 @@ export const ShareSection: React.FC = () => {
           LinkedIn
         </Link>
       </div>
-    </div>)
-}
-
+    </div>
+  );
+};

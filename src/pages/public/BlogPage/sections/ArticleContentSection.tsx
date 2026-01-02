@@ -1,12 +1,12 @@
 import { blogPostsData } from '@/shared/mocks/blog.mocks';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
-import React from 'react'
+import React from 'react';
 import { useParams } from 'react-router-dom';
 
 export const ArticleContentSection: React.FC = () => {
   const { id } = useParams();
   const { language } = useLanguageStore();
-  const post = blogPostsData.find((p) => p.id === id) || ;
+  const post = blogPostsData.find((p) => p.id === id) || { contentFr: '', contentEn: '' };
 
   return (
     <>
@@ -27,6 +27,5 @@ export const ArticleContentSection: React.FC = () => {
         />
       </article>
     </>
-  )
-}
-
+  );
+};

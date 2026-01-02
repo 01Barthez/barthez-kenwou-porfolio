@@ -4,5 +4,5 @@
 // internal files (ui/, model/, etc.).
 
 export * from './auth-login';
-export * from './menu-browse';
+export * from './projets-browse';
 export * from './order-checkout';

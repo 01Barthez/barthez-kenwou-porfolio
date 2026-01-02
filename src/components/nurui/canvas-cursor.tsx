@@ -2,10 +2,10 @@
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
-"use client";
+'use client';
 
 // this is a client component
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
 export function CanvasCursor() {
   useEffect(() => {
@@ -38,11 +38,9 @@ n.prototype = {
   update: function () {
     return (
       // @ts-ignore
-      (
-        (this.phase += this.frequency),
-        // @ts-ignore
-        (e = this.offset + Math.sin(this.phase) * this.amplitude)
-      )
+      (this.phase += this.frequency),
+      // @ts-ignore
+      (e = this.offset + Math.sin(this.phase) * this.amplitude)
     );
   },
   value: function () {
@@ -87,10 +85,10 @@ Line.prototype = {
     // @ts-ignore
     for (var n, i = 0, a = this.nodes.length; i < a; i++)
       // @ts-ignore
-      ((t = this.nodes[i]),
+      (t = this.nodes[i]),
         0 < i &&
-        // @ts-ignore
-        ((n = this.nodes[i - 1]),
+          // @ts-ignore
+          ((n = this.nodes[i - 1]),
           (t.vx += (n.x - t.x) * e),
           (t.vy += (n.y - t.y) * e),
           (t.vx += n.vx * E.dampening),
@@ -101,7 +99,7 @@ Line.prototype = {
         (t.vy *= this.friction),
         (t.x += t.vx),
         (t.y += t.vy),
-        (e *= E.tension));
+        (e *= E.tension);
   },
   draw: function () {
     let e,
@@ -147,40 +145,39 @@ function onMousemove(e) {
   }
   // @ts-ignore
   function c(e) {
-    (e.touches
+    e.touches
       ? // @ts-ignore
-      ((pos.x = e.touches[0].pageX), (pos.y = e.touches[0].pageY))
+        ((pos.x = e.touches[0].pageX), (pos.y = e.touches[0].pageY))
       : // @ts-ignore
-      ((pos.x = e.clientX), (pos.y = e.clientY)),
-      e.preventDefault());
+        ((pos.x = e.clientX), (pos.y = e.clientY)),
+      e.preventDefault();
   }
   // @ts-ignore
   function l(e) {
     // @ts-ignore
-    1 == e.touches.length &&
-      ((pos.x = e.touches[0].pageX), (pos.y = e.touches[0].pageY));
+    1 == e.touches.length && ((pos.x = e.touches[0].pageX), (pos.y = e.touches[0].pageY));
   }
-  (document.removeEventListener("mousemove", onMousemove),
-    document.removeEventListener("touchstart", onMousemove),
-    document.addEventListener("mousemove", c),
-    document.addEventListener("touchmove", c),
-    document.addEventListener("touchstart", l),
+  document.removeEventListener('mousemove', onMousemove),
+    document.removeEventListener('touchstart', onMousemove),
+    document.addEventListener('mousemove', c),
+    document.addEventListener('touchmove', c),
+    document.addEventListener('touchstart', l),
     c(e),
     o(),
-    render());
+    render();
 }
 
 function render() {
   // @ts-ignore
   if (ctx.running) {
     // @ts-ignore
-    ctx.globalCompositeOperation = "source-over";
+    ctx.globalCompositeOperation = 'source-over';
     // @ts-ignore
     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     // @ts-ignore
-    ctx.globalCompositeOperation = "lighter";
+    ctx.globalCompositeOperation = 'lighter';
     // @ts-ignore
-    ctx.strokeStyle = "hsla(" + Math.round(f.update()) + ",100%,50%,0.025)";
+    ctx.strokeStyle = 'hsla(' + Math.round(f.update()) + ',100%,50%,0.025)';
     // @ts-ignore
     ctx.lineWidth = 10;
     for (var e, t = 0; t < E.trails; t++) {
@@ -226,7 +223,7 @@ function Node() {
 
 export const renderCanvas = function () {
   // @ts-ignore
-  ctx = document.getElementById("canvas").getContext("2d");
+  ctx = document.getElementById('canvas').getContext('2d');
   ctx.running = true;
   ctx.frame = 1;
   f = new n({
@@ -235,11 +232,11 @@ export const renderCanvas = function () {
     frequency: 0.0015,
     offset: 285,
   });
-  document.addEventListener("mousemove", onMousemove);
-  document.addEventListener("touchstart", onMousemove);
-  document.body.addEventListener("orientationchange", resizeCanvas);
-  window.addEventListener("resize", resizeCanvas);
-  window.addEventListener("focus", () => {
+  document.addEventListener('mousemove', onMousemove);
+  document.addEventListener('touchstart', onMousemove);
+  document.body.addEventListener('orientationchange', resizeCanvas);
+  window.addEventListener('resize', resizeCanvas);
+  window.addEventListener('focus', () => {
     // @ts-ignore
     if (!ctx.running) {
       // @ts-ignore
@@ -247,7 +244,7 @@ export const renderCanvas = function () {
       render();
     }
   });
-  window.addEventListener("blur", () => {
+  window.addEventListener('blur', () => {
     // @ts-ignore
     ctx.running = true;
   });

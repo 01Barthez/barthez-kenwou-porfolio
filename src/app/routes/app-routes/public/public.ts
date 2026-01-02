@@ -98,7 +98,10 @@ export const publicRoutes: RouteConfig[] = [
   // Server Error
   {
     path: '/server-error',
-    component: lazyPage(() => import('@/pages/Errors/InternalErrorPage/InternalError'), 'NotFoundPage'),
+    component: lazyPage(
+      () => import('@/pages/Errors/InternalErrorPage/InternalError'),
+      'NotFoundPage',
+    ),
     meta: {
       title: 'Page non trouvée',
       layout: 'public',

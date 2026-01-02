@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { Link, useParams } from 'react-router-dom';
-import { projectsData } from '@/shared/mocks/projectData.mocks';
+import { projectsData } from '@/entities/projets/api/mocks/projectData.mocks';
 
 export const OtherProjectSection: React.FC = () => {
   const { id } = useParams();

@@ -1,14 +1,19 @@
-import React from 'react'
+import React from 'react';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
-import { projectsData } from '@/shared/mocks/projectData.mocks';
 import { useParams } from 'react-router-dom';
+import { projectsData } from '@/entities/projets/api/mocks/projectData.mocks';
 
 export const HeroDetailSection: React.FC = () => {
   const { language } = useLanguageStore();
-    const { id } = useParams();  
-    const project = projectsData.find((p) => p.id === id) || ;
-  
-    return (
+  const { id } = useParams();
+  const project = projectsData.find((p) => p.id === id) || {
+    titleEn: '',
+    titleFr: '',
+    image: '',
+    category: '',
+  };
+
+  return (
     <div className="relative rounded-2xl overflow-hidden mb-8">
       <img
         src={project.image}
@@ -21,6 +26,6 @@ export const HeroDetailSection: React.FC = () => {
           {project.category}
         </span>
       </div>
-    </div>)
-}
-
+    </div>
+  );
+};

@@ -54,7 +54,7 @@ export const PhotoGallery = ({ photos, isOpen, onClose, initialIndex = 0 }: Phot
               src={photos[currentIndex]}
               alt={`Photo ${currentIndex + 1}`}
               priority
-              className="max-w-full max-h-full object-contain rounded-xl shadow-2xl animate-scale-in"
+              className="object-contain rounded-xl shadow-2xl animate-scale-in"
             />
           </div>
 

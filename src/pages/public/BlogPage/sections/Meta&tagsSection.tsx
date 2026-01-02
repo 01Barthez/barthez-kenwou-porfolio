@@ -1,14 +1,21 @@
 import { blogPostsData } from '@/shared/mocks/blog.mocks';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { Calendar, Clock, User } from 'lucide-react';
-import React from 'react'
+import React from 'react';
 import { useParams } from 'react-router-dom';
 
-export const MetaTagsSection : React.FC = () => {
+export const MetaTagsSection: React.FC = () => {
   const { id } = useParams();
   const { language } = useLanguageStore();
 
-  const post = blogPostsData.find((p) => p.id === id) || ;
+  const post = blogPostsData.find((p) => p.id === id) || {
+    author: '',
+    date: '',
+    readTime: '',
+    titleFr: '',
+    titleEn: '',
+    tags: [],
+  };
 
   return (
     <div>
@@ -44,6 +51,5 @@ export const MetaTagsSection : React.FC = () => {
         ))}
       </div>
     </div>
-  )
-}
-
+  );
+};

@@ -1,6 +1,5 @@
 import { CTASection } from './sections/CTASection';
 import { HeroSection } from './sections/HeroSection';
-import { FilterSection } from './sections/FilterSection';
 import { GridProject } from './sections/GridProject';
 import { SEO } from '@/shared/ui/SEO/SEO';
 
@@ -15,9 +14,6 @@ export const ProjectPage = () => {
         <div className="max-w-6xl mx-auto">
           {/* Header */}
           <HeroSection />
-
-          {/* Filters */}
-          <FilterSection />
 
           {/* Projects Grid */}
           <GridProject />

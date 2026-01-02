@@ -1,14 +1,23 @@
-import React from 'react'
+import React from 'react';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { Calendar, Clock, ExternalLink, Github } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
-import { projectsData } from '@/shared/mocks/projectData.mocks';
+import { projectsData } from '@/entities/projets/api/mocks/projectData.mocks';
 
 export const TitleMeta: React.FC = () => {
   const { language } = useLanguageStore();
   const { id } = useParams();
 
-  const project = projectsData.find((p) => p.id === id) || ;
+  const project = projectsData.find((p) => p.id === id) || {
+    titleFr: '',
+    titleEn: '',
+    date: '',
+    duration: '',
+    durationEn: '',
+    tags: [],
+    github: '',
+    demo: '',
+  };
 
   return (
     <div className="mb-8">
@@ -35,7 +44,7 @@ export const TitleMeta: React.FC = () => {
           </span>
         ))}
       </div>
-      
+
       <div className="flex gap-4">
         <Link
           to={project.github}
@@ -56,6 +65,6 @@ export const TitleMeta: React.FC = () => {
           {language === 'fr' ? 'Voir la Démo' : 'View Demo'}
         </Link>
       </div>
-    </div>)
-}
-
+    </div>
+  );
+};

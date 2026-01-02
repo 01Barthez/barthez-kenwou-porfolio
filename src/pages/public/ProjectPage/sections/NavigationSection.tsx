@@ -2,7 +2,7 @@ import React from 'react';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { Link, useParams } from 'react-router-dom';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
-import { projectsData } from '@/shared/mocks/projectData.mocks';
+import { projectsData } from '@/entities/projets/api/mocks/projectData.mocks';
 
 export const NavigationSection: React.FC = () => {
   const { language } = useLanguageStore();

@@ -1,5 +1,5 @@
-import { HeroVideoDialog } from '@/shared/ui/hero-video-dialog'
-import React from 'react'
+import { HeroVideoDialog } from '@/shared/ui/hero-video-dialog';
+import React from 'react';
 
 export const PresentationVideo: React.FC = () => {
   return (
@@ -12,6 +12,5 @@ export const PresentationVideo: React.FC = () => {
         thumbnailAlt="Hero Video"
       />
     </div>
-  )
-}
-
+  );
+};

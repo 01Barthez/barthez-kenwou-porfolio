@@ -1,14 +1,14 @@
-import React from 'react'
+import React from 'react';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { Code2 } from 'lucide-react';
-import { projectsData } from '@/shared/mocks/projectData.mocks';
 import { useParams } from 'react-router-dom';
+import { projectsData } from '@/entities/projets/api/mocks/projectData.mocks';
 
 export const ChallengesSection: React.FC = () => {
   const { language } = useLanguageStore();
 
   const { id } = useParams();
-  const project = projectsData.find((p) => p.id === id) || ;
+  const project = projectsData.find((p) => p.id === id) || { challengesEn: [], challengesFr: [] };
 
   return (
     <div className="p-6 rounded-2xl bg-card border border-border">
@@ -26,6 +26,6 @@ export const ChallengesSection: React.FC = () => {
           ),
         )}
       </ul>
-    </div>)
-}
-
+    </div>
+  );
+};

@@ -1,4 +1,6 @@
-export const projectsData = [
+import { IProject } from '../../model/project.types';
+
+export const projectsData: IProject[] = [
   {
     id: '1',
     titleFr: 'Plateforme E-Commerce AWS',
@@ -136,6 +138,7 @@ export const projectsData = [
     stars: 10,
     forks: 8,
   },
+
   {
     id: '3',
     titleFr: 'Dashboard Analytics Real-time',
@@ -209,6 +212,8 @@ export const projectsData = [
       'API Gateway avec AWS Lambda, authentification JWT, rate limiting et documentation OpenAPI.',
     descriptionEn:
       'API Gateway with AWS Lambda, JWT authentication, rate limiting and OpenAPI documentation.',
+    fullDescriptionFr: '',
+    fullDescriptionEn: '',
     image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop',
     tags: ['AWS Lambda', 'API Gateway', 'Node.js', 'JWT', 'DynamoDB'],
     category: 'cloud',
@@ -226,6 +231,9 @@ export const projectsData = [
       database: ['PostgreSQL', 'Redis', 'TimescaleDB'],
       devops: ['Docker', 'AWS ECS', 'CloudWatch'],
     },
+    date: '2025',
+    duration: '2 mois',
+    durationEn: '2 months',
     stars: 28,
     forks: 6,
   },
@@ -235,6 +243,8 @@ export const projectsData = [
     titleEn: 'Monitoring System',
     descriptionFr: 'Stack de monitoring complet avec Prometheus, Grafana et alerting automatisé.',
     descriptionEn: 'Complete monitoring stack with Prometheus, Grafana and automated alerting.',
+    fullDescriptionFr: '',
+    fullDescriptionEn: '',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop',
     tags: ['Prometheus', 'Grafana', 'Docker', 'Kubernetes', 'AlertManager'],
     category: 'devops',
@@ -251,6 +261,9 @@ export const projectsData = [
       database: ['PostgreSQL', 'Redis', 'TimescaleDB'],
       devops: ['Docker', 'AWS ECS', 'CloudWatch'],
     },
+    date: '2025',
+    duration: '2 mois',
+    durationEn: '2 months',
     demo: '#',
     stars: 41,
     forks: 9,
@@ -263,6 +276,8 @@ export const projectsData = [
       'Plateforme SaaS avec isolation des données, authentification SSO et gestion des abonnements.',
     descriptionEn:
       'SaaS platform with data isolation, SSO authentication and subscription management.',
+    fullDescriptionFr: '',
+    fullDescriptionEn: '',
     image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&h=400&fit=crop',
     tags: ['Next.js', 'Prisma', 'PostgreSQL', 'Stripe', 'Auth0'],
     category: 'web',
@@ -278,6 +293,9 @@ export const projectsData = [
       database: ['PostgreSQL', 'Redis', 'TimescaleDB'],
       devops: ['Docker', 'AWS ECS', 'CloudWatch'],
     },
+    date: '2025',
+    duration: '2 mois',
+    durationEn: '2 months',
     github: 'https://github.com/01Barthez',
     demo: '#',
     stars: 53,

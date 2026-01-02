@@ -1,11 +1,14 @@
-import React from 'react'
+import React from 'react';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { useParams } from 'react-router-dom';
-import { projectsData } from '@/shared/mocks/projectData.mocks';
+import { projectsData } from '@/entities/projets/api/mocks/projectData.mocks';
 
 export const ProjectDescription: React.FC = () => {
   const { id } = useParams();
-  const project = projectsData.find((p) => p.id === id) || ;
+  const project = projectsData.find((p) => p.id === id) || {
+    fullDescriptionFr: '',
+    fullDescriptionEn: '',
+  };
 
   const { language } = useLanguageStore();
   return (
@@ -17,6 +20,5 @@ export const ProjectDescription: React.FC = () => {
         {language === 'fr' ? project.fullDescriptionFr : project.fullDescriptionEn}
       </p>
     </section>
-  )
-}
-
+  );
+};

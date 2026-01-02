@@ -2,7 +2,6 @@ import { profilePhotos } from '@/shared/assets/images/profilePhotos';
 import { Image } from '@/shared/ui/Image';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
 import { PhotoGallery } from './ui/PhotoGallery';
 import { ArrowRight } from 'lucide-react';
 
@@ -13,7 +12,7 @@ export const SidebarHeaderSection: React.FC = () => {
 
   return (
     <div className="p-3 border-b">
-      <Link to="/" className="flex items-center gap-3">
+      <div className="flex items-center gap-3 cursor-default">
         {/* Profile Section */}
         <div className="flex flex-col items-center gap-3 px-4">
           <button
@@ -53,7 +52,7 @@ export const SidebarHeaderSection: React.FC = () => {
             onClose={() => setIsGalleryOpen(false)}
           />
         )}
-      </Link>
+      </div>
     </div>
   );
 };

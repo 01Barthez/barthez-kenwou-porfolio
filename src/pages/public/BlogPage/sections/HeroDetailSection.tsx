@@ -1,13 +1,18 @@
 import { blogPostsData } from '@/shared/mocks/blog.mocks';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
-import React from 'react'
+import React from 'react';
 import { useParams } from 'react-router-dom';
 
 export const HeroDetailSection: React.FC = () => {
   const { id } = useParams();
   const { language } = useLanguageStore();
 
-  const post = blogPostsData.find((p) => p.id === id) || ;
+  const post = blogPostsData.find((p) => p.id === id) || {
+    image: '',
+    titleFr: '',
+    titleEn: '',
+    category: '',
+  };
 
   return (
     <div className="relative rounded-2xl overflow-hidden mb-8">
@@ -22,6 +27,6 @@ export const HeroDetailSection: React.FC = () => {
           {post.category}
         </span>
       </div>
-    </div>)
-}
-
+    </div>
+  );
+};

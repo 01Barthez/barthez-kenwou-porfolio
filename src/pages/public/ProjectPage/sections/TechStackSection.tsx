@@ -1,14 +1,15 @@
-import React from 'react'
+import React from 'react';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { useParams } from 'react-router-dom';
-import { projectsData } from '@/shared/mocks/projectData.mocks';
+import { projectsData } from '@/entities/projets/api/mocks/projectData.mocks';
 
 export const TechStackSection: React.FC = () => {
-
   const { language } = useLanguageStore();
 
   const { id } = useParams();
-  const project = projectsData.find((p) => p.id === id) || ;
+  const project = projectsData.find((p) => p.id === id) || {
+    techStack: { frontend: [], backend: [], database: [], devops: [] },
+  };
 
   return (
     <section className="mb-12">
@@ -65,6 +66,6 @@ export const TechStackSection: React.FC = () => {
           </div>
         )}
       </div>
-    </section>)
-}
-
+    </section>
+  );
+};

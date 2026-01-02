@@ -1,4 +1,3 @@
-import { projectsData } from '@/shared/mocks/projectData.mocks';
 import { ProjectNotFound } from './sections/ProjectNotFound';
 import { BackSection } from './sections/BackSection';
 import { HeroDetailSection } from './sections/HeroDetailSection';
@@ -14,11 +13,12 @@ import { CTADetailsSection } from './sections/CTADetailsSection';
 import { useParams } from 'react-router-dom';
 import { SEO } from '@/shared/ui/SEO/SEO';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
-import { truncatText } from '@/shared/utils/truncatText';
+import { projectsData } from '@/entities/projets/api/mocks/projectData.mocks';
+import { truncateFonction } from '@/shared/utils/truncateText/helpers';
 
 export const ProjectDetailPage = () => {
   const { id } = useParams();
-  const project = projectsData.find((p) => p.id === id);
+  const project = projectsData.find((p: any) => p.id === id);
   const { language } = useLanguageStore();
 
   if (!project) return <ProjectNotFound />;
@@ -26,10 +26,16 @@ export const ProjectDetailPage = () => {
   return (
     <>
       <SEO
-        title={`${language === 'fr' ? truncatText(project?.titleFr || '', 24) : truncatText(project?.titleFr || '', 24)
-          } | Barthez Kenwou - Passionate DevOps & Full-Stack JS Developer `}
-        description={`${language === 'fr' ? truncatText(project.descriptionFr || '', 160) : truncatText(project.descriptionEn || '', 160)
-          } | Barthez Kenwou - Passionate DevOps & Full-Stack JS Developer `}
+        title={`${
+          language === 'fr'
+            ? truncateFonction(project?.titleFr || '', 24)
+            : truncateFonction(project?.titleFr || '', 24)
+        } | Barthez Kenwou - Passionate DevOps & Full-Stack JS Developer `}
+        description={`${
+          language === 'fr'
+            ? truncateFonction(project.descriptionFr || '', 160)
+            : truncateFonction(project.descriptionEn || '', 160)
+        } | Barthez Kenwou - Passionate DevOps & Full-Stack JS Developer `}
       />
 
       <div className="min-h-screen py-10 px-6">
