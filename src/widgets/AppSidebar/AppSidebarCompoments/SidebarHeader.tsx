@@ -45,10 +45,10 @@ export const SidebarHeaderSection: React.FC = () => {
               className="object-cover transition-all duration-300 scale-110 group-hover/picture:scale-120 h-full w-full"
             />
             {isExpanded && (
-              <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover/picture:opacity-100 transition-opacity flex items-center justify-center">
-                <span className="text-xs font-medium text-background">{t('sidebar.see_more')}</span>
-                <ArrowRight size={16} color="#000000" strokeWidth={1.25} />
-              </div>
+            <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover/picture:opacity-100 transition-opacity flex items-center justify-center">
+              <span className="text-xs font-medium text-background">{t('sidebar.see_more')}</span>
+              <ArrowRight size={16} color="#000000" strokeWidth={1.25} />
+            </div>
             )}
           </button>
 

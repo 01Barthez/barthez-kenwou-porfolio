@@ -15,16 +15,21 @@ import { MobileNavbar, Navbar } from '../Navbar';
  */
 export const Header: React.FC = () => {
   return (
-    <header className="sticky top-0 z-50 w-full flex items-center justify-between p-4 bg-background/80 backdrop-blur-md border-b border-border/50">
-      {/* Sidebar Trigger - Always visible */}
-      <div className="flex-shrink-0">
-        <SidebarTrigger />
-      </div>
+    <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md border-b border-border/50">
+      <div className="grid grid-cols-[auto_1fr_auto] items-center gap-4 p-4">
+        {/* Left: Sidebar Trigger */}
+        <div className="flex items-center">
+          <SidebarTrigger />
+        </div>
 
-      {/* Navigation */}
-      <div className="relative w-full">
-        <Navbar />
-        <MobileNavbar />
+        {/* Center: Navigation (always centered) */}
+        <div className="flex justify-center">
+          <Navbar />
+          <MobileNavbar />
+        </div>
+
+        {/* Right: Empty spacer for symmetry */}
+        <div className="w-10" />
       </div>
     </header>
   );
