@@ -84,6 +84,7 @@ export const PhotoGallery = ({ photos, isOpen, onClose, initialIndex = 0 }: Phot
                 <ZoomIn className="h-5 w-5 group-hover:scale-110 transition-transform" />
               )}
             </button>
+            
             <button
               onClick={onClose}
               className="p-2.5 rounded-full glass hover:bg-destructive/20 hover:text-destructive transition-all duration-300 group"
@@ -146,55 +147,41 @@ export const PhotoGallery = ({ photos, isOpen, onClose, initialIndex = 0 }: Phot
           </button>
         </div>
 
-        {/* Thumbnail Preview Strip */}
-        <div className="absolute bottom-0 left-0 right-0 z-40 p-6 bg-gradient-to-t from-background/90 via-background/70 to-transparent backdrop-blur-md">
-          <div className="flex items-center justify-center gap-3 overflow-x-auto pb-2 scrollbar-hide">
-            {photos.map((photo, index) => (
-              <button
-                key={index}
-                onClick={() => {
-                  setDirection(index > currentIndex ? 'right' : 'left');
-                  setCurrentIndex(index);
-                }}
-                className={`relative flex-shrink-0 rounded-xl overflow-hidden transition-all duration-300 ${
-                  index === currentIndex
-                    ? 'ring-2 ring-primary scale-110 shadow-lg glow-primary'
-                    : 'opacity-50 hover:opacity-100 hover:scale-105 grayscale hover:grayscale-0'
-                }`}
-                aria-label={`View photo ${index + 1}`}
-                title={`Photo ${index + 1}`}
-              >
-                <Image
-                  src={photo}
-                  alt={`Thumbnail ${index + 1}`}
-                  className="w-20 h-20 object-cover"
-                />
-
-                {/* Active Indicator */}
-                {index === currentIndex && (
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/30 to-transparent pointer-events-none" />
-                )}
-              </button>
-            ))}
-          </div>
-
-          {/* Progress Bar */}
-          <div className="mt-4 h-1 bg-muted rounded-full overflow-hidden">
-            <div
-              className="h-full bg-gradient-to-r from-primary via-accent to-primary transition-all duration-500 ease-out"
-              style={{ width: `${((currentIndex + 1) / photos.length) * 100}%` }}
+        {/* Elegant Progress Indicator */}
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-40 flex items-center gap-2">
+          {photos.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                setDirection(index > currentIndex ? 'right' : 'left');
+                setCurrentIndex(index);
+              }}
+              className={`transition-all duration-300 rounded-full ${
+                index === currentIndex
+                  ? 'w-8 h-2 bg-primary glow-primary'
+                  : 'w-2 h-2 bg-muted-foreground/40 hover:bg-muted-foreground/70 hover:scale-125'
+              }`}
+              aria-label={`Go to photo ${index + 1}`}
+              title={`Photo ${index + 1}`}
             />
-          </div>
+          ))}
         </div>
 
-        {/* Keyboard Hints */}
-        <div className="absolute bottom-24 left-1/2 -translate-x-1/2 flex items-center gap-4 text-xs text-muted-foreground opacity-0 hover:opacity-100 transition-opacity">
-          <span className="px-2 py-1 rounded bg-secondary/50">← →</span>
-          <span>Navigate</span>
-          <span className="px-2 py-1 rounded bg-secondary/50">Z</span>
-          <span>Zoom</span>
-          <span className="px-2 py-1 rounded bg-secondary/50">Esc</span>
-          <span>Close</span>
+        {/* Keyboard Hints - Subtle and Non-intrusive */}
+        <div className="absolute bottom-16 left-1/2 -translate-x-1/2 flex items-center gap-3 text-xs text-muted-foreground/60 opacity-0 hover:opacity-100 transition-opacity duration-500">
+          <div className="flex items-center gap-1.5">
+            <kbd className="px-2 py-0.5 rounded bg-secondary/30 font-mono text-[10px]">←</kbd>
+            <kbd className="px-2 py-0.5 rounded bg-secondary/30 font-mono text-[10px]">→</kbd>
+            <span className="text-[10px]">Navigate</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <kbd className="px-2 py-0.5 rounded bg-secondary/30 font-mono text-[10px]">Z</kbd>
+            <span className="text-[10px]">Zoom</span>
+          </div>
+          <div className="flex items-center gap-1.5">
+            <kbd className="px-2 py-0.5 rounded bg-secondary/30 font-mono text-[10px]">Esc</kbd>
+            <span className="text-[10px]">Close</span>
+          </div>
         </div>
       </DialogContent>
     </Dialog>
