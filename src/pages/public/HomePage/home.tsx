@@ -5,8 +5,8 @@ import { ServiceSection } from './sections/ServiceSection';
 import { WhyChooseMeSection } from './sections/WhyChooseMeSection';
 import { TestimonialsSection } from './sections/TestimonialsSection';
 import { CTASection } from './sections/CTASection';
-import { SplashCursor } from '@/components/nurui/splash-cursor';
 import { PresentationVideo } from '@/widgets/PresentationVideo/PresentationVideo';
+import { SplashCursor } from '@/shared/ui/splash-cursor';
 
 export const HomePage: React.FC = () => {
   return (

@@ -2,7 +2,7 @@ import { HeroSection } from './sections/HeroSection';
 import { ContactInfoSection } from './sections/ContactInfoSection';
 import { ContactFormSection } from './sections/ContactFormSection';
 import { SEO } from '@/shared/ui/SEO/SEO';
-import { CanvasCursor } from '@/components/nurui/canvas-cursor';
+import { CanvasCursor } from '@/shared/ui/canvas-cursor';
 
 export const ContactPage = () => {
   return (
