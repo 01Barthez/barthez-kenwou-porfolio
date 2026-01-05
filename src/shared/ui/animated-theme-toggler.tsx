@@ -3,17 +3,7 @@ import { flushSync } from 'react-dom';
 
 import { cn } from '@/shared/lib/utils';
 
-/**
- * MorphingIcon Component - Advanced SVG morphing animation
- *
- * Creates a smooth, professional transition between moon and sun icons
- * - Moon → Sun: Crescent morphs and rotates, rays appear sequentially
- * - Sun → Moon: Rays retract, shape morphs back to crescent
- * - Uses CSS animations for performance
- * - Includes glow effects and rotation
- *
- * @component
- */
+
 const MorphingIcon = ({ isDark }: { isDark: boolean }) => {
   return (
     <div className="relative w-5 h-5">
@@ -25,81 +15,72 @@ const MorphingIcon = ({ isDark }: { isDark: boolean }) => {
         xmlns="http://www.w3.org/2000/svg"
         className="absolute inset-0"
       >
-        {/* Main morphing shape */}
+        {/* Moon (dark mode) - Properly oriented crescent */}
         <g
-          className={cn('transition-all duration-700 ease-out origin-center')}
           style={{
-            transform: isDark ? 'rotate(360deg)' : 'rotate(0deg)',
+            transformOrigin: '12px 12px',
+            transform: isDark ? 'rotate(0deg) scale(1)' : 'rotate(-90deg) scale(0.3)',
+            opacity: isDark ? 1 : 0,
+            transition: 'all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)',
           }}
         >
-          {/* Moon crescent (dark mode) */}
+          {/* Moon crescent - correctly oriented */}
           <path
-            d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+            d="M17 12a5 5 0 1 1-10 0 5 5 0 0 1 10 0z"
             fill="currentColor"
-            className={cn(
-              'transition-all duration-700 ease-out origin-center',
-              isDark ? 'opacity-100 scale-100' : 'opacity-0 scale-50',
-            )}
-            style={{
-              transformOrigin: 'center',
-            }}
           />
+          <path
+            d="M14 12a3 3 0 1 0-6 0 3 3 0 0 0 6 0z"
+            fill="var(--background)"
+          />
+          
+          {/* Moon craters for realism */}
+          <circle cx="13" cy="10" r="0.8" fill="var(--background)" opacity="0.4" />
+          <circle cx="14.5" cy="13" r="0.6" fill="var(--background)" opacity="0.3" />
+          <circle cx="11.5" cy="13.5" r="0.5" fill="var(--background)" opacity="0.3" />
+        </g>
 
-          {/* Sun circle (light mode) */}
+        {/* Sun (light mode) */}
+        <g
+          style={{
+            transformOrigin: '12px 12px',
+            transform: !isDark ? 'rotate(180deg) scale(1)' : 'rotate(0deg) scale(0.3)',
+            opacity: !isDark ? 1 : 0,
+            transition: 'all 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)',
+          }}
+        >
+          {/* Sun center circle */}
           <circle
             cx="12"
             cy="12"
-            r="4"
+            r="3.5"
             fill="currentColor"
-            className={cn(
-              'transition-all duration-700 ease-out origin-center',
-              !isDark ? 'opacity-100 scale-100' : 'opacity-0 scale-50',
-            )}
           />
 
-          {/* Sun rays (light mode) - 8 rays with staggered animation */}
-          {!isDark &&
-            [0, 45, 90, 135, 180, 225, 270, 315].map((angle, index) => {
-              const radians = (angle * Math.PI) / 180;
-              const innerRadius = 6;
-              const outerRadius = 9;
-              const x1 = 12 + Math.cos(radians) * innerRadius;
-              const y1 = 12 + Math.sin(radians) * innerRadius;
-              const x2 = 12 + Math.cos(radians) * outerRadius;
-              const y2 = 12 + Math.sin(radians) * outerRadius;
+          {/* Sun rays - 8 rays with visible rotation */}
+          {[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => {
+            const radians = (angle * Math.PI) / 180;
+            const innerRadius = 5.5;
+            const outerRadius = 8.5;
+            const x1 = 12 + Math.cos(radians) * innerRadius;
+            const y1 = 12 + Math.sin(radians) * innerRadius;
+            const x2 = 12 + Math.cos(radians) * outerRadius;
+            const y2 = 12 + Math.sin(radians) * outerRadius;
 
-              return (
-                <line
-                  key={angle}
-                  x1={x1}
-                  y1={y1}
-                  x2={x2}
-                  y2={y2}
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  className="origin-center"
-                  style={{
-                    transformOrigin: `${x1}px ${y1}px`,
-                    animation: `rayExpand 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) ${index * 0.04}s both`,
-                  }}
-                />
-              );
-            })}
+            return (
+              <line
+                key={angle}
+                x1={x1}
+                y1={y1}
+                x2={x2}
+                y2={y2}
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+              />
+            );
+          })}
         </g>
-
-        {/* Moon crater/shadow effect */}
-        {isDark && (
-          <g
-            className="origin-center"
-            style={{
-              animation: 'craterAppear 0.8s ease-out 0.3s both',
-            }}
-          >
-            <circle cx="15" cy="10" r="1.5" fill="currentColor" opacity="0.3" />
-            <circle cx="13" cy="14" r="1" fill="currentColor" opacity="0.2" />
-          </g>
-        )}
       </svg>
     </div>
   );
@@ -230,14 +211,12 @@ export const AnimatedThemeToggler = ({
           }}
         />
 
-        {/* Icon with rotation container */}
+        {/* Icon with visible rotation */}
         <div
-          className={cn(
-            'relative z-10 flex items-center justify-center',
-            'transition-transform duration-700 ease-out',
-          )}
+          className="relative z-10 flex items-center justify-center"
           style={{
-            transform: isDark ? 'rotate(180deg)' : 'rotate(0deg)',
+            transform: isDark ? 'rotate(360deg)' : 'rotate(0deg)',
+            transition: 'transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)',
           }}
         >
           <MorphingIcon isDark={isDark} />
@@ -250,42 +229,13 @@ export const AnimatedThemeToggler = ({
 
       {/* CSS Animations */}
       <style>{`
-        @keyframes rayExpand {
-          0% {
-            opacity: 0;
-            stroke-dasharray: 0 10;
-            transform: scale(0);
-          }
-          50% {
-            opacity: 1;
-            stroke-dasharray: 10 0;
-            transform: scale(1.3);
-          }
-          100% {
-            opacity: 1;
-            stroke-dasharray: 10 0;
-            transform: scale(1);
-          }
-        }
-
-        @keyframes craterAppear {
-          0% {
-            opacity: 0;
-            transform: scale(0);
-          }
-          100% {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
-
         @keyframes glowPulse {
           0%, 100% {
             opacity: 0.3;
             transform: scale(0.95);
           }
           50% {
-            opacity: 0.5;
+            opacity: 0.6;
             transform: scale(1.05);
           }
         }
