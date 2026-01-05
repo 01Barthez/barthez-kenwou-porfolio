@@ -6,14 +6,30 @@ import { LanguageToggle } from '@/shared/ui/LanguageToggle';
 import { navItems } from '@/shared/constants/navItems.const';
 import { socialLinks } from '@/shared/constants/socialLink.const';
 import { CvButton } from '@/shared/ui/CvButton/CvButton';
+import { useNavbarPosition } from './hooks';
 
+/**
+ * Navbar Component - Barre de navigation principale de l'application
+ *
+ * Caractéristiques:
+ * - Position sticky en haut de l'écran lors du scroll
+ * - Centrage dynamique en fonction de l'état du sidebar (expanded/collapsed)
+ * - Responsive avec masquage sur mobile (< xl breakpoint)
+ * - Effets glass morphism pour un design moderne
+ *
+ * @component
+ */
 export const Navbar: React.FC = () => {
   const location = useLocation();
   const { t } = useTranslation();
+  const navbarStyle = useNavbarPosition();
 
   return (
-    <header className="w-fit sticky left-1/4 z-40 hidden xl:block">
-      <nav className="glass rounded-2xl px-6 py-3 flex items-center gap-6">
+    <header
+      className="fixed top-4 z-40 hidden xl:block transition-all duration-300 ease-in-out"
+      style={navbarStyle}
+    >
+      <nav className="glass rounded-2xl px-6 py-3 flex items-center gap-6 shadow-lg">
         {/* Navigation Links */}
         <div className="flex items-center md:gap-4 lg:gap-6">
           {navItems.map((item) => {
