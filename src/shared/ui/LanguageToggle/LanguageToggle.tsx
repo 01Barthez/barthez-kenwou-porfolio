@@ -78,7 +78,7 @@ export const LanguageToggle = () => {
         >
           {/* FR Side */}
           <div
-            className="absolute inset-0 flex flex-col items-center justify-center gap-0.5"
+            className="absolute inset-0 flex flex-row items-center justify-center gap-1"
             style={{
               backfaceVisibility: 'hidden',
               transform: 'rotateY(0deg)',
@@ -90,7 +90,7 @@ export const LanguageToggle = () => {
 
           {/* EN Side */}
           <div
-            className="absolute inset-0 flex flex-col items-center justify-center gap-0.5"
+            className="absolute inset-0 flex flex-row items-center justify-center gap-0.5"
             style={{
               backfaceVisibility: 'hidden',
               transform: 'rotateY(180deg)',
