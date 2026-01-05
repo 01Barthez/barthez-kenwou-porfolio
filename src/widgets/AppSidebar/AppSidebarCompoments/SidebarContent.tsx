@@ -1,47 +1,70 @@
-import React, { useState } from 'react';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import React from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { SidebarMenuItem, SidebarMenuButton } from '@/shared/ui/sidebar.tsx';
+import { SidebarMenuItem, SidebarMenuButton, useSidebar } from '@/shared/ui/sidebar.tsx';
 import { navItems } from '@/shared/constants/navItems.const';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/shared/ui/tooltip';
 
+/**
+ * SidebarContentSection Component
+ *
+ * Affiche les liens de navigation
+ * - Mode expanded: Icône + texte
+ * - Mode collapsed: Icône uniquement avec tooltip au survol
+ *
+ * @component
+ */
 export const SidebarContentSection: React.FC = () => {
   const { t } = useTranslation();
   const location = useLocation();
-  const [isExpanded, setIsExpanded] = useState(true);
+  const { state } = useSidebar();
+  const isExpanded = state === 'expanded';
 
   return (
-    <nav className="flex flex-col gap-2 p-4 w-full">
-      {navItems.map((item) => {
-        const Icon = item.icon;
-        const isActive = location.pathname === item.id;
+    <TooltipProvider delayDuration={0}>
+      <nav
+        className={`flex flex-col gap-2 w-full transition-all duration-300 ${
+          isExpanded ? 'p-4' : 'p-2'
+        }`}
+      >
+        {navItems.map((item) => {
+          const Icon = item.icon;
+          const isActive = location.pathname === item.id;
 
-        return (
-          <SidebarMenuItem key={item.id} className="w-full list-none">
-            <SidebarMenuButton asChild isActive={isActive}>
-              <NavLink
-                key={item.id}
-                to={item.id}
-                className={`group relative flex items-center gap-3 rounded-xl px-3 py-5 transition-all duration-300 ${
-                  isActive
-                    ? 'bg-primary text-primary-foreground glow-primary'
-                    : 'text-muted-foreground hover:bg-secondary hover:text-foreground'
-                } ${!isExpanded && 'justify-center'}`}
-                aria-label={t(item.labelKey)}
-              >
-                <Icon className="h-5 w-5 shrink-0" />
-                {isExpanded && <span className="text-sm font-medium">{t(item.labelKey)}</span>}
+          const linkContent = (
+            <NavLink
+              key={item.id}
+              to={item.id}
+              className={`group relative flex items-center rounded-xl transition-all duration-300 ${
+                isActive
+                  ? 'bg-primary text-primary-foreground glow-primary'
+                  : 'text-muted-foreground hover:bg-secondary hover:text-foreground'
+              } ${isExpanded ? 'gap-3 px-3 py-5' : 'justify-center p-3'}`}
+              aria-label={t(item.labelKey)}
+            >
+              <Icon className="h-5 w-5 shrink-0" />
+              {isExpanded && <span className="text-sm font-medium">{t(item.labelKey)}</span>}
+            </NavLink>
+          );
 
-                {/* Tooltip for collapsed state */}
-                {!isExpanded && (
-                  <span className="absolute left-full ml-3 rounded-lg bg-secondary px-3 py-1.5 text-sm font-medium text-foreground opacity-0 transition-opacity group-hover:opacity-100 whitespace-nowrap z-50">
-                    {t(item.labelKey)}
-                  </span>
+          return (
+            <SidebarMenuItem key={item.id} className="w-full list-none">
+              <SidebarMenuButton asChild isActive={isActive}>
+                {!isExpanded ? (
+                  <Tooltip>
+                    <TooltipTrigger asChild>{linkContent}</TooltipTrigger>
+                    <TooltipContent side="right" className="font-medium">
+                      {t(item.labelKey)}
+                    </TooltipContent>
+                  </Tooltip>
+                ) : (
+                  linkContent
                 )}
-              </NavLink>
-            </SidebarMenuButton>
-          </SidebarMenuItem>
-        );
-      })}
-    </nav>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          );
+        })}
+      </nav>
+    </TooltipProvider>
   );
 };
