@@ -245,8 +245,7 @@
     transform: translateX(-50%);
   }
 
-  .nav-link:hover::after,
-  .nav-link.active::after {
+  .nav-link:hover::after{
     @apply w-full;
   }
 
