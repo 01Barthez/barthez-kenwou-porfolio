@@ -1,36 +1,33 @@
-import { SidebarTrigger } from '@/shared/ui/sidebar';
+import { SidebarTrigger, useSidebar } from '@/shared/ui/sidebar';
 import React from 'react';
 import { MobileNavbar, Navbar } from '../Navbar';
 
-/**
- * Header Component - Sticky header with sidebar trigger
- *
- * Features:
- * - Sticky positioning (stays visible on scroll)
- * - Glass morphism background
- * - Contains sidebar trigger and navigation
- * - Responsive design
- *
- * @component
- */
 export const Header: React.FC = () => {
-  return (
-    <header className="sticky top-0 z-50 w-full bg-background/80 backdrop-blur-md border-b border-border/50">
-      <div className="grid grid-cols-[auto_1fr_auto] items-center gap-4 p-4">
-        {/* Left: Sidebar Trigger */}
-        <div className="flex items-center">
-          <SidebarTrigger />
-        </div>
+  const { state } = useSidebar();
+  const isExpanded = state === 'expanded';
 
-        {/* Center: Navigation (always centered) */}
-        <div className="flex justify-center">
+  return (
+    <>
+      {/* Fixed trigger kept out of the normal flow so it doesn't scroll */}
+      <div
+        className={`fixed z-50 transition-all duration-250 ${
+          isExpanded ? 'top-16 left-60' : 'top-10 left-14'
+        }`}
+        aria-hidden
+      >
+        <SidebarTrigger className="shadow-sm bg-background/80 backdrop-blur-sm ring-1 ring-sidebar-border" />
+      </div>
+
+      {/* Header remains in place; add spacer to preserve original layout alignment */}
+      <header className="w-full relative flex items-center justify-between p-4">
+        <div className="w-10" aria-hidden />
+
+        <div className="relative w-full">
           <Navbar />
           <MobileNavbar />
         </div>
-
-        {/* Right: Empty spacer for symmetry */}
-        <div className="w-10" />
-      </div>
-    </header>
+      </header>
+    </>
   );
 };
+

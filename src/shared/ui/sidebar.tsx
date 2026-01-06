@@ -3,6 +3,7 @@
 import * as React from 'react';
 import { Slot } from '@radix-ui/react-slot';
 import { cva, type VariantProps } from 'class-variance-authority';
+import { PanelLeftIcon } from 'lucide-react';
 
 import { useIsMobile } from '@/shared/hooks/use-mobile';
 import { cn } from '@/shared/lib/utils';
@@ -234,25 +235,13 @@ function Sidebar({
           {children}
         </div>
       </div>
+      w
     </div>
   );
 }
 
-/**
- * SidebarTrigger Component - Professional animated hamburger menu
- *
- * Features:
- * - Smooth hamburger → X animation
- * - Glass morphism design
- * - Glow effect on hover
- * - Respects sidebar state (expanded/collapsed)
- * - Accessible with ARIA labels
- *
- * @component
- */
 function SidebarTrigger({ className, onClick, ...props }: React.ComponentProps<typeof Button>) {
-  const { toggleSidebar, state } = useSidebar();
-  const isOpen = state === 'expanded';
+  const { toggleSidebar } = useSidebar();
 
   return (
     <Button
@@ -260,54 +249,15 @@ function SidebarTrigger({ className, onClick, ...props }: React.ComponentProps<t
       data-slot="sidebar-trigger"
       variant="ghost"
       size="icon"
-      className={cn(
-        'relative size-10 rounded-xl overflow-hidden',
-        'transition-all duration-300 ease-out',
-        'hover:scale-110 hover:shadow-lg',
-        'focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2',
-        'group',
-        className,
-      )}
+      className={cn('size-7', className)}
       onClick={(event) => {
         onClick?.(event);
         toggleSidebar();
       }}
-      aria-label={isOpen ? 'Close sidebar' : 'Open sidebar'}
-      title={isOpen ? 'Close sidebar (Ctrl+B)' : 'Open sidebar (Ctrl+B)'}
       {...props}
     >
-      {/* Background with gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-accent/5 to-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-      {/* Glow effect */}
-      <div className="absolute inset-0 blur-md bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-
-      {/* Animated hamburger icon */}
-      <div className="relative z-10 w-5 h-5 flex flex-col justify-center items-center gap-1">
-        {/* Top line */}
-        <span
-          className={cn(
-            'block h-0.5 w-5 bg-foreground rounded-full transition-all duration-300 ease-out',
-            isOpen ? 'rotate-45 translate-y-[5px]' : 'rotate-0 translate-y-0',
-          )}
-        />
-        {/* Middle line */}
-        <span
-          className={cn(
-            'block h-0.5 w-5 bg-foreground rounded-full transition-all duration-300 ease-out',
-            isOpen ? 'opacity-0 scale-0' : 'opacity-100 scale-100',
-          )}
-        />
-        {/* Bottom line */}
-        <span
-          className={cn(
-            'block h-0.5 w-5 bg-foreground rounded-full transition-all duration-300 ease-out',
-            isOpen ? '-rotate-45 -translate-y-[5px]' : 'rotate-0 translate-y-0',
-          )}
-        />
-      </div>
-
-      <span className="sr-only">{isOpen ? 'Close sidebar' : 'Open sidebar'}</span>
+      <PanelLeftIcon />
+      <span className="sr-only">Toggle Sidebar</span>
     </Button>
   );
 }
@@ -628,7 +578,9 @@ function SidebarMenuSkeleton({
   showIcon?: boolean;
 }) {
   // Random width between 50 to 90%.
-  const [width] = React.useState(() => `${Math.floor(Math.random() * 40) + 50}%`);
+  const width = React.useMemo(() => {
+    return `${Math.floor(Math.random() * 40) + 50}%`;
+  }, []);
 
   return (
     <div

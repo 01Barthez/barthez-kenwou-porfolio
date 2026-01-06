@@ -3,7 +3,6 @@ import { flushSync } from 'react-dom';
 
 import { cn } from '@/shared/lib/utils';
 
-
 const MorphingIcon = ({ isDark }: { isDark: boolean }) => {
   return (
     <div className="relative w-5 h-5">
@@ -25,15 +24,9 @@ const MorphingIcon = ({ isDark }: { isDark: boolean }) => {
           }}
         >
           {/* Moon crescent - correctly oriented */}
-          <path
-  d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"
-  fill="currentColor"
-/>
-          <path
-            d="M14 12a3 3 0 1 0-6 0 3 3 0 0 0 6 0z"
-            fill="var(--background)"
-          />
-          
+          <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" fill="currentColor" />
+          <path d="M14 12a3 3 0 1 0-6 0 3 3 0 0 0 6 0z" fill="var(--background)" />
+
           {/* Moon craters for realism */}
           <circle cx="13" cy="10" r="0.8" fill="var(--background)" opacity="0.4" />
           <circle cx="14.5" cy="13" r="0.6" fill="var(--background)" opacity="0.3" />
@@ -50,12 +43,7 @@ const MorphingIcon = ({ isDark }: { isDark: boolean }) => {
           }}
         >
           {/* Sun center circle */}
-          <circle
-            cx="12"
-            cy="12"
-            r="3.5"
-            fill="currentColor"
-          />
+          <circle cx="12" cy="12" r="3.5" fill="currentColor" />
 
           {/* Sun rays - 8 rays with visible rotation */}
           {[0, 45, 90, 135, 180, 225, 270, 315].map((angle) => {
@@ -202,9 +190,7 @@ export const AnimatedThemeToggler = ({
         <div
           className={cn(
             'absolute inset-0 rounded-lg blur-lg transition-all duration-700',
-            isDark
-              ? 'bg-primary/30 opacity-100 scale-100'
-              : 'bg-accent/30 opacity-100 scale-100',
+            isDark ? 'bg-primary/30 opacity-100 scale-100' : 'bg-accent/30 opacity-100 scale-100',
           )}
           style={{
             animation: 'glowPulse 3s ease-in-out infinite',
@@ -222,9 +208,7 @@ export const AnimatedThemeToggler = ({
           <MorphingIcon isDark={isDark} />
         </div>
 
-        <span className="sr-only">
-          {isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-        </span>
+        <span className="sr-only">{isDark ? 'Switch to light mode' : 'Switch to dark mode'}</span>
       </button>
 
       {/* CSS Animations */}

@@ -1,5 +1,5 @@
+import { useThemeStore } from '@/shared/state/useThemeStore';
 import React, { createContext, useContext, useEffect } from 'react';
-import { useThemeStore } from '../../shared/state/useThemeStore';
 
 type Theme = 'light' | 'dark';
 

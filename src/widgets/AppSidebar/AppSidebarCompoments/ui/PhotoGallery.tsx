@@ -84,7 +84,7 @@ export const PhotoGallery = ({ photos, isOpen, onClose, initialIndex = 0 }: Phot
                 <ZoomIn className="h-5 w-5 group-hover:scale-110 transition-transform" />
               )}
             </button>
-            
+
             <button
               onClick={onClose}
               className="p-2.5 rounded-full glass hover:bg-destructive/20 hover:text-destructive transition-all duration-300 group"

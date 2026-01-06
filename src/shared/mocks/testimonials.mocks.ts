@@ -1,5 +1,6 @@
 export const testimonials = [
   {
+    id: 1,
     nameFr: 'Marc Dupont',
     nameEn: 'Marc Dupont',
     roleFr: 'CTO, TechStartup',
@@ -11,6 +12,7 @@ export const testimonials = [
     rating: 5,
   },
   {
+    id: 2,
     nameFr: 'Sophie Martin',
     nameEn: 'Sophie Martin',
     roleFr: 'Fondatrice, E-commerce Plus',
@@ -22,6 +24,7 @@ export const testimonials = [
     rating: 5,
   },
   {
+    id: 3,
     nameFr: 'Jean Kamga',
     nameEn: 'Jean Kamga',
     roleFr: 'Directeur IT, FinanceApp',
