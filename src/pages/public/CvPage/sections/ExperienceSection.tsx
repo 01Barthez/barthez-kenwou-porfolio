@@ -1,4 +1,4 @@
-import { experiences } from '@/shared/mocks/experiences.mocks';
+import { experiences } from '@/entities/experiences/api/mocks/experiences.mocks';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { Briefcase } from 'lucide-react';
 import React from 'react';

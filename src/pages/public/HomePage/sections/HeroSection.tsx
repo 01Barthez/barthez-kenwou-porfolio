@@ -2,6 +2,8 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight, ChevronDown, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { DottedSurface } from './compoments/dotted-surface';
+import { cn } from '@/shared/lib';
 
 export const HeroSection: React.FC = () => {
   const { t } = useTranslation();
@@ -99,6 +101,21 @@ export const HeroSection: React.FC = () => {
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
           <ChevronDown className="h-8 w-8 text-muted-foreground" />
         </div>
+
+        {/* Dotted background */}
+        <DottedSurface className="size-full">
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div
+              aria-hidden="true"
+              className={cn(
+                'pointer-events-none absolute -top-10 left-1/2 size-full -translate-x-1/2 rounded-full',
+                'bg-[radial-gradient(ellipse_at_center,--theme(--color-foreground/.1),transparent_50%)]',
+                'blur-[30px]',
+              )}
+            />
+            <h1 className="font-mono text-4xl font-semibold">Dotted Surface</h1>
+          </div>
+        </DottedSurface>
       </section>
     </>
   );

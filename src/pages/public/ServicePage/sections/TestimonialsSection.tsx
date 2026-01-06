@@ -1,4 +1,4 @@
-import { testimonials } from '@/shared/mocks/testimonials.mocks';
+import { testimonials } from '@/entities/testimonies/api/mocks/testimonials.mocks';
 import { Star } from 'lucide-react';
 import React from 'react';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
