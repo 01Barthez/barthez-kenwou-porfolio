@@ -3,13 +3,14 @@ import { ISkill } from "../model/Skill.types";
 export const SkillCard: React.FC<{ Skill: ISkill }> = ({ Skill }) => {
 
     const { name, category, level, icon } = Skill;
-
+    const Icon = icon;
+    
     return (
         <div
             className="skill-card group"
         >
             <div className="flex items-center gap-3 mb-3">
-                <span className="text-2xl">{icon}</span>
+                <span className="text-2xl"> <Icon /></span>
                 <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
                     {name}
                 </h3>

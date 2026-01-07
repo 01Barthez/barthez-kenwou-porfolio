@@ -1,5 +1,7 @@
+import React from "react";
+
 export interface services {
-    icon: RefAttributes<SVGSVGElement>;
+    icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
     titleFr: string;
     titleEn: string;
     descFr: string;

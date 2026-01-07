@@ -1,4 +1,6 @@
-export const blogPostsData = [
+import { IBlog } from "../../model/blog.type";
+
+export const blogPostsData : IBlog[]= [
   // Blog 1
   {
     id: '1',

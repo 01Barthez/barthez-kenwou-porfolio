@@ -4,5 +4,5 @@ export interface ISkill {
     name: string;
     category: string;
     level: number;
-    icon: string;
+    icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 }
