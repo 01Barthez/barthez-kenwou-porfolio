@@ -1,4 +1,6 @@
-import { blogPostsData } from '@/shared/mocks/blog.mocks';
+import { IBlog } from '@/entities/blogs';
+import { blogPostsData } from '@/entities/blogs/api/mock/blog.mocks';
+import { RelatedPostCard } from '@/entities/blogs/ui/RelatedPostCard.ui';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { BookOpen } from 'lucide-react';
 import React from 'react';
@@ -21,23 +23,10 @@ export const RelatedPostsSection: React.FC = () => {
             <BookOpen className="h-5 w-5 text-primary" />
             {language === 'fr' ? 'Articles similaires' : 'Related articles'}
           </h2>
+
           <div className="grid md:grid-cols-3 gap-4">
-            {relatedPosts.map((p) => (
-              <Link
-                key={p.id}
-                to={`/blog/${p.id}`}
-                className="group p-4 rounded-xl bg-card border border-border hover:border-primary/50 transition-all"
-              >
-                <img
-                  src={p.image}
-                  alt={language === 'fr' ? p.titleFr : p.titleEn}
-                  className="w-full h-32 object-cover rounded-lg mb-3"
-                />
-                <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2">
-                  {language === 'fr' ? p.titleFr : p.titleEn}
-                </h3>
-                <p className="text-xs text-muted-foreground mt-1">{p.readTime}</p>
-              </Link>
+            {relatedPosts.map((blog: IBlog) => (
+              <RelatedPostCard key={blog.id} Blog={blog} />
             ))}
           </div>
         </section>

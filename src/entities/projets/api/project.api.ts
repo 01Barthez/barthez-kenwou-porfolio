@@ -2,7 +2,7 @@ import { apiClient } from '@/shared/api/client';
 import { PaginatedResponse } from '@/shared/types';
 import { IProject, ProjectStatus } from '../model/project.types';
 
-export const orderApi = {
+export const projectApi = {
   // Récupérer les Projects de l'utilisateur
   getProject: async (page = 1, limit = 10): Promise<PaginatedResponse<IProject>> => {
     return apiClient.get(`/Project/my-Project?page=${page}&limit=${limit}`);

@@ -22,9 +22,14 @@ export const ExperienceCard: React.FC<{ Experience: IExperience }> = ({ Experien
             <p className="text-sm text-muted-foreground mb-2">
                 {language === 'fr' ? companyFr : companyEn}
             </p>
-            <p className="text-muted-foreground">
-                {language === 'fr' ? descriptionFr : descriptionEn}
-            </p>
+
+            <ul className="list-disc list-inside space-y-1">
+                {(language === 'fr' ? descriptionFr : descriptionEn).map((desc: string, i: number) => (
+                    <li key={i} className="text-sm text-muted-foreground">
+                        {desc}
+                    </li>
+                ))}
+            </ul>
 
             <div className="absolute -right-2 -top-1.5 h-4 w-4 rounded-full bg-primary" />
         </div>

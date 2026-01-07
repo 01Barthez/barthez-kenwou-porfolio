@@ -2,7 +2,7 @@ import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import React from 'react';
 import { Briefcase } from 'lucide-react';
 import { experiences } from '@/entities/experiences/api/mocks/experiences.mocks';
-import { ExperienceCard } from '@/entities/experiences/ui/ExperienceCard';
+import { ExperienceCard } from '@/entities/experiences/ui/ExperienceCard.ui';
 
 
 export const ExperienceSection: React.FC = () => {

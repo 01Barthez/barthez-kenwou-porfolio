@@ -1,6 +1,9 @@
-import { blogPostsData } from '@/shared/mocks/blog.mocks';
+import { BlogCard, IBlog } from '@/entities/blogs';
+import { blogPostsData } from '@/entities/blogs/api/mock/blog.mocks';
+import { EmptyBlogCard } from '@/entities/blogs/ui/EmptyBlogCard.ui';
+import { categories } from '@/shared/constants/blogCategories.const';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
-import { Calendar, Clock } from 'lucide-react';
+import { Search } from 'lucide-react';
 import React, { useState } from 'react';
 
 export const PostsGrid: React.FC = () => {
@@ -18,54 +21,63 @@ export const PostsGrid: React.FC = () => {
   });
 
   return (
-    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-      {filteredPosts.slice(1).map((post) => (
-        <article
-          key={post.id}
-          className="group overflow-hidden rounded-2xl bg-card border border-border hover:border-primary/50 transition-all"
-        >
-          <div className="relative overflow-hidden">
-            <img
-              src={post.image}
-              alt={language === 'fr' ? post.titleFr : post.titleEn}
-              className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
-            />
-            <div className="absolute top-3 left-3">
-              <span className="px-3 py-1 rounded-full bg-primary/90 text-primary-foreground text-xs font-medium">
-                {post.category}
-              </span>
+    <>
+      <section className="flex flex-col md:flex-row gap-4 mb-12">
+        {/* Search */}
+        <div className="relative flex-1">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+
+          <input
+            type="text"
+            placeholder={language === 'fr' ? 'Rechercher un article...' : 'Search articles...'}
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="w-full pl-10 pr-4 py-3 rounded-xl bg-secondary border border-border focus:border-primary focus:outline-none transition-colors text-foreground"
+          />
+        </div>
+
+        {/* Categories */}
+        <div className="flex flex-wrap gap-2">
+          {
+            categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={`px-4 py-2 rounded-xl font-medium transition-all ${activeCategory === category
+                  ? 'bg-primary text-primary-foreground'
+                  : 'bg-secondary text-muted-foreground hover:text-foreground'
+                  }`}
+              >
+                {category === 'All' ? (language === 'fr' ? 'Tous' : 'All') : category}
+              </button>
+            ))
+          }
+        </div>
+      </section>
+
+      <section>
+        {/* Featured Post */}
+        {
+          filteredPosts.length > 0 && (
+            <div className="mb-12">
+              <BlogCard Blog={filteredPosts[0]} />
             </div>
-          </div>
-          <div className="p-5">
-            <div className="flex items-center gap-4 text-xs text-muted-foreground mb-3">
-              <span className="flex items-center gap-1">
-                <Calendar className="h-3 w-3" />
-                {new Date(post.date).toLocaleDateString(language === 'fr' ? 'fr-FR' : 'en-US')}
-              </span>
-              <span className="flex items-center gap-1">
-                <Clock className="h-3 w-3" />
-                {post.readTime}
-              </span>
-            </div>
-            <h3 className="font-semibold text-foreground mb-2 group-hover:text-primary transition-colors line-clamp-2">
-              {language === 'fr' ? post.titleFr : post.titleEn}
-            </h3>
-            <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
-              {language === 'fr' ? post.excerptFr : post.excerptEn}
-            </p>
-            <div className="flex flex-wrap gap-1.5">
-              {post.tags.slice(0, 3).map((tag) => (
-                <span
-                  key={tag}
-                  className="px-2 py-0.5 rounded bg-secondary text-xs text-muted-foreground"
-                >
-                  {tag}
-                </span>
-              ))}
-            </div>
-          </div>
-        </article>
-      ))}
-    </div>
+          )
+        }
+
+        {/* Grid post */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          {filteredPosts.slice(1).map((blog: IBlog) => (
+            <BlogCard key={blog.id} Blog={blog} />
+          ))}
+        </div>
+
+        {/* Empty Blog section */}
+        {filteredPosts.length === 0 && (
+          <EmptyBlogCard />
+        )}
+
+      </section>
+    </>
   );
 };

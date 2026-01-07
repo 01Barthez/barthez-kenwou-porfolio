@@ -1,4 +1,4 @@
-import { blogPostsData } from '@/shared/mocks/blog.mocks';
+import { blogPostsData } from '@/entities/blogs/api/mock/blog.mocks';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { Calendar, Clock, User } from 'lucide-react';
 import React from 'react';

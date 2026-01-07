@@ -14,7 +14,7 @@ export const TestimonialsSection: React.FC = () => {
       </div>
       <div className="grid md:grid-cols-3 gap-6">
         {testimonials.map((testimonial, index) => (
-          <div
+          <article
             key={index}
             className="p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-colors"
           >
@@ -23,9 +23,9 @@ export const TestimonialsSection: React.FC = () => {
                 <Star key={i} className="h-4 w-4 fill-primary text-primary" />
               ))}
             </div>
-            <p className="text-muted-foreground mb-4 italic text-sm">
+            <blockquote className="text-muted-foreground mb-4 italic text-sm">
               "{language === 'fr' ? testimonial.textFr : testimonial.textEn}"
-            </p>
+            </blockquote>
             <div>
               <p className="font-semibold text-foreground">
                 {language === 'fr' ? testimonial.nameFr : testimonial.nameEn}
@@ -34,7 +34,7 @@ export const TestimonialsSection: React.FC = () => {
                 {language === 'fr' ? testimonial.roleFr : testimonial.roleEn}
               </p>
             </div>
-          </div>
+          </article>
         ))}
       </div>
     </section>

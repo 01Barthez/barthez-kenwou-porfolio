@@ -1,7 +1,8 @@
 import { filters } from '@/shared/constants/filter.const';
-import { skillsData } from '@/shared/mocks/skillsData.mocks';
+import { skillsData } from '@/entities/skills/api/mocks/skillsData.mocks';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { SkillCard } from '@/entities/skills/ui/SkillCard.ui';
 
 export const SkillsSection: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -30,31 +31,11 @@ export const SkillsSection: React.FC = () => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-20">
-        {filteredSkills.map((skill, index) => (
-          <div
-            key={skill.name}
-            className="skill-card group"
-            style={{ animationDelay: `${index * 50}ms` }}
-          >
-            <div className="flex items-center gap-3 mb-3">
-              <span className="text-2xl">{skill.icon}</span>
-              <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
-                {skill.name}
-              </h3>
-            </div>
-
-            <div className="relative h-2 bg-secondary rounded-full overflow-hidden">
-              <div
-                className="absolute inset-y-0 left-0 bg-linear-to-r from-primary to-accent rounded-full"
-                style={{ width: `${skill.level}%` }}
-              />
-            </div>
-
-            <div className="flex justify-between mt-2">
-              <span className="text-xs text-muted-foreground capitalize">{skill.category}</span>
-              <span className="text-xs font-mono text-primary">{skill.level}%</span>
-            </div>
-          </div>
+        {filteredSkills.map((skill) => (
+          <SkillCard 
+          key={skill.name} 
+          Skill={skill} 
+          />
         ))}
       </div>
     </section>

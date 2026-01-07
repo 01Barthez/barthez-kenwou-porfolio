@@ -1,10 +1,21 @@
 import React from 'react';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
-import { skills } from '@/shared/mocks/skillsData.mocks';
-import { Cloud, Server } from 'lucide-react';
+import { skillsByCategory } from '@/entities/skills/api/mocks/skillsData.mocks';
+import { Cloud, Code, Database, MonitorSmartphone, Server, ToolboxIcon } from 'lucide-react';
+import { SkillBadge } from '@/entities/skills/ui/SkillBadge.ui';
+import { ISkill } from '@/entities/skills';
 
 export const SkillsSection: React.FC = () => {
   const { language } = useLanguageStore();
+
+  const categories = [
+    { key: 'cloud', label: 'AWS Cloud', icon: <Cloud className="h-4 w-4 text-primary" /> },
+    { key: 'devops', label: 'DevOps', icon: <Server className="h-4 w-4 text-primary" /> },
+    { key: 'backend', label: 'Backend', icon: <Code className="h-4 w-4 text-primary" /> },
+    { key: 'frontend', label: 'Frontend', icon: <MonitorSmartphone className="h-4 w-4 text-primary" /> },
+    { key: 'database', label: 'Database', icon: <Database className="h-4 w-4 text-primary" /> },
+    { key: 'tools', label: 'Tools & Environment', icon: <ToolboxIcon className="h-4 w-4 text-primary" /> },
+  ];
 
   return (
     <section>
@@ -18,98 +29,19 @@ export const SkillsSection: React.FC = () => {
 
       {/* Content */}
       <div className="grid md:grid-cols-2 gap-4">
-        {/* AWS Skills */}
-        <div>
-          <h4 className="font-medium text-foreground mb-2 flex items-center gap-2">
-            <Cloud className="h-4 w-4 text-primary" />
-            AWS Cloud
-          </h4>
-          <div className="flex flex-wrap gap-1.5">
-            {skills.cloud.map((skill) => (
-              <span
-                key={skill}
-                className="px-2 py-1 rounded-md bg-primary/10 text-xs text-foreground"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
+        {categories.map(({ key, label, icon }) => (
+          <div key={key}>
+            <h4 className="font-medium text-foreground mb-2 flex items-center gap-2">
+              {icon} {label}
+            </h4>
 
-        {/* Devops Skills */}
-        <div>
-          <h4 className="font-medium text-foreground mb-2">DevOps</h4>
-          <div className="flex flex-wrap gap-1.5">
-            {skills.devops.map((skill) => (
-              <span
-                key={skill}
-                className="px-2 py-1 rounded-md bg-accent/10 text-xs text-foreground"
-              >
-                {skill}
-              </span>
-            ))}
+            <div className="flex flex-wrap gap-1.5">
+              {skillsByCategory[key]?.map((skill: ISkill) => (
+                <SkillBadge key={skill.name} Skill={skill} />
+              ))}
+            </div>
           </div>
-        </div>
-
-        {/* Backend Skills */}
-        <div>
-          <h4 className="font-medium text-foreground mb-2">Backend</h4>
-          <div className="flex flex-wrap gap-1.5">
-            {skills.backend.map((skill) => (
-              <span
-                key={skill}
-                className="px-2 py-1 rounded-md bg-secondary text-xs text-foreground"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* Frondend Skills */}
-        <div>
-          <h4 className="font-medium text-foreground mb-2">Frontend</h4>
-          <div className="flex flex-wrap gap-1.5">
-            {[...skills.frontend].map((skill) => (
-              <span
-                key={skill}
-                className="px-2 py-1 rounded-md bg-secondary text-xs text-foreground"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* Database Skills */}
-        <div>
-          <h4 className="font-medium text-foreground mb-2">Database</h4>
-          <div className="flex flex-wrap gap-1.5">
-            {[...skills.database].map((skill) => (
-              <span
-                key={skill}
-                className="px-2 py-1 rounded-md bg-secondary text-xs text-foreground"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* Tools & Environement */}
-        <div>
-          <h4 className="font-medium text-foreground mb-2">Tools & Environement</h4>
-          <div className="flex flex-wrap gap-1.5">
-            {[...skills.Others].map((skill) => (
-              <span
-                key={skill}
-                className="px-2 py-1 rounded-md bg-secondary text-xs text-foreground"
-              >
-                {skill}
-              </span>
-            ))}
-          </div>
-        </div>
+        ))}
       </div>
     </section>
   );

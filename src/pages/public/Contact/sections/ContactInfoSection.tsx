@@ -23,7 +23,7 @@ export const ContactInfoSection: React.FC = () => {
               to={`mailto:${contactsInfo.email}`}
               className="text-sm text-muted-foreground hover:text-primary transition-colors"
             >
-              contact@barthezkenwou.dev
+              {contactsInfo.email}
             </Link>
           </div>
         </div>

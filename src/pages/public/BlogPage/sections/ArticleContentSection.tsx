@@ -1,4 +1,4 @@
-import { blogPostsData } from '@/shared/mocks/blog.mocks';
+import { blogPostsData } from '@/entities/blogs/api/mock/blog.mocks';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import React from 'react';
 import { useParams } from 'react-router-dom';

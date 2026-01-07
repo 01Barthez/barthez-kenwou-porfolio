@@ -1,3 +1,4 @@
+import { CVExperienceCard, IExperience } from '@/entities/experiences';
 import { experiences } from '@/entities/experiences/api/mocks/experiences.mocks';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { Briefcase } from 'lucide-react';
@@ -17,26 +18,11 @@ export const ExperienceSection: React.FC = () => {
 
       {/* Experience content */}
       <div className="space-y-6">
-        {experiences.map((exp, index) => (
-          <div key={index} className="border-l-2 border-primary/30 pl-4 ml-2">
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
-              <h3 className="font-semibold text-foreground">
-                {language === 'fr' ? exp.titleFr : exp.titleEn}
-              </h3>
-              <span className="text-sm font-mono text-primary">{exp.period}</span>
-            </div>
-            <p className="text-muted-foreground text-sm mb-2">
-              {language === 'fr' ? exp.companyFr : exp.companyEn}
-            </p>
-
-            <ul className="list-disc list-inside space-y-1">
-              {(language === 'fr' ? exp.descriptionFr : exp.descriptionEn).map((desc, i) => (
-                <li key={i} className="text-sm text-muted-foreground">
-                  {desc}
-                </li>
-              ))}
-            </ul>
-          </div>
+        {experiences.map((experience: IExperience, index: number) => (
+          <CVExperienceCard
+            key={index + experience.titleFr}
+            Experience={experience}
+          />
         ))}
       </div>
     </section>

@@ -18,7 +18,8 @@ export const ProfileSection: React.FC = () => {
         </div>
         {language === 'fr' ? 'Profil' : 'Profile'}
       </h2>
-      <p className="text-muted-foreground leading-relaxed">{profile}</p>
+      
+      <blockquote className="text-muted-foreground leading-relaxed">{profile}</blockquote>
     </section>
   );
 };

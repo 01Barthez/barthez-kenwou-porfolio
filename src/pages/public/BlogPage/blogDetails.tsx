@@ -11,7 +11,7 @@ import { ArticleContentSection } from './sections/ArticleContentSection';
 import { SEO } from '@/shared/ui/SEO/SEO';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { truncateFonction } from '@/shared/utils/truncateText/helpers';
-import { blogPostsData } from '@/shared/mocks/blog.mocks';
+import { blogPostsData } from '@/entities/blogs/api/mock/blog.mocks';
 
 export const BlogDetailPage = () => {
   const { id } = useParams();

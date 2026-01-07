@@ -1,9 +1,18 @@
-export const education = [
+import { IEducation } from "../../model/education.types";
+
+export const education: IEducation[] = [
   {
     degreeFr: 'Parcours master Professionnel',
     degreeEn: "Professionnal master's course",
     school: 'Université Yaoundé 1',
     period: '2026 - Now',
+  },
+
+  {
+    degreeFr: 'Formation en DevOps & AWS Cloud ',
+    degreeEn: 'DevOps & AWS Cloud Training',
+    school: 'FreeCodeCamp & Udemy',
+    period: '2026',
   },
 
   {

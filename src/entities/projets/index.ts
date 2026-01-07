@@ -1,10 +1,10 @@
 export type { IProject, ITechStack, ProjectStatus } from './model/project.types';
 export { ProjectSchema, TechStackSchema, ProjectStatusSchema } from './model/project.schema';
 export type { ProjectInput, TechStackInput } from './model/project.schema';
-export { orderApi as projectApi } from './api/project.api';
+export { projectApi } from './api/project.api';
 
-// Re-exporting UI components
-export { ProjectCard } from './ui/ProjectCard';
+// UI components
+export { ProjectCard } from './ui/ProjectCard.ui';
 
 /**
 export { TechStackBadge } from './ui/TechStackBadge.ui';

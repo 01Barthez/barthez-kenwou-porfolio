@@ -1,4 +1,4 @@
-import { services } from '@/shared/mocks/services.mocks';
+import { services } from '@/entities/services/api/mock/services.mocks';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { ArrowRight } from 'lucide-react';
 import React from 'react';

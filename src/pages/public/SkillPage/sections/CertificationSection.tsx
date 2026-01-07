@@ -1,8 +1,8 @@
-import { certifications } from '@/shared/mocks/certifications.mocks';
+import { certifications } from '@/entities/certifications/api/mocks/certifications.mocks';
+import { CertificationCard } from '@/entities/certifications/ui/certificationCard.ui';
 import { Award } from 'lucide-react';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
 
 export const CertificationSection: React.FC = () => {
   const { t } = useTranslation();
@@ -17,26 +17,11 @@ export const CertificationSection: React.FC = () => {
       </div>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {certifications.map((cert, index) => (
-          <div
-            key={index}
-            className="p-4 rounded-xl bg-secondary/30 hover:bg-secondary/50 transition-colors border border-transparent hover:border-primary/30"
-          >
-            <h3 className="font-semibold text-foreground mb-1">{cert.name}</h3>
-            <p className="text-sm text-muted-foreground">{cert.issuer}</p>
-            <span className="text-xs font-mono text-primary">{cert.year}</span>
-            {cert.link && (
-              <Link
-                to={cert.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block mt-2 text-xs text-primary hover:underline"
-              >
-                Voir le certificat
-              </Link>
-            )}
-          </div>
-        ))}
+        {
+          certifications.map((cert, index) => (
+            <CertificationCard key={index * 5} Certification={cert} />
+          ))
+        }
       </div>
     </section>
   );

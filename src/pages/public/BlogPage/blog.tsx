@@ -1,9 +1,6 @@
 import React from 'react';
 import { HeroSection } from './sections/HeroSection';
-import { SearchFilter } from './sections/Search&Filter';
-import { FeaturedPost } from './sections/FeaturedPost';
 import { NewsletterCTA } from './sections/NewsletterCTA';
-import { EmptyPost } from './sections/EmptyPost';
 import { PostsGrid } from './sections/PostsGrid';
 import { SEO } from '@/shared/ui/SEO/SEO';
 
@@ -19,17 +16,8 @@ export const BlogPage: React.FC = () => {
         {/* Hero Section */}
         <HeroSection />
 
-        {/* Search & Filter Section*/}
-        <SearchFilter />
-
-        {/* Featured Post */}
-        <FeaturedPost />
-
         {/* Posts Grid */}
         <PostsGrid />
-
-        {/* Empty State */}
-        <EmptyPost />
 
         {/* Newsletter CTA */}
         <NewsletterCTA />
