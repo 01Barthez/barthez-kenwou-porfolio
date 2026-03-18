@@ -1,3 +1,1 @@
-export const achievementApi = {
-    
-}
+export const achievementApi = {};

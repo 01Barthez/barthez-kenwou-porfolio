@@ -1,3 +1,1 @@
-export const skillApi = {
-    
-}
+export const skillApi = {};

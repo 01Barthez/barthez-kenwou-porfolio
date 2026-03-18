@@ -1,3 +1,1 @@
-export const educationApi = {
-    
-}
+export const educationApi = {};

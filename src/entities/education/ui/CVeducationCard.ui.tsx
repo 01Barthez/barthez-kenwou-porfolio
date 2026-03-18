@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { ExternalLink } from 'lucide-react';
 import { IEducation } from '../model/education.types';
 
-export const EducationCard: React.FC<{ Education: IEducation }> = ({ Education }) => {
+export const CVEducationCard: React.FC<{ Education: IEducation }> = ({ Education }) => {
   const { language } = useLanguageStore();
 
   const { degreeFr, degreeEn, link, school, period } = Education;

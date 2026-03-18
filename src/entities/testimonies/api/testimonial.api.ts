@@ -1,5 +1,1 @@
-
-
-export const testimonialApi = {
-
-}
+export const testimonialApi = {};

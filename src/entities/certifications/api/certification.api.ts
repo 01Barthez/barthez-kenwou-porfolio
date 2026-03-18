@@ -1,3 +1,1 @@
-export const certificationApi = {
-    
-}
+export const certificationApi = {};

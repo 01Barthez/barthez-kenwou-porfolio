@@ -24,7 +24,6 @@ export const skillsData = [
   { name: 'ELK', category: 'devops', level: 90, icon: '🔄' },
   { name: 'Metabase', category: 'devops', level: 90, icon: '🔄' },
 
-
   // Backend Skills
   { name: 'Node.js', category: 'backend', level: 95, icon: '💚' },
   { name: 'Express JS', category: 'backend', level: 85, icon: '🐱' },

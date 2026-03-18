@@ -1,3 +1,1 @@
-export const blogApi = {
-
-}
+export const blogApi = {};

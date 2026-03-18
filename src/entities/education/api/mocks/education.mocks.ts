@@ -1,4 +1,4 @@
-import { IEducation } from "../../model/education.types";
+import { IEducation } from '../../model/education.types';
 
 export const education: IEducation[] = [
   {

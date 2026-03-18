@@ -19,10 +19,7 @@ export const ExperienceSection: React.FC = () => {
       {/* Experience content */}
       <div className="space-y-6">
         {experiences.map((experience: IExperience, index: number) => (
-          <CVExperienceCard
-            key={index + experience.titleFr}
-            Experience={experience}
-          />
+          <CVExperienceCard key={index + experience.titleFr} Experience={experience} />
         ))}
       </div>
     </section>

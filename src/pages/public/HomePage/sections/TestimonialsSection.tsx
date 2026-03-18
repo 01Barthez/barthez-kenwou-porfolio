@@ -66,14 +66,9 @@ export const TestimonialsSection: React.FC = () => {
             <div className="magicpattern"></div>
           </div>
 
-
           {/* Profile picture part */}
           <div className="relative z-30 w-full h-full">
-            <Image
-              src={profilePhotos[2]}
-              alt="Barthez Kenwou"
-              priority
-            />
+            <Image src={profilePhotos[2]} alt="Barthez Kenwou" priority />
           </div>
         </div>
       </div>

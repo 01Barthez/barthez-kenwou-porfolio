@@ -4,15 +4,14 @@ import { ArrowRight, ChevronDown, Zap } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { DottedSurface } from './compoments/dotted-surface';
 import { cn } from '@/shared/lib';
+import { GridPattern } from '@/shared/ui/grid-pattern';
+import { TextAnimate } from '@/shared/ui/text-animate';
+import { TypingAnimation } from '@/shared/ui/typing-animation';
+import { useLanguageStore } from '@/shared/state/useLanguageStore';
 
 export const HeroSection: React.FC = () => {
   const { t } = useTranslation();
-  const stats = [
-    { value: '3+', label: t('about.experience') },
-    { value: '25+', label: t('about.projects') },
-    { value: '5+', label: t('about.certifications') },
-    { value: '99.9%', label: t('about.uptime') },
-  ];
+  const { language } = useLanguageStore();
 
   return (
     <>
@@ -27,7 +26,7 @@ export const HeroSection: React.FC = () => {
       </div>
 
       {/* Hero Content */}
-      <section className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 py-24 text-center">
+      <section className="relative z-30 flex min-h-screen flex-col items-center justify-center px-6 py-24 text-center">
         <div className="max-w-4xl animate-fade-in">
           {/* Greeting badge */}
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/50 px-4 py-2 mb-8">
@@ -42,20 +41,36 @@ export const HeroSection: React.FC = () => {
           <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl mb-6">
             <span className="text-foreground">{t('hero.greeting')}</span>
             <br />
-            <span className="gradient-text">Barthez Kenwou</span>
+            <span className="gradient-text text-foreground">
+              <TextAnimate animation="blurIn" as="h1" className="inline-block mr-2">
+                Barthez
+              </TextAnimate>
+              <TextAnimate animation="blurInUp" by="character" duration={3} className="inline-block">
+                Kenwou
+              </TextAnimate>
+            </span>
           </h1>
 
           {/* Subtitle with typing effect styling */}
           <div className="flex flex-col items-center gap-2 mb-6">
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground">
-              {t('hero.title')} <span className="gradient-accent-text">{t('hero.subtitle')}</span>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground gradient-accent-text">
+              {language === 'fr' ? (
+                <TypingAnimation
+                  words={["Développeur Full Stack JS ", "DevOps", "AWS Cloud Engineer"]}
+                  loop
+                  typeSpeed={60}
+                  duration={60}
+                />
+              ) : (
+                <TypingAnimation
+                  words={["Full Stack JS Developer", "DevOps", "AWS Cloud Engineer"]}
+                  loop
+                  typeSpeed={60}
+                  duration={60}
+                />
+              )
+              }
             </h2>
-            <div className="flex items-center gap-2 mt-2">
-              <Zap className="h-5 w-5 text-primary" />
-              <span className="text-lg md:text-xl font-mono text-primary">
-                {t('hero.specialization')}
-              </span>
-            </div>
           </div>
 
           {/* Description */}
@@ -82,19 +97,6 @@ export const HeroSection: React.FC = () => {
               {t('nav.cv')}
             </Link>
           </div>
-
-          {/* Stats */}
-          <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
-            {stats.map((stat, index) => (
-              <div
-                key={index}
-                className="flex flex-col items-center p-4 rounded-xl bg-card/50 border border-border hover:border-primary/50 transition-colors"
-              >
-                <span className="text-3xl font-bold gradient-text">{stat.value}</span>
-                <span className="text-sm text-muted-foreground mt-1">{stat.label}</span>
-              </div>
-            ))}
-          </div>
         </div>
 
         {/* Scroll indicator */}
@@ -103,7 +105,7 @@ export const HeroSection: React.FC = () => {
         </div>
 
         {/* Dotted background */}
-        <DottedSurface className="size-full">
+        <DottedSurface className="size-full z-10">
           <div className="absolute inset-0 flex items-center justify-center">
             <div
               aria-hidden="true"
@@ -113,10 +115,23 @@ export const HeroSection: React.FC = () => {
                 'blur-[30px]',
               )}
             />
-            <h1 className="font-mono text-4xl font-semibold">Dotted Surface</h1>
           </div>
         </DottedSurface>
-      </section>
+
+        <GridPattern
+          width={50}
+          height={50}
+          x={-1}
+          y={-1}
+          squares={Array.from({ length: 20 }, () => [
+            Math.floor(Math.random() * 20),
+            Math.floor(Math.random() * 20),
+          ])}
+          className={cn(
+            "[mask-image:linear-gradient(to_bottom_right,white,transparent,transparent)] -top-60"
+          )}
+        />
+      </section >
     </>
   );
 };

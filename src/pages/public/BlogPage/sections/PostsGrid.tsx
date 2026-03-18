@@ -38,32 +38,29 @@ export const PostsGrid: React.FC = () => {
 
         {/* Categories */}
         <div className="flex flex-wrap gap-2">
-          {
-            categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`px-4 py-2 rounded-xl font-medium transition-all ${activeCategory === category
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setActiveCategory(category)}
+              className={`px-4 py-2 rounded-xl font-medium transition-all ${
+                activeCategory === category
                   ? 'bg-primary text-primary-foreground'
                   : 'bg-secondary text-muted-foreground hover:text-foreground'
-                  }`}
-              >
-                {category === 'All' ? (language === 'fr' ? 'Tous' : 'All') : category}
-              </button>
-            ))
-          }
+              }`}
+            >
+              {category === 'All' ? (language === 'fr' ? 'Tous' : 'All') : category}
+            </button>
+          ))}
         </div>
       </section>
 
       <section>
         {/* Featured Post */}
-        {
-          filteredPosts.length > 0 && (
-            <div className="mb-12">
-              <BlogCard Blog={filteredPosts[0]} />
-            </div>
-          )
-        }
+        {filteredPosts.length > 0 && (
+          <div className="mb-12">
+            <BlogCard Blog={filteredPosts[0]} />
+          </div>
+        )}
 
         {/* Grid post */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
@@ -73,10 +70,7 @@ export const PostsGrid: React.FC = () => {
         </div>
 
         {/* Empty Blog section */}
-        {filteredPosts.length === 0 && (
-          <EmptyBlogCard />
-        )}
-
+        {filteredPosts.length === 0 && <EmptyBlogCard />}
       </section>
     </>
   );

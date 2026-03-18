@@ -20,11 +20,9 @@ export const EducationSection: React.FC = () => {
 
       {/* content */}
       <div className="space-y-4">
-        {
-          education.map((edu: IEducation, index: number) => (
-            <EducationCard key={index * 3} Education={edu} />
-          ))
-        }
+        {education.map((edu: IEducation, index: number) => (
+          <EducationCard key={index * 3} Education={edu} />
+        ))}
       </div>
     </section>
   );

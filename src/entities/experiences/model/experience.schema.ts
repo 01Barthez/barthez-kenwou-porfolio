@@ -1,4 +1,4 @@
-import z from "zod";
+import z from 'zod';
 
 export const ExperienceSchema = z.object({
   titleFr: z.string().min(4),

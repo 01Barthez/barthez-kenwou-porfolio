@@ -5,3 +5,4 @@ export type { IEducation } from './model/education.types';
 
 // UI Components
 export { EducationCard } from './ui/educationCard.ui';
+export { CVEducationCard } from './ui/CVeducationCard.ui';

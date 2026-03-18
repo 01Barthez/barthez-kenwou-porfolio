@@ -4,7 +4,6 @@ import { Briefcase } from 'lucide-react';
 import { experiences } from '@/entities/experiences/api/mocks/experiences.mocks';
 import { ExperienceCard } from '@/entities/experiences/ui/ExperienceCard.ui';
 
-
 export const ExperienceSection: React.FC = () => {
   const { language } = useLanguageStore();
 
@@ -22,14 +21,9 @@ export const ExperienceSection: React.FC = () => {
 
       {/* content */}
       <div className="space-y-6">
-        {
-          experiences.map((exp, index) => (
-            <ExperienceCard
-              key={index * 99}
-              Experience={exp}
-            />
-          ))
-        }
+        {experiences.map((exp, index) => (
+          <ExperienceCard key={index * 99} Experience={exp} />
+        ))}
       </div>
     </section>
   );

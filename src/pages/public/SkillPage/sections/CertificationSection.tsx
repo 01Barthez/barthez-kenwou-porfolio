@@ -17,11 +17,9 @@ export const CertificationSection: React.FC = () => {
       </div>
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {
-          certifications.map((cert, index) => (
-            <CertificationCard key={index * 5} Certification={cert} />
-          ))
-        }
+        {certifications.map((cert, index) => (
+          <CertificationCard key={index * 5} Certification={cert} />
+        ))}
       </div>
     </section>
   );

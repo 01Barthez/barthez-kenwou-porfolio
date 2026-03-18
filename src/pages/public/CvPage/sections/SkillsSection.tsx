@@ -12,9 +12,17 @@ export const SkillsSection: React.FC = () => {
     { key: 'cloud', label: 'AWS Cloud', icon: <Cloud className="h-4 w-4 text-primary" /> },
     { key: 'devops', label: 'DevOps', icon: <Server className="h-4 w-4 text-primary" /> },
     { key: 'backend', label: 'Backend', icon: <Code className="h-4 w-4 text-primary" /> },
-    { key: 'frontend', label: 'Frontend', icon: <MonitorSmartphone className="h-4 w-4 text-primary" /> },
+    {
+      key: 'frontend',
+      label: 'Frontend',
+      icon: <MonitorSmartphone className="h-4 w-4 text-primary" />,
+    },
     { key: 'database', label: 'Database', icon: <Database className="h-4 w-4 text-primary" /> },
-    { key: 'tools', label: 'Tools & Environment', icon: <ToolboxIcon className="h-4 w-4 text-primary" /> },
+    {
+      key: 'tools',
+      label: 'Tools & Environment',
+      icon: <ToolboxIcon className="h-4 w-4 text-primary" />,
+    },
   ];
 
   return (

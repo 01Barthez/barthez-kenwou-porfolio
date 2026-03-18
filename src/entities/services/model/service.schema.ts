@@ -1,4 +1,4 @@
-import z from "zod";
+import z from 'zod';
 
 export const ServiceSchema = z.object({
   name: z.string().min(4),

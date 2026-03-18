@@ -7,7 +7,7 @@ import { navItems } from '@/shared/constants/navItems.const';
 import { socialLinks } from '@/shared/constants/socialLink.const';
 import { CvButton } from '@/shared/ui/CvButton/CvButton';
 import { useNavbarPosition } from './hooks';
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
 /**
  * Navbar Component - Barre de navigation principale de l'application
@@ -40,7 +40,9 @@ export const Navbar: React.FC = () => {
               <NavLink
                 key={item.id}
                 to={item.id}
-                className={`nav-link relative overflow-visible text-nowrap ${isActive ? 'active' : ''}`}
+                className={`nav-link relative overflow-visible text-nowrap ${
+                  isActive ? 'active' : ''
+                }`}
               >
                 {t(item.labelKey)}
 
@@ -51,7 +53,7 @@ export const Navbar: React.FC = () => {
                     className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[130%] h-full bg-primary/5 rounded-full -z-10"
                     initial={false}
                     transition={{
-                      type: "spring",
+                      type: 'spring',
                       stiffness: 300,
                       damping: 30,
                     }}

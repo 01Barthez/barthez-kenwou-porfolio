@@ -10,7 +10,7 @@ interface CreateOptions {
 }
 
 // LocalStorage wrapper compatible with zustand PersistStorage typing
-const browserLocalStorage = (name: string) => {
+const browserLocalStorage = (_name: string) => {
   return {
     getItem: (key: string) => {
       try {
