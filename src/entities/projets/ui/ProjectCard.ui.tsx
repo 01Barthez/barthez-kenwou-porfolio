@@ -23,7 +23,7 @@ export const ProjectCard: React.FC<{ project: IProject }> = ({ project }) => {
     forks,
     tags,
   } = project;
-  const index = parseInt(id, 10) - 1; // Assuming id is a stringified number
+  const index = Number(id) - 1;
 
   return (
     <article

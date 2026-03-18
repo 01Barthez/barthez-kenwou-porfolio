@@ -49,7 +49,6 @@ export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
 		containerRef.current.appendChild(renderer.domElement);
 
 		// Create particles
-		const particles: THREE.Points[] = [];
 		const positions: number[] = [];
 		const colors: number[] = [];
 
@@ -155,15 +154,15 @@ export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
 		return () => {
 			window.removeEventListener('resize', handleResize);
 
-			if (sceneRef.current) {
-				cancelAnimationFrame(sceneRef.current.animationId);
+      if (sceneRef.current) {
+        cancelAnimationFrame(sceneRef.current.animationId);
 
 				// Clean up Three.js objects
-				sceneRef.current.scene.traverse((object) => {
-					if (object instanceof THREE.Points) {
+        sceneRef.current.scene.traverse((object: any) => {
+          if (object instanceof (THREE as any).Points) {
 						object.geometry.dispose();
-						if (Array.isArray(object.material)) {
-							object.material.forEach((material) => material.dispose());
+            if (Array.isArray(object.material)) {
+              object.material.forEach((material: any) => material.dispose());
 						} else {
 							object.material.dispose();
 						}

@@ -13,7 +13,7 @@ type Story = StoryObj<typeof Avatar>;
 
 export const Default: Story = {
   args: {
-    name: 'Jane Doe',
+    fallback: 'JD',
     src: '/avatar.png',
   },
 };

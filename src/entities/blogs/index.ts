@@ -1,6 +1,6 @@
 export { blogApi } from './api/blog.api';
 export { blogPostsData } from './api/mock/blog.mocks';
-export { IBlog } from './model/blog.type';
+export type { IBlog } from './model/blog.type';
 export { BlogSchema } from './model/blog.schema';
 export type { BlogInput } from './model/blog.schema';
 

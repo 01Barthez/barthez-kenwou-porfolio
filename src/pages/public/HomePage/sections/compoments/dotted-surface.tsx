@@ -1,5 +1,5 @@
 'use client';
-import { cn } from '@/lib/utils';
+import { cn } from '@/shared/lib/utils';
 import { useThemeStore } from '@/shared/state/useThemeStore';
 import React, { useEffect, useRef } from 'react';
 import * as THREE from 'three';
@@ -49,7 +49,6 @@ export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
     containerRef.current.appendChild(renderer.domElement);
 
     // Create particles
-    const particles: THREE.Points[] = [];
     const positions: number[] = [];
     const colors: number[] = [];
 
@@ -155,11 +154,11 @@ export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
         cancelAnimationFrame(sceneRef.current.animationId);
 
         // Clean up Three.js objects
-        sceneRef.current.scene.traverse((object) => {
-          if (object instanceof THREE.Points) {
+        sceneRef.current.scene.traverse((object: any) => {
+          if (object instanceof (THREE as any).Points) {
             object.geometry.dispose();
             if (Array.isArray(object.material)) {
-              object.material.forEach((material) => material.dispose());
+              object.material.forEach((material: any) => material.dispose());
             } else {
               object.material.dispose();
             }
