@@ -1,5 +1,4 @@
 import React from 'react';
-import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 export type OpenGraph = {
   title?: string;
@@ -18,6 +17,37 @@ export type SEOProps = {
   additionalMeta?: Array<{ name?: string; property?: string; content: string }>;
 };
 
+type MetaLike = { name?: string; property?: string; content: string };
+
+function upsertMetaTag(meta: MetaLike) {
+  if (!meta.content) return;
+
+  const selector = meta.name
+    ? `meta[name="${CSS.escape(meta.name)}"]`
+    : `meta[property="${CSS.escape(meta.property ?? '')}"]`;
+
+  let el = document.head.querySelector<HTMLMetaElement>(selector);
+  if (!el) {
+    el = document.createElement('meta');
+    if (meta.name) el.setAttribute('name', meta.name);
+    if (meta.property) el.setAttribute('property', meta.property);
+    document.head.appendChild(el);
+  }
+  el.setAttribute('content', meta.content);
+}
+
+function upsertLinkTag(rel: string, href: string) {
+  if (!href) return;
+  const selector = `link[rel="${CSS.escape(rel)}"]`;
+  let el = document.head.querySelector<HTMLLinkElement>(selector);
+  if (!el) {
+    el = document.createElement('link');
+    el.setAttribute('rel', rel);
+    document.head.appendChild(el);
+  }
+  el.setAttribute('href', href);
+}
+
 export const SEO: React.FC<SEOProps> = ({
   title,
   description,
@@ -29,42 +59,39 @@ export const SEO: React.FC<SEOProps> = ({
   const siteName = 'Portfolio Barthez Kenwou';
   const pageTitle = title ? `${title} | ${siteName}` : siteName;
 
-  return (
-    <Helmet>
-      <html lang={lang} />
-      <title>{pageTitle}</title>
-      {description && <meta name="description" content={description} />}
-      {canonical && <link rel="canonical" href={canonical} />}
+  React.useEffect(() => {
+    // Title + lang
+    document.title = pageTitle;
+    document.documentElement.lang = lang;
 
-      {/* Open Graph / Facebook */}
-      {openGraph?.title && <meta property="og:title" content={openGraph.title} />}
-      {openGraph?.description && <meta property="og:description" content={openGraph.description} />}
-      {openGraph?.url && <meta property="og:url" content={openGraph.url} />}
-      {openGraph?.image && <meta property="og:image" content={openGraph.image} />}
-      <meta property="og:site_name" content={siteName} />
-      {openGraph?.type && <meta property="og:type" content={openGraph.type} />}
+    // Canonical link
+    if (canonical) upsertLinkTag('canonical', canonical);
 
-      {/* Twitter Card */}
-      {openGraph?.image && <meta name="twitter:card" content="summary_large_image" />}
-      {openGraph?.title && <meta name="twitter:title" content={openGraph.title} />}
-      {openGraph?.description && (
-        <meta name="twitter:description" content={openGraph.description} />
-      )}
+    // Standard meta
+    if (description) upsertMetaTag({ name: 'description', content: description });
 
-      {/* Additional custom meta tags */}
-      {additionalMeta.map((m, i) =>
-        m.name ? (
-          <meta key={i} name={m.name} content={m.content} />
-        ) : (
-          <meta key={i} property={m.property!} content={m.content} />
-        ),
-      )}
-    </Helmet>
-  );
+    // OpenGraph
+    upsertMetaTag({ property: 'og:site_name', content: siteName });
+    if (openGraph?.title) upsertMetaTag({ property: 'og:title', content: openGraph.title });
+    if (openGraph?.description)
+      upsertMetaTag({ property: 'og:description', content: openGraph.description });
+    if (openGraph?.url) upsertMetaTag({ property: 'og:url', content: openGraph.url });
+    if (openGraph?.image) upsertMetaTag({ property: 'og:image', content: openGraph.image });
+    if (openGraph?.type) upsertMetaTag({ property: 'og:type', content: openGraph.type });
+
+    // Twitter Card
+    if (openGraph?.image) upsertMetaTag({ name: 'twitter:card', content: 'summary_large_image' });
+    if (openGraph?.title) upsertMetaTag({ name: 'twitter:title', content: openGraph.title });
+    if (openGraph?.description)
+      upsertMetaTag({ name: 'twitter:description', content: openGraph.description });
+
+    // Additional custom meta
+    additionalMeta.forEach((m) => upsertMetaTag(m));
+  }, [additionalMeta, canonical, description, lang, openGraph, pageTitle, siteName]);
+
+  return null;
 };
 
-export const SEOProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-  <HelmetProvider>{children}</HelmetProvider>
-);
+export const SEOProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => children;
 
 // use named exports only to comply with lint rules

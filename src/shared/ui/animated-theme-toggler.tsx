@@ -158,7 +158,8 @@ export const AnimatedThemeToggler = ({
     } else {
       // Fallback for browsers without View Transition API
       setIsDark(newTheme);
-      document.documentElement.classList.toggle('dark');
+      const root = window.document.documentElement;
+      root.classList.toggle('dark');
       localStorage.setItem('theme', newTheme ? 'dark' : 'light');
       onToggle?.();
     }

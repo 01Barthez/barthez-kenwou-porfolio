@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { ArrowRight, ChevronDown, Zap } from 'lucide-react';
+import { ArrowRight, ChevronDown } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { DottedSurface } from './compoments/dotted-surface';
 import { cn } from '@/shared/lib';
@@ -12,6 +12,15 @@ import { useLanguageStore } from '@/shared/state/useLanguageStore';
 export const HeroSection: React.FC = () => {
   const { t } = useTranslation();
   const { language } = useLanguageStore();
+  const squares = React.useMemo(() => {
+    const result: [number, number][] = [];
+    for (let i = 0; i < 20; i += 1) {
+      const a = (i * 9301 + 49297) % 233280;
+      const b = (i * 233280 + 49297) % 9301;
+      result.push([a % 20, b % 20]);
+    }
+    return result;
+  }, []);
 
   return (
     <>
@@ -123,15 +132,10 @@ export const HeroSection: React.FC = () => {
           height={50}
           x={-1}
           y={-1}
-          squares={Array.from({ length: 20 }, () => [
-            Math.floor(Math.random() * 20),
-            Math.floor(Math.random() * 20),
-          ])}
-          className={cn(
-            "[mask-image:linear-gradient(to_bottom_right,white,transparent,transparent)] -top-60"
-          )}
+          squares={squares}
+          className={cn('[mask-image:linear-gradient(to_bottom_right,white,transparent,transparent)] -top-60')}
         />
-      </section >
+      </section>
     </>
   );
 };

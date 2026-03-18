@@ -34,17 +34,17 @@ export class ErrorBoundary extends Component<Props, State> {
   async componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
     // Centralized reporting (analytics + optional Sentry)
     try {
-      await reportError(error, { componentStack: errorInfo.componentStack });
-    } catch (e) {
+      await reportError(error, { componentStack: errorInfo.componentStack ?? undefined });
+    } catch {
       // swallow
     }
 
     try {
       analytics.trackError(error, {
-        componentStack: errorInfo.componentStack,
+        componentStack: errorInfo.componentStack ?? undefined,
         errorBoundary: true,
       });
-    } catch (e) {
+    } catch {
       // ignore analytics failure
     }
 
@@ -66,8 +66,8 @@ export class ErrorBoundary extends Component<Props, State> {
       await reportError(this.state.error, { context: { errorId: this.state.errorId } });
       this.setState({ reported: true });
       // also call analytics event for user report
-      analytics.track('error.reported', { errorId: this.state.errorId });
-    } catch (e) {
+      analytics.track({ name: 'error.reported', properties: { errorId: this.state.errorId } });
+    } catch {
       // ignore
     }
   };

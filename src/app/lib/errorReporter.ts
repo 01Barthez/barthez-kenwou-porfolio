@@ -13,7 +13,7 @@ export type ErrorReportInfo = {
 export async function reportError(error: Error, info?: ErrorReportInfo) {
   try {
     analytics.trackError(error, { ...info, errorBoundary: true });
-  } catch (e) {
+  } catch (e: unknown) {
     // analytics adapter failed — swallow to avoid further crashes
     // eslint-disable-next-line no-console
     console.warn('analytics.trackError failed', e);
@@ -35,7 +35,7 @@ export async function reportError(error: Error, info?: ErrorReportInfo) {
         (Sentry as any).captureException(error, { extra: info });
       }
     }
-  } catch (e) {
+  } catch {
     // ignore failures — this package is optional and should not crash the app
   }
 }

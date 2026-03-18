@@ -4,7 +4,7 @@ import { RelatedPostCard } from '@/entities/blogs/ui/RelatedPostCard.ui';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { BookOpen } from 'lucide-react';
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 export const RelatedPostsSection: React.FC = () => {
   const { id } = useParams();
