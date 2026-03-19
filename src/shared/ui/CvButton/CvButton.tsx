@@ -8,7 +8,7 @@ export const CvButton: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <Button asChild className="w-full">
+    <Button asChild className="w-full py-0">
       <Link to="/cv">
         <FileDown className="mr-2 h-4 w-4" />
         <span className="">{t('nav.cv')}</span>

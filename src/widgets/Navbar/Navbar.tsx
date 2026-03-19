@@ -30,9 +30,9 @@ export const Navbar: React.FC = () => {
       className="fixed top-4 z-40 hidden xl:block transition-all duration-300 ease-in-out"
       style={navbarStyle}
     >
-      <nav className="glass rounded-2xl px-6 py-3 flex items-center gap-6 shadow-lg">
+      <nav className="glass rounded-2xl px-6 py-1 flex items-center gap-6 shadow-lg">
         {/* Navigation Links */}
-        <div className="flex items-center md:gap-4 lg:gap-6">
+        <div className="flex items-center md:gap-3 lg:gap-4">
           {navItems.map((item) => {
             const isActive = location.pathname === item.id;
 
@@ -74,7 +74,7 @@ export const Navbar: React.FC = () => {
         <div className="h-6 w-px bg-border" />
 
         {/* Theme & Language toggles */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           <ThemeToggle />
           <LanguageToggle />
         </div>
@@ -91,13 +91,13 @@ export const Navbar: React.FC = () => {
               <Link
                 key={link.label}
                 to={link.href}
-                className="flex h-10 w-10 items-center justify-center rounded-lg text-muted-foreground transition-all duration-300 hover:bg-secondary hover:text-primary"
+                className="flex h-8 w-8 items-center justify-center rounded-lg text-muted-foreground transition-all duration-300 hover:bg-secondary hover:text-primary"
                 aria-label={link.label}
                 title={link.label}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Icon className="h-5 w-5" />
+                <Icon className="h-4 w-4" />
               </Link>
             );
           })}
