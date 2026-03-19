@@ -7,11 +7,11 @@ export const ServiceCard2: React.FC<ServiceCardProps> = ({ service, language }) 
 
   return (
     <div className={cn(
-      "relative flex items-center gap-5 p-5 rounded-2xl w-full max-w-[400px]",
+      "relative flex items-center gap-5 py-3 px-4 rounded-2xl w-full max-w-[400px]",
       "bg-card/40 backdrop-blur-md border border-border shadow-md",
       "hover:border-primary/50 hover:shadow-primary/10 transition-all duration-500"
     )}>
-      <div className="flex-shrink-0 p-3 rounded-xl bg-primary/10 text-primary">
+      <div className="flex-shrink-0 p-2 rounded-sm bg-primary/10 text-primary">
         <Icon className="h-6 w-6" />
       </div>
       <div className="flex flex-col min-w-0">

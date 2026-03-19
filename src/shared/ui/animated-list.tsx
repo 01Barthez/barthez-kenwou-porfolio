@@ -39,21 +39,32 @@ export const AnimatedList = React.memo(
     useEffect(() => {
       let timeout: ReturnType<typeof setTimeout> | null = null
 
-      if (index < childrenArray.length - 1) {
-        timeout = setTimeout(() => {
-          setIndex((prevIndex) => (prevIndex + 1) % childrenArray.length)
-        }, delay)
-      }
+      timeout = setTimeout(() => {
+        setIndex((prevIndex) => prevIndex + 1)
+      }, delay)
 
       return () => {
         if (timeout !== null) {
           clearTimeout(timeout)
         }
       }
-    }, [index, delay, childrenArray.length])
+    }, [index, delay])
 
     const itemsToShow = useMemo(() => {
-      const result = childrenArray.slice(0, index + 1).reverse()
+      const result = []
+      const len = childrenArray.length
+      if (len === 0) return result
+
+      const maxItems = Math.min(index + 1, len)
+      for (let i = 0; i < maxItems; i++) {
+        const itemIndex = (index - i) % len
+        const item = childrenArray[itemIndex] as React.ReactElement
+        result.push(
+          React.cloneElement(item, {
+            key: `${item.key || itemIndex}-${index - i}`,
+          })
+        )
+      }
       return result
     }, [index, childrenArray])
 

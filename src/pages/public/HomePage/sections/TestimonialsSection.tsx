@@ -6,6 +6,7 @@ import { Image } from '@/shared/ui/Image';
 import { AnimatedBlob } from '@/shared/ui/animated-blob';
 import { Marquee } from '@/shared/ui/marquee';
 import React from 'react';
+import { Lens } from '@/shared/ui/lens';
 
 export const TestimonialsSection: React.FC = () => {
   const { language } = useLanguageStore();
@@ -36,7 +37,7 @@ export const TestimonialsSection: React.FC = () => {
             }
           }
         `}</style>
-        
+
         {/* Testimonials Marquee */}
         <div className="md:col-span-4 relative flex h-[450px] md:h-110 w-full flex-row items-center justify-center gap-4 overflow-hidden [perspective:300px] mb-8 md:mb-0">
           <div className="flex flex-row items-center gap-4 testimonials-3d transition-transform duration-500">
@@ -74,7 +75,14 @@ export const TestimonialsSection: React.FC = () => {
 
             {/* Profile picture part */}
             <div className="relative z-30 w-[160px] sm:w-[180px] md:w-full max-w-[280px] aspect-square p-2 drop-shadow-2xl overflow-hidden rounded-full md:rounded-[4rem] border-4 border-primary/20 bg-background/50 backdrop-blur-sm">
-              <Image src={"images/barthez-kenwou-profil-assis.png"} alt="Barthez Kenwou" priority className="object-cover w-full h-full rounded-full md:rounded-[3.5rem] scale-120" />
+              <Lens
+                zoomFactor={1.3}
+                lensSize={110}
+                isStatic={false}
+                ariaLabel="Zoom Area"
+              >
+                <Image src={"images/barthez-kenwou-profil-assis.png"} alt="Barthez Kenwou" priority className="object-cover w-full h-full rounded-full md:rounded-[3.5rem] scale-120" />
+              </Lens>
             </div>
           </div>
 
@@ -82,7 +90,7 @@ export const TestimonialsSection: React.FC = () => {
           <div className="relative w-full max-w-[320px] mx-auto opacity-90 hover:opacity-100 transition-opacity duration-500 px-6 md:px-0">
             <div className="absolute -top-6 -left-2 md:-left-4 text-5xl md:text-6xl text-primary/30 font-serif leading-none select-none">"</div>
             <p className="relative z-10 text-sm md:text-[15px] italic text-muted-foreground text-center font-medium leading-relaxed">
-              {language === 'fr' 
+              {language === 'fr'
                 ? "Les deux jours les plus importants de votre vie sont le jour où vous êtes né et le jour où vous en découvrez la raison."
                 : "The two most important days in your life are the day you are born and the day you find out why."
               }
