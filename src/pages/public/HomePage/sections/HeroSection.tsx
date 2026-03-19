@@ -41,15 +41,15 @@ export const HeroSection: React.FC = () => {
             <span className="text-foreground">{t('hero.greeting')}</span>
             <br />
 
-            <span className="gradient-text text-foreground">
-              <TextAnimate animation="blurIn" as="h1" className="inline-block mr-2">
+            <div className="inline-block mt-2">
+              <TextAnimate animation="blurIn" as="span" className="inline-block mr-2" segmentClassName="gradient-text">
                 Barthez
               </TextAnimate>
               &nbsp;
-              <TextAnimate animation="blurIn" by="character" duration={1} className="inline-block">
+              <TextAnimate animation="blurIn" by="character" duration={1} className="inline-block" segmentClassName="gradient-text">
                 Kenwou
               </TextAnimate>
-            </span>
+            </div>
           </h1>
 
           {/* Subtitle with typing effect styling */}
