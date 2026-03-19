@@ -6,3 +6,4 @@ export type { ServiceInput } from './model/service.schema';
 
 // UI compoments
 export { ServiceCard } from './ui/Servicecard.ui';
+export { ServiceCard2 } from './ui/ServiceCard2.ui';

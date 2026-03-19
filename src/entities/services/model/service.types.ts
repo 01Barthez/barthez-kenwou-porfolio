@@ -1,4 +1,5 @@
 import React from 'react';
+import { services } from '../api/mock/services.mocks';
 
 export interface IServices {
   icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
@@ -11,3 +12,10 @@ export interface IServices {
   priceFr: string;
   priceEn: string;
 }
+
+
+export interface ServiceCardProps {
+  service: (typeof services)[0];
+  language: string;
+}
+

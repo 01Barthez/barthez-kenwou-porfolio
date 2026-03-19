@@ -3,56 +3,61 @@ import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { ArrowRight } from 'lucide-react';
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { AnimatedList } from '@/shared/ui/animated-list';
+import { ServiceCard2 } from '@/entities/services';
 
 export const ServiceSection: React.FC = () => {
   const { language } = useLanguageStore();
+  const isFr = language === 'fr';
+
+  const previewServices = services.slice(0, 5);
 
   return (
-    <section className="py-24 px-6 relative z-10">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="section-title">
-            <span className="gradient-text">
-              {language === 'fr' ? 'Mes Services' : 'My Services'}
-            </span>
-          </h2>
-          <p className="section-subtitle">
-            {language === 'fr'
-              ? 'Des solutions sur mesure pour vos projets'
-              : 'Tailored solutions for your projects'}
-          </p>
-        </div>
+    <section className="py-24 px-6 relative z-10 overflow-hidden">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+        {/* Left Column: Content */}
+        <div className="flex flex-col items-start space-y-8 animate-fade-in">
+          <div className="space-y-4">
+            <h2 className="section-title !text-left">
+              <span className="gradient-text">
+                {isFr ? 'Mes Services' : 'My Services'}
+              </span>
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-xl leading-relaxed">
+              {isFr
+                ? 'Ingénieur Cloud & DevOps, je vous aide à bâtir des infrastructures solides, sécurisées et hautement performantes.'
+                : 'Cloud & DevOps Engineer, I help you build solid, secure, and highly performant infrastructures.'}
+            </p>
+          </div>
 
-        <div className="mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {services.slice(0, 3).map((service, index) => {
-            const Icon = service.icon;
-            return (
-              <div
-                key={index}
-                className="group p-2 md:p-4 rounded-lg bg-card border border-border hover:border-primary/50 transition-all duration-300 hover:glow-primary"
-              >
-                <div className="p-2 rounded-sm bg-primary/10 w-fit mb-4 group-hover:bg-primary/20 transition-colors">
-                  <Icon className="h-3 w-3 text-primary" />
-                </div>
-                <h3 className="text-base font-semibold text-foreground mb-2">
-                  {language === 'fr' ? service.titleFr : service.titleEn}
-                </h3>
-                <p className="text-sm text-muted-foreground">
-                  {language === 'fr' ? service.descFr : service.descEn}
-                </p>
-              </div>
-            );
-          })}
-        </div>
+            <div className="w-full flex flex-wrap gap-3">
+              {['AWS Architecture', 'DevOps CI/CD', 'Security Audit', 'Full Stack'].map((tag) => (
+                <span key={tag} className="px-4 py-1 rounded-full glass border-primary/20 text-xs font-semibold text-primary">
+                  {tag}
+                </span>
+              ))}
+          </div>
 
-        <div className="text-center mt-6">
           <Link
             to="/services"
-            className="inline-flex items-center gap-2 text-primary hover:underline font-medium"
+            className="group inline-flex items-center text-sm gap-3 px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium border border-primary/20 hover:scale-105 active:scale-95 transition-all duration-300 shadow-xl shadow-primary/20"
           >
-            {language === 'fr' ? 'Voir tous les services' : 'View all services'}
-            <ArrowRight className="h-4 w-4" />
+            {isFr ? 'Explorer tous les services' : 'Explore all services'}
+            <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
           </Link>
+        </div>
+
+        {/* Right Column: Interactive Animated List */}
+        <div className="relative h-[480px] w-full max-w-[450px] mx-auto lg:ml-auto overflow-hidden rounded-3xl">
+          {/* Gradient Masks */}
+          <div className="absolute top-0 inset-x-0 h-16 bg-gradient-to-b from-background to-transparent z-10 pointer-events-none" />
+          <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-background to-transparent z-10 pointer-events-none" />
+
+          <AnimatedList className="px-4 py-8" delay={1800}>
+            {previewServices.map((service, index) => (
+              <ServiceCard2 key={index} service={service} language={language} />
+            ))}
+          </AnimatedList>
         </div>
       </div>
     </section>
