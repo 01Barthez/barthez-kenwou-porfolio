@@ -11,8 +11,13 @@ export const CTASection: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="px-0 relative z-10">
-      <div className="w-full mx-auto text-center">
+    <section className="px-0 relative z-10 overflow-hidden">
+      {/* Background Dots */}
+      <div className="absolute inset-0 z-0">
+        <GradientDots duration={20} />
+      </div>
+
+      <div className="relative  z-10 w-full mx-auto text-center">
         <div className="p-10 rounded-lg bg-linear-to-br from-primary/20 to-accent/20 border border-primary/30">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
             {language === 'fr' ? 'Prêt à Démarrer Votre Projet ?' : 'Ready to Start Your Project?'}
@@ -45,8 +50,6 @@ export const CTASection: React.FC = () => {
           </div>
         </div>
       </div>
-
-      <GradientDots duration={20} />
     </section>
   );
 };

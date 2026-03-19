@@ -21,7 +21,7 @@ export function GradientDots({
 	spacing = 10,
 	duration = 30,
 	colorCycleDuration = 6,
-	backgroundColor = 'var(--background)',
+	backgroundColor = 'hsl(var(--background))',
 	className,
 	...props
 }: GradientDotsProps) {
@@ -50,6 +50,7 @@ export function GradientDots({
         `,
 				backgroundPosition: `
           0px 0px, ${spacing / 2}px ${hexSpacing / 2}px,
+          0% 0%,
           0% 0%,
           0% 0%,
           0% 0px
