@@ -25,8 +25,8 @@ export const HeroSection: React.FC = () => {
   return (
     <AuroraBackground showRadialGradient className="bg-gradient-to-t from-background/80 to-transparent">
       {/* Hero Content */}
-      <section className="relative z-30 flex min-h-screen flex-col items-center justify-center px-6 py-0 md:py-0 text-center overflow-hidden w-full">
-        <div className="max-w-4xl animate-fade-in relative z-10 w-full mb-10 pt-0 md:pt-0">
+      <section className="relative z-30 flex min-h-screen flex-col items-center justify-center px-6 -pt-20 -mt-20 -mt-0 md:py-0 text-center overflow-hidden w-full">
+        <div className="max-w-4xl animate-fade-in relative z-10 w-full mb-10 -pt-64 md:pt-0">
           {/* Greeting badge */}
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/50 px-4 py-2 mb-8 backdrop-blur-sm">
             <span className="relative flex h-2 w-2">
@@ -62,7 +62,7 @@ export const HeroSection: React.FC = () => {
                   typeSpeed={60}
                   duration={60}
                 />
-              ) : (
+              ) : ( 
                 <TypingAnimation
                   words={["Full Stack JS Developer", "DevOps Engineer", "AWS Cloud Engineer"]}
                   loop
