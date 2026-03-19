@@ -11,8 +11,8 @@ export const ExperienceSection: React.FC = () => {
     <section className="glass rounded-2xl p-8 border border-border animate-fade-in">
       {/* title */}
       <div className="flex items-center gap-3 mb-6">
-        <div className="p-3 rounded-xl bg-primary/10">
-          <Briefcase className="h-6 w-6 text-primary" />
+        <div className="px-2 py-1 rounded-sm bg-primary/10">
+          <Briefcase className="h-4 w-6 text-primary" />
         </div>
         <h3 className="text-xl font-semibold text-foreground">
           {language === 'fr' ? 'Expérience Professionnelle' : 'Professional Experience'}

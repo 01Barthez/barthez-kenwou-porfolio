@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { contactsInfo } from '@/shared/mocks/constContactInfo.mocks';
+import { GradientDots } from '@/shared/ui/gradient-dots';
 
 export const CTASection: React.FC = () => {
   const { language } = useLanguageStore();
@@ -44,6 +45,8 @@ export const CTASection: React.FC = () => {
           </div>
         </div>
       </div>
+
+      <GradientDots duration={20} />
     </section>
   );
 };

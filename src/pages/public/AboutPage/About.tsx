@@ -1,4 +1,5 @@
 import React from 'react';
+import { Pointer } from '@/shared/ui/pointer';
 import { HeroSection } from './sections/HeroSection';
 import { ProfileCard } from '@/entities/userProfile/ui/ProfileCard.ui';
 import { BioSection } from './sections/BioSection';
@@ -26,7 +27,12 @@ export const AboutPage: React.FC = () => {
               {/* Profile Card */}
               <div className="lg:col-span-1">
                 <div className="sticky top-24 glass rounded-2xl p-6 border border-border">
-                  <ProfileCard />
+                  <div className="absolute inset-0 z-10 rounded-2xl">
+                    <Pointer className="fill-blue-500" />
+                  </div>
+                  <div className="relative z-20 h-full w-full">
+                    <ProfileCard />
+                  </div>
                 </div>
               </div>
 
