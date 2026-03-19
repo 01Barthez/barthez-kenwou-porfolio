@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, Award } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
@@ -10,14 +10,14 @@ export const CTASection: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="py-20 px-6 relative z-10">
+    <section className="px-0 relative z-10">
       <div className="w-full mx-auto text-center">
-        <div className="p-10 rounded-3xl bg-linear-to-br from-primary/20 to-accent/20 border border-primary/30">
-          <Award className="h-12 w-12 text-primary mx-auto mb-6" />
+        <div className="p-10 rounded-lg bg-linear-to-br from-primary/20 to-accent/20 border border-primary/30">
           <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
             {language === 'fr' ? 'Prêt à Démarrer Votre Projet ?' : 'Ready to Start Your Project?'}
           </h2>
-          <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
+         
+          <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
             {language === 'fr'
               ? 'Discutons de vos besoins et construisons ensemble une solution qui dépasse vos attentes.'
               : "Let's discuss your needs and build together a solution that exceeds your expectations."}
@@ -27,7 +27,7 @@ export const CTASection: React.FC = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               to="/contact"
-              className="group flex items-center gap-2 rounded-xl bg-primary px-8 py-4 text-lg font-semibold text-primary-foreground transition-all hover:glow-primary hover:scale-105"
+              className="group flex items-center gap-2 rounded-sm bg-primary px-4 py-1.5 text-sm font-medium text-primary-foreground transition-all hover:glow-primary hover:scale-105"
             >
               {t('hero.cta.contact')}
               <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
@@ -37,7 +37,7 @@ export const CTASection: React.FC = () => {
               to={contactsInfo.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-xl border border-border bg-secondary/50 px-8 py-4 text-lg font-semibold text-foreground transition-all hover:border-primary hover:bg-secondary"
+              className="flex items-center gap-2 rounded-sm border border-border bg-secondary/50 px-4 py-1.5 text-sm font-medium text-foreground transition-all hover:border-primary hover:bg-secondary"
             >
               WhatsApp
             </Link>
