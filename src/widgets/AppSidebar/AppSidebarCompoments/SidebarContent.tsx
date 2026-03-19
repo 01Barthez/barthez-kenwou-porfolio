@@ -23,7 +23,7 @@ export const SidebarContentSection: React.FC = () => {
   return (
     <TooltipProvider delayDuration={0}>
       <nav
-        className={`flex flex-col gap-2 w-full transition-all duration-300 ${
+        className={`flex flex-col gap-2 w-full transition-all duration-300 scrollbar-hide ${
           isExpanded ? 'p-4' : 'p-2'
         }`}
       >

@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { routes } from './routes';
-import { LoadingSpinner } from '@/shared/ui/Spinner/Spinner.ui';
+import { LoadingPage } from '@/shared/ui/LoadingPage/LoadingPage';
 import { ProtectedRoute } from './routes/config/ProtectedRoute';
 import { PublicLayout } from '@/pages/public/Layout';
 
@@ -17,7 +17,7 @@ export const App: React.FC = () => {
   return (
     <Router>
       <div className="min-h-screen bg-background text-foreground">
-        <Suspense fallback={<LoadingSpinner />}>
+        <Suspense fallback={<LoadingPage />}>
           <Routes>
             <Route element={<PublicLayout />}>
               {publicRoutes.map((route) => (

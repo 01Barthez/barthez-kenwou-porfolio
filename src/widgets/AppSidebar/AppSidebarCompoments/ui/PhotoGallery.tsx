@@ -101,7 +101,7 @@ export const PhotoGallery = ({ photos, isOpen, onClose, initialIndex = 0 }: Phot
           {/* Navigation Buttons */}
           <button
             onClick={handlePrev}
-            className="absolute left-6 z-40 p-4 rounded-2xl glass hover:glow-primary hover:scale-110 transition-all duration-300 group"
+            className="absolute left-6 z-40 p-1.5 cursor-pointer rounded-sm glass hover:glow-primary hover:scale-110 transition-all duration-300 group"
             aria-label="Previous photo"
             title="Previous (←)"
           >
@@ -123,23 +123,23 @@ export const PhotoGallery = ({ photos, isOpen, onClose, initialIndex = 0 }: Phot
             {/* Decorative Frame */}
             <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 via-accent/10 to-primary/20 rounded-3xl blur-2xl opacity-50 group-hover:opacity-70 transition-opacity" />
 
-            {/* Image */}
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-primary/20 bg-card">
+            {/* Image Container with Fixed Aspect Ratio */}
+            <div className="relative w-full max-w-4xl aspect-[5/6] md:max-h-[80vh] rounded-3xl overflow-hidden shadow-2xl border border-primary/20 bg-card/40 backdrop-blur-md flex items-center justify-center">
               <Image
                 src={photos[currentIndex]}
                 alt={`Photo ${currentIndex + 1} - Barthez Kenwou`}
                 priority
-                className="object-contain w-full h-full max-h-[70vh] rounded-3xl"
+                className="object-contain w-full h-full"
               />
 
               {/* Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/10 via-transparent to-transparent pointer-events-none" />
             </div>
           </div>
 
           <button
             onClick={handleNext}
-            className="absolute right-6 z-40 p-4 rounded-2xl glass hover:glow-primary hover:scale-110 transition-all duration-300 group"
+            className="absolute right-6 z-40 p-1.5 cursor-pointer rounded-sm glass hover:glow-primary hover:scale-110 transition-all duration-300 group"
             aria-label="Next photo"
             title="Next (→)"
           >
@@ -174,10 +174,12 @@ export const PhotoGallery = ({ photos, isOpen, onClose, initialIndex = 0 }: Phot
             <kbd className="px-2 py-0.5 rounded bg-secondary/30 font-mono text-[10px]">→</kbd>
             <span className="text-[10px]">Navigate</span>
           </div>
+
           <div className="flex items-center gap-1.5">
             <kbd className="px-2 py-0.5 rounded bg-secondary/30 font-mono text-[10px]">Z</kbd>
             <span className="text-[10px]">Zoom</span>
           </div>
+          
           <div className="flex items-center gap-1.5">
             <kbd className="px-2 py-0.5 rounded bg-secondary/30 font-mono text-[10px]">Esc</kbd>
             <span className="text-[10px]">Close</span>

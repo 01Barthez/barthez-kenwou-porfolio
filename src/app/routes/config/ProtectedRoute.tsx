@@ -1,5 +1,6 @@
 import { useAuth } from '@/app/providers/AuthProvider';
 import React from 'react';
+import { LoadingPage } from '@/shared/ui/LoadingPage/LoadingPage';
 
 interface ProtectedRouteProps {
   children: React.ReactNode;
@@ -10,8 +11,7 @@ export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children, requir
   const { isAuthenticated, user, loading } = useAuth();
 
   if (loading) {
-    // TODO: Afficher un spinner de chargement
-    return <div>Loading...</div>;
+    return <LoadingPage />;
   }
 
   if (!isAuthenticated) {
