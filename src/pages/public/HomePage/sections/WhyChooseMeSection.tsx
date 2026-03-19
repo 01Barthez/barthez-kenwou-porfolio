@@ -2,6 +2,8 @@ import { whyMe } from '@/shared/mocks/whyMe.mocks';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import React from 'react';
 import { Terminal, AnimatedSpan, TypingAnimation } from '@/shared/ui/terminal';
+import { Pointer } from '@/shared/ui/pointer';
+import { motion } from "motion/react"
 
 export const WhyChooseMeSection: React.FC = () => {
   const { language } = useLanguageStore();
@@ -26,8 +28,44 @@ export const WhyChooseMeSection: React.FC = () => {
           </p>
         </div>
 
-        <div className="w-full max-w-3xl glass px-2 py-2 md:px-20 md:py-6 rounded-2xl glow-primary/20">
-          <Terminal className="bg-background/80 backdrop-blur-xl border-primary/20 shadow-2xl min-h-[420px]">
+        <div className="relative w-full max-w-3xl glass px-2 py-2 md:px-20 md:py-6 rounded-2xl glow-primary/20">
+          <div className="absolute inset-0 z-10 rounded-2xl">
+            <Pointer>
+              <motion.div
+                animate={{
+                  scale: [0.8, 1, 0.8],
+                  rotate: [0, 5, -5, 0],
+                }}
+                transition={{
+                  duration: 1.5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="text-pink-600"
+                >
+                  <motion.path
+                    d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                    fill="currentColor"
+                    animate={{ scale: [1, 1.2, 1] }}
+                    transition={{
+                      duration: 0.8,
+                      repeat: Infinity,
+                      ease: "easeInOut",
+                    }}
+                  />
+                </svg>
+              </motion.div>
+            </Pointer>
+          </div>
+
+          <Terminal className="relative z-20 bg-background/80 backdrop-blur-xl border-primary/20 shadow-2xl min-h-[420px]">
             <TypingAnimation className="text-primary font-bold">
               {isFr ? "$ ls specialites/" : "$ ls core-specialties/"}
             </TypingAnimation>

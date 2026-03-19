@@ -51,7 +51,7 @@ export const AnimatedList = React.memo(
     }, [index, delay])
 
     const itemsToShow = useMemo(() => {
-      const result = []
+      const result: React.ReactElement[] = []
       const len = childrenArray.length
       if (len === 0) return result
 
