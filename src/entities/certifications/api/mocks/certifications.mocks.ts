@@ -17,7 +17,7 @@ export const certifications = [
   {
     name: 'Docker Certified Associate',
     issuer: 'Udemy.',
-    year: '2026',
+    year: '2025',
   },
   {
     name: 'Full Stack Development',

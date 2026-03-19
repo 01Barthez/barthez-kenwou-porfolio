@@ -6,11 +6,12 @@ export const contactsInfo = {
   titleEn: 'Full Stack Developer & DevOps Engineer',
   subtitleFr: 'Spécialiste AWS Cloud',
   subtitleEn: 'AWS Cloud Specialist',
-  email: 'contact@barthezkenwou.dev',
+  email: 'kenwoubarthez@gmail.com',
   phone: '+237 655 646 88',
   whatsappLink: 'https://wa.me/237655646688',
   location: 'Yaounde - Cameroun',
   website: 'barthezkenwou.dev',
+  repository: "https://github.com/01Barthez?tab=repositories",
   github: socialLinks[0].href,
   linkedin: socialLinks[1].href,
 };

@@ -12,10 +12,10 @@ export const ContactInfoSection: React.FC = () => {
   return (
     <section className="space-y-6">
       {/* Info Cards */}
-      <div className="glass rounded-2xl p-6 border border-border hover:border-primary/50 transition-colors">
+      <div className="glass rounded-sm p-3 border border-border hover:border-primary/50 transition-colors">
         <div className="flex items-center gap-4">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
-            <Mail className="h-6 w-6 text-primary" />
+          <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-primary/10">
+            <Mail className="h-4 w-4 text-primary" />
           </div>
           <div>
             <h3 className="font-semibold text-foreground">{t('contact.info.email')}</h3>
@@ -29,10 +29,10 @@ export const ContactInfoSection: React.FC = () => {
         </div>
       </div>
 
-      <div className="glass rounded-2xl p-6 border border-border hover:border-primary/50 transition-colors">
+      <div className="glass rounded-sm p-3 border border-border hover:border-primary/50 transition-colors">
         <div className="flex items-center gap-4">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent/10">
-            <MapPin className="h-6 w-6 text-accent" />
+          <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-accent/10">
+            <MapPin className="h-4 w-4 text-accent" />
           </div>
           <div>
             <h3 className="font-semibold text-foreground">{t('contact.info.location')}</h3>
@@ -41,20 +41,20 @@ export const ContactInfoSection: React.FC = () => {
         </div>
       </div>
 
-      <div className="glass rounded-2xl p-6 border border-border hover:border-primary/50 transition-colors">
+      <div className="glass rounded-sm p-3 border border-border hover:border-primary/50 transition-colors">
         <div className="flex items-center gap-4">
-          <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-green-500/10">
-            <Clock className="h-6 w-6 text-green-500" />
+          <div className="flex h-8 w-8 items-center justify-center rounded-sm bg-green-500/10">
+            <Clock className="h-4 w-4 text-green-500" />
           </div>
           <div>
             <h3 className="font-semibold text-foreground">{t('contact.info.availability')}</h3>
-            <p className="text-sm text-green-500">{t('contact.info.available')}</p>
+            <p className="text-xs text-green-500">{t('contact.info.available')}</p>
           </div>
         </div>
       </div>
 
       {/* Social Links */}
-      <div className="glass rounded-2xl p-6 border border-border">
+      <div className="glass rounded-sm p-3 border border-border">
         <h3 className="font-semibold text-foreground mb-4">
           {language === 'fr' ? 'Réseaux sociaux' : 'Social Networks'}
         </h3>
@@ -63,7 +63,7 @@ export const ContactInfoSection: React.FC = () => {
             to={contactsInfo.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 p-3 rounded-xl bg-secondary/30 hover:bg-secondary/50 transition-colors group"
+            className="flex items-center gap-3 py-1 px-2 rounded-sm bg-secondary/30 hover:bg-secondary/50 transition-colors group"
           >
             <Github className="h-5 w-5 text-muted-foreground group-hover:text-foreground" />
             <span className="text-sm text-muted-foreground group-hover:text-foreground">
@@ -75,7 +75,7 @@ export const ContactInfoSection: React.FC = () => {
             to={contactsInfo.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-3 p-3 rounded-xl bg-secondary/30 hover:bg-secondary/50 transition-colors group"
+            className="flex items-center gap-3 py-1 px-2 rounded-sm bg-secondary/30 hover:bg-secondary/50 transition-colors group"
           >
             <Linkedin className="h-5 w-5 text-muted-foreground group-hover:text-foreground" />
             <span className="text-sm text-muted-foreground group-hover:text-foreground">
@@ -84,25 +84,6 @@ export const ContactInfoSection: React.FC = () => {
             <ExternalLink className="h-4 w-4 ml-auto text-muted-foreground" />
           </Link>
         </div>
-      </div>
-
-      {/* Certification highlight */}
-      <div className="glass rounded-2xl p-6 border border-primary/30 bg-primary/5">
-        <h3 className="font-semibold text-foreground mb-2">
-          {language === 'fr' ? 'Certification vérifiée' : 'Verified Certification'}
-        </h3>
-        <p className="text-sm text-muted-foreground mb-3">
-          Full Stack Development - OpenClassrooms
-        </p>
-        <Link
-          to="https://credsverse.com/credentials/cc4d79b0-24b1-4270-bb66-f106886acba3"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-sm text-primary hover:underline"
-        >
-          {language === 'fr' ? 'Voir le certificat' : 'View certificate'}
-          <ExternalLink className="h-4 w-4" />
-        </Link>
       </div>
     </section>
   );

@@ -29,12 +29,12 @@ export const ServiceSection: React.FC = () => {
             return (
               <div
                 key={index}
-                className="group p-6 rounded-2xl bg-card border border-border hover:border-primary/50 transition-all duration-300 hover:glow-primary"
+                className="group p-2 md:p-4 rounded-lg bg-card border border-border hover:border-primary/50 transition-all duration-300 hover:glow-primary"
               >
-                <div className="p-3 rounded-xl bg-primary/10 w-fit mb-4 group-hover:bg-primary/20 transition-colors">
-                  <Icon className="h-6 w-6 text-primary" />
+                <div className="p-2 rounded-sm bg-primary/10 w-fit mb-4 group-hover:bg-primary/20 transition-colors">
+                  <Icon className="h-3 w-3 text-primary" />
                 </div>
-                <h3 className="text-lg font-semibold text-foreground mb-2">
+                <h3 className="text-base font-semibold text-foreground mb-2">
                   {language === 'fr' ? service.titleFr : service.titleEn}
                 </h3>
                 <p className="text-sm text-muted-foreground">
@@ -45,7 +45,7 @@ export const ServiceSection: React.FC = () => {
           })}
         </div>
 
-        <div className="text-center mt-10">
+        <div className="text-center mt-6">
           <Link
             to="/services"
             className="inline-flex items-center gap-2 text-primary hover:underline font-medium"

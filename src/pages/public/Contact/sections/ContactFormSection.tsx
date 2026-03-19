@@ -17,12 +17,12 @@ export const ContactFormSection: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // toast({
-    //   title: language === "fr" ? "Message envoyé !" : "Message sent!",
-    //   description: language === "fr"
-    //     ? "Je vous répondrai dans les plus brefs délais."
-    //     : "I'll get back to you as soon as possible.",
-    // });
+    toast({
+      title: language === "fr" ? "Message envoyé !" : "Message sent!",
+      description: language === "fr"
+        ? "Je vous répondrai dans les plus brefs délais."
+        : "I'll get back to you as soon as possible.",
+    });
     setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
@@ -31,7 +31,7 @@ export const ContactFormSection: React.FC = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="glass rounded-2xl p-8 border border-border space-y-6">
+    <form onSubmit={handleSubmit} className="glass rounded-sm p-8 border border-border space-y-6">
       <div className="grid sm:grid-cols-2 gap-6">
         <div className="space-y-2">
           <label htmlFor="name" className="text-sm font-medium text-foreground">
@@ -44,7 +44,7 @@ export const ContactFormSection: React.FC = () => {
             required
             value={formData.name}
             onChange={handleChange}
-            className="w-full rounded-xl border border-border bg-secondary/30 px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all"
+            className="w-full rounded-sm border border-border bg-secondary/30 px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all"
             placeholder={language === 'fr' ? 'John Doe' : 'John Doe'}
           />
         </div>
@@ -60,7 +60,7 @@ export const ContactFormSection: React.FC = () => {
             required
             value={formData.email}
             onChange={handleChange}
-            className="w-full rounded-xl border border-border bg-secondary/30 px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all"
+            className="w-full rounded-sm border border-border bg-secondary/30 px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all"
             placeholder="john@example.com"
           />
         </div>
@@ -77,7 +77,7 @@ export const ContactFormSection: React.FC = () => {
           required
           value={formData.subject}
           onChange={handleChange}
-          className="w-full rounded-xl border border-border bg-secondary/30 px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all"
+          className="w-full rounded-sm border border-border bg-secondary/30 px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all"
           placeholder={language === 'fr' ? 'Objet de votre message' : 'Subject of your message'}
         />
       </div>
@@ -93,7 +93,7 @@ export const ContactFormSection: React.FC = () => {
           rows={6}
           value={formData.message}
           onChange={handleChange}
-          className="w-full rounded-xl border border-border bg-secondary/30 px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all resize-none"
+          className="w-full rounded-sm border border-border bg-secondary/30 px-4 py-3 text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-all resize-none"
           placeholder={
             language === 'fr'
               ? 'Décrivez votre projet ou votre demande...'
@@ -104,9 +104,9 @@ export const ContactFormSection: React.FC = () => {
 
       <button
         type="submit"
-        className="w-full flex items-center justify-center gap-2 rounded-xl bg-primary px-6 py-4 font-semibold text-primary-foreground transition-all hover:glow-primary hover:scale-[1.02] active:scale-[0.98]"
+        className="w-full flex items-center justify-center gap-2 rounded-sm bg-primary px-6 py-2 font-medium text-primary-foreground transition-all hover:glow-primary hover:scale-[1.02] active:scale-[0.98]"
       >
-        <Send className="h-5 w-5" />
+        <Send className="h-4 w-4" />
         <span>{t('contact.form.send')}</span>
       </button>
     </form>

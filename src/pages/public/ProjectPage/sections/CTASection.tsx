@@ -10,7 +10,7 @@ export const CTASection: React.FC = () => {
   return (
     <section className="text-center mt-12">
       <Link
-        to={contactsInfo.whatsappLink}
+        to={contactsInfo.repository}
         target="_blank"
         rel="noopener noreferrer"
         className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-secondary text-foreground hover:bg-primary hover:text-primary-foreground transition-all"

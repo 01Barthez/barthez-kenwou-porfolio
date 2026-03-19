@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { skillsByCategory } from '@/entities/skills/api/mocks/skillsData.mocks';
-import { Cloud, Code, Database, MonitorSmartphone, Server, ToolboxIcon } from 'lucide-react';
+import { Building, Cloud, Code, Database, MonitorSmartphone, Server, Shield, ToolboxIcon } from 'lucide-react';
 import { SkillBadge } from '@/entities/skills/ui/SkillBadge.ui';
 import { ISkill } from '@/entities/skills';
 
@@ -11,6 +11,7 @@ export const SkillsSection: React.FC = () => {
   const categories = [
     { key: 'cloud', label: 'AWS Cloud', icon: <Cloud className="h-4 w-4 text-primary" /> },
     { key: 'devops', label: 'DevOps', icon: <Server className="h-4 w-4 text-primary" /> },
+    { key: 'devsecops', label: 'DevSecOps', icon: <Shield className="h-4 w-4 text-primary" /> },
     { key: 'backend', label: 'Backend', icon: <Code className="h-4 w-4 text-primary" /> },
     {
       key: 'frontend',
@@ -23,6 +24,7 @@ export const SkillsSection: React.FC = () => {
       label: 'Tools & Environment',
       icon: <ToolboxIcon className="h-4 w-4 text-primary" />,
     },
+    { key: 'architecture', label: 'Architecture & Design', icon: <Building className="h-4 w-4 text-primary" /> }
   ];
 
   return (

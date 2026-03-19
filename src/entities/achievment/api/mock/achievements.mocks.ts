@@ -10,28 +10,18 @@ export const achievements: IAchievement[] = [
   },
   {
     icon: Rocket,
-    value: '25+',
+    value: '20+',
     labelFr: 'Projets réalisés',
     labelEn: 'Completed projects',
   },
-  {
-    icon: Users,
-    value: '15+',
-    labelFr: 'Clients satisfaits',
-    labelEn: 'Happy clients',
-  },
+
   {
     icon: Target,
     value: '99.9%',
     labelFr: 'Taux de disponibilité',
     labelEn: 'Uptime rate',
   },
-  {
-    icon: TrendingUp,
-    value: '35%',
-    labelFr: 'Réduction coûts cloud',
-    labelEn: 'Cloud cost reduction',
-  },
+
   {
     icon: Trophy,
     value: '5+',

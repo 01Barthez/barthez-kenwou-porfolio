@@ -2,7 +2,7 @@ import { HeroSection } from './sections/HeroSection';
 import { ContactInfoSection } from './sections/ContactInfoSection';
 import { ContactFormSection } from './sections/ContactFormSection';
 import { SEO } from '@/shared/ui/SEO/SEO';
-import { CanvasCursor } from '@/shared/ui/canvas-cursor';
+import { MouseParticles } from '@/shared/ui/MouseParticles';
 
 export const ContactPage = () => {
   return (
@@ -29,7 +29,7 @@ export const ContactPage = () => {
         </div>
 
         {/* Background on contact page */}
-        <CanvasCursor />
+        <MouseParticles />
       </div>
     </>
   );

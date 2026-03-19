@@ -6,9 +6,9 @@ export const WhyChooseMeSection: React.FC = () => {
   const { language } = useLanguageStore();
 
   return (
-    <section className="py-20 px-6 bg-secondary/30 relative z-10">
+    <section className="py-10 px-6 bg-secondary/30 relative z-10">
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <h2 className="section-title">
             <span className="gradient-text">
               {language === 'fr' ? 'Pourquoi Me Choisir ?' : 'Why Choose Me?'}
@@ -17,17 +17,18 @@ export const WhyChooseMeSection: React.FC = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-6">
-          {whyMe.map((item, index) => {
+          {whyMe.map((item) => {
             const Icon = item.icon;
 
             return (
               <div
-                key={index}
-                className="flex items-center gap-4 p-4 rounded-xl bg-card border border-border"
+                key={item.textFr}
+                className="flex items-center gap-4 px-4 py-2 rounded-lg bg-card border border-border"
               >
-                <div className="p-2 rounded-lg bg-primary/10">
+                <div className="p-2 rounded-sm bg-primary/10">
                   <Icon className="h-5 w-5 text-primary" />
                 </div>
+
                 <span className="text-foreground">
                   {language === 'fr' ? item.textFr : item.textEn}
                 </span>
