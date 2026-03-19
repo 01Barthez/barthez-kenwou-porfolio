@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ExternalLink, Folder, GitFork, Github, Star } from 'lucide-react';
 import { projectsData } from '@/entities/projets/api/mocks/projectData.mocks';
-import { filters } from '@/shared/constants/filter.const';
+import { skillsByCategory } from '@/entities/skills/api/mocks/skillsData.mocks';
 
 export const GridProject: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -18,7 +18,7 @@ export const GridProject: React.FC = () => {
   return (
     <>
       <div className="flex flex-wrap justify-center gap-2 mb-12">
-        {filters.map((filter) => (
+        {skillsByCategory.map((filter) => (
           <button
             key={filter.id}
             onClick={() => setActiveFilter(filter.id)}
