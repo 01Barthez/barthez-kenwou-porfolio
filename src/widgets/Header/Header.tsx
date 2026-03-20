@@ -25,7 +25,7 @@ export const Header: React.FC = () => {
       </div>
 
       {/* Header remains in place; add spacer to preserve original layout alignment */}
-      <header className="w-full relative flex items-center justify-between p-4">
+      <header className="w-full relative flex items-center justify-between py-10 sm:p-0 mb-0">
         <div className="w-10" aria-hidden />
 
         <div className="relative w-full">

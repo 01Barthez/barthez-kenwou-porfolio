@@ -12,16 +12,16 @@ export const ExperienceCard: React.FC<{ Experience: IExperience }> = ({ Experien
       <div className="absolute -left-2.25 top-0 h-4 w-4 rounded-full bg-primary" />
 
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
-        <h4 className="font-semibold text-foreground">{language === 'fr' ? titleFr : titleEn}</h4>
-        <span className="text-sm text-primary font-mono">{period}</span>
+        <h4 className="font-medium text-sm text-foreground">{language === 'fr' ? titleFr : titleEn}</h4>
+        <span className="text-xs text-primary font-mono">{period}</span>
       </div>
-      <p className="text-sm text-muted-foreground mb-2">
+      <p className="text-sm font-thin uppercase text-muted-foreground mb-2">
         {language === 'fr' ? companyFr : companyEn}
       </p>
 
       <ul className="list-disc list-inside space-y-1">
         {(language === 'fr' ? descriptionFr : descriptionEn).map((desc: string, i: number) => (
-          <li key={i} className="text-sm text-muted-foreground">
+          <li key={i} className="text-xs text-muted-foreground">
             {desc}
           </li>
         ))}

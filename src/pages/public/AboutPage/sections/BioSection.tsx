@@ -6,14 +6,15 @@ export const BioSection: React.FC = () => {
   const { language } = useLanguageStore();
 
   return (
-    <section className="glass rounded-2xl p-8 border border-border animate-fade-in">
-      <div className="flex items-center gap-3 mb-6">
-        <div className="p-3 rounded-xl bg-primary/10">
-          <User className="h-6 w-6 text-primary" />
+    <section className="glass rounded-2xl p-6 border border-border animate-fade-in">
+      <div className="flex items-center gap-3 mb-4">
+        <div className="px-2 py-1 rounded-sm bg-primary/10">
+          <User className="h-4 w-6 text-primary" />
         </div>
         <h3 className="text-xl font-semibold text-foreground">Bio</h3>
       </div>
-      <div className="space-y-4 text-muted-foreground leading-relaxed">
+     
+      <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
         <p>
           {language === 'fr'
             ? "Passionné par le développement web et le cloud computing depuis plus de 3 ans, je me spécialise dans la création d'applications web modernes, performantes et évolutives."

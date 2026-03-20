@@ -23,7 +23,7 @@ export const ServiceSection: React.FC = () => {
                 {isFr ? 'Mes Services' : 'My Services'}
               </span>
             </h2>
-            <p className="text-muted-foreground text-lg max-w-xl leading-relaxed">
+            <p className="text-muted-foreground text-base max-w-xl leading-relaxed">
               {isFr
                 ? 'Ingénieur Cloud & DevOps, je vous aide à bâtir des infrastructures solides, sécurisées et hautement performantes.'
                 : 'Cloud & DevOps Engineer, I help you build solid, secure, and highly performant infrastructures.'}
