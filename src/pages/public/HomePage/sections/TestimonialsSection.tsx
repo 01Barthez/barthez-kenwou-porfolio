@@ -1,5 +1,4 @@
 import { TestimonialCard } from '@/entities/testimonies';
-import { profilePhotos } from '@/shared/assets/images/profilePhotos';
 import { testimonials } from '@/entities/testimonies/api/mocks/testimonials.mocks';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { Image } from '@/shared/ui/Image';

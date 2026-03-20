@@ -68,6 +68,7 @@ export const skillsData = [
   { name: 'TypeScript', category: 'frontend', level: 70, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg' },
   { name: 'Tailwind CSS', category: 'frontend', level: 75, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg' },
   { name: 'Shadcn UI', category: 'frontend', level: 65, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg' },
+  { name: 'Wordpress', category: 'frontend', level: 70, icon: 'https://cdn.simpleicons.org/wordpress/21759B' },
   { name: 'Zustand', category: 'frontend', level: 75, icon: 'https://cdn.simpleicons.org/react/61DAFB' },
   { name: 'Framer Motion', category: 'frontend', level: 75, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/framermotion/framermotion-original.svg' },
   { name: 'SEO (Next.js)', category: 'frontend', level: 80, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg' },
