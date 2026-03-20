@@ -1,9 +1,9 @@
-import { CTASections } from './sections/CTASections';
 import { TestimonialsSection } from './sections/TestimonialsSection';
 import { ProcessSection } from './sections/ProcessSection';
 import { ServicesSection } from './sections/ServicesSection';
 import { HeroSection } from './sections/HeroSection';
 import { SEO } from '@/shared/ui/SEO/SEO';
+import { CTASection } from '../HomePage/sections/CTASection';
 
 export const ServicePage: React.FC = () => {
   return (
@@ -27,8 +27,8 @@ export const ServicePage: React.FC = () => {
           {/* Testimonials */}
           <TestimonialsSection />
 
-          {/* CTA Section */}
-          <CTASections />
+        {/* CTA Section */}
+        <CTASection />
         </div>
       </div>
     </>
