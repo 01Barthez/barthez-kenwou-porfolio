@@ -18,7 +18,7 @@ export const MobileNavbar: React.FC = () => {
   return (
     <div className="xl:hidden">
       {/* Top bar with toggles */}
-      <nav className="fixed top-6 left-0 right-0 z-50 w-full flex items-center justify-between gap-2 px-4 py-0 bg-background/95 backdrop-blur-xl border-b border-border/10">
+      <nav className="fixed top-6 left-0 right-0 z-50 w-full flex items-center justify-between gap-2 px-3 sm:px-6 py-1 backdrop-blur-sm border-b border-border/10">
         <div className="flex items-center gap-1.5">
           <SidebarTrigger className="h-6 w-6 shadow-sm bg-background/80 backdrop-blur-sm ring-1 ring-sidebar-border" />
 
