@@ -18,7 +18,7 @@ export const BlogDetailPage = () => {
   const post = blogPostsData.find((p) => p.id === id);
   const { language } = useLanguageStore();
 
-  if (!post) <NotFoundPost />;
+  if (!post) return <NotFoundPost />;
 
   return (
     <>

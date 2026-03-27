@@ -3,7 +3,7 @@ import { blogPostsData } from '@/entities/blogs/api/mock/blog.mocks';
 import { EmptyBlogCard } from '@/entities/blogs/ui/EmptyBlogCard.ui';
 import { categories } from '@/shared/constants/blogCategories.const';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
-import { Search } from 'lucide-react';
+import { HiOutlineMagnifyingGlass } from 'react-icons/hi2';
 import React, { useState } from 'react';
 
 export const PostsGrid: React.FC = () => {
@@ -22,17 +22,17 @@ export const PostsGrid: React.FC = () => {
 
   return (
     <>
-      <section className="flex flex-col md:flex-row gap-4 mb-12">
+      <section className="flex flex-col md:flex-row gap-4 mb-8">
         {/* Search */}
         <div className="relative flex-1">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+          <HiOutlineMagnifyingGlass className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
 
           <input
             type="text"
             placeholder={language === 'fr' ? 'Rechercher un article...' : 'Search articles...'}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 pr-4 py-3 rounded-xl bg-secondary border border-border focus:border-primary focus:outline-none transition-colors text-foreground"
+            className="w-full pl-9 pr-4 py-2.5 rounded-lg bg-secondary/50 border border-border/50 focus:border-primary/50 focus:outline-none transition-colors text-sm text-foreground placeholder:text-muted-foreground/50"
           />
         </div>
 
@@ -42,10 +42,10 @@ export const PostsGrid: React.FC = () => {
             <button
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`px-4 py-2 rounded-xl font-medium transition-all ${
+              className={`px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all border ${
                 activeCategory === category
-                  ? 'bg-primary text-primary-foreground'
-                  : 'bg-secondary text-muted-foreground hover:text-foreground'
+                  ? 'bg-primary text-primary-foreground border-primary'
+                  : 'bg-secondary/30 text-muted-foreground hover:text-foreground border-border/50'
               }`}
             >
               {category === 'All' ? (language === 'fr' ? 'Tous' : 'All') : category}
@@ -56,15 +56,15 @@ export const PostsGrid: React.FC = () => {
 
       <section>
         {/* Featured Post */}
-        {filteredPosts.length > 0 && (
-          <div className="mb-12">
-            <BlogCard Blog={filteredPosts[0]} />
+        {filteredPosts.length > 0 && activeCategory === 'All' && searchQuery === '' && (
+          <div className="mb-8">
+            <BlogCard Blog={filteredPosts[0]} isFeatured />
           </div>
         )}
 
         {/* Grid post */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {filteredPosts.slice(1).map((blog: IBlog) => (
+          {(activeCategory === 'All' && searchQuery === '' ? filteredPosts.slice(1) : filteredPosts).map((blog: IBlog) => (
             <BlogCard key={blog.id} Blog={blog} />
           ))}
         </div>
