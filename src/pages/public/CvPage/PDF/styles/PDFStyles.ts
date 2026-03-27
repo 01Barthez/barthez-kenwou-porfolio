@@ -1,0 +1,119 @@
+import { StyleSheet } from '@react-pdf/renderer';
+
+export const pdfStyles = StyleSheet.create({
+  page: { 
+    flexDirection: 'column', 
+    backgroundColor: '#FFFFFF', 
+    padding: 30, 
+    fontFamily: 'Helvetica' 
+  },
+  header: { 
+    marginBottom: 15, 
+    borderBottomWidth: 1.5, 
+    borderBottomColor: '#0f172a', 
+    paddingBottom: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between'
+  },
+  headerLeft: {
+    width: '60%'
+  },
+  headerRight: {
+    width: '40%',
+    alignItems: 'flex-end',
+    lineHeight: 1.3
+  },
+  name: { 
+    fontSize: 20, 
+    fontWeight: 'bold', 
+    color: '#0f172a',
+    textTransform: 'uppercase',
+    letterSpacing: 1
+  },
+  title: { 
+    fontSize: 10, 
+    color: '#1e40af', 
+    marginTop: 3,
+    fontWeight: 'bold',
+    textTransform: 'uppercase'
+  },
+  section: {
+    marginBottom: 10
+  },
+  sectionTitleBox: {
+    backgroundColor: '#f1f5f9',
+    paddingVertical: 3,
+    paddingHorizontal: 6,
+    marginBottom: 8,
+    borderLeftWidth: 3,
+    borderLeftColor: '#1e40af'
+  },
+  sectionTitle: {
+    fontSize: 11,
+    fontWeight: 'bold',
+    color: '#0f172a',
+    textTransform: 'uppercase',
+    letterSpacing: 0.5
+  },
+  row: {
+    flexDirection: 'row',
+    marginBottom: 6,
+    pageBreakInside: 'avoid',
+  },
+  leftCol: {
+    width: '22%',
+    paddingRight: 8
+  },
+  rightCol: {
+    width: '78%'
+  },
+  period: {
+    fontSize: 9,
+    color: '#1e40af',
+    fontWeight: 'bold'
+  },
+  text: { 
+    fontSize: 9, 
+    color: '#334155', 
+    lineHeight: 1.3 
+  },
+  boldText: { 
+    fontSize: 10, 
+    fontWeight: 'bold', 
+    color: '#0f172a',
+    marginBottom: 1
+  },
+  company: {
+    fontSize: 9,
+    color: '#64748b',
+    fontStyle: 'italic',
+    marginBottom: 3
+  },
+  bulletList: {
+    marginTop: 2,
+  },
+  bulletItem: {
+    fontSize: 9,
+    color: '#334155',
+    marginBottom: 2,
+    lineHeight: 1.3,
+    paddingLeft: 4
+  },
+  skillGrid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    marginTop: 2
+  },
+  skillPill: {
+    fontSize: 8,
+    backgroundColor: '#f8fafc',
+    color: '#475569',
+    paddingHorizontal: 5,
+    paddingVertical: 2,
+    marginRight: 4,
+    marginBottom: 4,
+    borderRadius: 3,
+    borderWidth: 0.5,
+    borderColor: '#e2e8f0'
+  }
+});
