@@ -10,7 +10,7 @@ export const PublicLayout = () => {
       <div className="w-full flex min-h-screen">
         <AppSidebar />
 
-        <div className="w-full flex-1 flex flex-col">
+        <div className="w-full flex-1 flex flex-col min-w-0">
           <Header />
 
           <main className="flex-1 p-0">

@@ -11,6 +11,7 @@ export {
 export type { LucideIconComponent, StatusConfig } from './model/project.config';
 
 // UI components
+export { FeaturedProjectCard } from './ui/FeaturedProjectCard.ui';
 export { ProjectCard } from './ui/ProjectCard.ui';
 export { ProjectStatusBadge } from './ui/ProjectStatusBadge.ui';
 export { TechBadge } from './ui/TechBadge.ui';
