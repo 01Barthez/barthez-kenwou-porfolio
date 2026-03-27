@@ -267,7 +267,7 @@
   }
 
   .section-subtitle {
-    @apply text-muted-foreground text-lg mb-8;
+    @apply text-muted-foreground text-sm mb-8;
   }
 }
 

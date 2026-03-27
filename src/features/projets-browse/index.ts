@@ -1,4 +1,4 @@
-export { MenuList } from './ui/MenuList.ui';
-export { useMenuBrowse } from './model/useMenuBrowse';
-export { menuService } from './model/menu.service';
-export type { MenuListProps, MenuItem } from './ui/MenuList.ui';
+export { useProjectFilters } from './model/useProjectFilters';
+export type { ProjectFilters } from './model/useProjectFilters';
+export { FilterDropdown } from './ui/FilterDropdown.ui';
+export { ProjectFilterBar } from './ui/ProjectFilterBar.ui';

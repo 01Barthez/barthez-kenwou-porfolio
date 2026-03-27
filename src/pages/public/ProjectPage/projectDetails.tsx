@@ -1,13 +1,9 @@
+import { useEffect } from 'react';
 import { ProjectNotFound } from './sections/ProjectNotFound';
-import { BackSection } from './sections/BackSection';
 import { HeroDetailSection } from './sections/HeroDetailSection';
-import { TitleMeta } from './sections/Title&Meta';
-import { ProjectDescription } from './sections/ProjectDescription';
-import { ChallengesSection } from './sections/ChallengesSection';
-import { SolutionSection } from './sections/SolutionSection';
-import { ResultsSection } from './sections/ResultsSection';
+import { ProjectOverviewSection } from './sections/ProjectOverviewSection';
+import { ImpactSection } from './sections/ImpactSection';
 import { TechStackSection } from './sections/TechStackSection';
-import { NavigationSection } from './sections/NavigationSection';
 import { OtherProjectSection } from './sections/OtherProjectSection';
 import { CTADetailsSection } from './sections/CTADetailsSection';
 import { useParams } from 'react-router-dom';
@@ -17,9 +13,14 @@ import { projectsData } from '@/entities/projets/api/mocks/projectData.mocks';
 import { truncateFonction } from '@/shared/utils/truncateText/helpers';
 
 export const ProjectDetailPage = () => {
-  const { id } = useParams();
-  const project = projectsData.find((p: any) => p.id === id);
+  const { id, projectID } = useParams();
+  const searchId = projectID || id;
+  const project = projectsData.find((p: any) => String(p.id) === searchId);
   const { language } = useLanguageStore();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [searchId]);
 
   if (!project) return <ProjectNotFound />;
 
@@ -39,41 +40,23 @@ export const ProjectDetailPage = () => {
       />
 
       <div className="min-h-screen py-10 px-6">
-        <div className="max-w-5xl mx-auto">
-          {/* Header */}
-          <BackSection />
+        <div className="max-w-6xl mx-auto">
+          {/* Hero Image & Primary Info */}
+          <HeroDetailSection project={project} />
 
-          {/* Hero Image */}
-          <HeroDetailSection />
+          {/* Overview & Core details */}
+          <ProjectOverviewSection project={project} />
 
-          {/* Title & Meta */}
-          <TitleMeta />
-
-          {/* Description */}
-          <ProjectDescription />
-
-          {/* Challenges & Solutions */}
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            {/* Challenges part */}
-            <ChallengesSection />
-
-            {/* Solutions part */}
-            <SolutionSection />
-          </div>
-
-          {/* Results */}
-          <ResultsSection />
+          {/* Impact / Results */}
+          <ImpactSection project={project} />
 
           {/* Tech Stack */}
-          <TechStackSection />
-
-          {/* Navigation */}
-          <NavigationSection />
+          <TechStackSection project={project} />
 
           {/* Other Projects */}
-          <OtherProjectSection />
+          <OtherProjectSection currentProjectId={project.id} />
 
-          {/* CTA */}
+          {/* Strong CTA */}
           <CTADetailsSection />
         </div>
       </div>

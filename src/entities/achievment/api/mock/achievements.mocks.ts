@@ -1,4 +1,4 @@
-import { Trophy, Rocket, Users, Clock, Target, TrendingUp } from 'lucide-react';
+import { Trophy, Rocket, Clock, Target } from 'lucide-react';
 import { IAchievement } from '../../model/achievement.type';
 
 export const achievements: IAchievement[] = [

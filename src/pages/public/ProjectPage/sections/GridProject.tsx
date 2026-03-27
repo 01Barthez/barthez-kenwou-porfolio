@@ -1,131 +1,199 @@
-import { useLanguageStore } from '@/shared/state/useLanguageStore';
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ExternalLink, Folder, GitFork, Github, Star } from 'lucide-react';
-import { projectsData } from '@/entities/projets/api/mocks/projectData.mocks';
+import { Search, ChevronLeft, ChevronRight } from 'lucide-react';
+
+import { useLanguageStore } from '@/shared/state/useLanguageStore';
+import { cn } from '@/shared/lib/utils';
 import { skillsByCategory } from '@/entities/skills/api/mocks/skillsData.mocks';
+import { ProjectCard } from '@/entities/projets';
+import { ProjectFilterBar, useProjectFilters } from '@/features/projets-browse';
+import { Button } from '@/shared/ui/button';
 
-export const GridProject: React.FC = () => {
-  const [activeFilter, setActiveFilter] = useState('all');
-  const { language } = useLanguageStore();
+// ─── Props ──────────────────────────────────────────────────────────────────────
+
+type FilterReturn = ReturnType<typeof useProjectFilters>;
+
+interface GridProjectProps {
+  filterState: FilterReturn;
+}
+
+// ─── Component ──────────────────────────────────────────────────────────────────
+
+export const GridProject: React.FC<GridProjectProps> = ({ filterState }) => {
   const { t } = useTranslation();
+  const { language } = useLanguageStore();
 
-  const filteredProjects =
-    activeFilter === 'all'
-      ? projectsData
-      : projectsData.filter((project) => project.category === activeFilter);
+  const {
+    filters,
+    filteredProjects,
+    availableTechs,
+    availableRoles,
+    availableStatuses,
+    secondaryActiveCount,
+    setCategory,
+    toggleTech,
+    setRole,
+    setStatus,
+    resetSecondaryFilters,
+    resetAllFilters,
+  } = filterState;
+
+  // ─── Pagination Logic ────────────────────────────────────────────────────────
+  const [currentPage, setCurrentPage] = useState(1);
+  const sectionRef = useRef<HTMLElement>(null);
+  const PROJECTS_PER_PAGE = 9;
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [filters, filteredProjects.length]);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    setTimeout(() => {
+      // Offset scrolling slightly higher if there is a fixed header
+      const yOffset = -20; 
+      const element = sectionRef.current;
+      if (element) {
+        const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
+    }, 50);
+  };
+
+  const totalPages = Math.ceil(filteredProjects.length / PROJECTS_PER_PAGE);
+  const startIndex = (currentPage - 1) * PROJECTS_PER_PAGE;
+  const paginatedProjects = filteredProjects.slice(startIndex, startIndex + PROJECTS_PER_PAGE);
+
+  // ─── Filter Options ──────────────────────────────────────────────────────────
+  const categoryFilters = [
+    { id: 'all', labelKey: 'all' },
+    ...Object.keys(skillsByCategory).map((cat) => ({ id: cat, labelKey: cat })),
+  ];
 
   return (
-    <>
-      <div className="flex flex-wrap justify-center gap-2 mb-12">
-        {skillsByCategory.map((filter) => (
-          <button
-            key={filter.id}
-            onClick={() => setActiveFilter(filter.id)}
-            className={`px-5 py-2.5 rounded-xl font-medium transition-all duration-300 ${
-              activeFilter === filter.id
-                ? 'bg-primary text-primary-foreground glow-primary'
-                : 'bg-secondary text-muted-foreground hover:text-foreground hover:bg-secondary/80'
-            }`}
-          >
-            {t(filter.labelKey)}
-          </button>
-        ))}
-      </div>
-
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredProjects.map((project, index) => (
-          <article
-            key={project.id}
-            className="project-card group overflow-hidden"
-            style={{ animationDelay: `${index * 100}ms` }}
-          >
-            {/* Image */}
-            <div className="relative overflow-hidden">
-              <img
-                src={project.image}
-                alt={language === 'fr' ? project.titleFr : project.titleEn}
-                className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent opacity-60" />
-
-              {/* Overlay links */}
-              <div className="absolute inset-0 flex items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity bg-background/50 backdrop-blur-sm">
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 rounded-lg bg-secondary text-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
-                >
-                  <Github className="h-4 w-4" />
-                  <span className="text-sm">{t('projects.code')}</span>
-                </a>
-                <a
-                  href={project.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-primary-foreground hover:glow-primary transition-all"
-                >
-                  <ExternalLink className="h-4 w-4" />
-                  <span className="text-sm">{t('projects.demo')}</span>
-                </a>
-              </div>
-
-              {/* Category badge */}
-              <div className="absolute top-3 left-3">
-                <span className="px-3 py-1 rounded-full bg-primary/90 text-xs font-medium text-primary-foreground uppercase">
-                  {project.category}
-                </span>
-              </div>
-            </div>
-
-            {/* Content */}
-            <div className="p-5">
-              <div className="flex items-start justify-between mb-3">
-                <div className="flex items-center gap-2">
-                  <Folder className="h-5 w-5 text-primary" />
-                  <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
-                    {language === 'fr' ? project.titleFr : project.titleEn}
-                  </h3>
-                </div>
-              </div>
-
-              <p className="text-sm text-muted-foreground mb-4 line-clamp-2">
-                {language === 'fr' ? project.descriptionFr : project.descriptionEn}
-              </p>
-
-              {/* Tags */}
-              <div className="flex flex-wrap gap-1.5 mb-4">
-                {project.tags.slice(0, 4).map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-2 py-1 rounded-md bg-secondary/50 text-xs text-muted-foreground"
-                  >
-                    {tag}
-                  </span>
-                ))}
-                {project.tags.length > 4 && (
-                  <span className="px-2 py-1 rounded-md bg-secondary/50 text-xs text-muted-foreground">
-                    +{project.tags.length - 4}
-                  </span>
+    <section className="mt-12" ref={sectionRef}>
+      {/* ── Category Filter (Primary) ────────────────────────────────────────── */}
+      <div className="flex flex-wrap justify-center gap-3 mb-4 relative z-10">
+        {categoryFilters.map((filter) => {
+          const isActive = filters.category === filter.id;
+          return (
+            <button
+              key={filter.id}
+              type="button"
+              onClick={() => setCategory(filter.id)}
+              className={`relative px-5 py-1.5 cursor-pointer rounded-full text-xs tracking-wide font-bold transition-all duration-300 overflow-hidden group border ${
+                isActive
+                  ? 'bg-primary border-primary text-primary-foreground shadow-xl scale-105 shadow-primary/20'
+                  : 'bg-secondary/40 border-border/40 text-muted-foreground hover:text-foreground hover:border-primary/50 hover:bg-secondary/80'
+              }`}
+            >
+              <span className="relative z-10 flex items-center justify-center gap-2">
+                {t(filter.labelKey)}
+                {isActive && (
+                  <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_10px_white] animate-pulse" />
                 )}
+              </span>
+            </button>
+          );
+        })}
+      </div>
+
+      {/* ── Secondary Filter Bar (Feature layer) ─────────────────────────────── */}
+      <ProjectFilterBar
+        availableTechs={availableTechs}
+        availableRoles={availableRoles}
+        availableStatuses={availableStatuses}
+        activeTechs={filters.techs}
+        activeRole={filters.role}
+        activeStatus={filters.status}
+        secondaryActiveCount={secondaryActiveCount}
+        onTechToggle={toggleTech}
+        onRoleSelect={setRole}
+        onStatusSelect={setStatus}
+        onReset={resetSecondaryFilters}
+      />
+
+      {/* ── Project Grid ─────────────────────────────────────────────────────── */}
+      {filteredProjects.length === 0 ? (
+        <div className="flex flex-col items-center justify-center py-24 text-center animate-fade-in">
+          <div className="p-6 rounded-3xl bg-secondary/30 mb-8 border border-border/50">
+            <Search className="h-12 w-12 text-muted-foreground/30 animate-pulse" />
+          </div>
+          <h3 className="text-2xl font-bold text-foreground mb-3">
+            {language === 'fr' ? 'Aucun projet trouvé' : 'No projects found'}
+          </h3>
+          <p className="text-muted-foreground max-w-sm mx-auto text-base leading-relaxed mb-10">
+            {language === 'fr'
+              ? 'Essaie de modifier tes critères de recherche ou réinitialise tous les filtres pour recommencer.'
+              : 'Try adjusting your search criteria or reset all filters to start over.'}
+          </p>
+          <Button
+            onClick={resetAllFilters}
+            className="rounded-2xl px-8 h-12 shadow-xl shadow-primary/20"
+          >
+            {language === 'fr' ? 'Réinitialiser tous les filtres' : 'Reset all filters'}
+          </Button>
+        </div>
+      ) : (
+        <>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 animate-fade-in">
+            {paginatedProjects.map((project) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                activeTechs={filters.techs}
+                onTechClick={toggleTech}
+              />
+            ))}
+          </div>
+
+          {/* ── Pagination UI ───────────────────────────────────────────────────── */}
+          {totalPages > 1 && (
+            <div className="flex justify-center items-center gap-2">
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={() => handlePageChange(currentPage - 1)}
+                disabled={currentPage === 1}
+                className="rounded-lg border-border/50 hover:border-primary/50 cursor-pointer"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </Button>
+
+              <div className="flex gap-2 p-1 rounded-xl bg-secondary/30 border border-border/50">
+                {Array.from({ length: totalPages }).map((_, i) => {
+                  const pageNumber = i + 1;
+                  const isActive = currentPage === pageNumber;
+                  return (
+                    <button
+                      key={pageNumber}
+                      onClick={() => handlePageChange(pageNumber)}
+                      className={cn(
+                        "w-8 h-8 rounded-lg text-sm font-bold transition-all cursor-pointer",
+                        isActive
+                          ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20 scale-105"
+                          : "text-muted-foreground hover:bg-secondary hover:text-foreground"
+                      )}
+                    >
+                      {pageNumber}
+                    </button>
+                  );
+                })}
               </div>
 
-              {/* Stats */}
-              <div className="flex items-center gap-4 text-sm text-muted-foreground pt-3 border-t border-border">
-                <div className="flex items-center gap-1">
-                  <Star className="h-4 w-4" />
-                  <span>{project.stars}</span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <GitFork className="h-4 w-4" />
-                  <span>{project.forks}</span>
-                </div>
-              </div>
+              <Button
+                variant="outline"
+                size="icon"
+                onClick={() => handlePageChange(currentPage + 1)}
+                disabled={currentPage === totalPages}
+                className="rounded-lg border-border/50 hover:border-primary/50 cursor-pointer"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </Button>
             </div>
-          </article>
-        ))}
-      </div>
-    </>
+          )}
+        </>
+      )}
+    </section>
   );
 };

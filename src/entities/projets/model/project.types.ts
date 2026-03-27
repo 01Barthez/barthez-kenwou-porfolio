@@ -1,6 +1,17 @@
 import { ID } from '@/shared/types';
 
-export type ProjectStatus = 'Ongoing' | 'Completed' | 'preparing' | 'delivered' | 'cancelled';
+export type ProjectStatus = 'Production' | 'En cours' | 'MVP' | 'Archivé';
+
+export type ProjectRole =
+  | 'Lead Developer'
+  | 'Full Stack Developer'
+  | 'DevOps Engineer'
+  | 'Frontend Developer'
+  | 'Backend Developer'
+  | 'Scrum Master'
+  | 'Full Stack JS Developer';
+
+export type ProjectComplexity = 'Débutant' | 'Intermédiaire' | 'Avancé';
 
 export interface ITechStack {
   frontend: string[];
@@ -17,7 +28,7 @@ export interface IProject {
   descriptionEn: string;
   fullDescriptionFr: string;
   fullDescriptionEn: string;
-  image: string;
+  images: string[]; // For carousel
   tags: string[];
   category: string;
   github: string;
@@ -25,16 +36,13 @@ export interface IProject {
   date: string;
   duration: string;
   durationEn: string;
-  challengesFr: string[];
-  challengesEn: string[];
-  solutionsFr: string[];
-  solutionsEn: string[];
-  resultsFr: string[];
-  resultsEn: string[];
+  complexity: ProjectComplexity;
+  teamSize: number;
+  impactFr: string[];
+  impactEn: string[];
   techStack: ITechStack;
-  stars: number;
-  forks: number;
-  ProjectStatus?: ProjectStatus;
+  status?: ProjectStatus;
+  role?: ProjectRole;
   createdAt?: Date;
   updatedAt?: Date;
 }

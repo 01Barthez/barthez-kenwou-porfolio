@@ -24,7 +24,7 @@
     backdrop-filter: blur(20px);
     border: 1px solid var(--glass-border);
   }
-
+  
   .gradient-text {
     background: var(--gradient-primary);
     -webkit-background-clip: text;
@@ -95,7 +95,7 @@
   }
 
   .section-subtitle {
-    @apply text-muted-foreground text-lg mb-8;
+    @apply text-muted-foreground text-sm mb-8;
   }
 }
 
