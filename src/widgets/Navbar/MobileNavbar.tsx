@@ -1,7 +1,9 @@
+import { AiOutlineDownload } from "react-icons/ai"; 
 import { navItems } from '@/shared/constants/navItems.const';
 import { Button } from '@/shared/ui/Button';
 import { LanguageToggle } from '@/shared/ui/LanguageToggle';
 import { ThemeToggle } from '@/shared/ui/ThemeToggle';
+import { SidebarTrigger } from '@/shared/ui/sidebar';
 import { FileDown } from 'lucide-react';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
@@ -16,25 +18,28 @@ export const MobileNavbar: React.FC = () => {
   return (
     <div className="xl:hidden">
       {/* Top bar with toggles */}
-      <nav className="w-full flex items-center justify-between gap-2 px-4 py-2">
-        <div className="flex items-center gap-2">
-          <Button variant={'outline'} asChild className="px-4">
+      <nav className="fixed top-6 left-0 right-0 z-50 w-full flex items-center justify-between gap-2 px-4 py-0 bg-background/95 backdrop-blur-xl border-b border-border/10">
+        <div className="flex items-center gap-1.5">
+          <SidebarTrigger className="h-6 w-6 shadow-sm bg-background/80 backdrop-blur-sm ring-1 ring-sidebar-border" />
+
+          <div className="h-6 w-px bg-border/50 mx-.5" />
+
+          <Button variant={'outline'} asChild className="px-2 h-8">
             <Link to="/blog">
-              <IconBlog className={`h-5 w-5`} />
-              <span className="">{t(textBlog)}</span>
+              <IconBlog className={`h-2 w-2`} />
+              <span className="text-xs">{t(textBlog)}</span>
             </Link>
           </Button>
 
-          <Button asChild className="w-fit">
+          <Button asChild className="w-fit px-2 h-8">
             <Link to="/cv">
-              <FileDown className="mr-1 h-4 w-4" />
-
-              <span className="">{t('nav.cv')}</span>
+              <AiOutlineDownload className="mr-.5 h-2 w-2" />
+              <span className="text-xs">{t('nav.cv')}</span>
             </Link>
           </Button>
         </div>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-0 md:gap-2">
           <ThemeToggle />
           <LanguageToggle />
         </div>
