@@ -1,11 +1,14 @@
 import React from 'react';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
-import { skillsByCategory } from '@/entities/skills/api/mocks/skillsData.mocks';
 import { Building, Cloud, Code, Database, MonitorSmartphone, Server, Shield, ToolboxIcon } from 'lucide-react';
 import { SkillBadge } from '@/entities/skills/ui/SkillBadge.ui';
 import { ISkill } from '@/entities/skills';
 
-export const SkillsSection: React.FC = () => {
+interface SkillsProps {
+  skills: Record<string, ISkill[]>;
+}
+
+export const SkillsSection: React.FC<SkillsProps> = ({ skills }) => {
   const { language } = useLanguageStore();
 
   const categories = [
@@ -46,7 +49,7 @@ export const SkillsSection: React.FC = () => {
             </h4>
 
             <div className="flex flex-wrap gap-1.5">
-              {skillsByCategory[key]?.map((skill: ISkill) => (
+              {skills[key]?.map((skill: ISkill) => (
                 <SkillBadge key={skill.name} Skill={skill} />
               ))}
             </div>

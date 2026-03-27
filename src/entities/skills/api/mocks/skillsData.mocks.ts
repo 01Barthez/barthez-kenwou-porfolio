@@ -108,6 +108,14 @@ export const skillsData = [
   { name: 'High Availability', category: 'architecture', level: 80, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nginx/nginx-original.svg' },
   { name: 'Caching Strategies', category: 'architecture', level: 85, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg' },
   { name: 'Message Queues', category: 'architecture', level: 80, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rabbitmq/rabbitmq-original.svg' },
+
+  // Soft Skills
+  { name: 'Communication', category: 'softSkills', level: 95, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/slack/slack-original.svg' },
+  { name: 'Problem Solving', category: 'softSkills', level: 95, icon: '' },
+  { name: 'Team Leadership', category: 'softSkills', level: 90, icon: '' },
+  { name: 'Adaptability', category: 'softSkills', level: 95, icon: '' },
+  { name: 'Time Management', category: 'softSkills', level: 90, icon: '' },
+  { name: 'Critical Thinking', category: 'softSkills', level: 90, icon: '' },
 ];
 
 // All Categoryies with their respective skills

@@ -1,12 +1,17 @@
+
 import { CTASection } from './sections/CTASection';
 import { LanguageSection } from './sections/LanguageSection';
 import { CertificationSection } from './sections/CertificationSection';
 import { SkillsSection } from './sections/SkillsSection';
+import { SoftSkillsSection } from './sections/SoftSkillsSection';
+import { ReferencesSection } from './sections/ReferencesSection';
 import { ExperienceSection } from './sections/ExperienceSection';
+import { FeaturedProjectsSection } from './sections/FeaturedProjectsSection';
 import { ProfileSection } from './sections/ProfileSection';
 import { HeaderSection } from './sections/HeaderSection';
 import { ButtonsCTASection } from './sections/ButtonsCTASection';
 import { SEO } from '@/shared/ui/SEO/SEO';
+import { cvData } from '@/entities/cv/api/mock/cv-data';
 
 export const CvPage = () => {
   return (
@@ -22,9 +27,9 @@ export const CvPage = () => {
           <ButtonsCTASection />
 
           {/* CV Container */}
-          <div className="bg-card border border-border rounded-2xl overflow-hidden shadow-xl print:shadow-none print:border-none">
+          <div className="mb-10 bg-card border border-border rounded-2xl overflow-hidden shadow-xl print:shadow-none print:border-none">
             {/* Header */}
-            <HeaderSection />
+            <HeaderSection personalInfo={cvData.personalInfo} />
 
             {/* Content */}
             <div className="p-8 print:p-6 space-y-8">
@@ -32,18 +37,30 @@ export const CvPage = () => {
               <ProfileSection />
 
               {/* Experience Section */}
-              <ExperienceSection />
+              <ExperienceSection experiences={cvData.experiences} />
+
+              {/* Featured Projects Section */}
+              <FeaturedProjectsSection projects={cvData.featuredProjects} />
 
               {/* Skills Section */}
-              <SkillsSection />
+              <SkillsSection skills={cvData.skills} />
+
+              {/* Soft Skills Section */}
+              <SoftSkillsSection softSkills={(cvData.skills as any)?.softSkills} />
 
               {/* Certifications Section */}
-              <CertificationSection />
+              <CertificationSection education={cvData.education} />
 
               {/* Languages Section*/}
-              <LanguageSection />
+              <LanguageSection languages={cvData.languages} />
+
+              {/* References Section */}
+              <ReferencesSection references={(cvData as any)?.references} />
             </div>
           </div>
+
+          {/* Action Buttons */}
+          <ButtonsCTASection />
 
           {/* Bottom CTA */}
           <CTASection />

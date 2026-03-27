@@ -1,10 +1,13 @@
-import { contactsInfo } from '@/shared/mocks/constContactInfo.mocks';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { Mail, MapPin, Phone, Linkedin, Github } from 'lucide-react';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export const HeaderSection: React.FC = () => {
+interface HeaderProps {
+  personalInfo: any; // Type from ICvData['personalInfo']
+}
+
+export const HeaderSection: React.FC<HeaderProps> = ({ personalInfo }) => {
   const { language } = useLanguageStore();
 
   return (
@@ -15,34 +18,34 @@ export const HeaderSection: React.FC = () => {
         </div>
         <div className="text-center md:text-left flex-1">
           <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
-            {contactsInfo.name}
+            {personalInfo.name}
           </h1>
           <p className="text-xl text-primary font-semibold mb-1">
-            {language === 'fr' ? contactsInfo.titleFr : contactsInfo.titleEn}
+            {language === 'fr' ? personalInfo.titleFr : personalInfo.titleEn}
           </p>
           <p className="text-muted-foreground font-mono">
-            {language === 'fr' ? contactsInfo.subtitleFr : contactsInfo.subtitleEn}
+            {language === 'fr' ? personalInfo.subtitleFr : personalInfo.subtitleEn}
           </p>
 
           {/* Contact Info */}
           <div className="mt-4 flex flex-wrap gap-4 justify-center md:justify-start text-sm">
             <span className="flex items-center gap-1 text-muted-foreground">
               <Mail className="h-4 w-4" />
-              {contactsInfo.email}
+              {personalInfo.email}
             </span>
             <span className="flex items-center gap-1 text-muted-foreground">
               <Phone className="h-4 w-4" />
-              {contactsInfo.phone}
+              {personalInfo.phone}
             </span>
             <span className="flex items-center gap-1 text-muted-foreground">
               <MapPin className="h-4 w-4" />
-              {contactsInfo.location}
+              {personalInfo.location}
             </span>
           </div>
 
           <div className="mt-2 flex flex-wrap gap-4 justify-center md:justify-start text-sm">
             <Link
-              to={contactsInfo.linkedin}
+              to={personalInfo.linkedin}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1 text-primary hover:underline"
@@ -51,7 +54,7 @@ export const HeaderSection: React.FC = () => {
               LinkedIn
             </Link>
             <Link
-              to={contactsInfo.github}
+              to={personalInfo.github}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-1 text-primary hover:underline"

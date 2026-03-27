@@ -7,7 +7,7 @@ export const contactsInfo = {
   subtitleFr: 'Spécialiste AWS Cloud',
   subtitleEn: 'AWS Cloud Specialist',
   email: 'kenwoubarthez@gmail.com',
-  phone: '+237 655 646 88',
+  phone: '+237 655 646 688',
   whatsappLink: 'https://wa.me/237655646688',
   location: 'Yaounde - Cameroun',
   website: 'barthezkenwou.dev',

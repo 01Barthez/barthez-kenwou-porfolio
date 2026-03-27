@@ -1,10 +1,13 @@
 import { CVExperienceCard, IExperience } from '@/entities/experiences';
-import { experiences } from '@/entities/experiences/api/mocks/experiences.mocks';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { Briefcase } from 'lucide-react';
 import React from 'react';
 
-export const ExperienceSection: React.FC = () => {
+interface ExperienceProps {
+  experiences: IExperience[];
+}
+
+export const ExperienceSection: React.FC<ExperienceProps> = ({ experiences }) => {
   const { language } = useLanguageStore();
 
   return (

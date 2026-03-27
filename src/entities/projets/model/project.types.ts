@@ -43,6 +43,7 @@ export interface IProject {
   techStack: ITechStack;
   status?: ProjectStatus;
   role?: ProjectRole;
+  isFeatured?: boolean;
   createdAt?: Date;
   updatedAt?: Date;
 }

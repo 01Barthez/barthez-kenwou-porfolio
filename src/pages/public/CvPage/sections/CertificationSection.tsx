@@ -1,9 +1,13 @@
-import { CVEducationCard, education, IEducation } from '@/entities/education';
+import { CVEducationCard, IEducation } from '@/entities/education';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { GraduationCap } from 'lucide-react';
 import React from 'react';
 
-export const CertificationSection: React.FC = () => {
+interface CertificationProps {
+  education: IEducation[];
+}
+
+export const CertificationSection: React.FC<CertificationProps> = ({ education }) => {
   const { language } = useLanguageStore();
 
   return (

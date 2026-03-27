@@ -2,20 +2,12 @@ import React from 'react';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { Globe } from 'lucide-react';
 
-export const LanguageSection: React.FC = () => {
+interface LanguageProps {
+  languages: { language: string; proficiencyFr: string; proficiencyEn: string }[];
+}
+
+export const LanguageSection: React.FC<LanguageProps> = ({ languages }) => {
   const { language } = useLanguageStore();
-
-  const languages = [
-    {
-      name: language === 'fr' ? 'Français' : 'French',
-      level: language === 'fr' ? 'Langue maternelle' : 'Native',
-    },
-
-    {
-      name: language === 'fr' ? 'Anglais' : 'English',
-      level: language === 'fr' ? 'Courant (B2/C1)' : 'Fluent (B2/C1)',
-    },
-  ];
 
   return (
     <section>
@@ -28,8 +20,8 @@ export const LanguageSection: React.FC = () => {
       <div className="flex gap-4">
         {languages.map((lang, index) => (
           <div key={index} className="px-4 py-2 rounded-lg bg-secondary/30">
-            <span className="font-medium text-foreground">{lang.name}</span>
-            <span className="text-muted-foreground"> - {lang.level}</span>
+            <span className="font-medium text-foreground">{lang.language}</span>
+            <span className="text-muted-foreground"> - {language === 'fr' ? lang.proficiencyFr : lang.proficiencyEn}</span>
           </div>
         ))}
       </div>
