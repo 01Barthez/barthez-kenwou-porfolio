@@ -4,9 +4,9 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 
 export const ArticleContentSection: React.FC = () => {
-  const { id } = useParams();
+  const { blogID } = useParams();
   const { language } = useLanguageStore();
-  const post = blogPostsData.find((p) => p.id === id) || { contentFr: '', contentEn: '' };
+  const post = blogPostsData.find((p) => p.id === blogID) || { contentFr: '', contentEn: '' };
 
   const content = language === 'fr' ? post.contentFr : post.contentEn;
 

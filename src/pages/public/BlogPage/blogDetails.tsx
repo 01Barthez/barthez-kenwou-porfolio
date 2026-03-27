@@ -14,8 +14,8 @@ import { truncateFonction } from '@/shared/utils/truncateText/helpers';
 import { blogPostsData } from '@/entities/blogs/api/mock/blog.mocks';
 
 export const BlogDetailPage = () => {
-  const { id } = useParams();
-  const post = blogPostsData.find((p) => p.id === id);
+  const { blogID } = useParams();
+  const post = blogPostsData.find((p) => p.id === blogID);
   const { language } = useLanguageStore();
 
   if (!post) return <NotFoundPost />;

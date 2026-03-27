@@ -5,10 +5,10 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 
 export const MetaTagsSection: React.FC = () => {
-  const { id } = useParams();
+  const { blogID } = useParams();
   const { language } = useLanguageStore();
 
-  const post = blogPostsData.find((p) => p.id === id) || {
+  const post = blogPostsData.find((p) => p.id === blogID) || {
     author: '',
     date: '',
     readTime: '',
