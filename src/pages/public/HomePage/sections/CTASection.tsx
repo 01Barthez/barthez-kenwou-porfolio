@@ -17,13 +17,13 @@ export const CTASection: React.FC = () => {
         <GradientDots duration={20} />
       </div>
 
-      <div className="relative  z-10 w-full mx-auto text-center">
-        <div className="p-10 rounded-lg bg-linear-to-br from-primary/20 to-accent/20 border border-primary/30">
-          <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+      <div className="relative z-10 w-full mx-auto text-center">
+        <div className="p-8 md:p-10 rounded-lg bg-linear-to-br from-primary/20 to-accent/20 border border-primary/30">
+          <h2 className="text-xl md:text-2xl font-bold text-foreground mb-3">
             {language === 'fr' ? 'Prêt à Démarrer Votre Projet ?' : 'Ready to Start Your Project?'}
           </h2>
          
-          <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
+          <p className="text-muted-foreground mb-6 max-w-xl mx-auto text-xs md:text-sm font-medium">
             {language === 'fr'
               ? 'Discutons de vos besoins et construisons ensemble une solution qui dépasse vos attentes.'
               : "Let's discuss your needs and build together a solution that exceeds your expectations."}
@@ -33,17 +33,17 @@ export const CTASection: React.FC = () => {
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link
               to="/contact"
-              className="group flex items-center gap-2 rounded-sm bg-primary px-4 py-1.5 text-sm font-medium text-primary-foreground transition-all hover:glow-primary hover:scale-105"
+              className="group flex items-center gap-2 rounded-md bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground transition-all hover:glow-primary hover:scale-105"
             >
               {t('hero.cta.contact')}
-              <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="h-4.5 w-4.5 transition-transform group-hover:translate-x-1" />
             </Link>
 
             <Link
               to={contactsInfo.whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 rounded-sm border border-border bg-secondary/50 px-4 py-1.5 text-sm font-medium text-foreground transition-all hover:border-primary hover:bg-secondary"
+              className="flex items-center gap-2 rounded-md border border-border bg-secondary/50 px-5 py-2 text-sm font-semibold text-foreground transition-all hover:border-primary hover:bg-secondary"
             >
               WhatsApp
             </Link>

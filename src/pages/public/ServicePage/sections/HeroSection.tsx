@@ -6,7 +6,7 @@ export const HeroSection: React.FC = () => {
   const { language } = useLanguageStore();
 
   return (
-    <section className="relative w-full py-10 lg:py-8 mb-10 md:mb-20 overflow-hidden rounded-[2.5rem] glass border border-white/10 dark:border-white/5 bg-gradient-to-b from-background/50 to-secondary/10 shadow-2xl flex flex-col items-center justify-center animate-fade-in">
+    <section className="relative w-full py-8 lg:py-6 mb-10 md:mb-20 overflow-hidden rounded-3xl glass border border-white/10 dark:border-white/5 bg-gradient-to-b from-background/50 to-secondary/10 shadow-2xl flex flex-col items-center justify-center animate-fade-in">
       {/* Decorative Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 max-w-3xl h-64 bg-primary/20 blur-[100px] rounded-full pointer-events-none" />
       

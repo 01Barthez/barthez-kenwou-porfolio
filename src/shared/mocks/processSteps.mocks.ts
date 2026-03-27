@@ -1,32 +1,37 @@
-import { Rocket, CheckCircle2, MessageCircle, Cog } from 'lucide-react';
+import { 
+  HiOutlineChatBubbleLeftRight, 
+  HiOutlineLightBulb, 
+  HiOutlineCommandLine, 
+  HiOutlineCheckBadge 
+} from 'react-icons/hi2';
 
 export const processSteps = [
   {
-    icon: MessageCircle,
-    titleFr: '1. Échange Initial',
-    titleEn: '1. Initial Discussion',
-    descFr: 'Discussion de vos besoins et objectifs',
-    descEn: 'Discussion of your needs and goals',
+    icon: HiOutlineChatBubbleLeftRight,
+    titleFr: 'Découverte & Analyse',
+    titleEn: 'Discovery & Analysis',
+    descFr: 'Compréhension approfondie de vos besoins et définition des objectifs stratégiques.',
+    descEn: 'Deep understanding of your needs and definition of strategic goals.',
   },
   {
-    icon: Cog,
-    titleFr: '2. Proposition',
-    titleEn: '2. Proposal',
-    descFr: 'Devis détaillé et planning',
-    descEn: 'Detailed quote and timeline',
+    icon: HiOutlineLightBulb,
+    titleFr: 'Stratégie & Design',
+    titleEn: 'Strategy & Design',
+    descFr: 'Élaboration d’une solution sur mesure, architecture et planification détaillée.',
+    descEn: 'Development of a tailored solution, architecture and detailed planning.',
   },
   {
-    icon: Rocket,
-    titleFr: '3. Réalisation',
-    titleEn: '3. Implementation',
-    descFr: 'Développement avec suivi régulier',
-    descEn: 'Development with regular updates',
+    icon: HiOutlineCommandLine,
+    titleFr: 'Développement Agile',
+    titleEn: 'Agile Development',
+    descFr: 'Réalisation itérative avec un suivi constant et des retours réguliers.',
+    descEn: 'Iterative implementation with constant monitoring and regular feedback.',
   },
   {
-    icon: CheckCircle2,
-    titleFr: '4. Livraison',
-    titleEn: '4. Delivery',
-    descFr: 'Tests, formation et support',
-    descEn: 'Testing, training and support',
+    icon: HiOutlineCheckBadge,
+    titleFr: 'Livraison & Optimisation',
+    titleEn: 'Delivery & Optimization',
+    descFr: 'Déploiement, tests rigoureux, formation et accompagnement continu.',
+    descEn: 'Deployment, rigorous testing, training and continuous support.',
   },
 ];

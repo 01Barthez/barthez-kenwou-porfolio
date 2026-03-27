@@ -2,77 +2,116 @@ import { processSteps } from '@/shared/mocks/processSteps.mocks';
 import React from 'react';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { cn } from '@/lib/utils';
+import { motion } from 'framer-motion';
 
 export const ProcessSection: React.FC = () => {
   const { language } = useLanguageStore();
 
   return (
-    <section className="mb-20 relative">
-      <div className="text-center mb-12 relative z-10">
-        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-2 tracking-tight">
-          {language === 'fr' ? 'Mon Processus ' : 'My Work '}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500">
-            {language === 'fr' ? 'de Travail' : 'Process'}
-          </span>
-        </h2>
-        <p className="text-muted-foreground text-xs md:text-sm max-w-2xl mx-auto font-medium">
-          {language === 'fr' 
-            ? "Une méthodologie rigoureuse garantissant l'excellence et la fiabilité à chaque étape." 
-            : "A rigorous methodology ensuring excellence and reliability at every stage."}
-        </p>
+    <section className="mb-14 relative py-0">
+      {/* Background Decorative Gradient */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-primary/5 blur-[120px] rounded-full pointer-events-none -z-10" />
+
+      <div className="text-center mb-10 relative z-10">
+        <motion.div
+           initial={{ opacity: 0, y: 20 }}
+           whileInView={{ opacity: 1, y: 0 }}
+           viewport={{ once: true }}
+           transition={{ duration: 0.5 }}
+        >
+          <h2 className="text-lg md:text-xl font-semibold text-foreground mb-1 tracking-tight">
+            {language === 'fr' ? 'Mon Processus ' : 'My Work '}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500">
+              {language === 'fr' ? 'de Travail' : 'Process'}
+            </span>
+          </h2>
+          <div className="w-16 h-1 bg-primary/30 mx-auto rounded-full mb-4" />
+          <p className="text-muted-foreground text-xs md:text-sm max-w-xl mx-auto font-medium leading-relaxed italic opacity-85">
+            {language === 'fr' 
+              ? "Une approche structurée et transparente pour transformer vos idées en solutions numériques d'exception." 
+              : "A structured and transparent approach to transform your ideas into exceptional digital solutions."}
+          </p>
+        </motion.div>
       </div>
 
-      <div className="relative max-w-3xl mx-auto px-4 sm:px-6">
-        {/* Glow Line (Desktop/Tablet) */}
-        <div className="absolute left-[2.25rem] md:left-1/2 top-0 bottom-0 w-[1px] bg-border md:-translate-x-1/2" />
+      <div className="relative max-w-6xl mx-auto px-2 sm:px-3">
+        {/* Central Vertical Line (Visible on md+) */}
+        <div className="absolute left-8 md:left-1/2 top-4 bottom-4 w-[1px] bg-linear-to-b from-transparent via-border to-transparent md:-translate-x-1/2 hidden sm:block" />
 
-        <div className="space-y-8 md:space-y-12 relative z-10">
+        <div className="space-y-6 md:space-y-0 relative z-10">
           {processSteps.map((step, index) => {
             const Icon = step.icon;
             const isEven = index % 2 === 0;
 
             return (
-              <div key={index} className="relative flex flex-col md:flex-row items-center justify-between group">
+              <div key={index} className={cn(
+                "relative flex flex-col md:flex-row items-center justify-between md:py-4 group",
+                !isEven && "md:flex-row-reverse"
+              )}>
                 
-                {/* Mobile fallback line (Only pure mobile < sm) */}
-                <div className="absolute left-6 top-8 bottom-[-2rem] w-[1px] bg-border sm:hidden z-0" />
-
-                {/* Left Side Content Container */}
-                <div className={cn(
-                  "w-full md:w-[45%] flex z-10",
-                  isEven ? "md:justify-end" : "md:justify-start order-last md:order-first"
-                )}>
+                {/* Content Card container */}
+                <motion.div 
+                  className="w-full md:w-[45%] z-10"
+                  initial={{ opacity: 0, x: isEven ? -40 : 40 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.7, delay: index * 0.1, ease: "easeOut" }}
+                >
                   <div className={cn(
-                    "glass p-4 md:p-5 rounded-xl border border-border shadow-sm transition-all duration-300 hover:border-primary/50 relative group/card ml-14 sm:ml-16 md:ml-0 w-full",
-                    isEven ? "text-left md:text-right" : "text-left"
+                    "glass p-3 md:p-4 rounded-lg border border-border/40 shadow-sm transition-all duration-500 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/5 relative group/card ml-14 md:ml-0",
+                    isEven ? "md:text-right" : "md:text-left"
                   )}>
-                    <div className="relative z-10 block">
+                    {/* Subtle inner glow */}
+                    <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity rounded-2xl" />
+                    
+                    <div className="relative z-10">
                       <div className={cn(
-                        "text-primary font-mono text-[10px] font-bold uppercase mb-1.5 opacity-80 flex items-center md:inline-flex tracking-wider",
+                        "flex items-center gap-3 mb-4",
                         isEven ? "md:flex-row-reverse" : "md:flex-row"
                       )}>
-                        <span className="mr-2 md:hidden">0{index + 1}.</span> 
-                        {language === 'fr' ? 'Étape' : 'Step'} 0{index + 1}
+                        <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary text-primary-foreground text-xs font-bold shadow-lg shadow-primary/20">
+                          {index + 1}
+                        </div>
+                        <div className="h-[1px] flex-1 bg-linear-to-r from-primary/30 to-transparent hidden md:block" />
                       </div>
-                      <h3 className="text-sm md:text-base font-semibold text-foreground mb-1.5">
+
+                      <h3 className="text-sm md:text-base font-bold text-foreground mb-3 group-hover/card:text-primary transition-colors duration-300">
                         {language === 'fr' ? step.titleFr : step.titleEn}
                       </h3>
-                      <p className="text-muted-foreground text-xs leading-relaxed">
+                      <p className="text-muted-foreground text-xs leading-relaxed opacity-90">
                         {language === 'fr' ? step.descFr : step.descEn}
                       </p>
                     </div>
-                  </div>
-                </div>
 
-                {/* Center Node Icon */}
-                <div className="absolute left-6 sm:left-[2.25rem] md:left-1/2 -translate-x-1/2 flex items-center justify-center z-20">
-                  <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-background border border-primary/50 shadow-sm flex items-center justify-center transform transition-transform duration-300 group-hover:scale-105 group-hover:border-primary">
-                    <Icon className="h-3.5 w-3.5 md:h-4 md:w-4 text-primary" />
+                    {/* Decorative accent */}
+                    <div className={cn(
+                      "absolute top-1/2 -translate-y-1/2 w-1 h-12 bg-primary/40 rounded-full transition-all duration-500 group-hover/card:h-20 group-hover/card:bg-primary",
+                      isEven ? "right-0" : "left-0"
+                    )} />
                   </div>
-                </div>
+                </motion.div>
 
-                {/* Right Side Spacer for alternate layout */}
-                <div className={cn("w-full md:w-[45%] hidden md:block", isEven ? "order-last" : "")} />
+                {/* Central Icon Node */}
+                <motion.div 
+                  className="absolute left-8 md:left-1/2 -translate-x-1/2 flex items-center justify-center z-20"
+                  initial={{ scale: 0, opacity: 0 }}
+                  whileInView={{ scale: 1, opacity: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ type: "spring", stiffness: 260, damping: 20, delay: 0.3 + index * 0.1 }}
+                >
+                  <div className="group relative">
+                    <div className="absolute inset-0 bg-primary/30 blur-xl rounded-full scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-background border-2 border-primary/20 shadow-xl flex items-center justify-center relative z-10 transition-all duration-500 group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground group-hover:scale-110">
+                      <Icon className="h-3 w-3 md:h-5 md:w-5 transition-transform duration-500 group-hover:rotate-[360deg]" />
+                    </div>
+                  </div>
+                </motion.div>
+
+                {/* Vertical Line Connector (Mobile) */}
+                <div className="absolute left-8 top-12 bottom-[-4rem] w-[1px] bg-border md:hidden z-0 last:hidden" />
+
+                {/* Spacer for Alternate Layout */}
+                <div className="w-full md:w-[45%] hidden md:block" />
               </div>
             );
           })}

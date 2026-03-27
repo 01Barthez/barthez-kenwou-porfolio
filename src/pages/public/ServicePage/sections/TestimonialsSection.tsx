@@ -18,7 +18,7 @@ export const TestimonialsSection: React.FC = () => {
   return (
     <section className="mb-20">
       <div className="text-center mb-12">
-        <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
+        <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4">
           {language === 'fr' ? 'Ce Que Disent Mes Clients' : 'What My Clients Say'}
         </h2>
       </div>
@@ -42,22 +42,22 @@ export const TestimonialsSection: React.FC = () => {
             <AnimatedBlob />
 
             {/* Profile picture part */}
-            <div className="relative z-30 w-[160px] sm:w-[180px] md:w-full max-w-[280px] aspect-square p-2 drop-shadow-2xl overflow-hidden rounded-full md:rounded-[4rem] border-4 border-primary/20 bg-background/50 backdrop-blur-sm">
+            <div className="relative z-30 w-[160px] sm:w-[180px] md:w-full max-w-[280px] aspect-square p-1.5 drop-shadow-2xl overflow-hidden rounded-full md:rounded-3xl border-4 border-primary/20 bg-background/50 backdrop-blur-sm">
               <Lens
                 zoomFactor={1.3}
                 lensSize={110}
                 isStatic={false}
                 ariaLabel="Zoom Area"
               >
-                <Image src={"images/profile.jpeg"} alt="Barthez Kenwou" priority className="object-cover w-full h-full rounded-full md:rounded-[3.5rem] scale-120" />
+                <Image src={"images/profile.jpeg"} alt="Barthez Kenwou" priority className="object-cover w-full h-full rounded-full md:rounded-2xl scale-120" />
               </Lens>
             </div>
           </div>
 
           {/* Mark Twain Quote Section */}
           <div className="relative w-full max-w-[320px] mx-auto opacity-90 hover:opacity-100 transition-opacity duration-500 px-6 md:px-0">
-            <div className="absolute -top-6 -left-2 md:-left-4 text-5xl md:text-6xl text-primary/30 font-serif leading-none select-none">"</div>
-            <p className="relative z-10 text-sm md:text-[15px] italic text-muted-foreground text-center font-medium leading-relaxed">
+            <div className="absolute -top-4 -left-1 md:-left-2 text-3xl md:text-4xl text-primary/30 font-serif leading-none select-none">"</div>
+            <p className="relative z-10 text-[11px] md:text-xs italic text-muted-foreground text-center font-medium leading-relaxed">
               {language === 'fr'
                 ? "« Soyez une référence en matière de qualité. Certaines personnes ne sont pas habituées à un environnement où l'excellence est attendue. »"
                 : "« Be a yardstick of quality. Some people aren't used to an environment where excellence is expected. »"

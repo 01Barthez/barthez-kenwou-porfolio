@@ -19,25 +19,25 @@ export const TestimonialCard = ({
     <figure
       key={id}
       className={cn(
-        'max-w-sm relative h-full w-fit cursor-pointer overflow-hidden rounded-xl border p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-colors',
+        'max-w-sm relative h-full w-fit cursor-pointer overflow-hidden border p-5 rounded-xl bg-card border-border hover:border-primary/30 transition-colors',
       )}
     >
       {/* Stars */}
-      <div className="flex gap-1 mb-4">
+      <div className="flex gap-1 mb-3">
         {[...Array(rating)].map((_, i) => (
-          <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+          <Star key={i} className="h-3.5 w-3.5 fill-primary text-primary" />
         ))}
       </div>
 
       {/* testimonial Text */}
-      <blockquote className="text-muted-foreground mb-4 italic">
+      <blockquote className="text-muted-foreground mb-3 italic text-[13px] leading-relaxed">
         "{language === 'fr' ? textFr : textEn}"
       </blockquote>
 
       {/* About the speaker */}
-      <div>
-        <p className="font-semibold text-foreground">{language === 'fr' ? nameFr : nameEn}</p>
-        <p className="text-sm text-muted-foreground">{language === 'fr' ? roleFr : roleEn}</p>
+      <div className="space-y-0.5">
+        <p className="font-semibold text-foreground text-[13px]">{language === 'fr' ? nameFr : nameEn}</p>
+        <p className="text-[11px] text-muted-foreground">{language === 'fr' ? roleFr : roleEn}</p>
       </div>
     </figure>
   );
