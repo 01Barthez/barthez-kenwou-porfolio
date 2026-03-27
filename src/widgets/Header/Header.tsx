@@ -20,9 +20,7 @@ export const Header: React.FC = () => {
       </div>
 
       {/* Header remains in place; add spacer to preserve original layout alignment */}
-      <header className="w-full relative flex items-center justify-between xl:py-10 mb-0">
-        <div className="w-10" aria-hidden />
-
+      <header className="w-full relative flex items-center justify-between py-0 -mb-10">
         <div className="relative w-full">
           <Navbar />
           <MobileNavbar />

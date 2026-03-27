@@ -27,7 +27,7 @@ export const Navbar: React.FC = () => {
 
   return (
     <header
-      className="fixed top-4 z-40 hidden xl:block transition-all duration-300 ease-in-out"
+      className="fixed m-0 top-4 z-40 hidden xl:block transition-all duration-300 ease-in-out"
       style={navbarStyle}
     >
       <nav className="glass rounded-2xl px-6 py-1 flex items-center gap-6 shadow-lg">
