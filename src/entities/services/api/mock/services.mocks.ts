@@ -1,8 +1,15 @@
-import { Cloud, Server, Code, Shield, Database, Users } from 'lucide-react';
+import { 
+  HiOutlineCloud, 
+  HiOutlineServerStack, 
+  HiOutlineCodeBracketSquare, 
+  HiOutlineShieldCheck, 
+  HiOutlineBolt, 
+  HiOutlineAcademicCap 
+} from 'react-icons/hi2';
 
 export const services = [
   {
-    icon: Cloud,
+    icon: HiOutlineCloud,
     titleFr: 'Architecture Cloud AWS',
     titleEn: 'AWS Cloud Architecture',
     descFr:
@@ -27,7 +34,7 @@ export const services = [
     priceEn: 'Starting at $550',
   },
   {
-    icon: Server,
+    icon: HiOutlineServerStack,
     titleFr: 'DevOps & CI/CD',
     titleEn: 'DevOps & CI/CD',
     descFr:
@@ -52,7 +59,7 @@ export const services = [
     priceEn: 'Starting at $450',
   },
   {
-    icon: Code,
+    icon: HiOutlineCodeBracketSquare,
     titleFr: 'Développement Full Stack',
     titleEn: 'Full Stack Development',
     descFr:
@@ -77,7 +84,7 @@ export const services = [
     priceEn: 'Starting at $350',
   },
   {
-    icon: Shield,
+    icon: HiOutlineShieldCheck,
     titleFr: 'Audit & Sécurité',
     titleEn: 'Audit & Security',
     descFr:
@@ -102,7 +109,7 @@ export const services = [
     priceEn: 'Starting at $650',
   },
   {
-    icon: Database,
+    icon: HiOutlineBolt,
     titleFr: 'Optimisation Performance',
     titleEn: 'Performance Optimization',
     descFr: 'Amélioration des performances de vos applications et réduction des temps de réponse.',
@@ -125,7 +132,7 @@ export const services = [
     priceEn: 'Starting at $400',
   },
   {
-    icon: Users,
+    icon: HiOutlineAcademicCap,
     titleFr: 'Consulting & Formation',
     titleEn: 'Consulting & Training',
     descFr:
