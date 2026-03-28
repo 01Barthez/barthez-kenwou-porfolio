@@ -13,8 +13,7 @@ export const ServiceSection: React.FC = () => {
   const previewServices = services.slice(0, 5);
 
   return (
-    <section className="w-full relative z-10 overflow-hidden">
-      <div className="container py-24">
+    <section className="container py-24 relative z-10 overflow-hidden">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
         {/* Left Column: Content */}
         <div className="flex flex-col items-start space-y-8 animate-fade-in">
@@ -60,7 +59,6 @@ export const ServiceSection: React.FC = () => {
             ))}
           </AnimatedList>
         </div>
-      </div>
       </div>
     </section>
   );

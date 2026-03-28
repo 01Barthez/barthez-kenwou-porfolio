@@ -23,7 +23,7 @@ export const HeroSection: React.FC = () => {
   }, []);
 
   return (
-    <AuroraBackground showRadialGradient className="bg-gradient-to-t border from-background/90 to-transparent overflow-hidden ">
+    <AuroraBackground showRadialGradient className="bg-gradient-to-t from-background/90 to-transparent overflow-hidden ">
       {/* Hero Content */}
       <section className="pt-20 w-full container relative z-30 flex flex-col items-center text-center">
         {/* Greeting badge */}

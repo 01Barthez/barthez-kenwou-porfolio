@@ -12,8 +12,7 @@ export const WhyChooseMeSection: React.FC = () => {
   const sectionTitle = isFr ? 'Pourquoi Me Choisir ?' : 'Why Choose Me?';
 
   return (
-    <section className="w-full py-12 md:py-24 bg-secondary/10 relative z-10 overflow-hidden flex flex-col items-center justify-center">
-      <div className="container">
+    <section className="container mx-auto py-6 bg-secondary/10 relative z-10 overflow-hidden flex flex-col items-center justify-center">
       {/* Decorative background elements */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
@@ -106,7 +105,6 @@ export const WhyChooseMeSection: React.FC = () => {
             </AnimatedSpan>
           </Terminal>
         </div>
-      </div>
       </div>
     </section>
   );
