@@ -31,7 +31,7 @@ export const SidebarHeaderSection: React.FC = () => {
         >
           <button
             onClick={() => setIsGalleryOpen(true)}
-            className={`group/picture relative overflow-hidden flex items-center justify-center rounded-2xl border-2 border-primary/50 hover:border-primary transition-all duration-300 hover:glow-primary ${isExpanded ? 'min-w-28 min-h-28 lg:min-w-40 lg:min-h-40' : 'w-10 h-10'
+            className={`group/picture cursor-pointer relative overflow-hidden flex items-center justify-center rounded-2xl border-2 border-primary/50 hover:border-primary transition-all duration-300 hover:glow-primary ${isExpanded ? 'min-w-28 min-h-28 lg:min-w-40 lg:min-h-40' : 'w-10 h-10'
               }`}
             aria-label="View profile photos"
             title={isExpanded ? 'View profile photos' : 'Barthez Kenwou - View profile'}

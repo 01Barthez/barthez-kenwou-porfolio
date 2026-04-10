@@ -35,14 +35,14 @@ export const SidebarContentSection: React.FC = () => {
             <NavLink
               key={item.id}
               to={item.id}
-              className={`group relative flex items-center rounded-xl transition-all duration-300 ${
+              className={`group relative flex items-center rounded-sm transition-all duration-300 ${
                 isActive
-                  ? 'bg-primary text-primary-foreground glow-primary'
+                  ? 'bg-primary text-primary-foreground'
                   : 'text-muted-foreground hover:bg-secondary hover:text-foreground'
-              } ${isExpanded ? 'gap-3 px-3 py-5' : 'justify-center p-3'}`}
+              } ${isExpanded ? 'gap-3 px-3 py-4' : 'justify-center px-3 py-3'}`}
               aria-label={t(item.labelKey)}
             >
-              <Icon className="h-5 w-5 shrink-0" />
+              <Icon className="h-4 w-4 shrink-0" />
               {isExpanded && <span className="text-sm font-medium">{t(item.labelKey)}</span>}
             </NavLink>
           );

@@ -1,8 +1,8 @@
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
-import { HiOutlineCheckCircle, HiOutlineArrowSmallRight } from 'react-icons/hi2';
+import { HiOutlineCheckCircle } from 'react-icons/hi2';
 import { IServices } from '../model/service.types';
 import { motion } from 'framer-motion';
-import { cn } from '@/lib/utils';
+import { GlowingEffect } from '@/shared/ui/glowing-effect';
 
 export const ServiceCard: React.FC<{ Service: IServices }> = ({ Service }) => {
   const { language } = useLanguageStore();
@@ -21,6 +21,15 @@ export const ServiceCard: React.FC<{ Service: IServices }> = ({ Service }) => {
       whileHover={{ y: -5 }}
       className="group relative flex flex-col h-full bg-card/40 backdrop-blur-sm border border-border/50 rounded-xl p-5 md:p-6 transition-all duration-300 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5"
     >
+      <GlowingEffect
+        spread={60}
+        glow={true}
+        disabled={false}
+        proximity={128}
+        inactiveZone={0}
+        borderWidth={2}
+      />
+
       {/* Decorative Gradient Background */}
       <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl" />
 

@@ -11,14 +11,14 @@ export const CTASection: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="px-0 relative z-10 overflow-hidden">
+    <section className="mx-4 md:mx-10 lg:mx-14  mb-6 md:mb-10 lg:mb-20 relative z-10 overflow-hidden">
       {/* Background Dots */}
       <div className="absolute inset-0 z-0">
         <GradientDots duration={20} />
       </div>
 
-      <div className="relative z-10 w-full mx-auto text-center">
-        <div className="p-8 md:p-10 rounded-lg bg-linear-to-br from-primary/20 to-accent/20 border border-primary/30">
+      <div className="relative z-10 w-full mx-auto text-center overflow-hidden">
+        <div className="p-5 md:p-8 rounded-lg bg-linear-to-br from-primary/20 to-accent/20 border border-primary/30">
           <h2 className="text-xl md:text-2xl font-bold text-foreground mb-3">
             {language === 'fr' ? 'Prêt à Démarrer Votre Projet ?' : 'Ready to Start Your Project?'}
           </h2>

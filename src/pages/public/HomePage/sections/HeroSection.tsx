@@ -25,7 +25,7 @@ export const HeroSection: React.FC = () => {
   return (
     <AuroraBackground showRadialGradient className="bg-gradient-to-t from-background/90 to-transparent overflow-hidden ">
       {/* Hero Content */}
-      <section className="pt-20 w-full container relative z-30 flex flex-col items-center text-center">
+      <section className="pt-20 w-full px-4 md:px-10 lg:px-14 relative z-30 flex flex-col items-center text-center">
         {/* Greeting badge */}
         <div className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/50 px-4 py-1 md:py-1.5 mb-1 backdrop-blur-sm">
           <span className="relative flex h-2 w-2">

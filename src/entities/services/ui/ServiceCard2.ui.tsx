@@ -16,17 +16,17 @@ export const ServiceCard2: React.FC<ServiceCardProps> = ({ service, language }) 
         spread={60}
         glow={true}
         disabled={false}
-        proximity={128} /* Increased proximity so it detects mouse from further away */
-        inactiveZone={0} /* Zero inactive zone for maximal reactivity */
-        borderWidth={2}  /* Explicit border thickness */
+        proximity={128}
+        inactiveZone={0}
+        borderWidth={2}
       />
 
       {/* Card Content Surface (protects inner layout from raw background) */}
-      <div className="relative flex items-center gap-5 py-3 px-4 w-full h-full rounded-[inherit] bg-card/90 backdrop-blur-md border border-border/40 z-10 transition-colors duration-300 group-hover:border-transparent">
-        <div className="flex-shrink-0 p-2 rounded-sm bg-primary/10 text-primary shadow-sm transition-transform duration-300 group-hover:scale-110">
+      <div className="relative flex items-center gap-5 py-2 md:py-3 px-2 md:px-4 w-full h-full rounded-[inherit] bg-card/90 backdrop-blur-md border border-border/40 z-10 transition-colors duration-300 group-hover:border-transparent">
+        <div className="flex-shrink-0 p-1 rounded-sm bg-primary/10 text-primary shadow-xs transition-transform duration-300 group-hover:scale-110">
           <Icon className="h-5 w-5 md:h-6 md:w-6 drop-shadow-sm" />
         </div>
-        
+
         <div className="flex flex-col min-w-0 flex-1">
           <div className="flex items-center justify-between gap-4 mb-0.5">
             <h3 className="text-sm font-bold text-foreground truncate drop-shadow-sm transition-colors duration-300 group-hover:text-primary">

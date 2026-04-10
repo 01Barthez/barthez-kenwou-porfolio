@@ -21,6 +21,7 @@ export const WhyChooseMeSection: React.FC = () => {
           <h2 className="section-title">
             <span className="gradient-text">{sectionTitle}</span>
           </h2>
+        
           <p className="text-muted-foreground mt-4 text-center wrap max-w-2xl mx-auto text-sm md:text-base">
             {isFr
               ? "Une expertise technique au service de vos projets les plus ambitieux."

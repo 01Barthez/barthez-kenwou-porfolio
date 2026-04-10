@@ -15,7 +15,7 @@ export const TestimonialsSection: React.FC = () => {
   const thirdRow = testimonials.slice(0, testimonials.length / 2);
 
   return (
-    <section className="max-w-7xl mx-auto py-20 px-6">
+    <section className="max-w-7xl mx-auto py-20 px-4 md:px-10 lg:px-14">
       <div className="text-center mb-16">
         {/* Title */}
         <h2 className="section-title">
