@@ -22,56 +22,57 @@ export const PostsGrid: React.FC = () => {
 
   return (
     <>
-      <section className="flex flex-col md:flex-row gap-4 mb-8">
-        {/* Search */}
-        <div className="relative flex-1">
-          <HiOutlineMagnifyingGlass className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+      <div className="relative z-20 bg-background py-4 px-4 md:px-10 lg:px-14">
+        <section className="flex flex-col md:flex-row gap-4 mb-4">
+          {/* Search */}
+          <div className="relative flex-1">
+            <HiOutlineMagnifyingGlass className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
 
-          <input
-            type="text"
-            placeholder={language === 'fr' ? 'Rechercher un article...' : 'Search articles...'}
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-4 py-2.5 rounded-lg bg-secondary/50 border border-border/50 focus:border-primary/50 focus:outline-none transition-colors text-sm text-foreground placeholder:text-muted-foreground/50"
-          />
-        </div>
-
-        {/* Categories */}
-        <div className="flex flex-wrap gap-2">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all border ${
-                activeCategory === category
-                  ? 'bg-primary text-primary-foreground border-primary'
-                  : 'bg-secondary/30 text-muted-foreground hover:text-foreground border-border/50'
-              }`}
-            >
-              {category === 'All' ? (language === 'fr' ? 'Tous' : 'All') : category}
-            </button>
-          ))}
-        </div>
-      </section>
-
-      <section>
-        {/* Featured Post */}
-        {filteredPosts.length > 0 && activeCategory === 'All' && searchQuery === '' && (
-          <div className="mb-8">
-            <BlogCard Blog={filteredPosts[0]} isFeatured />
+            <input
+              type="text"
+              placeholder={language === 'fr' ? 'Rechercher un article...' : 'Search articles...'}
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-9 pr-4 py-2.5 rounded-lg bg-secondary/50 border border-border/50 focus:border-primary/50 focus:outline-none transition-colors text-sm text-foreground placeholder:text-muted-foreground/50"
+            />
           </div>
-        )}
 
-        {/* Grid post */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-          {(activeCategory === 'All' && searchQuery === '' ? filteredPosts.slice(1) : filteredPosts).map((blog: IBlog) => (
-            <BlogCard key={blog.id} Blog={blog} />
-          ))}
-        </div>
+          {/* Categories */}
+          <div className="flex flex-wrap gap-2">
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setActiveCategory(category)}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all border ${activeCategory === category
+                    ? 'bg-primary text-primary-foreground border-primary'
+                    : 'bg-secondary/30 text-muted-foreground hover:text-foreground border-border/50'
+                  }`}
+              >
+                {category === 'All' ? (language === 'fr' ? 'Tous' : 'All') : category}
+              </button>
+            ))}
+          </div>
+        </section>
 
-        {/* Empty Blog section */}
-        {filteredPosts.length === 0 && <EmptyBlogCard />}
-      </section>
+        <section className='space-y-4 md:space-y-8'>
+          {/* Featured Post */}
+          {filteredPosts.length > 0 && activeCategory === 'All' && searchQuery === '' && (
+            <div className="">
+              <BlogCard Blog={filteredPosts[0]} isFeatured />
+            </div>
+          )}
+
+          {/* Grid post */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            {(activeCategory === 'All' && searchQuery === '' ? filteredPosts.slice(1) : filteredPosts).map((blog: IBlog) => (
+              <BlogCard key={blog.id} Blog={blog} />
+            ))}
+          </div>
+
+          {/* Empty Blog section */}
+          {filteredPosts.length === 0 && <EmptyBlogCard />}
+        </section>
+      </div>
     </>
   );
 };

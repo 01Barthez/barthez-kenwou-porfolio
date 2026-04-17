@@ -35,7 +35,7 @@ export const BlogDetailPage = () => {
         } | Barthez Kenwou - Passionate DevOps & Full-Stack JS Developer `}
       />
 
-      <div className="min-h-screen py-10 px-6">
+      <div className="min-h-screen pb-10 pt-10 md:pt-32 px-4 md:px-10 lg:px-14">
         <div className="max-w-4xl mx-auto">
           {/* Back Button */}
           <BackSection />

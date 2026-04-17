@@ -33,14 +33,14 @@ export const HeroDetailSection: React.FC<Props> = ({ project }) => {
   };
 
   return (
-    <div className="relative rounded-2xl overflow-hidden mb-12 shadow-xl group border border-border/50">
+    <div className="relative overflow-hidden mb-12 shadow-xl group border border-border/50">
       {/* Media background */}
-      <div className="relative w-full h-[50vh] md:h-[65vh] bg-muted overflow-hidden">
+      <div className="relative w-full h-[50vh] md:h-[60vh] !w-full bg-muted overflow-hidden">
          {/* Back Overlay */}
-         <div className="absolute top-6 left-6 md:top-8 md:left-8 z-30">
+         <div className="absolute top-12 left-6 md:top-28 md:left-8 z-30">
            <Link
              to="/projects"
-             className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-black/40 backdrop-blur-md border border-white/20 text-white hover:bg-black/60 transition-all text-sm shadow-lg hover:shadow-primary/20"
+             className="inline-flex items-center gap-2 px-4 py-1 rounded-lg bg-black/40 backdrop-blur-md border border-white/20 text-white hover:bg-black/60 transition-all text-sm shadow-lg hover:shadow-primary/20"
            >
              <ArrowLeft className="h-4 w-4" />
              {language === 'fr' ? 'Retour aux projets' : 'Back to projects'}
@@ -61,13 +61,8 @@ export const HeroDetailSection: React.FC<Props> = ({ project }) => {
              </div>
              
              {/* Arrows */}
-             <div className="absolute top-1/3 -translate-y-1/2 left-2 md:left-4 flex items-center opacity-0 group-hover:opacity-100 transition-opacity z-20">
-               <button onClick={prev} className="p-2 md:p-3 bg-black/50 text-white rounded-full backdrop-blur-md hover:bg-black/70 hover:scale-110 transition-all cursor-pointer">
-                 <ChevronLeft className="w-5 h-5 md:w-6 md:h-6" />
-               </button>
-             </div>
              <div className="absolute top-1/3 -translate-y-1/2 right-2 md:right-4 flex items-center opacity-0 group-hover:opacity-100 transition-opacity z-20">
-               <button onClick={next} className="p-2 md:p-3 bg-black/50 text-white rounded-full backdrop-blur-md hover:bg-black/70 hover:scale-110 transition-all cursor-pointer">
+               <button onClick={next} className="p-1 bg-black/50 text-white rounded-full backdrop-blur-md hover:bg-black/70 hover:scale-110 transition-all cursor-pointer">
                  <ChevronRight className="w-5 h-5 md:w-6 md:h-6" />
                </button>
              </div>

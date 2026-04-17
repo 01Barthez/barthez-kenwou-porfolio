@@ -16,7 +16,7 @@ export const ProjectOverviewSection: React.FC<{ project: IProject }> = ({ projec
   ];
 
   return (
-    <section className="mb-16 animate-fade-in-up">
+    <section className="mb-16 px-4 md:px-10 lg:px-14 animate-fade-in-up">
       <div className="grid lg:grid-cols-3 gap-12 items-start">
         
         {/* Left Column: Stats */}

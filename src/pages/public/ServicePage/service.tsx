@@ -13,23 +13,21 @@ export const ServicePage: React.FC = () => {
         description="Solutions professionnelles pour transformer vos idées en réalité - Architecture Cloud AWS | DevOps & CI/CD | Développement Full Stack | Audit & Sécurité | Optimisation Performance | Consulting & Formation"
       />
 
-      <div className="min-h-screen py-20 pt-6 pb-0">
-        <div className="max-w-6xl mx-auto">
-          {/* Header */}
-          <HeroSection />
+      <div className="">
+        {/* Header */}
+        <HeroSection />
 
-          {/* Services Grid */}
-          <ServicesSection />
+        {/* Services Grid */}
+        <ServicesSection />
 
-          {/* Process Section */}
-          <ProcessSection />
+        {/* Process Section */}
+        <ProcessSection />
 
-          {/* Testimonials */}
-          <TestimonialsSection />
+        {/* Testimonials */}
+        <TestimonialsSection />
 
         {/* CTA Section */}
         <CTASection />
-        </div>
       </div>
     </>
   );

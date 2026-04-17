@@ -12,19 +12,17 @@ export const ContactPage = () => {
         description="Contactez-Nous | Discutons de votre prochain projet | Barthez Kenwou, Spécialiste dans la création d'applications web modernes, performantes et évolutives. Toujours à la recherche de nouveaux défis, je m'investis continuellement dans l'apprentissage de nouvelles technologies et les meilleures pratiques du secteur pour livrer des solutions toujours robustes, ergonomique et sécurisées."
       />
 
-      <div className="min-h-screen py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          {/* Header */}
-          <HeroSection />
+      <div className="min-h-screen py-20">
+        {/* Header */}
+        <HeroSection />
 
-          <div className="grid lg:grid-cols-3 gap-8">
-            {/* Contact Info */}
-            <ContactInfoSection />
+        <div className="px-4 md:px-10 lg:px-14 grid lg:grid-cols-3 gap-8">
+          {/* Contact Info */}
+          <ContactInfoSection />
 
-            {/* Contact Form */}
-            <div className="lg:col-span-2">
-              <ContactFormSection />
-            </div>
+          {/* Contact Form */}
+          <div className="lg:col-span-2">
+            <ContactFormSection />
           </div>
         </div>
 

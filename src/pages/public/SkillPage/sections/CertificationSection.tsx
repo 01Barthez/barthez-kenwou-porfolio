@@ -1,25 +1,27 @@
 import { certifications } from '@/entities/certifications/api/mocks/certifications.mocks';
 import { CertificationCard } from '@/entities/certifications/ui/certificationCard.ui';
-import { Award } from 'lucide-react';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
+import { FaAward } from 'react-icons/fa6';
 
 export const CertificationSection: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="glass rounded-2xl p-8 border border-border mb-12">
-      <div className="flex items-center gap-3 mb-8">
-        <div className="p-3 rounded-xl bg-primary/10">
-          <Award className="h-6 w-6 text-primary" />
+    <section className="px-4 md:px-10 lg:px-14 mb-6 ">
+      <div className='glass p-3 rounded-lg border border-border'>
+        <div className="flex items-center gap-3 mb-4">
+          <div className="p-2 rounded-sm bg-primary/10">
+            <FaAward className="h-4 w-4 text-primary" />
+          </div>
+          <h2 className="text-2xl font-bold text-foreground">{t('skills.certifications')}</h2>
         </div>
-        <h2 className="text-2xl font-bold text-foreground">{t('skills.certifications')}</h2>
-      </div>
 
-      <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {certifications.map((cert, index) => (
-          <CertificationCard key={index * 5} Certification={cert} />
-        ))}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          {certifications.map((cert, index) => (
+            <CertificationCard key={index * 5} Certification={cert} />
+          ))}
+        </div>
       </div>
     </section>
   );

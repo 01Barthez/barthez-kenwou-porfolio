@@ -17,13 +17,13 @@ export const AboutPage: React.FC = () => {
       />
 
       <div className="min-h-screen max-w-screen mx-auto">
-        <div className="min-h-screen py-20 px-6">
-          <div className="max-w-6xl mx-auto py-12">
+        <div className="min-h-screen py-20">
+          <div className="mx-auto py-12">
             {/* Header */}
             <HeroSection />
 
             {/* Profile Section */}
-            <div className="grid lg:grid-cols-3 gap-8 mb-20">
+            <div className="grid lg:grid-cols-3 gap-8 mb-20 px-4 md:px-10 lg:px-14">
               {/* Profile Card */}
               <div className="lg:col-span-1">
                 <div className="sticky top-24 glass rounded-2xl p-6 border border-border">

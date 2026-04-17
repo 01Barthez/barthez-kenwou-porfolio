@@ -13,20 +13,18 @@ export const SkillPage: React.FC = () => {
         description="Technologies et outils maîtrisés - Cloud AWS | DevOps | FullStack | Web App - Passionné par le développement web et le cloud computing depuis plus de 3 ans, je me spécialise dans la création d'applications web modernes, performantes et évolutives."
       />
 
-      <div className="min-h-screen py-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          {/* Hero Section */}
-          <HeroSection />
+      <div className="min-h-screen py-20">
+        {/* Hero Section */}
+        <HeroSection />
 
-          {/* Skills Section */}
-          <SkillsSection />
+        {/* Skills Section */}
+        <SkillsSection />
 
-          {/* Skills Section */}
-          <CertificationSection />
+        {/* Skills Section */}
+        <CertificationSection />
 
-          {/* Achievment Section */}
-          <AchievmentSection />
-        </div>
+        {/* Achievment Section */}
+        <AchievmentSection />
       </div>
     </>
   );

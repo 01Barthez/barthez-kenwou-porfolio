@@ -20,7 +20,7 @@ export const TechStackSection: React.FC<{ project: IProject }> = ({ project }) =
   if (categories.length === 0) return null;
 
   return (
-    <section className="mb-16 animate-fade-in-up">
+    <section className="mb-16 px-4 md:px-10 lg:px-14 animate-fade-in-up">
       <div className="flex items-center gap-4 mb-8">
         <div className="h-[1px] flex-grow bg-border/50"></div>
         <h2 className="text-2xl font-bold text-foreground px-4 text-center">
@@ -33,15 +33,15 @@ export const TechStackSection: React.FC<{ project: IProject }> = ({ project }) =
         {categories.map((category, idx) => (
           <div 
             key={idx} 
-            className="p-5 rounded-2xl bg-secondary/20 border border-border/40 hover:border-border/80 transition-colors shadow-sm"
+            className="p-2 rounded-lg bg-secondary/20 border border-border/40 hover:border-border/80 transition-colors shadow-sm"
           >
-            <div className="flex items-center gap-3 mb-5">
+            <div className="flex items-center gap-1 mb-2">
               <div className="p-2 rounded-md bg-background text-primary shadow-sm border border-border/30">
                 <category.icon className="w-4 h-4" />
               </div>
               <h3 className="font-bold text-base text-foreground">{category.title}</h3>
             </div>
-            <div className="flex flex-wrap gap-1.5">
+            <div className="flex flex-wrap gap-1">
               {category.items.map(tech => (
                 <div key={tech} className="scale-90 origin-left">
                   <TechBadge tag={tech} />

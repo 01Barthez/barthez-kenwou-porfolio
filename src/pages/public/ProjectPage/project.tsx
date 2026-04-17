@@ -17,15 +17,13 @@ export const ProjectPage = () => {
       />
       <div className="min-h-screen py-20 overflow-hidden">
         {/* Header - Centered */}
-        <div className="max-w-6xl mx-auto px-6">
-          <HeroSection />
-        </div>
+        <HeroSection />
 
         {/* Featured Projects Marquee - Full Width */}
         <FeaturedProjectsMarquee />
 
         {/* Post-Marquee Content - Centered */}
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="px-4 md:px-10 lg:px-14">
           {/* Projects Grid with Filters */}
           <GridProject filterState={filterState} />
 

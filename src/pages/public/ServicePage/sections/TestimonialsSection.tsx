@@ -16,7 +16,7 @@ export const TestimonialsSection: React.FC = () => {
 
 
   return (
-    <section className="mb-20">
+    <section className="mb-20 px-4 md:px-10 lg:px-14">
       <div className="text-center mb-12">
         <h2 className="text-xl md:text-2xl font-bold text-foreground mb-4">
           {language === 'fr' ? 'Ce Que Disent Mes Clients' : 'What My Clients Say'}
@@ -36,20 +36,20 @@ export const TestimonialsSection: React.FC = () => {
               `}</style>
 
         {/* My beautiful and personalise profile picture smiling and the animate shape behind */}
-        <div className="relative md:col-span-1 w-full h-full flex flex-col items-center justify-center gap-6 md:gap-0 mt-4 md:-mt-10">
+        <div className="relative z-5 md:col-span-1 w-full h-full flex flex-col items-center justify-center gap-6 md:gap-0 mt-4 md:-mt-10">
           <div className="relative w-full flex items-center justify-center min-h-[240px] md:min-h-[350px]">
             {/* Animated Shape bloc part */}
             <AnimatedBlob />
 
             {/* Profile picture part */}
-            <div className="relative z-30 w-[160px] sm:w-[180px] md:w-full max-w-[280px] aspect-square p-1.5 drop-shadow-2xl overflow-hidden rounded-full md:rounded-3xl border-4 border-primary/20 bg-background/50 backdrop-blur-sm">
+            <div className="relative z-30 w-[160px] sm:w-[180px] md:w-full max-w-[280px] aspect-square p-1.5 drop-shadow-2xl overflow-hidden !rounded-full md:rounded-3xl border-4 border-primary/20 bg-background/50 backdrop-blur-sm">
               <Lens
                 zoomFactor={1.3}
                 lensSize={110}
                 isStatic={false}
                 ariaLabel="Zoom Area"
               >
-                <Image src={"images/profile.jpeg"} alt="Barthez Kenwou" priority className="object-cover w-full h-full rounded-full md:rounded-2xl scale-120" />
+                <Image src={"images/profile.jpeg"} alt="Barthez Kenwou" priority className="object-cover w-full h-full !rounded-full md:rounded-2xl scale-120" />
               </Lens>
             </div>
           </div>
@@ -96,7 +96,6 @@ export const TestimonialsSection: React.FC = () => {
           {/* Over */}
           <div className="from-background pointer-events-none absolute inset-x-0 top-0 h-1/4 bg-gradient-to-b"></div>
           <div className="from-background pointer-events-none absolute inset-x-0 bottom-0 h-1/4 bg-gradient-to-t"></div>
-          <div className="from-background pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r"></div>
           <div className="from-background pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l"></div>
         </div>
       </div>

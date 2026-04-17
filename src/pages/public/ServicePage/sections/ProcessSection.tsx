@@ -8,7 +8,7 @@ export const ProcessSection: React.FC = () => {
   const { language } = useLanguageStore();
 
   return (
-    <section className="mb-14 relative py-0">
+    <section className="mb-14 relative py-0 px-4 md:px-10 lg:px-14 overflow-hidden">
       {/* Background Decorative Gradient */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-primary/5 blur-[120px] rounded-full pointer-events-none -z-10" />
 

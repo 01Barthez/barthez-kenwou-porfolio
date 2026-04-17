@@ -27,38 +27,34 @@ export const ProjectDetailPage = () => {
   return (
     <>
       <SEO
-        title={`${
-          language === 'fr'
+        title={`${language === 'fr'
             ? truncateFonction(project?.titleFr || '', 24)
             : truncateFonction(project?.titleFr || '', 24)
-        } | Barthez Kenwou - Passionate DevOps & Full-Stack JS Developer `}
-        description={`${
-          language === 'fr'
+          } | Barthez Kenwou - Passionate DevOps & Full-Stack JS Developer `}
+        description={`${language === 'fr'
             ? truncateFonction(project.descriptionFr || '', 160)
             : truncateFonction(project.descriptionEn || '', 160)
-        } | Barthez Kenwou - Passionate DevOps & Full-Stack JS Developer `}
+          } | Barthez Kenwou - Passionate DevOps & Full-Stack JS Developer `}
       />
 
-      <div className="min-h-screen py-10 px-6">
-        <div className="max-w-6xl mx-auto">
-          {/* Hero Image & Primary Info */}
-          <HeroDetailSection project={project} />
+      <div className="min-h-screen">
+        {/* Hero Image & Primary Info */}
+        <HeroDetailSection project={project} />
 
-          {/* Overview & Core details */}
-          <ProjectOverviewSection project={project} />
+        {/* Overview & Core details */}
+        <ProjectOverviewSection project={project} />
 
-          {/* Impact / Results */}
-          <ImpactSection project={project} />
+        {/* Impact / Results */}
+        <ImpactSection project={project} />
 
-          {/* Tech Stack */}
-          <TechStackSection project={project} />
+        {/* Tech Stack */}
+        <TechStackSection project={project} />
 
-          {/* Other Projects */}
-          <OtherProjectSection currentProjectId={project.id} />
+        {/* Other Projects */}
+        <OtherProjectSection currentProjectId={project.id} />
 
-          {/* Strong CTA */}
-          <CTADetailsSection />
-        </div>
+        {/* Strong CTA */}
+        <CTADetailsSection />
       </div>
     </>
   );

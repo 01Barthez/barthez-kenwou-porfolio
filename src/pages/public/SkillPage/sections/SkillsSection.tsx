@@ -21,10 +21,10 @@ export const SkillsSection: React.FC = () => {
   ];
 
   return (
-    <section className="relative w-full py-10 max-w-7xl mx-auto px-6">
+    <section className="relative w-full py-12 max-w-7xl mx-auto">
 
       {/* Top Horizontal Filters */}
-      <div className="flex flex-wrap justify-center gap-3 mb-12">
+      <div className="flex flex-wrap justify-center gap-3 mb-6">
         {filters.map(filter => (
           <button
             key={filter.id}
@@ -39,10 +39,10 @@ export const SkillsSection: React.FC = () => {
         ))}
       </div>
 
-      <div className="flex flex-col md:flex-row gap-6">
+      <div className="flex flex-col md:flex-row gap-6 px-4 md:px-10 lg:px-14">
         {/* Left Column: Progressive Filters */}
         <div className="hidden md:block w-full md:w-1/4 lg:w-1/4 flex-shrink-0">
-          <div className="sticky top-28 flex flex-col gap-2 p-3 rounded-lg bg-card/30 backdrop-blur-md border border-border/50 shadow-xl overflow-hidden isolate relative">
+          <div className="sticky top-28 flex flex-col gap-2 p-3 rounded-sm bg-card/30 backdrop-blur-md border border-border/50 shadow-xl overflow-hidden isolate relative">
             <div className="absolute -top-10 -right-10 w-32 h-32 bg-primary/10 blur-3xl rounded-xs -z-10" />
 
             <div className="flex flex-col gap-1 relative">
@@ -50,7 +50,7 @@ export const SkillsSection: React.FC = () => {
                 <button
                   key={filter.id}
                   onClick={() => setActiveFilter(filter.id)}
-                  className={`relative px-5 py-2.5 text-left w-full rounded-sm font-medium transition-all duration-300 overflow-hidden group ${activeFilter === filter.id
+                  className={`relative px-2 py-1.5 text-left w-full rounded-sm font-medium transition-all duration-300 overflow-hidden group ${activeFilter === filter.id
                     ? 'text-primary-foreground shadow-lg scale-105'
                     : 'text-muted-foreground hover:text-foreground hover:bg-secondary/50'
                     }`}

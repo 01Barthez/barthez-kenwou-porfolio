@@ -16,7 +16,7 @@ export const OtherProjectSection: React.FC<{ currentProjectId: string | number }
   if (relatedProjects.length === 0) return null;
 
   return (
-    <section className="mb-16 animate-fade-in-up">
+    <section className="mb-16 px-4 md:px-10 lg:px-14 animate-fade-in-up">
       <div className="flex items-end justify-between mb-8">
         <div>
           <h2 className="text-2xl font-bold text-foreground mb-1">

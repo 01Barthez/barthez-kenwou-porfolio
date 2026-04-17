@@ -9,8 +9,8 @@ export const CTADetailsSection: React.FC = () => {
   const { language } = useLanguageStore();
 
   return (
-    <section className="text-center animate-fade-in-up">
-      <div className="relative p-8 md:p-12 rounded-lg bg-gradient-to-br from-primary/10 via-background to-secondary/30 border border-primary/20 overflow-hidden shadow-lg">
+    <section className="px-4 md:px-10 lg:px-14 mb-12 text-center animate-fade-in-up">
+      <div className="relative p-8 md:p-8 rounded-sm bg-gradient-to-br from-primary/10 via-background to-secondary/30 border border-primary/20 overflow-hidden shadow-lg">
         {/* Background glow */}
         <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 blur-[100px] rounded-full pointer-events-none" />
         <div className="absolute bottom-0 left-0 w-64 h-64 bg-accent/20 blur-[100px] rounded-full pointer-events-none" />
@@ -27,14 +27,14 @@ export const CTADetailsSection: React.FC = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row justify-center gap-3 w-full sm:w-auto">
-            <Button size="default" className="rounded-xl shadow-lg shadow-primary/20 text-sm px-6 py-3 w-full sm:w-auto" asChild>
+            <Button size="default" className="rounded-xl shadow-lg shadow-primary/20 text-sm px-6 py-2 w-full sm:w-auto" asChild>
               <Link to="/contact">
                 {language === 'fr' ? 'Me Contacter' : 'Contact Me'}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
 
-            <Button size="default" variant="outline" className="rounded-xl border-border/50 hover:bg-green-600 hover:text-white hover:border-green-600 transition-colors text-sm px-6 py-3 w-full sm:w-auto" asChild>
+            <Button size="default" variant="outline" className="rounded-sm border-border/50 hover:bg-green-600 hover:text-white hover:border-green-600 transition-colors text-sm px-6 py-2 w-full sm:w-auto" asChild>
               <Link to={contactsInfo.whatsappLink} target="_blank" rel="noopener noreferrer">
                 <MessageCircle className="mr-2 h-4 w-4" />
                 WhatsApp

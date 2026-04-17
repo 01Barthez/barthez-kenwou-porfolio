@@ -2,7 +2,7 @@ import React from 'react';
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="border-t w-full py-4">
+    <footer className="border-t w-full py-4 px-4 md:px-10 lg:px-14">
       <div className="w-full max-w-7xl mx-auto flex items-center justify-between text-foreground/50 text-sm">
         <div className="">
           &copy;&nbsp;copyrights {new Date().getFullYear()}. All rights reserved.

@@ -6,7 +6,7 @@ export const HeroSection: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="text-center relative mb-16 animate-fade-in">
+    <section className="text-center relative mb-16 pt-16 animate-fade-in">
       <div className="">
         <h1 className="section-title">
           <span className="gradient-text">{t('about.title')}</span>
@@ -15,7 +15,7 @@ export const HeroSection: React.FC = () => {
         <p className="section-subtitle">{t('about.subtitle')}</p>
       </div>
 
-      <RetroGrid className='md:-mt-16 -mt-24' />
+      <RetroGrid className='md:-mt-16 -mt-20' />
     </section>
   );
 };

@@ -10,9 +10,9 @@ export const CertificationCard: React.FC<{ Certification: Icertifications }> = (
   const { name, issuer, year, link } = Certification;
 
   return (
-    <div className="p-4 rounded-xl bg-secondary/30 hover:bg-secondary/50 transition-colors border border-transparent hover:border-primary/30">
-      <h3 className="font-semibold text-foreground mb-1">{name}</h3>
-      <p className="text-sm text-muted-foreground">{issuer}</p>
+    <div className="p-2 rounded-sm bg-secondary/30 hover:bg-secondary/50 transition-colors border border-border hover:border-primary/30">
+      <h3 className="font-medium text-foreground mb-1 text-sm">{name}</h3>
+      <p className="text-xs text-muted-foreground">{issuer}</p>
       <span className="text-xs font-mono text-primary">{year}</span>
       {link && (
         <Link
