@@ -49,7 +49,7 @@ export const ServiceSection: React.FC = () => {
         </div>
 
         {/* Right Column: Interactive Animated List */}
-        <div className="relative h-[360px] md:h-[480px] w-full max-w-[450px] mx-auto lg:ml-auto overflow-hidden">
+        <div className="relative h-[360px] md:h-[480px] w-full max-w-[450px] mx-auto lg:ml-auto overflow-hidden [mask-image:linear-gradient(to_bottom,transparent,black_15%,black_85%,transparent)]">
           <AnimatedList className="px-4 py-8 bg-transparent" delay={1800}>
             {previewServices.map((service, index) => (
               <ServiceCard2 key={index} service={service} language={language} />

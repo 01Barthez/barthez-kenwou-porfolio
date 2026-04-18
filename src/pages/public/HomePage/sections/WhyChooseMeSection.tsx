@@ -12,24 +12,24 @@ export const WhyChooseMeSection: React.FC = () => {
   const sectionTitle = isFr ? 'Pourquoi Me Choisir ?' : 'Why Choose Me?';
 
   return (
-    <section className="container mx-auto py-6 bg-secondary/10 relative z-10 overflow-hidden flex flex-col items-center justify-center">
+    <section className="w-full py-12 md:py-20 px-4 md:px-10 lg:px-14 bg-secondary/10 relative z-10 overflow-hidden flex flex-col items-center justify-center">
       {/* Decorative background elements */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[800px] h-[400px] bg-primary/5 rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="flex flex-col items-center">
-        <div className="text-center mb-8">
+      <div className="flex flex-col items-center w-full max-w-5xl mx-auto">
+        <div className="text-center mb-8 md:mb-12 w-full">
           <h2 className="section-title">
             <span className="gradient-text">{sectionTitle}</span>
           </h2>
-        
-          <p className="text-muted-foreground mt-4 text-center wrap max-w-2xl mx-auto text-sm md:text-base">
+
+          <p className="text-muted-foreground mt-3 md:mt-4 text-center max-w-2xl mx-auto text-sm md:text-base">
             {isFr
               ? "Une expertise technique au service de vos projets les plus ambitieux."
               : "Technical expertise at the service of your most ambitious projects."}
           </p>
         </div>
 
-        <div className="relative w-full max-w-3xl glass px-2 py-2 md:px-20 md:py-6 rounded-2xl glow-primary/20">
+        <div className="relative w-full max-w-2xl glass p-3 sm:p-5 md:p-10 rounded-2xl glow-primary/20">
           <div className="absolute inset-0 z-10 rounded-2xl">
             <Pointer>
               <motion.div
@@ -66,42 +66,42 @@ export const WhyChooseMeSection: React.FC = () => {
             </Pointer>
           </div>
 
-          <Terminal className="relative z-20 bg-background/80 backdrop-blur-xl border-primary/20 shadow-2xl min-h-[420px]">
-            <TypingAnimation className="text-primary font-bold">
+          <Terminal className="relative z-20 bg-background/80 backdrop-blur-xl border-primary/20 shadow-2xl w-full max-w-full">
+            <TypingAnimation className="text-primary font-bold text-xs sm:text-sm md:text-base">
               {isFr ? "$ ls specialites/" : "$ ls core-specialties/"}
             </TypingAnimation>
 
-            <AnimatedSpan className="flex gap-4 flex-wrap text-blue-400 mt-1">
-              <span>aws-expert</span>
-              <span>fullstack-js</span>
-              <span>devops-pro</span>
-              <span>clean-code</span>
+            <AnimatedSpan className="flex gap-2 sm:gap-4 flex-wrap text-blue-400 mt-2 text-xs sm:text-sm md:text-base">
+              <span className="bg-blue-500/10 px-2 py-1 rounded">aws-expert</span>
+              <span className="bg-blue-500/10 px-2 py-1 rounded">fullstack-js</span>
+              <span className="bg-blue-500/10 px-2 py-1 rounded">devops-pro</span>
+              <span className="bg-blue-500/10 px-2 py-1 rounded">clean-code</span>
             </AnimatedSpan>
 
-            <TypingAnimation delay={1000} className="text-primary font-bold mt-4">
+            <TypingAnimation delay={1000} className="text-primary font-bold mt-5 text-xs sm:text-sm md:text-base">
               {isFr ? "$ ./analyser_atouts.sh" : "$ ./analyze_capabilities.sh"}
             </TypingAnimation>
 
-            <AnimatedSpan className="text-muted-foreground">
+            <AnimatedSpan className="text-muted-foreground mt-2 text-xs sm:text-sm md:text-base">
               {isFr ? "Recherche de correspondances..." : "Searching for matches..."}
             </AnimatedSpan>
 
-            <div className="grid gap-2 mt-4">
+            <div className="grid gap-3 sm:gap-4 mt-5">
               {whyMe.map((item, index) => (
-                <AnimatedSpan key={index} delay={index * 500} className="flex items-start gap-3">
-                  <span className="text-green-500 font-bold shrink-0">[ ✓ ]</span>
-                  <span className="text-foreground font-medium">
+                <AnimatedSpan key={index} delay={index * 500} className="flex items-start gap-3 sm:gap-4">
+                  <span className="text-green-500 font-bold shrink-0 mt-[2px] text-sm md:text-base">[ ✓ ]</span>
+                  <span className="text-foreground/90 font-medium text-xs sm:text-sm md:text-base leading-relaxed">
                     {isFr ? item.textFr : item.textEn}
                   </span>
                 </AnimatedSpan>
               ))}
             </div>
 
-            <TypingAnimation delay={4000} className="text-primary font-bold mt-6">
+            <TypingAnimation delay={4000} className="text-primary font-bold mt-8 text-xs sm:text-sm md:text-base break-words">
               {isFr ? "$ echo \"Prêt à collaborer !\"" : "$ echo \"Ready to collaborate!\""}
             </TypingAnimation>
 
-            <AnimatedSpan className="text-accent glow-accent-sm font-bold mt-1">
+            <AnimatedSpan className="text-accent glow-accent-sm font-bold mt-2 text-xs sm:text-sm md:text-base break-words">
               {isFr ? "> Statut : DISPONIBLE POUR COLLABORER" : "> Status: AVAILABLE FOR COLLABORATION"}
             </AnimatedSpan>
           </Terminal>
@@ -110,3 +110,4 @@ export const WhyChooseMeSection: React.FC = () => {
     </section>
   );
 };
+

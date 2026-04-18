@@ -10,10 +10,10 @@ import { cn } from "@/lib/utils"
 
 export function AnimatedListItem({ children }: { children: React.ReactNode }) {
   const animations: MotionProps = {
-    initial: { scale: 0, opacity: 0 },
-    animate: { scale: 1, opacity: 1, originY: 0 },
-    exit: { scale: 0, opacity: 0 },
-    transition: { type: "spring", stiffness: 350, damping: 40 },
+    initial: { scale: 0.8, opacity: 0, y: 60, filter: "blur(20px)" },
+    animate: { scale: 1, opacity: 1, y: 0, filter: "blur(0px)", originY: 0 },
+    exit: { scale: 0.8, opacity: 0, y: -60, filter: "blur(20px)" },
+    transition: { type: "spring", stiffness: 250, damping: 25 },
   }
 
   return (
