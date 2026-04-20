@@ -4,7 +4,6 @@ import { Button } from '@/shared/ui/Button';
 import { LanguageToggle } from '@/shared/ui/LanguageToggle';
 import { ThemeToggle } from '@/shared/ui/ThemeToggle';
 import { SidebarTrigger } from '@/shared/ui/sidebar';
-import { FileDown } from 'lucide-react';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, NavLink, useLocation } from 'react-router-dom';
