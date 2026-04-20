@@ -4,6 +4,7 @@ import { SkillsSection } from './sections/SkillsSection';
 import { AchievmentSection } from './sections/AchievmentSection';
 import { CertificationSection } from './sections/CertificationSection';
 import { SEO } from '@/shared/ui/SEO/SEO';
+import { SmoothCursor } from '@/shared/ui/smooth-cursor';
 
 export const SkillPage: React.FC = () => {
   return (
@@ -25,6 +26,11 @@ export const SkillPage: React.FC = () => {
 
         {/* Achievment Section */}
         <AchievmentSection />
+
+        <>
+          {/* Custum cursor for skill page */}
+          <SmoothCursor />
+        </>
       </div>
     </>
   );

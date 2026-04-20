@@ -10,7 +10,7 @@ import { ShareSection } from './sections/ShareSection';
 import { ArticleContentSection } from './sections/ArticleContentSection';
 import { SEO } from '@/shared/ui/SEO/SEO';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
-import { truncateFonction } from '@/shared/utils/truncateText/helpers';
+import { truncateFonction } from '@/shared/ui/utils/truncateText/helpers';
 import { blogPostsData } from '@/entities/blogs/api/mock/blog.mocks';
 
 export const BlogDetailPage = () => {

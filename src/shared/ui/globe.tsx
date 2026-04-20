@@ -1,0 +1,224 @@
+"use client"
+
+import { useEffect, useRef, useCallback, useMemo } from "react"
+import createGlobe, { type COBEOptions } from "cobe"
+import { useSpring } from "motion/react"
+
+import { cn } from "@/lib/utils"
+import { useThemeStore } from "@/shared/state/useThemeStore"
+
+const MOVEMENT_DAMPING = 1400
+
+// Shared marker/arc data (position + size is theme-independent)
+const MARKERS_DATA = [
+  { location: [49.6116, 6.1300] as [number, number], size: 0.15 },  // Luxembourg
+  { location: [4.0511, 9.7679] as [number, number], size: 0.13 },   // Cameroun – Douala
+  { location: [48.8566, 2.3522] as [number, number], size: 0.10 },  // France – Paris
+  { location: [40.7128, -74.0060] as [number, number], size: 0.09 },// USA – New York
+  { location: [51.5072, -0.1276] as [number, number], size: 0.08 }, // UK – London
+  { location: [35.6764, 139.6500] as [number, number], size: 0.07 },// Japon – Tokyo
+  { location: [52.5200, 13.4050] as [number, number], size: 0.08 }, // Allemagne – Berlin
+  { location: [37.7749, -122.4194] as [number, number], size: 0.07 },// USA – San Francisco
+]
+
+const LUX: [number, number] = [49.6116, 6.1300]
+const DLA: [number, number] = [4.0511, 9.7679]
+
+const ARCS_DATA = [
+  { from: LUX, to: DLA },
+  { from: LUX, to: [48.8566, 2.3522] as [number, number] },
+  { from: LUX, to: [40.7128, -74.0060] as [number, number] },
+  { from: LUX, to: [51.5072, -0.1276] as [number, number] },
+  { from: LUX, to: [35.6764, 139.6500] as [number, number] },
+  { from: LUX, to: [52.5200, 13.4050] as [number, number] },
+  { from: DLA, to: [48.8566, 2.3522] as [number, number] },
+]
+
+// ─── Dark mode config ────────────────────────────────────────────────
+const DARK_CONFIG: Omit<COBEOptions, "width" | "height"> = {
+  devicePixelRatio: 2,
+  phi: 0,
+  theta: 0.15,
+  dark: 1,
+  diffuse: 1.2,
+  mapSamples: 40000,
+  mapBrightness: 6,
+  baseColor: [0.18, 0.10, 0.35],
+  markerColor: [0.49, 0.23, 0.93],
+  glowColor: [0.25, 0.12, 0.50],
+  scale: 1.05,
+  offset: [0, 0],
+  markerElevation: 0.03,
+  arcColor: [0.49, 0.23, 0.93],
+  arcWidth: 2,
+  arcHeight: 0.5,
+  arcs: ARCS_DATA.map((a) => ({
+    ...a,
+    color: [0.49, 0.23, 0.93] as [number, number, number],
+  })),
+  markers: MARKERS_DATA.map((m, i) => ({
+    ...m,
+    color: i < 2
+      ? [0.49, 0.23, 0.93] as [number, number, number]  // primary purple
+      : i % 2 === 0
+        ? [0.35, 0.20, 0.80] as [number, number, number]  // mid purple
+        : [0.12, 0.67, 0.93] as [number, number, number], // gradient blue
+  })),
+}
+
+// ─── Light mode config ───────────────────────────────────────────────
+// Light mode: bright globe with subtle purple accents on a white surface
+const LIGHT_CONFIG: Omit<COBEOptions, "width" | "height"> = {
+  devicePixelRatio: 2,
+  phi: 0,
+  theta: 0.15,
+  dark: 0,
+  diffuse: 2,
+  mapSamples: 40000,
+  mapBrightness: 1.5,
+  baseColor: [1, 1, 1],
+  markerColor: [0.49, 0.23, 0.93],
+  glowColor: [0.88, 0.85, 0.95],
+  scale: 1.05,
+  offset: [0, 0],
+  markerElevation: 0.03,
+  arcColor: [0.40, 0.18, 0.80],
+  arcWidth: 2,
+  arcHeight: 0.5,
+  arcs: ARCS_DATA.map((a) => ({
+    ...a,
+    color: [0.40, 0.18, 0.80] as [number, number, number],
+  })),
+  markers: MARKERS_DATA.map((m, i) => ({
+    ...m,
+    color: i < 2
+      ? [0.49, 0.23, 0.93] as [number, number, number]  // primary purple
+      : i % 2 === 0
+        ? [0.30, 0.15, 0.70] as [number, number, number]  // darker purple
+        : [0.08, 0.50, 0.85] as [number, number, number], // deeper blue
+  })),
+}
+
+export function Globe({
+  className,
+}: {
+  className?: string
+}) {
+  const theme = useThemeStore((s) => s.theme)
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const pointerInteracting = useRef<number | null>(null)
+  const phiRef = useRef(0)
+  const globeRef = useRef<ReturnType<typeof createGlobe> | null>(null)
+  const animationRef = useRef<number>(0)
+
+  const springValue = useSpring(0, {
+    mass: 1,
+    damping: 30,
+    stiffness: 100,
+  })
+
+  const config = useMemo(
+    () => (theme === "dark" ? DARK_CONFIG : LIGHT_CONFIG),
+    [theme]
+  )
+
+  const updatePointerInteraction = (value: number | null) => {
+    pointerInteracting.current = value
+    if (canvasRef.current) {
+      canvasRef.current.style.cursor = value !== null ? "grabbing" : "grab"
+    }
+  }
+
+  const updateMovement = (clientX: number) => {
+    if (pointerInteracting.current !== null) {
+      const delta = clientX - pointerInteracting.current
+      springValue.set(springValue.get() + delta / MOVEMENT_DAMPING)
+    }
+  }
+
+  const animate = useCallback(() => {
+    if (!globeRef.current) return
+
+    if (!pointerInteracting.current) {
+      phiRef.current += 0.02
+    }
+
+    globeRef.current.update({
+      phi: phiRef.current + springValue.get(),
+    })
+
+    animationRef.current = requestAnimationFrame(animate)
+  }, [springValue])
+
+  useEffect(() => {
+    if (!canvasRef.current) return
+
+    const canvas = canvasRef.current
+    const width = canvas.offsetWidth
+
+    // Destroy previous globe if it exists (theme change)
+    if (globeRef.current) {
+      cancelAnimationFrame(animationRef.current)
+      globeRef.current.destroy()
+      globeRef.current = null
+    }
+
+    globeRef.current = createGlobe(canvas, {
+      ...config,
+      width: width * 2,
+      height: width * 2,
+    })
+
+    // Start animation loop
+    animationRef.current = requestAnimationFrame(animate)
+
+    // Fade in
+    setTimeout(() => {
+      canvas.style.opacity = "1"
+    }, 0)
+
+    const onResize = () => {
+      if (!canvasRef.current || !globeRef.current) return
+      const w = canvasRef.current.offsetWidth
+      globeRef.current.update({
+        width: w * 2,
+        height: w * 2,
+      })
+    }
+
+    window.addEventListener("resize", onResize)
+
+    return () => {
+      cancelAnimationFrame(animationRef.current)
+      globeRef.current?.destroy()
+      globeRef.current = null
+      window.removeEventListener("resize", onResize)
+    }
+  }, [config, animate])
+
+  return (
+    <div
+      className={cn(
+        "absolute inset-0 mx-auto aspect-square w-full",
+        className
+      )}
+    >
+      <canvas
+        className={cn(
+          "size-full opacity-0 transition-opacity duration-500 contain-[layout_paint_size]"
+        )}
+        ref={canvasRef}
+        onPointerDown={(e) => {
+          pointerInteracting.current = e.clientX
+          updatePointerInteraction(e.clientX)
+        }}
+        onPointerUp={() => updatePointerInteraction(null)}
+        onPointerOut={() => updatePointerInteraction(null)}
+        onMouseMove={(e) => updateMovement(e.clientX)}
+        onTouchMove={(e) =>
+          e.touches[0] && updateMovement(e.touches[0].clientX)
+        }
+      />
+    </div>
+  )
+}

@@ -10,7 +10,7 @@ import { useParams } from 'react-router-dom';
 import { SEO } from '@/shared/ui/SEO/SEO';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { projectsData } from '@/entities/projets/api/mocks/projectData.mocks';
-import { truncateFonction } from '@/shared/utils/truncateText/helpers';
+import { truncateFonction } from '@/shared/ui/utils/truncateText/helpers';
 
 export const ProjectDetailPage = () => {
   const { id, projectID } = useParams();

@@ -29,7 +29,7 @@ export const SkillsSection: React.FC = () => {
           <button
             key={filter.id}
             onClick={() => setActiveFilter(filter.id)}
-            className={`px-3 py-1 cursor-pointer rounded-sm font-medium text-sm md:text-base transition-all duration-300 border ${activeFilter === filter.id
+            className={`px-3 py-1 cursor-pointer capitalize rounded-sm font-medium text-sm md:text-base transition-all duration-300 border ${activeFilter === filter.id
               ? 'bg-primary/90 border-primary text-primary-foreground shadow-[0_0_6px_rgba(59,130,246,0.5)]'
               : 'bg-secondary/50 border-border/50 text-muted-foreground hover:text-foreground hover:border-primary/50'
               }`}
@@ -60,7 +60,7 @@ export const SkillsSection: React.FC = () => {
                     <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-90 z-0" />
                   )}
 
-                  <span className="relative z-10 flex items-center justify-between text-sm uppercase tracking-wider font-bold">
+                  <span className="relative z-10 flex items-center justify-between text-sm capitalize font-bold">
                     {t(filter.labelKey)}
                     {activeFilter === filter.id && (
                       <span className="w-2 h-2 rounded-full bg-white opacity-90 shadow-[0_0_2px_white] animate-pulse" />

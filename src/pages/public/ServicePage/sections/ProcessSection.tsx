@@ -3,21 +3,19 @@ import React from 'react';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
+import { Globe } from '@/shared/ui/globe';
 
 export const ProcessSection: React.FC = () => {
   const { language } = useLanguageStore();
 
   return (
     <section className="mb-14 relative py-0 px-4 md:px-10 lg:px-14 overflow-hidden">
-      {/* Background Decorative Gradient */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-primary/5 blur-[120px] rounded-full pointer-events-none -z-10" />
-
       <div className="text-center mb-10 relative z-10">
         <motion.div
-           initial={{ opacity: 0, y: 20 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true }}
-           transition={{ duration: 0.5 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
         >
           <h2 className="text-lg md:text-xl font-semibold text-foreground mb-1 tracking-tight">
             {language === 'fr' ? 'Mon Processus ' : 'My Work '}
@@ -27,14 +25,24 @@ export const ProcessSection: React.FC = () => {
           </h2>
           <div className="w-16 h-1 bg-primary/30 mx-auto rounded-full mb-4" />
           <p className="text-muted-foreground text-xs md:text-sm max-w-xl mx-auto font-medium leading-relaxed italic opacity-85">
-            {language === 'fr' 
-              ? "Une approche structurée et transparente pour transformer vos idées en solutions numériques d'exception." 
+            {language === 'fr'
+              ? "Une approche structurée et transparente pour transformer vos idées en solutions numériques d'exception."
               : "A structured and transparent approach to transform your ideas into exceptional digital solutions."}
           </p>
         </motion.div>
       </div>
 
       <div className="relative max-w-6xl mx-auto px-2 sm:px-3">
+        {/* Background Decorative Gradient */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-primary/5 blur-[120px] rounded-full pointer-events-none -z-10" />
+
+        {/* Central Background Globe */}
+        <div className="absolute z-5 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[800px] aspect-square pointer-events-none -z-20 select-none opacity-40 dark:opacity-25 flex items-center justify-center">
+          <Globe />
+          {/* Subtle ambient glow behind the globe */}
+          <div className="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1/2 h-1/2 bg-primary/20 blur-[100px] rounded-full" />
+        </div>
+
         {/* Central Vertical Line (Visible on md+) */}
         <div className="absolute left-8 md:left-1/2 top-4 bottom-4 w-[1px] bg-linear-to-b from-transparent via-border to-transparent md:-translate-x-1/2 hidden sm:block" />
 
@@ -48,9 +56,9 @@ export const ProcessSection: React.FC = () => {
                 "relative flex flex-col md:flex-row items-center justify-between md:py-4 group",
                 !isEven && "md:flex-row-reverse"
               )}>
-                
+
                 {/* Content Card container */}
-                <motion.div 
+                <motion.div
                   className="w-full md:w-[45%] z-10"
                   initial={{ opacity: 0, x: isEven ? -40 : 40 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -63,7 +71,7 @@ export const ProcessSection: React.FC = () => {
                   )}>
                     {/* Subtle inner glow */}
                     <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity rounded-2xl" />
-                    
+
                     <div className="relative z-10">
                       <div className={cn(
                         "flex items-center gap-3 mb-4",
@@ -92,7 +100,7 @@ export const ProcessSection: React.FC = () => {
                 </motion.div>
 
                 {/* Central Icon Node */}
-                <motion.div 
+                <motion.div
                   className="absolute left-8 md:left-1/2 -translate-x-1/2 flex items-center justify-center z-20"
                   initial={{ scale: 0, opacity: 0 }}
                   whileInView={{ scale: 1, opacity: 1 }}

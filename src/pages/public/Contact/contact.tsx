@@ -18,7 +18,7 @@ export const ContactPage = () => {
         {/* Header */}
         <HeroSection />
 
-        <div className="px-4 md:px-10 lg:px-14 grid lg:grid-cols-3 gap-4">
+        <div className="px-4 md:px-10 lg:px-14 grid lg:grid-cols-3 gap-4 -mt-6">
           {/* Contact Info */}
           <ContactInfoSection />
 
