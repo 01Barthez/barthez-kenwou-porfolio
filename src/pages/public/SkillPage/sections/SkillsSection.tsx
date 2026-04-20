@@ -30,7 +30,7 @@ export const SkillsSection: React.FC = () => {
             key={filter.id}
             onClick={() => setActiveFilter(filter.id)}
             className={`px-3 py-1 cursor-pointer rounded-sm font-medium text-sm md:text-base transition-all duration-300 border ${activeFilter === filter.id
-              ? 'bg-primary/90 border-primary text-primary-foreground shadow-[0_0_15px_rgba(59,130,246,0.5)]'
+              ? 'bg-primary/90 border-primary text-primary-foreground shadow-[0_0_6px_rgba(59,130,246,0.5)]'
               : 'bg-secondary/50 border-border/50 text-muted-foreground hover:text-foreground hover:border-primary/50'
               }`}
           >
@@ -63,7 +63,7 @@ export const SkillsSection: React.FC = () => {
                   <span className="relative z-10 flex items-center justify-between text-sm uppercase tracking-wider font-bold">
                     {t(filter.labelKey)}
                     {activeFilter === filter.id && (
-                      <span className="w-2 h-2 rounded-full bg-white opacity-90 shadow-[0_0_10px_white] animate-pulse" />
+                      <span className="w-2 h-2 rounded-full bg-white opacity-90 shadow-[0_0_2px_white] animate-pulse" />
                     )}
                   </span>
 
@@ -84,7 +84,7 @@ export const SkillsSection: React.FC = () => {
               <IconCloud images={imageIcon} />
             </div>
           ) : (
-            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 mb-20 animate-fade-in">
+            <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 sm:gap-2 md:gap-6 mb-20 animate-fade-in">
               {filteredSkills.map((skill) => (
                 <SkillCard key={skill.name} Skill={skill} />
               ))}

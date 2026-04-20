@@ -3,6 +3,7 @@ import { ContactInfoSection } from './sections/ContactInfoSection';
 import { ContactFormSection } from './sections/ContactFormSection';
 import { SEO } from '@/shared/ui/SEO/SEO';
 import { MouseParticles } from '@/shared/ui/MouseParticles';
+import { EndContact } from './sections/EndContact';
 
 export const ContactPage = () => {
   return (
@@ -16,7 +17,7 @@ export const ContactPage = () => {
         {/* Header */}
         <HeroSection />
 
-        <div className="px-4 md:px-10 lg:px-14 grid lg:grid-cols-3 gap-8">
+        <div className="px-4 md:px-10 lg:px-14 grid lg:grid-cols-3 gap-4">
           {/* Contact Info */}
           <ContactInfoSection />
 
@@ -24,6 +25,10 @@ export const ContactPage = () => {
           <div className="lg:col-span-2">
             <ContactFormSection />
           </div>
+        </div>
+
+        <div className="px-4 md:px-10 lg:px-14 mt-4 md:mt-4">
+            <EndContact />
         </div>
 
         {/* Background on contact page */}

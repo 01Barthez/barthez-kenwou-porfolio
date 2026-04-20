@@ -4,7 +4,7 @@ export const SkillCard: React.FC<{ Skill: ISkill }> = ({ Skill }) => {
   const { name, category, level, icon } = Skill;
 
   return (
-    <div className="group relative flex flex-col p-3 rounded-lg bg-transparent border border-border/50 hover:border-primary/50 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgba(59,130,246,0.15)] isolate cursor-pointer">
+    <div className="group relative flex flex-col p-2 rounded-sm bg-transparent border border-border/50 hover:border-primary/50 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[2px_2px_4px_rgba(59,130,246,0.15)] isolate cursor-default">
       
       {/* Animated blob effect inside the card */}
       <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/20 blur-3xl rounded-full group-hover:scale-150 transition-transform duration-700 pointer-events-none -z-10" />
@@ -20,17 +20,17 @@ export const SkillCard: React.FC<{ Skill: ISkill }> = ({ Skill }) => {
         </div>
       </div>
 
-      <div className="z-10">
-        <h3 className="text-lg font-bold text-foreground mb-1 group-hover:text-primary transition-colors duration-300">
+      <div className="z-10 text-center">
+        <h3 className="text-sm font-bold text-foreground mb-0.5 group-hover:text-primary transition-colors duration-300">
           {name}
         </h3>
-        <p className="text-xs uppercase tracking-widest text-muted-foreground font-semibold">
+        <p className="text-xs text-muted-foreground font-semibold">
           {category}
         </p>
       </div>
 
       {/* Progress Bar (Glow line style) */}
-      <div className="mt-3 relative w-full h-[3px] bg-secondary/50 rounded-full overflow-hidden z-10">
+      <div className="mt-2 relative mx-auto w-[60px] h-[3px] bg-black/50 rounded-full overflow-hidden z-10">
         <div 
           className="absolute top-0 left-0 h-full bg-gradient-to-r from-primary to-accent rounded-full transition-all duration-1000 ease-out group-hover:shadow-[0_0_8px_rgba(59,130,246,0.8)]"
           style={{ width: `${level}%` }}

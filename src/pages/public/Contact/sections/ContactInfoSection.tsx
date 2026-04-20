@@ -27,18 +27,16 @@ export const ContactInfoSection: React.FC = () => {
         icon={HiOutlineMapPin}
         label={t('contact.info.location')}
         value="Yaoundé, Cameroun"
-        colorClass="text-accent"
       />
 
       <ContactInfoCard 
         icon={HiOutlineClock}
         label={t('contact.info.availability')}
         value={t('contact.info.available')}
-        colorClass="text-green-500"
       />
 
       {/* Social Links */}
-      <div className="glass rounded-xl p-5 border border-border/50 transition-colors">
+      <div className="glass rounded-sm p-3 border border-border/50 transition-colors">
         <h3 className="text-xs uppercase tracking-widest font-bold text-foreground/70 mb-5">
           {language === 'fr' ? 'Réseaux sociaux' : 'Social Networks'}
         </h3>
@@ -48,15 +46,14 @@ export const ContactInfoSection: React.FC = () => {
             label="GitHub"
             value="01Barthez"
             href={contactsInfo.github}
-            className="flex-col items-start !p-3"
+            className="flex-col items-start !p-1.5"
           />
           <ContactInfoCard 
             icon={FaLinkedin}
             label="LinkedIn"
             value="Barthez Kenwou"
             href={contactsInfo.linkedin}
-            className="flex-col items-start !p-3"
-            colorClass="text-blue-500"
+            className="flex-col items-start !p-1.5"
           />
         </div>
       </div>

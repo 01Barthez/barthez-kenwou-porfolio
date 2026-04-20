@@ -7,7 +7,7 @@ export const BackSection: React.FC = () => {
   const { language } = useLanguageStore();
 
   return (
-    <div className="mb-6">
+    <div className="mt-24 md:mt-0 mb-1">
       <Link
         to="/blog"
         className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground hover:text-primary transition-all group"

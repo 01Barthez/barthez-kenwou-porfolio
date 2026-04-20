@@ -56,9 +56,9 @@ export const ContactForm: React.FC = () => {
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-primary text-primary-foreground px-6 py-4 rounded-xl shadow-2xl border border-primary/20"
+          className="fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-primary text-primary-foreground px-6 py-4 rounded-sm shadow-sm border border-primary/20"
         >
-          <HiOutlineCheckCircle className="h-6 w-6 animate-pulse" />
+          <HiOutlineCheckCircle className="h-4 w-4 animate-pulse" />
           <p className="font-bold text-sm">
             {language === 'fr' ? 'Redirection vers WhatsApp...' : 'Redirecting to WhatsApp...'}
           </p>
@@ -66,8 +66,8 @@ export const ContactForm: React.FC = () => {
       )}
 
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-          <div className="grid md:grid-cols-2 gap-6">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+          <div className="grid md:grid-cols-2 gap-2">
             <FormField
               control={form.control}
               name="name"
@@ -79,7 +79,7 @@ export const ContactForm: React.FC = () => {
                   <FormControl>
                     <Input 
                       placeholder="John Doe" 
-                      className="bg-background/50 border-border/50 focus:border-primary/50 transition-all rounded-lg"
+                      className="bg-background/50 border-border/50 focus:border-primary/50 transition-all rounded-sm"
                       {...field} 
                     />
                   </FormControl>
@@ -98,7 +98,7 @@ export const ContactForm: React.FC = () => {
                   <FormControl>
                     <Input 
                       placeholder="john@example.com" 
-                      className="bg-background/50 border-border/50 focus:border-primary/50 transition-all rounded-lg"
+                      className="bg-background/50 border-border/50 focus:border-primary/50 transition-all rounded-sm"
                       {...field} 
                     />
                   </FormControl>
@@ -119,7 +119,7 @@ export const ContactForm: React.FC = () => {
                 <FormControl>
                   <Input 
                     placeholder={language === 'fr' ? 'Sujet de votre message' : 'Subject of your message'} 
-                    className="bg-background/50 border-border/50 focus:border-primary/50 transition-all rounded-lg"
+                    className="bg-background/50 border-border/50 focus:border-primary/50 transition-all rounded-sm"
                     {...field} 
                   />
                 </FormControl>
@@ -138,9 +138,9 @@ export const ContactForm: React.FC = () => {
                 </FormLabel>
                 <FormControl>
                   <Textarea 
-                    rows={6}
+                    rows={4}
                     placeholder={language === 'fr' ? 'Décrivez votre projet...' : 'Describe your project...'} 
-                    className="bg-background/50 border-border/50 focus:border-primary/50 transition-all rounded-lg min-h-[150px] resize-none"
+                    className="bg-background/50 border-border/50 focus:border-primary/50 transition-all rounded-sm min-h-[30px] resize-none"
                     {...field} 
                   />
                 </FormControl>
@@ -152,13 +152,13 @@ export const ContactForm: React.FC = () => {
           <Button 
             type="submit" 
             disabled={isSubmitted}
-            className="w-full group rounded-lg h-10 text-sm font-bold tracking-wide cursor-pointer flex items-center justify-center bg-primary text-primary-foreground border border-primary/20 hover:bg-primary/90 transition-all disabled:cursor-not-allowed disabled:bg-primary/50 disabled:border-primary/10"
+            className="w-full group rounded-sm h-8 text-sm font-bold tracking-wide cursor-pointer flex items-center justify-center bg-primary text-primary-foreground border border-primary/20 hover:bg-primary/90 transition-all disabled:cursor-not-allowed disabled:bg-primary/50 disabled:border-primary/10"
           >
+            {t('contact.form.send')}
             <HiOutlinePaperAirplane className={cn(
               "mr-2 h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1",
               isSubmitted && "animate-ping"
             )} />
-            {t('contact.form.send')}
           </Button>
         </form>
       </Form>

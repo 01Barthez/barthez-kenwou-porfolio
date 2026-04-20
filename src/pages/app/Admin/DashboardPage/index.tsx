@@ -7,5 +7,3 @@ export const AdminDashboardPage: React.FC = () => {
     </div>
   );
 };
-
-// named export at declaration
