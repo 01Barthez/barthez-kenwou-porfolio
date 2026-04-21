@@ -14,10 +14,10 @@ export type ProjectRole =
 export type ProjectComplexity = 'Débutant' | 'Intermédiaire' | 'Avancé';
 
 export interface ITechStack {
-  frontend: string[];
-  backend: string[];
-  database: string[];
-  devops: string[];
+  frontend?: string[];
+  backend?: string[];
+  database?: string[];
+  devops?: string[];
 }
 
 export interface IProject {
@@ -26,24 +26,35 @@ export interface IProject {
   titleEn: string;
   descriptionFr: string;
   descriptionEn: string;
-  fullDescriptionFr: string;
-  fullDescriptionEn: string;
-  images: string[]; // For carousel
-  tags: string[];
-  category: string;
-  github: string;
-  demo: string;
-  date: string;
-  duration: string;
-  durationEn: string;
-  complexity: ProjectComplexity;
-  teamSize: number;
+  fullDescriptionFr?: string;
+  fullDescriptionEn?: string;
+  problemFr: string;
+  problemEn: string;
+  solutionFr: string[];
+  solutionEn: string[];
+  challengesFr?: string[];
+  challengesEn?: string[];
   impactFr: string[];
   impactEn: string[];
+  metrics?: Record<string, string | number>;
   techStack: ITechStack;
-  status?: ProjectStatus;
-  role?: ProjectRole;
+  architecture?: string[];
+  testing?: string[];
+  images: string[];
+  preview: string;
+  videoDemo?: string;
+  category: string;
+  status: ProjectStatus;
+  complexity: string;
+  role: string;
+  teamSize?: number;
+  duration: string;
+  date: string;
+  github?: string;
+  demo?: string;
+  caseStudy?: string;
+  documentation?: string;
+  businessContextFr?: string;
+  businessContextEn?: string;
   isFeatured?: boolean;
-  createdAt?: Date;
-  updatedAt?: Date;
 }

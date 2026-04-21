@@ -8,16 +8,16 @@ export const TitleMeta: React.FC = () => {
   const { language } = useLanguageStore();
   const { id } = useParams();
 
-  const project = projectsData.find((p) => p.id === id) || {
+  const projectDef = {
     titleFr: '',
     titleEn: '',
     date: '',
     duration: '',
-    durationEn: '',
-    tags: [],
+    techStack: { frontend: [], backend: [], database: [], devops: [] },
     github: '',
     demo: '',
   };
+  const project = projectsData.find((p) => p.id === id) || projectDef;
 
   return (
     <div className="mb-8">
@@ -31,11 +31,11 @@ export const TitleMeta: React.FC = () => {
         </span>
         <span className="flex items-center gap-1">
           <Clock className="h-4 w-4" />
-          {language === 'fr' ? project.duration : project.durationEn}
+          {project.duration}
         </span>
       </div>
       <div className="flex flex-wrap gap-2 mb-6">
-        {project.tags.map((tag: string) => (
+        {[...(project.techStack?.frontend || []), ...(project.techStack?.backend || []), ...(project.techStack?.database || []), ...(project.techStack?.devops || [])].map((tag: string) => (
           <span
             key={tag}
             className="px-3 py-1 rounded-md bg-secondary text-sm text-muted-foreground"
@@ -46,24 +46,28 @@ export const TitleMeta: React.FC = () => {
       </div>
 
       <div className="flex gap-4">
-        <Link
-          to={project.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-secondary text-foreground hover:bg-secondary/80 transition-colors"
-        >
-          <Github className="h-4 w-4" />
-          {language === 'fr' ? 'Code Source' : 'Source Code'}
-        </Link>
-        <Link
-          to={project.demo}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground hover:glow-primary transition-all"
-        >
-          <ExternalLink className="h-4 w-4" />
-          {language === 'fr' ? 'Voir la Démo' : 'View Demo'}
-        </Link>
+        {project.github && project.github !== '#' && (
+          <Link
+            to={project.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-secondary text-foreground hover:bg-secondary/80 transition-colors"
+          >
+            <Github className="h-4 w-4" />
+            {language === 'fr' ? 'Code Source' : 'Source Code'}
+          </Link>
+        )}
+        {project.demo && project.demo !== '#' && (
+          <Link
+            to={project.demo}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground hover:glow-primary transition-all"
+          >
+            <ExternalLink className="h-4 w-4" />
+            {language === 'fr' ? 'Voir la Démo' : 'View Demo'}
+          </Link>
+        )}
       </div>
     </div>
   );

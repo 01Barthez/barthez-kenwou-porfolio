@@ -26,6 +26,22 @@ export const cvData = {
       email: "rashidharuna@gmail.com",
       phone: "+237 655 193 530"
     },
+        {
+      name: "Gilles Tanko",
+      roleFr: "CEO & formateur Microsoft",
+      roleEn: "CEO & Microsoft trainer",
+      company: "GTA",
+      email: "gilles.tanko@gta-it.com",
+      phone: "+237 671 091 360"
+    },
+    {
+      name: "Juan EMA'A",
+      roleFr: "CEO",
+      roleEn: "CEO",
+      company: "INTELEK SARL",
+      email: "nehemie.sighe1@zenora360.com",
+      phone: "+237 694 418 408"
+    },
     {
       name: "Nehemie Sighe",
       roleFr: "CTO & Cloud Architecte",

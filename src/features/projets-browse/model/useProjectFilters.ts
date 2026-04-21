@@ -24,8 +24,15 @@ export const useProjectFilters = () => {
   const [filters, setFilters] = useState<ProjectFilters>(INITIAL_FILTERS);
 
   // ── Derived options from data (single source) ─────────────────────────────
+  const getProjectTechs = (p: typeof projectsData[0]) => [
+    ...(p.techStack?.frontend || []),
+    ...(p.techStack?.backend || []),
+    ...(p.techStack?.database || []),
+    ...(p.techStack?.devops || []),
+  ];
+
   const availableTechs = useMemo(
-    () => Array.from(new Set(projectsData.flatMap((p) => p.tags))).sort(),
+    () => Array.from(new Set(projectsData.flatMap(getProjectTechs))).sort(),
     [],
   );
 
@@ -47,7 +54,7 @@ export const useProjectFilters = () => {
           filters.category === 'all' || project.category === filters.category;
         const matchTech =
           filters.techs.length === 0 ||
-          filters.techs.some((t) => project.tags.includes(t));
+          filters.techs.some((t) => getProjectTechs(project).includes(t));
         const matchRole = !filters.role || project.role === filters.role;
         const matchStatus = !filters.status || project.status === filters.status;
         return matchCategory && matchTech && matchRole && matchStatus;

@@ -2,6 +2,8 @@ import { useEffect } from 'react';
 import { ProjectNotFound } from './sections/ProjectNotFound';
 import { HeroDetailSection } from './sections/HeroDetailSection';
 import { ProjectOverviewSection } from './sections/ProjectOverviewSection';
+import { ProblemSolutionSection } from './sections/ProblemSolutionSection';
+import { ArchitectureTestingSection } from './sections/ArchitectureTestingSection';
 import { ImpactSection } from './sections/ImpactSection';
 import { TechStackSection } from './sections/TechStackSection';
 import { OtherProjectSection } from './sections/OtherProjectSection';
@@ -29,12 +31,12 @@ export const ProjectDetailPage = () => {
       <SEO
         title={`${language === 'fr'
             ? truncateFonction(project?.titleFr || '', 24)
-            : truncateFonction(project?.titleFr || '', 24)
-          } | Barthez Kenwou - Passionate DevOps & Full-Stack JS Developer `}
+            : truncateFonction(project?.titleEn || '', 24)
+          } | Barthez Kenwou`}
         description={`${language === 'fr'
             ? truncateFonction(project.descriptionFr || '', 160)
             : truncateFonction(project.descriptionEn || '', 160)
-          } | Barthez Kenwou - Passionate DevOps & Full-Stack JS Developer `}
+          }`}
       />
 
       <div className="min-h-screen">
@@ -44,11 +46,17 @@ export const ProjectDetailPage = () => {
         {/* Overview & Core details */}
         <ProjectOverviewSection project={project} />
 
-        {/* Impact / Results */}
-        <ImpactSection project={project} />
+        {/* Problem and Solution */}
+        <ProblemSolutionSection project={project} />
 
         {/* Tech Stack */}
         <TechStackSection project={project} />
+
+        {/* Architecture & Testing */}
+        <ArchitectureTestingSection project={project} />
+
+        {/* Impact / Results / Metrics / Challenges */}
+        <ImpactSection project={project} />
 
         {/* Other Projects */}
         <OtherProjectSection currentProjectId={project.id} />
@@ -59,3 +67,4 @@ export const ProjectDetailPage = () => {
     </>
   );
 };
+

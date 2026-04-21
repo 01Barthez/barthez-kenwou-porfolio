@@ -18,8 +18,8 @@ export const BlogCard: React.FC<{ Blog: IBlog; isFeatured?: boolean }> = ({ Blog
         isFeatured && "md:grid md:grid-cols-2 lg:grid-cols-5 md:gap-6"
       )}>
         <div className={cn(
-          "relative overflow-hidden aspect-video md:aspect-auto",
-          isFeatured ? "lg:col-span-3 h-full min-h-[250px]" : "h-40"
+          "relative overflow-hidden aspect-video md:aspect-auto flex items-center justify-center",
+          isFeatured ? "lg:col-span-3 h-full max-h-[300px]" : "h-40"
         )}>
           <Image
             src={image}

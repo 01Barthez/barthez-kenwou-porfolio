@@ -8,6 +8,7 @@ import { skillsByCategory } from '@/entities/skills/api/mocks/skillsData.mocks';
 import { ProjectCard } from '@/entities/projets';
 import { ProjectFilterBar, useProjectFilters } from '@/features/projets-browse';
 import { Button } from '@/shared/ui/button';
+import { FaSearch } from 'react-icons/fa';
 
 // ─── Props ──────────────────────────────────────────────────────────────────────
 
@@ -71,7 +72,7 @@ export const GridProject: React.FC<GridProjectProps> = ({ filterState }) => {
   ];
 
   return (
-    <section className="mt-12" ref={sectionRef}>
+    <section className="mt-20" ref={sectionRef}>
       {/* ── Category Filter (Primary) ────────────────────────────────────────── */}
       <div className="flex flex-wrap justify-center gap-3 mb-4 relative z-10">
         {categoryFilters.map((filter) => {
@@ -81,9 +82,9 @@ export const GridProject: React.FC<GridProjectProps> = ({ filterState }) => {
               key={filter.id}
               type="button"
               onClick={() => setCategory(filter.id)}
-              className={`relative px-5 py-1.5 cursor-pointer rounded-full text-xs tracking-wide font-bold transition-all duration-300 overflow-hidden group border ${
+              className={`relative px-4 py-1.5 cursor-pointer rounded-full text-xs capitalize tracking-wide font-bold transition-all duration-300 overflow-hidden group border ${
                 isActive
-                  ? 'bg-primary border-primary text-primary-foreground shadow-xl scale-105 shadow-primary/20'
+                  ? 'bg-primary border-primary text-primary-foreground shadow-sm scale-105 shadow-primary/20'
                   : 'bg-secondary/40 border-border/40 text-muted-foreground hover:text-foreground hover:border-primary/50 hover:bg-secondary/80'
               }`}
             >
@@ -115,21 +116,21 @@ export const GridProject: React.FC<GridProjectProps> = ({ filterState }) => {
 
       {/* ── Project Grid ─────────────────────────────────────────────────────── */}
       {filteredProjects.length === 0 ? (
-        <div className="flex flex-col items-center justify-center py-24 text-center animate-fade-in">
-          <div className="p-6 rounded-3xl bg-secondary/30 mb-8 border border-border/50">
-            <Search className="h-12 w-12 text-muted-foreground/30 animate-pulse" />
+        <div className="flex flex-col items-center justify-center py-8 text-center animate-fade-in">
+          <div className="p-4 rounded-sm bg-secondary/30 mb-2 border border-border/50">
+            <FaSearch className="h-5 w-5 text-muted-foreground/30 animate-pulse" />
           </div>
-          <h3 className="text-2xl font-bold text-foreground mb-3">
+          <h3 className="text-lg font-bold text-foreground mb-3">
             {language === 'fr' ? 'Aucun projet trouvé' : 'No projects found'}
           </h3>
-          <p className="text-muted-foreground max-w-sm mx-auto text-base leading-relaxed mb-10">
+          <p className="text-muted-foreground text-sm max-w-sm mx-auto text-base leading-relaxed mb-10">
             {language === 'fr'
-              ? 'Essaie de modifier tes critères de recherche ou réinitialise tous les filtres pour recommencer.'
+              ? 'Essaiyez de modifier tes critères de recherche ou réinitialisez tous les filtres pour recommencer.'
               : 'Try adjusting your search criteria or reset all filters to start over.'}
           </p>
           <Button
             onClick={resetAllFilters}
-            className="rounded-2xl px-8 h-12 shadow-xl shadow-primary/20"
+            className="rounded-sm px-4 shadow-xs shadow-primary/20"
           >
             {language === 'fr' ? 'Réinitialiser tous les filtres' : 'Reset all filters'}
           </Button>

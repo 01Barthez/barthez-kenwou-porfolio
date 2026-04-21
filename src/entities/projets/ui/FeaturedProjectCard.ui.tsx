@@ -18,6 +18,13 @@ export const FeaturedProjectCard: React.FC<FeaturedProjectCardProps> = ({ projec
   const title = language === 'fr' ? project.titleFr : project.titleEn;
   const description = language === 'fr' ? project.descriptionFr : project.descriptionEn;
 
+  const allTechs = [
+    ...(project.techStack?.frontend || []),
+    ...(project.techStack?.backend || []),
+    ...(project.techStack?.database || []),
+    ...(project.techStack?.devops || []),
+  ];
+
   return (
     <div
       className={cn(
@@ -48,7 +55,7 @@ export const FeaturedProjectCard: React.FC<FeaturedProjectCardProps> = ({ projec
         <div className="space-y-3">
           {/* Tech Badges */}
           <div className="flex flex-wrap gap-1.5">
-            {project.tags.slice(0, 3).map((tag) => (
+            {allTechs.slice(0, 3).map((tag) => (
               <span
                 key={tag}
                 className="text-[9px] font-bold uppercase tracking-wide text-primary/80 bg-primary/5 px-2 py-0.5 rounded-md border border-primary/10"

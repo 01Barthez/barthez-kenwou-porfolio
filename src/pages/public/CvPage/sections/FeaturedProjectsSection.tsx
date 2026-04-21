@@ -50,7 +50,7 @@ export const FeaturedProjectsSection: React.FC<FeaturedProjectsSectionProps> = (
             </p>
 
             <div className="flex flex-wrap gap-2 mt-auto">
-              {(project.tags || []).slice(0, 4).map((tag, i) => (
+              {[...(project.techStack?.frontend || []), ...(project.techStack?.backend || []), ...(project.techStack?.database || []), ...(project.techStack?.devops || [])].slice(0, 4).map((tag, i) => (
                 <span key={i} className="text-xs bg-background border border-border px-2 py-1 rounded-md text-foreground">
                   {tag}
                 </span>

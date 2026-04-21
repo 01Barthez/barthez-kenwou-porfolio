@@ -24,7 +24,7 @@ export const ProjectSection: React.FC<Props> = ({ projects, language }) => {
             <Text style={styles.boldText}>{language === 'fr' ? proj.titleFr : proj.titleEn}</Text>
             <Text style={styles.company}>{language === 'fr' ? proj.descriptionFr : proj.descriptionEn}</Text>
             <View style={[styles.skillGrid, { marginTop: 4 }]}>
-              {(proj.tags || []).slice(0, 6).map((tag: string, idx: number) => (
+              {[...(proj.techStack?.frontend || []), ...(proj.techStack?.backend || []), ...(proj.techStack?.database || []), ...(proj.techStack?.devops || [])].slice(0, 6).map((tag: string, idx: number) => (
                 <Text key={idx} style={styles.skillPill}>{tag}</Text>
               ))}
             </View>

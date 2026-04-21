@@ -1,5 +1,5 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
+
 import { Link } from 'react-router-dom';
 import { 
   Github, 
@@ -48,12 +48,19 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   onTechClick,
 }) => {
   const { language } = useLanguageStore();
-  const { t } = useTranslation();
 
   const title = language === 'fr' ? project.titleFr : project.titleEn;
   const description = language === 'fr' ? project.descriptionFr : project.descriptionEn;
   const impacts = language === 'fr' ? project.impactFr : project.impactEn;
-  const ComplexityIcon = COMPLEXITY_CONFIG[project.complexity].icon;
+  const complexityKey = (project.complexity as ProjectComplexity) || 'Intermédiaire';
+  const ComplexityIcon = COMPLEXITY_CONFIG[complexityKey]?.icon || Shield;
+
+  const allTechs = [
+    ...(project.techStack?.frontend || []),
+    ...(project.techStack?.backend || []),
+    ...(project.techStack?.database || []),
+    ...(project.techStack?.devops || []),
+  ];
 
   const [currentImageIndex, setCurrentImageIndex] = React.useState(0);
 
@@ -168,7 +175,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
         {/* Complexity (Bottom Left Overlay) */}
         <div className="absolute bottom-4 left-4 flex items-center gap-1.5 px-2 py-1 rounded-md bg-black/50 backdrop-blur-md border border-white/10 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 z-30 pointer-events-none">
-          <ComplexityIcon className={cn("h-3 w-3", COMPLEXITY_CONFIG[project.complexity].color)} />
+          <ComplexityIcon className={cn("h-3 w-3", COMPLEXITY_CONFIG[complexityKey]?.color || 'text-white')} />
           <span className="text-[10px] font-bold text-white truncate shadow-sm">
             {project.complexity}
           </span>
@@ -207,7 +214,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
         {/* Tech Stack */}
         <div className="flex flex-wrap gap-1.5 mb-6">
-          {project.tags.slice(0, 5).map((tag) => (
+          {allTechs.slice(0, 5).map((tag) => (
             <TechBadge
               key={tag}
               tag={tag}
@@ -215,9 +222,9 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               onClick={onTechClick}
             />
           ))}
-          {project.tags.length > 5 && (
+          {allTechs.length > 5 && (
             <span className="text-[10px] font-bold text-muted-foreground/60 py-1">
-              +{project.tags.length - 5}
+              +{allTechs.length - 5}
             </span>
           )}
         </div>
@@ -227,7 +234,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           <div className="flex items-center gap-4 text-[11px] font-semibold text-muted-foreground/70">
             <div className="flex items-center gap-1.5">
               <Clock className="h-3.5 w-3.5" />
-              <span>{language === 'fr' ? project.duration : project.durationEn}</span>
+              <span>{project.duration}</span>
             </div>
             <div className="flex items-center gap-1.5">
               <Users className="h-3.5 w-3.5" />

@@ -1,18 +1,19 @@
 import React from 'react';
 import { IProject } from '@/entities/projets/model/project.types';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
-import { Calendar, Clock, Users, Zap } from 'lucide-react';
+import { Calendar, Clock, Users, Zap, Briefcase } from 'lucide-react';
 
 export const ProjectOverviewSection: React.FC<{ project: IProject }> = ({ project }) => {
   const { language } = useLanguageStore();
   const fullDescription = language === 'fr' ? project.fullDescriptionFr : project.fullDescriptionEn;
-  const duration = language === 'fr' ? project.duration : project.durationEn;
+  const businessContext = language === 'fr' ? project.businessContextFr : project.businessContextEn;
 
   const stats = [
-    { icon: Clock, label: language === 'fr' ? 'Durée' : 'Duration', value: duration },
+    { icon: Clock, label: language === 'fr' ? 'Durée' : 'Duration', value: project.duration },
     { icon: Calendar, label: 'Date', value: project.date },
-    { icon: Users, label: language === 'fr' ? 'Équipe' : 'Team Size', value: `${project.teamSize} person(s)` },
+    ...(project.teamSize ? [{ icon: Users, label: language === 'fr' ? 'Équipe' : 'Team Size', value: `${project.teamSize} person(s)` }] : []),
     { icon: Zap, label: 'Complexité', value: project.complexity },
+    { icon: Briefcase, label: 'Rôle', value: project.role },
   ];
 
   return (
@@ -39,15 +40,31 @@ export const ProjectOverviewSection: React.FC<{ project: IProject }> = ({ projec
           </div>
         </div>
 
-        {/* Right Column: Full Description */}
-        <div className="lg:col-span-2">
-          <h2 className="text-2xl font-bold mb-5 text-foreground flex items-center gap-3">
-            <span className="w-6 h-1 bg-primary rounded-full"></span>
-            {language === 'fr' ? 'Aperçu du projet' : 'Project Overview'}
-          </h2>
-          <div className="text-muted-foreground leading-relaxed text-sm md:text-base whitespace-pre-line">
-            {fullDescription}
-          </div>
+        {/* Right Column: Full Description & Context */}
+        <div className="lg:col-span-2 space-y-8">
+          {fullDescription && (
+            <div>
+              <h2 className="text-2xl font-bold mb-5 text-foreground flex items-center gap-3">
+                <span className="w-6 h-1 bg-primary rounded-full"></span>
+                {language === 'fr' ? 'Aperçu du projet' : 'Project Overview'}
+              </h2>
+              <div className="text-muted-foreground leading-relaxed text-sm md:text-base whitespace-pre-line">
+                {fullDescription}
+              </div>
+            </div>
+          )}
+
+          {businessContext && (
+            <div className="p-6 bg-primary/5 border border-primary/20 rounded-2xl">
+              <h3 className="text-xl font-semibold mb-3 text-foreground flex items-center gap-2">
+                <Briefcase className="w-5 h-5 text-primary" />
+                {language === 'fr' ? 'Contexte Métier' : 'Business Context'}
+              </h3>
+              <p className="text-muted-foreground text-sm md:text-base italic leading-relaxed">
+                "{businessContext}"
+              </p>
+            </div>
+          )}
         </div>
 
       </div>

@@ -1,5 +1,4 @@
 import React from 'react';
-import { SlidersHorizontal, X } from 'lucide-react';
 
 import {
   PROJECT_ROLE_ICONS,
@@ -8,6 +7,7 @@ import {
 import type { ProjectRole, ProjectStatus } from '@/entities/projets/model/project.types';
 
 import { FilterDropdown } from './FilterDropdown.ui';
+import { FaX } from 'react-icons/fa6';
 
 // ─── Props ──────────────────────────────────────────────────────────────────────
 
@@ -126,7 +126,7 @@ export const ProjectFilterBar: React.FC<ProjectFilterBarProps> = ({
           onClick={onReset}
           className="flex items-center gap-1 px-5 py-1.5 rounded-lg text-xs border border-border/40 text-muted-foreground hover:text-foreground hover:border-border/70 hover:bg-secondary/40 transition-all duration-200 cursor-pointer"
         >
-          <X className="h-3 w-3" />
+          <FaX className="h-3 w-3" />
           <span>Reset</span>
         </button>
       )}
