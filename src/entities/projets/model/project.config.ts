@@ -24,6 +24,7 @@ export interface StatusConfig {
 export const PROJECT_STATUS_CONFIG: Record<ProjectStatus, StatusConfig> = {
   Production: { color: 'text-emerald-400', dot: 'bg-emerald-400', label: 'Production' },
   'En cours': { color: 'text-sky-400',     dot: 'bg-sky-400',     label: 'En cours'   },
+  Actif:      { color: 'text-blue-500',    dot: 'bg-blue-500',    label: 'Actif'      },
   MVP:        { color: 'text-violet-400',  dot: 'bg-violet-400',  label: 'MVP'        },
   Archivé:    { color: 'text-slate-400',   dot: 'bg-slate-400',   label: 'Archivé'    },
 };
@@ -55,6 +56,7 @@ export const ALL_PROJECT_ROLES: ProjectRole[] = [
 export const ALL_PROJECT_STATUSES: ProjectStatus[] = [
   'Production',
   'En cours',
+  'Actif',
   'MVP',
   'Archivé',
 ];

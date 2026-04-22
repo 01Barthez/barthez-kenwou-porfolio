@@ -8,6 +8,7 @@ import type { ProjectRole, ProjectStatus } from '@/entities/projets/model/projec
 
 import { FilterDropdown } from './FilterDropdown.ui';
 import { FaX } from 'react-icons/fa6';
+import { User } from 'lucide-react';
 
 // ─── Props ──────────────────────────────────────────────────────────────────────
 
@@ -78,7 +79,7 @@ export const ProjectFilterBar: React.FC<ProjectFilterBarProps> = ({
       {/* ── Role ── */}
       <FilterDropdown label="Rôle" activeCount={activeRole ? 1 : 0}>
         {availableRoles.map((role) => {
-          const RoleIcon = PROJECT_ROLE_ICONS[role];
+          const RoleIcon = PROJECT_ROLE_ICONS[role] || User;
           const isActive = activeRole === role;
           return (
             <button
@@ -100,7 +101,7 @@ export const ProjectFilterBar: React.FC<ProjectFilterBarProps> = ({
       {/* ── Status ── */}
       <FilterDropdown label="Status" activeCount={activeStatus ? 1 : 0}>
         {availableStatuses.map((status) => {
-          const config = PROJECT_STATUS_CONFIG[status];
+          const config = PROJECT_STATUS_CONFIG[status] || { dot: "bg-primary", color: "text-primary" };
           const isActive = activeStatus === status;
           return (
             <button

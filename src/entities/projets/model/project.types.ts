@@ -1,6 +1,6 @@
 import { ID } from '@/shared/types';
 
-export type ProjectStatus = 'Production' | 'En cours' | 'MVP' | 'Archivé';
+export type ProjectStatus = 'Production' | 'En cours' | 'Actif' | 'MVP' | 'Archivé';
 
 export type ProjectRole =
   | 'Lead Developer'

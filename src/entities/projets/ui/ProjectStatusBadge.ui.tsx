@@ -8,7 +8,11 @@ interface ProjectStatusBadgeProps {
 }
 
 export const ProjectStatusBadge: React.FC<ProjectStatusBadgeProps> = ({ status, className = '' }) => {
-  const config = PROJECT_STATUS_CONFIG[status];
+  const config = PROJECT_STATUS_CONFIG[status] || {
+    color: 'text-primary',
+    dot: 'bg-primary',
+    label: status || 'Unknown',
+  };
 
   return (
     <span

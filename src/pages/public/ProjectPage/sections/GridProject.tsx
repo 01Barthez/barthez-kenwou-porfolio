@@ -42,7 +42,7 @@ export const GridProject: React.FC<GridProjectProps> = ({ filterState }) => {
   // ─── Pagination Logic ────────────────────────────────────────────────────────
   const [currentPage, setCurrentPage] = useState(1);
   const sectionRef = useRef<HTMLElement>(null);
-  const PROJECTS_PER_PAGE = 9;
+  const PROJECTS_PER_PAGE = 6;
 
   useEffect(() => {
     setCurrentPage(1);

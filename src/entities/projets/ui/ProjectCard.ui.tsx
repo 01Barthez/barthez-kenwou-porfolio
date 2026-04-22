@@ -1,14 +1,14 @@
 import React from 'react';
 
 import { Link } from 'react-router-dom';
-import { 
-  Github, 
-  ExternalLink, 
-  ArrowUpRight, 
-  Clock, 
-  Users, 
-  Zap, 
-  Shield, 
+import {
+  Github,
+  ExternalLink,
+  ArrowUpRight,
+  Clock,
+  Users,
+  Zap,
+  Shield,
   Trophy,
   Layout,
   ChevronLeft,
@@ -101,7 +101,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       <div className="relative h-56 w-full overflow-hidden bg-muted group/carousel">
         {project.images.length > 1 ? (
           <>
-            <div 
+            <div
               className="flex w-full h-full transition-transform duration-500 ease-in-out"
               style={{ transform: `translateX(-${currentImageIndex * 100}%)` }}
             >
@@ -114,7 +114,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
             {/* Carousel Controls */}
             <div className="absolute inset-y-0 left-0 flex items-center px-2 opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 z-20">
-              <button 
+              <button
                 type="button"
                 onClick={handlePrevImage}
                 className="p-1 rounded-full bg-black/40 text-white backdrop-blur-md border border-white/20 hover:bg-black/60 hover:scale-110 transition-all cursor-pointer"
@@ -124,7 +124,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               </button>
             </div>
             <div className="absolute inset-y-0 right-0 flex items-center px-2 opacity-0 group-hover/carousel:opacity-100 transition-opacity duration-300 z-20">
-              <button 
+              <button
                 type="button"
                 onClick={handleNextImage}
                 className="p-1 rounded-full bg-black/40 text-white backdrop-blur-md border border-white/20 hover:bg-black/60 hover:scale-110 transition-all cursor-pointer"
@@ -157,10 +157,10 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         ) : (
           renderMedia(project.images[0] || "", true)
         )}
-        
+
         {/* Overlay gradient for text readability */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-10" />
-        
+
         {/* Badges Overlay */}
         <div className="absolute top-4 inset-x-4 flex justify-between items-start pointer-events-none">
           <span className="px-3 py-1 rounded-lg bg-black/50 backdrop-blur-md text-[10px] font-bold text-white uppercase tracking-wider border border-white/10 pointer-events-auto">
@@ -183,37 +183,28 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
       </div>
 
       {/* ── Content Area ─────────────────────────────────────────────────── */}
-      <div className="p-6 flex flex-col flex-grow">
+      <div className="p-2 flex flex-col gap-4 flex-grow">
         {/* Header */}
-        <div className="mb-4">
-          <div className="flex items-center justify-between mb-2">
-            <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors flex items-center gap-1.5">
+        <div className="space-y-1">
+          <Link
+            to={`/projects/${project.id}`}
+            className="py-2 rounded-lg flex items-center justify-between w-full"
+            title="View Details"
+          >
+            <h3 className="text-lg font-medium text-foreground group-hover:text-primary transition-colors flex items-center gap-1.5">
               {title}
-              <ArrowUpRight className="h-4 w-4 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
             </h3>
-          </div>
-          <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed h-10">
+
+            <ArrowUpRight className="h-4 w-4 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+          </Link>
+
+          <p className="text-xs text-muted-foreground line-clamp-3 leading-relaxed">
             {description}
           </p>
         </div>
 
-        {/* Impact / Achievements (Simplified) */}
-        <div className="flex flex-wrap gap-2 mb-4">
-          {impacts.slice(0, 2).map((impact, i) => (
-            <div 
-              key={i} 
-              className="px-2 py-0.5 rounded-md bg-primary/5 border border-primary/10 flex items-center gap-1.5"
-            >
-              <Trophy className="h-2.5 w-2.5 text-primary" />
-              <span className="text-[10px] font-bold text-primary/80">
-                {impact}
-              </span>
-            </div>
-          ))}
-        </div>
-
         {/* Tech Stack */}
-        <div className="flex flex-wrap gap-1.5 mb-6">
+        <div className="flex flex-wrap gap-1.5">
           {allTechs.slice(0, 5).map((tag) => (
             <TechBadge
               key={tag}
@@ -223,14 +214,20 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             />
           ))}
           {allTechs.length > 5 && (
-            <span className="text-[10px] font-bold text-muted-foreground/60 py-1">
-              +{allTechs.length - 5}
-            </span>
+            <Link
+              to={`/projects/${project.id}`}
+              className="flex items-center justify-center w-fit border border-border/30 px-2 rounded"
+              title="View More"
+            >
+              <span className="text-[10px] font-bold text-muted-foreground/60 py-1">
+                +{allTechs.length - 5}...
+              </span>
+            </Link>
           )}
         </div>
 
         {/* Footer Meta & CTA */}
-        <div className="mt-auto pt-4 border-t border-border/50 flex items-center justify-between">
+        <div className="mt-auto pt-2 border-t border-border/50 flex items-center justify-between">
           <div className="flex items-center gap-4 text-[11px] font-semibold text-muted-foreground/70">
             <div className="flex items-center gap-1.5">
               <Clock className="h-3.5 w-3.5" />
