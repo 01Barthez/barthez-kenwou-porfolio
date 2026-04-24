@@ -12,7 +12,7 @@ export const ProfileCard: React.FC = () => {
     <div className="sticky top-24 glass rounded-2xl p-6 border border-border">
       <div className="relative mb-6">
         <Image
-          src="images/barthez-kenwou.png"
+          src="https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Profile/barthez-type-2.jpeg"
           alt="Barthez Kenwou"
           className="w-full aspect-square object-cover rounded-xl"
         />

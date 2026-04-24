@@ -22,7 +22,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ language, value, filename,
     async function highlight() {
       if (!highlighterCache) {
         highlighterCache = await createHighlighter({
-          themes: ['github-dark-dimmed'],
+          themes: ['github-dark-dimmed', 'ayu-mirage'],
           langs: ['javascript', 'typescript', 'bash', 'yaml', 'json', 'python', 'markdown', 'html', 'css', 'go', 'rust', 'dockerfile'],
         });
       }
@@ -50,7 +50,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ language, value, filename,
   };
 
   return (
-    <div className={cn("group relative my-8 w-full overflow-hidden rounded-2xl border border-border/50 bg-[#22272e] font-mono text-sm shadow-2xl transition-all hover:shadow-primary/5", className)}>
+    <div className={cn("group relative my-3 w-full overflow-hidden rounded-sm border border-border/50 bg-[#22272e] font-mono text-sm shadow-sm transition-all hover:shadow-primary/5", className)}>
       {/* Header */}
       <div className="flex items-center justify-between border-b border-border/50 bg-[#2d333b]/50 px-4 py-3">
         <div className="flex items-center gap-2">

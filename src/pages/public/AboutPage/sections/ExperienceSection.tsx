@@ -8,7 +8,7 @@ export const ExperienceSection: React.FC = () => {
   const { language } = useLanguageStore();
 
   return (
-    <section className="glass rounded-2xl p-8 border border-border animate-fade-in">
+    <section className="glass rounded-2xl p-4 border border-border animate-fade-in">
       {/* title */}
       <div className="flex items-center gap-3 mb-6">
         <div className="px-2 py-1 rounded-sm bg-primary/10">
@@ -20,7 +20,7 @@ export const ExperienceSection: React.FC = () => {
       </div>
 
       {/* content */}
-      <div className="space-y-6">
+      <div className="space-y-5">
         {experiences.map((exp, index) => (
           <ExperienceCard key={index * 99} Experience={exp} />
         ))}

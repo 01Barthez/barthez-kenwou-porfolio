@@ -8,7 +8,7 @@ export const ExperienceCard: React.FC<{ Experience: IExperience }> = ({ Experien
     Experience;
 
   return (
-    <div className="relative pl-6 pb-6 border-l-2 border-border nth-[2n-1]:pb-0 nth-[2n-1]:border-l-primary pr-6 border-r-2 nth-[2n]:border-r-primary">
+    <div className="relative pl-4 pb-6 border-l-2 border-border nth-[2n-1]:pb-0 nth-[2n-1]:border-l-primary pr-6 border-r-2 nth-[2n]:border-r-primary">
       <div className="absolute -left-2.25 top-0 h-4 w-4 rounded-full bg-primary" />
 
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">

@@ -28,12 +28,12 @@ export const BlogDetailPage = () => {
     <>
       <SEO
         title={`${language === 'fr'
-            ? truncateFonction(post?.titleFr || '', 60)
-            : truncateFonction(post?.titleEn || '', 60)
+          ? truncateFonction(post?.titleFr || '', 60)
+          : truncateFonction(post?.titleEn || '', 60)
           } | Barthez Kenwou`}
         description={`${language === 'fr'
-            ? truncateFonction(post?.contentFr || '', 160)
-            : truncateFonction(post?.contentEn || '', 160)
+          ? truncateFonction(post?.contentFr || '', 160)
+          : truncateFonction(post?.contentEn || '', 160)
           }`}
       />
 

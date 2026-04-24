@@ -1,4 +1,4 @@
-import { FaMicroblog } from "react-icons/fa"; 
+import { FaMicroblog } from "react-icons/fa";
 import { blogPostsData } from '@/entities/blogs/api/mock/blog.mocks';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import React, { useEffect } from 'react';
@@ -6,13 +6,63 @@ import { useParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { CodeBlock } from '@/shared/ui/code-block';
-import { Info, Lightbulb, ChevronRight, Hash } from 'lucide-react';
-import { motion, useScroll, useSpring } from 'framer-motion';
+import { Info, Lightbulb, ChevronRight, Hash, HelpCircle, MessageCircle, Plus, Minus, Tag } from 'lucide-react';
+import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
+
+const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, answer }) => {
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      className="my-4 overflow-hidden rounded-xl border border-border/50 bg-card/30 backdrop-blur-sm transition-all duration-300 hover:border-primary/20"
+    >
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="flex w-full items-center justify-between gap-4 p-4 text-left transition-colors hover:bg-primary/5"
+      >
+        <div className="flex items-center gap-3">
+          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+            <HelpCircle className="h-4 w-4" />
+          </div>
+          <span className="text-sm md:text-base font-bold text-foreground/90">{question}</span>
+        </div>
+        <div className={`flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-border transition-transform duration-300 ${isOpen ? 'rotate-180 bg-primary border-primary text-primary-foreground' : ''}`}>
+          {isOpen ? <Minus className="h-3 w-3" /> : <Plus className="h-3 w-3" />}
+        </div>
+      </button>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: 'easeInOut' }}
+          >
+            <div className="px-4 pb-4 pt-0">
+              <div className="flex gap-3 rounded-lg bg-muted/30 p-4 border-l-2 border-primary/30">
+                <div className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center text-primary/60">
+                  <MessageCircle className="h-4 w-4" />
+                </div>
+                <p className="text-sm leading-relaxed text-muted-foreground/90 italic">
+                  {answer}
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
+  );
+};
 
 export const ArticleContentSection: React.FC = () => {
   const { blogID } = useParams();
   const { language } = useLanguageStore();
-  
+
   const post = blogPostsData.find((p) => p.id === blogID) || { contentFr: '', contentEn: '' };
   const content = language === 'fr' ? post.contentFr : post.contentEn;
 
@@ -59,7 +109,7 @@ export const ArticleContentSection: React.FC = () => {
         style={{ scaleX }}
       />
 
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
@@ -78,18 +128,21 @@ export const ArticleContentSection: React.FC = () => {
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
           components={{
-            // Header 2
             h2: ({ children }) => {
-              const id = slugify(React.Children.toArray(children).join(''));
+              const textContent = React.Children.toArray(children).join('');
+              const isFAQ = textContent.toLowerCase().includes('faq');
+              const id = slugify(textContent);
+
               return (
-                <h2 id={id} className="group relative mt-12 mb-6 flex items-center gap-3 text-lg md:text-xl font-bold text-foreground">
+                <h2 id={id} className={`group relative mt-12 mb-6 flex items-center gap-3 text-lg md:text-xl font-bold text-foreground ${isFAQ ? 'text-primary' : ''}`}>
                   <a href={`#${id}`} className="absolute -left-6 hidden items-center opacity-0 transition-all group-hover:flex group-hover:opacity-100 text-primary">
                     <Hash className="h-5 w-5" />
                   </a>
-                  <span className="flex h-7 w-7 items-center justify-center rounded-sm bg-primary/10 text-primary text-xs font-mono">
-                    <FaMicroblog className="h-3.5 w-3.5" />
+                  <span className={`flex h-7 w-7 items-center justify-center rounded-sm text-xs font-mono ${isFAQ ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/20' : 'bg-primary/10 text-primary'}`}>
+                    {isFAQ ? <HelpCircle className="h-4 w-4" /> : <FaMicroblog className="h-3.5 w-3.5" />}
                   </span>
                   {children}
+                  {isFAQ && <span className="ml-2 h-1 w-12 bg-gradient-to-r from-primary to-transparent rounded-full" />}
                 </h2>
               );
             },
@@ -106,10 +159,10 @@ export const ArticleContentSection: React.FC = () => {
             // Paragraph & Strategic Blocks
             p: ({ children }) => {
               const textContent = React.Children.toArray(children).join('');
-              
+
               if (textContent.startsWith('Astuce') || textContent.startsWith('Pro tip')) {
                 return (
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
@@ -135,7 +188,7 @@ export const ArticleContentSection: React.FC = () => {
 
               if (textContent.startsWith('Important') || textContent.startsWith('Attention')) {
                 return (
-                  <motion.div 
+                  <motion.div
                     initial={{ opacity: 0, x: 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
@@ -159,17 +212,71 @@ export const ArticleContentSection: React.FC = () => {
                 );
               }
 
+              // Dynamic FAQ Detection
+              if (textContent.includes('Q :') && textContent.includes('R :')) {
+                const parts = textContent.split(/R\s*:/);
+                const question = parts[0].replace(/\*\*Q\s*:\s*/g, '').replace(/\*\*/g, '').trim();
+                const answer = parts[1]?.trim();
+
+                if (question && answer) {
+                  return <FAQItem question={question} answer={answer} />;
+                }
+              }
+
+              // Individual Q or R (if separate)
+              if (textContent.startsWith('**Q :') || textContent.startsWith('Q :')) {
+                return (
+                  <div className="mt-6 p-4 bg-primary/5 border-l-2 border-primary rounded-r-lg font-bold text-foreground">
+                    <span className="text-primary mr-2">Q:</span> {textContent.replace(/\*\*?Q\s*:\s*/g, '').replace(/\*\*/g, '')}
+                  </div>
+                );
+              }
+
+              if (textContent.startsWith('R :')) {
+                return (
+                  <div className="mb-6 p-4 bg-muted/30 border-l-2 border-muted rounded-r-lg text-muted-foreground italic">
+                    <span className="text-foreground/60 font-bold not-italic mr-2">R:</span> {textContent.replace(/^R\s*:\s*/g, '')}
+                  </div>
+                );
+              }
+
+              // Tags Detection (e.g. **Tags** : #... #... or just #Tag1 #Tag2)
+              const hasManyHashtags = (textContent.match(/#\w+/g) || []).length >= 3;
+              const isTagLine = textContent.toLowerCase().includes('tags') && textContent.includes('#');
+
+              if (isTagLine || hasManyHashtags) {
+                const tagsMatch = textContent.match(/#\w+/g);
+                if (tagsMatch) {
+                  return (
+                    <div className="my-8 flex flex-wrap gap-2 items-center">
+                      <div className="text-xs font-black uppercase tracking-widest text-primary/60">
+                        <Tag className="h-3 w-3" />
+                      </div>
+                      {tagsMatch.map((tag, i) => (
+                        <motion.span
+                          key={i}
+                          className="px-2 py-.5 text-[9px] md:text-[10px] font-bold bg-primary/10 text-primary border border-primary/20 rounded-full cursor-default
+                            transition-all shadow-sm "
+                        >
+                          {tag}
+                        </motion.span>
+                      ))}
+                    </div>
+                  );
+                }
+              }
+
               return <p className="mb-6 leading-relaxed text-muted-foreground/90 text-sm md:text-sm">{children}</p>;
             },
             // Custom Code Blocks
             code({ node, inline, className, children, ...props }: any) {
               const match = /language-(\w+)/.exec(className || '');
               const languageCode = match ? match[1] : '';
-              
+
               return !inline ? (
-                <CodeBlock 
-                  language={languageCode} 
-                  value={String(children).replace(/\n$/, '')} 
+                <CodeBlock
+                  language={languageCode}
+                  value={String(children).replace(/\n$/, '')}
                   className="my-8 shadow-lg shadow-primary/5 border-primary/10"
                 />
               ) : (
@@ -190,12 +297,12 @@ export const ArticleContentSection: React.FC = () => {
               <div className="relative my-6 w-full overflow-hidden rounded-sm border border-border/50 bg-card/30 backdrop-blur-sm shadow-sm transition-all duration-300 hover:shadow-md hover:border-primary/20 group/table-container">
                 {/* Accent Bar */}
                 <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/50 via-primary/20 to-transparent" />
-                
+
                 <div className="overflow-x-auto scrollbar-hide relative group/table">
                   <table className="w-full border-collapse text-left text-sm md:text-sm">
                     {children}
                   </table>
-                  
+
                   {/* Mobile Scroll Indicator */}
                   <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-background/20 to-transparent pointer-events-none md:hidden opacity-0 group-hover/table:opacity-100 transition-opacity" />
                 </div>

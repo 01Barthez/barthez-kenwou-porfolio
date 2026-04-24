@@ -1,8 +1,129 @@
 import { IProject } from '../../model/project.types';
 
 export const projectsData: IProject[] = [
+
     {
         id: 1,
+        titleFr: "COMBO – ERP SaaS Modulaire pour la Gestion Intelligente de Restaurants",
+        titleEn: "COMBO – Modular SaaS ERP for Smart Restaurant Management",
+
+        descriptionFr: "ERP SaaS nouvelle génération pour restaurants, basé sur une architecture modulaire activable à la demande, combinant gestion opérationnelle, analytics et expérience client dans une plateforme unifiée.",
+        descriptionEn: "Next-generation SaaS ERP for restaurants, built on a modular on-demand architecture combining operations, analytics, and customer experience in a unified platform.",
+
+        fullDescriptionFr: "COMBO est une plateforme SaaS ambitieuse de nouvelle génération dédiée à la gestion intelligente et modulaire des restaurants. L’objectif est de fournir un système complet permettant à chaque restaurateur de construire son propre ERP sur mesure en activant uniquement les modules dont il a réellement besoin.\n\nLa plateforme repose sur une architecture monolithique modulaire (modular monolith) structurée via Turborepo, garantissant une séparation stricte des domaines métiers (Commandes, Stocks, CRM, Comptabilité, etc.) tout en conservant la simplicité opérationnelle d’un monolithe.\n\nLe produit comprend :\n- Une vitrine SaaS optimisée SEO pour acquisition client\n- Un système de souscription avec paiement multi-canaux (Mobile Money, Stripe, banque)\n- Une application principale (PWA) pour les restaurateurs\n- Des interfaces dédiées (admin, staff, cuisine)\n\nChaque restaurant peut configurer dynamiquement son environnement en activant des modules spécifiques : gestion des commandes (salle & online), menus & recettes avec calcul des coûts, gestion des stocks avec alertes, livraisons avec suivi temps réel, réservations intelligentes avec plan de salle, CRM client, facturation automatisée, reporting avancé (PDF/Excel), point de vente (POS), comptabilité, et écran cuisine.\n\nLe système intègre des capacités avancées : multi-tenant, gestion des rôles, analytics en temps réel, optimisation des performances, SEO, sécurité et scalabilité cloud-native. L’infrastructure est conçue pour AWS avec une approche DevOps complète (CI/CD, monitoring, observabilité).\n\nCe projet vise à créer une solution SaaS compétitive capable de rivaliser avec des solutions internationales, tout en étant adaptée aux réalités locales (paiements Mobile Money, flexibilité modulaire, coûts maîtrisés).",
+        fullDescriptionEn: "COMBO is a next-generation SaaS platform designed for intelligent and modular restaurant management. The goal is to provide a complete system allowing each restaurant owner to build a custom ERP by activating only the modules they need.\n\nThe platform is built on a modular monolithic architecture using Turborepo, ensuring strict separation of business domains (Orders, Inventory, CRM, Accounting, etc.) while maintaining operational simplicity.\n\nThe product includes:\n- A SEO-optimized SaaS landing platform for customer acquisition\n- Subscription system with multi-channel payments (Mobile Money, Stripe, banking)\n- Main PWA application for restaurant owners\n- Dedicated interfaces (admin, staff, kitchen)\n\nEach restaurant can dynamically configure its system by enabling modules such as: order management (in-house & online), menu & recipe costing, inventory with alerts, delivery tracking, smart reservations, CRM, invoicing, advanced analytics (PDF/Excel), POS system, accounting, and kitchen display.\n\nThe system integrates advanced capabilities: multi-tenancy, role management, real-time analytics, performance optimization, SEO, security, and cloud-native scalability. Infrastructure is designed for AWS with a full DevOps approach (CI/CD, monitoring, observability).\n\nThis project aims to build a competitive SaaS solution capable of rivaling international products while being adapted to local market realities (Mobile Money payments, modular flexibility, cost efficiency).",
+
+        problemFr: "Les solutions existantes de gestion de restaurant sont souvent rigides, coûteuses et mal adaptées aux réalités locales, obligeant les restaurateurs à utiliser plusieurs outils fragmentés.",
+        problemEn: "Existing restaurant management solutions are often rigid, expensive, and poorly adapted to local realities, forcing restaurant owners to use fragmented tools.",
+
+        solutionFr: [
+            "Architecture SaaS modulaire avec activation à la demande des fonctionnalités",
+            "Système multi-tenant permettant la gestion de plusieurs restaurants",
+            "Modules métiers indépendants (Commandes, Stocks, CRM, Comptabilité, etc.)",
+            "Paiement intégré multi-canaux (Mobile Money, Stripe, bancaire)",
+            "Application PWA performante accessible sur tous les appareils",
+            "Analytics avancé et reporting (SLO business, revenus, performances)",
+            "Infrastructure cloud AWS avec CI/CD, monitoring et sécurité",
+        ],
+        solutionEn: [
+            "Modular SaaS architecture with on-demand feature activation",
+            "Multi-tenant system supporting multiple restaurants",
+            "Independent business modules (Orders, Inventory, CRM, Accounting, etc.)",
+            "Integrated multi-channel payments (Mobile Money, Stripe, banking)",
+            "High-performance PWA accessible on all devices",
+            "Advanced analytics and reporting (business SLOs, revenue, performance)",
+            "AWS cloud infrastructure with CI/CD, monitoring, and security",
+        ],
+
+        challengesFr: [
+            "Concevoir une architecture modulaire tout en restant monolithique",
+            "Gérer la complexité multi-tenant et isolation des données",
+            "Optimiser les performances avec un grand nombre de modules",
+            "Implémenter un système de facturation flexible par module",
+            "Assurer la scalabilité et la sécurité sur AWS",
+            "Maintenir une excellente UX malgré la richesse fonctionnelle",
+        ],
+        challengesEn: [
+            "Designing a modular yet monolithic architecture",
+            "Handling multi-tenant complexity and data isolation",
+            "Optimizing performance with many modules",
+            "Implementing flexible per-module billing system",
+            "Ensuring scalability and security on AWS",
+            "Maintaining excellent UX despite feature richness",
+        ],
+
+        impactFr: [
+            "Digitalisation complète des opérations restaurant",
+            "Réduction des coûts via modularité (payer uniquement ce qui est utilisé)",
+            "Amélioration de la productivité et des marges",
+            "Centralisation des opérations dans une plateforme unique",
+            "Création d’un produit SaaS scalable à fort potentiel business",
+        ],
+        impactEn: [
+            "Full digitization of restaurant operations",
+            "Cost reduction via modular pricing (pay only for used features)",
+            "Improved productivity and margins",
+            "Centralized operations in a single platform",
+            "Creation of a scalable high-value SaaS product",
+        ],
+
+        metrics: {
+            "architecture": "Modular Monolith (Turborepo)",
+            "multiTenant": "true",
+            "modules": "10+ modules métiers",
+            "scalability": "Cloud-native (AWS)",
+            "status": "En développement actif",
+        },
+
+        techStack: {
+            frontend: ["Next.js", "TypeScript", "Tailwind CSS", "PWA"],
+            backend: ["Node.js", "API Routes / Services"],
+            database: ["PostgreSQL"],
+            devops: ["AWS", "Docker", "CI/CD", "Monitoring", "Observability"],
+        },
+
+        architecture: [
+            "Modular Monolith avec séparation stricte des domaines",
+            "Turborepo pour gestion multi-packages",
+            "Multi-tenant architecture",
+            "API centralisée avec modules découplés",
+            "Infrastructure AWS scalable",
+            "CI/CD + monitoring + observabilité",
+        ],
+
+        testing: [
+            "Tests unitaires modules critiques",
+            "Tests d’intégration",
+            "Tests E2E (flux commandes, paiements)",
+        ],
+
+        images: [
+            "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/167ee008-product-pic-tabesto-300x274.webp",
+        ],
+
+        preview: "",
+        videoDemo: "",
+
+        category: "SaaS • Fullstack • Cloud • DevOps",
+        status: "En cours",
+        complexity: "Expert",
+        role: "Fullstack Developer • DevOps Engineer • Architect",
+        teamSize: 3,
+
+        duration: "Projet long terme",
+        date: "2026",
+
+        github: "",
+        demo: "",
+
+        businessContextFr: "Projet SaaS stratégique visant à créer une solution de gestion de restaurant scalable, modulaire et adaptée aux marchés locaux et internationaux.",
+        businessContextEn: "Strategic SaaS project aimed at building a scalable, modular restaurant management solution for local and international markets.",
+
+        isFeatured: true,
+    },
+
+    {
+        id: 12,
         titleFr: 'Plateforme Web PWA GTA IT (Corporate + Backoffice)',
         titleEn: 'GTA IT PWA Platform (Corporate + Admin System)',
 
@@ -117,110 +238,6 @@ export const projectsData: IProject[] = [
         businessContextEn: "Global digital transformation of an IT service company aiming to position itself as a technical leader in its market while attracting top developer talent.",
 
         isFeatured: true,
-    },
-
-    {
-        id: 2,
-        titleFr: 'Plateforme Web GTA-Academy (Centre de formation)',
-        titleEn: 'GTA-Academy Web Platform (Training Center)',
-
-        descriptionFr: "Plateforme web de lancement pour GTA-Academy, conçue pour assurer visibilité, crédibilité et acquisition d’apprenants via une présentation structurée des formations et événements.",
-        descriptionEn: "Launch web platform for GTA-Academy designed to ensure visibility, credibility, and student acquisition through structured presentation of training programs and events.",
-
-        fullDescriptionFr: "Conception et développement en urgence d’une plateforme web pour GTA-Academy, centre de formation professionnelle. Le site avait pour objectif principal de positionner rapidement la structure sur le marché en offrant une visibilité claire sur les formations (vacances, entreprises, certifiantes, personnalisées) ainsi que sur les événements (webinaires, sessions d’information). L’application inclut des pages dédiées aux programmes, un système de présentation des événements et une architecture optimisée pour la conversion des visiteurs en prospects. Le projet a été déployé rapidement pour accompagner le lancement officiel du centre.",
-        fullDescriptionEn: "Designed and developed under tight deadline a web platform for GTA-Academy, a professional training center. The main goal was to quickly position the institution in the market by providing clear visibility on training programs (holiday, corporate, certified, custom) and events (webinars, info sessions). The application includes dedicated program pages, event presentation system, and a structure optimized for user conversion. The project was rapidly deployed to support the official launch of the academy.",
-
-        problemFr: "Le centre de formation était en phase de lancement sans présence digitale, ce qui limitait fortement sa visibilité, sa crédibilité et sa capacité à recruter rapidement des apprenants.",
-        problemEn: "The training center was in its launch phase with no digital presence, severely limiting its visibility, credibility, and ability to quickly acquire students.",
-
-        solutionFr: [
-            "Conception rapide d’un site web structuré orienté conversion",
-            "Présentation claire des différentes offres de formation (vacances, entreprise, certifiante, personnalisée)",
-            "Intégration d’un système de mise en avant des événements (webinaires, sessions d'information)",
-            "Optimisation UX/UI pour faciliter l’inscription et la prise de contact",
-            "Déploiement rapide pour accompagner le lancement officiel"
-        ],
-        solutionEn: [
-            "Rapid design of a conversion-oriented structured website",
-            "Clear presentation of multiple training offers (holiday, corporate, certified, custom)",
-            "Integration of event showcasing system (webinars, info sessions)",
-            "UX/UI optimization for easy registration and contact",
-            "Fast deployment to support official launch"
-        ],
-
-        challengesFr: [
-            "Livrer une plateforme complète en moins d’une semaine",
-            "Structurer efficacement les offres de formation pour maximiser la compréhension",
-            "Créer une crédibilité immédiate pour une structure nouvellement lancée",
-            "Optimiser l’expérience utilisateur dans un délai très court"
-        ],
-        challengesEn: [
-            "Deliver a complete platform in less than one week",
-            "Efficiently structure training offers for maximum clarity",
-            "Create immediate credibility for a newly launched institution",
-            "Optimize user experience under tight deadlines"
-        ],
-
-        impactFr: [
-            "Lancement réussi de la présence digitale de GTA-Academy",
-            "Amélioration immédiate de la crédibilité du centre",
-            "Facilitation de l’acquisition des premiers apprenants",
-            "Visibilité claire des offres de formation et événements"
-        ],
-        impactEn: [
-            "Successful launch of GTA-Academy digital presence",
-            "Immediate improvement in brand credibility",
-            "Facilitated acquisition of first students",
-            "Clear visibility of training offers and events"
-        ],
-
-        metrics: {
-            "deliveryTime": "1 semaine",
-            "pages": "10+ pages structurées",
-            "goal": "Lancement rapide",
-            "availability": "Production ready"
-        },
-
-        techStack: {
-            frontend: ["React", "Tailwind CSS"],
-            backend: ["Node.js", "Express"],
-            database: ["MongoDB"],
-            devops: ["Vercel", "VPS", "CI/CD"]
-        },
-
-        architecture: [
-            "Frontend React pour rendu dynamique",
-            "Backend Node.js pour gestion des contenus",
-            "Structure orientée landing pages pour conversion",
-            "Déploiement rapide cloud/VPS"
-        ],
-
-        testing: [],
-
-        images: [
-            "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/iPhone-13-PRO-academy.gta-it.com.png",
-            "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Macbook-Air-academy.gta-it.com.png",
-        ],
-
-        preview: "https://academy.gta-it.com/",
-        videoDemo: "",
-
-        category: "Full Stack",
-        status: "Production",
-        complexity: "Intermédiaire",
-        role: "Fullstack Developer",
-        teamSize: 1,
-
-        duration: "1 semaine",
-        date: "2025",
-
-        github: "",
-        demo: "https://academy.gta-it.com/",
-
-        businessContextFr: "Projet stratégique de lancement visant à positionner rapidement GTA-Academy sur le marché de la formation professionnelle et attirer ses premiers apprenants.",
-        businessContextEn: "Strategic launch project aimed at quickly positioning GTA-Academy in the professional training market and attracting its first students.",
-
-        isFeatured: false,
     },
 
     {
@@ -935,7 +952,7 @@ export const projectsData: IProject[] = [
         videoDemo: "",
 
         category: "DevOps • Observability",
-        status: "Production",
+        status: "MVP",
         complexity: "Expert",
         role: "DevOps Engineer",
         teamSize: 1,
@@ -949,7 +966,7 @@ export const projectsData: IProject[] = [
         businessContextFr: "Projet visant à améliorer la supervision et la fiabilité d’un système en production grâce à une observabilité complète et centralisée.",
         businessContextEn: "Project aimed at improving monitoring and reliability of a production system through full and centralized observability.",
 
-        isFeatured: true,
+        isFeatured: false,
     },
 
     {
@@ -1063,7 +1080,7 @@ export const projectsData: IProject[] = [
         businessContextFr: "Projet personnel stratégique visant à attirer des clients, construire une audience technique et renforcer une image d’expertise dans le développement backend et DevOps.",
         businessContextEn: "Strategic personal project aimed at attracting clients, building a technical audience, and reinforcing expertise in backend development and DevOps.",
 
-        isFeatured: true,
+        isFeatured: false,
     },
 
     {
@@ -1180,7 +1197,7 @@ export const projectsData: IProject[] = [
         videoDemo: "",
 
         category: "Security • DevOps",
-        status: "Production",
+        status: "Actif",
         complexity: "Avancé",
         role: "DevOps Engineer",
         teamSize: 1,
@@ -1194,7 +1211,7 @@ export const projectsData: IProject[] = [
         businessContextFr: "Projet de sécurisation d’infrastructure visant à protéger des serveurs exposés en production contre les menaces courantes et avancées.",
         businessContextEn: "Infrastructure security project aimed at protecting production servers from common and advanced threats.",
 
-        isFeatured: true,
+        isFeatured: false,
     },
 
     {
@@ -1309,123 +1326,107 @@ export const projectsData: IProject[] = [
         isFeatured: false,
     },
 
-    {
-        id: 12,
-        titleFr: "COMBO – ERP SaaS Modulaire pour la Gestion Intelligente de Restaurants",
-        titleEn: "COMBO – Modular SaaS ERP for Smart Restaurant Management",
+        {
+        id: 2,
+        titleFr: 'Plateforme Web GTA-Academy (Centre de formation)',
+        titleEn: 'GTA-Academy Web Platform (Training Center)',
 
-        descriptionFr: "ERP SaaS nouvelle génération pour restaurants, basé sur une architecture modulaire activable à la demande, combinant gestion opérationnelle, analytics et expérience client dans une plateforme unifiée.",
-        descriptionEn: "Next-generation SaaS ERP for restaurants, built on a modular on-demand architecture combining operations, analytics, and customer experience in a unified platform.",
+        descriptionFr: "Plateforme web de lancement pour GTA-Academy, conçue pour assurer visibilité, crédibilité et acquisition d’apprenants via une présentation structurée des formations et événements.",
+        descriptionEn: "Launch web platform for GTA-Academy designed to ensure visibility, credibility, and student acquisition through structured presentation of training programs and events.",
 
-        fullDescriptionFr: "COMBO est une plateforme SaaS ambitieuse de nouvelle génération dédiée à la gestion intelligente et modulaire des restaurants. L’objectif est de fournir un système complet permettant à chaque restaurateur de construire son propre ERP sur mesure en activant uniquement les modules dont il a réellement besoin.\n\nLa plateforme repose sur une architecture monolithique modulaire (modular monolith) structurée via Turborepo, garantissant une séparation stricte des domaines métiers (Commandes, Stocks, CRM, Comptabilité, etc.) tout en conservant la simplicité opérationnelle d’un monolithe.\n\nLe produit comprend :\n- Une vitrine SaaS optimisée SEO pour acquisition client\n- Un système de souscription avec paiement multi-canaux (Mobile Money, Stripe, banque)\n- Une application principale (PWA) pour les restaurateurs\n- Des interfaces dédiées (admin, staff, cuisine)\n\nChaque restaurant peut configurer dynamiquement son environnement en activant des modules spécifiques : gestion des commandes (salle & online), menus & recettes avec calcul des coûts, gestion des stocks avec alertes, livraisons avec suivi temps réel, réservations intelligentes avec plan de salle, CRM client, facturation automatisée, reporting avancé (PDF/Excel), point de vente (POS), comptabilité, et écran cuisine.\n\nLe système intègre des capacités avancées : multi-tenant, gestion des rôles, analytics en temps réel, optimisation des performances, SEO, sécurité et scalabilité cloud-native. L’infrastructure est conçue pour AWS avec une approche DevOps complète (CI/CD, monitoring, observabilité).\n\nCe projet vise à créer une solution SaaS compétitive capable de rivaliser avec des solutions internationales, tout en étant adaptée aux réalités locales (paiements Mobile Money, flexibilité modulaire, coûts maîtrisés).",
-        fullDescriptionEn: "COMBO is a next-generation SaaS platform designed for intelligent and modular restaurant management. The goal is to provide a complete system allowing each restaurant owner to build a custom ERP by activating only the modules they need.\n\nThe platform is built on a modular monolithic architecture using Turborepo, ensuring strict separation of business domains (Orders, Inventory, CRM, Accounting, etc.) while maintaining operational simplicity.\n\nThe product includes:\n- A SEO-optimized SaaS landing platform for customer acquisition\n- Subscription system with multi-channel payments (Mobile Money, Stripe, banking)\n- Main PWA application for restaurant owners\n- Dedicated interfaces (admin, staff, kitchen)\n\nEach restaurant can dynamically configure its system by enabling modules such as: order management (in-house & online), menu & recipe costing, inventory with alerts, delivery tracking, smart reservations, CRM, invoicing, advanced analytics (PDF/Excel), POS system, accounting, and kitchen display.\n\nThe system integrates advanced capabilities: multi-tenancy, role management, real-time analytics, performance optimization, SEO, security, and cloud-native scalability. Infrastructure is designed for AWS with a full DevOps approach (CI/CD, monitoring, observability).\n\nThis project aims to build a competitive SaaS solution capable of rivaling international products while being adapted to local market realities (Mobile Money payments, modular flexibility, cost efficiency).",
+        fullDescriptionFr: "Conception et développement en urgence d’une plateforme web pour GTA-Academy, centre de formation professionnelle. Le site avait pour objectif principal de positionner rapidement la structure sur le marché en offrant une visibilité claire sur les formations (vacances, entreprises, certifiantes, personnalisées) ainsi que sur les événements (webinaires, sessions d’information). L’application inclut des pages dédiées aux programmes, un système de présentation des événements et une architecture optimisée pour la conversion des visiteurs en prospects. Le projet a été déployé rapidement pour accompagner le lancement officiel du centre.",
+        fullDescriptionEn: "Designed and developed under tight deadline a web platform for GTA-Academy, a professional training center. The main goal was to quickly position the institution in the market by providing clear visibility on training programs (holiday, corporate, certified, custom) and events (webinars, info sessions). The application includes dedicated program pages, event presentation system, and a structure optimized for user conversion. The project was rapidly deployed to support the official launch of the academy.",
 
-        problemFr: "Les solutions existantes de gestion de restaurant sont souvent rigides, coûteuses et mal adaptées aux réalités locales, obligeant les restaurateurs à utiliser plusieurs outils fragmentés.",
-        problemEn: "Existing restaurant management solutions are often rigid, expensive, and poorly adapted to local realities, forcing restaurant owners to use fragmented tools.",
+        problemFr: "Le centre de formation était en phase de lancement sans présence digitale, ce qui limitait fortement sa visibilité, sa crédibilité et sa capacité à recruter rapidement des apprenants.",
+        problemEn: "The training center was in its launch phase with no digital presence, severely limiting its visibility, credibility, and ability to quickly acquire students.",
 
         solutionFr: [
-            "Architecture SaaS modulaire avec activation à la demande des fonctionnalités",
-            "Système multi-tenant permettant la gestion de plusieurs restaurants",
-            "Modules métiers indépendants (Commandes, Stocks, CRM, Comptabilité, etc.)",
-            "Paiement intégré multi-canaux (Mobile Money, Stripe, bancaire)",
-            "Application PWA performante accessible sur tous les appareils",
-            "Analytics avancé et reporting (SLO business, revenus, performances)",
-            "Infrastructure cloud AWS avec CI/CD, monitoring et sécurité",
+            "Conception rapide d’un site web structuré orienté conversion",
+            "Présentation claire des différentes offres de formation (vacances, entreprise, certifiante, personnalisée)",
+            "Intégration d’un système de mise en avant des événements (webinaires, sessions d'information)",
+            "Optimisation UX/UI pour faciliter l’inscription et la prise de contact",
+            "Déploiement rapide pour accompagner le lancement officiel"
         ],
         solutionEn: [
-            "Modular SaaS architecture with on-demand feature activation",
-            "Multi-tenant system supporting multiple restaurants",
-            "Independent business modules (Orders, Inventory, CRM, Accounting, etc.)",
-            "Integrated multi-channel payments (Mobile Money, Stripe, banking)",
-            "High-performance PWA accessible on all devices",
-            "Advanced analytics and reporting (business SLOs, revenue, performance)",
-            "AWS cloud infrastructure with CI/CD, monitoring, and security",
+            "Rapid design of a conversion-oriented structured website",
+            "Clear presentation of multiple training offers (holiday, corporate, certified, custom)",
+            "Integration of event showcasing system (webinars, info sessions)",
+            "UX/UI optimization for easy registration and contact",
+            "Fast deployment to support official launch"
         ],
 
         challengesFr: [
-            "Concevoir une architecture modulaire tout en restant monolithique",
-            "Gérer la complexité multi-tenant et isolation des données",
-            "Optimiser les performances avec un grand nombre de modules",
-            "Implémenter un système de facturation flexible par module",
-            "Assurer la scalabilité et la sécurité sur AWS",
-            "Maintenir une excellente UX malgré la richesse fonctionnelle",
+            "Livrer une plateforme complète en moins d’une semaine",
+            "Structurer efficacement les offres de formation pour maximiser la compréhension",
+            "Créer une crédibilité immédiate pour une structure nouvellement lancée",
+            "Optimiser l’expérience utilisateur dans un délai très court"
         ],
         challengesEn: [
-            "Designing a modular yet monolithic architecture",
-            "Handling multi-tenant complexity and data isolation",
-            "Optimizing performance with many modules",
-            "Implementing flexible per-module billing system",
-            "Ensuring scalability and security on AWS",
-            "Maintaining excellent UX despite feature richness",
+            "Deliver a complete platform in less than one week",
+            "Efficiently structure training offers for maximum clarity",
+            "Create immediate credibility for a newly launched institution",
+            "Optimize user experience under tight deadlines"
         ],
 
         impactFr: [
-            "Digitalisation complète des opérations restaurant",
-            "Réduction des coûts via modularité (payer uniquement ce qui est utilisé)",
-            "Amélioration de la productivité et des marges",
-            "Centralisation des opérations dans une plateforme unique",
-            "Création d’un produit SaaS scalable à fort potentiel business",
+            "Lancement réussi de la présence digitale de GTA-Academy",
+            "Amélioration immédiate de la crédibilité du centre",
+            "Facilitation de l’acquisition des premiers apprenants",
+            "Visibilité claire des offres de formation et événements"
         ],
         impactEn: [
-            "Full digitization of restaurant operations",
-            "Cost reduction via modular pricing (pay only for used features)",
-            "Improved productivity and margins",
-            "Centralized operations in a single platform",
-            "Creation of a scalable high-value SaaS product",
+            "Successful launch of GTA-Academy digital presence",
+            "Immediate improvement in brand credibility",
+            "Facilitated acquisition of first students",
+            "Clear visibility of training offers and events"
         ],
 
         metrics: {
-            "architecture": "Modular Monolith (Turborepo)",
-            "multiTenant": "true",
-            "modules": "10+ modules métiers",
-            "scalability": "Cloud-native (AWS)",
-            "status": "En développement actif",
+            "deliveryTime": "1 semaine",
+            "pages": "10+ pages structurées",
+            "goal": "Lancement rapide",
+            "availability": "Production ready"
         },
 
         techStack: {
-            frontend: ["Next.js", "TypeScript", "Tailwind CSS", "PWA"],
-            backend: ["Node.js", "API Routes / Services"],
-            database: ["PostgreSQL"],
-            devops: ["AWS", "Docker", "CI/CD", "Monitoring", "Observability"],
+            frontend: ["React", "Tailwind CSS"],
+            backend: ["Node.js", "Express"],
+            database: ["MongoDB"],
+            devops: ["Vercel", "VPS", "CI/CD"]
         },
 
         architecture: [
-            "Modular Monolith avec séparation stricte des domaines",
-            "Turborepo pour gestion multi-packages",
-            "Multi-tenant architecture",
-            "API centralisée avec modules découplés",
-            "Infrastructure AWS scalable",
-            "CI/CD + monitoring + observabilité",
+            "Frontend React pour rendu dynamique",
+            "Backend Node.js pour gestion des contenus",
+            "Structure orientée landing pages pour conversion",
+            "Déploiement rapide cloud/VPS"
         ],
 
-        testing: [
-            "Tests unitaires modules critiques",
-            "Tests d’intégration",
-            "Tests E2E (flux commandes, paiements)",
-        ],
+        testing: [],
 
         images: [
-            "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/167ee008-product-pic-tabesto-300x274.webp",
+            "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/iPhone-13-PRO-academy.gta-it.com.png",
+            "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Macbook-Air-academy.gta-it.com.png",
         ],
 
-        preview: "",
+        preview: "https://academy.gta-it.com/",
         videoDemo: "",
 
-        category: "SaaS • Fullstack • Cloud • DevOps",
-        status: "En cours",
-        complexity: "Expert",
-        role: "Fullstack Developer • DevOps Engineer • Architect",
-        teamSize: 3,
+        category: "Full Stack",
+        status: "Production",
+        complexity: "Intermédiaire",
+        role: "Fullstack Developer",
+        teamSize: 1,
 
-        duration: "Projet long terme",
-        date: "2026",
+        duration: "1 semaine",
+        date: "2025",
 
         github: "",
-        demo: "",
+        demo: "https://academy.gta-it.com/",
 
-        businessContextFr: "Projet SaaS stratégique visant à créer une solution de gestion de restaurant scalable, modulaire et adaptée aux marchés locaux et internationaux.",
-        businessContextEn: "Strategic SaaS project aimed at building a scalable, modular restaurant management solution for local and international markets.",
+        businessContextFr: "Projet stratégique de lancement visant à positionner rapidement GTA-Academy sur le marché de la formation professionnelle et attirer ses premiers apprenants.",
+        businessContextEn: "Strategic launch project aimed at quickly positioning GTA-Academy in the professional training market and attracting its first students.",
 
-        isFeatured: true,
-    }
+        isFeatured: false,
+    },
 ];

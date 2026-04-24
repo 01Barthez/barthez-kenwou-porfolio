@@ -4,6 +4,7 @@ import { routes } from './routes';
 import { LoadingPage } from '@/shared/ui/LoadingPage/LoadingPage';
 import { ProtectedRoute } from './routes/config/ProtectedRoute';
 import { PublicLayout } from '@/pages/public/Layout';
+import { ScrollToTop } from '@/shared/ui/ScrollToTop/ScrollToTop';
 
 export const App: React.FC = () => {
   React.useEffect(() => {
@@ -16,6 +17,7 @@ export const App: React.FC = () => {
 
   return (
     <Router>
+      <ScrollToTop />
       <div className="min-h-screen bg-background text-foreground">
         <Suspense fallback={<LoadingPage />}>
           <Routes>

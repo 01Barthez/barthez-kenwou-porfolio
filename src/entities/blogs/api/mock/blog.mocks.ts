@@ -3,6 +3,7 @@ import { IBlog } from '../../model/blog.type';
 export const blogPostsData: IBlog[] = [
   {
     "id": "1",
+    "slug": "ci-cd-github-actions-zero-to-expert",
     "titleFr": "CI/CD avec GitHub Actions – De Zéro à Expert",
     "titleEn": "CI/CD with GitHub Actions – From Zero to Expert",
     "excerptFr": "Maîtrisez GitHub Actions de A à Z : automatisez vos tests, builds, déploiements et bien plus. Guide complet, concret et à jour avec les meilleures pratiques 2026. Même si vous débutez, vous deviendrez autonome.",
@@ -392,6 +393,7 @@ Congratulations! You've gone from zero to **expert** level on GitHub Actions.
 
   {
     "id": "2",
+    "slug": "deploy-react-aws-s3-cloudfront-route-53",
     "titleFr": "Guide Complet 2026 : Déployer une Application React sur AWS comme un Pro (S3 + CloudFront + Route 53)",
     "titleEn": "Complete 2026 Guide: Deploy a React Application on AWS Like a Pro (S3 + CloudFront + Route 53)",
     "excerptFr": "Apprenez à déployer votre application React en toute sécurité, avec un CDN mondial ultra-rapide, un nom de domaine personnalisé et une architecture moderne (bucket privé + OAC). Zéro serveur, coût mini, performance maximale. Étape par étape, même si vous débutez.",
@@ -782,6 +784,7 @@ Got a question? Stuck somewhere? Leave a comment, I’ll answer personally.
 
   {
     "id": "3",
+    "slug": "optimize-nodejs-performance-pro",
     "titleFr": "Optimiser les Performances de votre Application Node.js comme un Expert",
     "titleEn": "Optimizing Your Node.js Application Performance Like a Pro",
     "excerptFr": "Techniques avancées et concrètes que j’utilise au quotidien pour booster mes APIs Node.js : caching hybride (NodeCache + Redis), Prisma optimisé, compression intelligente, profiling, clustering, reverse proxy, CDN… Résultats : latence divisée par 5, coûts divisés par 3, et une scalabilité sans limite. Même si vous débutez, ce guide vous transformera en expert.",
@@ -1116,6 +1119,7 @@ Thanks for reading all the way. You're now equipped like a true expert. Go imple
 
   {
     "id": "4",
+    "slug": "express-security-management-pro",
     "titleFr": "Gestion Complète de la Sécurité de votre Application Express.js comme un Expert",
     "titleEn": "Complete Security Management for Your Express.js Application Like a Pro",
     "excerptFr": "De zéro à un système ultra-sécurisé : tout ce que j’applique sur mes APIs Express.js + TypeScript en production. Helmet, CORS strict, rate limiting, Zod, JWT sécurisé, OWASP Top 10, scans automatisés… À la fin de cet article, votre app sera blindée contre les attaques les plus courantes. Guide pas-à-pas, concret et issu de 8 ans d’expérience réelle.",
@@ -1460,6 +1464,7 @@ Thanks for reading all the way. Your API is now way safer than it was 30 minutes
 
   {
     "id": "5",
+    "slug": "deploy-full-stack-serverless-aws",
     "titleFr": "Déployer une API Serverless Complète avec AWS API Gateway + Lambda + DynamoDB + Cognito + CI/CD (Full Stack React)",
     "titleEn": "Deploy a Full-Stack Serverless API with AWS API Gateway + Lambda + DynamoDB + Cognito + CI/CD (React Full Stack)",
     "excerptFr": "Vous avez une API Express.js + TypeScript sécurisée ? Passez en serverless pur avec AWS : API Gateway, Lambda, DynamoDB, Cognito, et un CI/CD complet. Guide pas-à-pas ultra-détaillé, avec exemple concret (Todo-list), schémas, et optimisations coûts/perfs. À la fin, votre stack full-stack React + backend est déployée, authentifiée, scalable et économique.",
@@ -1979,6 +1984,7 @@ Vous venez de déployer une **stack full-stack serverless professionnelle** avec
 
   {
     "id": "6",
+    "slug": "aws-security-iam-best-practices",
     "titleFr": "Sécurité AWS – Les Meilleures Pratiques IAM comme un Expert",
     "titleEn": "",
     "excerptFr": "Protégez votre compte AWS comme un pro : root user blindé, IAM Identity Center, least privilege avec Access Analyzer, MFA partout, SCPs, permissions boundaries… Guide complet issu de mes 8 ans d’expérience sur des projets à fort trafic et multi-comptes. À la fin, vous aurez une stratégie IAM professionnelle, automatisée et prête pour la production.",
@@ -2197,6 +2203,7 @@ Merci d’avoir lu jusqu’ici. Votre compte AWS est maintenant beaucoup plus s�
 
   {
     "id": "7",
+    "slug": "microservices-docker-kubernetes-mastery",
     "titleFr": "Architecture Microservices avec Docker et Kubernetes – De Zéro à Expert des Experts",
     "titleEn": "Microservices Architecture with Docker and Kubernetes – From Zero to Mastery",
     "excerptFr": "Vous avez votre API Express sécurisée et votre stack serverless AWS ? Passez maintenant à l’architecture microservices professionnelle avec Docker + Kubernetes. Décomposition DDD, multi-stage builds, GitOps avec ArgoCD, observabilité complète (Prometheus + Jaeger), service mesh, scaling auto, sécurité zéro-trust… Guide ultra-complet, concret et issu de mes 8 ans d’expérience sur des projets à fort trafic. À la fin, vous maîtrisez une stack production-ready que vous pouvez déployer en production demain.",
@@ -2879,6 +2886,7 @@ Thanks for reading this far. Your architecture is now future-ready. Go deploy yo
 
   {
     "id": "8",
+    "slug": "aws-multi-environment-architecture",
     "titleFr": "Guide Ultime 2026 – Architecture Multi-Environnements (Dev / Staging / Prod) : La Mise en Place Complète que J’Applique sur Tous Mes Projets Clients",
     "titleEn": "Ultimate 2026 Guide – Multi-Environment Architecture (Dev / Staging / Prod): The Complete Professional Setup I Actually Use on Client Projects",
     "excerptFr": "Passer d’un environnement unique à une architecture Dev / Staging / Prod professionnelle, sécurisée, scalable et reproductible n’est plus une option en 2026. Variables d’environnement, isolation forte, IaC avec Terraform, GitOps, secrets management, feature flags, observabilité par environnement, stratégies de déploiement avancées (Blue/Green, Canary), et gestion des données de test. Guide ultra-complet basé sur 8+ années d’expérience en full DevOps sur des stacks modernes.",
@@ -2895,6 +2903,7 @@ Thanks for reading this far. Your architecture is now future-ready. Go deploy yo
 
   {
     "id": "9",
+    "slug": "aws-cost-optimization-finops",
     "titleFr": "Stratégies d’Optimisation des Coûts AWS (FinOps) – Cas Réel de Savings que J’Applique Chez Mes Clients",
     "titleEn": "AWS Cost Optimization Strategies (FinOps) – Real Savings Case I Apply with My Clients",
     "excerptFr": "Votre facture AWS explose ? Découvrez une approche FinOps complète et pratique pour identifier les gaspillages, réduire les coûts de 30 à 50 % et garder le contrôle. Visibilité, quick wins, Savings Plans, Spot, Graviton, automatisation multi-environnements, et un cas réel où j’ai fait économiser plus de 40 % par mois sur une infrastructure réelle. Guide conçu pour les débutants et les équipes qui veulent passer pro sans stress.",
@@ -2911,6 +2920,7 @@ Thanks for reading this far. Your architecture is now future-ready. Go deploy yo
 
   {
     "id": "10",
+    "slug": "production-ready-aws-architecture",
     "titleFr": "Designing a Production-Ready AWS Architecture (Real Case) – Ce Que Je Déploie Vraiment Chez Mes Clients",
     "titleEn": "Designing a Production-Ready AWS Architecture (Real Case) – What I Actually Deploy for My Clients",
     "excerptFr": "Comment passer d’une infra qui « marche » à une architecture AWS production-ready, résiliente, sécurisée, scalable et maintenable ? Multi-account, VPC sécurisé, EKS avec GitOps, Terraform IaC, observabilité complète, stratégies de déploiement avancées… Guide ultra-détaillé avec les erreurs courantes que je corrige chez les clients, ce que les pros font vraiment en 2026, et un cas réel concret où on a transformé une infra fragile en système entreprise-grade.",
@@ -2927,6 +2937,7 @@ Thanks for reading this far. Your architecture is now future-ready. Go deploy yo
 
   {
     "id": "11",
+    "slug": "secure-linux-server-hardening",
     "titleFr": "How I Secure a Linux Server (Step-by-Step Hardening Guide) – Ce Que Je Fais Vraiment sur Tous Mes Serveurs",
     "titleEn": "How I Secure a Linux Server (Step-by-Step Hardening Guide) – What I Actually Do on Every Server",
     "excerptFr": "Un serveur Linux exposé sur internet sans hardening = cible facile pour les bots et les attaques en 2026. SSH faible, ports ouverts, pas de firewall, mises à jour manuelles… Voici exactement la méthode pas-à-pas que j’applique sur tous mes serveurs (Ubuntu/Debian, AWS EC2, VPS) : SSH ultra-sécurisé, firewall strict, kernel hardening, monitoring, et automatisation. Guide vivant avec erreurs courantes, commandes concrètes et un cas réel où on a bloqué 99 % des attaques automatiques.",
@@ -2943,6 +2954,7 @@ Thanks for reading this far. Your architecture is now future-ready. Go deploy yo
 
   {
     "id": "12",
+    "slug": "production-ready-monitoring-stack",
     "titleFr": "Monitoring Stack Production-Ready – Prometheus + Grafana + Loki + Tempo + Alloy + Alerts (Ce Que Je Déploie Vraiment)",
     "titleEn": "Production-Ready Monitoring Stack – Prometheus + Grafana + Loki + Tempo + Alloy + Alerts (What I Actually Deploy)",
     "excerptFr": "Plus de black boxes en production. Voici exactement la stack d’observabilité que j’installe sur tous mes environnements en 2026 : Prometheus pour les metrics, Loki pour les logs, Tempo pour les traces, Grafana comme interface unique, Grafana Alloy comme agent unifié, et Alertmanager pour des alertes intelligentes. Guide pas-à-pas avec erreurs courantes, configs Helm/Terraform, dashboards, et un cas réel où on est passé de « on ne sait pas ce qui se passe » à une détection d’incidents en moins de 3 minutes.",
@@ -2959,6 +2971,7 @@ Thanks for reading this far. Your architecture is now future-ready. Go deploy yo
 
   {
     "id": "13",
+    "slug": "linux-server-fresh-vps-fortress",
     "titleFr": "Linux Server – De VPS Vierge à Forteresse Complète",
     "titleEn": "Linux Server – From Fresh VPS to Complete Fortress",
     "excerptFr": "Un VPS Ubuntu exposé sur internet sans hardening sérieux devient une cible en quelques heures. Voici exactement la méthode complète et chronologique que j’applique sur tous mes serveurs en 2026 : SSH Ed25519 + port custom, UFW + iptables + CSF, Fail2Ban + CrowdSec, Naxsi WAF, Cloudflare + bouncers, headers de sécurité, monitoring et rapports quotidiens. Guide ultra-détaillé, production-ready, inspiré de mes déploiements réels sur Ubuntu 22.04/24.04.",
@@ -2975,6 +2988,7 @@ Thanks for reading this far. Your architecture is now future-ready. Go deploy yo
 
   {
     "id": "14",
+    "slug": "ci-cd-zero-downtime-deployment",
     "titleFr": "CI/CD Pipeline for Zero Downtime Deployment (Real Setup) – Ce Que J’Utilise Vraiment sur Mes Projets Clients",
     "titleEn": "CI/CD Pipeline for Zero Downtime Deployment (Real Setup) – What I Actually Use on My Client Projects",
     "excerptFr": "Déployer plusieurs fois par jour sans jamais faire tomber la production ? Voici exactement le pipeline CI/CD que j’implémente sur tous mes environnements en 2026 : GitHub Actions pour le CI (build, test, scan, push), ArgoCD pour le GitOps, Argo Rollouts pour Blue-Green ou Canary avec analysis Prometheus, feature flags, preview environments et rollback automatique. Guide ultra-complet avec workflows concrets, manifests Rollout, erreurs courantes et un cas réel où on est passé à plusieurs déploiements par jour sans downtime.",
@@ -2991,6 +3005,7 @@ Thanks for reading this far. Your architecture is now future-ready. Go deploy yo
 
   {
     "id": "15",
+    "slug": "devsecops-in-practice-sast-dast",
     "titleFr": "DevSecOps in Practice – SAST, DAST, SCA, IaC Scanning & CI/CD Integration (Real Setup)",
     "titleEn": "DevSecOps in Practice – SAST, DAST, SCA, IaC Scanning & CI/CD Integration (Real Setup)",
     "excerptFr": "La sécurité ne doit plus être un frein à la fin du sprint. Voici exactement comment j’intègre DevSecOps dans tous mes projets clients en 2026 : SAST (Semgrep), SCA + container scanning (Trivy), DAST (OWASP ZAP), secrets detection, IaC scanning, le tout dans GitHub Actions + ArgoCD. Guide concret avec workflows complets, security gates intelligents, réduction des faux positifs et un cas réel où on a divisé par 4 le nombre de vulnérabilités critiques en production sans ralentir les développeurs.",
@@ -3007,6 +3022,7 @@ Thanks for reading this far. Your architecture is now future-ready. Go deploy yo
 
   {
     "id": "16",
+    "slug": "scaling-react-app-ssr-performance",
     "titleFr": "Scaling a React App (SSR, Caching, Performance) – Ce Que Je Fais Vraiment pour Passer à Des Milliers d’Utilisateurs",
     "titleEn": "Scaling a React App (SSR, Caching, Performance) – What I Actually Do to Handle Thousands of Users",
     "excerptFr": "Une app React qui rame à 1 000 utilisateurs actifs ? Voici exactement la stratégie de scaling que j’applique sur tous mes projets clients en 2026 : choix intelligent entre SSR/SSG/ISR/Edge Rendering avec Next.js App Router, layered caching (Data Cache, Full Route Cache, Redis, CDN), React Server Components, streaming, optimisation images/fonts, et monitoring Core Web Vitals. Guide concret avec code, erreurs courantes et un cas réel où on est passé de 3s de TTFB à <300ms tout en réduisant les coûts serveur de 45 %.",
@@ -3023,6 +3039,7 @@ Thanks for reading this far. Your architecture is now future-ready. Go deploy yo
 
   {
     "id": "17",
+    "slug": "npm-supply-chain-attacks-protection",
     "titleFr": "Supply Chain Attacks sur npm – L’Affaire Axios et Comment Je Protège Mes Apps en DevSecOps",
     "titleEn": "npm Supply Chain Attacks – The Axios Case and How I Protect My Apps with DevSecOps",
     "excerptFr": "Le 31 mars 2026, axios – une des librairies JS les plus utilisées au monde (plus de 100 millions de downloads/semaine) – a été compromise via un compte maintainer piraté. Des versions malveillantes ont injecté un RAT cross-platform. Ce n’est pas un cas isolé : typosquatting, dependency confusion, phishing de maintainers… Voici comment ces attaques de la chaîne d’approvisionnement fonctionnent, pourquoi elles sont si dangereuses et difficiles à stopper, et surtout la stratégie DevSecOps complète et réelle que j’applique sur tous mes projets pour les prévenir et les détecter tôt.",
@@ -3286,6 +3303,7 @@ April 2026`,
 
   {
     "id": "18",
+    "slug": "odoo-kubernetes-erp-deployment",
     "titleFr": "How I Built and Deployed an ERP with Odoo + Kubernetes – Architecture Complète Production-Ready",
     "titleEn": "How I Built and Deployed an ERP with Odoo + Kubernetes – Complete Production-Ready Architecture",
     "excerptFr": "Comment passer d’un Odoo classique sur VM à un ERP scalable, résilient et multi-tenant sur Kubernetes (EKS) ? Voici exactement l’architecture que j’ai conçue et déployée pour plusieurs clients en 2026 : Odoo workers avec React Server Components-like (custom modules), PostgreSQL dédié, Redis, filestore sur PVC, Helm charts, GitOps avec ArgoCD, zero-downtime deployments, monitoring complet et scaling horizontal. Guide ultra-détaillé avec schémas, manifests, erreurs courantes et un cas réel où on a multiplié par 10 la capacité tout en réduisant les coûts de 40 %.",
@@ -3302,6 +3320,7 @@ April 2026`,
 
   {
     "id": "19",
+    "slug": "zustand-vs-redux-react-choice",
     "titleFr": "Zustand vs Redux – Lequel Je Choisis Vraiment pour Mes Projets React & Next.js",
     "titleEn": "Zustand vs Redux – Which One I Actually Choose for My React & Next.js Projects",
     "excerptFr": "Redux ou Zustand en 2026 ? Après avoir migré plusieurs apps clients (React/Next.js) de Redux vers Zustand, voici mon analyse honnête : boilerplate, performance (bundle ~1.2kB vs 13-20kB), re-renders, scalabilité, debugging et écosystème. Quand Zustand gagne haut la main (MVPs, apps moyennes, vitesse), quand Redux Toolkit reste imbattable (grosses équipes, state complexe, RTK Query). Règle de décision que j’applique vraiment + exemples concrets et benchmarks.",
@@ -3318,6 +3337,7 @@ April 2026`,
 
   {
     "id": "20",
+    "slug": "ai-website-builder-seminar-feedback",
     "titleFr": "J’ai Piloté un Séminaire Intensif “Créer un Site Web avec l’IA” – Retours, Outils & Méthode Complète",
     "titleEn": "I Led an Intensive “Build a Website with AI” Seminar – Full Feedback, Tools & Method",
     "excerptFr": "Le 28 mars 2026, j’ai eu le plaisir d’animer un séminaire intensif d’une journée “Créer un site web avec l’Intelligence Artificielle” à Yaoundé. Au programme : 30 outils IA (No-Code, Low-Code, Code + IA), prompt engineering avancé, génération d’apps complètes avec Cursor, v0, Bolt.new, Lovable, et les bonnes pratiques pour passer de prototype à produit professionnel. Voici le retour d’expérience complet : ce qui a le plus marqué les participants, les outils qui ont changé la donne, et la méthode que j’applique désormais sur tous mes projets.",
