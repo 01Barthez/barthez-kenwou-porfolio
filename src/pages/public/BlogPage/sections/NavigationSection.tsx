@@ -13,7 +13,7 @@ export const NavigationSection: React.FC = () => {
   const nextPost = currentIndex < blogPostsData.length - 1 ? blogPostsData[currentIndex + 1] : null;
 
   return (
-    <div className="flex justify-between items-center border-t border-border/50 pt-8 mb-12">
+    <div className="flex justify-between items-center border-t border-border/50 pt-4 mb-8">
       {prevPost ? (
         <Link
           to={`/blog/${prevPost.id}`}

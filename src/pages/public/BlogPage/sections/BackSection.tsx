@@ -7,14 +7,21 @@ export const BackSection: React.FC = () => {
   const { language } = useLanguageStore();
 
   return (
-    <div className="mt-24 md:mt-0 mb-1">
+    <div className="mb-4 flex items-center justify-between">
       <Link
         to="/blog"
-        className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground hover:text-primary transition-all group"
+        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-secondary/40 border border-border/40 text-[9px] font-black uppercase tracking-widest text-muted-foreground hover:text-primary hover:bg-primary/5 hover:border-primary/20 transition-all group"
       >
-        <HiOutlineArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
-        {language === 'fr' ? 'Retour au blog' : 'Back to blog'}
+        <HiOutlineArrowLeft className="h-3 w-3 transition-transform group-hover:-translate-x-0.5" />
+        {language === 'fr' ? 'Retour' : 'Back'}
       </Link>
+      
+      <div className="hidden md:flex items-center gap-2 text-[9px] font-black uppercase tracking-[0.2em] text-muted-foreground/30">
+        <div className="h-px w-6 bg-border" />
+        <span>Barthez Kenwou • Blog</span>
+      </div>
     </div>
   );
 };
+
+

@@ -1,45 +1,60 @@
 import { blogPostsData } from '@/entities/blogs/api/mock/blog.mocks';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
-import { Share2 } from 'lucide-react';
+import { Share2, Twitter, Linkedin } from 'lucide-react';
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 export const ShareSection: React.FC = () => {
   const { language } = useLanguageStore();
-  const { id } = useParams();
+  const { blogID } = useParams();
 
-  const post = blogPostsData.find((p) => p.id === id) || { titleFr: '', titleEn: '' };
+  const post = blogPostsData.find((p) => p.id === blogID) || { titleFr: '', titleEn: '' };
+
+  const shareUrl = window.location.href;
+  const shareText = language === 'fr' ? post.titleFr : post.titleEn;
 
   return (
-    <div className="flex items-center gap-4 p-6 rounded-2xl bg-secondary/30 mb-12">
-      <Share2 className="h-5 w-5 text-primary" />
-      <span className="text-foreground font-medium">
-        {language === 'fr' ? 'Partager cet article' : 'Share this article'}
-      </span>
+    <div className="flex flex-col md:flex-row items-center gap-4 p-2 md:px-4 md:py-2 rounded-sm bg-secondary/20 border border-border/40 mb-8 relative overflow-hidden group">
+      <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+      
+      <div className="flex items-center gap-2 relative z-10 text-left">
+        <div className="h-8 w-8 flex items-center justify-center rounded-sm bg-primary text-primary-foreground shadow-lg shadow-primary/10">
+          <Share2 className="h-4 w-4" />
+        </div>
 
-      <div className="flex gap-2 ml-auto">
-        <Link
-          to={`https://twitter.com/intent/tweet?text=${encodeURIComponent(
-            language === 'fr' ? post.titleFr : post.titleEn,
-          )}`}
+        <div>
+          <span className="block text-foreground font-black uppercase tracking-[0.1em] text-[10px]">
+            {language === 'fr' ? 'Partager l\'article' : 'Share the article'}
+          </span>
+          <span className="text-xs text-muted-foreground">
+            {language === 'fr' ? 'Diffusez le savoir' : 'Spread the knowledge'}
+          </span>
+        </div>
+      </div>
+
+      <div className="flex gap-2 md:ml-auto relative z-10 w-full md:w-auto">
+        <a
+          href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="px-4 py-2 rounded-lg bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors"
+          className="flex-1 md:flex-none flex items-center justify-center gap-2 px-4 py-2 rounded-sm bg-sky-500 text-white font-bold text-[11px] hover:bg-sky-600 transition-all shadow-md active:scale-95"
         >
+          <Twitter className="h-3.5 w-3.5" />
           Twitter
-        </Link>
+        </a>
 
-        <Link
-          to={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(
-            window.location.href,
-          )}`}
+        <a
+          href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="px-4 py-2 rounded-lg bg-secondary hover:bg-primary hover:text-primary-foreground transition-colors"
+          className="flex-1 md:flex-none flex items-center justify-center gap-2 px-4 py-2 rounded-sm bg-[#0077b5] text-white font-bold text-[11px] hover:bg-[#0077b5]/90 transition-all shadow-md active:scale-95"
         >
+          <Linkedin className="h-3.5 w-3.5" />
           LinkedIn
-        </Link>
+        </a>
       </div>
     </div>
   );
+
 };
+
