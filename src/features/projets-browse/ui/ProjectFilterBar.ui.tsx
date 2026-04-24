@@ -46,13 +46,13 @@ export const ProjectFilterBar: React.FC<ProjectFilterBarProps> = ({
   onReset,
 }) => {
   return (
-    <div className="flex items-center justify-center gap-2 mb-10 relative z-10">
+    <div className="flex items-center justify-center gap-2 mb-6 relative z-10">
       {/* ── Tech ── */}
       <FilterDropdown
         label="Tech"
         activeCount={activeTechs.length}
       >
-        <div className="max-h-52 overflow-y-auto">
+        <div className="max-h-46 overflow-y-auto">
           {availableTechs.map((tech) => {
             const isActive = activeTechs.includes(tech);
             return (
@@ -60,7 +60,7 @@ export const ProjectFilterBar: React.FC<ProjectFilterBarProps> = ({
                 key={tech}
                 type="button"
                 onClick={() => onTechToggle(tech)}
-                className={`w-full flex items-center gap-2 px-5 py-1.5 rounded-lg text-xs transition-colors cursor-pointer ${isActive
+                className={`w-full flex items-center gap-1 px-1 py-1.5 rounded-sm text-xs transition-colors cursor-pointer ${isActive
                     ? 'bg-primary/20 text-primary font-medium'
                     : 'text-muted-foreground hover:bg-secondary/60 hover:text-foreground'
                   }`}
@@ -86,7 +86,7 @@ export const ProjectFilterBar: React.FC<ProjectFilterBarProps> = ({
               key={role}
               type="button"
               onClick={() => onRoleSelect(isActive ? null : role)}
-              className={`w-full flex items-center gap-2 px-5 py-1.5 rounded-lg text-nowrap text-xs transition-colors cursor-pointer ${isActive
+              className={`w-full flex items-center gap-2 px-2 py-1.5 rounded-sm text-nowrap text-xs transition-colors cursor-pointer ${isActive
                   ? 'bg-primary/20 text-primary font-medium'
                   : 'text-muted-foreground hover:bg-secondary/60 hover:text-foreground'
                 }`}
@@ -125,7 +125,7 @@ export const ProjectFilterBar: React.FC<ProjectFilterBarProps> = ({
         <button
           type="button"
           onClick={onReset}
-          className="flex items-center gap-1 px-5 py-1.5 rounded-lg text-xs border border-border/40 text-muted-foreground hover:text-foreground hover:border-border/70 hover:bg-secondary/40 transition-all duration-200 cursor-pointer"
+          className="flex items-center gap-1 px-2 py-1.5 rounded-sm text-xs border border-border/40 text-muted-foreground hover:text-foreground hover:border-border/70 hover:bg-secondary/40 transition-all duration-200 cursor-pointer"
         >
           <FaX className="h-3 w-3" />
           <span>Reset</span>

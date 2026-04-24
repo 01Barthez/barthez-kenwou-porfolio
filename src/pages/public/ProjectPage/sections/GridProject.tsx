@@ -74,7 +74,7 @@ export const GridProject: React.FC<GridProjectProps> = ({ filterState }) => {
   return (
     <section className="mt-20" ref={sectionRef}>
       {/* ── Category Filter (Primary) ────────────────────────────────────────── */}
-      <div className="flex flex-wrap justify-center gap-3 mb-4 relative z-10">
+      <div className="flex flex-wrap justify-center gap-2 mb-4 relative z-10">
         {categoryFilters.map((filter) => {
           const isActive = filters.category === filter.id;
           return (
@@ -82,7 +82,7 @@ export const GridProject: React.FC<GridProjectProps> = ({ filterState }) => {
               key={filter.id}
               type="button"
               onClick={() => setCategory(filter.id)}
-              className={`relative px-4 py-1.5 cursor-pointer rounded-full text-xs capitalize tracking-wide font-bold transition-all duration-300 overflow-hidden group border ${
+              className={`relative px-4 py-1 cursor-pointer rounded-full text-xs capitalize tracking-wide font-semibold transition-all duration-300 overflow-hidden group border ${
                 isActive
                   ? 'bg-primary border-primary text-primary-foreground shadow-sm scale-105 shadow-primary/20'
                   : 'bg-secondary/40 border-border/40 text-muted-foreground hover:text-foreground hover:border-primary/50 hover:bg-secondary/80'
