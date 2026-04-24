@@ -1,117 +1,102 @@
-# @org/frontend-app **Frontend platform for customer-facing applications**
+# 🚀 Barthez Kenwou Portfolio
+
+> **Full Stack Developer & DevOps Engineer | AWS Cloud Specialist**
+
+Welcome to the source code of my professional portfolio. This project is a showcase of modern web engineering, featuring high-performance rendering, sophisticated animations, and a robust architectural foundation.
 
 ---
 
-[![Build Status](https://img.shields.io/github/actions/workflow/status/org/frontend-app/ci.yml?branch=main)](https://github.com/org/frontend-app/actions/workflows/ci.yml)
-[![Coverage Status](https://img.shields.io/codecov/c/github/org/frontend-app)](https://codecov.io/gh/org/frontend-app)
-[![License](https://img.shields.io/github/license/org/frontend-app)](./LICENSE)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/org/barthez-kenwou-portfolio/ci.yml?branch=main)](https://github.com/org/barthez-kenwou-portfolio/actions/workflows/ci.yml)
+[![Version](https://img.shields.io/badge/version-1.4.0-blue.svg)](./package.json)
+[![License](https://img.shields.io/badge/license-UNLICENSED-red.svg)](./LICENSE)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](./CONTRIBUTING.md)
 
-This repository contains the source code for the customer-facing frontend platform. It is a production-ready, modular, and scalable React application built with modern web technologies.
+---
 
-**Live Demo:** [www.example.com](https://www.example.com)
+## ✨ Key Features
 
-## Key Features
+- **💎 Premium UX/UI**: Sophisticated Dark/Light modes, Aurora backgrounds, interactive Cobe 3D Globe, and smooth Framer Motion transitions.
+- **🏗 FSD Architecture**: Strictly follows **Feature-Sliced Design** for maximum modularity and maintainability.
+- **📝 Markdown Blog**: Dynamic blog engine powered by **Velite** and **Shiki** for beautiful syntax highlighting.
+- **🌐 Multilingual**: Full internationalization (I18n) support via `i18next`.
+- **⚡ Performance First**: Powered by **Vite (Rolldown)** and **Bun**, achieving near-perfect Lighthouse scores.
+- **📱 PWA Ready**: Installable application with offline support and optimized assets.
+- **🧪 Quality Orchestration**: Vitest for units, Cypress for E2E, and Lighthouse CI for performance monitoring.
 
-- **Modern Tech Stack:** Built with React 19, Vite, and TypeScript.
-- **Professional Styling:** Styled with Tailwind CSS for a utility-first workflow.
-- **Scalable Architecture:** Follows a modular, Domain-Driven Design (DDD) approach, inspired by Feature-Sliced Design.
-- **State Management:** Uses Zustand for simple and scalable global state management.
-- **Robust Testing:** Includes unit/integration tests with Vitest, and E2E tests with Cypress.
-- **Component Library:** Isolated component development and testing with Storybook.
-- **PWA Ready:** Configured as a Progressive Web App for an enhanced user experience.
-- **Automated Workflows:** CI/CD pipelines for linting, testing, building, and quality checks (Lighthouse).
-- **Developer Experience:** Pre-configured with Husky, commitlint, ESLint, and Prettier for high-quality, consistent code.
+---
 
-## Project Structure
+## 🛠 Tech Stack
 
-The project follows a modular architecture to separate concerns and improve scalability. High-level directory structure:
+| Layer | Tools |
+| :--- | :--- |
+| **Foundation** | React 18, TypeScript, Vite (Rolldown Engine) |
+| **Styling** | Tailwind CSS 4, Framer Motion, Motion |
+| **Content** | Velite, React Markdown, Shiki |
+| **State** | Zustand |
+| **Forms** | React Hook Form, Zod |
+| **QA** | Vitest, Cypress, Storybook, Lighthouse CI |
+| **Environment** | Bun, Husky, Commitlint |
+
+---
+
+## 🏗 Project Structure
+
+The project follows the **Feature-Sliced Design** methodology:
 
 ```bash
-/root
-├── docs/          # Project documentation (ADRs, guidelines, etc.)
-├── public/        # Static assets
-├── scripts/       # Helper scripts for CI/CD and local dev
-└── src/
-    ├── app/       # App-level setup: routing, providers, global styles
-    ├── pages/     # Page components, composed of features and widgets
-    ├── widgets/   # Complex UI components (e.g., Navbar, Footer)
-    ├── features/  # Business logic features (e.g., auth, checkout)
-    ├── entities/  # Core business models and UI representations
-    └── shared/    # Reusable code: UI kit, libs, config, helpers
+src/
+├── app/       # Bootstrap (providers, routes, global styles)
+├── pages/     # Page composition (Home, Blog, Projects, etc.)
+├── widgets/   # Complex UI blocks (Navbar, Footer, Sidebar)
+├── features/  # Interactive user scenarios (ThemeToggle, I18n)
+├── entities/  # Domain models (Article, Project, Skill)
+└── shared/    # Infrastructure (UI Kit, Hooks, API, Utils)
 ```
 
-For a deeper dive, please see the [**Architecture Documentation**](./docs/architecture/).
+For more details, see the [**Documentation Folder**](./docs/).
 
-## Getting Started
+---
+
+## 🚀 Getting Started
 
 ### Prerequisites
-
-- [Node.js](https://nodejs.org/) (version >= 18)
 - [Bun](https://bun.sh/) (version >= 1.3)
+- Node.js (version >= 18)
 
 ### Installation
+1. **Clone & Enter:**
+   ```bash
+   git clone https://github.com/org/barthez-kenwou-portfolio.git
+   cd barthez-kenwou-portfolio
+   ```
+2. **Install Dependencies:**
+   ```bash
+   bun install
+   ```
+3. **Environment Setup:**
+   ```bash
+   cp .env.example .env
+   ```
 
-1. **Clone the repository:**
-
-````bash
-    git clone https://github.com/org/frontend-app.git
-    cd frontend-app
-    ```
-
-2.  **Install dependencies:**
-    ```bash
-    bun install
-    ```
-
-3.  **Set up environment variables:**
-
-    Copy the example environment file and update it with your local configuration.
-    ```bash
-    cp .env.example .env
-    ```
-    See the [`.env.example`](./.env.example) file for a list of all required variables.
-
-### Running the Development Server
-
-To start the local development server, run:
-
+### Development
 ```bash
-bun run dev
-````
+bun dev
+```
+Open `http://localhost:5173` to see the magic.
 
-The application will be available at `http://localhost:5173`.
+---
 
-## Available Scripts
+## 🛠 Scripts
 
-This project comes with a set of useful scripts defined in `package.json`:
+| Command | Description |
+| :--- | :--- |
+| `bun run build` | Production build (via `scripts/build.sh`) |
+| `bun run lint` | Run ESLint checks |
+| `bun run test` | Execute unit tests with Vitest |
+| `bun run storybook` | Launch component documentation |
+| `bun run e2e:open` | Open Cypress for integration testing |
 
-| Script                  | Description                                                |
-| :---------------------- | :--------------------------------------------------------- |
-| `bun run dev`           | Starts the development server with Hot Module Replacement. |
-| `bun run build`         | Compiles the app for production.                           |
-| `bun run preview`       | Serves the production build locally for preview.           |
-| `bun run lint`          | Lints all source files using ESLint.                       |
-| `bun run format`        | Formats all source files using Prettier.                   |
-| `bun run test`          | Runs all unit and integration tests with Vitest.           |
-| `bun run test:coverage` | Generates a test coverage report.                          |
-| `bun run e2e:open`      | Opens the Cypress test runner for E2E testing.             |
-| `bun run storybook`     | Starts the Storybook component explorer.                   |
+---
 
-## Testing
-
-- **Unit & Integration Tests:** Run `bun test` to execute all tests.
-- **End-to-End (E2E) Tests:** Run `bun run e2e:run` to execute Cypress tests in headless mode. Make sure the dev server is running first.
-
-## Contributing
-
-Contributions are welcome! Please read our [**Contributing Guidelines**](./CONTRIBUTING.md) to get started. This document outlines our commit conventions, branch strategy, and PR process.
-
-## Documentation
-
-All project documentation, including architectural decisions and coding guidelines, is located in the [`/docs`](./docs) directory. Start with the [**Docs README**](./docs/README.md) for an overview.
-
-## License
-
-This project is `UNLICENSED`.
+## 📄 License
+This project is `UNLICENSED`. Self-hosted and managed by **Barthez Kenwou**.

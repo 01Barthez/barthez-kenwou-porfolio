@@ -1,18 +1,38 @@
-# Frontend architecture
+# 🏛 Frontend Architecture: Feature-Sliced Design (FSD)
 
-Overview
+This project is built using the **Feature-Sliced Design** (FSD) architectural methodology. It provides a clear structure for scaling the codebase and managing dependencies.
 
-This project follows a feature-first, Domain-Driven-ish structure. Top-level directories are organized by intent: `features/` for product verticals, `entities/` for domain models, `shared/` for reusable UI and libs, and `app/` for global bootstrap and routing.
+## The Hierarchy of Layers
 
-Key principles
+The core rule of FSD: **A lower layer cannot import anything from a higher layer.**
 
-- Single responsibility per file and folder.
-- Prefer named exports and avoid default exports for discoverability.
-- Keep UI dumb where possible: move side effects and network calls into `model/` or `api/`.
-- Barrels are allowed for public surface (`features/index.ts`) but avoid deep cross-feature imports.
+### 1. `app/`
+- **Goal**: Global configuration, providers, and bootstrap.
+- **Content**: `App.tsx`, global styles (`index.css`), routing setup, internationalization initialization.
 
-Build & deploy
+### 2. `pages/`
+- **Goal**: Compose widgets and features into full application pages.
+- **Content**: Layouts and page containers.
 
-- Build: Vite + TypeScript produce a static `dist/` folder.
-- Serve: recommended to serve static files with a simple nginx image (see `docker/`).
-- CI should run `format:check`, `lint`, `typecheck`, `test:ci`, and `build`.
+### 3. `widgets/`
+- **Goal**: Self-contained UI blocks that combine features and entities.
+- **Content**: `Navbar`, `Footer`, `Sidebar`.
+
+### 4. `features/`
+- **Goal**: User-facing scenarios that carry business value.
+- **Content**: `ThemeToggle`, `LanguageSwitcher`, `ContactForm`.
+
+### 5. `entities/`
+- **Goal**: Business domain models and logic.
+- **Content**: `Article` (Blog), `Project`, `User`, `Experience`.
+
+### 6. `shared/`
+- **Goal**: Infrastructure code and reusable UI primitives.
+- **Content**: Base UI components (Button, Input), utility functions, custom hooks, API clients.
+
+## Key Principles
+
+- **Unidirectional Data Flow**: Higher layers depend on lower layers.
+- **Public API**: Every entry point to a slice is defined via an `index.ts`.
+- **Low Coupling**: Features should be independent and not import each other.
+- **Tech Stack**: Powered by **Vite (Rolldown)**, **React 18**, and **Tailwind CSS 4**.
