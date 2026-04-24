@@ -1,7 +1,7 @@
 import { FaMicroblog } from "react-icons/fa"; 
 import { blogPostsData } from '@/entities/blogs/api/mock/blog.mocks';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -12,7 +12,6 @@ import { motion, useScroll, useSpring } from 'framer-motion';
 export const ArticleContentSection: React.FC = () => {
   const { blogID } = useParams();
   const { language } = useLanguageStore();
-  const [activeId, setActiveId] = useState<string>('');
   
   const post = blogPostsData.find((p) => p.id === blogID) || { contentFr: '', contentEn: '' };
   const content = language === 'fr' ? post.contentFr : post.contentEn;
@@ -38,7 +37,8 @@ export const ArticleContentSection: React.FC = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setActiveId(entry.target.id);
+            // This could be used for a Table of Contents highlighting
+            // Currently unused in this component
           }
         });
       },
@@ -184,6 +184,43 @@ export const ArticleContentSection: React.FC = () => {
                 <span className="mt-2 flex h-1.5 w-1.5 shrink-0 rounded-full bg-primary/40 transition-all group-hover:scale-150 group-hover:bg-primary shadow-[0_0_6px_rgba(var(--primary),0.3)]" />
                 <span className="text-muted-foreground/90 leading-relaxed text-sm">{children}</span>
               </li>
+            ),
+            // Tables
+            table: ({ children }) => (
+              <div className="relative my-6 w-full overflow-hidden rounded-sm border border-border/50 bg-card/30 backdrop-blur-sm shadow-sm transition-all duration-300 hover:shadow-md hover:border-primary/20 group/table-container">
+                {/* Accent Bar */}
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/50 via-primary/20 to-transparent" />
+                
+                <div className="overflow-x-auto scrollbar-hide relative group/table">
+                  <table className="w-full border-collapse text-left text-sm md:text-sm">
+                    {children}
+                  </table>
+                  
+                  {/* Mobile Scroll Indicator */}
+                  <div className="absolute inset-y-0 right-0 w-8 bg-gradient-to-l from-background/20 to-transparent pointer-events-none md:hidden opacity-0 group-hover/table:opacity-100 transition-opacity" />
+                </div>
+              </div>
+            ),
+            thead: ({ children }) => (
+              <thead className="bg-primary/5 border-b border-border/50">
+                {children}
+              </thead>
+            ),
+            tbody: ({ children }) => <tbody className="divide-y divide-border/10"> {children} </tbody>,
+            tr: ({ children }) => (
+              <tr className="transition-colors hover:bg-primary/5 even:bg-muted/10 group/row">
+                {children}
+              </tr>
+            ),
+            th: ({ children }) => (
+              <th className="px-5 py-3 font-bold text-foreground/90 uppercase tracking-widest text-[10px] md:text-[11px] whitespace-nowrap">
+                {children}
+              </th>
+            ),
+            td: ({ children }) => (
+              <td className="px-5 py-2 text-muted-foreground/80 group-hover/row:text-foreground/90 transition-colors">
+                {children}
+              </td>
             ),
           }}
         >
