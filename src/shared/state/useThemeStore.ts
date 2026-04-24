@@ -11,7 +11,7 @@ export type ThemeState = {
 // Use the app store factory: enable devtools in non-prod and persist the theme
 export const useThemeStore = createAppStore<ThemeState>(
   (set, get) => ({
-    theme: 'light',
+    theme: 'dark',
     setTheme: (t: Theme) => set({ theme: t }),
     toggleTheme: () => set({ theme: get().theme === 'light' ? 'dark' : 'light' }),
   }),

@@ -49,12 +49,10 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
       // ignore parse errors and fall back to media query
     }
 
-    // fallback: use browser preference
-    const prefersDark =
-      window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const initial = prefersDark ? 'dark' : 'light';
+    // fallback: always default to dark
+    const initial = 'dark';
     setTheme(initial);
-    document.documentElement.classList.toggle('dark', initial === 'dark');
+    document.documentElement.classList.toggle('dark', true);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
