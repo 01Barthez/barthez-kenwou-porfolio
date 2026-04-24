@@ -9,7 +9,6 @@ import {
   Users,
   Zap,
   Shield,
-  Trophy,
   Layout,
   ChevronLeft,
   ChevronRight
@@ -51,7 +50,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
   const title = language === 'fr' ? project.titleFr : project.titleEn;
   const description = language === 'fr' ? project.descriptionFr : project.descriptionEn;
-  const impacts = language === 'fr' ? project.impactFr : project.impactEn;
   const complexityKey = (project.complexity as ProjectComplexity) || 'Intermédiaire';
   const ComplexityIcon = COMPLEXITY_CONFIG[complexityKey]?.icon || Shield;
 

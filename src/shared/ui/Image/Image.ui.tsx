@@ -89,8 +89,7 @@ export const Image: React.FC<ImageProps> = ({
   return (
     <div
       ref={wrapperRef}
-      className={`relative overflow-hidden max-w-full max-h-full w-full h-full flex items-center justify-center text-center object-contain text-xs ${className}`}
-      style={{ display: 'inline-block' }}
+      className={`relative overflow-hidden ${className}`}
     >
       {showSkeleton && !loaded && (
         <div
@@ -129,7 +128,11 @@ export const Image: React.FC<ImageProps> = ({
           loading={lazy ? 'lazy' : 'eager'}
           onLoad={handleLoad}
           onError={handleError}
-          style={aspectStyle}
+          style={{
+            ...aspectStyle,
+            objectFit: (style?.objectFit as any) || 'cover',
+          }}
+          className="w-full h-full"
           {...rest}
         />
       )}
