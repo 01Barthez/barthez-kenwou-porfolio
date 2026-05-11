@@ -1,9 +1,8 @@
 export const profilePhotos = [
-  'images/barthez-kenwou.png',
-  "images/profile.jpeg",
-  'images/barthez-kenwou-2.jpeg',
-  "images/profile-barthez-2.jpeg",
-  'images/barthez-type-1.jpeg',
-  'images/barthez-type-2.jpeg',
-  'images/barthez-kenwou-profile3.jpeg'
+  'https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Profile/barthez-kenwou.png',
+  'https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Profile/barthez-type-2.jpeg',
+  'https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Profile/profile-barthez-2.jpeg',
+  'https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Profile/barthez-kenwou-profile3.jpeg',
+  'https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Profile/barthez-type-1.jpeg',
+  'https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Profile/profile.jpeg',
 ];
