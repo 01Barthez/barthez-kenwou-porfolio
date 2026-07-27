@@ -137,16 +137,18 @@ export default defineConfig(() => {
       }),
     );
 
-    // Optimize images at build time
-    plugins.push(
-      viteImagemin({
-        gifsicle: { optimizationLevel: 7, interlaced: false },
-        optipng: { optimizationLevel: 7 },
-        mozjpeg: { quality: 75 },
-        pngquant: { quality: [0.7, 0.9], speed: 4 },
-        svgo: { plugins: [{ name: 'removeViewBox' }, { name: 'removeEmptyAttrs', active: false }] },
-      }),
-    );
+    // Image minify needs native tooling — skip in Docker (set VITE_SKIP_IMAGEMIN=true)
+    if (process.env.VITE_SKIP_IMAGEMIN !== 'true') {
+      plugins.push(
+        viteImagemin({
+          gifsicle: { optimizationLevel: 7, interlaced: false },
+          optipng: { optimizationLevel: 7 },
+          mozjpeg: { quality: 75 },
+          pngquant: { quality: [0.7, 0.9], speed: 4 },
+          svgo: { plugins: [{ name: 'removeViewBox' }, { name: 'removeEmptyAttrs', active: false }] },
+        }),
+      );
+    }
   }
 
   return {

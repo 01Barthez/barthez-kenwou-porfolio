@@ -32,10 +32,15 @@ export interface IProject {
   problemEn: string;
   solutionFr: string[];
   solutionEn: string[];
+  /** @deprecated prefer solutionFr — kept for older section bindings */
+  solutionsFr?: string[];
+  solutionsEn?: string[];
   challengesFr?: string[];
   challengesEn?: string[];
   impactFr: string[];
   impactEn: string[];
+  resultsFr?: string[];
+  resultsEn?: string[];
   metrics?: Record<string, string | number>;
   techStack: ITechStack;
   architecture?: string[];

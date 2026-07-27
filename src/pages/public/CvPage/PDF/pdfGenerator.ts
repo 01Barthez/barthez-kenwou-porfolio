@@ -6,9 +6,13 @@ import React from 'react';
  * @param documentComponent The @react-pdf/renderer Document component to render
  * @param fileName The name of the file to be downloaded
  */
-export const generatePdfDocument = async (documentComponent: React.ReactElement, fileName: string) => {
+export const generatePdfDocument = async (
+  documentComponent: React.ReactElement,
+  fileName: string,
+) => {
   try {
-    const blob = await pdf(documentComponent).toBlob();
+    // @react-pdf typings are stricter than generic ReactElement
+    const blob = await pdf(documentComponent as React.ReactElement<any>).toBlob();
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;

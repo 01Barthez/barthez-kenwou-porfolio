@@ -1,65 +1,34 @@
-# 🏗 Infrastructure & DevOps
+# Infrastructure
 
-Ce répertoire contient tout ce qui concerne le déploiement, la conteneurisation et la gestion de l'infrastructure du **Portfolio de Barthez Kenwou**.
+## Docker (production path)
 
-## 📁 Structure
+| File | Purpose |
+|------|---------|
+| `docker/Dockerfile` | Multi-stage Bun → nginx (optional full in-image build) |
+| `docker/Dockerfile.runtime` | **CI default** — nginx:1.27-alpine + prebuilt `dist/` |
+| `docker/docker-compose.yml` | Local build + optional Watchtower profile |
+| `docker/docker-compose.prod.yml` | VPS pull-only from GHCR |
+| `docker/nginx.conf` | SPA on `:8080`, `/health`, security headers |
+| `scripts/bootstrap-vps.sh` | One-shot VPS bootstrap |
 
-```bash
-infra/
-├── docker/          # Configuration Docker (Dockerfile, Nginx)
-├── terraform/       # Infrastructure as Code (AWS S3, CloudFront)
-└── scripts/         # Scripts d'automatisation et de healthcheck
-```
+Full guide: [docs/deployment/DEPLOY_VPS.md](../docs/deployment/DEPLOY_VPS.md)
 
----
+Production sits behind **Nginx Proxy Manager** on external network `web-proxy`  
+(`barthez-kenwou.dev` → `barthez-portfolio-web:8080`). Repo + GHCR package are **private**.
 
-## 🐳 Docker (Local & Production)
-
-Nous utilisons un **Dockerfile** multi-stage optimisé pour **Bun** et **Nginx**.
-
-### Production (Reverse Proxy)
-Le fichier `docker-compose.yml` à la racine est configuré pour un environnement de production. Il utilise un réseau externe `web-proxy` et inclut les labels nécessaires pour un reverse proxy (type Traefik).
+### Quick local
 
 ```bash
-# Déploiement en production
-docker compose up -d --build
+NODE_ENV=production VITE_SKIP_IMAGEMIN=true bunx vite build
+docker build -f infra/docker/Dockerfile.runtime -t barthez-kenwou-portfolio:local .
+docker run --rm -p 18080:8080 barthez-kenwou-portfolio:local
+curl -fsS http://127.0.0.1:18080/health
 ```
-> [!IMPORTANT]
-> Assurez-vous que le réseau `web-proxy` existe (`docker network create web-proxy`) et que votre fichier `.env` est rempli.
 
-### Simulation/Développement Local
-Pour le développement local ou simulation sans proxy, utilisez le fichier dédié dans `infra/docker/` :
+### Security posture
 
-**Simulation Prod Locale :**
-```bash
-docker compose -f infra/docker/docker-compose.local.yml up --build app
-```
-Accès : `http://localhost:8080`
-
-**Développement avec HMR :**
-```bash
-docker compose -f infra/docker/docker-compose.local.yml up dev
-```
-Accès : `http://localhost:5173`
-
----
-
-## ☁️ Cloud Infrastructure (AWS)
-
-Le dossier `terraform/` fournit les plans pour héberger le portfolio sur AWS :
-- **Amazon S3** : Hébergement de site statique.
-- **Amazon CloudFront** : CDN mondial pour la rapidité et le SSL (via ACM).
-- **Route 53** : Gestion DNS.
-
-### Flux de déploiement
-1. **Provisionner** : `terraform init && terraform apply`
-2. **Build** : `bun run build`
-3. **Sync S3** : `aws s3 sync dist/ s3://votre-bucket/`
-4. **Invalidation CF** : `aws cloudfront create-invalidation --distribution-id ID --paths "/*"`
-
----
-
-## 🔒 Posture de Sécurité
-- **Nginx** : Durci avec des headers de sécurité (CSP, HSTS, X-Frame-Options).
-- **Dockerfile** : Exécution en tant qu'utilisateur non-privilégié (`app`).
-- **Build Secrets** : Les variables VITE_* sont injectées via des build args pour éviter les fuites dans les couches d'image.
+- Non-root user `1001`
+- `read_only: true` + tmpfs for nginx dirs
+- `no-new-privileges`
+- Memory limit 256M
+- Healthcheck on `/health`

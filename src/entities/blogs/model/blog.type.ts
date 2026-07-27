@@ -1,5 +1,6 @@
 export interface IBlog {
   id: string;
+  slug?: string;
   titleFr: string;
   titleEn: string;
   excerptFr: string;

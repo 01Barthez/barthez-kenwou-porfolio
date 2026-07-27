@@ -42,7 +42,7 @@ export const TechStackSection: React.FC<{ project: IProject }> = ({ project }) =
               <h3 className="font-bold text-base text-foreground">{category.title}</h3>
             </div>
             <div className="flex flex-wrap gap-1">
-              {category.items.map(tech => (
+              {category.items?.map(tech => (
                 <div key={tech} className="scale-90 origin-left">
                   <TechBadge tag={tech} />
                 </div>

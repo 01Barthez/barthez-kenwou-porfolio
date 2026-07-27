@@ -9,9 +9,7 @@ import { parseVideoUrl } from '@/shared/lib/videoEmbed';
  * Miniature, embed, ratio (16:9 ou short vertical) : automatiques.
  */
 const PRESENTATION_YOUTUBE_URL =
-  '' ||
-  (import.meta.env.VITE_PRESENTATION_YOUTUBE_URL as string | undefined)?.trim() ||
-  '';
+  (import.meta.env.VITE_PRESENTATION_YOUTUBE_URL as string | undefined)?.trim() || '';
 
 export const PresentationVideo: React.FC = () => {
   const { language } = useLanguageStore();

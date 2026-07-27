@@ -14,7 +14,7 @@ export const ResultsSection: React.FC = () => {
         {language === 'fr' ? 'Résultats' : 'Results'}
       </h2>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {(language === 'fr' ? project.resultsFr : project.resultsEn).map(
+        {(language === 'fr' ? project.resultsFr : project.resultsEn)?.map(
           (result: string, i: number) => (
             <div
               key={i}

@@ -17,7 +17,7 @@ export const ChallengesSection: React.FC = () => {
         {language === 'fr' ? 'Défis' : 'Challenges'}
       </h3>
       <ul className="space-y-3">
-        {(language === 'fr' ? project.challengesFr : project.challengesEn).map(
+        {(language === 'fr' ? project.challengesFr : project.challengesEn)?.map(
           (challenge: string, i: number) => (
             <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
               <span className="text-primary mt-1">•</span>

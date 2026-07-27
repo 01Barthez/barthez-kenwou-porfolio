@@ -24,14 +24,14 @@
     "Kubernetes"
   ],
   "license": "UNLICENSED",
-  "author": "Your Org <tech@org.com>",
-  "homepage": "https://www.barthez-kenwou.com",
+  "author": "Barthez KENWOU <contact@barthez-kenwou.dev>",
+  "homepage": "https://barthez-kenwou.dev",
   "repository": {
     "type": "git",
-    "url": "https://github.com/org/barthez-kenwou-portfolio"
+    "url": "https://github.com/barthez-kenwou/barthez-kenwou-porfolio"
   },
   "bugs": {
-    "url": "https://github.com/org/barthez-kenwou-portfolio/issues"
+    "url": "https://github.com/barthez-kenwou/barthez-kenwou-porfolio/issues"
   },
   "type": "module",
   "engines": {
@@ -43,7 +43,7 @@
     "dev": "vite",
     "build": "sh ./scripts/build.sh",
     "build:dev": "vite build --mode development",
-    "lint": "eslint .",
+    "lint": "eslint src",
     "start": "sh ./scripts/dev.sh",
     "preview": "vite preview",
     "typecheck": "tsc -p tsconfig.app.json --noEmit",

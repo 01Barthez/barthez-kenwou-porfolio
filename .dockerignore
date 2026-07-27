@@ -1,15 +1,60 @@
-# Ignore node modules and local build artifacts
-node_modules
-dist
-.turbo
-.cache
-npm-debug.log
-yarn-error.log
-.env
-.env.*
-.git
-/.vscode
-/.idea
-.DS_Store
+# VCS / IDE
 .git
 .gitignore
+.gitattributes
+.cursor
+.vscode
+.idea
+.vercel
+.husky
+.storybook
+.velite
+*.md
+!README.md
+docs
+agent-transcripts
+terminals
+
+# Dependencies & local build (multi-stage rebuilds; runtime Dockerfile needs dist/)
+node_modules
+coverage
+.turbo
+.cache
+cypress
+cypress.config.ts
+**/*.test.ts
+**/*.test.tsx
+**/__tests__
+vitest.config.*
+lhci.config.js
+eslint.config.*
+.eslintrc.*
+.prettierrc
+.prettierignore
+.markdownlint.json
+.commitlintrc.*
+commitlint.config.*
+components.json
+bun.lockb
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# Logs / OS
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+*.tsbuildinfo
+
+# Docker meta (avoid recursive context bloat — paths still COPY'd explicitly)
+docker-compose*.yml
+.dockerignore
+
+# Large / unused for runtime
+infra/terraform
+infra/scripts
+infra/README.md
+public/**/*.png.bak

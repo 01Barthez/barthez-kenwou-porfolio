@@ -1,8 +1,9 @@
 name: CI
 
+# PRs + develop — production push is covered by deploy-vps.yml
 on:
   push:
-    branches: [main, master, development, develop]
+    branches: [development, develop]
   pull_request:
     branches: [main, master, development, develop]
 
@@ -14,34 +15,39 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
+          node-version: '22'
 
       - name: Install dependencies
-        run: |
-          if [ -f package-lock.json ]; then npm ci; else npm install; fi
-
-      - name: Install Husky hooks
-        run: |
-          npm run prepare || npx husky install || true
+        run: bun install --frozen-lockfile
 
       - name: Format check
-        run: npm run format:check
+        run: bun run format:check
 
       - name: Lint
-        run: npm run lint
+        run: bun run lint
 
       - name: Typecheck
-        run: npm run typecheck
+        run: bun run typecheck
 
       - name: Run tests (CI)
-        run: npm run test:ci
+        run: bun run test:ci
+
+      - name: Prepare .env for build
+        run: cp .env.example .env
 
       - name: Build
-        run: npm run build
+        env:
+          NODE_ENV: production
+          VITE_SKIP_IMAGEMIN: 'true'
+        run: bunx vite build
 
       - name: Upload dist (artifact)
         if: success()
@@ -49,3 +55,4 @@ jobs:
         with:
           name: dist
           path: dist
+          retention-days: 5

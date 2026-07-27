@@ -16,7 +16,7 @@ export const SolutionSection: React.FC = () => {
         {language === 'fr' ? 'Solutions' : 'Solutions'}
       </h3>
       <ul className="space-y-3">
-        {(language === 'fr' ? project.solutionsFr : project.solutionsEn).map(
+        {(language === 'fr' ? project.solutionsFr : project.solutionsEn)?.map(
           (solution: string, i: number) => (
             <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
               <CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" />

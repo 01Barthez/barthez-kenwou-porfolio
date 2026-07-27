@@ -11,10 +11,10 @@ export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
 
 	const containerRef = useRef<HTMLDivElement>(null);
 	const sceneRef = useRef<{
-		scene: THREE.Scene;
-		camera: THREE.PerspectiveCamera;
-		renderer: THREE.WebGLRenderer;
-		particles: THREE.Points[];
+		scene: InstanceType<typeof THREE.Scene>;
+		camera: InstanceType<typeof THREE.PerspectiveCamera>;
+		renderer: InstanceType<typeof THREE.WebGLRenderer>;
+		particles: InstanceType<typeof THREE.Points>[];
 		animationId: number;
 		count: number;
 	} | null>(null);
@@ -90,7 +90,7 @@ export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
 		scene.add(points);
 
 		let count = 0;
-		let animationId: number;
+		let animationId = 0;
 
 		// Animation function
 		const animate = () => {
@@ -114,16 +114,6 @@ export function DottedSurface({ className, ...props }: DottedSurfaceProps) {
 			}
 
 			positionAttribute.needsUpdate = true;
-
-			// Update point sizes based on wave
-			const customMaterial = material as THREE.PointsMaterial & {
-				uniforms?: any;
-			};
-			if (!customMaterial.uniforms) {
-				// For dynamic size changes, we'd need a custom shader
-				// For now, keeping constant size for performance
-			}
-
 			renderer.render(scene, camera);
 			count += 0.1;
 		};
