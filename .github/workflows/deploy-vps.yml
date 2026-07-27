@@ -218,7 +218,7 @@ jobs:
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
-            type=sha,prefix=sha-
+            type=sha,prefix=sha-,format=long
             type=raw,value=latest,enable={{is_default_branch}}
             type=ref,event=branch
 
@@ -255,15 +255,15 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
+      # Prefer digest from build-push (avoids short/long SHA tag mismatch).
       - name: Trivy image scan
         uses: aquasecurity/trivy-action@v0.36.0
         with:
-          image-ref: ${{ needs.build-push.outputs.image }}:sha-${{ github.sha }}
+          image-ref: ${{ needs.build-push.outputs.image }}@${{ needs.build-push.outputs.digest }}
           severity: CRITICAL,HIGH
           exit-code: "1"
           ignore-unfixed: true
           format: table
-
   deploy:
     name: Deploy OVH VPS
     runs-on: ubuntu-latest
