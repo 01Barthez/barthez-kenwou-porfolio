@@ -6,17 +6,10 @@ export const HeroSection: React.FC = () => {
   const { language } = useLanguageStore();
 
   return (
-    <section className="text-center relative mb-16 pt-40 animate-fade-in">
-      {/* Premium Badge */}
-      <div className="relative z-10 flex items-center justify-center mb-2">
-        <div className="flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-primary/30 bg-primary/5 text-primary text-xs font-semibold tracking-wide uppercase shadow-sm">
-          <span>{language === 'fr' ? 'Expertise & Solutions' : 'Expertise & Solutions'}</span>
-        </div>
-      </div>
-
+    <section className="text-center relative mb-12 md:mb-16 pt-32 lg:pt-40 animate-fade-in px-4 md:px-10 lg:px-14">
       <h1 className="section-title">
         {language === 'fr' ? 'Mes ' : 'My '}
-        <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-blue-500">
+        <span className="text-transparent bg-clip-text bg-gradient-to-r from-foreground via-foreground/80 to-muted-foreground">
           Services
         </span>
       </h1>

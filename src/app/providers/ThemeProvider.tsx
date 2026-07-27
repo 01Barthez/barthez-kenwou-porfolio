@@ -22,50 +22,48 @@ interface ThemeProviderProps {
   children: React.ReactNode;
 }
 
+function readPersistedTheme(): Theme | null {
+  if (typeof window === 'undefined') return null;
+  try {
+    const raw = window.localStorage.getItem('frontend-starter-theme');
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as { theme?: Theme; state?: { theme?: Theme } };
+    // Zustand persist: { state: { theme }, version }
+    const t = parsed?.state?.theme ?? parsed?.theme;
+    return t === 'light' || t === 'dark' ? t : null;
+  } catch {
+    return null;
+  }
+}
+
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const theme = useThemeStore((s) => s.theme);
   const toggleTheme = useThemeStore((s) => s.toggleTheme);
   const setTheme = useThemeStore((s) => s.setTheme);
 
-  // On first mount, prefer persisted theme, otherwise use browser preference.
+  // Hydrate from persist once; default remains dark when nothing stored
   useEffect(() => {
     if (typeof window === 'undefined') return;
-
-    const storageKey = 'frontend-starter-theme';
-    try {
-      const raw = window.localStorage.getItem(storageKey);
-      if (raw) {
-        // Zustand persist stores a serialized state object by default.
-        const parsed = JSON.parse(raw);
-        // parsed may be the state object { theme: 'dark' }
-        if (parsed && typeof parsed === 'object' && 'theme' in parsed) {
-          const t = parsed.theme as Theme;
-          setTheme(t);
-          document.documentElement.classList.toggle('dark', t === 'dark');
-          return;
-        }
-      }
-    } catch (e) {
-      // ignore parse errors and fall back to media query
-    }
-
-    // fallback: always default to dark
-    const initial = 'dark';
-    setTheme(initial);
-    document.documentElement.classList.toggle('dark', true);
+    const persisted = readPersistedTheme();
+    const next: Theme = persisted ?? 'dark';
+    setTheme(next);
+    document.documentElement.classList.toggle('dark', next === 'dark');
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Keep document class in sync with store changes
   useEffect(() => {
     if (typeof window === 'undefined') return;
     document.documentElement.classList.toggle('dark', theme === 'dark');
+
+    const color = theme === 'dark' ? '#1a1548' : '#ece8f7';
+    document.querySelectorAll('meta[name="theme-color"]').forEach((el) => {
+      el.setAttribute('content', color);
+    });
   }, [theme]);
 
-  const value: ThemeContextType = {
-    theme,
-    toggleTheme,
-  };
-
-  return <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>;
+  return (
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
 };

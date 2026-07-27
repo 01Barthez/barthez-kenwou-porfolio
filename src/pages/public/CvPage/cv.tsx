@@ -21,21 +21,22 @@ export const CvPage = () => {
   return (
     <>
       <SEO
-        title="CV - Barthez Kenwou | Passionate DevOps & Full-Stack JS Developer"
-        description="Développeur Full Stack passionné et ingénieur DevOps certifié AWS avec plus de 3 ans d'expérience dans la conception, le développement et le déploiement d'applications web modernes et d'infrastructures cloud. Expert en architecture microservices, CI/CD, et solutions serverless. Orienté résultats avec une forte capacité à transformer des idées complexes en produits fonctionnels et performants."
+        path="/cv"
+        title="CV"
+        description="CV de Barthez Kenwou — Développeur Full Stack & Ingénieur DevOps AWS. Expérience, compétences et parcours professionnel."
       />
 
-      <div className="min-h-screen py-10 md:py-24">
+      <div className="min-h-screen py-18 md:py-16 lg:py-20 px-4 md:px-10 lg:px-14 overflow-x-clip">
         {/* Action Buttons */}
-        <section className="text-center relative mb-16 pt-16 animate-fade-in">
+        <section className="text-center relative mb-10 md:mb-16 pt-12 md:pt-16 animate-fade-in">
           <h1 className="section-title">
             {language === 'fr' ? 'Mon' : 'My'}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-primary/80 to-blue-500">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-foreground via-foreground/80 to-muted-foreground">
               &nbsp; CV
             </span>
           </h1>
 
-          <div className="mt-6 mb-36">
+          <div className="mt-6 mb-16 md:mb-24">
             <ButtonsCTASection />
           </div>
 
@@ -43,12 +44,12 @@ export const CvPage = () => {
         </section>
 
         {/* CV Container */}
-        <section className="relative z-10 max-w-4xl mx-auto mb-10 bg-card border border-border rounded-lg overflow-hidden shadow-xl print:shadow-none print:border-none">
+        <section className="relative z-10 max-w-4xl mx-auto mb-10 bg-card border border-border rounded-md overflow-hidden shadow-md print:shadow-none print:border-none">
           {/* Header */}
           <HeaderSection personalInfo={cvData.personalInfo} />
 
           {/* Content */}
-          <div className="p-8 print:p-6 space-y-8">
+          <div className="p-4 sm:p-6 md:p-8 print:p-6 space-y-6 md:space-y-8">
             {/* Profile Section*/}
             <ProfileSection />
 

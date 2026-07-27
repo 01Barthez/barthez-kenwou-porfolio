@@ -9,39 +9,69 @@ import viteImagemin from 'vite-plugin-imagemin';
 // https://vite.dev/config/
 export default defineConfig(() => {
   const enablePwa =
-    (process.env.VITE_ENABLE_PWA && process.env.NODE_ENV === 'production') === 'true';
+    process.env.NODE_ENV === 'production' && process.env.VITE_DISABLE_PWA !== 'true';
   const plugins = [react(), tailwindcss()];
 
   if (enablePwa) {
     plugins.push(
       VitePWA({
         registerType: 'autoUpdate',
-        includeAssets: ['favicon.svg', 'favicon.ico', 'robots.txt', 'icons/*.svg'],
+        includeAssets: [
+          'favicon.ico',
+          'favicon.svg',
+          'favicon-16x16.png',
+          'favicon-32x32.png',
+          'apple-touch-icon.png',
+          'og-image.png',
+          'og-image.webp',
+          'robots.txt',
+          'sitemap.xml',
+          'logo.svg',
+          'icons/*.png',
+        ],
         manifest: {
-          name: 'Frontend Starter',
-          short_name: 'Starter',
-          description: 'A progressive web app starter (modular).',
-          theme_color: '#ffffff',
-          background_color: '#ffffff',
+          name: 'Barthez Kenwou — Portfolio',
+          short_name: 'Barthez K.',
+          description:
+            'Portfolio de Barthez Kenwou — DevOps & Full-Stack JS. Applications web modernes, cloud et CI/CD.',
+          theme_color: '#1a1548',
+          background_color: '#100e28',
           display: 'standalone',
           scope: '/',
           start_url: '/',
+          lang: 'fr-FR',
           icons: [
             {
-              src: '/icons/icon-192.svg',
+              src: '/icons/icon-192.png',
               sizes: '192x192',
-              type: 'image/svg+xml',
-              purpose: 'any maskable',
+              type: 'image/png',
+              purpose: 'any',
             },
             {
-              src: '/icons/icon-512.svg',
+              src: '/icons/icon-512.png',
               sizes: '512x512',
-              type: 'image/svg+xml',
-              purpose: 'any maskable',
+              type: 'image/png',
+              purpose: 'any',
+            },
+            {
+              src: '/icons/icon-192-maskable.png',
+              sizes: '192x192',
+              type: 'image/png',
+              purpose: 'maskable',
+            },
+            {
+              src: '/icons/icon-512-maskable.png',
+              sizes: '512x512',
+              type: 'image/png',
+              purpose: 'maskable',
             },
           ],
         },
         workbox: {
+          // Keep SW precache lean — huge 3D/vendor chunks are runtime-cached
+          maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
+          globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2,webmanifest}'],
+          globIgnores: ['**/vendor.3d-*.js', '**/vendor.motion-*.js'],
           runtimeCaching: [
             {
               urlPattern: /\.(?:png|jpg|jpeg|svg|gif|webp|avif)$/,
@@ -55,11 +85,33 @@ export default defineConfig(() => {
               },
             },
             {
+              urlPattern: /\/assets\/.*\.js$/,
+              handler: 'CacheFirst',
+              options: {
+                cacheName: 'js-assets-cache',
+                expiration: {
+                  maxEntries: 80,
+                  maxAgeSeconds: 60 * 60 * 24 * 30,
+                },
+              },
+            },
+            {
               urlPattern: /\/api\//,
               handler: 'NetworkFirst',
               options: {
                 cacheName: 'api-cache',
                 networkTimeoutSeconds: 3,
+              },
+            },
+            {
+              urlPattern: /^https:\/\/fonts\.(?:googleapis|gstatic)\.com\/.*/i,
+              handler: 'CacheFirst',
+              options: {
+                cacheName: 'google-fonts',
+                expiration: {
+                  maxEntries: 30,
+                  maxAgeSeconds: 60 * 60 * 24 * 365,
+                },
               },
             },
           ],
@@ -110,10 +162,28 @@ export default defineConfig(() => {
       rollupOptions: {
         output: {
           manualChunks(id) {
-            if (id.includes('node_modules')) {
-              if (id.includes('react')) return 'vendor.react';
-              return 'vendor';
+            if (!id.includes('node_modules')) return;
+
+            if (id.includes('three') || id.includes('/cobe')) return 'vendor.3d';
+            if (
+              id.includes('framer-motion') ||
+              id.includes('motion-dom') ||
+              id.includes('motion-utils') ||
+              id.includes('/motion/')
+            ) {
+              return 'vendor.motion';
             }
+            if (id.includes('i18next')) return 'vendor.i18n';
+            if (id.includes('lucide-react') || id.includes('react-icons')) return 'vendor.icons';
+            if (
+              id.includes('react-dom') ||
+              id.includes('react-router') ||
+              id.includes('/scheduler/') ||
+              /node_modules\/(?:react|react-dom)\//.test(id)
+            ) {
+              return 'vendor.react';
+            }
+            // Let Vite split the rest — avoid one mega vendor blob
           },
         },
       },

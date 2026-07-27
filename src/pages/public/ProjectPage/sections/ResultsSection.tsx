@@ -18,7 +18,7 @@ export const ResultsSection: React.FC = () => {
           (result: string, i: number) => (
             <div
               key={i}
-              className="p-4 rounded-xl bg-primary/10 border border-primary/20 text-center"
+              className="p-4 rounded-md bg-primary/10 border border-primary/20 text-center"
             >
               <span className="text-lg font-bold gradient-text">{result}</span>
             </div>

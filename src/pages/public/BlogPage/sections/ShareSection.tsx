@@ -18,7 +18,7 @@ export const ShareSection: React.FC = () => {
       <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
       
       <div className="flex items-center gap-2 relative z-10 text-left">
-        <div className="h-8 w-8 flex items-center justify-center rounded-sm bg-primary text-primary-foreground shadow-lg shadow-primary/10">
+        <div className="h-8 w-8 flex items-center justify-center rounded-sm bg-primary text-primary-foreground shadow-sm shadow-primary/10">
           <Share2 className="h-4 w-4" />
         </div>
 
@@ -37,7 +37,7 @@ export const ShareSection: React.FC = () => {
           href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 md:flex-none flex items-center justify-center gap-2 px-4 py-2 rounded-sm bg-sky-500 text-white font-bold text-[11px] hover:bg-sky-600 transition-all shadow-md active:scale-95"
+          className="flex-1 md:flex-none flex items-center justify-center gap-2 px-4 py-2 rounded-sm bg-sky-500 text-white font-bold text-[11px] hover:bg-sky-600 transition-all shadow-sm active:scale-95"
         >
           <Twitter className="h-3.5 w-3.5" />
           Twitter
@@ -47,7 +47,7 @@ export const ShareSection: React.FC = () => {
           href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex-1 md:flex-none flex items-center justify-center gap-2 px-4 py-2 rounded-sm bg-[#0077b5] text-white font-bold text-[11px] hover:bg-[#0077b5]/90 transition-all shadow-md active:scale-95"
+          className="flex-1 md:flex-none flex items-center justify-center gap-2 px-4 py-2 rounded-sm bg-[#0077b5] text-white font-bold text-[11px] hover:bg-[#0077b5]/90 transition-all shadow-sm active:scale-95"
         >
           <Linkedin className="h-3.5 w-3.5" />
           LinkedIn

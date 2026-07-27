@@ -26,9 +26,9 @@ import { TechBadge } from './TechBadge.ui';
 // ─── Constants ──────────────────────────────────────────────────────────────────
 
 const COMPLEXITY_CONFIG: Record<ProjectComplexity, { icon: any; color: string }> = {
-  Avancé: { icon: Zap, color: 'text-orange-500' },
-  Intermédiaire: { icon: Layout, color: 'text-blue-500' },
-  Débutant: { icon: Shield, color: 'text-emerald-500' },
+  Avancé: { icon: Zap, color: 'text-primary' },
+  Intermédiaire: { icon: Layout, color: 'text-muted-foreground' },
+  Débutant: { icon: Shield, color: 'text-foreground/50' },
 };
 
 // ─── Props ──────────────────────────────────────────────────────────────────────
@@ -94,7 +94,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   };
 
   return (
-    <article className="group relative flex flex-col h-full rounded-lg bg-card border border-border overflow-hidden transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 hover:border-primary/20">
+    <article className="group relative flex flex-col h-full rounded-md bg-card border border-border overflow-hidden transition-all duration-300 hover:shadow-md hover:shadow-primary/5 hover:border-primary/20">
       {/* ── Image Area ────────────────────────────────────────────────────── */}
       <div className="relative h-56 w-full overflow-hidden bg-muted group/carousel">
         {project.images.length > 1 ? (
@@ -161,7 +161,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
         {/* Badges Overlay */}
         <div className="absolute top-4 inset-x-4 flex justify-between items-start pointer-events-none">
-          <span className="px-3 py-1 rounded-lg bg-black/50 backdrop-blur-md text-[10px] font-bold text-white uppercase tracking-wider border border-white/10 pointer-events-auto">
+          <span className="px-3 py-1 rounded-md bg-black/50 backdrop-blur-md text-[10px] font-bold text-white uppercase tracking-wider border border-white/10 pointer-events-auto">
             {project.category}
           </span>
           {project.status && (
@@ -186,7 +186,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         <div className="space-y-1">
           <Link
             to={`/projects/${project.id}`}
-            className="py-2 rounded-lg flex items-center justify-between w-full"
+            className="py-2 rounded-md flex items-center justify-between w-full"
             title="View Details"
           >
             <h3 className="text-lg font-medium text-foreground group-hover:text-primary transition-colors flex items-center gap-1.5">
@@ -239,14 +239,14 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
           <div className="flex items-center gap-2">
             {project.github && project.github !== '#' && (
-              <Button variant="ghost" size="icon-sm" asChild className="rounded-lg">
+              <Button variant="ghost" size="icon-sm" asChild className="rounded-md">
                 <Link to={project.github} target="_blank" title="GitHub">
                   <Github />
                 </Link>
               </Button>
             )}
             {project.demo && project.demo !== '#' && (
-              <Button variant="ghost" size="icon-sm" asChild className="rounded-lg">
+              <Button variant="ghost" size="icon-sm" asChild className="rounded-md">
                 <Link to={project.demo} target="_blank" title="Live Demo">
                   <ExternalLink />
                 </Link>
@@ -254,7 +254,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             )}
             <Link
               to={`/projects/${project.id}`}
-              className="ml-1 p-2 rounded-lg bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+              className="ml-1 p-2 rounded-md bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
               title="View Details"
             >
               <ArrowUpRight className="h-4 w-4" />

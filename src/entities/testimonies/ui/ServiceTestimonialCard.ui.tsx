@@ -14,7 +14,7 @@ export const ServiceTestimonialCard = ({
   const { language } = useLanguageStore();
 
   return (
-    <article className="p-6 rounded-2xl bg-card border border-border hover:border-primary/30 transition-colors">
+    <article className="p-6 rounded-md bg-card border border-border hover:border-primary/30 transition-colors">
       <div className="flex gap-1 mb-4">
         {[...Array(rating)].map((_, i) => (
           <Star key={i} className="h-4 w-4 fill-primary text-primary" />

@@ -7,7 +7,7 @@ export const HeroSection: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="relative w-full py-10 md:py-14 mb-8 flex flex-col items-center justify-center animate-fade-in overflow-hidden">
+    <section className="relative w-full pt-20 pb-10 md:py-14 mb-8 flex flex-col items-center justify-center animate-fade-in overflow-hidden">
       {/* Original MagicUI Ripple */}
       <Ripple />
       
@@ -18,10 +18,10 @@ export const HeroSection: React.FC = () => {
         transition={{ duration: 0.6 }}
         className="relative z-10 text-center px-4 w-full"
       >
-        <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold mb-4 tracking-tight">
+        <h1 className="section-title mb-3">
           <span className="gradient-text drop-shadow-sm">{t('contact.title')}</span>
         </h1>
-        <p className="text-sm md:text-base text-muted-foreground max-w-xl mx-auto font-medium drop-shadow-sm opacity-80 italic">
+        <p className="section-subtitle !mb-0 italic opacity-90">
           {t('contact.subtitle')}
         </p>
       </motion.div>

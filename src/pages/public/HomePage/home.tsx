@@ -1,41 +1,76 @@
-import React from 'react';
+import React, { Suspense, lazy, useEffect, useState } from 'react';
 import { SEO } from '@/shared/ui/SEO/SEO';
 import { HeroSection } from './sections/HeroSection';
 import { ServiceSection } from './sections/ServiceSection';
 import { WhyChooseMeSection } from './sections/WhyChooseMeSection';
 import { TestimonialsSection } from './sections/TestimonialsSection';
 import { CTASection } from './sections/CTASection';
-import { PresentationVideo } from '@/widgets/PresentationVideo/PresentationVideo';
-import { SplashCursor } from '@/shared/ui/splash-cursor';
+import { DeferredMount } from '@/shared/ui/DeferredMount';
+
+const SplashCursor = lazy(() =>
+  import('@/shared/ui/splash-cursor').then((m) => ({ default: m.SplashCursor })),
+);
+
+const PresentationVideo = lazy(() =>
+  import('@/widgets/PresentationVideo/PresentationVideo').then((m) => ({
+    default: m.PresentationVideo,
+  })),
+);
+
+function DeferredSplash() {
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const coarse = window.matchMedia('(pointer: coarse)').matches;
+    if (reduced || coarse) return;
+
+    const schedule =
+      (window as Window & { requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number })
+        .requestIdleCallback ?? ((cb: () => void) => window.setTimeout(cb, 400));
+
+    const id = schedule(() => setReady(true), { timeout: 1800 });
+    return () => {
+      const cancel =
+        (window as Window & { cancelIdleCallback?: (id: number) => void }).cancelIdleCallback ??
+        clearTimeout;
+      cancel(id as number);
+    };
+  }, []);
+
+  if (!ready) return null;
+
+  return (
+    <Suspense fallback={null}>
+      <SplashCursor />
+    </Suspense>
+  );
+}
 
 export const HomePage: React.FC = () => {
   return (
     <>
       <SEO
-        title="Barthez Kenwou | Passionate DevOps & Full-Stack JS Developer"
+        path="/"
+        title="Barthez Kenwou | Développeur Full Stack & Ingénieur DevOps"
         description="Passionné par le développement web et le cloud computing depuis plus de 3 ans, je me spécialise dans la création d'applications web modernes, performantes et évolutives. Toujours à la recherche de nouveaux défis, je m'investis continuellement dans l'apprentissage de nouvelles technologies et les meilleures pratiques du secteur."
       />
 
-      <div className="relative min-h-screen relative overflow-hidden">
+      <div className="relative min-h-screen overflow-x-clip">
+        <DeferredSplash />
+
         <HeroSection />
 
-        {/* Présentation vidéo */}
-        <PresentationVideo />
+        <DeferredMount timeout={400} rootMargin="200px" fallback={<div className="min-h-[340px]" aria-hidden />}>
+          <Suspense fallback={<div className="min-h-[340px]" aria-hidden />}>
+            <PresentationVideo />
+          </Suspense>
+        </DeferredMount>
 
-        {/* Services Section */}
         <ServiceSection />
-
-        {/* Why Choose Me Section */}
         <WhyChooseMeSection />
-
-        {/* Testimonials Section */}
         <TestimonialsSection />
-
-        {/* CTA Section */}
         <CTASection />
-
-        {/* Background On Home Page */}
-        <SplashCursor />
       </div>
     </>
   );

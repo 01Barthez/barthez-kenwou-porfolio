@@ -8,11 +8,12 @@ export const BlogPage: React.FC = () => {
   return (
     <>
       <SEO
-        title="Blog - Barthez Kenwou | Passionate DevOps & Full-Stack JS Developer"
-        description="Articles, tutoriels et réflexions sur le développement, le cloud et le DevOps | Passionné par le développement web et le cloud computing depuis plus de 3 ans, je me spécialise dans la création d'applications web modernes, performantes et évolutives."
+        path="/blog"
+        title="Blog"
+        description="Articles et tutoriels sur le développement web, le cloud AWS, le DevOps, Kubernetes et les meilleures pratiques Full Stack."
       />
 
-      <div className="min-h-screen">
+      <div className="min-h-screen overflow-x-clip">
         {/* Hero Section */}
         <HeroSection />
 

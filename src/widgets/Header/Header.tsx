@@ -16,7 +16,7 @@ export const Header: React.FC = () => {
         )}
         aria-hidden
       >
-        <SidebarTrigger className="shadow-sm bg-background/80 backdrop-blur-sm ring-1 ring-sidebar-border" />
+        <SidebarTrigger className="cursor-pointer shadow-sm bg-background/80 backdrop-blur-sm ring-1 ring-sidebar-border" />
       </div>
 
       {/* Header remains in place; add spacer to preserve original layout alignment */}

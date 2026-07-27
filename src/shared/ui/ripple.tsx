@@ -32,7 +32,7 @@ export const Ripple = React.memo(function Ripple({
         return (
           <div
             key={i}
-            className={`animate-ripple bg-foreground/25 absolute rounded-full border shadow-xl`}
+            className={`animate-ripple bg-foreground/25 absolute rounded-full border shadow-md`}
             style={
               {
                 "--i": i,

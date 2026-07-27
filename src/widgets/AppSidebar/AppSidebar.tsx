@@ -28,7 +28,7 @@ export function AppSidebar() {
       </SidebarHeader>
 
       {/* Sidebar Group */}
-      <SidebarContent className="scrollbar-hide">
+      <SidebarContent className="sidebar-scrollbar">
         <SidebarGroup>
           <SidebarContentSection />
         </SidebarGroup>

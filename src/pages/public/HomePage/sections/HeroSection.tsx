@@ -2,16 +2,44 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { motion, useInView } from 'motion/react';
 import { cn } from '@/shared/lib';
 import { GridPattern } from '@/shared/ui/grid-pattern';
 import { TextAnimate } from '@/shared/ui/text-animate';
 import { TypingAnimation } from '@/shared/ui/typing-animation';
 import { AuroraBackground } from '@/shared/ui/aurora-background';
+import { SpectrumButton } from '@/shared/ui/SpectrumButton';
+import { ShimmerButton } from '@/shared/ui/ShimmerButton';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
+import { useThemeStore } from '@/shared/state/useThemeStore';
+
+const HERO_FLARE = '/images/hero-flare.webp';
+
+const fadeUp = {
+  hidden: { opacity: 0, y: 10 },
+  show: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 0.08 + i * 0.1,
+      duration: 0.55,
+      ease: [0.22, 1, 0.36, 1] as const,
+    },
+  }),
+};
 
 export const HeroSection: React.FC = () => {
   const { t } = useTranslation();
   const { language } = useLanguageStore();
+  const theme = useThemeStore((s) => s.theme);
+  const isDark = theme === 'dark';
+
+  const nameWrapRef = React.useRef<HTMLHeadingElement | null>(null);
+  const nameInView = useInView(nameWrapRef, { amount: 0.45, once: false });
+  const wasNameInView = React.useRef(false);
+  const nameSeenOnce = React.useRef(false);
+  const [nameEnterKey, setNameEnterKey] = React.useState(0);
+
   const squares = React.useMemo(() => {
     const result: [number, number][] = [];
     for (let i = 0; i < 20; i += 1) {
@@ -22,89 +50,176 @@ export const HeroSection: React.FC = () => {
     return result;
   }, []);
 
+  const roleWords = React.useMemo(
+    () =>
+      language === 'fr'
+        ? ['Développeur Full Stack JS', 'DevOps Engineer', 'AWS Cloud Engineer']
+        : ['Full Stack JS Developer', 'DevOps Engineer', 'AWS Cloud Engineer'],
+    [language],
+  );
+
+  // Replay name blur on each re-appearance (scroll back / route return), not on first paint
+  React.useEffect(() => {
+    if (nameInView && !wasNameInView.current) {
+      if (nameSeenOnce.current) {
+        setNameEnterKey((k) => k + 1);
+      } else {
+        nameSeenOnce.current = true;
+      }
+    }
+    wasNameInView.current = nameInView;
+  }, [nameInView]);
+
   return (
-    <AuroraBackground showRadialGradient className="bg-gradient-to-t from-background/90 to-transparent overflow-hidden ">
-      {/* Hero Content */}
-      <section className="pt-20 w-full px-4 md:px-10 lg:px-14 relative z-30 flex flex-col items-center text-center">
-        {/* Greeting badge */}
-        <div className="inline-flex items-center gap-2 rounded-full border border-border bg-secondary/50 px-4 py-1 md:py-1.5 mb-1 backdrop-blur-sm">
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-          </span>
-          <span className="text-xs text-muted-foreground">{t('contact.info.available')}</span>
+    <AuroraBackground
+      intensity="soft"
+      showRadialGradient
+      className="bg-gradient-to-b from-transparent via-transparent to-background overflow-x-clip"
+    >
+      {/* Grid — opposite corner from the flare, lightly softened */}
+      <GridPattern
+        width={30}
+        height={30}
+        squares={squares}
+        className={cn(
+          'z-[4] opacity-40 dark:opacity-30 blur-[0.6px]',
+          '[mask-image:linear-gradient(to_bottom_right,white,transparent_55%,transparent)]',
+          'absolute inset-0 -top-20 -left-16 sm:-top-28 sm:-left-24',
+        )}
+      />
+
+      {/* Flare is ambient decor: present immediately (no entrance fade with text) */}
+      <div
+        className="pointer-events-none absolute inset-0 z-[5] overflow-hidden"
+        aria-hidden
+      >
+        <div className="absolute -right-[18%] bottom-[2%] w-[130%] max-w-none sm:-right-[14%] sm:bottom-[0%] sm:w-[115%] md:-right-[10%] md:bottom-[-2%] md:w-[95%] lg:-right-[6%] lg:w-[85%] xl:w-[78%]">
+          <img
+            src={HERO_FLARE}
+            alt=""
+            decoding="async"
+            fetchPriority="high"
+            className={cn(
+              'hero-flare-pulse w-full h-auto select-none scale-110 sm:scale-125 -rotate-[3deg] sm:-rotate-[4deg] origin-bottom-right',
+              '[mask-image:linear-gradient(90deg,transparent_0%,black_18%,black_82%,transparent_100%),linear-gradient(180deg,transparent_0%,black_12%,black_88%,transparent_100%)]',
+              '[-webkit-mask-image:linear-gradient(90deg,transparent_0%,black_18%,black_82%,transparent_100%),linear-gradient(180deg,transparent_0%,black_12%,black_88%,transparent_100%)]',
+              '[mask-composite:intersect] [-webkit-mask-composite:source-in]',
+            )}
+            style={{
+              mixBlendMode: isDark ? 'screen' : 'multiply',
+              filter: isDark ? undefined : 'saturate(0.8) brightness(1.08)',
+            }}
+          />
         </div>
 
-        {/* Main title */}
-        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl mb-0">
-          <span className="text-foreground text-2xl font-light sm:text-2xl md:text-3xl lg:text-4xl">{t('hero.greeting')}</span>
-          <br />
+        <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-background to-transparent" />
+      </div>
 
-          <div className="inline-block mt-2">
-            <TextAnimate animation="blurIn" as="span" className="inline-block mr-2" segmentClassName="gradient-text">
-              Barthez
-            </TextAnimate>
-            &nbsp;
-            <TextAnimate animation="blurIn" by="character" duration={1} className="inline-block uppercase" segmentClassName="gradient-text">
-              Kenwou
-            </TextAnimate>
-          </div>
-        </h1>
+      <section className="relative z-30 w-full px-4 md:px-10 lg:px-14 pt-24 md:pt-28 pb-20 md:pb-24 flex flex-col items-center text-center">
+        {/* Greeting — script, discreet */}
+        <motion.p
+          custom={0}
+          variants={fadeUp}
+          initial="hidden"
+          animate="show"
+          className="font-greeting text-lg sm:text-xl md:text-2xl text-muted-foreground/80 dark:text-muted-foreground/70 mb-2 leading-none"
+        >
+          {t('hero.greeting')}
+        </motion.p>
 
-        {/* Subtitle with typing effect styling */}
-        <div className="flex flex-col items-center gap-2 mb-0">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-foreground gradient-accent-text">
-            {language === 'fr' ? (
-              <TypingAnimation
-                words={["Développeur Full Stack JS ", "DevOps Engineer", "AWS Cloud Engineer"]}
-                loop
-                typeSpeed={60}
-                duration={60}
-              />
-            ) : (
-              <TypingAnimation
-                words={["Full Stack JS Developer", "DevOps Engineer", "AWS Cloud Engineer"]}
-                loop
-                typeSpeed={60}
-                duration={60}
-              />
-            )
-            }
-          </h2>
-        </div>
+        {/* Name — blurIn replays on each re-appearance */}
+        <motion.h1
+          ref={nameWrapRef}
+          custom={1}
+          variants={fadeUp}
+          initial="hidden"
+          animate="show"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-3"
+        >
+          <TextAnimate
+            key={`barthez-${nameEnterKey}`}
+            animation="blurIn"
+            as="span"
+            once={false}
+            startOnView={false}
+            className="inline-block mr-2"
+            segmentClassName="gradient-text"
+          >
+            Barthez
+          </TextAnimate>
+          <TextAnimate
+            key={`kenwou-${nameEnterKey}`}
+            animation="blurIn"
+            by="character"
+            duration={1}
+            once={false}
+            startOnView={false}
+            className="inline-block uppercase"
+            segmentClassName="gradient-text"
+          >
+            Kenwou
+          </TextAnimate>
+        </motion.h1>
 
-        {/* Description */}
-        <p className="px-4 mx-auto max-w-xl text-sm text-muted-foreground mb-8">
+        {/* Role — hand writing cursor (height reserved by TypingAnimation sizer) */}
+        <motion.div
+          custom={2}
+          variants={fadeUp}
+          initial="hidden"
+          animate="show"
+          className="mb-4 flex min-h-[1.5em] items-center justify-center"
+        >
+          <p className="text-base sm:text-xl md:text-2xl lg:text-3xl font-normal text-primary/85 dark:text-primary/90 tracking-wide leading-[1.35]">
+            <TypingAnimation
+              key={language}
+              words={roleWords}
+              loop
+              startOnView={false}
+              typeSpeed={55}
+              duration={70}
+              pauseDelay={1400}
+              cursorStyle="hand"
+            />
+          </p>
+        </motion.div>
+
+        {/* Pitch — tighter type */}
+        <motion.p
+          custom={3}
+          variants={fadeUp}
+          initial="hidden"
+          animate="show"
+          className="mx-auto max-w-lg text-sm leading-relaxed text-muted-foreground/90 mb-9"
+        >
           {t('hero.description')}
-        </p>
+        </motion.p>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-2">
-          {/* Project */}
-          <Link
-            to="/projects"
-            className="group flex items-center gap-2 rounded-sm bg-primary px-4 py-1.5 text-base font-medium text-primary-foreground transition-all hover:glow-primary"
+        {/* CTAs — spectrum primary + shimmer secondary */}
+        <motion.div
+          custom={4}
+          variants={fadeUp}
+          initial="hidden"
+          animate="show"
+          className="flex flex-col sm:flex-row items-center justify-center gap-3"
+        >
+          <SpectrumButton asChild variant="solid" size="default">
+            <Link to="/projects">
+              {t('hero.cta.projects')}
+              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
+          </SpectrumButton>
+
+          <ShimmerButton
+            asChild
+            className="min-h-10"
+            borderWidth={1.5}
+            background={isDark ? 'hsl(270 22% 7%)' : 'hsl(0 0% 100%)'}
+            shimmerColor={isDark ? '#e9d5ff' : '#7c3aed'}
           >
-            {t('hero.cta.projects')}
-            <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
-          </Link>
-
-          {/* CV */}
-          <Link
-            to="/cv"
-            className="flex items-center gap-2 rounded-sm border border-border bg-secondary/50 px-4 py-1.5 text-base font-medium text-foreground transition-all hover:border-primary hover:bg-secondary duration-300"
-          >
-            {t('nav.cv')}
-          </Link>
-        </div>
-
-        <GridPattern
-          width={30}
-          height={30}
-          squares={squares}
-          className={cn('[mask-image:linear-gradient(to_bottom_right,white,transparent,transparent)] -top-30 -left-30')}
-        />
-      </section >
+            <Link to="/services">{t('hero.cta.services')}</Link>
+          </ShimmerButton>
+        </motion.div>
+      </section>
     </AuroraBackground>
   );
 };

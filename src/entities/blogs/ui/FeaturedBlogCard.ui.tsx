@@ -9,7 +9,7 @@ export const FeatureBlogCard: React.FC<{ Blog: IBlog }> = ({ Blog }) => {
   const { titleFr, titleEn, excerptFr, excerptEn, image, category, date, readTime, tags } = Blog;
 
   return (
-    <article className="group relative overflow-hidden rounded-2xl bg-card border border-border hover:border-primary/50 transition-all">
+    <article className="group relative overflow-hidden rounded-md bg-card border border-border hover:border-primary/50 transition-all">
       <div className="grid md:grid-cols-2 gap-6">
         <div className="relative overflow-hidden">
           <Image

@@ -56,16 +56,16 @@ export function SplashCursor({
   SIM_RESOLUTION = 64,
   DYE_RESOLUTION = 512,
   CAPTURE_RESOLUTION = 256,
-  DENSITY_DISSIPATION = 3.5,
+  DENSITY_DISSIPATION = 3.2,
   VELOCITY_DISSIPATION = 2,
   PRESSURE = 0.1,
   PRESSURE_ITERATIONS = 10,
   CURL = 3,
-  SPLAT_RADIUS = 0.2,
-  SPLAT_FORCE = 6000,
+  SPLAT_RADIUS = 0.16,
+  SPLAT_FORCE = 5200,
   SHADING = true,
-  COLOR_UPDATE_SPEED = 10,
-  BACK_COLOR = { r: 0.5, g: 0, b: 0 },
+  COLOR_UPDATE_SPEED = 8,
+  BACK_COLOR = { r: 0, g: 0, b: 0 },
   TRANSPARENT = true,
 }: SplashCursorProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -951,16 +951,37 @@ export function SplashCursor({
 
     let lastUpdateTime = Date.now();
     let colorUpdateTimer = 0.0;
+    let rafId = 0;
+    let animating = false;
+    let pageVisible = document.visibilityState === 'visible';
 
     function updateFrame() {
+      // Pause WebGL sim when tab is hidden — biggest idle cost on Home
+      if (!pageVisible) {
+        rafId = 0;
+        return;
+      }
+      animating = true;
       const dt = calcDeltaTime();
       if (resizeCanvas()) initFramebuffers();
       updateColors(dt);
       applyInputs();
       step(dt);
       render(null);
-      requestAnimationFrame(updateFrame);
+      rafId = requestAnimationFrame(updateFrame);
     }
+
+    const onVisibility = () => {
+      pageVisible = document.visibilityState === 'visible';
+      if (!pageVisible) {
+        if (rafId) cancelAnimationFrame(rafId);
+        rafId = 0;
+      } else if (animating && rafId === 0) {
+        lastUpdateTime = Date.now();
+        rafId = requestAnimationFrame(updateFrame);
+      }
+    };
+    document.addEventListener('visibilitychange', onVisibility);
 
     function calcDeltaTime() {
       const now = Date.now();
@@ -1251,10 +1272,36 @@ export function SplashCursor({
     }
 
     function generateColor(): ColorRGB {
-      const c = HSVtoRGB(Math.random(), 1.0, 1.0);
-      c.r *= 0.15;
-      c.g *= 0.15;
-      c.b *= 0.15;
+      const isDark = document.documentElement.classList.contains('dark');
+
+      // Curated amethyst / violet / silver — marries Pearl & Amethyst light + Brilliant Obscure dark
+      const hues = [0.70, 0.73, 0.76, 0.79, 0.68, 0.82];
+      const h = hues[Math.floor(Math.random() * hues.length)];
+
+      // Occasional luminous silver streak
+      if (Math.random() < 0.18) {
+        const silver = isDark ? 0.95 : 0.55;
+        const scale = isDark ? 0.12 : 0.09;
+        return {
+          r: silver * scale,
+          g: silver * scale * 0.96,
+          b: silver * scale * 1.05,
+        };
+      }
+
+      const s = isDark
+        ? 0.45 + Math.random() * 0.3
+        : 0.4 + Math.random() * 0.25;
+      const v = isDark
+        ? 0.75 + Math.random() * 0.15
+        : 0.65 + Math.random() * 0.18;
+
+      const c = HSVtoRGB(h, s, v);
+      // Fluid sim amplifies ~×10 on splat — keep subtle so text stays readable
+      const scale = isDark ? 0.12 : 0.1;
+      c.r *= scale;
+      c.g *= scale;
+      c.b *= scale;
       return c;
     }
 
@@ -1387,7 +1434,13 @@ export function SplashCursor({
         updatePointerUpData(pointer);
       }
     });
-    // ------------------------------------------------------------
+
+    return () => {
+      pageVisible = false;
+      animating = false;
+      if (rafId) cancelAnimationFrame(rafId);
+      document.removeEventListener('visibilitychange', onVisibility);
+    };
   }, [
     SIM_RESOLUTION,
     DYE_RESOLUTION,
@@ -1406,8 +1459,11 @@ export function SplashCursor({
   ]);
 
   return (
-    <div className="fixed inset-0 z-0 pointer-events-none opacity-50 dark:opacity-40 mix-blend-multiply dark:mix-blend-screen w-full h-full transition-opacity duration-700">
-      <canvas ref={canvasRef} id="fluid" className="w-screen h-screen block"></canvas>
+    <div
+      className="fixed inset-0 z-[35] pointer-events-none w-full h-full transition-opacity duration-700 opacity-[0.32] dark:opacity-[0.28] mix-blend-multiply dark:mix-blend-screen"
+      aria-hidden
+    >
+      <canvas ref={canvasRef} id="fluid" className="w-screen h-screen block" />
     </div>
   );
 }

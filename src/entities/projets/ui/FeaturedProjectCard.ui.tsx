@@ -28,7 +28,7 @@ export const FeaturedProjectCard: React.FC<FeaturedProjectCardProps> = ({ projec
   return (
     <div
       className={cn(
-        'group relative flex flex-col md:flex-row w-[320px] md:w-[550px] h-auto md:h-[210px] bg-secondary/10 backdrop-blur-xl border border-border/40 rounded-lg overflow-hidden hover:border-primary/40 hover:bg-secondary/20 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5',
+        'group relative flex flex-col md:flex-row w-[320px] md:w-[550px] h-auto md:h-[210px] bg-secondary/10 backdrop-blur-xl border border-border/40 rounded-md overflow-hidden hover:border-primary/40 hover:bg-secondary/20 transition-all duration-500 hover:shadow-lg hover:shadow-primary/5',
         className,
       )}
     >
@@ -82,7 +82,7 @@ export const FeaturedProjectCard: React.FC<FeaturedProjectCardProps> = ({ projec
                 to={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-xl bg-secondary/50 text-muted-foreground hover:text-foreground hover:bg-secondary transition-all duration-300 border border-border/50"
+                className="p-2 rounded-md bg-secondary/50 text-muted-foreground hover:text-foreground hover:bg-secondary transition-all duration-300 border border-border/50"
                 title={t('projects.code')}
               >
                 <Github size={14} strokeWidth={2.5} />
@@ -93,7 +93,7 @@ export const FeaturedProjectCard: React.FC<FeaturedProjectCardProps> = ({ projec
                 to={project.demo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-xl bg-secondary/50 text-muted-foreground hover:text-foreground hover:bg-secondary transition-all duration-300 border border-border/50"
+                className="p-2 rounded-md bg-secondary/50 text-muted-foreground hover:text-foreground hover:bg-secondary transition-all duration-300 border border-border/50"
                 title={t('projects.demo')}
               >
                 <ExternalLink size={14} strokeWidth={2.5} />

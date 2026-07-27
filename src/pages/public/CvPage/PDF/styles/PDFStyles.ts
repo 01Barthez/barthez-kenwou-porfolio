@@ -32,7 +32,7 @@ export const pdfStyles = StyleSheet.create({
   },
   title: { 
     fontSize: 10, 
-    color: '#1e40af', 
+    color: '#4B2A78', 
     marginTop: 3,
     fontWeight: 'bold',
     textTransform: 'uppercase'
@@ -46,7 +46,7 @@ export const pdfStyles = StyleSheet.create({
     paddingHorizontal: 6,
     marginBottom: 8,
     borderLeftWidth: 3,
-    borderLeftColor: '#1e40af'
+    borderLeftColor: '#4B2A78'
   },
   sectionTitle: {
     fontSize: 11,
@@ -69,7 +69,7 @@ export const pdfStyles = StyleSheet.create({
   },
   period: {
     fontSize: 9,
-    color: '#1e40af',
+    color: '#4B2A78',
     fontWeight: 'bold'
   },
   text: { 

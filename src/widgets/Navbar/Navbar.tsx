@@ -30,9 +30,9 @@ export const Navbar: React.FC = () => {
       className="fixed m-0 top-4 z-40 hidden xl:block transition-all duration-300 ease-in-out"
       style={navbarStyle}
     >
-      <nav className="glass rounded-2xl px-6 py-1 flex items-center gap-6 shadow-lg">
+      <nav className="glass rounded-full px-4 py-1 flex items-center gap-3 shadow-sm">
         {/* Navigation Links */}
-        <div className="flex items-center md:gap-3 lg:gap-4">
+        <div className="flex items-center md:gap-2 lg:gap-3">
           {navItems.map((item) => {
             const isActive = location.pathname === item.id;
 
@@ -40,6 +40,15 @@ export const Navbar: React.FC = () => {
               <NavLink
                 key={item.id}
                 to={item.id}
+                onMouseEnter={() => {
+                  void import('@/app/routes/prefetch').then((m) => m.prefetchRoute(item.id));
+                }}
+                onFocus={() => {
+                  void import('@/app/routes/prefetch').then((m) => m.prefetchRoute(item.id));
+                }}
+                onTouchStart={() => {
+                  void import('@/app/routes/prefetch').then((m) => m.prefetchRoute(item.id));
+                }}
                 className={`nav-link relative overflow-visible text-nowrap ${
                   isActive ? 'active' : ''
                 }`}
@@ -74,7 +83,7 @@ export const Navbar: React.FC = () => {
         <div className="h-6 w-px bg-border" />
 
         {/* Theme & Language toggles */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1">
           <ThemeToggle />
           <LanguageToggle />
         </div>
@@ -83,7 +92,7 @@ export const Navbar: React.FC = () => {
         <div className="h-6 w-px bg-border" />
 
         {/* Social Links */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1">
           {socialLinks.map((link) => {
             const Icon = link.icon;
 
@@ -91,7 +100,7 @@ export const Navbar: React.FC = () => {
               <Link
                 key={link.label}
                 to={link.href}
-                className="flex h-8 w-8 items-center justify-center rounded-lg text-muted-foreground transition-all duration-300 hover:bg-secondary hover:text-primary"
+                className="flex h-6 w-6 items-center justify-center rounded-md text-muted-foreground transition-all duration-300 hover:bg-secondary hover:text-primary"
                 aria-label={link.label}
                 title={link.label}
                 target="_blank"
@@ -105,7 +114,7 @@ export const Navbar: React.FC = () => {
 
         {/* CV Button */}
         <div className="transition-all hover:glow-primary hover:scale-105">
-          <CvButton />
+          <CvButton className="rounded-full" />
         </div>
       </nav>
     </header>

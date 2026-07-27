@@ -43,26 +43,26 @@ const DARK_CONFIG: Omit<COBEOptions, "width" | "height"> = {
   diffuse: 1.2,
   mapSamples: 40000,
   mapBrightness: 6,
-  baseColor: [0.18, 0.10, 0.35],
-  markerColor: [0.49, 0.23, 0.93],
-  glowColor: [0.25, 0.12, 0.50],
+  baseColor: [0.06, 0.05, 0.09],
+  markerColor: [0.42, 0.28, 0.75],
+  glowColor: [0.18, 0.10, 0.32],
   scale: 1.05,
   offset: [0, 0],
   markerElevation: 0.03,
-  arcColor: [0.49, 0.23, 0.93],
+  arcColor: [0.42, 0.28, 0.75],
   arcWidth: 2,
   arcHeight: 0.5,
   arcs: ARCS_DATA.map((a) => ({
     ...a,
-    color: [0.49, 0.23, 0.93] as [number, number, number],
+    color: [0.42, 0.28, 0.75] as [number, number, number],
   })),
   markers: MARKERS_DATA.map((m, i) => ({
     ...m,
     color: i < 2
-      ? [0.49, 0.23, 0.93] as [number, number, number]  // primary purple
+      ? [0.42, 0.28, 0.75] as [number, number, number]
       : i % 2 === 0
-        ? [0.35, 0.20, 0.80] as [number, number, number]  // mid purple
-        : [0.12, 0.67, 0.93] as [number, number, number], // gradient blue
+        ? [0.30, 0.18, 0.55] as [number, number, number]
+        : [0.72, 0.72, 0.78] as [number, number, number],
   })),
 }
 
@@ -76,26 +76,26 @@ const LIGHT_CONFIG: Omit<COBEOptions, "width" | "height"> = {
   diffuse: 2,
   mapSamples: 40000,
   mapBrightness: 1.5,
-  baseColor: [1, 1, 1],
-  markerColor: [0.49, 0.23, 0.93],
-  glowColor: [0.88, 0.85, 0.95],
+  baseColor: [0.97, 0.96, 0.99],
+  markerColor: [0.35, 0.20, 0.62],
+  glowColor: [0.90, 0.88, 0.96],
   scale: 1.05,
   offset: [0, 0],
   markerElevation: 0.03,
-  arcColor: [0.40, 0.18, 0.80],
+  arcColor: [0.35, 0.20, 0.62],
   arcWidth: 2,
   arcHeight: 0.5,
   arcs: ARCS_DATA.map((a) => ({
     ...a,
-    color: [0.40, 0.18, 0.80] as [number, number, number],
+    color: [0.35, 0.20, 0.62] as [number, number, number],
   })),
   markers: MARKERS_DATA.map((m, i) => ({
     ...m,
     color: i < 2
-      ? [0.49, 0.23, 0.93] as [number, number, number]  // primary purple
+      ? [0.35, 0.20, 0.62] as [number, number, number]
       : i % 2 === 0
-        ? [0.30, 0.15, 0.70] as [number, number, number]  // darker purple
-        : [0.08, 0.50, 0.85] as [number, number, number], // deeper blue
+        ? [0.48, 0.32, 0.72] as [number, number, number]
+        : [0.55, 0.52, 0.62] as [number, number, number],
   })),
 }
 

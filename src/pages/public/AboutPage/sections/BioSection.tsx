@@ -6,7 +6,7 @@ export const BioSection: React.FC = () => {
   const { language } = useLanguageStore();
 
   return (
-    <section className="glass rounded-2xl p-6 border border-border animate-fade-in">
+    <section className="glass rounded-md p-6 border border-border animate-fade-in">
       <div className="flex items-center gap-3 mb-4">
         <div className="px-2 py-1 rounded-sm bg-primary/10">
           <User className="h-4 w-6 text-primary" />

@@ -5,7 +5,7 @@ export const EndContact = () => {
 
     return (
         <>
-            <div className="w-full p-4 md:p-6 rounded-sm glass border border-white/10 shadow-2xl overflow-hidden">
+            <div className="w-full p-4 md:p-6 rounded-sm glass border border-white/10 shadow-lg overflow-hidden">
                 <div className="flex flex-col lg:flex-row items-stretch gap-6">
                     {/* Github snake game section */}
                     <div className="flex-1 min-w-0 group relative">
@@ -17,7 +17,7 @@ export const EndContact = () => {
                             <span className="text-[10px] font-mono text-muted-foreground ml-2 opacity-70">barthez-github-contribution.sh</span>
                         </div>
                         
-                        <div className="relative border border-border/50 p-2 md:p-2 rounded-b-sm flex items-center justify-center overflow-hidden bg-[#0d1117] group-hover:border-primary/30 transition-colors duration-500">
+                        <div className="relative border border-border/50 p-2 md:p-2 rounded-b-sm flex items-center justify-center overflow-hidden bg-card group-hover:border-primary/30 transition-colors duration-500">
                             {/* Subtle Radial Glow */}
                             <div className="absolute inset-0 bg-gradient-to-tr from-primary/5 to-transparent pointer-events-none" />
                             

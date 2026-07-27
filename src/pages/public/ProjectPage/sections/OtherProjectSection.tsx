@@ -19,7 +19,7 @@ export const OtherProjectSection: React.FC<{ currentProjectId: string | number }
     <section className="mb-16 px-4 md:px-10 lg:px-14 animate-fade-in-up">
       <div className="flex items-end justify-between mb-8">
         <div>
-          <h2 className="text-2xl font-bold text-foreground mb-1">
+          <h2 className="section-title mb-1 !text-left">
             {language === 'fr' ? 'Projets Similaires' : 'Related Projects'}
           </h2>
           <p className="text-sm text-muted-foreground">

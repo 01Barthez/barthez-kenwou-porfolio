@@ -1,3 +1,8 @@
 User-agent: *
 Allow: /
-Sitemap: /sitemap.xml
+
+# Prefer crawlable public pages; SPA error routes are noindex via meta
+Disallow: /server-error
+Disallow: /admin
+
+Sitemap: https://barthez-kenwou.dev/sitemap.xml

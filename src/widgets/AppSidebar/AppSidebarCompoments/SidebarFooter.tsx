@@ -3,9 +3,11 @@ import { Link } from 'react-router-dom';
 import { ThemeToggle } from '@/shared/ui/ThemeToggle';
 import { LanguageToggle } from '@/shared/ui/LanguageToggle';
 import { socialLinks } from '@/shared/constants/socialLink.const';
-import { CvButton } from '@/shared/ui/CvButton/CvButton';
 import { useSidebar } from '@/shared/ui/sidebar';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/shared/ui/tooltip';
+import { SpectrumButton } from '@/shared/ui/SpectrumButton';
+import { AiOutlineDownload } from 'react-icons/ai';
+import { useTranslation } from 'react-i18next';
 
 /**
  * SidebarFooterSection Component
@@ -19,6 +21,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/shar
 export const SidebarFooterSection: React.FC = () => {
   const { state } = useSidebar();
   const isExpanded = state === 'expanded';
+  const { t } = useTranslation();
 
   return (
     <TooltipProvider delayDuration={0}>
@@ -36,7 +39,7 @@ export const SidebarFooterSection: React.FC = () => {
                 <Link
                   key={link.label}
                   to={link.href}
-                  className="flex h-10 w-10 items-center justify-center rounded-lg text-muted-foreground transition-all duration-300 hover:bg-secondary hover:text-primary"
+                  className="flex h-10 w-10 items-center justify-center rounded-md text-muted-foreground transition-all duration-300 hover:bg-secondary hover:text-primary"
                   aria-label={link.label}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -75,7 +78,7 @@ export const SidebarFooterSection: React.FC = () => {
                 <Tooltip>
                   <TooltipTrigger asChild>
                     <div>
-                      <LanguageToggle />
+                      <LanguageToggle flagOnly />
                     </div>
                   </TooltipTrigger>
                   <TooltipContent side="right" className="font-medium">
@@ -92,8 +95,15 @@ export const SidebarFooterSection: React.FC = () => {
           </div>
         </div>
 
-        {/* CV Button */}
-        {isExpanded && <CvButton />}
+        {/* CV — spectrum primary (sidebar only) */}
+        {isExpanded && (
+          <SpectrumButton asChild variant="solid" size="default" className="w-full">
+            <Link to="/cv">
+              <AiOutlineDownload className="h-4 w-4" />
+              <span>{t('nav.cv')}</span>
+            </Link>
+          </SpectrumButton>
+        )}
       </div>
     </TooltipProvider>
   );

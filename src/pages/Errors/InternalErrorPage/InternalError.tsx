@@ -11,11 +11,13 @@ export const InternalErrorPage: React.FC<{
   return (
     <>
       <SEO
-        title="Internal Error - Barthez Kenwou | Passionate DevOps & Full-Stack JS Developer"
-        description="Passioné par l'innovation technologique - Mon expertise couvre l'ensemble du cycle de développement, de la conception à la mise en production, en passant par l'optimisation des performances et la sécurité. Je maîtrise les technologies AWS et les pratiques DevOps pour garantir des déploiements fiables et automatisés."
+        noIndex
+        path="/server-error"
+        title="Erreur serveur"
+        description="Une erreur interne est survenue. Réessayez dans un instant."
       />
       <div className="min-h-screen flex items-center justify-center bg-background text-foreground">
-        <div className="max-w-2xl w-full p-8 rounded-lg shadow">
+        <div className="max-w-2xl w-full p-8 rounded-md shadow">
           <div className="text-center">
             <h1 className="text-4xl font-bold text-red-600 mb-4">Erreur interne du serveur</h1>
             <p className="text-gray-700 mb-4">

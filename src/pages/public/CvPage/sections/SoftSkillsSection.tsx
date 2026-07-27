@@ -15,8 +15,8 @@ export const SoftSkillsSection: React.FC<SoftSkillsProps> = ({ softSkills }) => 
   return (
     <section>
       <h2 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
-        <div className="p-2 rounded-lg bg-green-500/10">
-          <HeartHandshake className="h-5 w-5 text-green-500" />
+        <div className="p-2 rounded-md bg-muted">
+          <HeartHandshake className="h-5 w-5 text-muted-foreground" />
         </div>
         {language === 'fr' ? 'Compétences Comportementales' : 'Soft Skills'}
       </h2>

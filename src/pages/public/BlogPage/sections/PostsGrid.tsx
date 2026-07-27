@@ -33,7 +33,7 @@ export const PostsGrid: React.FC = () => {
               placeholder={language === 'fr' ? 'Rechercher un article...' : 'Search articles...'}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-4 py-2.5 rounded-lg bg-secondary/50 border border-border/50 focus:border-primary/50 focus:outline-none transition-colors text-sm text-foreground placeholder:text-muted-foreground/50"
+              className="w-full pl-9 pr-4 py-2.5 rounded-md bg-secondary/50 border border-border/50 focus:border-primary/50 focus:outline-none transition-colors text-sm text-foreground placeholder:text-muted-foreground/50"
             />
           </div>
 
@@ -43,7 +43,7 @@ export const PostsGrid: React.FC = () => {
               <button
                 key={category}
                 onClick={() => setActiveCategory(category)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold uppercase tracking-wider transition-all border ${activeCategory === category
+                className={`px-3 py-1.5 rounded-md text-xs font-bold uppercase tracking-wider transition-all border ${activeCategory === category
                     ? 'bg-primary text-primary-foreground border-primary'
                     : 'bg-secondary/30 text-muted-foreground hover:text-foreground border-border/50'
                   }`}

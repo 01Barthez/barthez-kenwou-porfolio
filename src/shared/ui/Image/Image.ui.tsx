@@ -94,7 +94,7 @@ export const Image: React.FC<ImageProps> = ({
       {showSkeleton && !loaded && (
         <div
           aria-hidden
-          className="absolute inset-0 bg-gray-100 dark:bg-gray-800 animate-pulse"
+          className="absolute inset-0 bg-muted animate-pulse"
           style={{ width: width ? width + 'px' : '100%', height: height ? height + 'px' : '100%' }}
         />
       )}

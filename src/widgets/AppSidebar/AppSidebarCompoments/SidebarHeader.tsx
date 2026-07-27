@@ -31,7 +31,7 @@ export const SidebarHeaderSection: React.FC = () => {
         >
           <button
             onClick={() => setIsGalleryOpen(true)}
-            className={`group/picture cursor-pointer relative overflow-hidden flex items-center justify-center rounded-2xl border-2 border-primary/50 hover:border-primary transition-all duration-300 hover:glow-primary ${isExpanded ? 'min-w-28 min-h-28 lg:min-w-40 lg:min-h-40' : 'w-10 h-10'
+            className={`group/picture cursor-pointer relative overflow-hidden flex items-center justify-center rounded-md border-2 border-primary/50 hover:border-primary transition-all duration-300 hover:glow-primary ${isExpanded ? 'min-w-28 min-h-28 lg:min-w-40 lg:min-h-40' : 'w-10 h-10'
               }`}
             aria-label="View profile photos"
             title={isExpanded ? 'View profile photos' : 'Barthez Kenwou - View profile'}
@@ -41,12 +41,12 @@ export const SidebarHeaderSection: React.FC = () => {
               customGrid={{ rows: 8, cols: 8 }}
               grayscaleAnimation
               pixelFadeInDuration={800}
-              className="object-cover transition-all duration-300 scale-110 group-hover/picture:scale-120 h-full w-full"
+              className="object-cover object-[center_60%] transition-all duration-300 scale-100 group-hover/picture:scale-110 h-full w-full"
             />
             {isExpanded && (
-              <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover/picture:opacity-100 transition-opacity flex items-center justify-center">
-                <span className="text-xs font-medium text-background">{t('sidebar.see_more')}</span>
-                <ArrowRight size={16} color="#000000" strokeWidth={1.25} />
+              <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover/picture:opacity-100 transition-opacity flex items-center justify-center gap-1">
+                <span className="text-xs font-medium text-primary-foreground">{t('sidebar.see_more')}</span>
+                <ArrowRight size={16} className="text-primary-foreground" strokeWidth={1.5} />
               </div>
             )}
           </button>

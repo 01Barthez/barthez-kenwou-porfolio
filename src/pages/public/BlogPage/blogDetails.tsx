@@ -27,20 +27,24 @@ export const BlogDetailPage = () => {
   return (
     <>
       <SEO
+        path={`/blog/${blogID}`}
         title={`${language === 'fr'
           ? truncateFonction(post?.titleFr || '', 60)
           : truncateFonction(post?.titleEn || '', 60)
-          } | Barthez Kenwou`}
-        description={`${language === 'fr'
-          ? truncateFonction(post?.contentFr || '', 160)
-          : truncateFonction(post?.contentEn || '', 160)
           }`}
+        description={`${language === 'fr'
+          ? truncateFonction(post?.excerptFr || post?.contentFr || '', 160)
+          : truncateFonction(post?.excerptEn || post?.contentEn || '', 160)
+          }`}
+        openGraph={{ type: 'article' }}
       />
 
-      <div className="min-h-screen bg-background relative overflow-hidden">
-        {/* Background Decorative Elements */}
-        <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] -z-10 translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-accent/5 rounded-full blur-[100px] -z-10 -translate-x-1/2 translate-y-1/2" />
+      <div className="min-h-screen bg-background relative overflow-x-clip">
+        {/* Background Decorative Elements — contained so they never create page-level X scroll */}
+        <div className="pointer-events-none absolute inset-0 overflow-hidden -z-10" aria-hidden>
+          <div className="absolute top-0 right-0 w-[min(400px,70vw)] h-[min(400px,70vw)] bg-primary/5 rounded-full blur-[100px] translate-x-1/3 -translate-y-1/3" />
+          <div className="absolute bottom-0 left-0 w-[min(400px,70vw)] h-[min(400px,70vw)] bg-primary/5 rounded-full blur-[100px] -translate-x-1/3 translate-y-1/3" />
+        </div>
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 md:pt-28 pb-16">
           {/* Header Area */}
@@ -56,19 +60,19 @@ export const BlogDetailPage = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
             {/* Sidebar Area - Now on the Left */}
-            <aside className="hidden lg:block lg:col-span-4 xl:col-span-3">
+            <aside className="hidden lg:block lg:col-span-4 xl:col-span-3 min-w-0">
+              {/* Opacity-only: transform on parent would break position:fixed TOC */}
               <motion.div
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                {/* Table of Contents */}
                 <TableOfContents content={content} />
               </motion.div>
             </aside>
 
             {/* Main Content Area - Now on the Right */}
-            <main className="lg:col-span-8 xl:col-span-9">
+            <main className="lg:col-span-8 xl:col-span-9 min-w-0">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

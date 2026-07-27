@@ -14,24 +14,43 @@ export const MobileNavbar: React.FC = () => {
   const IconBlog = navItems[5].icon;
   const textBlog = navItems[5].labelKey;
 
+  // Bottom bar: skip Blog (top) + drop Contact for breathing room
+  const bottomNavItems = navItems.filter((item) => item.id !== '/blog').slice(0, -1);
+
   return (
     <div className="xl:hidden">
       {/* Top bar with toggles */}
       <nav className="fixed top-6 left-0 right-0 z-50 w-full flex items-center justify-between gap-2 px-3 sm:px-6 py-1 backdrop-blur-sm border-b border-border/10">
         <div className="flex items-center gap-1.5">
-          <SidebarTrigger className="h-6 w-6 shadow-sm bg-background/80 backdrop-blur-sm ring-1 ring-sidebar-border" />
+          <SidebarTrigger className="h-6 w-6 cursor-pointer shadow-sm bg-background/80 backdrop-blur-sm ring-1 ring-sidebar-border" />
 
           <div className="h-6 w-px bg-border/50 mx-.5" />
 
           <Button variant={'outline'} asChild className="px-2 h-8">
-            <Link to="/blog">
+            <Link
+              to="/blog"
+              onMouseEnter={() => {
+                void import('@/app/routes/prefetch').then((m) => m.prefetchRoute('/blog'));
+              }}
+              onTouchStart={() => {
+                void import('@/app/routes/prefetch').then((m) => m.prefetchRoute('/blog'));
+              }}
+            >
               <IconBlog className={`h-2 w-2`} />
               <span className="text-xs">{t(textBlog)}</span>
             </Link>
           </Button>
 
           <Button asChild className="w-fit px-2 h-8">
-            <Link to="/cv">
+            <Link
+              to="/cv"
+              onMouseEnter={() => {
+                void import('@/app/routes/prefetch').then((m) => m.prefetchRoute('/cv'));
+              }}
+              onTouchStart={() => {
+                void import('@/app/routes/prefetch').then((m) => m.prefetchRoute('/cv'));
+              }}
+            >
               <AiOutlineDownload className="mr-.5 h-2 w-2" />
               <span className="text-xs">{t('nav.cv')}</span>
             </Link>
@@ -46,31 +65,35 @@ export const MobileNavbar: React.FC = () => {
 
       {/* Bottom Navbar */}
       <nav className="fixed bottom-0 left-0 right-0 z-50 border-t border-border bg-background/95 backdrop-blur-xl">
-        {/* Navigation items */}
-        <div className="flex items-center justify-around px-1 py-3">
-          {navItems.map((item) => {
+        <div className="flex items-center justify-around gap-0.5 px-2 py-3">
+          {bottomNavItems.map((item) => {
             const Icon = item.icon;
             const isActive = location.pathname === item.id;
 
-            if (item.id != '/blog')
-              return (
-                <NavLink
-                  key={item.id}
-                  to={item.id}
-                  className={`relative flex flex-col items-center gap-1 px-2 py-2 rounded-xl transition-all duration-300 
+            return (
+              <NavLink
+                key={item.id}
+                to={item.id}
+                onMouseEnter={() => {
+                  void import('@/app/routes/prefetch').then((m) => m.prefetchRoute(item.id));
+                }}
+                onTouchStart={() => {
+                  void import('@/app/routes/prefetch').then((m) => m.prefetchRoute(item.id));
+                }}
+                className={`relative flex flex-col items-center gap-1 px-2.5 py-2 rounded-xl transition-all duration-300
                 ${
                   isActive
                     ? 'text-primary bg-primary/10'
                     : 'text-muted-foreground hover:text-foreground'
                 }`}
-                >
-                  <Icon className={`h-5 w-5 ${isActive ? 'scale-110' : ''}`} />
-                  <span className="text-xs text-nowrap font-medium">{t(item.labelKey)}</span>
-                  {isActive && (
-                    <span className="absolute -top-0.5 h-0.5 w-8 rounded-full bg-primary" />
-                  )}
-                </NavLink>
-              );
+              >
+                <Icon className={`h-5 w-5 ${isActive ? 'scale-110' : ''}`} />
+                <span className="text-xs text-nowrap font-medium">{t(item.labelKey)}</span>
+                {isActive && (
+                  <span className="absolute -top-0.5 h-0.5 w-8 rounded-full bg-primary" />
+                )}
+              </NavLink>
+            );
           })}
         </div>
       </nav>

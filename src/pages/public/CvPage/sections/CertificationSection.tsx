@@ -14,7 +14,7 @@ export const CertificationSection: React.FC<CertificationProps> = ({ education }
     <section>
       {/* Title */}
       <h2 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
-        <div className="p-2 rounded-lg bg-primary/10">
+        <div className="p-2 rounded-md bg-primary/10">
           <GraduationCap className="h-5 w-5 text-primary" />
         </div>
         {language === 'fr' ? 'Formation & Certifications' : 'Education & Certifications'}

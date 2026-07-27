@@ -14,8 +14,11 @@ export const LoadingPage: React.FC = () => {
   }, []);
 
   return (
-    <AuroraBackground showRadialGradient className="z-50 !min-h-svh">
-      <div className="flex flex-col items-center justify-center gap-10 relative z-10">
+    <AuroraBackground
+      showRadialGradient
+      className="fixed inset-0 z-50 !min-h-svh h-svh w-full justify-center"
+    >
+      <div className="relative z-10 flex h-full w-full flex-col items-center justify-center gap-10 px-4">
         {/* Animated Logo Container */}
         <div className="relative flex items-center justify-center w-32 h-32">
           {/* Pulsing Glow Rings */}
@@ -33,7 +36,7 @@ export const LoadingPage: React.FC = () => {
             transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
           />
           <motion.div 
-            className="absolute inset-2 rounded-full border-t-2 border-accent"
+            className="absolute inset-2 rounded-full border-t-2 border-primary/60"
             animate={{ rotate: -360 }}
             transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
           />

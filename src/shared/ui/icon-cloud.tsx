@@ -302,7 +302,7 @@ export function IconCloud({ icons, images }: IconCloudProps) {
             // Show numbered circles if no icons/images are provided
             renderCtx.beginPath()
             renderCtx.arc(0, 0, IMAGE_SIZE/2, 0, Math.PI * 2)
-            renderCtx.fillStyle = "#4444ff"
+            renderCtx.fillStyle = "#4b2a78"
             renderCtx.fill()
             renderCtx.fillStyle = "white"
             renderCtx.textAlign = "center"
@@ -337,7 +337,7 @@ export function IconCloud({ icons, images }: IconCloudProps) {
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
         onMouseLeave={handleMouseUp}
-        className="rounded-lg cursor-pointer"
+        className="rounded-md cursor-pointer"
         aria-label="Interactive 3D Icon Cloud"
         role="img"
       />

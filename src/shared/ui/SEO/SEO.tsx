@@ -1,4 +1,17 @@
 import React from 'react';
+import {
+  DEFAULT_DESCRIPTION,
+  DEFAULT_OG_IMAGE,
+  DEFAULT_OG_IMAGE_ALT,
+  DEFAULT_TITLE,
+  OG_IMAGE_HEIGHT,
+  OG_IMAGE_WIDTH,
+  SITE_NAME,
+  SITE_NAME_FULL,
+  SITE_URL,
+  SOCIAL,
+  absoluteUrl,
+} from '@/shared/config/site';
 
 export type OpenGraph = {
   title?: string;
@@ -6,14 +19,21 @@ export type OpenGraph = {
   url?: string;
   image?: string;
   type?: string;
+  imageAlt?: string;
 };
 
 export type SEOProps = {
   title?: string;
   description?: string;
   canonical?: string;
+  /** Path only (e.g. /about) — builds absolute canonical + og:url when canonical omitted */
+  path?: string;
   lang?: string;
   openGraph?: OpenGraph;
+  /** noindex for error / private pages */
+  noIndex?: boolean;
+  /** Article / person / etc. structured data objects (merged into graph) */
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   additionalMeta?: Array<{ name?: string; property?: string; content: string }>;
 };
 
@@ -36,62 +56,182 @@ function upsertMetaTag(meta: MetaLike) {
   el.setAttribute('content', meta.content);
 }
 
-function upsertLinkTag(rel: string, href: string) {
+function upsertLinkTag(rel: string, href: string, attrs?: Record<string, string>) {
   if (!href) return;
-  const selector = `link[rel="${CSS.escape(rel)}"]`;
-  let el = document.head.querySelector<HTMLLinkElement>(selector);
+  let el = document.head.querySelector<HTMLLinkElement>(`link[rel="${CSS.escape(rel)}"]`);
   if (!el) {
     el = document.createElement('link');
     el.setAttribute('rel', rel);
     document.head.appendChild(el);
   }
   el.setAttribute('href', href);
+  if (attrs) {
+    Object.entries(attrs).forEach(([k, v]) => el!.setAttribute(k, v));
+  }
+}
+
+function upsertJsonLd(id: string, data: Record<string, unknown>) {
+  let el = document.getElementById(id) as HTMLScriptElement | null;
+  if (!el) {
+    el = document.createElement('script');
+    el.type = 'application/ld+json';
+    el.id = id;
+    document.head.appendChild(el);
+  }
+  el.textContent = JSON.stringify(data);
+}
+
+function buildPageTitle(title?: string): string {
+  if (!title?.trim()) return DEFAULT_TITLE;
+  const t = title.trim();
+  // Avoid "X | Site | Site" when callers already brand the title
+  if (t.includes(SITE_NAME) || t.includes(SITE_NAME_FULL)) return t;
+  return `${t} | ${SITE_NAME}`;
+}
+
+function personWebSiteJsonLd() {
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebSite',
+        '@id': `${SITE_URL}/#website`,
+        url: SITE_URL,
+        name: SITE_NAME_FULL,
+        description: DEFAULT_DESCRIPTION,
+        inLanguage: ['fr-FR', 'en-US'],
+        publisher: { '@id': `${SITE_URL}/#person` },
+      },
+      {
+        '@type': 'Person',
+        '@id': `${SITE_URL}/#person`,
+        name: SITE_NAME,
+        url: SITE_URL,
+        image: `${SITE_URL}/images/barthez-kenwou.png`,
+        jobTitle: 'Full Stack Developer & DevOps Engineer',
+        email: 'mailto:kenwoubarthez@gmail.com',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Yaoundé',
+          addressCountry: 'CM',
+        },
+        sameAs: [SOCIAL.github, SOCIAL.linkedin],
+        knowsAbout: [
+          'DevOps',
+          'AWS',
+          'React',
+          'Node.js',
+          'Kubernetes',
+          'CI/CD',
+          'Full Stack JavaScript',
+        ],
+      },
+      {
+        '@type': 'WebPage',
+        '@id': `${SITE_URL}/#webpage`,
+        url: SITE_URL,
+        name: DEFAULT_TITLE,
+        isPartOf: { '@id': `${SITE_URL}/#website` },
+        about: { '@id': `${SITE_URL}/#person` },
+        description: DEFAULT_DESCRIPTION,
+        primaryImageOfPage: {
+          '@type': 'ImageObject',
+          url: DEFAULT_OG_IMAGE,
+          width: OG_IMAGE_WIDTH,
+          height: OG_IMAGE_HEIGHT,
+        },
+      },
+    ],
+  };
 }
 
 export const SEO: React.FC<SEOProps> = ({
   title,
-  description,
+  description = DEFAULT_DESCRIPTION,
   canonical,
+  path,
   lang = 'fr',
   openGraph,
+  noIndex = false,
+  jsonLd,
   additionalMeta = [],
 }) => {
-  const siteName = 'Portfolio Barthez Kenwou';
-  const pageTitle = title ? `${title} | ${siteName}` : siteName;
+  const pageTitle = buildPageTitle(title);
+  const pageUrl = canonical || (path ? absoluteUrl(path) : absoluteUrl('/'));
+  const ogTitle = openGraph?.title || pageTitle;
+  const ogDescription = openGraph?.description || description;
+  const ogImage = openGraph?.image || DEFAULT_OG_IMAGE;
+  const ogImageAlt = openGraph?.imageAlt || DEFAULT_OG_IMAGE_ALT;
+  const ogType = openGraph?.type || 'website';
+  const ogUrl = openGraph?.url || pageUrl;
 
   React.useEffect(() => {
-    // Title + lang
     document.title = pageTitle;
     document.documentElement.lang = lang;
 
-    // Canonical link
-    if (canonical) upsertLinkTag('canonical', canonical);
+    upsertLinkTag('canonical', pageUrl);
 
-    // Standard meta
-    if (description) upsertMetaTag({ name: 'description', content: description });
+    upsertMetaTag({
+      name: 'robots',
+      content: noIndex
+        ? 'noindex, nofollow'
+        : 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+    });
+    upsertMetaTag({ name: 'description', content: description });
+    upsertMetaTag({ name: 'author', content: SITE_NAME });
 
-    // OpenGraph
-    upsertMetaTag({ property: 'og:site_name', content: siteName });
-    if (openGraph?.title) upsertMetaTag({ property: 'og:title', content: openGraph.title });
-    if (openGraph?.description)
-      upsertMetaTag({ property: 'og:description', content: openGraph.description });
-    if (openGraph?.url) upsertMetaTag({ property: 'og:url', content: openGraph.url });
-    if (openGraph?.image) upsertMetaTag({ property: 'og:image', content: openGraph.image });
-    if (openGraph?.type) upsertMetaTag({ property: 'og:type', content: openGraph.type });
+    // Open Graph
+    upsertMetaTag({ property: 'og:site_name', content: SITE_NAME_FULL });
+    upsertMetaTag({ property: 'og:locale', content: lang === 'en' ? 'en_US' : 'fr_FR' });
+    upsertMetaTag({
+      property: 'og:locale:alternate',
+      content: lang === 'en' ? 'fr_FR' : 'en_US',
+    });
+    upsertMetaTag({ property: 'og:type', content: ogType });
+    upsertMetaTag({ property: 'og:title', content: ogTitle });
+    upsertMetaTag({ property: 'og:description', content: ogDescription });
+    upsertMetaTag({ property: 'og:url', content: ogUrl });
+    upsertMetaTag({ property: 'og:image', content: ogImage });
+    upsertMetaTag({ property: 'og:image:secure_url', content: ogImage });
+    upsertMetaTag({ property: 'og:image:type', content: 'image/png' });
+    upsertMetaTag({ property: 'og:image:width', content: String(OG_IMAGE_WIDTH) });
+    upsertMetaTag({ property: 'og:image:height', content: String(OG_IMAGE_HEIGHT) });
+    upsertMetaTag({ property: 'og:image:alt', content: ogImageAlt });
 
-    // Twitter Card
-    if (openGraph?.image) upsertMetaTag({ name: 'twitter:card', content: 'summary_large_image' });
-    if (openGraph?.title) upsertMetaTag({ name: 'twitter:title', content: openGraph.title });
-    if (openGraph?.description)
-      upsertMetaTag({ name: 'twitter:description', content: openGraph.description });
+    // Twitter
+    upsertMetaTag({ name: 'twitter:card', content: 'summary_large_image' });
+    upsertMetaTag({ name: 'twitter:title', content: ogTitle });
+    upsertMetaTag({ name: 'twitter:description', content: ogDescription });
+    upsertMetaTag({ name: 'twitter:image', content: ogImage });
+    upsertMetaTag({ name: 'twitter:image:alt', content: ogImageAlt });
 
-    // Additional custom meta
     additionalMeta.forEach((m) => upsertMetaTag(m));
-  }, [additionalMeta, canonical, description, lang, openGraph, pageTitle, siteName]);
+
+    upsertJsonLd('seo-jsonld-core', personWebSiteJsonLd());
+
+    if (jsonLd) {
+      const payload = Array.isArray(jsonLd)
+        ? { '@context': 'https://schema.org', '@graph': jsonLd }
+        : { '@context': 'https://schema.org', ...jsonLd };
+      upsertJsonLd('seo-jsonld-page', payload);
+    }
+  }, [
+    additionalMeta,
+    description,
+    jsonLd,
+    lang,
+    noIndex,
+    ogDescription,
+    ogImage,
+    ogImageAlt,
+    ogTitle,
+    ogType,
+    ogUrl,
+    pageTitle,
+    pageUrl,
+  ]);
 
   return null;
 };
 
 export const SEOProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => children;
-
-// use named exports only to comply with lint rules

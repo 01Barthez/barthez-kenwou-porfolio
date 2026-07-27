@@ -156,12 +156,12 @@ export const GridProject: React.FC<GridProjectProps> = ({ filterState }) => {
                 size="icon"
                 onClick={() => handlePageChange(currentPage - 1)}
                 disabled={currentPage === 1}
-                className="rounded-lg border-border/50 hover:border-primary/50 cursor-pointer"
+                className="rounded-md border-border/50 hover:border-primary/50 cursor-pointer"
               >
                 <ChevronLeft className="h-5 w-5" />
               </Button>
 
-              <div className="flex gap-2 p-1 rounded-xl bg-secondary/30 border border-border/50">
+              <div className="flex gap-2 p-1 rounded-md bg-secondary/30 border border-border/50">
                 {Array.from({ length: totalPages }).map((_, i) => {
                   const pageNumber = i + 1;
                   const isActive = currentPage === pageNumber;
@@ -170,9 +170,9 @@ export const GridProject: React.FC<GridProjectProps> = ({ filterState }) => {
                       key={pageNumber}
                       onClick={() => handlePageChange(pageNumber)}
                       className={cn(
-                        "w-8 h-8 rounded-lg text-sm font-bold transition-all cursor-pointer",
+                        "w-8 h-8 rounded-md text-sm font-bold transition-all cursor-pointer",
                         isActive
-                          ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20 scale-105"
+                          ? "bg-primary text-primary-foreground shadow-sm shadow-primary/20 scale-105"
                           : "text-muted-foreground hover:bg-secondary hover:text-foreground"
                       )}
                     >
@@ -187,7 +187,7 @@ export const GridProject: React.FC<GridProjectProps> = ({ filterState }) => {
                 size="icon"
                 onClick={() => handlePageChange(currentPage + 1)}
                 disabled={currentPage === totalPages}
-                className="rounded-lg border-border/50 hover:border-primary/50 cursor-pointer"
+                className="rounded-md border-border/50 hover:border-primary/50 cursor-pointer"
               >
                 <ChevronRight className="h-5 w-5" />
               </Button>

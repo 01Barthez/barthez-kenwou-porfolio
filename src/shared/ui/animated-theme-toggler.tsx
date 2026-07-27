@@ -175,7 +175,7 @@ export const AnimatedThemeToggler = ({
         disabled={isAnimating}
         className={cn(
           'relative inline-flex items-center justify-center',
-          'w-9 h-9 rounded-lg',
+          'w-9 h-9 rounded-md',
           'transition-all duration-300 ease-out',
           'hover:scale-110 hover:rotate-12',
           'active:scale-95',
@@ -190,7 +190,7 @@ export const AnimatedThemeToggler = ({
         {/* Ambient glow effect */}
         <div
           className={cn(
-            'absolute inset-0 rounded-lg blur-lg transition-all duration-700',
+            'absolute inset-0 rounded-md blur-lg transition-all duration-700',
             isDark ? 'bg-primary/30 opacity-100 scale-100' : 'bg-accent/30 opacity-100 scale-100',
           )}
           style={{

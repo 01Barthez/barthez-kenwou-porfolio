@@ -50,9 +50,9 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ language, value, filename,
   };
 
   return (
-    <div className={cn("group relative my-3 w-full overflow-hidden rounded-sm border border-border/50 bg-[#22272e] font-mono text-sm shadow-sm transition-all hover:shadow-primary/5", className)}>
+    <div className={cn("group relative my-3 w-full overflow-hidden rounded-sm border border-border/50 bg-card font-mono text-sm shadow-sm transition-all hover:shadow-primary/5", className)}>
       {/* Header */}
-      <div className="flex items-center justify-between border-b border-border/50 bg-[#2d333b]/50 px-4 py-3">
+      <div className="flex items-center justify-between border-b border-border/50 bg-secondary/50 px-4 py-3">
         <div className="flex items-center gap-2">
           <div className="flex gap-1.5">
             <div className="h-2.5 w-2.5 rounded-full bg-red-500/80 shadow-[0_0_8px_rgba(239,68,68,0.3)]" />
@@ -72,7 +72,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ language, value, filename,
         </div>
         <button
           onClick={copyToClipboard}
-          className="flex items-center gap-1.5 rounded-lg border border-border/50 bg-secondary/30 px-2 py-1 text-[11px] font-medium text-muted-foreground transition-all hover:bg-secondary/50 hover:text-foreground active:scale-95"
+          className="flex items-center gap-1.5 rounded-md border border-border/50 bg-secondary/30 px-2 py-1 text-[11px] font-medium text-muted-foreground transition-all hover:bg-secondary/50 hover:text-foreground active:scale-95"
         >
           {copied ? (
             <>

@@ -16,13 +16,13 @@ export const ProblemSolutionSection: React.FC<{ project: IProject }> = ({ projec
         
         {/* Problem */}
         {problem && (
-          <div className="bg-destructive/5 border border-destructive/20 p-6 md:p-8 rounded-3xl relative overflow-hidden group">
+          <div className="bg-destructive/5 border border-destructive/20 p-6 md:p-8 rounded-md relative overflow-hidden group">
             <div className="absolute top-0 right-0 p-6 opacity-20 group-hover:opacity-40 transition-opacity">
               <AlertCircle className="w-32 h-32 text-destructive" />
             </div>
             <div className="relative z-10">
-              <h2 className="text-2xl font-bold mb-4 text-foreground flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-destructive/10 text-destructive">
+              <h2 className="section-title !mb-0 flex items-center gap-3">
+                <div className="p-2 rounded-md bg-destructive/10 text-destructive">
                   <Target className="w-6 h-6" />
                 </div>
                 {language === 'fr' ? 'Le Problème' : 'The Problem'}
@@ -36,13 +36,13 @@ export const ProblemSolutionSection: React.FC<{ project: IProject }> = ({ projec
 
         {/* Solution */}
         {solutions && solutions.length > 0 && (
-          <div className="bg-primary/5 border border-primary/20 p-6 md:p-8 rounded-3xl relative overflow-hidden group">
+          <div className="bg-primary/5 border border-primary/20 p-6 md:p-8 rounded-md relative overflow-hidden group">
             <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
               <CheckCircle2 className="w-32 h-32 text-primary" />
             </div>
             <div className="relative z-10">
-              <h2 className="text-2xl font-bold mb-6 text-foreground flex items-center gap-3">
-                <div className="p-2 rounded-xl bg-primary/10 text-primary">
+              <h2 className="section-title !mb-4 flex items-center gap-3">
+                <div className="p-2 rounded-md bg-primary/10 text-primary">
                   <CheckCircle2 className="w-6 h-6" />
                 </div>
                 {language === 'fr' ? 'La Solution' : 'The Solution'}

@@ -11,9 +11,9 @@ export const HeaderSection: React.FC<HeaderProps> = ({ personalInfo }) => {
   const { language } = useLanguageStore();
 
   return (
-    <section className="bg-gradient-to-r from-primary/20 to-accent/20 p-8 print:p-6">
+    <section className="bg-gradient-to-r from-primary/20 to-primary/5 p-8 print:p-6">
       <div className="flex flex-col md:flex-row gap-6 items-center md:items-start">
-        <div className="w-32 h-32 rounded-2xl bg-primary/20 border-2 border-primary flex items-center justify-center shrink-0">
+        <div className="w-32 h-32 rounded-md bg-primary/20 border-2 border-primary flex items-center justify-center shrink-0">
           <span className="text-4xl font-bold gradient-text">BK</span>
         </div>
         <div className="text-center md:text-left flex-1">

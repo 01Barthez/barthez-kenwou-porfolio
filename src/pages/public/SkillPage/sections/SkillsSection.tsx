@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { SkillCard } from '@/entities/skills/ui/SkillCard.ui';
 import { IconCloud } from '@/shared/ui/icon-cloud';
+import { DeferredMount } from '@/shared/ui/DeferredMount';
 
 export const SkillsSection: React.FC = () => {
   const [activeFilter, setActiveFilter] = useState('all');
@@ -30,7 +31,7 @@ export const SkillsSection: React.FC = () => {
             key={filter.id}
             onClick={() => setActiveFilter(filter.id)}
             className={`px-3 py-1 cursor-pointer capitalize rounded-sm font-medium text-sm md:text-base transition-all duration-300 border ${activeFilter === filter.id
-              ? 'bg-primary/90 border-primary text-primary-foreground shadow-[0_0_6px_rgba(59,130,246,0.5)]'
+              ? 'bg-primary/90 border-primary text-primary-foreground shadow-primary/20'
               : 'bg-secondary/50 border-border/50 text-muted-foreground hover:text-foreground hover:border-primary/50'
               }`}
           >
@@ -42,7 +43,7 @@ export const SkillsSection: React.FC = () => {
       <div className="flex flex-col md:flex-row gap-6 px-4 md:px-10 lg:px-14">
         {/* Left Column: Progressive Filters */}
         <div className="hidden md:block w-full md:w-1/4 lg:w-1/4 flex-shrink-0">
-          <div className="sticky top-28 flex flex-col gap-2 p-3 rounded-sm bg-card/30 backdrop-blur-md border border-border/50 shadow-xl overflow-hidden isolate relative">
+          <div className="sticky top-28 flex flex-col gap-2 p-3 rounded-sm bg-card/30 backdrop-blur-md border border-border/50 shadow-md overflow-hidden isolate relative">
             <div className="absolute -top-10 -right-10 w-32 h-32 bg-primary/10 blur-3xl rounded-xs -z-10" />
 
             <div className="flex flex-col gap-1 relative">
@@ -51,13 +52,13 @@ export const SkillsSection: React.FC = () => {
                   key={filter.id}
                   onClick={() => setActiveFilter(filter.id)}
                   className={`relative px-2 py-1.5 text-left w-full rounded-sm font-medium transition-all duration-300 overflow-hidden group ${activeFilter === filter.id
-                    ? 'text-primary-foreground shadow-lg scale-105'
+                    ? 'text-primary-foreground shadow-sm scale-105'
                     : 'text-muted-foreground hover:text-foreground hover:bg-secondary/50'
                     }`}
                 >
                   {/* Active Background Glow */}
                   {activeFilter === filter.id && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary to-accent opacity-90 z-0" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary/70 opacity-90 z-0" />
                   )}
 
                   <span className="relative z-10 flex items-center justify-between text-sm capitalize font-bold">
@@ -81,7 +82,13 @@ export const SkillsSection: React.FC = () => {
         <div className="flex-1 pt-6 md:pt-0">
           {activeFilter === 'all' ? (
             <div className="flex justify-center items-center w-full min-h-[400px] mb-0 animate-fade-in">
-              <IconCloud images={imageIcon} />
+              <DeferredMount
+                className="w-full flex justify-center"
+                timeout={700}
+                fallback={<div className="h-[400px] w-full" aria-hidden />}
+              >
+                <IconCloud images={imageIcon} />
+              </DeferredMount>
             </div>
           ) : (
             <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2 sm:gap-2 md:gap-6 mb-20 animate-fade-in">

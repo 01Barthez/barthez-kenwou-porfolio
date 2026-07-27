@@ -4,6 +4,7 @@ import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 import { Globe } from '@/shared/ui/globe';
+import { DeferredMount } from '@/shared/ui/DeferredMount';
 
 export const ProcessSection: React.FC = () => {
   const { language } = useLanguageStore();
@@ -17,14 +18,14 @@ export const ProcessSection: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-lg md:text-xl font-semibold text-foreground mb-1 tracking-tight">
+          <h2 className="section-title">
             {language === 'fr' ? 'Mon Processus ' : 'My Work '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-500">
+            <span className="gradient-text">
               {language === 'fr' ? 'de Travail' : 'Process'}
             </span>
           </h2>
           <div className="w-16 h-1 bg-primary/30 mx-auto rounded-full mb-4" />
-          <p className="text-muted-foreground text-xs md:text-sm max-w-xl mx-auto font-medium leading-relaxed italic opacity-85">
+          <p className="section-subtitle !mb-0 italic opacity-90">
             {language === 'fr'
               ? "Une approche structurée et transparente pour transformer vos idées en solutions numériques d'exception."
               : "A structured and transparent approach to transform your ideas into exceptional digital solutions."}
@@ -36,10 +37,15 @@ export const ProcessSection: React.FC = () => {
         {/* Background Decorative Gradient */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-primary/5 blur-[120px] rounded-full pointer-events-none -z-10" />
 
-        {/* Central Background Globe */}
+        {/* Central Background Globe — deferred until near viewport */}
         <div className="absolute z-5 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-[800px] aspect-square pointer-events-none -z-20 select-none opacity-40 dark:opacity-25 flex items-center justify-center">
-          <Globe />
-          {/* Subtle ambient glow behind the globe */}
+          <DeferredMount
+            className="absolute inset-0"
+            timeout={900}
+            fallback={<div className="absolute inset-0" aria-hidden />}
+          >
+            <Globe />
+          </DeferredMount>
           <div className="absolute z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1/2 h-1/2 bg-primary/20 blur-[100px] rounded-full" />
         </div>
 
@@ -66,18 +72,18 @@ export const ProcessSection: React.FC = () => {
                   transition={{ duration: 0.7, delay: index * 0.1, ease: "easeOut" }}
                 >
                   <div className={cn(
-                    "glass p-3 md:p-4 rounded-lg border border-border/40 shadow-sm transition-all duration-500 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/5 relative group/card ml-14 md:ml-0",
+                    "glass p-3 md:p-4 rounded-md border border-border/40 shadow-sm transition-all duration-500 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 relative group/card ml-14 md:ml-0",
                     isEven ? "md:text-right" : "md:text-left"
                   )}>
                     {/* Subtle inner glow */}
-                    <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity rounded-2xl" />
+                    <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity rounded-md" />
 
                     <div className="relative z-10">
                       <div className={cn(
                         "flex items-center gap-3 mb-4",
                         isEven ? "md:flex-row-reverse" : "md:flex-row"
                       )}>
-                        <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-primary text-primary-foreground text-xs font-bold shadow-lg shadow-primary/20">
+                        <div className="flex items-center justify-center w-8 h-8 rounded-md bg-primary text-primary-foreground text-xs font-bold shadow-sm shadow-primary/20">
                           {index + 1}
                         </div>
                         <div className="h-[1px] flex-1 bg-linear-to-r from-primary/30 to-transparent hidden md:block" />
@@ -109,7 +115,7 @@ export const ProcessSection: React.FC = () => {
                 >
                   <div className="group relative">
                     <div className="absolute inset-0 bg-primary/30 blur-xl rounded-full scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                    <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-background border-2 border-primary/20 shadow-xl flex items-center justify-center relative z-10 transition-all duration-500 group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground group-hover:scale-110">
+                    <div className="w-8 h-8 md:w-10 md:h-10 rounded-full bg-background border-2 border-primary/20 shadow-md flex items-center justify-center relative z-10 transition-all duration-500 group-hover:border-primary group-hover:bg-primary group-hover:text-primary-foreground group-hover:scale-110">
                       <Icon className="h-3 w-3 md:h-5 md:w-5 transition-transform duration-500 group-hover:rotate-[360deg]" />
                     </div>
                   </div>

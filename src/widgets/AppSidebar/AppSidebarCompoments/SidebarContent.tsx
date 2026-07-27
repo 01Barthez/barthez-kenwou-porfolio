@@ -23,7 +23,7 @@ export const SidebarContentSection: React.FC = () => {
   return (
     <TooltipProvider delayDuration={0}>
       <nav
-        className={`flex flex-col gap-2 w-full transition-all duration-300 scrollbar-hide ${
+        className={`flex flex-col gap-2 w-full transition-all duration-300 ${
           isExpanded ? 'p-4' : 'p-2'
         }`}
       >
@@ -35,6 +35,12 @@ export const SidebarContentSection: React.FC = () => {
             <NavLink
               key={item.id}
               to={item.id}
+              onMouseEnter={() => {
+                void import('@/app/routes/prefetch').then((m) => m.prefetchRoute(item.id));
+              }}
+              onTouchStart={() => {
+                void import('@/app/routes/prefetch').then((m) => m.prefetchRoute(item.id));
+              }}
               className={`group relative flex items-center rounded-sm transition-all duration-300 ${
                 isActive
                   ? 'bg-primary text-primary-foreground'

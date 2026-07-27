@@ -29,7 +29,7 @@ export const ImpactSection: React.FC<{ project: IProject }> = ({ project }) => {
         {hasChallenges && (
           <div>
             <div className="flex items-center gap-4 mb-6">
-              <h2 className="text-2xl font-bold text-foreground">
+              <h2 className="section-title !mb-0">
                 {language === 'fr' ? 'Défis Rencontrés' : 'Challenges Faced'}
               </h2>
               <div className="h-[1px] flex-grow bg-border/50"></div>
@@ -38,7 +38,7 @@ export const ImpactSection: React.FC<{ project: IProject }> = ({ project }) => {
               {challenges.map((challenge, idx) => {
                 const Icon = challengeIcons[idx % challengeIcons.length];
                 return (
-                  <div key={idx} className="flex gap-4 p-4 rounded-xl bg-destructive/5 border border-destructive/10 hover:border-destructive/30 transition-colors">
+                  <div key={idx} className="flex gap-4 p-4 rounded-md bg-destructive/5 border border-destructive/10 hover:border-destructive/30 transition-colors">
                     <div className="flex-shrink-0 mt-1">
                       <Icon className="w-5 h-5 text-destructive/70" />
                     </div>
@@ -56,7 +56,7 @@ export const ImpactSection: React.FC<{ project: IProject }> = ({ project }) => {
         {hasImpacts && (
           <div>
             <div className="flex items-center gap-4 mb-6">
-              <h2 className="text-2xl font-bold text-foreground">
+              <h2 className="section-title !mb-0">
                 {language === 'fr' ? 'Impact & Résultats' : 'Impact & Results'}
               </h2>
               <div className="h-[1px] flex-grow bg-border/50"></div>
@@ -65,7 +65,7 @@ export const ImpactSection: React.FC<{ project: IProject }> = ({ project }) => {
               {impacts.map((impact, idx) => {
                 const Icon = impactIcons[idx % impactIcons.length];
                 return (
-                  <div key={idx} className="flex gap-4 p-4 rounded-xl bg-primary/5 border border-primary/10 hover:border-primary/30 transition-colors group">
+                  <div key={idx} className="flex gap-4 p-4 rounded-md bg-primary/5 border border-primary/10 hover:border-primary/30 transition-colors group">
                     <div className="flex-shrink-0 mt-1 p-1 bg-primary/10 rounded-full group-hover:scale-110 transition-transform">
                       <Icon className="w-4 h-4 text-primary" />
                     </div>
@@ -83,10 +83,10 @@ export const ImpactSection: React.FC<{ project: IProject }> = ({ project }) => {
 
       {/* Metrics */}
       {hasMetrics && (
-        <div className="bg-secondary/20 border border-border/40 rounded-3xl p-8">
+        <div className="bg-secondary/20 border border-border/40 rounded-md p-8">
           <div className="flex items-center justify-center gap-3 mb-8">
             <BarChart3 className="w-6 h-6 text-primary" />
-            <h2 className="text-2xl font-bold text-foreground text-center">
+            <h2 className="section-title !mb-0 text-center">
               {language === 'fr' ? 'Métriques Clés' : 'Key Metrics'}
             </h2>
           </div>

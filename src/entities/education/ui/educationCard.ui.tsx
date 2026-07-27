@@ -9,7 +9,7 @@ export const EducationCard: React.FC<{ Education: IEducation }> = ({ Education }
   const { degreeFr, degreeEn, link, school, period } = Education;
 
   return (
-    <div className="flex items-start justify-between px-4 py-2 rounded-xl bg-secondary/30 hover:bg-secondary/50 transition-colors border border-transparent hover:border hover:border-accent/30 duration-300 transition-all">
+    <div className="flex items-start justify-between px-4 py-2 rounded-md bg-secondary/30 hover:bg-secondary/50 transition-colors border border-transparent hover:border hover:border-primary/30 duration-300 transition-all">
       <div>
         <div className="flex items-center gap-2">
           <h4 className="font-semibold text-sm text-foreground">

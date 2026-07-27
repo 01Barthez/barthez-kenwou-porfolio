@@ -22,15 +22,15 @@ export const WhyChooseMeSection: React.FC = () => {
             <span className="gradient-text">{sectionTitle}</span>
           </h2>
 
-          <p className="text-muted-foreground mt-3 md:mt-4 text-center max-w-2xl mx-auto text-sm md:text-base">
+          <p className="section-subtitle !mb-0">
             {isFr
               ? "Une expertise technique au service de vos projets les plus ambitieux."
               : "Technical expertise at the service of your most ambitious projects."}
           </p>
         </div>
 
-        <div className="relative w-full max-w-2xl glass p-3 sm:p-5 md:p-10 rounded-2xl glow-primary/20">
-          <div className="absolute inset-0 z-10 rounded-2xl">
+        <div className="relative w-full max-w-2xl glass p-3 sm:p-5 md:p-10 rounded-md glow-primary/20">
+          <div className="absolute inset-0 z-10 rounded-md">
             <Pointer>
               <motion.div
                 animate={{
@@ -49,7 +49,7 @@ export const WhyChooseMeSection: React.FC = () => {
                   viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
-                  className="text-pink-600"
+                  className="text-primary"
                 >
                   <motion.path
                     d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
@@ -66,30 +66,30 @@ export const WhyChooseMeSection: React.FC = () => {
             </Pointer>
           </div>
 
-          <Terminal className="relative z-20 bg-background/80 backdrop-blur-xl border-primary/20 shadow-2xl w-full max-w-full">
+          <Terminal className="relative z-20 bg-background/80 backdrop-blur-xl border-primary/20 shadow-lg w-full max-w-full">
             <TypingAnimation className="text-primary font-bold text-xs sm:text-sm md:text-base">
               {isFr ? "$ ls specialites/" : "$ ls core-specialties/"}
             </TypingAnimation>
 
-            <AnimatedSpan className="flex gap-2 sm:gap-4 flex-wrap text-blue-400 mt-2 text-xs sm:text-sm md:text-base">
-              <span className="bg-blue-500/10 px-2 py-1 rounded">aws-expert</span>
-              <span className="bg-blue-500/10 px-2 py-1 rounded">fullstack-js</span>
-              <span className="bg-blue-500/10 px-2 py-1 rounded">devops-pro</span>
-              <span className="bg-blue-500/10 px-2 py-1 rounded">clean-code</span>
+            <AnimatedSpan className="flex gap-2 sm:gap-1 flex-wrap text-muted-foreground mt-2 text-xs sm:text-sm md:text-base">
+              <span className="bg-primary/10 px-2 py-1 rounded text-primary">aws-expert</span>
+              <span className="bg-muted px-2 py-1 rounded">fullstack-js</span>
+              <span className="bg-primary/10 px-2 py-1 rounded text-primary">devops-pro</span>
+              <span className="bg-muted px-2 py-1 rounded">clean-code</span>
             </AnimatedSpan>
 
-            <TypingAnimation delay={1000} className="text-primary font-bold mt-5 text-xs sm:text-sm md:text-base">
+            <TypingAnimation delay={800} className="text-primary font-bold mt-3 text-xs sm:text-sm md:text-base">
               {isFr ? "$ ./analyser_atouts.sh" : "$ ./analyze_capabilities.sh"}
             </TypingAnimation>
 
-            <AnimatedSpan className="text-muted-foreground mt-2 text-xs sm:text-sm md:text-base">
+            <AnimatedSpan className="text-muted-foreground mt-1 text-xs sm:text-sm md:text-base">
               {isFr ? "Recherche de correspondances..." : "Searching for matches..."}
             </AnimatedSpan>
 
-            <div className="grid gap-3 sm:gap-4 mt-5">
+            <div className="grid gap-0 sm:gap-0 mt-2">
               {whyMe.map((item, index) => (
                 <AnimatedSpan key={index} delay={index * 500} className="flex items-start gap-3 sm:gap-4">
-                  <span className="text-green-500 font-bold shrink-0 mt-[2px] text-sm md:text-base">[ ✓ ]</span>
+                  <span className="text-primary font-bold shrink-0 mt-[2px] text-sm md:text-base">[ ✓ ]</span>
                   <span className="text-foreground/90 font-medium text-xs sm:text-sm md:text-base leading-relaxed">
                     {isFr ? item.textFr : item.textEn}
                   </span>
@@ -97,11 +97,11 @@ export const WhyChooseMeSection: React.FC = () => {
               ))}
             </div>
 
-            <TypingAnimation delay={4000} className="text-primary font-bold mt-8 text-xs sm:text-sm md:text-base break-words">
+            <TypingAnimation delay={2000} className="text-primary font-bold mt-3 text-xs sm:text-sm md:text-base break-words">
               {isFr ? "$ echo \"Prêt à collaborer !\"" : "$ echo \"Ready to collaborate!\""}
             </TypingAnimation>
 
-            <AnimatedSpan className="text-accent glow-accent-sm font-bold mt-2 text-xs sm:text-sm md:text-base break-words">
+            <AnimatedSpan className="text-primary font-bold mt-0 text-xs sm:text-sm md:text-base break-words">
               {isFr ? "> Statut : DISPONIBLE POUR COLLABORER" : "> Status: AVAILABLE FOR COLLABORATION"}
             </AnimatedSpan>
           </Terminal>

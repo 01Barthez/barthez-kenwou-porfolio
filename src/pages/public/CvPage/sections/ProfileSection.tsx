@@ -13,7 +13,7 @@ export const ProfileSection: React.FC = () => {
   return (
     <section>
       <h2 className="text-xl font-bold text-foreground mb-3 flex items-center gap-2">
-        <div className="p-2 rounded-lg bg-primary/10">
+        <div className="p-2 rounded-md bg-primary/10">
           <Code2 className="h-5 w-5 text-primary" />
         </div>
         {language === 'fr' ? 'Profil' : 'Profile'}

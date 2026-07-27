@@ -14,9 +14,10 @@
     "title": "Développeur Full Stack",
     "subtitle": "& Ingénieur DevOps",
     "specialization": "Spécialisé AWS Cloud",
-    "description": "Je conçois et déploie des applications web modernes, scalables et performantes avec une expertise approfondie en architecture cloud AWS.",
+    "description": "Aujourd'hui, générer du code est à la portée de tous. Mon expertise : transformer une vision en un produit fiable, scalable et exploitable.",
     "cta": {
       "projects": "Voir mes projets",
+      "services": "Découvrir mes services",
       "contact": "Me contacter"
     }
   },

@@ -29,17 +29,18 @@ export const ProjectDetailPage = () => {
   return (
     <>
       <SEO
+        path={`/projects/${searchId}`}
         title={`${language === 'fr'
-            ? truncateFonction(project?.titleFr || '', 24)
-            : truncateFonction(project?.titleEn || '', 24)
-          } | Barthez Kenwou`}
+            ? truncateFonction(project?.titleFr || '', 60)
+            : truncateFonction(project?.titleEn || '', 60)
+          }`}
         description={`${language === 'fr'
             ? truncateFonction(project.descriptionFr || '', 160)
             : truncateFonction(project.descriptionEn || '', 160)
           }`}
       />
 
-      <div className="min-h-screen">
+      <div className="min-h-screen overflow-x-clip">
         {/* Hero Image & Primary Info */}
         <HeroDetailSection project={project} />
 

@@ -2,19 +2,17 @@ import { useState } from 'react';
 import { useLanguageStore } from '../../state/useLanguageStore';
 import { cn } from '@/shared/lib/utils';
 
+type LanguageToggleProps = {
+  /** Sidebar collapsed: flag only, no FR/EN label */
+  flagOnly?: boolean;
+  className?: string;
+};
+
 /**
- * LanguageToggle Component - Professional language switcher with 3D flip animation
- *
- * Features:
- * - 3D flip animation between FR and EN
- * - Stylized flag icons (🇫🇷 / 🇬🇧)
- * - Smooth rotation with perspective
- * - Glow effect on hover
- * - Professional glass morphism design
- *
- * @component
+ * Language switcher with 3D flip (FR ↔ EN).
+ * Use `flagOnly` in the collapsed sidebar; header keeps the full control.
  */
-export const LanguageToggle = () => {
+export const LanguageToggle = ({ flagOnly = false, className }: LanguageToggleProps) => {
   const { language, toggleLanguage } = useLanguageStore();
   const [isFlipping, setIsFlipping] = useState(false);
 
@@ -28,94 +26,82 @@ export const LanguageToggle = () => {
   const isFrench = language === 'fr';
 
   return (
-    <>
-      <button
-        onClick={handleToggle}
-        disabled={isFlipping}
+    <button
+      type="button"
+      onClick={handleToggle}
+      disabled={isFlipping}
+      className={cn(
+        'relative inline-flex items-center justify-center overflow-hidden rounded-md',
+        'transition-all duration-300 ease-out',
+        'hover:scale-105 hover:shadow-sm',
+        'focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2',
+        'disabled:opacity-70 disabled:cursor-not-allowed',
+        'group',
+        flagOnly ? 'size-9' : 'h-9 w-14',
+        className,
+      )}
+      aria-label={isFrench ? 'Switch to English' : 'Passer en français'}
+      title={isFrench ? 'Switch to English' : 'Passer en français'}
+      style={{ perspective: '1000px' }}
+    >
+      <div
         className={cn(
-          'relative inline-flex items-center justify-center',
-          'w-14 h-9 rounded-lg overflow-hidden',
-          'transition-all duration-300 ease-out',
-          'hover:scale-105 hover:shadow-lg',
-          'focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2',
-          'disabled:opacity-70 disabled:cursor-not-allowed',
-          'group',
+          'absolute inset-0 transition-all duration-500 bg-gradient-to-br',
+          isFrench
+            ? 'from-primary/20 via-foreground/5 to-muted/20'
+            : 'from-primary/15 via-foreground/5 to-muted/15',
         )}
-        aria-label={isFrench ? 'Switch to English' : 'Passer en français'}
-        title={isFrench ? 'Switch to English' : 'Passer en français'}
+      />
+
+      <div
+        className={cn(
+          'absolute inset-0 blur-md transition-opacity duration-300',
+          'opacity-0 group-hover:opacity-100 bg-primary/25',
+        )}
+      />
+
+      <div
+        className="relative w-full h-full flex items-center justify-center"
         style={{
-          perspective: '1000px',
+          transformStyle: 'preserve-3d',
+          transform: isFrench ? 'rotateY(0deg)' : 'rotateY(180deg)',
+          transition: 'transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)',
         }}
       >
-        {/* Background with gradient */}
         <div
           className={cn(
-            'absolute inset-0 transition-all duration-500',
-            'bg-gradient-to-br',
-            isFrench
-              ? 'from-blue-500/20 via-white/10 to-red-500/20'
-              : 'from-blue-600/20 via-white/10 to-red-600/20',
+            'absolute inset-0 flex items-center justify-center',
+            flagOnly ? '' : 'flex-row gap-1',
           )}
-        />
-
-        {/* Glow effect */}
-        <div
-          className={cn(
-            'absolute inset-0 blur-md transition-opacity duration-300',
-            'opacity-0 group-hover:opacity-100',
-            isFrench ? 'bg-blue-500/30' : 'bg-blue-600/30',
-          )}
-        />
-
-        {/* Flip container */}
-        <div
-          className="relative w-full h-full flex items-center justify-center"
           style={{
-            transformStyle: 'preserve-3d',
-            transform: isFrench ? 'rotateY(0deg)' : 'rotateY(180deg)',
-            transition: 'transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1)',
+            backfaceVisibility: 'hidden',
+            transform: 'rotateY(0deg)',
           }}
         >
-          {/* FR Side */}
-          <div
-            className="absolute inset-0 flex flex-row items-center justify-center gap-1"
-            style={{
-              backfaceVisibility: 'hidden',
-              transform: 'rotateY(0deg)',
-            }}
-          >
-            <span className="text-lg leading-none">🇫🇷</span>
+          <span className={cn('leading-none', flagOnly ? 'text-xl' : 'text-lg')}>🇫🇷</span>
+          {!flagOnly && (
             <span className="text-[10px] font-bold text-foreground/80 tracking-wider">FR</span>
-          </div>
-
-          {/* EN Side */}
-          <div
-            className="absolute inset-0 flex flex-row items-center justify-center gap-0.5"
-            style={{
-              backfaceVisibility: 'hidden',
-              transform: 'rotateY(180deg)',
-            }}
-          >
-            <span className="text-lg leading-none">🇬🇧</span>
-            <span className="text-[10px] font-bold text-foreground/80 tracking-wider">EN</span>
-          </div>
+          )}
         </div>
 
-        {/* Border overlay */}
-        <div className="absolute inset-0 rounded-lg border border-border/50 pointer-events-none" />
-      </button>
+        <div
+          className={cn(
+            'absolute inset-0 flex items-center justify-center',
+            flagOnly ? '' : 'flex-row gap-0.5',
+          )}
+          style={{
+            backfaceVisibility: 'hidden',
+            transform: 'rotateY(180deg)',
+          }}
+        >
+          <span className={cn('leading-none', flagOnly ? 'text-xl' : 'text-lg')}>🇬🇧</span>
+          {!flagOnly && (
+            <span className="text-[10px] font-bold text-foreground/80 tracking-wider">EN</span>
+          )}
+        </div>
+      </div>
 
-      {/* CSS for smooth animations */}
-      <style>{`
-        @keyframes flagWave {
-          0%, 100% {
-            transform: scale(1) rotate(0deg);
-          }
-          50% {
-            transform: scale(1.1) rotate(5deg);
-          }
-        }
-      `}</style>
-    </>
+      <div className="absolute inset-0 rounded-md border border-border/50 pointer-events-none" />
+    </button>
   );
 };

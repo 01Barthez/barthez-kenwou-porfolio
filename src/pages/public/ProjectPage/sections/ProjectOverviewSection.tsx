@@ -21,14 +21,14 @@ export const ProjectOverviewSection: React.FC<{ project: IProject }> = ({ projec
       <div className="grid lg:grid-cols-3 gap-12 items-start">
         
         {/* Left Column: Stats */}
-        <div className="lg:col-span-1 bg-secondary/30 p-6 rounded-2xl border border-border/50 backdrop-blur-sm shadow-md">
+        <div className="lg:col-span-1 bg-secondary/30 p-6 rounded-md border border-border/50 backdrop-blur-sm shadow-sm">
           <h3 className="text-lg font-bold mb-5 text-foreground">
             {language === 'fr' ? 'Détails du projet' : 'Project Details'}
           </h3>
           <div className="flex flex-col gap-4">
             {stats.map((stat, i) => (
               <div key={i} className="flex items-center gap-3 group">
-                <div className="p-2.5 rounded-lg bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
+                <div className="p-2.5 rounded-md bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors duration-300">
                   <stat.icon className="w-4 h-4" />
                 </div>
                 <div>
@@ -44,7 +44,7 @@ export const ProjectOverviewSection: React.FC<{ project: IProject }> = ({ projec
         <div className="lg:col-span-2 space-y-8">
           {fullDescription && (
             <div>
-              <h2 className="text-2xl font-bold mb-5 text-foreground flex items-center gap-3">
+              <h2 className="section-title !mb-5 flex items-center gap-3">
                 <span className="w-6 h-1 bg-primary rounded-full"></span>
                 {language === 'fr' ? 'Aperçu du projet' : 'Project Overview'}
               </h2>
@@ -55,7 +55,7 @@ export const ProjectOverviewSection: React.FC<{ project: IProject }> = ({ projec
           )}
 
           {businessContext && (
-            <div className="p-6 bg-primary/5 border border-primary/20 rounded-2xl">
+            <div className="p-6 bg-primary/5 border border-primary/20 rounded-md">
               <h3 className="text-xl font-semibold mb-3 text-foreground flex items-center gap-2">
                 <Briefcase className="w-5 h-5 text-primary" />
                 {language === 'fr' ? 'Contexte Métier' : 'Business Context'}

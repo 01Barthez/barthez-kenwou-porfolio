@@ -15,13 +15,13 @@ export const HeroDetailSection: React.FC = () => {
   return (
     <section className="mb-8 relative group">
       {/* Decorative background glow */}
-      <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 to-accent/20 rounded-sm blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10" />
+      <div className="absolute -inset-4 bg-gradient-to-r from-primary/15 to-transparent rounded-sm blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 -z-10" />
       
       <motion.div 
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
-        className="relative aspect-[21/10] md:aspect-[21/9] overflow-hidden rounded-sm border border-white/10 shadow-2xl shadow-primary/10 transition-transform duration-700"
+        className="relative aspect-[21/10] md:aspect-[21/9] overflow-hidden rounded-sm border border-white/10 shadow-lg shadow-primary/10 transition-transform duration-700"
       >
         <Image
           src={post.image}

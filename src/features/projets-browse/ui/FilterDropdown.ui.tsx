@@ -40,9 +40,9 @@ export const FilterDropdown: React.FC<FilterDropdownProps> = ({
       <button
         type="button"
         onClick={() => setOpen((prev) => !prev)}
-        className={`flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-semibold border transition-all duration-200 cursor-pointer ${
+        className={`flex items-center gap-1.5 px-4 py-2 rounded-md text-sm font-semibold border transition-all duration-200 cursor-pointer ${
           isActive
-            ? 'border-primary/60 bg-primary/10 text-primary shadow-[0_0_10px_rgba(59,130,246,0.15)]'
+            ? 'border-primary/60 bg-primary/10 text-primary shadow-primary/15'
             : 'border-border/40 bg-secondary/30 text-muted-foreground hover:border-border/70 hover:text-foreground hover:bg-secondary/60'
         }`}
       >
@@ -61,7 +61,7 @@ export const FilterDropdown: React.FC<FilterDropdownProps> = ({
 
       {/* Dropdown panel */}
       {open && (
-        <div className="absolute top-full mt-1.5 left-0 z-50 min-w-[180px] rounded-xl border border-border/60 bg-card/95 backdrop-blur-xl shadow-2xl shadow-black/30 p-1.5 animate-in fade-in slide-in-from-top-1 duration-150">
+        <div className="absolute top-full mt-1.5 left-0 z-50 min-w-[180px] rounded-md border border-border/60 bg-card/95 backdrop-blur-xl shadow-lg shadow-black/30 p-1.5 animate-in fade-in slide-in-from-top-1 duration-150">
           {children}
         </div>
       )}

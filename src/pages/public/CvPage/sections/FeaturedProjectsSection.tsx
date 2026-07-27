@@ -25,7 +25,7 @@ export const FeaturedProjectsSection: React.FC<FeaturedProjectsSectionProps> = (
         {projects.map((project, idx) => (
           <div
             key={idx}
-            className="group relative bg-secondary/30 border border-border rounded-xl p-5 hover:border-primary/50 transition-all duration-300"
+            className="group relative bg-secondary/30 border border-border rounded-md p-5 hover:border-primary/50 transition-all duration-300"
           >
             <div className="flex justify-between items-start mb-3 gap-2">
               <h3 className="font-bold text-lg text-primary leading-tight">

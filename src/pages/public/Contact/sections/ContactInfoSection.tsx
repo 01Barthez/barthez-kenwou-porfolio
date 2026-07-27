@@ -44,7 +44,7 @@ export const ContactInfoSection: React.FC = () => {
           <ContactInfoCard 
             icon={FaGithub}
             label="GitHub"
-            value="01Barthez"
+            value="barthez-kenwou"
             href={contactsInfo.github}
             className="flex-col items-start !p-1.5"
           />

@@ -1,53 +1,49 @@
 import { contactsInfo } from '@/shared/mocks/constContactInfo.mocks';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
-import { Mail, Send } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import React from 'react';
 import { MdWhatsapp } from 'react-icons/md';
+import { GradientDots } from '@/shared/ui/gradient-dots';
+import { DualCtaButtons } from '@/shared/ui/DualCtaButtons';
 
 export const CTASection: React.FC = () => {
   const { language } = useLanguageStore();
 
   return (
-    <section className="px-4 md:px-10 lg:px-14 mt-18 relative print:hidden">
-      <div className="overflow-hidden rounded-sm p-[1px] group relative bg-background/80 backdrop-blur-xl rounded-[calc(0.75rem-1px)] p-6 md:p-8 text-center overflow-hidden border border-foreground/35">
+    <section className="px-0 mt-10 relative print:hidden">
+      <div className="relative z-10 overflow-hidden rounded-lg border border-primary/25 shadow-[0_0_40px_-16px_hsla(268,52%,38%,0.35)]">
+        <div className="absolute inset-0 z-0">
+          <GradientDots duration={20} colorCycleDuration={4} />
+        </div>
+        <div className="absolute inset-0 z-[1] pointer-events-none bg-gradient-to-b from-background/20 via-transparent to-background/35" />
 
-        <div className="relative z-10 flex flex-col items-center max-w-2xl mx-auto">
-          {/* Premium Typography */}
-          <h2 className="text-xl md:text-2xl font-bold text-foreground mb-3 leading-tight">
-            {language === 'fr'
-              ? 'Prêt à donner vie à vos idées ?'
-              : 'Ready to bring your ideas to life?'}
-          </h2>
+        <div className="relative z-10 w-full mx-auto text-center p-5 sm:p-6 md:p-8">
+          <div className="mx-auto max-w-2xl rounded-md border border-border/40 bg-background/55 dark:bg-background/50 backdrop-blur-md px-4 py-5 sm:px-6 sm:py-6 shadow-sm flex flex-col items-center">
+            <h2 className="text-xl md:text-2xl font-bold text-foreground mb-3 leading-tight">
+              {language === 'fr'
+                ? 'Prêt à donner vie à vos idées ?'
+                : 'Ready to bring your ideas to life?'}
+            </h2>
 
-          <p className="text-sm text-muted-foreground mb-6 max-w-lg">
-            {language === 'fr'
-              ? "Mon profil vous intéresse ? N'hésitez pas à me contacter dès aujourd'hui pour échanger sur vos futurs projets tech et vos enjeux cloud."
-              : "Interested in my profile? Don't hesitate to reach out today to discuss your future tech projects and cloud challenges."}
-          </p>
+            <p className="text-sm text-muted-foreground mb-6 max-w-lg leading-relaxed">
+              {language === 'fr'
+                ? "Mon profil vous intéresse ? N'hésitez pas à me contacter dès aujourd'hui pour échanger sur vos futurs projets tech et vos enjeux cloud."
+                : "Interested in my profile? Don't hesitate to reach out today to discuss your future tech projects and cloud challenges."}
+            </p>
 
-          {/* Action Buttons Hub */}
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center w-full">
-            {/* WhatsApp Premium Button */}
-            <a
-              href={contactsInfo.whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group/btn flex items-center justify-center gap-2 px-6 py-2.5 rounded-sm bg-green-600 text-white font-semibold text-sm hover:bg-green-500 shadow-md hover:-translate-y-0.5 transition-all duration-300 w-full sm:w-auto"
-            >
-              <MdWhatsapp className="h-4 w-4 group-hover/btn:scale-110 transition-transform duration-300" />
-              <span>{language === 'fr' ? 'Discutons sur WhatsApp' : 'Chat on WhatsApp'}</span>
-              <Send className="h-3 w-3 opacity-70 group-hover/btn:translate-x-1 transition-transform" />
-            </a>
-
-            {/* Email Premium Button */}
-            <a
-              href={`mailto:${contactsInfo.email}`}
-              rel="noopener noreferrer"
-              className="group/btn flex items-center justify-center gap-2 px-6 py-2.5 rounded-sm bg-secondary text-foreground font-semibold text-sm border border-border hover:bg-secondary/70 hover:border-primary/50 shadow-sm hover:-translate-y-0.5 transition-all duration-300 w-full sm:w-auto"
-            >
-              <Mail className="h-4 w-4 group-hover/btn:scale-110 text-primary transition-transform duration-300" />
-              <span>{language === 'fr' ? 'M\'envoyer un Email' : 'Send an Email'}</span>
-            </a>
+            <DualCtaButtons
+              primary={{
+                label: language === 'fr' ? 'Discutons sur WhatsApp' : 'Chat on WhatsApp',
+                to: contactsInfo.whatsappLink,
+                external: true,
+                icon: <MdWhatsapp className="h-4 w-4" />,
+              }}
+              secondary={{
+                label: language === 'fr' ? "M'envoyer un Email" : 'Send an Email',
+                to: `mailto:${contactsInfo.email}`,
+                icon: <Mail className="h-4 w-4" />,
+              }}
+            />
           </div>
         </div>
       </div>

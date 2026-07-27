@@ -33,14 +33,14 @@ export const HeroDetailSection: React.FC<Props> = ({ project }) => {
   };
 
   return (
-    <div className="relative overflow-hidden mb-12 shadow-xl group border border-border/50">
+    <div className="relative overflow-hidden mb-12 shadow-md group border border-border/50">
       {/* Media background */}
       <div className="relative w-full h-[50vh] md:h-[60vh] !w-full bg-muted overflow-hidden">
          {/* Back Overlay */}
-         <div className="absolute top-12 left-6 md:top-28 md:left-8 z-30">
+         <div className="absolute top-36 left-6 md:top-28 md:left-8 z-30">
            <Link
              to="/projects"
-             className="inline-flex items-center gap-2 px-4 py-1 rounded-lg bg-black/40 backdrop-blur-md border border-white/20 text-white hover:bg-black/60 transition-all text-sm shadow-lg hover:shadow-primary/20"
+             className="inline-flex items-center gap-2 px-4 py-1 rounded-md bg-black/40 backdrop-blur-md border border-white/20 text-white hover:bg-black/60 transition-all text-sm shadow-sm hover:shadow-primary/20"
            >
              <ArrowLeft className="h-4 w-4" />
              {language === 'fr' ? 'Retour aux projets' : 'Back to projects'}
@@ -73,7 +73,7 @@ export const HeroDetailSection: React.FC<Props> = ({ project }) => {
                  <button 
                    key={i} 
                    onClick={() => setCurrentIdx(i)}
-                   className={cn("h-2 rounded-full transition-all shadow-md cursor-pointer", currentIdx === i ? "w-6 bg-white" : "w-2 bg-white/50 hover:bg-white/90")}
+                   className={cn("h-2 rounded-full transition-all shadow-sm cursor-pointer", currentIdx === i ? "w-6 bg-white" : "w-2 bg-white/50 hover:bg-white/90")}
                  />
                ))}
              </div>
@@ -87,7 +87,7 @@ export const HeroDetailSection: React.FC<Props> = ({ project }) => {
       </div>
 
       {/* Content Overlay */}
-      <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12 z-30 pointer-events-none flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <div className="absolute bottom-0 left-0 right-0 px-8 pt-54 md:p-44 z-30 pointer-events-none flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div className="pointer-events-auto max-w-3xl">
           <div className="flex flex-wrap items-center gap-3 mb-4">
             <span className="px-4 py-1.5 rounded-full bg-primary/20 backdrop-blur-md text-primary font-bold text-xs uppercase tracking-wider border border-primary/20">
@@ -96,7 +96,7 @@ export const HeroDetailSection: React.FC<Props> = ({ project }) => {
             {project.status && <ProjectStatusBadge status={project.status} />}
           </div>
           
-          <h1 className="text-3xl md:text-5xl font-bold text-white mb-3 leading-tight">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-3 leading-tight">
             {title}
           </h1>
           <p className="text-base md:text-lg text-white/80 line-clamp-2 md:line-clamp-none">
@@ -107,7 +107,7 @@ export const HeroDetailSection: React.FC<Props> = ({ project }) => {
         {/* CTAs */}
         <div className="flex items-center gap-3 pointer-events-auto shrink-0">
           {project.github && project.github !== '#' && (
-            <Button size="default" variant="outline" className="rounded-lg border-white/20 text-white hover:bg-white/10 backdrop-blur-sm" asChild>
+            <Button size="default" variant="outline" className="rounded-md border-white/20 text-white hover:bg-white/10 backdrop-blur-sm" asChild>
               <Link to={project.github} target="_blank">
                 <Github className="mr-2 h-4 w-4" />
                 Code Source
@@ -115,7 +115,7 @@ export const HeroDetailSection: React.FC<Props> = ({ project }) => {
             </Button>
           )}
           {project.demo && project.demo !== '#' && (
-            <Button size="default" className="rounded-lg shadow-lg shadow-primary/20" asChild>
+            <Button size="default" className="rounded-md shadow-sm shadow-primary/20" asChild>
               <Link to={project.demo} target="_blank">
                 <ExternalLink className="mr-2 h-4 w-4" />
                 Live Demo

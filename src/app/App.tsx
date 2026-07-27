@@ -1,14 +1,13 @@
 import React, { Suspense } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { routes } from './routes';
-import { LoadingPage } from '@/shared/ui/LoadingPage/LoadingPage';
+import { RouteFallback } from '@/shared/ui/RouteFallback/RouteFallback';
 import { ProtectedRoute } from './routes/config/ProtectedRoute';
 import { PublicLayout } from '@/pages/public/Layout';
 import { ScrollToTop } from '@/shared/ui/ScrollToTop/ScrollToTop';
 
 export const App: React.FC = () => {
   React.useEffect(() => {
-    // Prefetch important routes on idle to improve perceived navigation speed
     import('./routes/prefetch').then((m) => m.prefetchRoutes()).catch(() => {});
   }, []);
 
@@ -19,31 +18,32 @@ export const App: React.FC = () => {
     <Router>
       <ScrollToTop />
       <div className="min-h-screen bg-background text-foreground">
-        <Suspense fallback={<LoadingPage />}>
-          <Routes>
-            <Route element={<PublicLayout />}>
-              {publicRoutes.map((route) => (
-                <Route key={route.path} path={route.path} element={<route.component />} />
-              ))}
-            </Route>
+        <Routes>
+          {/* Public: Suspense lives inside Layout so sidebar/nav/footer never flash */}
+          <Route element={<PublicLayout />}>
+            {publicRoutes.map((route) => (
+              <Route key={route.path} path={route.path} element={<route.component />} />
+            ))}
+          </Route>
 
-            {otherRoutes.map((route) => (
-              <Route
-                key={route.path}
-                path={route.path}
-                element={
-                  route.meta?.requiresAuth ? (
+          {otherRoutes.map((route) => (
+            <Route
+              key={route.path}
+              path={route.path}
+              element={
+                <Suspense fallback={<RouteFallback fullScreen />}>
+                  {route.meta?.requiresAuth ? (
                     <ProtectedRoute requiredRoles={route.meta.roles}>
                       <route.component />
                     </ProtectedRoute>
                   ) : (
                     <route.component />
-                  )
-                }
-              />
-            ))}
-          </Routes>
-        </Suspense>
+                  )}
+                </Suspense>
+              }
+            />
+          ))}
+        </Routes>
       </div>
     </Router>
   );

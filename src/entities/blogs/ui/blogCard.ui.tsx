@@ -14,7 +14,7 @@ export const BlogCard: React.FC<{ Blog: IBlog; isFeatured?: boolean }> = ({ Blog
   return (
     <Link to={`/blog/${id}`} className="block group">
       <article className={cn(
-        "relative overflow-hidden rounded-xl bg-card border border-border/50 hover:border-primary/40 transition-all duration-300",
+        "relative overflow-hidden rounded-md bg-card border border-border/50 hover:border-primary/40 transition-all duration-300",
         isFeatured && "md:grid md:grid-cols-2 lg:grid-cols-5 md:gap-6"
       )}>
         <div className={cn(

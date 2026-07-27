@@ -23,15 +23,15 @@ export const ReferencesSection: React.FC<ReferencesSectionProps> = ({ references
   return (
     <section>
       <h2 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
-        <div className="p-2 rounded-lg bg-blue-500/10">
-          <UsersRound className="h-5 w-5 text-blue-500" />
+        <div className="p-2 rounded-md bg-primary/10">
+          <UsersRound className="h-5 w-5 text-primary" />
         </div>
         {language === 'fr' ? 'Références Professionnelles' : 'Professional References'}
       </h2>
 
       <div className="grid md:grid-cols-2 gap-4">
         {references.map((ref, i) => (
-          <div key={i} className="p-4 bg-card border border-border rounded-xl shadow-sm hover:shadow-md hover:border-blue-500/50 transition-all">
+          <div key={i} className="p-4 bg-card border border-border rounded-md shadow-sm hover:shadow-sm hover:border-primary/50 transition-all">
             <h3 className="font-bold text-lg text-foreground">{ref.name}</h3>
             <div className="flex items-center gap-2 text-primary text-sm font-semibold mb-3">
               <Building2 className="h-4 w-4" />

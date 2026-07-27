@@ -22,11 +22,11 @@ export interface StatusConfig {
 // ─── Status config ──────────────────────────────────────────────────────────────
 
 export const PROJECT_STATUS_CONFIG: Record<ProjectStatus, StatusConfig> = {
-  Production: { color: 'text-emerald-400', dot: 'bg-emerald-400', label: 'Production' },
-  'En cours': { color: 'text-sky-400',     dot: 'bg-sky-400',     label: 'En cours'   },
-  Actif:      { color: 'text-blue-500',    dot: 'bg-blue-500',    label: 'Actif'      },
-  MVP:        { color: 'text-violet-400',  dot: 'bg-violet-400',  label: 'MVP'        },
-  Archivé:    { color: 'text-slate-400',   dot: 'bg-slate-400',   label: 'Archivé'    },
+  Production: { color: 'text-foreground',        dot: 'bg-foreground',        label: 'Production' },
+  'En cours': { color: 'text-primary',           dot: 'bg-primary',           label: 'En cours'   },
+  Actif:      { color: 'text-muted-foreground',  dot: 'bg-muted-foreground',  label: 'Actif'      },
+  MVP:        { color: 'text-primary/70',        dot: 'bg-primary/70',        label: 'MVP'        },
+  Archivé:    { color: 'text-muted-foreground',  dot: 'bg-muted-foreground',  label: 'Archivé'    },
 };
 
 // ─── Role icon map ──────────────────────────────────────────────────────────────

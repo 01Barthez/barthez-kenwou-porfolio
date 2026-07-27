@@ -4,6 +4,7 @@ import { Users, Zap, Cloud, GitBranch } from 'lucide-react';
 
 import { IconCloud } from '@/shared/ui/icon-cloud';
 import { imageIcon } from '@/entities/skills/api/mocks/skillsData.mocks';
+import { DeferredMount } from '@/shared/ui/DeferredMount';
 
 // ─── Metric Item ────────────────────────────────────────────────────────────────
 
@@ -16,7 +17,7 @@ interface MetricProps {
 
 const Metric: React.FC<MetricProps> = ({ icon: Icon, value, label, delay = 0 }) => (
   <div 
-    className="flex flex-col items-center p-2 rounded-lg bg-secondary/20 border border-border/40 backdrop-blur-sm animate-in fade-in zoom-in duration-700 fill-mode-backwards"
+    className="flex flex-col items-center p-2 rounded-md bg-secondary/20 border border-border/40 backdrop-blur-sm animate-in fade-in zoom-in duration-700 fill-mode-backwards"
     style={{ animationDelay: `${delay}ms` }}
   >
     <div className="p-2 rounded-sm bg-primary/10 text-primary mb-2">
@@ -76,7 +77,13 @@ export const ProjectStatsSection: React.FC<ProjectStatsSectionProps> = ({ isVisi
       <div className="relative group">
         <div className="absolute -inset-4 bg-primary/5 rounded-full blur-xl opacity-50 group-hover:opacity-100 transition-opacity duration-1000" />
         <div className="relative flex justify-center items-center w-full min-h-[400px]">
-          <IconCloud images={imageIcon} />
+          <DeferredMount
+            className="w-full flex justify-center"
+            timeout={700}
+            fallback={<div className="h-[400px] w-full" aria-hidden />}
+          >
+            <IconCloud images={imageIcon} />
+          </DeferredMount>
         </div>
       </div>
 

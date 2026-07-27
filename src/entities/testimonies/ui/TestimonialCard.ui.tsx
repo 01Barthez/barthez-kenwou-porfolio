@@ -19,7 +19,7 @@ export const TestimonialCard = ({
     <figure
       key={id}
       className={cn(
-        'max-w-sm relative h-full w-fit cursor-pointer overflow-hidden border p-5 rounded-xl bg-card border-border hover:border-primary/30 transition-colors',
+        'max-w-sm relative h-full w-fit cursor-pointer overflow-hidden border p-5 rounded-md bg-card border-border hover:border-primary/30 transition-colors',
       )}
     >
       {/* Stars */}

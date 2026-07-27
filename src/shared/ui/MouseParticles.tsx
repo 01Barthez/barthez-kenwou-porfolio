@@ -13,11 +13,11 @@ interface Particle {
 }
 
 const BRAND_COLORS = [
-  "rgba(59, 130, 246, ", // primary (blue-500)
-  "rgba(168, 85, 247, ", // accent (purple-500)
-  "rgba(99, 102, 241, ", // indigo-500
-  "rgba(232, 121, 249, ", // fuchsia-400
-  "rgba(147, 197, 253, ", // blue-300
+  "rgba(91, 58, 140, ", // amethyst
+  "rgba(75, 42, 120, ", // deep violet
+  "rgba(167, 139, 250, ", // soft lilac (light-friendly)
+  "rgba(196, 181, 253, ", // pale violet
+  "rgba(180, 180, 190, ", // silver
 ];
 
 const MAX_PARTICLES = 40; // Reduced from 60 for better performance
@@ -155,8 +155,8 @@ export const MouseParticles = () => {
       if (mouseRef.current.active) {
         const { x, y } = mouseRef.current;
         const glow = ctx.createRadialGradient(x, y, 0, x, y, 40);
-        glow.addColorStop(0, "rgba(59, 130, 246, 0.08)");
-        glow.addColorStop(1, "rgba(59, 130, 246, 0)");
+        glow.addColorStop(0, "rgba(91, 58, 140, 0.1)");
+        glow.addColorStop(1, "rgba(91, 58, 140, 0)");
         ctx.beginPath();
         ctx.fillStyle = glow;
         ctx.arc(x, y, 40, 0, Math.PI * 2);

@@ -7,10 +7,8 @@ import { GlowingEffect } from '@/shared/ui/glowing-effect';
 export const ServiceCard: React.FC<{ Service: IServices }> = ({ Service }) => {
   const { language } = useLanguageStore();
 
-  const { titleFr, titleEn, icon, descFr, descEn, featuresFr, featuresEn, priceFr, priceEn } =
+  const { titleFr, titleEn, descFr, descEn, featuresFr, featuresEn, priceFr, priceEn } =
     Service;
-
-  const Icon = icon;
 
   return (
     <motion.div
@@ -19,7 +17,7 @@ export const ServiceCard: React.FC<{ Service: IServices }> = ({ Service }) => {
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
       whileHover={{ y: -5 }}
-      className="group relative flex flex-col h-full bg-card/40 backdrop-blur-sm border border-border/50 rounded-xl p-5 md:p-6 transition-all duration-300 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/5"
+      className="group relative flex flex-col h-full bg-card/40 backdrop-blur-sm border border-border/50 rounded-md p-5 md:p-6 transition-all duration-300 hover:border-primary/40 hover:shadow-md hover:shadow-primary/5"
     >
       <GlowingEffect
         spread={60}
@@ -31,14 +29,11 @@ export const ServiceCard: React.FC<{ Service: IServices }> = ({ Service }) => {
       />
 
       {/* Decorative Gradient Background */}
-      <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-xl" />
+      <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-md" />
 
       <div className="relative z-10 flex flex-col h-full">
         {/* Header: Icon & Title */}
         <div className="flex items-start gap-4 mb-4">
-          <div className="shrink-0 p-1.5 rounded-lg bg-primary/10 border border-primary/20 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500">
-            <Icon className="h-4 w-4 transition-transform group-hover:rotate-12" />
-          </div>
           <h3 className="text-sm md:text-base font-bold text-foreground leading-tight pt-1">
             {language === 'fr' ? titleFr : titleEn}
           </h3>

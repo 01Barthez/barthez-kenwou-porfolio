@@ -23,7 +23,7 @@ export const TechStackSection: React.FC<{ project: IProject }> = ({ project }) =
     <section className="mb-16 px-4 md:px-10 lg:px-14 animate-fade-in-up">
       <div className="flex items-center gap-4 mb-8">
         <div className="h-[1px] flex-grow bg-border/50"></div>
-        <h2 className="text-2xl font-bold text-foreground px-4 text-center">
+        <h2 className="section-title px-4 text-center">
           {language === 'fr' ? 'Technologies Utilisées' : 'Technologies Used'}
         </h2>
         <div className="h-[1px] flex-grow bg-border/50"></div>
@@ -33,7 +33,7 @@ export const TechStackSection: React.FC<{ project: IProject }> = ({ project }) =
         {categories.map((category, idx) => (
           <div 
             key={idx} 
-            className="p-2 rounded-lg bg-secondary/20 border border-border/40 hover:border-border/80 transition-colors shadow-sm"
+            className="p-2 rounded-md bg-secondary/20 border border-border/40 hover:border-border/80 transition-colors shadow-sm"
           >
             <div className="flex items-center gap-1 mb-2">
               <div className="p-2 rounded-md bg-background text-primary shadow-sm border border-border/30">

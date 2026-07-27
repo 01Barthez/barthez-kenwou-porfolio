@@ -51,7 +51,7 @@ export const TitleMeta: React.FC = () => {
             to={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-secondary text-foreground hover:bg-secondary/80 transition-colors"
+            className="flex items-center gap-2 px-4 py-2 rounded-md bg-secondary text-foreground hover:bg-secondary/80 transition-colors"
           >
             <Github className="h-4 w-4" />
             {language === 'fr' ? 'Code Source' : 'Source Code'}
@@ -62,7 +62,7 @@ export const TitleMeta: React.FC = () => {
             to={project.demo}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-primary text-primary-foreground hover:glow-primary transition-all"
+            className="flex items-center gap-2 px-4 py-2 rounded-md bg-primary text-primary-foreground hover:glow-primary transition-all"
           >
             <ExternalLink className="h-4 w-4" />
             {language === 'fr' ? 'Voir la Démo' : 'View Demo'}

@@ -6,7 +6,7 @@ export const HeroSection: React.FC = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="text-center relative mb-16 pt-16 animate-fade-in">
+    <section className="text-center relative mb-16 pt-24 animate-fade-in">
       <div className="">
         <h1 className="section-title">
           <span className="gradient-text">{t('projects.title')}</span>

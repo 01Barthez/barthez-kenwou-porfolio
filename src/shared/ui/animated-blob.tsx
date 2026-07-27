@@ -38,7 +38,7 @@ export const AnimatedBlob = ({ className }: { className?: string }) => {
         
         {/* Morphing blob 1 */}
         <div
-          className="absolute inset-[-10%] bg-gradient-to-tr from-primary/80 to-accent/80 opacity-60 dark:opacity-40"
+          className="absolute inset-[-10%] bg-gradient-to-tr from-primary/80 to-primary/30 opacity-50 dark:opacity-35"
           style={{
             animation: "morph-shape-1 8s ease-in-out infinite, spin-slow 12s linear infinite",
           }}
@@ -46,7 +46,7 @@ export const AnimatedBlob = ({ className }: { className?: string }) => {
 
         {/* Morphing blob 2 */}
         <div
-          className="absolute inset-[-5%] bg-gradient-to-bl from-primary to-accent opacity-50 dark:opacity-30 mix-blend-overlay"
+          className="absolute inset-[-5%] bg-gradient-to-bl from-primary/70 to-primary/20 opacity-40 dark:opacity-25 mix-blend-overlay"
           style={{
             animation: "morph-shape-2 10s ease-in-out infinite reverse, spin-slow 15s linear infinite reverse",
           }}

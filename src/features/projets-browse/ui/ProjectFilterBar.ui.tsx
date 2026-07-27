@@ -108,7 +108,7 @@ export const ProjectFilterBar: React.FC<ProjectFilterBarProps> = ({
               key={status}
               type="button"
               onClick={() => onStatusSelect(isActive ? null : status)}
-              className={`w-full flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs transition-colors cursor-pointer ${isActive
+              className={`w-full flex items-center gap-2 px-2.5 py-1.5 rounded-md text-xs transition-colors cursor-pointer ${isActive
                   ? 'bg-primary/20 text-primary font-medium'
                   : 'text-muted-foreground hover:bg-secondary/60 hover:text-foreground'
                 }`}

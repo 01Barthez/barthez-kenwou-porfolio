@@ -10,11 +10,12 @@ export const SkillPage: React.FC = () => {
   return (
     <>
       <SEO
-        title="Skills - Barthez Kenwou | Passionate DevOps & Full-Stack JS Developer"
-        description="Technologies et outils maîtrisés - Cloud AWS | DevOps | FullStack | Web App - Passionné par le développement web et le cloud computing depuis plus de 3 ans, je me spécialise dans la création d'applications web modernes, performantes et évolutives."
+        path="/skills"
+        title="Compétences"
+        description="Technologies et outils maîtrisés — Cloud AWS, DevOps, Full Stack JS, React, Node.js, Kubernetes, Terraform et CI/CD."
       />
 
-      <div className="min-h-screen py-20">
+      <div className="min-h-screen py-16 md:py-16 lg:py-20 overflow-x-clip">
         {/* Hero Section */}
         <HeroSection />
 

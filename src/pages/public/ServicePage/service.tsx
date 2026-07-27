@@ -9,8 +9,9 @@ export const ServicePage: React.FC = () => {
   return (
     <>
       <SEO
-        title="Services - Barthez Kenwou | Passionate DevOps & Full-Stack JS Developer"
-        description="Solutions professionnelles pour transformer vos idées en réalité - Architecture Cloud AWS | DevOps & CI/CD | Développement Full Stack | Audit & Sécurité | Optimisation Performance | Consulting & Formation"
+        path="/services"
+        title="Services"
+        description="Solutions professionnelles — Architecture Cloud AWS, DevOps & CI/CD, développement Full Stack, audit sécurité, optimisation performance et consulting."
       />
 
       <div className="">

@@ -11,7 +11,7 @@ export const ChallengesSection: React.FC = () => {
   const project = projectsData.find((p) => p.id === id) || { challengesEn: [], challengesFr: [] };
 
   return (
-    <div className="p-6 rounded-2xl bg-card border border-border">
+    <div className="p-6 rounded-md bg-card border border-border">
       <h3 className="text-lg font-bold text-foreground mb-4 flex items-center gap-2">
         <Code2 className="h-5 w-5 text-primary" />
         {language === 'fr' ? 'Défis' : 'Challenges'}

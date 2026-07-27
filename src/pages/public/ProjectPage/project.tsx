@@ -12,10 +12,11 @@ export const ProjectPage = () => {
   return (
     <>
       <SEO
-        title="Projets - Barthez Kenwou | Passionate DevOps & Full-Stack JS Developer"
-        description="Réalisations récentes - Passionné par le développement web et le cloud computing depuis plus de 3 ans, je me spécialise dans la création d'applications web modernes, performantes et évolutives. Toujours à la recherche de nouveaux défis, je m'investis continuellement dans l'apprentissage de nouvelles technologies et les meilleures pratiques du secteur."
+        path="/projects"
+        title="Projets"
+        description="Réalisations récentes — applications web, plateformes cloud et solutions DevOps conçues par Barthez Kenwou."
       />
-      <div className="min-h-screen py-20 overflow-hidden">
+      <div className="min-h-screen py-10 md:py-16 lg:py-20 overflow-x-clip">
         {/* Header - Centered */}
         <HeroSection />
 

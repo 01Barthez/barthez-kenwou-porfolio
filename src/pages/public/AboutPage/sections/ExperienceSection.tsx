@@ -8,7 +8,7 @@ export const ExperienceSection: React.FC = () => {
   const { language } = useLanguageStore();
 
   return (
-    <section className="glass rounded-2xl p-4 border border-border animate-fade-in">
+    <section className="glass rounded-md p-4 border border-border animate-fade-in">
       {/* title */}
       <div className="flex items-center gap-3 mb-6">
         <div className="px-2 py-1 rounded-sm bg-primary/10">

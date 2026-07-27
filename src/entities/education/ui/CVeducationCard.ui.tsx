@@ -9,7 +9,7 @@ export const CVEducationCard: React.FC<{ Education: IEducation }> = ({ Education
   const { degreeFr, degreeEn, link, school, period } = Education;
 
   return (
-    <div className="flex items-start justify-between p-4 rounded-xl bg-secondary/30 hover:bg-secondary/50 transition-colors">
+    <div className="flex items-start justify-between p-4 rounded-md bg-secondary/30 hover:bg-secondary/50 transition-colors">
       <div>
         <div className="flex items-center gap-2">
           <h4 className="font-semibold text-foreground">

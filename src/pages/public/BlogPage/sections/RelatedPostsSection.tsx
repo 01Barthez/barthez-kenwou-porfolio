@@ -19,9 +19,9 @@ export const RelatedPostsSection: React.FC = () => {
     <>
       {relatedPosts.length > 0 && (
         <section className="mb-12">
-          <h2 className="text-xl font-bold text-foreground mb-6 flex items-center gap-2">
-            <HiOutlineBookOpen className="h-5 w-5 text-primary" />
-            {language === 'fr' ? 'Articles similaires' : 'Related articles'}
+          <h2 className="section-title mb-6 flex items-center gap-2 !text-left">
+            <HiOutlineBookOpen className="h-5 w-5 text-primary shrink-0" />
+            <span>{language === 'fr' ? 'Articles similaires' : 'Related articles'}</span>
           </h2>
 
           <div className="grid md:grid-cols-3 gap-4">

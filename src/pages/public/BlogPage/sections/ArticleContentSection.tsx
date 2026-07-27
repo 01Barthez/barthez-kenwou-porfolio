@@ -17,14 +17,14 @@ const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, ans
       initial={{ opacity: 0, y: 10 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="my-4 overflow-hidden rounded-xl border border-border/50 bg-card/30 backdrop-blur-sm transition-all duration-300 hover:border-primary/20"
+      className="my-4 overflow-hidden rounded-md border border-border/50 bg-card/30 backdrop-blur-sm transition-all duration-300 hover:border-primary/20"
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex w-full items-center justify-between gap-4 p-4 text-left transition-colors hover:bg-primary/5"
       >
         <div className="flex items-center gap-3">
-          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
+          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
             <HelpCircle className="h-4 w-4" />
           </div>
           <span className="text-sm md:text-base font-bold text-foreground/90">{question}</span>
@@ -43,7 +43,7 @@ const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, ans
             transition={{ duration: 0.3, ease: 'easeInOut' }}
           >
             <div className="px-4 pb-4 pt-0">
-              <div className="flex gap-3 rounded-lg bg-muted/30 p-4 border-l-2 border-primary/30">
+              <div className="flex gap-3 rounded-md bg-muted/30 p-4 border-l-2 border-primary/30">
                 <div className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center text-primary/60">
                   <MessageCircle className="h-4 w-4" />
                 </div>
@@ -134,11 +134,14 @@ export const ArticleContentSection: React.FC = () => {
               const id = slugify(textContent);
 
               return (
-                <h2 id={id} className={`group relative mt-12 mb-6 flex items-center gap-3 text-lg md:text-xl font-bold text-foreground ${isFAQ ? 'text-primary' : ''}`}>
-                  <a href={`#${id}`} className="absolute -left-6 hidden items-center opacity-0 transition-all group-hover:flex group-hover:opacity-100 text-primary">
+                <h2 id={id} className={`group relative mt-12 mb-6 flex items-center gap-3 article-heading ${isFAQ ? 'text-primary' : ''}`}>
+                  <a
+                    href={`#${id}`}
+                    className="absolute left-0 -translate-x-[110%] hidden sm:flex items-center opacity-0 transition-all group-hover:opacity-100 text-primary"
+                  >
                     <Hash className="h-5 w-5" />
                   </a>
-                  <span className={`flex h-7 w-7 items-center justify-center rounded-sm text-xs font-mono ${isFAQ ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/20' : 'bg-primary/10 text-primary'}`}>
+                  <span className={`flex h-7 w-7 shrink-0 items-center justify-center rounded-md text-xs font-mono ${isFAQ ? 'bg-primary text-primary-foreground shadow-sm shadow-primary/20' : 'bg-primary/10 text-primary'}`}>
                     {isFAQ ? <HelpCircle className="h-4 w-4" /> : <FaMicroblog className="h-3.5 w-3.5" />}
                   </span>
                   {children}
@@ -150,8 +153,8 @@ export const ArticleContentSection: React.FC = () => {
             h3: ({ children }) => {
               const id = slugify(React.Children.toArray(children).join(''));
               return (
-                <h3 id={id} className="group flex items-center gap-2 mt-10 mb-4 text-base md:text-lg font-bold text-foreground/90">
-                  <ChevronRight className="h-4 w-4 text-primary/50 transition-transform group-hover:translate-x-1" />
+                <h3 id={id} className="group flex items-center gap-2 mt-10 mb-4 article-subheading">
+                  <ChevronRight className="h-4 w-4 shrink-0 text-primary/50 transition-transform group-hover:translate-x-1" />
                   {children}
                 </h3>
               );
@@ -192,17 +195,17 @@ export const ArticleContentSection: React.FC = () => {
                     initial={{ opacity: 0, x: 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    className="my-8 overflow-hidden relative rounded-sm border border-orange-500/20 bg-gradient-to-br from-orange-500/10 to-transparent p-5 md:p-6"
+                    className="my-8 overflow-hidden relative rounded-sm border border-primary/25 bg-gradient-to-br from-primary/10 to-transparent p-5 md:p-6"
                   >
                     <div className="absolute top-0 right-0 p-3 opacity-5">
-                      <Info className="h-16 w-16 text-orange-500" />
+                      <Info className="h-16 w-16 text-primary" />
                     </div>
                     <div className="relative flex items-start gap-4">
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-orange-500/20 text-orange-500">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-sm bg-primary/10 text-primary">
                         <Info className="h-5 w-5" />
                       </div>
                       <div>
-                        <span className="text-[10px] font-black uppercase tracking-widest text-orange-500 mb-1.5 block">
+                        <span className="text-[10px] font-black uppercase tracking-widest text-primary mb-1.5 block">
                           {language === 'fr' ? 'Attention' : 'Important'}
                         </span>
                         <div className="text-foreground/90 text-sm md:text-sm leading-relaxed font-medium">{children}</div>
@@ -277,7 +280,7 @@ export const ArticleContentSection: React.FC = () => {
                 <CodeBlock
                   language={languageCode}
                   value={String(children).replace(/\n$/, '')}
-                  className="my-8 shadow-lg shadow-primary/5 border-primary/10"
+                  className="my-8 shadow-sm shadow-primary/5 border-primary/10"
                 />
               ) : (
                 <code className="rounded bg-primary/10 px-1.5 py-0.5 font-mono text-[0.8em] font-bold text-primary border border-primary/20" {...props}>
@@ -294,7 +297,7 @@ export const ArticleContentSection: React.FC = () => {
             ),
             // Tables
             table: ({ children }) => (
-              <div className="relative my-6 w-full overflow-hidden rounded-sm border border-border/50 bg-card/30 backdrop-blur-sm shadow-sm transition-all duration-300 hover:shadow-md hover:border-primary/20 group/table-container">
+              <div className="relative my-6 w-full overflow-hidden rounded-sm border border-border/50 bg-card/30 backdrop-blur-sm shadow-sm transition-all duration-300 hover:shadow-sm hover:border-primary/20 group/table-container">
                 {/* Accent Bar */}
                 <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/50 via-primary/20 to-transparent" />
 
