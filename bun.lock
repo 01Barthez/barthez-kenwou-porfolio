@@ -19,6 +19,8 @@
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
         "cobe": "^2.0.1",
+        "dotenv": "^17.4.2",
+        "dotenv-safe": "^9.1.0",
         "framer-motion": "^12.24.0",
         "i18next": "^25.7.3",
         "i18next-browser-languagedetector": "^8.2.0",
@@ -62,7 +64,6 @@
         "babel-plugin-react-compiler": "^1.0.0",
         "cypress": "^12.10.0",
         "cypress-axe": "^1.0.1",
-        "dotenv-safe": "^9.1.0",
         "eslint": "8",
         "eslint-config-prettier": "^9.0.0",
         "eslint-plugin-import": "^2.28.0",
@@ -1320,7 +1321,7 @@
 
     "dot-prop": ["dot-prop@5.3.0", "", { "dependencies": { "is-obj": "^2.0.0" } }, "sha512-QM8q3zDe58hqUqjraQOmzZ1LIH9SWQJTlEKCH4kJ2oQvLZk7RbQXvtDM2XEq3fwkV9CCvvH4LA0AV+ogFsBM2Q=="],
 
-    "dotenv": ["dotenv@17.2.3", "", {}, "sha512-JVUnt+DUIzu87TABbhPmNfVdBDt18BLOWjMUFJMSi/Qqg7NTYtabbvSNJGOJ7afbRuv9D/lngizHtP7QyLQ+9w=="],
+    "dotenv": ["dotenv@17.4.2", "", {}, "sha512-nI4U3TottKAcAD9LLud4Cb7b2QztQMUEfHbvhTH09bqXTxnSie8WnjPALV/WMCrJZ6UV/qHJ6L03OqO3LcdYZw=="],
 
     "dotenv-safe": ["dotenv-safe@9.1.0", "", { "peerDependencies": { "dotenv": ">= 8.2.0" } }, "sha512-2qwVAnUN+EDpu41pIK1XiJpHXKHV9Dnti3cE1EnUXT1/BV5+B7xuSZtgZ/4LExkCpp5F6BGikraezQL+8hKCOA=="],
 

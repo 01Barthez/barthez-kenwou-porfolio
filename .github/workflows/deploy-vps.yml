@@ -38,7 +38,7 @@ env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
   NODE_VERSION: "22"
-  BUN_VERSION: "1.2.19"
+  BUN_VERSION: "1.3.12"
 
 concurrency:
   group: deploy-vps-${{ github.ref }}
