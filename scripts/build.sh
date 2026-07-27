@@ -15,3 +15,14 @@ if command -v bun >/dev/null 2>&1; then
 else
   npx vite build
 fi
+
+echo "[scripts] build: SEO discovery files + HTML prerender"
+if command -v bun >/dev/null 2>&1; then
+  bun ./scripts/seo/generate.ts || exit 1
+elif command -v node >/dev/null 2>&1; then
+  echo "[scripts] error: bun is required for scripts/seo/generate.ts"
+  exit 1
+else
+  echo "[scripts] error: bun not found — cannot generate SEO assets"
+  exit 1
+fi

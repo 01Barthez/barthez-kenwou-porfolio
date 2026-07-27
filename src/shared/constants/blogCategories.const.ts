@@ -1,1 +1,1 @@
-export const categories = ['All', 'AWS', 'DevOps', 'Backend', 'Frontend'];
+export const categories = ['All', 'AWS', 'DevOps', 'Backend', 'Frontend', 'Formation'];

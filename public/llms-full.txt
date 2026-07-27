@@ -1,0 +1,524 @@
+# Barthez Kenwou — Portfolio — Full context for LLMs
+
+> Portfolio de Barthez Kenwou — Développeur Full Stack JS & Ingénieur DevOps spécialiste AWS Cloud. Applications web modernes, CI/CD, Kubernetes et architectures cloud performantes.
+
+## Identity
+
+- Name: Barthez Kenwou
+- Titles: Développeur Full Stack & Ingénieur DevOps · AWS Cloud Specialist
+- Location: Yaoundé, Cameroun
+- Email: kenwoubarthez@gmail.com
+- Phone: +237 655 646 688
+- Website: https://barthez-kenwou.dev/
+- GitHub: https://github.com/barthez-kenwou
+- LinkedIn: https://linkedin.com/in/barthez-kenwou
+- WhatsApp: https://wa.me/237655646688
+
+## Positioning
+
+Je conçois et déploie des applications web modernes (React/TypeScript/Node.js) avec une culture DevOps forte : CI/CD, Docker, Kubernetes, Terraform, sécurité (DevSecOps), observabilité et cloud AWS.
+Ce portfolio documente des études de cas réelles (SaaS, PWA, ERP Odoo, hardening Linux, supply chain security, monitoring LGTM) et des articles techniques détaillés.
+
+## Primary pages
+
+- Barthez Kenwou | Développeur Full Stack & Ingénieur DevOps: https://barthez-kenwou.dev/ — Passionné par le développement web et le cloud depuis plus de 3 ans. Applications web modernes, CI/CD, Kubernetes et architectures AWS performantes.
+- À propos | Barthez Kenwou: https://barthez-kenwou.dev/about — Parcours, vision et expertise de Barthez Kenwou — Full Stack, DevOps et cloud AWS.
+- Services | Barthez Kenwou: https://barthez-kenwou.dev/services — Développement Full Stack, DevOps, CI/CD, Kubernetes, sécurisation cloud AWS et accompagnement technique.
+- Projets | Barthez Kenwou: https://barthez-kenwou.dev/projects — Études de cas : SaaS, PWA, ERP, DevSecOps, observabilité et plateformes cloud.
+- Compétences | Barthez Kenwou: https://barthez-kenwou.dev/skills — Stack technique : React, TypeScript, Node.js, AWS, Docker, Kubernetes, Terraform, CI/CD, observabilité.
+- Blog | Barthez Kenwou: https://barthez-kenwou.dev/blog — Tutoriels DevOps, AWS, Node.js, React, Kubernetes, sécurité et bonnes pratiques production.
+- CV | Barthez Kenwou: https://barthez-kenwou.dev/cv — Curriculum vitae de Barthez Kenwou — expériences, formations et compétences Full Stack &amp; DevOps.
+- Contact | Barthez Kenwou: https://barthez-kenwou.dev/contact — Contactez Barthez Kenwou pour un projet web, DevOps ou cloud AWS. Email, WhatsApp, LinkedIn.
+
+## Projects detail
+
+### COMBO – ERP SaaS Modulaire pour la Gestion Intelligente de Restaurants
+
+- URL: https://barthez-kenwou.dev/projects/1
+- EN: COMBO – Modular SaaS ERP for Smart Restaurant Management
+- Category: SaaS • Fullstack • Cloud • DevOps
+- Status: En cours · Role: Fullstack Developer • DevOps Engineer • Architect · Duration: Projet long terme · Date: 2026
+- Featured: yes
+- Tech: Next.js, TypeScript, Tailwind CSS, PWA, Node.js, API Routes / Services, PostgreSQL, AWS, Docker, CI/CD, Monitoring, Observability
+- Demo: n/a
+- GitHub: n/a
+- Image: https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/167ee008-product-pic-tabesto-300x274.webp
+
+**FR:** ERP SaaS nouvelle génération pour restaurants, basé sur une architecture modulaire activable à la demande, combinant gestion opérationnelle, analytics et expérience client dans une plateforme unifiée.
+
+COMBO est une plateforme SaaS ambitieuse de nouvelle génération dédiée à la gestion intelligente et modulaire des restaurants. L’objectif est de fournir un système complet permettant à chaque restaurateur de construire son propre ERP sur mesure en activant uniquement les modules dont il a réellement besoin. La plateforme repose sur une architecture monolithique modulaire (modular monolith) structurée via Turborepo, garantissant une séparation stricte des domaines métiers (Commandes, Stocks, CRM, Comptabilité, etc.) tout en conservant la simplicité opérationnelle d’un monolithe. Le produit comprend : - Une vitrine SaaS optimisée SEO pour acquisition client - Un système de souscription avec paiement multi-canaux (Mobile Money, Stripe, banque) - Une application principale (PWA) pour les restaurateurs - Des interfaces dédiées (admin, staff, cuisine) Chaque restaurant peut configurer dynamiquement son environnement en activant des modules spécifiques : gestion des commandes (salle & online), menus & recettes avec calcul des coûts, gestion des stocks avec alertes, livraisons avec suivi temps réel, réservations intelligentes avec plan de salle, CRM client, facturation automatisée, report…
+
+**Problem:** Les solutions existantes de gestion de restaurant sont souvent rigides, coûteuses et mal adaptées aux réalités locales, obligeant les restaurateurs à utiliser plusieurs outils fragmentés.
+
+**Impact:** Digitalisation complète des opérations restaurant · Réduction des coûts via modularité (payer uniquement ce qui est utilisé) · Amélioration de la productivité et des marges · Centralisation des opérations dans une plateforme unique · Création d’un produit SaaS scalable à fort potentiel business
+
+### Plateforme Web PWA GTA IT (Corporate + Backoffice)
+
+- URL: https://barthez-kenwou.dev/projects/12
+- EN: GTA IT PWA Platform (Corporate + Admin System)
+- Category: Full Stack & PWA
+- Status: Production · Role: Fullstack Developer · Duration: 4 mois · Date: Octobre 2023 - Février 2024
+- Featured: yes
+- Tech: React, Shadcn, Tailwind CSS, Framer Motion, PWA, Node.js, Express, Prisma, RESTful API, MongoDB, Redis, Docker, Nginx, GitHub Actions, Vercel, Hostinger VPS
+- Demo: https://gta-it.com
+- GitHub: n/a
+- Image: https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Macbook-Air-gta-it.com%20(2).png
+
+**FR:** Application web progressive complète pour l'ESN GTA (Global Technology & Associates), avec vitrine corporate, blog, gestion de contenu et système de demande de devis
+
+Conception et développement d’une plateforme web complète pour GTA (ESN) afin d’améliorer sa crédibilité, sa visibilité et répondre aux exigences d’accès à certains partenaires (Microsoft, PersonVue). L’application inclut un site corporate multi-pages, un système de blog avec newsletter, un module de gestion de projets, un espace carrière, ainsi qu’un système avancé de demande de devis dynamique basé sur les services. Un backoffice complet permet la gestion autonome des contenus. L’ensemble repose sur une architecture 3-tiers conteneurisée avec CI/CD.
+
+**Problem:** L'ESN manquait d'une présence en ligne performante, ce qui freinait l'acquisition de nouveaux clients et le recrutement de talents. L'ancien site était lent, non optimisé pour le mobile et manquait de fonctionnalités interactives, limitant la crédibilité de l’entreprise et l’accès à certains partenaires stratégiques..
+
+**Impact:** +150% de trafic organique généré grâce aux optimisations SEO en 3 mois. · Augmentation du taux de conversion des candidatures de 40%. · Temps de chargement moyen réduit à moins de 1.2 seconde. · Amélioration de la crédibilité de l’entreprise · Accès facilité aux partenaires internationaux · Centralisation des services et contenus
+
+### Kaza – Plateforme Immobilière Intelligente & Écosystème Conciergerie
+
+- URL: https://barthez-kenwou.dev/projects/3
+- EN: Kaza – Smart Real Estate Platform & Concierge Ecosystem
+- Category: Fullstack • DevOps • AI • Mobile
+- Status: En cours · Role: Fullstack Developer • DevOps Engineer · Duration: Projet long terme · Date: 2026
+- Featured: yes
+- Tech: React, Next.js, React Native, Tailwind CSS, Node.js, Express, GraphQL, Rest API, PostgreSQL, Redis, Docker, Kubernetes, AWS, CI/CD, Prometheus, Loki, Grafana
+- Demo: n/a
+- GitHub: n/a
+- Image: https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2023-05-39.png
+
+**FR:** Plateforme digitale immobilière 'end-to-end' combinant marketplace, IA anti-fraude, conciergerie et mise en relation directe, avec un écosystème complet web & mobile.
+
+Conception et développement en cours d’une plateforme immobilière nouvelle génération pour le marché africain (Cameroun), visant à résoudre les problématiques de fraude, de manque de transparence et d’inefficacité dans la recherche de logement. Le projet inclut un écosystème complet composé d’une application mobile pour les utilisateurs (locataires/bailleurs), d’un panel admin web & mobile avancé, ainsi qu’une infrastructure cloud scalable avec des pratiques DevOps modernes. La plateforme intègre un système de crédits, une IA de modération anti-fraude, un moteur de recherche avancé, un système de notation et une intégration native avec WhatsApp pour la conversion directe. L’objectif est de créer un standard de confiance et de performance sur le marché immobilier local.
+
+**Problem:** Le marché immobilier local est fortement impacté par la fraude, le manque de transparence et l’absence de plateformes fiables, rendant la recherche de logement risquée et inefficace.
+
+**Impact:** Réduction massive des fraudes immobilières · Amélioration de la transparence du marché · Optimisation de la mise en relation locataire-bailleur · Création d’un écosystème digital fiable pour l’immobilier local
+
+### Portfolio Fullstack & DevOps (Personnel) – Plateforme de Positionnement Technique
+
+- URL: https://barthez-kenwou.dev/projects/4
+- EN: Fullstack & DevOps Portfolio (Personal) – Technical Positioning Platform
+- Category: Fullstack • DevOps
+- Status: Production · Role: Fullstack Developer • DevOps Engineer · Duration: Projet continu · Date: 2026
+- Featured: yes
+- Tech: React, TypeScript, Tailwind CSS, Shadcn, Framer Motion, Zustand, Node.js, Express, Prisma, REST API, MongoDB, Redis, Docker, Nginx, GitHub Actions, OVH VPS
+- Demo: https://barthez-kenwou.dev
+- GitHub: n/a
+- Image: https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2022-55-14.png
+
+**FR:** Portfolio professionnel fullstack conçu comme une plateforme complète de présentation, intégrant performance, SEO, backoffice et bonnes pratiques DevOps pour maximiser la crédibilité technique.
+
+Conception et développement d’un portfolio personnel avancé, pensé non comme un simple site vitrine, mais comme une véritable plateforme technique démontrant un haut niveau d’expertise en développement fullstack et DevOps. L’application intègre un frontend moderne en React avec animations fluides et UX optimisée, un backend robuste en Node.js/Express structuré selon des principes DDD et partiellement SOLID, ainsi qu’un système de gestion de contenu (backoffice) permettant l’administration dynamique des blogs et des projets. Le système est optimisé pour le SEO, les performances et le caching (Redis + NodeCache), et déployé sur une infrastructure sécurisée (VPS OVH) avec Docker, Nginx et CI/CD automatisé via GitHub Actions. L’objectif principal est de créer un outil stratégique de positionnement professionnel capable de convaincre recruteurs, clients et partenaires techniques.
+
+**Problem:** Les portfolios classiques sont souvent limités à une simple vitrine statique, ne permettant pas de démontrer réellement le niveau technique, les compétences en architecture ou les pratiques DevOps avancées.
+
+**Impact:** Amélioration significative du positionnement professionnel · Démonstration concrète des compétences fullstack & DevOps · Augmentation de la crédibilité auprès des recruteurs et clients · Centralisation des projets, contenus et expertise technique
+
+### Plateforme Web ONG ESOPA – WordPress & Infrastructure DevOps
+
+- URL: https://barthez-kenwou.dev/projects/5
+- EN: ESOPA NGO Web Platform – WordPress & DevOps Infrastructure
+- Category: DevOps • Web
+- Status: Production · Role: Fullstack Developer • DevOps Engineer · Duration: 1 mois · Date: 2025
+- Featured: no
+- Tech: WordPress, Elementor, PHP, WordPress Core, MySQL, Docker, Nginx, Cloudflare, VPS, CI/CD, Backup Scripts
+- Demo: https://esopa.org
+- GitHub: https://github.com/ZENORA-360/projet-client-esopa
+- Image: https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2023-24-13.png
+
+**FR:** Plateforme web vitrine pour l’ONG ESOPA, accompagnée d’une infrastructure DevOps complète (multi-environnements, sécurité, CI/CD, sauvegardes et optimisation SEO).
+
+Accompagnement complet de l’ONG ESOPA dans sa transformation digitale, allant de l’acquisition du nom de domaine jusqu’au déploiement d’une plateforme web professionnelle et sécurisée. Le projet inclut la mise en place d’une infrastructure DevOps avancée avec Docker, comprenant un environnement de staging et un environnement de production, permettant des déploiements maîtrisés et sans interruption. Le site, développé sous WordPress, a été optimisé pour la performance, la sécurité et le référencement (SEO). Des mécanismes avancés ont été implémentés : sauvegardes automatiques via scripts, sécurisation renforcée (Wordfence, rate limiting, protection admin, monitoring), optimisation des performances et stratégie SEO. Le résultat est une plateforme fiable, rapide et bien référencée, générant une visibilité significative dès les premiers mois.
+
+**Problem:** L’ONG ne disposait pas d’une plateforme web professionnelle ni d’une infrastructure fiable, limitant sa visibilité, sa crédibilité et sa capacité à communiquer efficacement.
+
+**Impact:** Lancement réussi de la présence digitale de l’ONG · Plus de 400 visites en 2 mois · Amélioration significative de la crédibilité · Excellentes performances et référencement
+
+### Secure Software Supply Chain Platform – DevSecOps Industriel
+
+- URL: https://barthez-kenwou.dev/projects/6
+- EN: Secure Software Supply Chain Platform – Industrial DevSecOps
+- Category: DevSecOps
+- Status: Actif · Role: DevOps Engineer · Duration: Projet continu · Date: 2026
+- Featured: no
+- Tech: Node.js, Java, GitHub Actions, SonarQube, Trivy, Syft, Grype, Cosign, Sigstore, Harbor, Docker, Docker Compose, Prometheus, Grafana, Slack
+- Demo: n/a
+- GitHub: https://github.com/ZENORA-360/zenora360/tree/main/.github
+- Image: https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/devsecops.webp
+
+**FR:** Conception d’une plateforme DevSecOps sécurisant la supply chain pour applications Node.js/Java (microservices & monolithes), avec conformité SLSA, réduction mesurée des vulnérabilités et pipeline CI/CD industriel.
+
+Conception et implémentation d’une plateforme DevSecOps complète destinée à sécuriser la supply chain logicielle dans un contexte applicatif réel (Node.js / Java). Le système prend en charge plusieurs services déployés sur VPS via Docker/Docker Compose, avec pipelines CI/CD multi-environnements (dev, staging, production), contrôles de sécurité stricts et stratégies de déploiement fiables. Le pipeline intègre une approche sécurité globale : threat modeling (dependency poisoning, image tampering, secrets leakage), policy enforcement (fail build si CVSS > 7, interdiction des images non signées), et traçabilité des artefacts (SBOM + signature + provenance). La solution inclut également monitoring, alerting et métriques DevOps (DORA) pour piloter la performance des déploiements. Utilisé pour déployer et sécuriser plusieurs applications réelles avec des gains mesurables en qualité et sécurité.
+
+**Problem:** Les pipelines CI/CD classiques ne prennent pas en compte les attaques modernes de supply chain, exposant les systèmes à des dépendances compromises, des images altérées et des fuites de secrets.
+
+**Impact:** Réduction estimée de ~60–70% des vulnérabilités critiques en production · Blocage automatique des dépendances et images compromises · Amélioration significative de la sécurité de la supply chain · Déploiements plus fiables et reproductibles
+
+### Plateforme ERP Odoo – Infrastructure Cloud & DevOps (INTELEK BTP)
+
+- URL: https://barthez-kenwou.dev/projects/7
+- EN: Odoo ERP Platform – Cloud & DevOps Infrastructure (INTELEK Construction)
+- Category: DevOps • ERP
+- Status: Production · Role: DevOps Engineer · Duration: 2–3 mois · Date: 2026
+- Featured: no
+- Tech: Odoo Web, Odoo (Python), PostgreSQL, Kubernetes, Docker, kubectl, MinIO, VPS, Nginx
+- Demo: https://erp-dev.zenora360.com/
+- GitHub: n/a
+- Image: https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2011-20-48.png
+
+**FR:** Déploiement et personnalisation d’un ERP Odoo pour une entreprise BTP, avec infrastructure cloud sécurisée, orchestration Kubernetes et sauvegardes externalisées.
+
+Conception et déploiement d’une plateforme ERP complète basée sur Odoo pour INTELEK, une entreprise du secteur BTP comptant une quinzaine d’employés et gérant plusieurs projets simultanément. L’objectif était de centraliser la gestion des opérations (projets, finances, ressources humaines, ventes, achats) dans un système unique, fiable et évolutif. L’infrastructure a été conçue avec une approche DevOps avancée : déploiement conteneurisé, orchestration via Kubernetes (kubectl), sécurisation du serveur, et mise en place de sauvegardes externalisées sur MinIO. Plusieurs modules Odoo (issus du core et de l’OCA) ont été intégrés et adaptés pour répondre aux besoins métier spécifiques du BTP. Le système permet aujourd’hui une meilleure organisation interne, une traçabilité complète des opérations et une amélioration significative de la productivité.
+
+**Problem:** L’entreprise gérait ses projets et opérations de manière fragmentée, sans système centralisé, ce qui entraînait un manque de visibilité, des erreurs de gestion et une perte de productivité.
+
+**Impact:** Centralisation complète des opérations de l’entreprise · Amélioration significative de la productivité interne · Meilleure gestion des projets et ressources · Réduction des erreurs opérationnelles
+
+### Plateforme d’Observabilité Full Stack – Monitoring, Logs & Traces Corrélés
+
+- URL: https://barthez-kenwou.dev/projects/8
+- EN: Full Stack Observability Platform – Metrics, Logs & Traces Correlation
+- Category: DevOps • Observability
+- Status: MVP · Role: DevOps Engineer · Duration: Projet continu · Date: 2026
+- Featured: no
+- Tech: Prometheus, Grafana, Loki, Tempo, OpenTelemetry, Alertmanager, PagerDuty, Slack, Docker
+- Demo: n/a
+- GitHub: n/a
+- Image: https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/000000083082.png
+
+**FR:** Système complet d’observabilité pour VPS de production, intégrant métriques, logs et traces distribuées avec alerting avancé et dashboards SLO/SLI.
+
+Conception et déploiement d’une stack complète d’observabilité open-source pour superviser un environnement VPS de production. L’objectif était d’obtenir une visibilité totale sur le système en corrélant métriques, logs et traces distribuées. La solution repose sur Prometheus (collecte de métriques), Grafana (visualisation), Loki (logs), Tempo (traces) et OpenTelemetry pour l’instrumentation des applications. Des dashboards avancés SLO/SLI ont été mis en place pour piloter la fiabilité, ainsi que des règles d’alerting Prometheus couplées à des runbooks opérationnels. Le système intègre également des notifications en temps réel (Slack/PagerDuty) et permet une détection proactive des incidents. Cette plateforme apporte une vision claire et exploitable de la santé du système, réduisant significativement le temps de détection et de résolution des incidents.
+
+**Problem:** Absence de visibilité complète sur l’état du système en production, rendant difficile la détection rapide des incidents et l’analyse des performances.
+
+**Impact:** Réduction significative du MTTR (temps de résolution des incidents) · Détection proactive des anomalies · Amélioration de la fiabilité du système · Meilleure compréhension des performances applicatives
+
+### Plateforme Blog Backend-Driven – SEO, RBAC & Performance
+
+- URL: https://barthez-kenwou.dev/projects/9
+- EN: Backend-Driven Blog Platform – SEO, RBAC & Performance
+- Category: Backend • Fullstack
+- Status: Production · Role: Backend Developer • DevOps · Duration: Projet continu · Date: 2026
+- Featured: no
+- Tech: React, Tailwind CSS, Node.js, Express, TypeScript, MongoDB, Redis, Docker, Nginx, CI/CD, VPS
+- Demo: n/a
+- GitHub: n/a
+- Image: https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2015-43-00.png
+
+**FR:** Système de gestion de blog avancé orienté backend, avec RBAC, optimisation des performances, sécurité renforcée et stratégie SEO pour acquisition d’audience.
+
+Conception et développement d’une plateforme de blog avancée centrée sur le backend, pensée comme un levier stratégique de positionnement technique et d’acquisition d’audience. Le système inclut une API robuste avec gestion des rôles (RBAC), authentification sécurisée, gestion des contenus (articles, commentaires), et optimisation des performances via caching multi-niveaux. L’architecture a été conçue pour supporter du trafic SEO avec des contenus indexables, tout en garantissant sécurité et scalabilité. Le projet sert à la fois de démonstration technique (DevOps & Fullstack), de canal d’acquisition client, et de plateforme de contenu pour renforcer la présence digitale (LinkedIn, YouTube, SEO).
+
+**Problem:** Absence d’un canal structuré pour publier du contenu technique, attirer une audience qualifiée et démontrer concrètement les compétences backend et DevOps.
+
+**Impact:** Création d’un canal d’acquisition client basé sur le contenu · Renforcement du positionnement expert DevOps & Fullstack · Génération de trafic SEO vers le portfolio · Augmentation de la visibilité sur LinkedIn et YouTube
+
+### Hardening & Sécurisation Avancée d’un Serveur Linux (Ubuntu)
+
+- URL: https://barthez-kenwou.dev/projects/10
+- EN: Advanced Linux Server Hardening & Security (Ubuntu)
+- Category: Security • DevOps
+- Status: Actif · Role: DevOps Engineer · Duration: Projet continu · Date: 2026
+- Featured: no
+- Tech: Linux Ubuntu, UFW, iptables, Fail2Ban, CrowdSec, CSF, Cloudflare, Docker, sysctl, NTP, Monitoring Tools
+- Demo: n/a
+- GitHub: n/a
+- Image: https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/images%20(2).jpeg
+
+**FR:** Sécurisation complète d’un serveur Ubuntu de production avec hardening système, protection réseau multi-couches, monitoring et automatisation des mises à jour.
+
+Mise en place d’une stratégie complète de sécurisation (hardening) d’un serveur Linux Ubuntu destiné à la production. Le projet couvre la sécurisation des accès (désactivation root, SSH sécurisé), la protection réseau multi-couches (UFW, iptables, CrowdSec, Fail2Ban, CSF), ainsi que l’intégration de protections externes via Cloudflare (CDN + WAF). Le système a été renforcé au niveau kernel (sysctl), avec gestion stricte des permissions, journalisation centralisée et surveillance continue. Des mécanismes d’alerting et de reporting ont été configurés pour assurer une supervision proactive, accompagnés de mises à jour automatiques de sécurité. L’environnement a également été préparé pour accueillir des applications conteneurisées (Docker) dans un contexte sécurisé. L’objectif global était de réduire drastiquement la surface d’attaque et d’assurer un niveau de sécurité proche des standards production.
+
+**Problem:** Les serveurs exposés sur Internet sont fortement vulnérables aux attaques (brute force, scans, exploits), nécessitant une sécurisation avancée pour garantir la stabilité et la confidentialité des données.
+
+**Impact:** Réduction drastique de la surface d’attaque · Blocage automatique des attaques brute force et scans · Amélioration significative de la stabilité du serveur · Surveillance proactive avec alertes en temps réel
+
+### Plateforme de Gestion Intelligente de Files d’Attente
+
+- URL: https://barthez-kenwou.dev/projects/11
+- EN: Smart Queue Management Platform
+- Category: Fullstack
+- Status: MVP · Role: Scrum Master • Lead Developer · Duration: 2–3 mois · Date: 2025
+- Featured: no
+- Tech: React, Tailwind CSS, Python, FastAPI, PostgreSQL, Docker, VPS
+- Demo: n/a
+- GitHub: n/a
+- Image: https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/images%20(4).jpeg
+
+**FR:** Application web permettant aux organisations de gérer plusieurs files d’attente avec estimation intelligente du temps d’attente et optimisation du flux utilisateur.
+
+Conception et développement d’une plateforme de gestion intelligente de files d’attente destinée aux structures accueillant du public (services, administrations, entreprises). Le système permet à chaque organisation de créer et gérer plusieurs files d’attente depuis un espace sécurisé, avec suivi en temps réel des utilisateurs et estimation dynamique du temps d’attente basée sur la durée moyenne de traitement. Le projet a été réalisé en équipe agile (Scrum), avec coordination des sprints, gestion des tâches via Trello et pilotage technique. L’architecture repose sur un frontend React et un backend Python FastAPI performant, permettant une gestion fluide et scalable des requêtes. L’objectif principal était d’optimiser l’expérience utilisateur, réduire les temps d’attente perçus et améliorer l’organisation des services.
+
+**Problem:** Les structures gérant des flux de clients souffrent souvent d’une mauvaise organisation des files d’attente, entraînant frustration, perte de temps et inefficacité opérationnelle.
+
+**Impact:** Amélioration de l’organisation des services clients · Réduction des temps d’attente perçus · Meilleure expérience utilisateur · Optimisation des flux opérationnels
+
+### Plateforme Web GTA-Academy (Centre de formation)
+
+- URL: https://barthez-kenwou.dev/projects/2
+- EN: GTA-Academy Web Platform (Training Center)
+- Category: Full Stack
+- Status: Production · Role: Fullstack Developer · Duration: 1 semaine · Date: 2025
+- Featured: no
+- Tech: React, Tailwind CSS, Node.js, Express, MongoDB, Vercel, VPS, CI/CD
+- Demo: https://academy.gta-it.com/
+- GitHub: n/a
+- Image: https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/iPhone-13-PRO-academy.gta-it.com.png
+
+**FR:** Plateforme web de lancement pour GTA-Academy, conçue pour assurer visibilité, crédibilité et acquisition d’apprenants via une présentation structurée des formations et événements.
+
+Conception et développement en urgence d’une plateforme web pour GTA-Academy, centre de formation professionnelle. Le site avait pour objectif principal de positionner rapidement la structure sur le marché en offrant une visibilité claire sur les formations (vacances, entreprises, certifiantes, personnalisées) ainsi que sur les événements (webinaires, sessions d’information). L’application inclut des pages dédiées aux programmes, un système de présentation des événements et une architecture optimisée pour la conversion des visiteurs en prospects. Le projet a été déployé rapidement pour accompagner le lancement officiel du centre.
+
+**Problem:** Le centre de formation était en phase de lancement sans présence digitale, ce qui limitait fortement sa visibilité, sa crédibilité et sa capacité à recruter rapidement des apprenants.
+
+**Impact:** Lancement réussi de la présence digitale de GTA-Academy · Amélioration immédiate de la crédibilité du centre · Facilitation de l’acquisition des premiers apprenants · Visibilité claire des offres de formation et événements
+
+
+## Blog detail
+
+### CI/CD avec GitHub Actions – De Zéro à Expert
+
+- URL: https://barthez-kenwou.dev/blog/1
+- Slug: ci-cd-github-actions-zero-to-expert
+- Category: DevOps · 2026-02-12 · 19 min
+- Tags: GitHub Actions, CI/CD, DevOps, Automation, Pipeline, Deployment, GitHub, OIDC
+- Cover: https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/github_actions_ci_cd.png
+
+**Excerpt:** Maîtrisez GitHub Actions de A à Z : automatisez vos tests, builds, déploiements et bien plus. Guide complet, concret et à jour avec les meilleures pratiques 2026. Même si vous débutez, vous deviendrez autonome.
+
+## Introduction Imaginez ceci : vous poussez votre code sur `main`, et **en quelques minutes** : - Vos tests tournent automatiquement - Votre application est buildée - Elle est déployée sur AWS, Vercel, ou votre serveur - Vous recevez une notification si quelque chose plante C’est exactement ce que permet **GitHub Actions**, et c’est gratuit pour la plupart des projets ! Dans ce guide **ultra-complet et à jour 2026**, je vais vous accompagner pas à pas, comme si on était assis côte à côte. Que vous soyez étudiant, freelance, ou développeur en entreprise, vous allez passer de « je ne sais pas par où commencer » à « je maîtrise mon pipeline CI/CD comme un pro ». Nous allons couvrir : - Les concepts fondamentaux - La création de workflows simples et avancés - Tests automatisés (Jest, Vitest, Cypress…) - Builds et déploiements (AWS S3/CloudFront, Vercel, Docker…) - Secrets, environnements, matrices, cache, artefacts - Bonnes pratiques de sécurité et de performance - Un pipeline complet prêt à copier-coller Prenez un café ☕, ouvrez votre repository, et allons-y ensemble ! ## 1. Prérequis Avant de commencer, assurez-vous d’avoir : - Un compte GitHub (gratuit suffit) - Un repository avec un projet (Node.js, React, Next.js, Python, etc.) - Connaissance basique de Git et des commandes terminal - (Optionnel mais recommandé) : un projet avec des tests (Jest, Vitest, etc.) **Astuce** : Si vous n’avez pas encore de tests, on commencera par un pipeline simple et on ajoutera la complexité progressivement. ## 2. Concepts de base de GitHub Actions ### Workflows Un **workflow** est un fichier YAML placé dans le dossier `.github/workflows/`. C’est l’orchestrateur complet de votre automatisation. ### Events (Déclencheurs) Ce qui lance le workflow : - `push` sur une branche - `pull_request…
+
+### Guide Complet 2026 : Déployer une Application React sur AWS comme un Pro (S3 + CloudFront + Route 53)
+
+- URL: https://barthez-kenwou.dev/blog/2
+- Slug: deploy-react-aws-s3-cloudfront-route-53
+- Category: AWS · 2026-01-29 · 12 min
+- Tags: AWS, React, CloudFront, S3, Route53, Déploiement, DevOps, SPA, OAC, CI/CD
+- Cover: https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/maxresdefault.jpg
+
+**Excerpt:** Apprenez à déployer votre application React en toute sécurité, avec un CDN mondial ultra-rapide, un nom de domaine personnalisé et une architecture moderne (bucket privé + OAC). Zéro serveur, coût mini, performance maximale. Étape par étape, même si vous débutez.
+
+## Introduction Déployer une application React sur AWS peut sembler intimidant… mais une fois que vous avez la bonne méthode, c’est **incroyablement simple, sécurisé et puissant**. Dans ce guide ultra-complet (mis à jour 2026), vous allez apprendre à héberger votre SPA React avec : - Un bucket S3 **privé** (plus sécurisé que l’ancienne méthode publique) - CloudFront + **Origin Access Control (OAC)** pour un CDN mondial ultra-rapide - Gestion parfaite du routing client-side (React Router, Vite, etc.) - Un nom de domaine personnalisé + HTTPS gratuit avec Route 53 - Des optimisations de performance et de cache - Un pipeline CI/CD optionnel pour déployer en un clic À la fin de cet article, vous aurez une application **professionnelle**, rapide partout dans le monde, sécurisée et qui coûte presque rien. Prêts ? Allons-y, je vous guide pas à pas comme si on était ensemble devant votre ordinateur. --- ## Prérequis Avant de commencer, assurez-vous d’avoir : - Un compte AWS actif ([aws.amazon.com](https://aws.amazon.com)) - AWS CLI v2 installé et configuré (`aws --version`, `aws configure`) - Node.js (v18 ou supérieur) et npm/yarn/pnpm - Une application React prête (Create React App, Vite, Next.js en mode static, etc.) - Un nom de domaine (optionnel mais recommandé) - Des droits administrateur sur votre compte AWS (ou un utilisateur IAM avec les permissions nécessaires) **Astuce de pro** : Créez un utilisateur IAM dédié avec une policy « AdministratorAccess » pour ce tutoriel. --- ## Étape 0 : Préparer et builder votre application React Dans le dossier de votre projet : [code] Cela crée le dossier **`build/`** (CRA) ou **`dist/`** (Vite). C’est **ce dossier** que nous allons déployer. **Important pour le SPA routing** : Rien à changer côté code si vous utilisez React Router en…
+
+### Optimiser les Performances de votre Application Node.js comme un Expert
+
+- URL: https://barthez-kenwou.dev/blog/3
+- Slug: optimize-nodejs-performance-pro
+- Category: Backend · 2025-09-29 · 28 min
+- Tags: Node.js, Performance, Backend, Optimization, ExpressJS, Prisma, Redis, Caching, PM2, Nginx, Cloudflare
+- Cover: https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_1poc6wto4rwg5pkx2vvr.webp
+
+**Excerpt:** Techniques avancées et concrètes que j’utilise au quotidien pour booster mes APIs Node.js : caching hybride (NodeCache + Redis), Prisma optimisé, compression intelligente, profiling, clustering, reverse proxy, CDN… Résultats : latence divisée par 5, coûts divisés par 3, et une scalabilité sans limite. Même si vous débutez, ce guide vous transformera en expert.
+
+## Introduction Salut à tous ! 👋 Je m’appelle Barthez Kenwou, et depuis plus de 8 ans je construis des APIs Node.js à fort trafic pour des startups, des SaaS et des projets personnels qui montent jusqu’à plusieurs dizaines de milliers de requêtes par minute. Et je peux vous le dire sans détour : **la performance n’est pas un « nice-to-have »**. C’est ce qui fait la différence entre une application qui coûte cher et qui rage les utilisateurs… et une application fluide, scalable, qui fait plaisir à utiliser et qui fait baisser votre facture AWS/GCP de 60-70 %. Dans ce guide **ultra-complet et 100 % pratique (mis à jour 2026)**, je vais vous partager **exactement** ma stack et ma méthodologie d’optimisation que j’applique sur tous mes projets Express.js. On va aller très loin ensemble : - Du code propre jusqu’au choix du bon framework - Caching local + distribué (ma stratégie hybride que j’adore) - Optimisation Prisma (transactions, indexes, query optimisation) - Compression intelligente (Gzip + Brotli + ma propre logique de taille) - Profiling et APM - Clustering, PM2, reverse proxy Nginx, CDN Cloudflare - Éviter les pièges classiques (ReDoS, memory leaks, tâches bloquantes…) - Et bien plus encore Prenez un café ☕, ouvrez votre projet Node.js, et allons-y **comme si on était en pair-programming**. À la fin de cet article, vous aurez une checklist complète à appliquer immédiatement. Prêts ? C’est parti ! ## Prérequis - Node.js 20 ou 22 (je recommande la version LTS active) - Une application Express.js (ou Fastify/Koa, on en parlera) - Une base de données (PostgreSQL avec Prisma dans mon cas) - Redis (pour le caching distribué) - Connaissances de base sur le Event Loop de Node.js **Astuce de départ** : Lancez votre app en production avec `NODE_ENV=production` dès maintena…
+
+### Gestion Complète de la Sécurité de votre Application Express.js comme un Expert
+
+- URL: https://barthez-kenwou.dev/blog/4
+- Slug: express-security-management-pro
+- Category: Backend · 2026-02-06 · 11 min
+- Tags: ExpressJS, Security, TypeScript, Backend, NodeJS, Helmet, Zod, OWASP, DevSecOps, Sécurité
+- Cover: https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/1753583208962.png
+
+**Excerpt:** De zéro à un système ultra-sécurisé : tout ce que j’applique sur mes APIs Express.js + TypeScript en production. Helmet, CORS strict, rate limiting, Zod, JWT sécurisé, OWASP Top 10, scans automatisés… À la fin de cet article, votre app sera blindée contre les attaques les plus courantes. Guide pas-à-pas, concret et issu de 8 ans d’expérience réelle.
+
+## Introduction Salut à tous ! 👋 Je suis Barthez Kenwou, et depuis plus de 8 ans je construis et je maintiens des APIs Express.js + TypeScript en production pour des startups, des SaaS à fort trafic et des projets qui gèrent des données sensibles (paiements, données personnelles, etc.). Express a fait un excellent travail avec sa documentation officielle sur la sécurité[](https://expressjs.com/en/advanced/best-practice-security.html), mais franchement, ça reste le minimum syndical. Dans la vraie vie, en 2026, avec les attaques qui évoluent tous les jours (OWASP Top 10 2025 en tête), il faut aller **beaucoup plus loin**. Dans ce guide **ultime et ultra-pratique**, je vais vous accompagner **pas à pas**, exactement comme si on était en pair-programming ensemble. On va partir d’un projet Express.js tout neuf et, à la fin de l’article, vous aurez une application **complètement sécurisée** : headers blindés, validation stricte, rate limiting intelligent, gestion des secrets, monitoring, et une checklist de prod que j’utilise sur tous mes clients. On va couvrir **tous** les aspects : - Configuration de base sécurisée - Middleware de protection (Helmet, CORS, etc.) - Validation des entrées avec Zod - Authentification et autorisation sécurisées - Protection contre les attaques courantes (XSS, CSRF, SQLi, ReDoS…) - Gestion des dépendances et scans automatisés - Error handling sans fuite d’info - Déploiement production (Nginx + TLS) - Checklist finale + tests de pénétration Prenez un café ☕, ouvrez votre projet TypeScript, et allons-y. À la fin, vous pourrez dire fièrement : « Mon API est sécurisée comme celle d’un expert. » C’est parti ! ## Prérequis - Node.js 20 ou 22 (LTS recommandée) - Un projet Express.js déjà initialisé avec TypeScript (ts-node ou build avec tsc) - Connai…
+
+### Déployer une API Serverless Complète avec AWS API Gateway + Lambda + DynamoDB + Cognito + CI/CD (Full Stack React)
+
+- URL: https://barthez-kenwou.dev/blog/5
+- Slug: deploy-full-stack-serverless-aws
+- Category: AWS · 2026-04-14 · 25 min
+- Tags: AWS, Serverless, APIGateway, Lambda, DynamoDB, Cognito, CodePipeline, FullStack, React, TypeScript, CI/CD
+- Cover: https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/Fig5-arch.png
+
+**Excerpt:** Vous avez une API Express.js + TypeScript sécurisée ? Passez en serverless pur avec AWS : API Gateway, Lambda, DynamoDB, Cognito, et un CI/CD complet. Guide pas-à-pas ultra-détaillé, avec exemple concret (Todo-list), schémas, et optimisations coûts/perfs. À la fin, votre stack full-stack React + backend est déployée, authentifiée, scalable et économique.
+
+## Introduction Salut à tous ! 👋 Je suis **Barthez Kenwou**, et depuis plus de 8 ans, je déploie des APIs **Express.js + TypeScript** pour des startups et SaaS qui passent de quelques centaines à des dizaines de milliers de requêtes par minute. Si vous avez suivi mes guides précédents : - **[Déployer une Application React sur AWS](lien_article_1)** (S3 + CloudFront + Route 53) - **[Sécuriser une API Express.js](lien_article_5)** (Helmet, Zod, rate limiting, etc.) … alors vous êtes **au bon endroit**. ### Le problème que ce guide résout Vous avez une **API Express locale sécurisée**, mais vous voulez : - **Passer en serverless pur** (plus de serveurs à gérer) - **Scaler automatiquement** sans limite - **Ajouter une authentification pro** (Cognito + JWT) - **Automatiser les déploiements** (CI/CD AWS natif) - **Rester économique** (< 10 €/mois pour 10k requêtes) **Ce guide vous montre comment faire**, étape par étape, avec : - Un **template SAM complet** (prêt à copier-coller) - Un **exemple concret** (Todo-list full-stack) - Des **schémas d’architecture** - Des **exemples de factures réelles** --- **Cas d’usage** : On va déployer une **Todo-list full-stack** (React + API serverless) avec : - Stockage des todos dans **DynamoDB** - Authentification via **Cognito** - Déploiement automatique avec **CodePipeline** Prenez un café ☕, ouvrez votre projet, et c’est parti ! --- ## Prérequis ### Pour qui est ce guide ? - Vous avez déjà une **API Express.js + TypeScript** fonctionnelle (comme dans mon guide précédent) - Vous avez déployé votre **frontend React sur S3 + CloudFront** - Vous voulez passer en **serverless pur** (sans EC2/EKS) ### Outils nécessaires | Outil | Version | Lien d’installation | |---------------------|---------------|-----------------------------------------…
+
+### Sécurité AWS – Les Meilleures Pratiques IAM comme un Expert
+
+- URL: https://barthez-kenwou.dev/blog/6
+- Slug: aws-security-iam-best-practices
+- Category: AWS · 2026-03-29 · 29 min
+- Tags: AWS, IAM, Security, DevSecOps, LeastPrivilege, IAMIdentityCenter, AccessAnalyzer, SCPs, CloudSecurity
+- Cover: https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/maxresdefault%20(1).jpg
+
+**Excerpt:** Protégez votre compte AWS comme un pro : root user blindé, IAM Identity Center, least privilege avec Access Analyzer, MFA partout, SCPs, permissions boundaries… Guide complet issu de mes 8 ans d’expérience sur des projets à fort trafic et multi-comptes. À la fin, vous aurez une stratégie IAM professionnelle, automatisée et prête pour la production.
+
+## Introduction Salut à tous ! 👋 Je suis Barthez Kenwou, et depuis plus de 8 ans je construis et je sécurise des architectures AWS pour des startups, des SaaS et des projets qui gèrent des données sensibles et des milliers de requêtes par minute. J’ai vu de tout : des comptes AWS piratés à cause d’une clé d’accès exposée sur GitHub, des rôles avec `AdministratorAccess` qui traînaient depuis 3 ans, ou encore des équipes qui utilisaient encore le root user pour tout et n’importe quoi… **La vérité ?** IAM est la première ligne de défense de votre infrastructure AWS. Si c’est mal fait, tout le reste (Lambda, S3, DynamoDB, API Gateway…) peut s’effondrer en quelques minutes. Dans ce guide ultime 2026, je vais vous partager **exactement** ma stratégie IAM que j’applique sur **tous** mes projets clients. On va passer du basique au très avancé : root user, IAM Identity Center, least privilege avec Access Analyzer, MFA phishing-resistant, SCPs dans Organizations, permissions boundaries, conditions intelligentes, monitoring continu, etc. Ce n’est pas un simple copié-collé de la doc AWS. C’est du concret, du terrain, avec les commandes, les templates, les checklists et les pièges que j’ai évités (et que vous éviterez aussi). Prenez un café ☕, connectez-vous à votre console AWS, et on va faire ça ensemble comme en pair-programming. À la fin de cet article, vous aurez une stack IAM **professionnelle, scalable et auditée** que vous pourrez montrer fièrement à n’importe quel CTO ou auditeur. C’est parti ! ## Prérequis Ce guide s’adresse à vous si : - Vous avez déjà un compte AWS (personnel ou d’entreprise) - Vous avez lu mes guides précédents sur la sécurité Express.js et le déploiement serverless - Vous voulez passer à un niveau **expert DevSecOps** sur AWS **Outils dont vous aurez…
+
+### Architecture Microservices avec Docker et Kubernetes – De Zéro à Expert des Experts
+
+- URL: https://barthez-kenwou.dev/blog/7
+- Slug: microservices-docker-kubernetes-mastery
+- Category: DevOps · 2025-12-28 · 22 min
+- Tags: Microservices, Docker, Kubernetes, K8s, DevOps, GitOps, ArgoCD, Observability, ServiceMesh, CloudNative, Helm
+- Cover: https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/docker-kubernetes.webp
+
+**Excerpt:** Vous avez votre API Express sécurisée et votre stack serverless AWS ? Passez maintenant à l’architecture microservices professionnelle avec Docker + Kubernetes. Décomposition DDD, multi-stage builds, GitOps avec ArgoCD, observabilité complète (Prometheus + Jaeger), service mesh, scaling auto, sécurité zéro-trust… Guide ultra-complet, concret et issu de mes 8 ans d’expérience sur des projets à fort trafic. À la fin, vous maîtrisez une stack production-ready que vous pouvez déployer en production demain.
+
+## Introduction Salut à tous ! 👋 Je suis Barthez Kenwou, et depuis plus de 8 ans je conçois, je déploie et je fais évoluer des architectures microservices pour des startups, des SaaS et des projets qui gèrent des dizaines de milliers de requêtes par minute. Vous avez suivi mes guides précédents : - Déploiement React sur AWS - Sécurité Express.js + TypeScript - API serverless avec API Gateway + Lambda + DynamoDB + Cognito Vous avez maintenant une application solide, sécurisée et scalable… mais à un certain moment, le **monolithe** (même bien fait) commence à montrer ses limites : déploiements lents, équipes qui se marchent sur les pieds, scaling coûteux, et une seule petite erreur qui fait tomber toute l’application. C’est là que l’**architecture microservices** entre en jeu. Dans ce guide ultime 2026, je vais vous accompagner **de zéro à expert des experts**. On ne va rien négliger. On va partir des concepts fondamentaux, passer par Docker en profondeur (multi-stage builds, sécurité, best practices 2026), Docker Compose pour le dev local, puis plonger dans Kubernetes comme un pro : Deployments, Services, Ingress, ConfigMaps, Secrets, Helm, Operators, GitOps avec ArgoCD, observabilité complète, service mesh, scaling, sécurité zero-trust, CI/CD par service, et même les pièges que j’ai évités sur des projets réels. **Cas d’usage concret** : on va prendre une **application Todo-list full-stack** (comme dans le guide serverless) et la découper en microservices réels : - **user-service** (authentification, profils) - **todo-service** (CRUD des todos) - **notification-service** (envoi d’emails/push) Chaque service aura son propre repo, son Dockerfile, son Helm chart, et sera déployé indépendamment. Prenez un café ☕ (ou deux, parce que ça va être dense), ouvrez votre terminal…
+
+### Guide Ultime 2026 – Architecture Multi-Environnements (Dev / Staging / Prod) : La Mise en Place Complète que J’Applique sur Tous Mes Projets Clients
+
+- URL: https://barthez-kenwou.dev/blog/8
+- Slug: aws-multi-environment-architecture
+- Category: DevOps · 2026-04-01 · 25 min
+- Tags: MultiEnvironment, DevOps, GitOps, Terraform, Kubernetes, AWS, FeatureFlags, Observability, CI/CD, SecretsManagement
+- Cover: https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/851bcb3d-3d1a-41b5-89a4-7d48ecdc89ec.png
+
+**Excerpt:** Passer d’un environnement unique à une architecture Dev / Staging / Prod professionnelle, sécurisée, scalable et reproductible n’est plus une option en 2026. Variables d’environnement, isolation forte, IaC avec Terraform, GitOps, secrets management, feature flags, observabilité par environnement, stratégies de déploiement avancées (Blue/Green, Canary), et gestion des données de test. Guide ultra-complet basé sur 8+ années d’expérience en full DevOps sur des stacks modernes.
+
+## Résumé Visuel : Les 3 Environnements en 2026 | Environnement | Objectif Principal | Accès | Données | Déploiement | Observabilité & Sécurité | Stratégie de Rollout | |---------------|-------------------------------------|------------------------|----------------------------------|---------------------------------|-----------------------------------|--------------------------| | **Dev** | Développement rapide & feedback | Équipe de développement| Données locales + fixtures | Local (Docker Compose / Tilt) | Logs + Debugger + Hot Reload | Local only | | **Staging** | Validation QA, tests E2E, démo | Équipe + beta users | Données réalistes anonymisées | CI/CD automatique + Preview | Full tracing + metrics + alerts | Progressive / Canary | | **Prod** | Utilisateurs finaux & business | Public / Clients | Données réelles (chiffrées) | GitOps + Blue/Green ou Canary | 24/7 alerting + SLO + Chaos | Blue/Green + Rollback auto | **Pourquoi cette architecture n’est plus négociable en 2026 ?** - Zéro surprise en production - Tests fiables et reproductibles - Conformité (RGPD, SOC2, ISO27001, HIPAA selon les cas) - Scalabilité horizontale sans refonte - Vitesse de delivery maintenue même à grande équipe - Coûts maîtrisés et traçabilité totale --- ## Introduction Salut, c’est Barthez Kenwou. Depuis plus de 8 ans, je conçois, je déploie et je maintiens des architectures cloud pour des startups et des scale-ups qui passent de quelques centaines à plusieurs centaines de milliers d’utilisateurs actifs par jour. J’ai vu trop souvent la même erreur : une application qui "marche en local" et qui explose dès qu’elle touche la production. Ou pire : un Staging qui ne ressemble en rien à la Prod, ce qui rend tous les tests inutiles. Aujourd’hui, je te partage **exactement** la stratégie multi…
+
+### Stratégies d’Optimisation des Coûts AWS (FinOps) – Cas Réel de Savings que J’Applique Chez Mes Clients
+
+- URL: https://barthez-kenwou.dev/blog/9
+- Slug: aws-cost-optimization-finops
+- Category: DevOps · 2026-04-5 · 16 min
+- Tags: FinOps, AWSCostOptimization, CostSavings, SavingsPlans, SpotInstances, Graviton, AWS, DevOps
+- Cover: https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/AWS-FinOps2.png
+
+**Excerpt:** Votre facture AWS explose ? Découvrez une approche FinOps complète et pratique pour identifier les gaspillages, réduire les coûts de 30 à 50 % et garder le contrôle. Visibilité, quick wins, Savings Plans, Spot, Graviton, automatisation multi-environnements, et un cas réel où j’ai fait économiser plus de 40 % par mois sur une infrastructure réelle. Guide conçu pour les débutants et les équipes qui veulent passer pro sans stress.
+
+## Résumé Visuel : Les Phases FinOps en 2026 | Phase | Objectif | Actions Clés | Économies Typiques | Temps pour Voir les Résultats | |-------|----------|--------------|--------------------|-------------------------------| | **1. Visibilité** | Comprendre où va l’argent | Tagging + Cost Explorer + Budgets | 5-10 % | 1 semaine | | **2. Quick Wins** | Supprimer les gaspillages évidents | Instances idle, volumes orphelins, snapshots | 15-25 % | 2-4 semaines | | **3. Optimisation Continue** | Rightsizing + Modèles de prix intelligents | Savings Plans, Spot, Graviton, Auto Scaling | 20-40 % | 1-3 mois | | **4. FinOps Culture** | Rendre l’optimisation durable | Alertes, ownership par équipe, automatisation | +10-15 % | Ongoing | **Pourquoi le FinOps est indispensable en 2026 ?** Les factures AWS peuvent doubler en quelques mois sans que vous vous en rendiez compte. Avec une bonne approche, on réduit les coûts sans sacrifier la performance ni la vitesse de développement. --- ## Introduction Salut, c’est Barthez Kenwou. Depuis plus de 8 ans, j’aide des startups et des scale-ups à maîtriser leurs coûts AWS. J’ai vu des équipes passer de quelques centaines de dollars à plus de 15 000 $ par mois… souvent à cause de ressources oubliées, de sur-provisionnement ou d’environnements qui tournent 24/7 inutilement. Ce guide n’est pas une liste de bonnes pratiques génériques. C’est **exactement** la méthode FinOps que j’applique chez mes clients en 2026 : simple à comprendre pour un débutant, mais suffisamment puissante pour générer des économies concrètes et durables. On va couvrir : - Comment avoir une visibilité totale sur tes dépenses - Les quick wins que tu peux appliquer dès aujourd’hui - Les stratégies avancées (Savings Plans, Spot Instances, Graviton, etc.) - L’automatisation et…
+
+### Designing a Production-Ready AWS Architecture (Real Case) – Ce Que Je Déploie Vraiment Chez Mes Clients
+
+- URL: https://barthez-kenwou.dev/blog/10
+- Slug: production-ready-aws-architecture
+- Category: DevOps · 2026-03-21 · 28 min
+- Tags: ProductionReady, AWSArchitecture, EKS, Terraform, GitOps, MultiAccount, DevOps, Karpenter, Observability
+- Cover: https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/Figure-1.-Launching-cloud-architecture-patterns-as-AWS-Service-Catalog-products-937x630.png
+
+**Excerpt:** Comment passer d’une infra qui « marche » à une architecture AWS production-ready, résiliente, sécurisée, scalable et maintenable ? Multi-account, VPC sécurisé, EKS avec GitOps, Terraform IaC, observabilité complète, stratégies de déploiement avancées… Guide ultra-détaillé avec les erreurs courantes que je corrige chez les clients, ce que les pros font vraiment en 2026, et un cas réel concret où on a transformé une infra fragile en système entreprise-grade.
+
+## Résumé Visuel : Architecture Production-Ready AWS en 2026 | Composant | Ce Que Les Juniors Font Souvent | Ce Que Les Pros Font Vraiment | Bénéfice Principal | |-----------|---------------------------------|------------------------------|-------------------| | **Comptes AWS** | Tout dans un seul compte | Multi-Account avec Organizations + Shared Services | Isolation forte, sécurité, conformité | | **Réseau** | VPC plat avec tout en public | Multi-AZ, private subnets, NAT Gateway, VPC Endpoints | Sécurité réseau + résilience | | **Compute** | EC2 ou Fargate simple | EKS + Karpenter + Graviton + Spot où possible | Scalabilité automatique et coût optimisé | | **IaC** | Console + quelques scripts | Terraform modules réutilisables + workspaces ou environments | Reproductibilité et zero drift | | **Déploiement** | Push direct sur main | GitOps (ArgoCD/Flux) + Blue/Green ou Canary | Zéro downtime et rollback facile | | **Observabilité** | CloudWatch basique | OpenTelemetry + Grafana + Prometheus + SLO | Détection rapide des problèmes | **Pourquoi une architecture production-ready change tout en 2026 ?** Plus de surprises à 3h du matin, scalabilité sans refonte, conformité simplifiée, coûts maîtrisés, et une équipe qui avance vite sans peur. --- ## Introduction Salut, c’est Barthez Kenwou. Depuis plus de 8 ans, je conçois et je maintiens des architectures AWS pour des startups qui passent à l’échelle et pour des scale-ups qui ne peuvent plus se permettre de downtime ou de factures surprises. J’ai vu (et corrigé) les mêmes erreurs partout : tout dans un seul compte, pas de tagging, IAM trop permissif, pas d’IaC, EKS mal configuré qui devient ingérable à 50 pods… Résultat ? Des outages, des breaches évitables, et des nuits blanches. Ce guide n’est pas une checklist AWS Well-Ar…
+
+### How I Secure a Linux Server (Step-by-Step Hardening Guide) – Ce Que Je Fais Vraiment sur Tous Mes Serveurs
+
+- URL: https://barthez-kenwou.dev/blog/11
+- Slug: secure-linux-server-hardening
+- Category: DevOps · 2026-02-30 · 24 min
+- Tags: LinuxHardening, ServerSecurity, SSHSecurity, Fail2Ban, DevOps, LinuxSecurity, AppArmor, UFW
+- Cover: https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/How-to-Secure-a-Linux-Server_-Complete-2025-Guide-1-1.png
+
+**Excerpt:** Un serveur Linux exposé sur internet sans hardening = cible facile pour les bots et les attaques en 2026. SSH faible, ports ouverts, pas de firewall, mises à jour manuelles… Voici exactement la méthode pas-à-pas que j’applique sur tous mes serveurs (Ubuntu/Debian, AWS EC2, VPS) : SSH ultra-sécurisé, firewall strict, kernel hardening, monitoring, et automatisation. Guide vivant avec erreurs courantes, commandes concrètes et un cas réel où on a bloqué 99 % des attaques automatiques.
+
+## Résumé Visuel : Les Couches de Hardening Linux en 2026 | Couche | Erreur Courante des Débutants | Ce Que Je Fais Vraiment | Impact Principal | |--------|-------------------------------|-------------------------|------------------| | **Accès SSH** | Password + Root login activé | Clés Ed25519 seulement, Port changé, Fail2Ban | Bloque 95 % des attaques automatiques | | **Firewall** | Tout ouvert ou UFW désactivé | Default DENY + ports minimaux | Réduit drastiquement la surface d’attaque | | **Système** | Packages inutiles + root partout | Minimal install, sudo strict, automatic updates | Moins de vulnérabilités et maintenance facile | | **Kernel & Accès** | Paramètres par défaut | sysctl hardening + AppArmor/SELinux enforcing | Protection contre privilege escalation | | **Monitoring** | Aucun log ni alerte | Auditd + Fail2Ban + Log centralisé | Détection rapide des tentatives | **Pourquoi le hardening est non-négociable en 2026 ?** Les scans automatiques et les bots attaquent en continu. Un serveur mal sécurisé peut être compromis en quelques heures. Avec cette approche, je dors tranquille même sur des serveurs exposés. --- ## Introduction Salut, c’est Barthez Kenwou. Depuis plus de 8 ans, je déploie, je maintiens et je sécurise des dizaines de serveurs Linux pour mes projets full-stack et ceux de mes clients (AWS EC2, VPS, bare-metal). J’ai vu (et corrigé) les mêmes erreurs partout : root login activé avec password, port SSH 22 ouvert au monde entier, firewall inexistant, et des serveurs qui accumulent des packages inutiles. Résultat ? Des serveurs compromis par brute-force, des ransomwares, ou simplement des bots qui minent du crypto en arrière-plan. Ce guide n’est pas une liste théorique. C’est **exactement** la procédure de hardening que j’exécute sur **chaque nou…
+
+### Monitoring Stack Production-Ready – Prometheus + Grafana + Loki + Tempo + Alloy + Alerts (Ce Que Je Déploie Vraiment)
+
+- URL: https://barthez-kenwou.dev/blog/12
+- Slug: production-ready-monitoring-stack
+- Category: DevOps · 2026-01-06 · 56 min
+- Tags: Observability, Prometheus, Grafana, Loki, Tempo, Alloy, LGTM, Alerting, Kubernetes, DevOps
+- Cover: https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/1_Dtd4Tjp_3IzMu_B790Umtw.png
+
+**Excerpt:** Plus de black boxes en production. Voici exactement la stack d’observabilité que j’installe sur tous mes environnements en 2026 : Prometheus pour les metrics, Loki pour les logs, Tempo pour les traces, Grafana comme interface unique, Grafana Alloy comme agent unifié, et Alertmanager pour des alertes intelligentes. Guide pas-à-pas avec erreurs courantes, configs Helm/Terraform, dashboards, et un cas réel où on est passé de « on ne sait pas ce qui se passe » à une détection d’incidents en moins de 3 minutes.
+
+## Résumé Visuel : La Stack Observabilité 2026 (LGTM + Alloy) | Composant | Rôle | Erreur Courante | Ce Que Je Fais Vraiment | Bénéfice | |-----------|------|-----------------|-------------------------|----------| | **Prometheus** | Metrics | Un seul instance sans scaling | kube-prometheus-stack + remote write vers Mimir | Scalable & PromQL puissant | | **Loki** | Logs | ELK lourd et cher | Loki avec labels minimaux + Alloy | Stockage ultra-économique | | **Tempo** | Traces | Jaeger complexe | Tempo (backend simple) + OpenTelemetry | Tracing distribué pas cher | | **Grafana** | Visualisation & Alerting | Dashboards maison sans structure | Dashboards unifiés + SLO | Single pane of glass | | **Grafana Alloy** | Collecte | Promtail + Agent séparés | Alloy (un seul binaire) pour metrics/logs/traces | Simplicité et maintenance faible | | **Alertmanager** | Alertes | Alertes brutes | Routing intelligent (Slack/PagerDuty) + inhibition | Alertes actionnables | **Pourquoi cette stack change tout en 2026 ?** Tu passes de “réagir aux incidents” à “les anticiper”. Coûts maîtrisés, corrélation metrics/logs/traces en un clic, et une équipe qui déploie plus sereinement. --- ## Introduction Salut, c’est Barthez Kenwou. Depuis plus de 8 ans, je maintiens des systèmes en production (React/Node.js, microservices sur EKS, etc.). J’ai vu trop souvent la même situation : une app qui tombe à 2h du matin, personne ne sait pourquoi, et on passe des heures à fouiller des logs dispersés. Aujourd’hui, je te partage **exactement** la stack monitoring/observabilité que je déploie sur tous mes projets clients en 2026. Ce n’est pas une stack théorique “LGTM” de base. C’est la version production-ready avec Grafana Alloy (le game-changer qui remplace Promtail + plusieurs agents), OpenTelemetry pour l’i…
+
+### Linux Server – De VPS Vierge à Forteresse Complète
+
+- URL: https://barthez-kenwou.dev/blog/13
+- Slug: linux-server-fresh-vps-fortress
+- Category: DevOps · 2026-04-12 · 32 min
+- Tags: LinuxHardening, ServerSecurity, CrowdSec, Naxsi, CSF, Fail2Ban, Cloudflare, UFW, DevOps, Ubuntu
+- Cover: https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/images.jpeg
+
+**Excerpt:** Un VPS Ubuntu exposé sur internet sans hardening sérieux devient une cible en quelques heures. Voici exactement la méthode complète et chronologique que j’applique sur tous mes serveurs en 2026 : SSH Ed25519 + port custom, UFW + iptables + CSF, Fail2Ban + CrowdSec, Naxsi WAF, Cloudflare + bouncers, headers de sécurité, monitoring et rapports quotidiens. Guide ultra-détaillé, production-ready, inspiré de mes déploiements réels sur Ubuntu 22.04/24.04.
+
+## Résumé Visuel : Les 12 Phases de Hardening que J’Applique en 2026 | Phase | Objectif Principal | Outils Clés | Niveau de Protection | |-------|--------------------|-------------|----------------------| | 1-2 | Accès initial & SSH | Clés Ed25519, Port custom, No root | Bloque 95 % des scans automatiques | | 3 | Base système | Updates auto, sysctl, outils essentiels | Réduit les vulnérabilités connues | | 4-5 | Firewall | UFW + iptables avancé | Surface d’attaque minimale | | 6 | Protection réactive | Fail2Ban + recidive | Bannissement automatique | | 8 | Firewall avancé | CSF + LFD | Rate limiting + alertes | | 9 | Détection collaborative | CrowdSec + bouncers | Intelligence collective | | 10 | WAF applicatif | Naxsi (whitelist) | Protection contre injections | | 11 | Protection CDN | Cloudflare + bouncer | DDoS & bots bloqués avant le serveur | | 12 | Hardening final | Headers, Monit, Lynis, rapports | Forteresse maintenable | **Pourquoi cette approche est celle que j’utilise vraiment en 2026 ?** Je ne fais plus confiance à une seule couche. J’empile UFW → iptables → CSF → Fail2Ban → CrowdSec → Naxsi → Cloudflare. Résultat : un serveur qui résiste aux scans massifs, aux bots et aux attaques ciblées tout en restant facile à maintenir. --- ## Introduction Salut, c’est Barthez Kenwou. Depuis plus de 8 ans, je déploie et je sécurise des dizaines de VPS et serveurs Linux (Ubuntu 22.04/24.04) pour mes projets et ceux de mes clients. J’ai vu trop souvent des serveurs root avec password sur le port 22 se faire compromettre en moins de 24h. Ce guide n’est pas une checklist théorique. C’est **exactement** la procédure chronologique que j’exécute sur **chaque nouveau VPS** que je mets en production : du premier accès jusqu’à la forteresse complète avec plusieurs couches de déf…
+
+### CI/CD Pipeline for Zero Downtime Deployment (Real Setup) – Ce Que J’Utilise Vraiment sur Mes Projets Clients
+
+- URL: https://barthez-kenwou.dev/blog/14
+- Slug: ci-cd-zero-downtime-deployment
+- Category: DevOps · 2026-04-20 · 28 min
+- Tags: ZeroDowntime, CICD, ArgoCD, ArgoRollouts, GitOps, BlueGreen, Canary, FeatureFlags, Kubernetes, DevOps
+- Cover: https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/1_KJrTyv_5Eu9Rx4YBrIzUWQ.jpg
+
+**Excerpt:** Déployer plusieurs fois par jour sans jamais faire tomber la production ? Voici exactement le pipeline CI/CD que j’implémente sur tous mes environnements en 2026 : GitHub Actions pour le CI (build, test, scan, push), ArgoCD pour le GitOps, Argo Rollouts pour Blue-Green ou Canary avec analysis Prometheus, feature flags, preview environments et rollback automatique. Guide ultra-complet avec workflows concrets, manifests Rollout, erreurs courantes et un cas réel où on est passé à plusieurs déploiements par jour sans downtime.
+
+## Résumé Visuel : Pipeline Zero Downtime 2026 | Étape | Outil | Stratégie | Temps de Rollout | Rollback | |-------|-------|-----------|------------------|----------| | **CI** | GitHub Actions | Build + Test + Trivy + Push | < 8 min | - | | **Preview** | ArgoCD + ephemeral env | Pour chaque PR | Instant | Git revert | | **Staging** | ArgoCD + Rollouts | Canary ou Blue-Green | 5-15 min | Auto | | **Prod** | Argo Rollouts | Blue-Green (stable) ou Canary avec analysis | Instant switch ou progressive | Instant (traffic back) | | **Feature Flags** | Unleash / LaunchDarkly | Découplage deploy/release | - | Flag off | **Pourquoi ce pipeline est celui que j’utilise vraiment ?** Plus de "deploy Friday night". On déploie plusieurs fois par jour, on teste en production avec du vrai trafic (canary), et on rollback en un clic si besoin. Zéro surprise, zéro downtime. --- ## Introduction Salut, c’est Barthez Kenwou. Depuis plus de 8 ans, je construis des pipelines CI/CD pour des startups et scale-ups qui passent de quelques déploiements par semaine à plusieurs par jour. L’erreur classique que je corrige le plus souvent ? Un pipeline qui fait du "push to main = deploy direct" avec des rolling updates classiques : downtime pendant le déploiement, tests insuffisants en prod, et rollback douloureux. Aujourd’hui, je te partage **exactement** le pipeline zero-downtime que j’implémente sur tous mes projets clients en 2026 : GitHub Actions (CI) + ArgoCD (GitOps) + Argo Rollouts (progressive delivery) + feature flags. On va couvrir : - Stratégie globale (Preview → Staging → Prod) - Workflow GitHub Actions complet - ArgoCD + Argo Rollouts pour Blue-Green et Canary - Analysis avec Prometheus pour des rollouts intelligents - Feature flags pour découpler déploiement et release - Preview environme…
+
+### DevSecOps in Practice – SAST, DAST, SCA, IaC Scanning & CI/CD Integration (Real Setup)
+
+- URL: https://barthez-kenwou.dev/blog/15
+- Slug: devsecops-in-practice-sast-dast
+- Category: DevOps · 2026-02-13 · 37 min
+- Tags: DevSecOps, SAST, DAST, SCA, Trivy, ZAP, GitHubActions, CI/CD, Security, ShiftLeft
+- Cover: https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/devsecops_loop.png
+
+**Excerpt:** La sécurité ne doit plus être un frein à la fin du sprint. Voici exactement comment j’intègre DevSecOps dans tous mes projets clients en 2026 : SAST (Semgrep), SCA + container scanning (Trivy), DAST (OWASP ZAP), secrets detection, IaC scanning, le tout dans GitHub Actions + ArgoCD. Guide concret avec workflows complets, security gates intelligents, réduction des faux positifs et un cas réel où on a divisé par 4 le nombre de vulnérabilités critiques en production sans ralentir les développeurs.
+
+## Résumé Visuel : Les Couches DevSecOps que J’Implémente en 2026 | Étape dans le Pipeline | Type de Scan | Outil Principal | Quand ça tourne | Action si critique | |-----------------------|--------------|-----------------|-----------------|---------------------| | **PR / Commit** | SAST + Secrets + SCA | Semgrep + GitLeaks + Trivy | À chaque PR | Comment bloquant (high/critical) | | **Build** | Container + IaC | Trivy + Checkov/Terraform | Après build Docker/Terraform | Fail si critical | | **Staging** | DAST | OWASP ZAP (baseline + API) | Après déploiement staging | Alert + ticket auto | | **Prod** | Runtime / Continuous | CrowdSec + monitoring | En continu | Alerting + auto-quarantine | **Pourquoi je fais du DevSecOps comme ça en 2026 ?** Je ne veux plus que la sécurité soit un bottleneck à la fin. Je shift-left au maximum tout en gardant la vélocité des devs. Résultat : moins de vulnérabilités en prod, moins de stress, et une équipe qui voit la sécurité comme une aide, pas un ennemi. --- ## Introduction Salut, c’est Barthez Kenwou. Depuis plus de 8 ans, je mets en place des pipelines DevSecOps sur des projets full-stack et microservices. L’erreur que je corrige le plus souvent chez les clients ? Ajouter des scans de sécurité qui cassent le build à chaque fois, génèrent des centaines de faux positifs, et finissent par être ignorés par les développeurs. Ce guide n’est pas une liste théorique de outils. C’est **exactement** la pratique DevSecOps que j’implémente sur tous mes projets clients en 2026 : légère, automatisée, intégrée dans GitHub Actions + ArgoCD, avec des gates intelligents qui bloquent seulement ce qui est vraiment critique. On va couvrir : - SAST (code statique) - SCA (dépendances) + Container scanning - Secrets detection - IaC scanning - DAST (tests dy…
+
+### Scaling a React App (SSR, Caching, Performance) – Ce Que Je Fais Vraiment pour Passer à Des Milliers d’Utilisateurs
+
+- URL: https://barthez-kenwou.dev/blog/16
+- Slug: scaling-react-app-ssr-performance
+- Category: Frontend · 2025-10-10 · 29 min
+- Tags: ReactScaling, NextJS, SSR, ISR, Caching, Performance, ReactServerComponents, EdgeRendering, DevOps
+- Cover: https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/1_PRSCPASXfR-Kc4sQ_0ZSKw.jpg
+
+**Excerpt:** Une app React qui rame à 1 000 utilisateurs actifs ? Voici exactement la stratégie de scaling que j’applique sur tous mes projets clients en 2026 : choix intelligent entre SSR/SSG/ISR/Edge Rendering avec Next.js App Router, layered caching (Data Cache, Full Route Cache, Redis, CDN), React Server Components, streaming, optimisation images/fonts, et monitoring Core Web Vitals. Guide concret avec code, erreurs courantes et un cas réel où on est passé de 3s de TTFB à <300ms tout en réduisant les coûts serveur de 45 %.
+
+## Résumé Visuel : Stratégies de Scaling React que J’Utilise en 2026 | Stratégie | Quand l’utiliser | Performance | Fraîcheur des données | Complexité | |-----------|------------------|-------------|-----------------------|------------| | **SSG** | Pages statiques (blog, landing, produits) | Excellente (CDN) | Stale (ISR pour refresh) | Faible | | **ISR** | Contenu qui change modérément | Très bonne | Semi-fraîche (revalidate) | Moyenne | | **SSR** | Données personnalisées / temps réel | Moyenne (avec cache) | Fraîche | Moyenne | | **Edge Rendering** | Trafic global + faible latence | Excellente (<100ms TTFB) | Fraîche ou cachée | Moyenne | | **Client-side (React Query/SWR)** | Données interactives | Bonne (après hydration) | Très fraîche | Faible | **Pourquoi cette approche marche vraiment en 2026 ?** Je ne fais plus de SSR partout (trop lourd). J’utilise un mix intelligent + layered caching (Next.js Data Cache + Full Route Cache + Redis + Edge CDN) + React Server Components pour réduire drastiquement le JS client. Résultat : apps rapides, scalables et économiques. --- ## Introduction Salut, c’est Barthez Kenwou. Depuis plus de 8 ans, je scale des applications React (souvent avec Next.js) pour des startups qui passent de quelques centaines à des dizaines de milliers d’utilisateurs actifs. L’erreur classique que je corrige le plus souvent ? Tout mettre en SSR sans caching intelligent → serveur qui explose, TTFB à 3-5 secondes, et Core Web Vitals dans le rouge. Ce guide n’est pas théorique. C’est **exactement** la stratégie de scaling que j’applique sur tous mes projets clients en 2026 : choix per-page de rendering strategy, layered caching, React Server Components, streaming, optimisation assets, et monitoring continu. On va couvrir : - Choix entre SSR, SSG, ISR et Edg…
+
+### Supply Chain Attacks sur npm – L’Affaire Axios et Comment Je Protège Mes Apps en DevSecOps
+
+- URL: https://barthez-kenwou.dev/blog/17
+- Slug: npm-supply-chain-attacks-protection
+- Category: DevOps · 2026-04-14 · 16 min
+- Tags: SupplyChainSecurity, DevSecOps, npmSecurity, AxiosAttack, SAST, Trivy, ShiftLeft, DependencyConfusion
+- Cover: https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_5ewfh3297139a4h7ofof.webp
+
+**Excerpt:** Le 31 mars 2026, axios – une des librairies JS les plus utilisées au monde (plus de 100 millions de downloads/semaine) – a été compromise via un compte maintainer piraté. Des versions malveillantes ont injecté un RAT cross-platform. Ce n’est pas un cas isolé : typosquatting, dependency confusion, phishing de maintainers… Voici comment ces attaques de la chaîne d’approvisionnement fonctionnent, pourquoi elles sont si dangereuses et difficiles à stopper, et surtout la stratégie DevSecOps complète et réelle que j’applique sur tous mes projets pour les prévenir et les détecter tôt.
+
+## Résumé Visuel : Les Attaques Supply Chain npm en 2026 | Type d’Attaque | Exemple Récent | Mécanisme Principal | Impact Typique | |----------------|----------------|---------------------|---------------| | **Compte Maintainer Compromis** | Axios (31 mars 2026) | Piratage credentials → publication de versions backdoorées | RAT cross-platform, millions d’installs en quelques heures | | **Typosquatting** | Paquets ressemblant à des populaires | Nom presque identique (ex: axois vs axios) | Installation accidentelle par erreur de frappe | | **Dependency Confusion** | Attaques internes vs public | Publication publique d’un nom utilisé en privé | npm résout vers le paquet malveillant | | **Phishing + Token Abuse** | Campagnes 2025 (chalk, debug, etc.) | Phishing maintainer → vol de token npm | Injection massive dans des paquets très téléchargés | | **Phantom Dependency / Postinstall** | Axios + plain-crypto-js | Dépendance fantôme + script postinstall | Exécution silencieuse de malware | **Pourquoi ces attaques sont différentes et particulièrement dangereuses ?** Elles exploitent la **confiance aveugle** dans le registre npm et dans les dépendances tierces. Une seule librairie populaire compromise touche des millions de développeurs en quelques heures. Le code malveillant s’exécute souvent via `postinstall` (avant même que tu lances ton app), et les attaquants effacent souvent leurs traces. Attribution fréquente à des acteurs étatiques (ex. : Sapphire Sleet / UNC1069, Corée du Nord pour Axios). --- ## Introduction Salut, c’est Barthez Kenwou. Ces derniers mois, on a vu une recrudescence alarmante d’attaques sur la chaîne d’approvisionnement npm. L’affaire **Axios** du 31 mars 2026 est particulièrement marquante : un des paquets les plus utilisés au monde (HTTP client présen…
+
+### How I Built and Deployed an ERP with Odoo + Kubernetes – Architecture Complète Production-Ready
+
+- URL: https://barthez-kenwou.dev/blog/18
+- Slug: odoo-kubernetes-erp-deployment
+- Category: DevOps · 2026-04-20 · 43 min
+- Tags: Odoo, Kubernetes, ERP, EKS, GitOps, ArgoCD, Scaling, DevOps, Helm
+- Cover: https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/1_Rb6VuLl-T4Jl2aBZipp5vA.jpg
+
+**Excerpt:** Comment passer d’un Odoo classique sur VM à un ERP scalable, résilient et multi-tenant sur Kubernetes (EKS) ? Voici exactement l’architecture que j’ai conçue et déployée pour plusieurs clients en 2026 : Odoo workers avec React Server Components-like (custom modules), PostgreSQL dédié, Redis, filestore sur PVC, Helm charts, GitOps avec ArgoCD, zero-downtime deployments, monitoring complet et scaling horizontal. Guide ultra-détaillé avec schémas, manifests, erreurs courantes et un cas réel où on a multiplié par 10 la capacité tout en réduisant les coûts de 40 %.
+
+## Résumé Visuel : Architecture Odoo sur Kubernetes 2026 | Composant | Rôle | Configuration Recommandée | Scaling | |-----------|------|---------------------------|---------| | **Odoo Workers** | Application principale | Deployment avec replicas + custom modules | Horizontal (Karpenter ou HPA) | | **PostgreSQL** | Base de données | StatefulSet + PVC + pgBouncer | Vertical + Read replicas | | **Redis** | Cache & sessions | Deployment ou Bitnami chart | Horizontal | | **Filestore** | Pièces jointes | PersistentVolumeClaim (EFS ou Ceph) | Shared storage | | **Ingress** | Exposition | NGINX ou ALB Ingress + cert-manager | Auto-scaling | | **Monitoring** | Observabilité | Prometheus + Grafana + Loki | Meta-monitoring | **Pourquoi Kubernetes pour Odoo en 2026 ?** Odoo n’est plus une simple app monolithique. Avec des centaines de modules custom, des milliers d’utilisateurs et des besoins de haute disponibilité, Kubernetes apporte scaling horizontal, zero-downtime deployments, isolation multi-tenant et GitOps. C’est ce que j’utilise pour tous mes projets ERP clients. --- ## Introduction Salut, c’est Barthez Kenwou. Depuis plus de 8 ans, je construis et je maintiens des ERP Odoo pour des PME et des scale-ups qui passent de quelques utilisateurs à plusieurs centaines en simultané. J’ai vu trop souvent la même limite : Odoo sur une grosse VM qui devient ingérable dès qu’on ajoute des modules custom ou qu’on veut scaler. Aujourd’hui, je te partage **exactement** comment j’ai conçu et déployé un ERP Odoo complet sur Kubernetes (principalement EKS) pour mes clients en 2026. Ce n’est pas un simple "helm install bitnami/odoo". C’est une architecture production-ready : multi-environnements, GitOps, scaling intelligent, zero-downtime et monitoring complet. On va couvrir : - Architecture…
+
+### Zustand vs Redux – Lequel Je Choisis Vraiment pour Mes Projets React & Next.js
+
+- URL: https://barthez-kenwou.dev/blog/19
+- Slug: zustand-vs-redux-react-choice
+- Category: Frontend · 2026-04-03 · 23 min
+- Tags: Zustand, Redux, ReactStateManagement, NextJS, Performance, Boilerplate, DevExperience
+- Cover: https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/images%20(1).jpeg
+
+**Excerpt:** Redux ou Zustand en 2026 ? Après avoir migré plusieurs apps clients (React/Next.js) de Redux vers Zustand, voici mon analyse honnête : boilerplate, performance (bundle ~1.2kB vs 13-20kB), re-renders, scalabilité, debugging et écosystème. Quand Zustand gagne haut la main (MVPs, apps moyennes, vitesse), quand Redux Toolkit reste imbattable (grosses équipes, state complexe, RTK Query). Règle de décision que j’applique vraiment + exemples concrets et benchmarks.
+
+## Résumé Visuel : Zustand vs Redux en 2026 | Critère | Zustand | Redux Toolkit | Gagnant | |---------|---------|---------------|---------| | **Bundle Size** | ~1.2kB | ~13-20kB (avec React-Redux + RTK) | Zustand | | **Boilerplate** | Très faible (1 store = 1 hook) | Moyen (slices, actions, reducers) | Zustand | | **Performance (re-renders)** | Excellent (selective par défaut) | Bon avec useSelector | Zustand | | **Learning Curve** | Très douce | Moyenne à élevée | Zustand | | **Scalabilité (grosses apps)** | Bonne avec discipline | Excellente (structure stricte) | Redux | | **Debugging** | Bon (Redux DevTools compatible) | Excellent (time-travel) | Redux | | **Écosystème / Middleware** | Bon (persist, middleware) | Très riche (RTK Query, sagas, etc.) | Redux | | **Best For** | Startups, MVPs, apps moyennes, UI-heavy | Entreprises, très grosses équipes, state complexe | Selon le projet | **Ma règle de décision 2026** : - **Zustand** pour 80 % des nouveaux projets (vitesse, simplicité, bundle léger). - **Redux Toolkit** quand l’équipe > 8 devs, state très normalisé ou besoin de RTK Query massif. --- ## Introduction Salut, c’est Barthez Kenwou. Depuis plus de 8 ans, je construis des apps React et Next.js pour des startups et scale-ups. J’ai commencé avec Redux pur (beaucoup de boilerplate), puis Redux Toolkit (bien mieux), et ces dernières années j’ai migré la plupart de mes projets vers **Zustand**. En 2026, la question "Zustand ou Redux ?" revient constamment. Zustand a explosé en popularité (plus de 50 millions de downloads mensuels) grâce à sa simplicité extrême, tandis que Redux Toolkit reste le standard enterprise pour sa structure et son écosystème. Ce guide n’est pas du fanboyisme. C’est mon analyse honnête basée sur des benchmarks réels, des migrations clients e…
+
+### J’ai Piloté un Séminaire Intensif “Créer un Site Web avec l’IA” – Retours, Outils & Méthode Complète
+
+- URL: https://barthez-kenwou.dev/blog/20
+- Slug: ai-website-builder-seminar-feedback
+- Category: Formation · 2026-03-28 · 15 min
+- Tags: DevWeb, IntelligenceArtificielle, PromptEngineering, Cursor, v0, BoltNew, NextJS, React, FormationTech
+- Cover: https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/seminar.jpeg
+
+**Excerpt:** Le 28 mars 2026, j’ai eu le plaisir d’animer un séminaire intensif d’une journée “Créer un site web avec l’Intelligence Artificielle” à Yaoundé. Au programme : 30 outils IA (No-Code, Low-Code, Code + IA), prompt engineering avancé, génération d’apps complètes avec Cursor, v0, Bolt.new, Lovable, et les bonnes pratiques pour passer de prototype à produit professionnel. Voici le retour d’expérience complet : ce qui a le plus marqué les participants, les outils qui ont changé la donne, et la méthode que j’applique désormais sur tous mes projets.
+
+## Résumé Visuel : Le Séminaire “Créer un Site Web avec l’IA” – 28 Mars 2026 | Catégorie | Nombre d’outils | Niveau | Objectif Principal | |-----------|-----------------|--------|--------------------| | **No-Code** | 10 | Débutant / Entrepreneur | Lancer un site en quelques minutes sans coder | | **Low-Code** | 10 | Intermédiaire | Créer des applications réelles avec très peu de code | | **Code + IA** | 10 | Développeur | Accélérer le développement professionnel avec l’IA | **Pourquoi j’ai piloté ce séminaire ?** L’IA révolutionne le développement web, mais sans méthode, beaucoup produisent du code fragile ou perdent du temps. J’ai voulu offrir une journée intensive, pratique et honnête pour que chaque participant reparte avec des outils concrets et une approche professionnelle. --- ## Introduction Salut à tous, c’est Barthez Kenwou. Le **28 mars 2026**, j’ai eu le plaisir d’animer un séminaire intensif d’une journée intitulé **“Créer un site web avec l’Intelligence Artificielle”** organisé par Worketyamo à Yaoundé. L’objectif était ambitieux mais clair : permettre aux participants (développeurs, entrepreneurs, freelances et étudiants) de passer d’une utilisation occasionnelle de l’IA à une maîtrise pratique qui multiplie réellement leur productivité tout en maintenant une qualité professionnelle. Ce n’était pas une simple présentation d’outils. C’était une journée hands-on avec beaucoup d’exercices pratiques, des démos en live, des comparaisons d’outils et des discussions sur les bonnes pratiques en 2026. Dans cet article, je partage tout en détail : le programme de la journée, les 30 outils présentés (classés en 3 catégories), les moments forts, les retours des participants, les leçons que j’ai tirées, et surtout la méthode que j’applique désormais sur tous mes proje…
+
+
+## Discovery endpoints
+
+- https://barthez-kenwou.dev/llms.txt
+- https://barthez-kenwou.dev/sitemap-index.xml
+- https://barthez-kenwou.dev/robots.txt
+- https://barthez-kenwou.dev/.well-known/security.txt

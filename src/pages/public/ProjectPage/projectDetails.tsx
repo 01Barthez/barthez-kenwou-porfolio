@@ -38,6 +38,29 @@ export const ProjectDetailPage = () => {
             ? truncateFonction(project.descriptionFr || '', 160)
             : truncateFonction(project.descriptionEn || '', 160)
           }`}
+        openGraph={{
+          type: 'article',
+          image: project.images?.[0] || project.preview,
+          imageAlt: language === 'fr' ? project.titleFr : project.titleEn,
+        }}
+        jsonLd={{
+          '@type': 'CreativeWork',
+          name: language === 'fr' ? project.titleFr : project.titleEn,
+          alternateName: language === 'fr' ? project.titleEn : project.titleFr,
+          description: language === 'fr' ? project.descriptionFr : project.descriptionEn,
+          image: project.images?.[0] || project.preview,
+          url: `https://barthez-kenwou.dev/projects/${searchId}`,
+          author: {
+            '@type': 'Person',
+            name: 'Barthez Kenwou',
+            url: 'https://barthez-kenwou.dev',
+          },
+          keywords: [
+            ...(project.techStack?.frontend || []),
+            ...(project.techStack?.backend || []),
+            ...(project.techStack?.devops || []),
+          ].join(', '),
+        }}
       />
 
       <div className="min-h-screen overflow-x-clip">

@@ -30,13 +30,44 @@ export const BlogDetailPage = () => {
         path={`/blog/${blogID}`}
         title={`${language === 'fr'
           ? truncateFonction(post?.titleFr || '', 60)
-          : truncateFonction(post?.titleEn || '', 60)
+          : truncateFonction(post?.titleEn || post?.titleFr || '', 60)
           }`}
         description={`${language === 'fr'
           ? truncateFonction(post?.excerptFr || post?.contentFr || '', 160)
-          : truncateFonction(post?.excerptEn || post?.contentEn || '', 160)
+          : truncateFonction(post?.excerptEn || post?.excerptFr || post?.contentEn || '', 160)
           }`}
-        openGraph={{ type: 'article' }}
+        openGraph={{
+          type: 'article',
+          image: post.image,
+          imageAlt: language === 'fr' ? post.titleFr : post.titleEn || post.titleFr,
+        }}
+        additionalMeta={[
+          { property: 'article:published_time', content: post.date },
+          { property: 'article:author', content: post.author },
+          { property: 'article:section', content: post.category },
+          ...post.tags.slice(0, 8).map((tag) => ({
+            property: 'article:tag',
+            content: tag,
+          })),
+        ]}
+        jsonLd={{
+          '@type': 'BlogPosting',
+          headline: language === 'fr' ? post.titleFr : post.titleEn || post.titleFr,
+          description:
+            language === 'fr'
+              ? post.excerptFr
+              : post.excerptEn || post.excerptFr,
+          image: post.image,
+          datePublished: post.date,
+          author: {
+            '@type': 'Person',
+            name: post.author,
+            url: 'https://barthez-kenwou.dev',
+          },
+          mainEntityOfPage: `https://barthez-kenwou.dev/blog/${blogID}`,
+          keywords: post.tags.join(', '),
+          articleSection: post.category,
+        }}
       />
 
       <div className="min-h-screen bg-background relative overflow-x-clip">

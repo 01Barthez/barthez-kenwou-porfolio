@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+  <url>
+    <loc>https://barthez-kenwou.dev/projects/12</loc>
+    <video:video>
+      <video:thumbnail_loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Macbook-Air-gta-it.com%20(2).png</video:thumbnail_loc>
+      <video:title>Plateforme Web PWA GTA IT (Corporate + Backoffice)</video:title>
+      <video:description>Application web progressive complète pour l&apos;ESN GTA (Global Technology &amp; Associates), avec vitrine corporate, blog, gestion de contenu et système de demande de devis</video:description>
+      <video:content_loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Macbook-Air-gta-it.com-qjegppeqe2kxhz%20(1).webm</video:content_loc>
+      <video:family_friendly>yes</video:family_friendly>
+      <video:live>no</video:live>
+    </video:video>
+  </url>
+</urlset>

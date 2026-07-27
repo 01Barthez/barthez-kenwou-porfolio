@@ -1986,9 +1986,9 @@ Vous venez de déployer une **stack full-stack serverless professionnelle** avec
     "id": "6",
     "slug": "aws-security-iam-best-practices",
     "titleFr": "Sécurité AWS – Les Meilleures Pratiques IAM comme un Expert",
-    "titleEn": "",
+    "titleEn": "AWS Security – IAM Best Practices Like an Expert",
     "excerptFr": "Protégez votre compte AWS comme un pro : root user blindé, IAM Identity Center, least privilege avec Access Analyzer, MFA partout, SCPs, permissions boundaries… Guide complet issu de mes 8 ans d’expérience sur des projets à fort trafic et multi-comptes. À la fin, vous aurez une stratégie IAM professionnelle, automatisée et prête pour la production.",
-    "excerptEn": "",
+    "excerptEn": "Protect your AWS account like a pro: hardened root user, IAM Identity Center, least privilege with Access Analyzer, MFA everywhere, SCPs, permissions boundaries… A complete guide from 8+ years on high-traffic multi-account projects. You will leave with a production-ready IAM strategy.",
     "contentFr": `
 ## Introduction
 

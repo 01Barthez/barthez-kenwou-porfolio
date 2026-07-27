@@ -1,0 +1,23 @@
+/* TEAM */
+Name: Barthez Kenwou
+Role: Full Stack Developer & DevOps Engineer (AWS Cloud Specialist)
+Location: Yaoundé, Cameroun
+Contact: kenwoubarthez@gmail.com
+GitHub: https://github.com/barthez-kenwou
+LinkedIn: https://linkedin.com/in/barthez-kenwou
+Site: https://barthez-kenwou.dev/
+
+/* THANKS */
+Nginx Proxy Manager — TLS & reverse proxy on production VPS
+OVHcloud — VPS hosting
+GitHub Actions + GHCR — CI/CD & container registry
+Aqua Trivy — dependency & image scanning
+SonarQube — static analysis
+
+/* SITE */
+Last update: 2026-07-27
+Language: fr-FR / en-US
+Standards: HTML5, CSS3, ES2022+, JSON-LD, Open Graph, llms.txt
+Software: React, TypeScript, Vite, Bun, Tailwind CSS, nginx
+Doctype: HTML5
+IDE: Cursor, VS Code

@@ -1,0 +1,127 @@
+# Barthez Kenwou
+
+> Portfolio de Barthez Kenwou — Développeur Full Stack JS & Ingénieur DevOps spécialiste AWS Cloud. Applications web modernes, CI/CD, Kubernetes et architectures cloud performantes.
+
+Barthez Kenwou est un développeur Full Stack JavaScript et ingénieur DevOps spécialisé AWS Cloud, basé à Yaoundé, Cameroun.
+Ce site portfolio présente ses services, compétences, études de cas projets et articles techniques (FR/EN).
+
+Langues du site : français (par défaut) et anglais (même URL, bascule UI).
+Contact : kenwoubarthez@gmail.com · +237 655 646 688 · https://linkedin.com/in/barthez-kenwou · https://github.com/barthez-kenwou
+
+## Pages principales
+
+- [Accueil](https://barthez-kenwou.dev/): Présentation, positionnement Full Stack & DevOps, appels à l'action
+- [À propos](https://barthez-kenwou.dev/about): Parcours, vision et expertise
+- [Services](https://barthez-kenwou.dev/services): Offres développement, cloud, CI/CD, Kubernetes, sécurité
+- [Projets](https://barthez-kenwou.dev/projects): Catalogue d'études de cas techniques
+- [Compétences](https://barthez-kenwou.dev/skills): Stack Frontend, Backend, Cloud, DevOps
+- [Blog](https://barthez-kenwou.dev/blog): Tutoriels AWS, DevOps, Node.js, React, sécurité
+- [CV](https://barthez-kenwou.dev/cv): Expériences, formations et téléchargement CV
+- [Contact](https://barthez-kenwou.dev/contact): Email, téléphone, WhatsApp, réseaux
+
+## Projets en vedette
+
+- [COMBO – ERP SaaS Modulaire pour la Gestion Intelligente de Restaurants](https://barthez-kenwou.dev/projects/1): ERP SaaS nouvelle génération pour restaurants, basé sur une architecture modulaire activable à la demande, combinant gestion opérationnelle…
+- [Plateforme Web PWA GTA IT (Corporate + Backoffice)](https://barthez-kenwou.dev/projects/12): Application web progressive complète pour l'ESN GTA (Global Technology & Associates), avec vitrine corporate, blog, gestion de contenu et s…
+- [Kaza – Plateforme Immobilière Intelligente & Écosystème Conciergerie](https://barthez-kenwou.dev/projects/3): Plateforme digitale immobilière 'end-to-end' combinant marketplace, IA anti-fraude, conciergerie et mise en relation directe, avec un écosy…
+- [Portfolio Fullstack & DevOps (Personnel) – Plateforme de Positionnement Technique](https://barthez-kenwou.dev/projects/4): Portfolio professionnel fullstack conçu comme une plateforme complète de présentation, intégrant performance, SEO, backoffice et bonnes pra…
+
+## Tous les projets (12)
+
+- [COMBO – ERP SaaS Modulaire pour la Gestion Intelligente de Restaurants](https://barthez-kenwou.dev/projects/1): ERP SaaS nouvelle génération pour restaurants, basé sur une architecture modulaire activable à la demande, combinant gestion opérationnelle… [SaaS • Fullstack • Cloud • DevOps]
+- [Plateforme Web PWA GTA IT (Corporate + Backoffice)](https://barthez-kenwou.dev/projects/12): Application web progressive complète pour l'ESN GTA (Global Technology & Associates), avec vitrine corporate, blog, gestion de contenu et s… [Full Stack & PWA]
+- [Kaza – Plateforme Immobilière Intelligente & Écosystème Conciergerie](https://barthez-kenwou.dev/projects/3): Plateforme digitale immobilière 'end-to-end' combinant marketplace, IA anti-fraude, conciergerie et mise en relation directe, avec un écosy… [Fullstack • DevOps • AI • Mobile]
+- [Portfolio Fullstack & DevOps (Personnel) – Plateforme de Positionnement Technique](https://barthez-kenwou.dev/projects/4): Portfolio professionnel fullstack conçu comme une plateforme complète de présentation, intégrant performance, SEO, backoffice et bonnes pra… [Fullstack • DevOps]
+- [Plateforme Web ONG ESOPA – WordPress & Infrastructure DevOps](https://barthez-kenwou.dev/projects/5): Plateforme web vitrine pour l’ONG ESOPA, accompagnée d’une infrastructure DevOps complète (multi-environnements, sécurité, CI/CD, sauvegard… [DevOps • Web]
+- [Secure Software Supply Chain Platform – DevSecOps Industriel](https://barthez-kenwou.dev/projects/6): Conception d’une plateforme DevSecOps sécurisant la supply chain pour applications Node.js/Java (microservices & monolithes), avec conformi… [DevSecOps]
+- [Plateforme ERP Odoo – Infrastructure Cloud & DevOps (INTELEK BTP)](https://barthez-kenwou.dev/projects/7): Déploiement et personnalisation d’un ERP Odoo pour une entreprise BTP, avec infrastructure cloud sécurisée, orchestration Kubernetes et sau… [DevOps • ERP]
+- [Plateforme d’Observabilité Full Stack – Monitoring, Logs & Traces Corrélés](https://barthez-kenwou.dev/projects/8): Système complet d’observabilité pour VPS de production, intégrant métriques, logs et traces distribuées avec alerting avancé et dashboards… [DevOps • Observability]
+- [Plateforme Blog Backend-Driven – SEO, RBAC & Performance](https://barthez-kenwou.dev/projects/9): Système de gestion de blog avancé orienté backend, avec RBAC, optimisation des performances, sécurité renforcée et stratégie SEO pour acqui… [Backend • Fullstack]
+- [Hardening & Sécurisation Avancée d’un Serveur Linux (Ubuntu)](https://barthez-kenwou.dev/projects/10): Sécurisation complète d’un serveur Ubuntu de production avec hardening système, protection réseau multi-couches, monitoring et automatisati… [Security • DevOps]
+- [Plateforme de Gestion Intelligente de Files d’Attente](https://barthez-kenwou.dev/projects/11): Application web permettant aux organisations de gérer plusieurs files d’attente avec estimation intelligente du temps d’attente et optimisa… [Fullstack]
+- [Plateforme Web GTA-Academy (Centre de formation)](https://barthez-kenwou.dev/projects/2): Plateforme web de lancement pour GTA-Academy, conçue pour assurer visibilité, crédibilité et acquisition d’apprenants via une présentation… [Full Stack]
+
+## Articles du blog (20)
+
+- [CI/CD avec GitHub Actions – De Zéro à Expert](https://barthez-kenwou.dev/blog/1): Maîtrisez GitHub Actions de A à Z : automatisez vos tests, builds, déploiements et bien plus. Guide complet, concret et… (DevOps, 19 min)
+- [Guide Complet 2026 : Déployer une Application React sur AWS comme un Pro (S3 + CloudFront + Route 53)](https://barthez-kenwou.dev/blog/2): Apprenez à déployer votre application React en toute sécurité, avec un CDN mondial ultra-rapide, un nom de domaine pers… (AWS, 12 min)
+- [Optimiser les Performances de votre Application Node.js comme un Expert](https://barthez-kenwou.dev/blog/3): Techniques avancées et concrètes que j’utilise au quotidien pour booster mes APIs Node.js : caching hybride (NodeCache… (Backend, 28 min)
+- [Gestion Complète de la Sécurité de votre Application Express.js comme un Expert](https://barthez-kenwou.dev/blog/4): De zéro à un système ultra-sécurisé : tout ce que j’applique sur mes APIs Express.js + TypeScript en production. Helmet… (Backend, 11 min)
+- [Déployer une API Serverless Complète avec AWS API Gateway + Lambda + DynamoDB + Cognito + CI/CD (Full Stack React)](https://barthez-kenwou.dev/blog/5): Vous avez une API Express.js + TypeScript sécurisée ? Passez en serverless pur avec AWS : API Gateway, Lambda, DynamoDB… (AWS, 25 min)
+- [Sécurité AWS – Les Meilleures Pratiques IAM comme un Expert](https://barthez-kenwou.dev/blog/6): Protégez votre compte AWS comme un pro : root user blindé, IAM Identity Center, least privilege avec Access Analyzer, M… (AWS, 29 min)
+- [Architecture Microservices avec Docker et Kubernetes – De Zéro à Expert des Experts](https://barthez-kenwou.dev/blog/7): Vous avez votre API Express sécurisée et votre stack serverless AWS ? Passez maintenant à l’architecture microservices… (DevOps, 22 min)
+- [Guide Ultime 2026 – Architecture Multi-Environnements (Dev / Staging / Prod) : La Mise en Place Complète que J’Applique sur Tous Mes Projets Clients](https://barthez-kenwou.dev/blog/8): Passer d’un environnement unique à une architecture Dev / Staging / Prod professionnelle, sécurisée, scalable et reprod… (DevOps, 25 min)
+- [Stratégies d’Optimisation des Coûts AWS (FinOps) – Cas Réel de Savings que J’Applique Chez Mes Clients](https://barthez-kenwou.dev/blog/9): Votre facture AWS explose ? Découvrez une approche FinOps complète et pratique pour identifier les gaspillages, réduire… (DevOps, 16 min)
+- [Designing a Production-Ready AWS Architecture (Real Case) – Ce Que Je Déploie Vraiment Chez Mes Clients](https://barthez-kenwou.dev/blog/10): Comment passer d’une infra qui « marche » à une architecture AWS production-ready, résiliente, sécurisée, scalable et m… (DevOps, 28 min)
+- [How I Secure a Linux Server (Step-by-Step Hardening Guide) – Ce Que Je Fais Vraiment sur Tous Mes Serveurs](https://barthez-kenwou.dev/blog/11): Un serveur Linux exposé sur internet sans hardening = cible facile pour les bots et les attaques en 2026. SSH faible, p… (DevOps, 24 min)
+- [Monitoring Stack Production-Ready – Prometheus + Grafana + Loki + Tempo + Alloy + Alerts (Ce Que Je Déploie Vraiment)](https://barthez-kenwou.dev/blog/12): Plus de black boxes en production. Voici exactement la stack d’observabilité que j’installe sur tous mes environnements… (DevOps, 56 min)
+- [Linux Server – De VPS Vierge à Forteresse Complète](https://barthez-kenwou.dev/blog/13): Un VPS Ubuntu exposé sur internet sans hardening sérieux devient une cible en quelques heures. Voici exactement la méth… (DevOps, 32 min)
+- [CI/CD Pipeline for Zero Downtime Deployment (Real Setup) – Ce Que J’Utilise Vraiment sur Mes Projets Clients](https://barthez-kenwou.dev/blog/14): Déployer plusieurs fois par jour sans jamais faire tomber la production ? Voici exactement le pipeline CI/CD que j’impl… (DevOps, 28 min)
+- [DevSecOps in Practice – SAST, DAST, SCA, IaC Scanning & CI/CD Integration (Real Setup)](https://barthez-kenwou.dev/blog/15): La sécurité ne doit plus être un frein à la fin du sprint. Voici exactement comment j’intègre DevSecOps dans tous mes p… (DevOps, 37 min)
+- [Scaling a React App (SSR, Caching, Performance) – Ce Que Je Fais Vraiment pour Passer à Des Milliers d’Utilisateurs](https://barthez-kenwou.dev/blog/16): Une app React qui rame à 1 000 utilisateurs actifs ? Voici exactement la stratégie de scaling que j’applique sur tous m… (Frontend, 29 min)
+- [Supply Chain Attacks sur npm – L’Affaire Axios et Comment Je Protège Mes Apps en DevSecOps](https://barthez-kenwou.dev/blog/17): Le 31 mars 2026, axios – une des librairies JS les plus utilisées au monde (plus de 100 millions de downloads/semaine)… (DevOps, 16 min)
+- [How I Built and Deployed an ERP with Odoo + Kubernetes – Architecture Complète Production-Ready](https://barthez-kenwou.dev/blog/18): Comment passer d’un Odoo classique sur VM à un ERP scalable, résilient et multi-tenant sur Kubernetes (EKS) ? Voici exa… (DevOps, 43 min)
+- [Zustand vs Redux – Lequel Je Choisis Vraiment pour Mes Projets React & Next.js](https://barthez-kenwou.dev/blog/19): Redux ou Zustand en 2026 ? Après avoir migré plusieurs apps clients (React/Next.js) de Redux vers Zustand, voici mon an… (Frontend, 23 min)
+- [J’ai Piloté un Séminaire Intensif “Créer un Site Web avec l’IA” – Retours, Outils & Méthode Complète](https://barthez-kenwou.dev/blog/20): Le 28 mars 2026, j’ai eu le plaisir d’animer un séminaire intensif d’une journée “Créer un site web avec l’Intelligence… (Formation, 15 min)
+
+## Catégories blog
+
+- [DevOps](https://barthez-kenwou.dev/blog/category/devops): 12 article(s) — CI/CD avec GitHub Actions – De Zéro à Expert; Architecture Microservices avec Docker et Kubernetes – De Zéro à Expert des Experts; Guide Ultime 2026 – Architecture Multi-Environnements (Dev / Staging / Prod) : La Mise en Place Complète que J’Applique sur Tous Mes Projets Clients
+- [AWS](https://barthez-kenwou.dev/blog/category/aws): 3 article(s) — Guide Complet 2026 : Déployer une Application React sur AWS comme un Pro (S3 + CloudFront + Route 53); Déployer une API Serverless Complète avec AWS API Gateway + Lambda + DynamoDB + Cognito + CI/CD (Full Stack React); Sécurité AWS – Les Meilleures Pratiques IAM comme un Expert
+- [Backend](https://barthez-kenwou.dev/blog/category/backend): 2 article(s) — Optimiser les Performances de votre Application Node.js comme un Expert; Gestion Complète de la Sécurité de votre Application Express.js comme un Expert
+- [Frontend](https://barthez-kenwou.dev/blog/category/frontend): 2 article(s) — Scaling a React App (SSR, Caching, Performance) – Ce Que Je Fais Vraiment pour Passer à Des Milliers d’Utilisateurs; Zustand vs Redux – Lequel Je Choisis Vraiment pour Mes Projets React & Next.js
+- [Formation](https://barthez-kenwou.dev/blog/category/formation): 1 article(s) — J’ai Piloté un Séminaire Intensif “Créer un Site Web avec l’IA” – Retours, Outils & Méthode Complète
+
+## Fichiers machine-readable
+
+- [llms-full.txt](https://barthez-kenwou.dev/llms-full.txt): Contenu Markdown étendu (bio, projets, articles)
+- [sitemap-index.xml](https://barthez-kenwou.dev/sitemap-index.xml): Index des sitemaps Google
+- [robots.txt](https://barthez-kenwou.dev/robots.txt): Politique de crawl
+- [humans.txt](https://barthez-kenwou.dev/humans.txt): Crédits humains & stack
+- [security.txt](https://barthez-kenwou.dev/.well-known/security.txt): Contact sécurité (RFC 9116)
+- [Open Graph image](https://barthez-kenwou.dev/og-image.png): Visuel de partage 1200×630
+
+## Optional
+
+- [APIGateway](https://barthez-kenwou.dev/blog/tag/apigateway): 1 article(s)
+- [AWS](https://barthez-kenwou.dev/blog/tag/aws): 5 article(s)
+- [AWSArchitecture](https://barthez-kenwou.dev/blog/tag/awsarchitecture): 1 article(s)
+- [AWSCostOptimization](https://barthez-kenwou.dev/blog/tag/awscostoptimization): 1 article(s)
+- [AccessAnalyzer](https://barthez-kenwou.dev/blog/tag/accessanalyzer): 1 article(s)
+- [Alerting](https://barthez-kenwou.dev/blog/tag/alerting): 1 article(s)
+- [Alloy](https://barthez-kenwou.dev/blog/tag/alloy): 1 article(s)
+- [AppArmor](https://barthez-kenwou.dev/blog/tag/apparmor): 1 article(s)
+- [ArgoCD](https://barthez-kenwou.dev/blog/tag/argocd): 3 article(s)
+- [ArgoRollouts](https://barthez-kenwou.dev/blog/tag/argorollouts): 1 article(s)
+- [Automation](https://barthez-kenwou.dev/blog/tag/automation): 1 article(s)
+- [AxiosAttack](https://barthez-kenwou.dev/blog/tag/axiosattack): 1 article(s)
+- [Backend](https://barthez-kenwou.dev/blog/tag/backend): 2 article(s)
+- [BlueGreen](https://barthez-kenwou.dev/blog/tag/bluegreen): 1 article(s)
+- [Boilerplate](https://barthez-kenwou.dev/blog/tag/boilerplate): 1 article(s)
+- [BoltNew](https://barthez-kenwou.dev/blog/tag/boltnew): 1 article(s)
+- [CI/CD](https://barthez-kenwou.dev/blog/tag/ci-cd): 5 article(s)
+- [CICD](https://barthez-kenwou.dev/blog/tag/cicd): 1 article(s)
+- [CSF](https://barthez-kenwou.dev/blog/tag/csf): 1 article(s)
+- [Caching](https://barthez-kenwou.dev/blog/tag/caching): 2 article(s)
+- [Canary](https://barthez-kenwou.dev/blog/tag/canary): 1 article(s)
+- [CloudFront](https://barthez-kenwou.dev/blog/tag/cloudfront): 1 article(s)
+- [CloudNative](https://barthez-kenwou.dev/blog/tag/cloudnative): 1 article(s)
+- [CloudSecurity](https://barthez-kenwou.dev/blog/tag/cloudsecurity): 1 article(s)
+- [Cloudflare](https://barthez-kenwou.dev/blog/tag/cloudflare): 2 article(s)
+- [CodePipeline](https://barthez-kenwou.dev/blog/tag/codepipeline): 1 article(s)
+- [Cognito](https://barthez-kenwou.dev/blog/tag/cognito): 1 article(s)
+- [CostSavings](https://barthez-kenwou.dev/blog/tag/costsavings): 1 article(s)
+- [CrowdSec](https://barthez-kenwou.dev/blog/tag/crowdsec): 1 article(s)
+- [Cursor](https://barthez-kenwou.dev/blog/tag/cursor): 1 article(s)
+- [DAST](https://barthez-kenwou.dev/blog/tag/dast): 1 article(s)
+- [DependencyConfusion](https://barthez-kenwou.dev/blog/tag/dependencyconfusion): 1 article(s)
+- [Deployment](https://barthez-kenwou.dev/blog/tag/deployment): 1 article(s)
+- [DevExperience](https://barthez-kenwou.dev/blog/tag/devexperience): 1 article(s)
+- [DevOps](https://barthez-kenwou.dev/blog/tag/devops): 12 article(s)
+- [DevSecOps](https://barthez-kenwou.dev/blog/tag/devsecops): 4 article(s)
+- [DevWeb](https://barthez-kenwou.dev/blog/tag/devweb): 1 article(s)
+- [Docker](https://barthez-kenwou.dev/blog/tag/docker): 1 article(s)
+- [DynamoDB](https://barthez-kenwou.dev/blog/tag/dynamodb): 1 article(s)
+- [Déploiement](https://barthez-kenwou.dev/blog/tag/deploiement): 1 article(s)
+- [GitHub](https://github.com/barthez-kenwou): Dépôts open source et expérimentations
+- [LinkedIn](https://linkedin.com/in/barthez-kenwou): Profil professionnel

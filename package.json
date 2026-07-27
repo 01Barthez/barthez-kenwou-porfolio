@@ -42,6 +42,7 @@
   "scripts": {
     "dev": "vite",
     "build": "sh ./scripts/build.sh",
+    "seo:generate": "bun ./scripts/seo/generate.ts",
     "build:dev": "vite build --mode development",
     "lint": "eslint src",
     "start": "sh ./scripts/dev.sh",

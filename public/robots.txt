@@ -1,8 +1,22 @@
 User-agent: *
 Allow: /
 
-# Prefer crawlable public pages; SPA error routes are noindex via meta
+# Public portfolio — index pages and content
+Allow: /about
+Allow: /services
+Allow: /projects
+Allow: /skills
+Allow: /blog
+Allow: /cv
+Allow: /contact
+
+# Error / private surfaces
 Disallow: /server-error
 Disallow: /admin
 
+# AI / LLM discovery
+# Spec: https://llmstxt.org/
+# llms.txt and llms-full.txt are intentionally crawlable
+
+Sitemap: https://barthez-kenwou.dev/sitemap-index.xml
 Sitemap: https://barthez-kenwou.dev/sitemap.xml
