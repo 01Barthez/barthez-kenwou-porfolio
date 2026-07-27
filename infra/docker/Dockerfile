@@ -40,7 +40,7 @@ COPY . .
 RUN cp .env.example .env \
     && bunx vite build
 
-FROM nginx:1.27-alpine AS production
+FROM nginx:stable-alpine AS production
 
 ARG BUILD_DATE
 ARG VCS_REF
@@ -57,12 +57,20 @@ LABEL org.opencontainers.image.created="${BUILD_DATE}" \
       org.opencontainers.image.licenses="UNLICENSED" \
       com.barthez.service="portfolio-web"
 
-RUN addgroup -g 1001 -S appgroup \
-    && adduser -u 1001 -S appuser -G appgroup \
-    && mkdir -p /tmp/nginx \
-    && chown -R appuser:appgroup /tmp/nginx \
-    && rm -f /etc/nginx/conf.d/default.conf \
-    && rm -rf /usr/share/nginx/html/*
+# Refresh Alpine packages (nginx tags lag apk security advisories).
+RUN set -eux; \
+    i=0; \
+    until apk upgrade --no-cache; do \
+      i=$((i + 1)); \
+      [ "$i" -ge 5 ] && exit 1; \
+      sleep $((i * 2)); \
+    done; \
+    addgroup -g 1001 -S appgroup; \
+    adduser -u 1001 -S appuser -G appgroup; \
+    mkdir -p /tmp/nginx; \
+    chown -R appuser:appgroup /tmp/nginx; \
+    rm -f /etc/nginx/conf.d/default.conf; \
+    rm -rf /usr/share/nginx/html/*
 
 COPY infra/docker/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=builder --chown=appuser:appgroup /app/dist /usr/share/nginx/html
