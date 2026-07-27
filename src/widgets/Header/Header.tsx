@@ -14,7 +14,6 @@ export const Header: React.FC = () => {
           'fixed z-50 transition-all duration-250 hidden xl:block',
           isExpanded ? 'top-16 left-60' : 'top-10 left-14'
         )}
-        aria-hidden
       >
         <SidebarTrigger className="cursor-pointer shadow-sm bg-background/80 backdrop-blur-sm ring-1 ring-sidebar-border" />
       </div>

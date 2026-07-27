@@ -4,4 +4,3 @@ export { TestimonialSchema, type TestimonialInput } from './model/testimonial.sc
 
 // UI Components
 export { TestimonialCard } from './ui/TestimonialCard.ui';
-export { ServiceTestimonialCard } from './ui/ServiceTestimonialCard.ui';

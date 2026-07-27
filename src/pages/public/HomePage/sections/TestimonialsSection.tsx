@@ -40,7 +40,7 @@ export const TestimonialsSection: React.FC = () => {
             src={TESTIMONIALS_FLARE}
             alt=""
             decoding="async"
-            fetchPriority="high"
+            {...{ fetchpriority: 'high' }}
             draggable={false}
             className={cn(
               'w-full h-auto blur-2xl md:blur-3xl',
@@ -120,12 +120,10 @@ export const TestimonialsSection: React.FC = () => {
                 ariaLabel="Zoom Area"
               >
                 <Image
-                  src="images/barthez-kenwou-profil-assis.png"
+                  src="/images/barthez-kenwou-profil-assis.png"
                   alt="Barthez Kenwou"
-                  priority
                   className="object-cover w-full h-full rounded-full md:rounded-[3.5rem] scale-110 md:scale-120"
-                />
-              </Lens>
+                />              </Lens>
             </div>
           </div>
 

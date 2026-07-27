@@ -98,7 +98,8 @@ export const HeroSection: React.FC = () => {
             src={HERO_FLARE}
             alt=""
             decoding="async"
-            fetchPriority="high"
+            // React 18 DOM: lowercase attribute (camelCase warn)
+            {...{ fetchpriority: 'high' }}
             className={cn(
               'hero-flare-pulse w-full h-auto select-none scale-110 sm:scale-125 -rotate-[3deg] sm:-rotate-[4deg] origin-bottom-right',
               '[mask-image:linear-gradient(90deg,transparent_0%,black_18%,black_82%,transparent_100%),linear-gradient(180deg,transparent_0%,black_12%,black_88%,transparent_100%)]',

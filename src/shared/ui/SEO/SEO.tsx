@@ -145,6 +145,13 @@ function personWebSiteJsonLd() {
   };
 }
 
+function ogImageMimeType(url: string): string {
+  const lower = url.toLowerCase();
+  if (lower.endsWith('.webp')) return 'image/webp';
+  if (lower.endsWith('.jpg') || lower.endsWith('.jpeg')) return 'image/jpeg';
+  return 'image/png';
+}
+
 export const SEO: React.FC<SEOProps> = ({
   title,
   description = DEFAULT_DESCRIPTION,
@@ -193,14 +200,7 @@ export const SEO: React.FC<SEOProps> = ({
     upsertMetaTag({ property: 'og:url', content: ogUrl });
     upsertMetaTag({ property: 'og:image', content: ogImage });
     upsertMetaTag({ property: 'og:image:secure_url', content: ogImage });
-    upsertMetaTag({
-      property: 'og:image:type',
-      content: ogImage.toLowerCase().endsWith('.webp')
-        ? 'image/webp'
-        : ogImage.toLowerCase().endsWith('.jpg') || ogImage.toLowerCase().endsWith('.jpeg')
-          ? 'image/jpeg'
-          : 'image/png',
-    });
+    upsertMetaTag({ property: 'og:image:type', content: ogImageMimeType(ogImage) });
     upsertMetaTag({ property: 'og:image:width', content: String(OG_IMAGE_WIDTH) });
     upsertMetaTag({ property: 'og:image:height', content: String(OG_IMAGE_HEIGHT) });
     upsertMetaTag({ property: 'og:image:alt', content: ogImageAlt });

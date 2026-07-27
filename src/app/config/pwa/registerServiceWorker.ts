@@ -6,6 +6,7 @@
 */
 export async function registerServiceWorker(): Promise<void> {
   if (typeof navigator === 'undefined' || !('serviceWorker' in navigator)) return;
+  if (!import.meta.env.PROD) return;
 
   try {
     const reg = await navigator.serviceWorker.register('/sw.js');

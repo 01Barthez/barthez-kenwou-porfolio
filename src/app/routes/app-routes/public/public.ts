@@ -69,24 +69,6 @@ export const publicRoutes: RouteConfig[] = [
   },
 
   {
-    path: '/blog/category/:category',
-    component: lazyPage(() => import('@/pages/public/BlogPage/blog'), 'BlogCategoryPage'),
-    meta: {
-      title: 'Blog catégorie',
-      layout: 'public',
-    },
-  },
-
-  {
-    path: '/blog/tag/:tag',
-    component: lazyPage(() => import('@/pages/public/BlogPage/blog'), 'BlogTagPage'),
-    meta: {
-      title: 'Blog tag',
-      layout: 'public',
-    },
-  },
-
-  {
     path: '/blog/:blogID',
     component: lazyPage(() => import('@/pages/public/BlogPage/blogDetails'), 'BlogDetailPage'),
     meta: {

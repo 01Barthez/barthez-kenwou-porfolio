@@ -375,7 +375,7 @@ Conception et développement en urgence d’une plateforme web pour GTA-Academy,
 
 - URL: https://barthez-kenwou.dev/blog/9
 - Slug: aws-cost-optimization-finops
-- Category: DevOps · 2026-04-5 · 16 min
+- Category: DevOps · 2026-04-05 · 16 min
 - Tags: FinOps, AWSCostOptimization, CostSavings, SavingsPlans, SpotInstances, Graviton, AWS, DevOps
 - Cover: https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/AWS-FinOps2.png
 
@@ -399,7 +399,7 @@ Conception et développement en urgence d’une plateforme web pour GTA-Academy,
 
 - URL: https://barthez-kenwou.dev/blog/11
 - Slug: secure-linux-server-hardening
-- Category: DevOps · 2026-02-30 · 24 min
+- Category: DevOps · 2026-02-28 · 24 min
 - Tags: LinuxHardening, ServerSecurity, SSHSecurity, Fail2Ban, DevOps, LinuxSecurity, AppArmor, UFW
 - Cover: https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/How-to-Secure-a-Linux-Server_-Complete-2025-Guide-1-1.png
 

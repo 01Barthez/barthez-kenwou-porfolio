@@ -55,7 +55,9 @@ export const SidebarHeaderSection: React.FC = () => {
             <div className="text-center animate-fade-in">
               <h2 className="text-lg font-bold text-foreground">Barthez Kenwou</h2>
               <p className="text-xs text-muted-foreground font-mono">{t('sidebar.title')}</p>
-              <p className="text-xs text-primary font-medium mt-1">{t('sidebar.subtitle')}</p>
+              <p className="text-xs font-medium mt-1 text-violet-700 dark:text-violet-300">
+                {t('sidebar.subtitle')}
+              </p>
             </div>
           )}
         </div>

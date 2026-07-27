@@ -33,8 +33,6 @@ export default defineConfig(() => {
           'sitemap-pages.xml',
           'sitemap-projets.xml',
           'sitemap-blog.xml',
-          'sitemap-categories.xml',
-          'sitemap-tags.xml',
           'sitemap-images.xml',
           'sitemap-videos.xml',
           'logo.svg',

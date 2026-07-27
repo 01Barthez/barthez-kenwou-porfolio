@@ -271,23 +271,35 @@ export const ArticleContentSection: React.FC = () => {
 
               return <p className="mb-6 leading-relaxed text-muted-foreground/90 text-sm md:text-sm">{children}</p>;
             },
-            // Custom Code Blocks
-            code({ node, inline, className, children, ...props }: any) {
+            // react-markdown v9+ dropped `inline`. Fenced blocks are pre>code;
+            // unwrap pre so CodeBlock (div) is never nested in <pre> or <p>.
+            pre: ({ children }) => <>{children}</>,
+            code: ({ className, children, ...props }) => {
+              const text = String(children).replace(/\n$/, '');
               const match = /language-(\w+)/.exec(className || '');
-              const languageCode = match ? match[1] : '';
+              // Fence: language-* class, or multiline body (``` without lang)
+              const isBlock = Boolean(match) || text.includes('\n');
 
-              return !inline ? (
-                <CodeBlock
-                  language={languageCode}
-                  value={String(children).replace(/\n$/, '')}
-                  className="my-8 shadow-sm shadow-primary/5 border-primary/10"
-                />
-              ) : (
-                <code className="rounded bg-primary/10 px-1.5 py-0.5 font-mono text-[0.8em] font-bold text-primary border border-primary/20" {...props}>
+              if (isBlock) {
+                return (
+                  <CodeBlock
+                    language={match?.[1] || ''}
+                    value={text}
+                    className="my-8 shadow-sm shadow-primary/5 border-primary/10"
+                  />
+                );
+              }
+
+              return (
+                <code
+                  className="rounded bg-primary/10 px-1.5 py-0.5 font-mono text-[0.8em] font-bold text-primary border border-primary/20"
+                  {...props}
+                >
                   {children}
                 </code>
               );
             },
+
             // Lists
             li: ({ children }) => (
               <li className="flex items-start gap-2 mb-0 group">

@@ -75,7 +75,7 @@ export const ServiceSection: React.FC = () => {
             {['AWS Architecture', 'DevOps CI/CD', 'Security Audit', 'Full Stack'].map((tag) => (
               <span
                 key={tag}
-                className="px-4 py-1 rounded-full glass border-primary/20 text-xs font-semibold text-primary"
+                className="px-4 py-1 rounded-full glass border-primary/30 text-xs font-semibold text-foreground/90 dark:text-violet-200"
               >
                 {tag}
               </span>

@@ -64,13 +64,13 @@ Contact : kenwoubarthez@gmail.com · +237 655 646 688 · https://linkedin.com/in
 - [Zustand vs Redux – Lequel Je Choisis Vraiment pour Mes Projets React & Next.js](https://barthez-kenwou.dev/blog/19): Redux ou Zustand en 2026 ? Après avoir migré plusieurs apps clients (React/Next.js) de Redux vers Zustand, voici mon an… (Frontend, 23 min)
 - [J’ai Piloté un Séminaire Intensif “Créer un Site Web avec l’IA” – Retours, Outils & Méthode Complète](https://barthez-kenwou.dev/blog/20): Le 28 mars 2026, j’ai eu le plaisir d’animer un séminaire intensif d’une journée “Créer un site web avec l’Intelligence… (Formation, 15 min)
 
-## Catégories blog
+## Thématiques blog (filtres in-page)
 
-- [DevOps](https://barthez-kenwou.dev/blog/category/devops): 12 article(s) — CI/CD avec GitHub Actions – De Zéro à Expert; Architecture Microservices avec Docker et Kubernetes – De Zéro à Expert des Experts; Guide Ultime 2026 – Architecture Multi-Environnements (Dev / Staging / Prod) : La Mise en Place Complète que J’Applique sur Tous Mes Projets Clients
-- [AWS](https://barthez-kenwou.dev/blog/category/aws): 3 article(s) — Guide Complet 2026 : Déployer une Application React sur AWS comme un Pro (S3 + CloudFront + Route 53); Déployer une API Serverless Complète avec AWS API Gateway + Lambda + DynamoDB + Cognito + CI/CD (Full Stack React); Sécurité AWS – Les Meilleures Pratiques IAM comme un Expert
-- [Backend](https://barthez-kenwou.dev/blog/category/backend): 2 article(s) — Optimiser les Performances de votre Application Node.js comme un Expert; Gestion Complète de la Sécurité de votre Application Express.js comme un Expert
-- [Frontend](https://barthez-kenwou.dev/blog/category/frontend): 2 article(s) — Scaling a React App (SSR, Caching, Performance) – Ce Que Je Fais Vraiment pour Passer à Des Milliers d’Utilisateurs; Zustand vs Redux – Lequel Je Choisis Vraiment pour Mes Projets React & Next.js
-- [Formation](https://barthez-kenwou.dev/blog/category/formation): 1 article(s) — J’ai Piloté un Séminaire Intensif “Créer un Site Web avec l’IA” – Retours, Outils & Méthode Complète
+- DevOps: 12 article(s) (filtre UI sur /blog)
+- AWS: 3 article(s) (filtre UI sur /blog)
+- Backend: 2 article(s) (filtre UI sur /blog)
+- Frontend: 2 article(s) (filtre UI sur /blog)
+- Formation: 1 article(s) (filtre UI sur /blog)
 
 ## Fichiers machine-readable
 
@@ -83,45 +83,5 @@ Contact : kenwoubarthez@gmail.com · +237 655 646 688 · https://linkedin.com/in
 
 ## Optional
 
-- [APIGateway](https://barthez-kenwou.dev/blog/tag/apigateway): 1 article(s)
-- [AWS](https://barthez-kenwou.dev/blog/tag/aws): 5 article(s)
-- [AWSArchitecture](https://barthez-kenwou.dev/blog/tag/awsarchitecture): 1 article(s)
-- [AWSCostOptimization](https://barthez-kenwou.dev/blog/tag/awscostoptimization): 1 article(s)
-- [AccessAnalyzer](https://barthez-kenwou.dev/blog/tag/accessanalyzer): 1 article(s)
-- [Alerting](https://barthez-kenwou.dev/blog/tag/alerting): 1 article(s)
-- [Alloy](https://barthez-kenwou.dev/blog/tag/alloy): 1 article(s)
-- [AppArmor](https://barthez-kenwou.dev/blog/tag/apparmor): 1 article(s)
-- [ArgoCD](https://barthez-kenwou.dev/blog/tag/argocd): 3 article(s)
-- [ArgoRollouts](https://barthez-kenwou.dev/blog/tag/argorollouts): 1 article(s)
-- [Automation](https://barthez-kenwou.dev/blog/tag/automation): 1 article(s)
-- [AxiosAttack](https://barthez-kenwou.dev/blog/tag/axiosattack): 1 article(s)
-- [Backend](https://barthez-kenwou.dev/blog/tag/backend): 2 article(s)
-- [BlueGreen](https://barthez-kenwou.dev/blog/tag/bluegreen): 1 article(s)
-- [Boilerplate](https://barthez-kenwou.dev/blog/tag/boilerplate): 1 article(s)
-- [BoltNew](https://barthez-kenwou.dev/blog/tag/boltnew): 1 article(s)
-- [CI/CD](https://barthez-kenwou.dev/blog/tag/ci-cd): 5 article(s)
-- [CICD](https://barthez-kenwou.dev/blog/tag/cicd): 1 article(s)
-- [CSF](https://barthez-kenwou.dev/blog/tag/csf): 1 article(s)
-- [Caching](https://barthez-kenwou.dev/blog/tag/caching): 2 article(s)
-- [Canary](https://barthez-kenwou.dev/blog/tag/canary): 1 article(s)
-- [CloudFront](https://barthez-kenwou.dev/blog/tag/cloudfront): 1 article(s)
-- [CloudNative](https://barthez-kenwou.dev/blog/tag/cloudnative): 1 article(s)
-- [CloudSecurity](https://barthez-kenwou.dev/blog/tag/cloudsecurity): 1 article(s)
-- [Cloudflare](https://barthez-kenwou.dev/blog/tag/cloudflare): 2 article(s)
-- [CodePipeline](https://barthez-kenwou.dev/blog/tag/codepipeline): 1 article(s)
-- [Cognito](https://barthez-kenwou.dev/blog/tag/cognito): 1 article(s)
-- [CostSavings](https://barthez-kenwou.dev/blog/tag/costsavings): 1 article(s)
-- [CrowdSec](https://barthez-kenwou.dev/blog/tag/crowdsec): 1 article(s)
-- [Cursor](https://barthez-kenwou.dev/blog/tag/cursor): 1 article(s)
-- [DAST](https://barthez-kenwou.dev/blog/tag/dast): 1 article(s)
-- [DependencyConfusion](https://barthez-kenwou.dev/blog/tag/dependencyconfusion): 1 article(s)
-- [Deployment](https://barthez-kenwou.dev/blog/tag/deployment): 1 article(s)
-- [DevExperience](https://barthez-kenwou.dev/blog/tag/devexperience): 1 article(s)
-- [DevOps](https://barthez-kenwou.dev/blog/tag/devops): 12 article(s)
-- [DevSecOps](https://barthez-kenwou.dev/blog/tag/devsecops): 4 article(s)
-- [DevWeb](https://barthez-kenwou.dev/blog/tag/devweb): 1 article(s)
-- [Docker](https://barthez-kenwou.dev/blog/tag/docker): 1 article(s)
-- [DynamoDB](https://barthez-kenwou.dev/blog/tag/dynamodb): 1 article(s)
-- [Déploiement](https://barthez-kenwou.dev/blog/tag/deploiement): 1 article(s)
 - [GitHub](https://github.com/barthez-kenwou): Dépôts open source et expérimentations
 - [LinkedIn](https://linkedin.com/in/barthez-kenwou): Profil professionnel

@@ -39,20 +39,20 @@ function diamondMetrics(slot: number, count: number) {
   }
 }
 
-function AnimatedListItem({
-  children,
-  slot,
-  count,
-}: {
-  children: React.ReactNode
-  slot: number
-  count: number
-}) {
+const AnimatedListItem = React.forwardRef<
+  HTMLDivElement,
+  {
+    children: React.ReactNode
+    slot: number
+    count: number
+  }
+>(function AnimatedListItem({ children, slot, count }, ref) {
   const { scale, opacity, zIndex } = diamondMetrics(slot, count)
   const isTip = slot === 0 || slot === count - 1
 
   return (
     <motion.div
+      ref={ref}
       layout="position"
       initial={{
         opacity: 0,
@@ -87,7 +87,8 @@ function AnimatedListItem({
       {children}
     </motion.div>
   )
-}
+})
+AnimatedListItem.displayName = "AnimatedListItem"
 
 export interface AnimatedListProps extends ComponentPropsWithoutRef<"div"> {
   children: React.ReactNode

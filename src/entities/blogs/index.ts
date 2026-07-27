@@ -6,7 +6,6 @@ export type { BlogInput } from './model/blog.schema';
 
 // UI components
 export { BlogCard } from './ui/blogCard.ui';
-export { FeatureBlogCard } from './ui/FeaturedBlogCard.ui';
 export { RelatedPostCard } from './ui/RelatedPostCard.ui';
 export { EmptyBlogCard } from './ui/EmptyBlogCard.ui';
 

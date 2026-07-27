@@ -119,11 +119,11 @@
   <!-- Performance & loading -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://jebiwuygwtpmdnhhzsbw.supabase.co" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Preload critical resources -->
+  <!-- Preload LCP-adjacent decorative asset only (do NOT preload /src/main.tsx — breaks as data: URI in build) -->
   <link rel="preload" href="/images/hero-flare.webp" as="image" type="image/webp" />
-  <link rel="preload" href="/src/main.tsx" as="script" />
 
   <!-- Branding / Icons / PWA -->
   <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
@@ -143,7 +143,7 @@
   <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <meta http-equiv="Content-Security-Policy"
-    content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval' 'unsafe-eval' https://www.googletagmanager.com 'sha256-C13jTwUL6yPC0XUmABsGK6y/qPUt3roU1WmCDsau//M='; connect-src 'self' https://www.google-analytics.com https://*.vimeo.com https://*.vimeocdn.com blob: data:; img-src 'self' data: https: blob:; media-src 'self' blob: https://*.vimeocdn.com https://player.vimeo.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; frame-src 'self' blob: https://player.vimeo.com https://vimeo.com https://www.youtube-nocookie.com https://www.youtube.com; child-src 'self' blob: https://player.vimeo.com https://vimeo.com; worker-src 'self' blob:;" />
+    content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval' 'unsafe-eval' https://www.googletagmanager.com https://analytics.zenora360.com 'sha256-ARxjj1g3vFcvPzf055X8ebP+uzq6nT8Dfic0Bw7aJS8=' 'sha256-yQsdh66HMnhkak/1y0WTHPlq6r9oqHlqdcuPaRssTUM=' 'sha256-dTcxFR1TUIGFGCD/XFEP9a96mP948MdY+XNhJQYnDvs='; connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://analytics.zenora360.com https://*.vimeo.com https://*.vimeocdn.com blob: data:; img-src 'self' data: https: blob:; media-src 'self' blob: https://*.vimeocdn.com https://player.vimeo.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' data: https://fonts.gstatic.com; frame-src 'self' blob: https://player.vimeo.com https://vimeo.com https://www.youtube-nocookie.com https://www.youtube.com; child-src 'self' blob: https://player.vimeo.com https://vimeo.com; worker-src 'self' blob:;" />
 
   <!-- Compatibilité -->
   <meta name="format-detection" content="telephone=no" />

@@ -9,8 +9,8 @@ createRoot(document.getElementById('root')!).render(
   </StrictMode>,
 );
 
-// Modular PWA registration: only attempt to register if the Vite env flag is enabled.
-if ((import.meta as any).env?.VITE_ENABLE_PWA === 'true') {
+// PWA only in production builds — Vite dev has no sw.js (SPA fallback returns HTML).
+if (import.meta.env.PROD && import.meta.env.VITE_ENABLE_PWA === 'true') {
   import('./app/config/pwa/registerServiceWorker')
     .then((m) => m.registerServiceWorker())
     .catch((e) => console.warn('[PWA] registration failed', e));

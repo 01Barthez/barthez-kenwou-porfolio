@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut } from 'lucide-react';
-import { Dialog, DialogContent } from '@/shared/ui/dialog';
+import { Dialog, DialogContent, DialogTitle } from '@/shared/ui/dialog';
 import { Image } from '@/shared/ui/Image';
 import { PhotoGalleryProps } from '../types/type';
 import { cn } from '@/shared/lib';
@@ -78,7 +78,11 @@ export const PhotoGallery = ({ photos, isOpen, onClose, initialIndex = 0 }: Phot
         )}
         onKeyDown={handleKeyDown}
         showCloseButton={false}
+        aria-describedby={undefined}
       >
+        <DialogTitle className="sr-only">
+          Galerie photo {currentIndex + 1} / {photos.length}
+        </DialogTitle>
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
           <div className="absolute top-0 left-1/4 w-48 sm:w-80 h-48 sm:h-80 bg-primary/10 rounded-full blur-[80px] animate-pulse-slow" />
           <div className="absolute bottom-0 right-1/4 w-40 sm:w-72 h-40 sm:h-72 bg-primary/5 rounded-full blur-[80px] animate-pulse-slow delay-1000" />

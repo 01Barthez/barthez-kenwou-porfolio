@@ -2,9 +2,12 @@ import { MdWhatsapp } from 'react-icons/md';
 import { contactsInfo } from '@/shared/mocks/constContactInfo.mocks';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { DownloadIcon } from 'lucide-react';
-import React, { useState } from 'react';
-import { CVPreviewModal } from './CVPreviewModal';
+import React, { lazy, Suspense, useState } from 'react';
 import { DualCtaButtons } from '@/shared/ui/DualCtaButtons';
+
+const CVPreviewModal = lazy(() =>
+  import('./CVPreviewModal').then((m) => ({ default: m.CVPreviewModal })),
+);
 
 export const ButtonsCTASection: React.FC = () => {
   const { language } = useLanguageStore();
@@ -28,7 +31,11 @@ export const ButtonsCTASection: React.FC = () => {
         />
       </div>
 
-      <CVPreviewModal isOpen={isPreviewOpen} onClose={() => setIsPreviewOpen(false)} />
+      {isPreviewOpen && (
+        <Suspense fallback={null}>
+          <CVPreviewModal isOpen={isPreviewOpen} onClose={() => setIsPreviewOpen(false)} />
+        </Suspense>
+      )}
     </section>
   );
 };

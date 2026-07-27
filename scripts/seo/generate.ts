@@ -21,7 +21,6 @@ import {
   absoluteUrl,
   escapeHtml,
   escapeXml,
-  slugify,
   truncate,
 } from './config';
 
@@ -53,11 +52,38 @@ function writeBoth(relativePath: string, content: string) {
   }
 }
 
+/** W3C date for sitemaps: YYYY-MM-DD, valid calendar day only. */
+function toSitemapDate(raw: string | undefined, fallback = TODAY): string {
+  if (!raw?.trim()) return fallback;
+  const match = raw.trim().match(/^(\d{4})-(\d{1,2})-(\d{1,2})/);
+  if (!match) return fallback;
+
+  const year = Number(match[1]);
+  const month = Number(match[2]);
+  const day = Number(match[3]);
+  if (month < 1 || month > 12 || day < 1) return fallback;
+
+  // Invalid days (e.g. 2026-02-30) roll in UTC — detect and clamp to month end.
+  const parsed = new Date(Date.UTC(year, month - 1, day));
+  const valid =
+    parsed.getUTCFullYear() === year &&
+    parsed.getUTCMonth() === month - 1 &&
+    parsed.getUTCDate() === day;
+
+  const safe = valid ? parsed : new Date(Date.UTC(year, month, 0));
+  const y = safe.getUTCFullYear();
+  const m = String(safe.getUTCMonth() + 1).padStart(2, '0');
+  const d = String(safe.getUTCDate()).padStart(2, '0');
+  return `${y}-${m}-${d}`;
+}
+
 function writeUrlset(entries: UrlEntry[]): string {
   const body = entries
     .map((e) => {
       const lines = [`    <loc>${escapeXml(e.loc)}</loc>`];
-      if (e.lastmod) lines.push(`    <lastmod>${e.lastmod}</lastmod>`);
+      if (e.lastmod) {
+        lines.push(`    <lastmod>${toSitemapDate(e.lastmod)}</lastmod>`);
+      }
       if (e.changefreq) lines.push(`    <changefreq>${e.changefreq}</changefreq>`);
       if (e.priority !== undefined) {
         lines.push(`    <priority>${e.priority.toFixed(1)}</priority>`);
@@ -100,18 +126,6 @@ function collectCategories(): Map<string, IBlog[]> {
     const list = map.get(key) || [];
     list.push(post);
     map.set(key, list);
-  }
-  return map;
-}
-
-function collectTags(): Map<string, IBlog[]> {
-  const map = new Map<string, IBlog[]>();
-  for (const post of blogPostsData) {
-    for (const tag of post.tags || []) {
-      const list = map.get(tag) || [];
-      list.push(post);
-      map.set(tag, list);
-    }
   }
   return map;
 }
@@ -193,9 +207,6 @@ Acknowledgments: ${SITE_URL}/humans.txt
 }
 
 function generateSitemaps() {
-  const categories = collectCategories();
-  const tags = collectTags();
-
   const pages: UrlEntry[] = STATIC_PAGES.map((p) => ({
     loc: absoluteUrl(p.path),
     lastmod: TODAY,
@@ -227,27 +238,13 @@ function generateSitemaps() {
     },
     ...blogPostsData.map((p) => ({
       loc: absoluteUrl(`/blog/${p.id}`),
-      lastmod: p.date || TODAY,
+      lastmod: toSitemapDate(p.date, TODAY),
       changefreq: 'monthly',
       priority: 0.7,
     })),
   ];
 
-  const cats: UrlEntry[] = [...categories.keys()].map((name) => ({
-    loc: absoluteUrl(`/blog/category/${slugify(name)}`),
-    lastmod: TODAY,
-    changefreq: 'weekly',
-    priority: 0.65,
-  }));
-
-  const tagEntries: UrlEntry[] = [...tags.keys()].map((name) => ({
-    loc: absoluteUrl(`/blog/tag/${slugify(name)}`),
-    lastmod: TODAY,
-    changefreq: 'weekly',
-    priority: 0.55,
-  }));
-
-  // Image sitemap (Google image extension)
+  // Image sitemap (Google image extension) — only real page URLs
   const imageUrls: string[] = [];
   imageUrls.push(`  <url>
     <loc>${escapeXml(absoluteUrl('/'))}</loc>
@@ -298,7 +295,6 @@ ${imageUrls.join('\n')}
 </urlset>
 `;
 
-  // Video sitemap — project demos + presentation placeholders
   const videoBlocks: string[] = [];
   for (const p of projectsData) {
     if (!p.videoDemo) continue;
@@ -337,14 +333,6 @@ ${videoBlocks.length ? videoBlocks.join('\n') : `  <!-- No hosted video demos ye
     <lastmod>${TODAY}</lastmod>
   </sitemap>
   <sitemap>
-    <loc>${SITE_URL}/sitemap-categories.xml</loc>
-    <lastmod>${TODAY}</lastmod>
-  </sitemap>
-  <sitemap>
-    <loc>${SITE_URL}/sitemap-tags.xml</loc>
-    <lastmod>${TODAY}</lastmod>
-  </sitemap>
-  <sitemap>
     <loc>${SITE_URL}/sitemap-images.xml</loc>
     <lastmod>${TODAY}</lastmod>
   </sitemap>
@@ -355,14 +343,11 @@ ${videoBlocks.length ? videoBlocks.join('\n') : `  <!-- No hosted video demos ye
 </sitemapindex>
 `;
 
-  // Backward-compatible flat sitemap (pages + projects + blog)
   const flat = writeUrlset([...pages, ...projets.slice(1), ...blog.slice(1)]);
 
   writeBoth('sitemap-pages.xml', writeUrlset(pages));
   writeBoth('sitemap-projets.xml', writeUrlset(projets));
   writeBoth('sitemap-blog.xml', writeUrlset(blog));
-  writeBoth('sitemap-categories.xml', writeUrlset(cats));
-  writeBoth('sitemap-tags.xml', writeUrlset(tagEntries));
   writeBoth('sitemap-images.xml', imagesXml);
   writeBoth('sitemap-videos.xml', videosXml);
   writeBoth('sitemap-index.xml', indexXml);
@@ -372,7 +357,6 @@ ${videoBlocks.length ? videoBlocks.join('\n') : `  <!-- No hosted video demos ye
 function generateLlms() {
   const featured = projectsData.filter((p) => p.isFeatured);
   const categories = collectCategories();
-  const tags = [...collectTags().keys()].sort();
 
   const projectLinks = projectsData
     .map(
@@ -395,22 +379,8 @@ function generateLlms() {
     )
     .join('\n');
 
-  const categoryLinks = [...categories.entries()]
-    .map(
-      ([name, posts]) =>
-        `- [${name}](${absoluteUrl(`/blog/category/${slugify(name)}`)}): ${posts.length} article(s) — ${posts
-          .slice(0, 3)
-          .map((p) => blogTitle(p))
-          .join('; ')}`,
-    )
-    .join('\n');
-
-  const tagLinks = tags
-    .slice(0, 40)
-    .map((tag) => {
-      const posts = collectTags().get(tag) || [];
-      return `- [${tag}](${absoluteUrl(`/blog/tag/${slugify(tag)}`)}): ${posts.length} article(s)`;
-    })
+  const categoryNotes = [...categories.entries()]
+    .map(([name, posts]) => `- ${name}: ${posts.length} article(s) (filtre UI sur /blog)`)
     .join('\n');
 
   const llms = `# ${SITE_NAME}
@@ -446,9 +416,9 @@ ${projectLinks}
 
 ${blogLinks}
 
-## Catégories blog
+## Thématiques blog (filtres in-page)
 
-${categoryLinks}
+${categoryNotes}
 
 ## Fichiers machine-readable
 
@@ -461,7 +431,6 @@ ${categoryLinks}
 
 ## Optional
 
-${tagLinks}
 - [GitHub](${SOCIAL.github}): Dépôts open source et expérimentations
 - [LinkedIn](${SOCIAL.linkedin}): Profil professionnel
 `;
@@ -694,7 +663,6 @@ function buildPrerenderPages(): PrerenderPage[] {
   <p>${escapeHtml(post.category)} · ${escapeHtml(post.date)} · ${escapeHtml(post.readTime)} · ${escapeHtml(post.author)}</p>
   <p>${escapeHtml(blogExcerpt(post))}</p>
   <p>Tags : ${escapeHtml((post.tags || []).join(', '))}</p>
-  <p><a href="${absoluteUrl(`/blog/category/${slugify(post.category)}`)}">Catégorie ${escapeHtml(post.category)}</a></p>
   ${related ? `<h2>Articles liés</h2><ul>${related}</ul>` : ''}
   <p><a href="${absoluteUrl('/blog')}">Retour au blog</a></p>
 </article>`,
@@ -709,39 +677,6 @@ function buildPrerenderPages(): PrerenderPage[] {
         keywords: (post.tags || []).join(', '),
         articleSection: post.category,
       },
-    });
-  }
-
-  for (const [name, posts] of collectCategories()) {
-    const list = posts
-      .map(
-        (p) =>
-          `<li><a href="${absoluteUrl(`/blog/${p.id}`)}"><strong>${escapeHtml(blogTitle(p))}</strong></a> — ${escapeHtml(truncate(blogExcerpt(p), 120))}</li>`,
-      )
-      .join('\n');
-    pages.push({
-      path: `/blog/category/${slugify(name)}`,
-      title: `Catégorie ${name} | Blog | ${SITE_NAME}`,
-      description: `Articles ${name} par ${SITE_NAME} — tutoriels DevOps, cloud et développement.`,
-      bodyHtml: `<h1>Catégorie : ${escapeHtml(name)}</h1>
-<p>${posts.length} article(s) dans la catégorie ${escapeHtml(name)}.</p>
-<ul>${list}</ul>
-<p><a href="${absoluteUrl('/blog')}">Tout le blog</a></p>`,
-    });
-  }
-
-  for (const [name, posts] of collectTags()) {
-    const list = posts
-      .map((p) => `<li><a href="${absoluteUrl(`/blog/${p.id}`)}">${escapeHtml(blogTitle(p))}</a></li>`)
-      .join('\n');
-    pages.push({
-      path: `/blog/tag/${slugify(name)}`,
-      title: `Tag ${name} | Blog | ${SITE_NAME}`,
-      description: `Articles tagués « ${name} » sur le blog de ${SITE_NAME}.`,
-      bodyHtml: `<h1>Tag : ${escapeHtml(name)}</h1>
-<p>${posts.length} article(s) avec le tag ${escapeHtml(name)}.</p>
-<ul>${list}</ul>
-<p><a href="${absoluteUrl('/blog')}">Tout le blog</a></p>`,
     });
   }
 
