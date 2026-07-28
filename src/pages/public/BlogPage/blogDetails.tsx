@@ -79,49 +79,31 @@ export const BlogDetailPage = () => {
           <div className="absolute bottom-0 left-0 w-[min(400px,70vw)] h-[min(400px,70vw)] bg-primary/5 rounded-full blur-[100px] -translate-x-1/3 translate-y-1/3" />
         </div>
 
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 md:pt-28 pb-16">
-          {/* Header Area */}
-          <div className="mb-8">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <BackSection />
-            </motion.div>
-          </div>
-
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 md:pt-32 pb-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 xl:gap-16">
-            {/* Sidebar — sticky TOC stays in its column */}
-            <aside className="hidden lg:block lg:col-span-4 xl:col-span-3 min-w-0 pr-2">
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-              >
-                <TableOfContents content={content} />
-              </motion.div>
+            {/* Sidebar — fixed TOC pinned to this column while reading */}
+            <aside className="hidden lg:block lg:col-span-4 xl:col-span-3 min-w-0 relative">
+              <TableOfContents content={content} variant="desktop" />
             </aside>
 
-            {/* Main Content Area - Now on the Right */}
+            {/* Main Content */}
             <main className="lg:col-span-8 xl:col-span-9 min-w-0">
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
+                transition={{ duration: 0.45 }}
               >
-                {/* Hero Section */}
-                <HeroDetailSection />
+                <div className="mb-6 md:mb-8">
+                  <BackSection />
+                </div>
 
-                {/* Meta & Title */}
+                <HeroDetailSection />
                 <MetaTagsSection />
 
-                {/* Article content */}
                 <div className="mt-8 border-t border-border/40 pt-0">
                   <ArticleContentSection />
                 </div>
 
-                {/* Post Footer Actions */}
                 <div className="mt-10 space-y-12">
                   <ShareSection />
                   <NavigationSection />
@@ -132,10 +114,8 @@ export const BlogDetailPage = () => {
             </main>
           </div>
 
-
-          {/* Table of Contents - Mobile version (FAB) */}
           <div className="lg:hidden">
-            <TableOfContents content={content} />
+            <TableOfContents content={content} variant="mobile" />
           </div>
         </div>
       </div>

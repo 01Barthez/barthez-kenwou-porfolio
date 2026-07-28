@@ -12,9 +12,12 @@ export const DEFAULT_DESCRIPTION =
 export const DEFAULT_KEYWORDS =
   'Barthez Kenwou, Full Stack Developer, DevOps Engineer, Ingénieur DevOps, AWS Cloud, React, Node.js, Kubernetes, Terraform, CI/CD, Docker, Portfolio, Développeur Web, Yaoundé, Cameroun';
 
-/** Absolute OG/Twitter share image (1200×630). JPEG + version for WhatsApp/Meta cache bust. */
-export const OG_IMAGE_VERSION = '20260728';
-export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg?v=${OG_IMAGE_VERSION}`;
+/**
+ * Absolute OG/Twitter share image (1200×630).
+ * Prefer a clean HTTPS JPEG path (no query string) — WhatsApp is picky.
+ * Rename the file when you need a hard cache bust.
+ */
+export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-share.jpg`;
 export const DEFAULT_OG_IMAGE_ALT =
   'Barthez Kenwou — Portfolio DevOps & Full Stack JS';
 
