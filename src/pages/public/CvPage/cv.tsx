@@ -1,4 +1,3 @@
-
 import { CTASection } from './sections/CTASection';
 import { LanguageSection } from './sections/LanguageSection';
 import { CertificationSection } from './sections/CertificationSection';
@@ -9,7 +8,6 @@ import { ExperienceSection } from './sections/ExperienceSection';
 import { FeaturedProjectsSection } from './sections/FeaturedProjectsSection';
 import { ProfileSection } from './sections/ProfileSection';
 import { HeaderSection } from './sections/HeaderSection';
-import { ButtonsCTASection } from './sections/ButtonsCTASection';
 import { SEO } from '@/shared/ui/SEO/SEO';
 import { cvData } from '@/entities/cv/api/mock/cv-data';
 import { RetroGrid } from '@/shared/ui/retro-grid';
@@ -26,60 +24,37 @@ export const CvPage = () => {
         description="CV de Barthez Kenwou — Développeur Full Stack & Ingénieur DevOps AWS. Expérience, compétences et parcours professionnel."
       />
 
-      <div className="min-h-screen py-18 md:py-16 lg:py-20 px-4 md:px-10 lg:px-14 overflow-x-clip">
-        {/* Action Buttons */}
-        <section className="text-center relative mb-10 md:mb-16 pt-12 md:pt-16 animate-fade-in">
+      <div className="min-h-screen overflow-x-clip px-4 py-14 md:px-10 md:py-16 lg:px-14 lg:py-20">
+        <section className="relative mb-8 animate-fade-in pt-10 text-center md:mb-12 md:pt-14">
           <h1 className="section-title">
             {language === 'fr' ? 'Mon' : 'My'}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-foreground via-foreground/80 to-muted-foreground">
-              &nbsp; CV
+            <span className="bg-gradient-to-r from-foreground via-foreground/80 to-muted-foreground bg-clip-text text-transparent">
+              &nbsp;CV
             </span>
           </h1>
-
-          <div className="mt-6 mb-16 md:mb-24">
-            <ButtonsCTASection />
-          </div>
-
+          <p className="section-subtitle mx-auto mt-2 max-w-lg !mb-0 text-sm">
+            {language === 'fr'
+              ? 'Parcours, compétences et réalisations — prêt à télécharger.'
+              : 'Background, skills and achievements — ready to download.'}
+          </p>
           <RetroGrid />
         </section>
 
-        {/* CV Container */}
-        <section className="relative z-10 max-w-4xl mx-auto mb-10 bg-card border border-border rounded-md overflow-hidden shadow-md print:shadow-none print:border-none">
-          {/* Header */}
+        <section className="relative z-10 mx-auto mb-8 max-w-4xl overflow-hidden rounded-md border border-border bg-card shadow-md print:border-none print:shadow-none md:mb-10">
           <HeaderSection personalInfo={cvData.personalInfo} />
 
-          {/* Content */}
-          <div className="p-4 sm:p-6 md:p-8 print:p-6 space-y-6 md:space-y-8">
-            {/* Profile Section*/}
+          <div className="space-y-5 p-3.5 sm:space-y-6 sm:p-6 md:space-y-8 md:p-8 print:p-6">
             <ProfileSection />
-
-            {/* Experience Section */}
             <ExperienceSection experiences={cvData.experiences} />
-
-            {/* Featured Projects Section */}
             <FeaturedProjectsSection projects={cvData.featuredProjects} />
-
-            {/* Skills Section */}
             <SkillsSection skills={cvData.skills} />
-
-            {/* Soft Skills Section */}
             <SoftSkillsSection softSkills={(cvData.skills as any)?.softSkills} />
-
-            {/* Certifications Section */}
             <CertificationSection education={cvData.education} />
-
-            {/* Languages Section*/}
             <LanguageSection languages={cvData.languages} />
-
-            {/* References Section */}
             <ReferencesSection references={(cvData as any)?.references} />
           </div>
         </section>
 
-        {/* Action Buttons */}
-        <ButtonsCTASection />
-
-        {/* Bottom CTA */}
         <CTASection />
       </div>
     </>

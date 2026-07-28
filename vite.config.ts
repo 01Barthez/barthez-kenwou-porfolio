@@ -23,6 +23,7 @@ export default defineConfig(() => {
           'favicon-32x32.png',
           'apple-touch-icon.png',
           'og-image.png',
+          'og-image.jpg',
           'og-image.webp',
           'robots.txt',
           'humans.txt',

@@ -22,7 +22,7 @@ export const ReferenceSection: React.FC<Props> = ({ references, language }) => {
           </View>
           <View style={styles.rightCol}>
             <Text style={styles.boldText}>{language === 'fr' ? ref.roleFr : ref.roleEn}</Text>
-            <Text style={styles.company}>{ref.company}</Text>
+            <Text style={styles.metaText}>{ref.company}</Text>
             <Text style={styles.text}>{ref.email}  |  {ref.phone}</Text>
           </View>
         </View>

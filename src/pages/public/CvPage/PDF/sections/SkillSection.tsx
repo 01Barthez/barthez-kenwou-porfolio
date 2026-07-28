@@ -18,10 +18,16 @@ export const SkillSection: React.FC<Props> = ({ skills, language }) => {
         </View>
         {Object.entries(skills).filter(([cat]) => cat !== 'softSkills').map(([category, categorySkills]: [string, any], cIdx) => {
           if (!categorySkills || categorySkills.length === 0) return null;
+          const key = category.toLowerCase();
           let displayCategory = category.charAt(0).toUpperCase() + category.slice(1);
-          if (category === 'devops') displayCategory = 'DevOps & Cloud';
-          else if (category === 'database') displayCategory = language === 'fr' ? 'Bases de données' : 'Databases';
-          else if (category === 'tools') displayCategory = language === 'fr' ? 'Outils' : 'Tools';
+          if (key === 'cloud') displayCategory = 'Cloud';
+          else if (key === 'devops') displayCategory = 'DevOps & Cloud';
+          else if (key === 'devsecops') displayCategory = 'DevSecOps';
+          else if (key === 'database') displayCategory = language === 'fr' ? 'Bases de données' : 'Databases';
+          else if (key === 'tools') displayCategory = language === 'fr' ? 'Outils' : 'Tools';
+          else if (key === 'architecture') displayCategory = 'Architecture';
+          else if (key === 'frontend') displayCategory = 'Frontend';
+          else if (key === 'backend') displayCategory = 'Backend';
 
           return (
             <View key={cIdx} style={styles.row}>

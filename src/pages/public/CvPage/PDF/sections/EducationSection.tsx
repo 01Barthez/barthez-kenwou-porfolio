@@ -19,7 +19,7 @@ export const EducationSection: React.FC<Props> = ({ education, language }) => (
         </View>
         <View style={styles.rightCol}>
           <Text style={styles.boldText}>{language === 'fr' ? edu.degreeFr : edu.degreeEn}</Text>
-          <Text style={styles.company}>{edu.school}</Text>
+          <Text style={styles.metaText}>{edu.school}</Text>
         </View>
       </View>
     ))}

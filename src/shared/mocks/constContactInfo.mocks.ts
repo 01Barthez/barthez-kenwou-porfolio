@@ -11,7 +11,7 @@ export const contactsInfo = {
   phone: '+237 655 646 688',
   whatsappLink: 'https://wa.me/237655646688',
   location: 'Yaounde - Cameroun',
-  website: 'barthezkenwou.dev',
+  website: 'barthez-kenwou.dev',
   repository: "https://github.com/barthez-kenwou?tab=repositories",
   github: socialLinks[0].href,
   linkedin: socialLinks[1].href,

@@ -1,4 +1,4 @@
-import { ComponentPropsWithoutRef } from 'react';
+import { ComponentPropsWithoutRef, useCallback, useState } from 'react';
 
 import { cn } from '@/shared/lib/utils';
 
@@ -13,7 +13,7 @@ interface MarqueeProps extends ComponentPropsWithoutRef<'div'> {
    */
   reverse?: boolean;
   /**
-   * Whether to pause the animation on hover
+   * Pause on hover (desktop) and on press/touch (mobile)
    * @default false
    */
   pauseOnHover?: boolean;
@@ -42,9 +42,24 @@ export function Marquee({
   repeat = 4,
   ...props
 }: MarqueeProps) {
+  const [paused, setPaused] = useState(false);
+
+  const pause = useCallback(() => {
+    if (pauseOnHover) setPaused(true);
+  }, [pauseOnHover]);
+
+  const resume = useCallback(() => {
+    if (pauseOnHover) setPaused(false);
+  }, [pauseOnHover]);
+
   return (
     <div
       {...props}
+      onMouseEnter={pause}
+      onMouseLeave={resume}
+      onTouchStart={pause}
+      onTouchEnd={resume}
+      onTouchCancel={resume}
       className={cn(
         'group flex [gap:var(--gap)] overflow-hidden p-2 [--duration:40s] [--gap:1rem]',
         {
@@ -63,6 +78,7 @@ export function Marquee({
               'animate-marquee flex-row': !vertical,
               'animate-marquee-vertical flex-col': vertical,
               'group-hover:[animation-play-state:paused]': pauseOnHover,
+              '[animation-play-state:paused]': paused,
               '[animation-direction:reverse]': reverse,
             })}
           >

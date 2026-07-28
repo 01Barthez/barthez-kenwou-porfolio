@@ -35,19 +35,11 @@ export const cvData = {
       phone: "+237 671 091 360"
     },
     {
-      name: "Juan EMA'A",
-      roleFr: "CEO",
-      roleEn: "CEO",
-      company: "INTELEK SARL",
-      email: "nehemie.sighe1@zenora360.com",
-      phone: "+237 694 418 408"
-    },
-    {
       name: "Nehemie Sighe",
       roleFr: "CTO & Cloud Architecte",
       roleEn: "CTO & Cloud Architecte",
       company: "ZENORA",
-      email: "nehemie.sighe1@zenora360.com",
+      email: "nehemie.sighe@zenora360.com",
       phone: "+237 694 418 408"
     },
   ]

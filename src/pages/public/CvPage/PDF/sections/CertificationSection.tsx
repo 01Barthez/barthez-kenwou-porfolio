@@ -21,7 +21,7 @@ export const CertificationSection: React.FC<Props> = ({ certifications }) => {
           </View>
           <View style={styles.rightCol}>
             <Text style={styles.boldText}>{cert.name}</Text>
-            <Text style={styles.company}>{cert.issuer}</Text>
+            <Text style={styles.metaText}>{cert.issuer}</Text>
           </View>
         </View>
       ))}

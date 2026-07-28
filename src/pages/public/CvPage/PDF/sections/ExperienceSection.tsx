@@ -10,23 +10,38 @@ interface Props {
 export const ExperienceSection: React.FC<Props> = ({ experiences, language }) => (
   <View style={styles.section}>
     <View style={styles.sectionTitleBox}>
-      <Text style={styles.sectionTitle}>{language === 'fr' ? 'Expérience Professionnelle' : 'Work Experience'}</Text>
+      <Text style={styles.sectionTitle}>
+        {language === 'fr' ? 'Expérience Professionnelle' : 'Work Experience'}
+      </Text>
     </View>
-    {(experiences || []).map((exp, i) => (
-      <View key={i} style={styles.row}>
-        <View style={styles.leftCol}>
-          <Text style={styles.period}>{exp.period}</Text>
-        </View>
-        <View style={styles.rightCol}>
-          <Text style={styles.boldText}>{language === 'fr' ? exp.titleFr : exp.titleEn}</Text>
-          <Text style={styles.company}>{exp.company}</Text>
-          <View style={styles.bulletList}>
-            {((language === 'fr' ? exp.descriptionFr : exp.descriptionEn) || []).map((desc: string, idx: number) => (
-              <Text key={idx} style={styles.bulletItem}>• {desc}</Text>
-            ))}
+    {(experiences || []).map((exp, i) => {
+      const company =
+        (language === 'fr' ? exp.companyFr : exp.companyEn) ||
+        exp.company ||
+        '';
+
+      return (
+        <View key={i} style={styles.row}>
+          <View style={styles.leftCol}>
+            <Text style={styles.period}>{exp.period}</Text>
+          </View>
+          <View style={styles.rightCol}>
+            <Text style={styles.boldText}>
+              {language === 'fr' ? exp.titleFr : exp.titleEn}
+            </Text>
+            {company ? <Text style={styles.company}>{company}</Text> : null}
+            <View style={styles.bulletList}>
+              {((language === 'fr' ? exp.descriptionFr : exp.descriptionEn) || []).map(
+                (desc: string, idx: number) => (
+                  <Text key={idx} style={styles.bulletItem}>
+                    • {desc}
+                  </Text>
+                ),
+              )}
+            </View>
           </View>
         </View>
-      </View>
-    ))}
+      );
+    })}
   </View>
 );

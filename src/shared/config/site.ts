@@ -12,8 +12,9 @@ export const DEFAULT_DESCRIPTION =
 export const DEFAULT_KEYWORDS =
   'Barthez Kenwou, Full Stack Developer, DevOps Engineer, Ingénieur DevOps, AWS Cloud, React, Node.js, Kubernetes, Terraform, CI/CD, Docker, Portfolio, Développeur Web, Yaoundé, Cameroun';
 
-/** Absolute OG/Twitter share image (1200×630). */
-export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
+/** Absolute OG/Twitter share image (1200×630). JPEG + version for WhatsApp/Meta cache bust. */
+export const OG_IMAGE_VERSION = '20260728';
+export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg?v=${OG_IMAGE_VERSION}`;
 export const DEFAULT_OG_IMAGE_ALT =
   'Barthez Kenwou — Portfolio DevOps & Full Stack JS';
 

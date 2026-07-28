@@ -163,7 +163,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
         {/* Badges Overlay */}
         <div className="absolute top-4 inset-x-4 flex justify-between items-start pointer-events-none">
-          <span className="px-3 py-1 rounded-md bg-black/50 backdrop-blur-md text-[10px] font-bold text-white uppercase tracking-wider border border-white/10 pointer-events-auto">
+          <span className="max-w-[70%] truncate rounded-md border border-white/10 bg-black/50 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white backdrop-blur-md pointer-events-auto">
             {project.category}
           </span>
           {project.status && (
@@ -188,17 +188,17 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         <div className="space-y-1">
           <Link
             to={projectHref}
-            className="py-2 rounded-md flex items-center justify-between w-full"
-            title="View Details"
+            className="flex w-full items-start justify-between gap-2 rounded-md py-1"
+            aria-label={title}
           >
-            <h3 className="text-lg font-medium text-foreground group-hover:text-primary transition-colors flex items-center gap-1.5">
+            <h3 className="min-w-0 flex-1 text-base font-semibold leading-snug text-foreground transition-colors group-hover:text-primary sm:text-lg line-clamp-2 break-words">
               {title}
             </h3>
 
-            <ArrowUpRight className="h-4 w-4 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+            <ArrowUpRight className="mt-0.5 h-4 w-4 shrink-0 opacity-0 -translate-x-1 transition-all group-hover:translate-x-0 group-hover:opacity-100" />
           </Link>
 
-          <p className="text-xs text-muted-foreground line-clamp-3 leading-relaxed">
+          <p className="text-xs leading-relaxed text-muted-foreground line-clamp-3">
             {description}
           </p>
         </div>

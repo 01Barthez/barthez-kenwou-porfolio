@@ -3,7 +3,7 @@ import { blogPostsData } from '@/entities/blogs/api/mock/blog.mocks';
 import { EmptyBlogCard } from '@/entities/blogs/ui/EmptyBlogCard.ui';
 import { categories } from '@/shared/constants/blogCategories.const';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
-import { HiOutlineMagnifyingGlass, HiOutlineSparkles } from 'react-icons/hi2';
+import { HiOutlineMagnifyingGlass } from 'react-icons/hi2';
 import React, { useState } from 'react';
 import { cn } from '@/shared/lib/utils';
 
@@ -77,19 +77,10 @@ export const PostsGrid: React.FC = () => {
                 onFocus={() => setSearchFocused(true)}
                 onBlur={() => setSearchFocused(false)}
                 className={cn(
-                  'relative z-10 w-full bg-transparent py-2.5 pl-9 pr-9 text-sm text-foreground outline-none',
+                  'relative z-10 w-full bg-transparent py-2.5 pl-9 pr-4 text-sm text-foreground outline-none',
                   'placeholder:text-muted-foreground/55',
                 )}
                 aria-label={language === 'fr' ? 'Rechercher un article' : 'Search articles'}
-              />
-
-              <HiOutlineSparkles
-                className={cn(
-                  'pointer-events-none absolute right-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 transition-all duration-500',
-                  isExpanded
-                    ? 'scale-100 text-primary/80 opacity-100'
-                    : 'scale-75 text-muted-foreground/40 opacity-60',
-                )}
               />
             </div>
           </div>

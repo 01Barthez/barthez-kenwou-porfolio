@@ -146,9 +146,9 @@ function personWebSiteJsonLd() {
 }
 
 function ogImageMimeType(url: string): string {
-  const lower = url.toLowerCase();
-  if (lower.endsWith('.webp')) return 'image/webp';
-  if (lower.endsWith('.jpg') || lower.endsWith('.jpeg')) return 'image/jpeg';
+  const path = url.split('?')[0].toLowerCase();
+  if (path.endsWith('.webp')) return 'image/webp';
+  if (path.endsWith('.jpg') || path.endsWith('.jpeg')) return 'image/jpeg';
   return 'image/png';
 }
 

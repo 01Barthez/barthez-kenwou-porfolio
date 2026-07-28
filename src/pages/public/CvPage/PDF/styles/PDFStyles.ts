@@ -37,6 +37,11 @@ export const pdfStyles = StyleSheet.create({
     fontWeight: 'bold',
     textTransform: 'uppercase'
   },
+  subtitle: {
+    fontSize: 9,
+    color: '#64748b',
+    marginTop: 2,
+  },
   section: {
     marginBottom: 10
   },
@@ -85,9 +90,35 @@ export const pdfStyles = StyleSheet.create({
   },
   company: {
     fontSize: 9,
+    color: '#4B2A78',
+    fontWeight: 'bold',
+    textTransform: 'uppercase',
+    letterSpacing: 0.4,
+    marginTop: 2,
+    marginBottom: 4,
+  },
+  metaText: {
+    fontSize: 9,
     color: '#64748b',
-    fontStyle: 'italic',
-    marginBottom: 3
+    marginTop: 2,
+    marginBottom: 3,
+    lineHeight: 1.3,
+  },
+  projectsMoreNotice: {
+    marginTop: 6,
+    paddingTop: 6,
+    borderTopWidth: 0.5,
+    borderTopColor: '#e2e8f0',
+  },
+  projectsMoreText: {
+    fontSize: 8.5,
+    color: '#334155',
+    lineHeight: 1.35,
+  },
+  projectsMoreLink: {
+    fontSize: 8.5,
+    color: '#4B2A78',
+    textDecoration: 'underline',
   },
   bulletList: {
     marginTop: 2,

@@ -144,14 +144,14 @@ const ImpactMetricCard: React.FC<MetricProps> = ({
   return (
     <div
       className={cn(
-        'relative flex min-h-0 flex-col items-center overflow-hidden rounded-md px-2 pb-2.5 pt-2.5 sm:px-3 sm:pb-3 sm:pt-3',
+        'relative flex min-h-0 flex-col items-center overflow-hidden rounded-md pt-2.5 sm:pt-3',
         'bg-secondary/10 dark:bg-black/40',
         'ring-1 ring-border/40 dark:ring-white/10',
       )}
     >
-      <div className="relative z-20 mb-0.5 flex justify-center sm:mb-1">{icon}</div>
+      <div className="relative z-20 mb-0.5 flex justify-center px-2 sm:mb-1 sm:px-3">{icon}</div>
 
-      <div className="relative z-20 px-0.5 text-center">
+      <div className="relative z-20 px-2 text-center sm:px-3">
         <p className="text-base font-bold tracking-tight text-foreground sm:text-lg md:text-xl">
           {value}
         </p>
@@ -160,7 +160,7 @@ const ImpactMetricCard: React.FC<MetricProps> = ({
         </p>
       </div>
 
-      <div className="relative mt-2 h-10 w-full max-w-full sm:mt-2.5 sm:h-12 md:h-14">
+      <div className="relative mt-2 h-10 w-full sm:mt-2.5 sm:h-12 md:h-14">
         <div
           className={cn(
             'absolute inset-x-4 top-0 h-[2px] w-3/4 bg-gradient-to-r from-transparent to-transparent blur-sm sm:inset-x-6',

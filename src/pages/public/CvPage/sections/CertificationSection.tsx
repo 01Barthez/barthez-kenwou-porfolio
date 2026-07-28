@@ -12,16 +12,14 @@ export const CertificationSection: React.FC<CertificationProps> = ({ education }
 
   return (
     <section>
-      {/* Title */}
-      <h2 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
-        <div className="p-2 rounded-md bg-primary/10">
-          <GraduationCap className="h-5 w-5 text-primary" />
+      <h2 className="mb-2.5 flex items-center gap-2 text-lg font-bold text-foreground sm:mb-4 sm:text-xl">
+        <div className="rounded-md bg-primary/10 p-1.5 sm:p-2">
+          <GraduationCap className="h-4 w-4 text-primary sm:h-5 sm:w-5" />
         </div>
         {language === 'fr' ? 'Formation & Certifications' : 'Education & Certifications'}
       </h2>
 
-      {/* certification content */}
-      <div className="space-y-3">
+      <div className="space-y-1.5 sm:space-y-3">
         {education.map((edu: IEducation, index: number) => (
           <CVEducationCard key={index} Education={edu} />
         ))}
