@@ -1,7 +1,7 @@
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { cn } from '@/lib/utils';
+import { cn } from '@/shared/lib/utils';
 import { List, X, ChevronRight } from 'lucide-react';
 
 interface TOCItem {
@@ -107,11 +107,11 @@ export const TableOfContents: React.FC<{ content: string }> = ({ content }) => {
 
   return (
     <>
-      {/* Desktop TOC */}
+      {/* Desktop TOC — sticky in aside (no fixed overlap on article) */}
       <div
         className={cn(
-          'hidden lg:flex lg:flex-col fixed top-26 z-[1]',
-          'w-full max-w-[220px] max-h-[calc(100vh-160px)]',
+          'hidden lg:flex lg:flex-col sticky top-28 z-[1]',
+          'w-full max-h-[calc(100vh-9rem)]',
           'rounded-md border border-border/50 bg-background/85 backdrop-blur-md',
           'shadow-[0_8px_30px_-12px_hsla(268,52%,38%,0.2)]',
           'ring-1 ring-primary/5',

@@ -19,9 +19,9 @@ export const ArchitectureTestingSection: React.FC<{ project: IProject }> = ({ pr
         {/* Architecture */}
         {architecture && architecture.length > 0 && (
           <div className="bg-card border border-border/40 p-6 rounded-md shadow-sm hover:shadow-sm transition-shadow">
-            <h2 className="text-xl font-bold mb-6 text-foreground flex items-center gap-3">
+            <h2 className="text-lg md:text-xl font-bold mb-5 text-foreground flex items-center gap-3 tracking-tight">
               <div className="p-2 rounded-md bg-primary/10 text-primary">
-                <Layers className="w-5 h-5" />
+                <Layers className="w-4 h-4" />
               </div>
               {language === 'fr' ? 'Architecture Technique' : 'Technical Architecture'}
             </h2>
@@ -39,9 +39,9 @@ export const ArchitectureTestingSection: React.FC<{ project: IProject }> = ({ pr
         {/* Testing & QA */}
         {testing && testing.length > 0 && (
           <div className="bg-card border border-border/40 p-6 rounded-md shadow-sm hover:shadow-sm transition-shadow">
-            <h2 className="text-xl font-bold mb-6 text-foreground flex items-center gap-3">
+            <h2 className="text-lg md:text-xl font-bold mb-5 text-foreground flex items-center gap-3 tracking-tight">
               <div className="p-2 rounded-md bg-secondary text-secondary-foreground">
-                <TestTube2 className="w-5 h-5" />
+                <TestTube2 className="w-4 h-4" />
               </div>
               {language === 'fr' ? 'Assurance Qualité & Tests' : 'Testing & QA'}
             </h2>

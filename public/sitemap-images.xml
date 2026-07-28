@@ -4,7 +4,7 @@
   <url>
     <loc>https://barthez-kenwou.dev/</loc>
     <image:image>
-      <image:loc>https://barthez-kenwou.dev/og-image.jpg</image:loc>
+      <image:loc>https://barthez-kenwou.dev/og-image.jpg?v=20260728</image:loc>
       <image:title>Barthez Kenwou — Portfolio</image:title>
       <image:caption>Portfolio de Barthez Kenwou — Développeur Full Stack JS &amp; Ingénieur DevOps spécialiste AWS Cloud. Applications web modernes, CI/CD, Kubernetes et architectures cloud performantes.</image:caption>
     </image:image>
@@ -14,15 +14,15 @@
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/projects/1</loc>
+    <loc>https://barthez-kenwou.dev/projects/nexus-modular-saas-erp-for-smart-restaurant-management-0001</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/167ee008-product-pic-tabesto-300x274.webp</image:loc>
-      <image:title>COMBO – ERP SaaS Modulaire pour la Gestion Intelligente de Restaurants</image:title>
+      <image:title>NEXUS – ERP SaaS Modulaire pour la Gestion Intelligente de Restaurants</image:title>
       <image:caption>ERP SaaS nouvelle génération pour restaurants, basé sur une architecture modulaire activable à la demande, combinant gestion opérationnelle, analytics et expérience client dans une plateforme unifiée.</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/projects/12</loc>
+    <loc>https://barthez-kenwou.dev/projects/gta-it-pwa-platform-corporate-admin-system-0012</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Macbook-Air-gta-it.com%20(2).png</image:loc>
       <image:title>Plateforme Web PWA GTA IT (Corporate + Backoffice)</image:title>
@@ -45,7 +45,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/projects/3</loc>
+    <loc>https://barthez-kenwou.dev/projects/kaza-smart-real-estate-platform-concierge-ecosystem-0003</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2023-05-39.png</image:loc>
       <image:title>Kaza – Plateforme Immobilière Intelligente &amp; Écosystème Conciergerie</image:title>
@@ -58,7 +58,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/projects/4</loc>
+    <loc>https://barthez-kenwou.dev/projects/fullstack-devops-portfolio-personal-technical-positioning-platform-0004</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2022-55-14.png</image:loc>
       <image:title>Portfolio Fullstack &amp; DevOps (Personnel) – Plateforme de Positionnement Technique</image:title>
@@ -71,7 +71,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/projects/5</loc>
+    <loc>https://barthez-kenwou.dev/projects/esopa-ngo-web-platform-wordpress-devops-infrastructure-0005</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2023-24-13.png</image:loc>
       <image:title>Plateforme Web ONG ESOPA – WordPress &amp; Infrastructure DevOps</image:title>
@@ -94,7 +94,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/projects/6</loc>
+    <loc>https://barthez-kenwou.dev/projects/secure-software-supply-chain-platform-industrial-devsecops-0006</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/devsecops.webp</image:loc>
       <image:title>Secure Software Supply Chain Platform – DevSecOps Industriel</image:title>
@@ -102,7 +102,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/projects/7</loc>
+    <loc>https://barthez-kenwou.dev/projects/odoo-erp-platform-cloud-devops-infrastructure-intelek-construction-0007</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2011-20-48.png</image:loc>
       <image:title>Plateforme ERP Odoo – Infrastructure Cloud &amp; DevOps (INTELEK BTP)</image:title>
@@ -115,7 +115,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/projects/8</loc>
+    <loc>https://barthez-kenwou.dev/projects/full-stack-observability-platform-metrics-logs-traces-correlation-0008</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/000000083082.png</image:loc>
       <image:title>Plateforme d’Observabilité Full Stack – Monitoring, Logs &amp; Traces Corrélés</image:title>
@@ -133,7 +133,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/projects/9</loc>
+    <loc>https://barthez-kenwou.dev/projects/backend-driven-blog-platform-seo-rbac-performance-0009</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2015-43-00.png</image:loc>
       <image:title>Plateforme Blog Backend-Driven – SEO, RBAC &amp; Performance</image:title>
@@ -151,7 +151,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/projects/10</loc>
+    <loc>https://barthez-kenwou.dev/projects/advanced-linux-server-hardening-security-ubuntu-0010</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/images%20(2).jpeg</image:loc>
       <image:title>Hardening &amp; Sécurisation Avancée d’un Serveur Linux (Ubuntu)</image:title>
@@ -159,7 +159,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/projects/11</loc>
+    <loc>https://barthez-kenwou.dev/projects/smart-queue-management-platform-0011</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/images%20(4).jpeg</image:loc>
       <image:title>Plateforme de Gestion Intelligente de Files d’Attente</image:title>
@@ -167,7 +167,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/projects/2</loc>
+    <loc>https://barthez-kenwou.dev/projects/gta-academy-web-platform-training-center-0002</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/iPhone-13-PRO-academy.gta-it.com.png</image:loc>
       <image:title>Plateforme Web GTA-Academy (Centre de formation)</image:title>
@@ -180,7 +180,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/1</loc>
+    <loc>https://barthez-kenwou.dev/blog/ci-cd-github-actions-zero-to-expert-0001</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/github_actions_ci_cd.png</image:loc>
       <image:title>CI/CD avec GitHub Actions – De Zéro à Expert</image:title>
@@ -188,7 +188,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/2</loc>
+    <loc>https://barthez-kenwou.dev/blog/deploy-react-aws-s3-cloudfront-route-53-0002</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/maxresdefault.jpg</image:loc>
       <image:title>Guide Complet 2026 : Déployer une Application React sur AWS comme un Pro (S3 + CloudFront + Route 53)</image:title>
@@ -196,7 +196,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/3</loc>
+    <loc>https://barthez-kenwou.dev/blog/optimize-nodejs-performance-pro-0003</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_1poc6wto4rwg5pkx2vvr.webp</image:loc>
       <image:title>Optimiser les Performances de votre Application Node.js comme un Expert</image:title>
@@ -204,7 +204,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/4</loc>
+    <loc>https://barthez-kenwou.dev/blog/express-security-management-pro-0004</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/1753583208962.png</image:loc>
       <image:title>Gestion Complète de la Sécurité de votre Application Express.js comme un Expert</image:title>
@@ -212,7 +212,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/5</loc>
+    <loc>https://barthez-kenwou.dev/blog/deploy-full-stack-serverless-aws-0005</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/Fig5-arch.png</image:loc>
       <image:title>Déployer une API Serverless Complète avec AWS API Gateway + Lambda + DynamoDB + Cognito + CI/CD (Full Stack React)</image:title>
@@ -220,7 +220,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/6</loc>
+    <loc>https://barthez-kenwou.dev/blog/aws-security-iam-best-practices-0006</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/maxresdefault%20(1).jpg</image:loc>
       <image:title>Sécurité AWS – Les Meilleures Pratiques IAM comme un Expert</image:title>
@@ -228,7 +228,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/7</loc>
+    <loc>https://barthez-kenwou.dev/blog/microservices-docker-kubernetes-mastery-0007</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/docker-kubernetes.webp</image:loc>
       <image:title>Architecture Microservices avec Docker et Kubernetes – De Zéro à Expert des Experts</image:title>
@@ -236,7 +236,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/8</loc>
+    <loc>https://barthez-kenwou.dev/blog/aws-multi-environment-architecture-0008</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/851bcb3d-3d1a-41b5-89a4-7d48ecdc89ec.png</image:loc>
       <image:title>Guide Ultime 2026 – Architecture Multi-Environnements (Dev / Staging / Prod) : La Mise en Place Complète que J’Applique sur Tous Mes Projets Clients</image:title>
@@ -244,7 +244,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/9</loc>
+    <loc>https://barthez-kenwou.dev/blog/aws-cost-optimization-finops-0009</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/AWS-FinOps2.png</image:loc>
       <image:title>Stratégies d’Optimisation des Coûts AWS (FinOps) – Cas Réel de Savings que J’Applique Chez Mes Clients</image:title>
@@ -252,7 +252,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/10</loc>
+    <loc>https://barthez-kenwou.dev/blog/production-ready-aws-architecture-0010</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/Figure-1.-Launching-cloud-architecture-patterns-as-AWS-Service-Catalog-products-937x630.png</image:loc>
       <image:title>Designing a Production-Ready AWS Architecture (Real Case) – Ce Que Je Déploie Vraiment Chez Mes Clients</image:title>
@@ -260,7 +260,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/11</loc>
+    <loc>https://barthez-kenwou.dev/blog/secure-linux-server-hardening-0011</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/How-to-Secure-a-Linux-Server_-Complete-2025-Guide-1-1.png</image:loc>
       <image:title>How I Secure a Linux Server (Step-by-Step Hardening Guide) – Ce Que Je Fais Vraiment sur Tous Mes Serveurs</image:title>
@@ -268,7 +268,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/12</loc>
+    <loc>https://barthez-kenwou.dev/blog/production-ready-monitoring-stack-0012</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/1_Dtd4Tjp_3IzMu_B790Umtw.png</image:loc>
       <image:title>Monitoring Stack Production-Ready – Prometheus + Grafana + Loki + Tempo + Alloy + Alerts (Ce Que Je Déploie Vraiment)</image:title>
@@ -276,7 +276,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/13</loc>
+    <loc>https://barthez-kenwou.dev/blog/linux-server-fresh-vps-fortress-0013</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/images.jpeg</image:loc>
       <image:title>Linux Server – De VPS Vierge à Forteresse Complète</image:title>
@@ -284,7 +284,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/14</loc>
+    <loc>https://barthez-kenwou.dev/blog/ci-cd-zero-downtime-deployment-0014</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/1_KJrTyv_5Eu9Rx4YBrIzUWQ.jpg</image:loc>
       <image:title>CI/CD Pipeline for Zero Downtime Deployment (Real Setup) – Ce Que J’Utilise Vraiment sur Mes Projets Clients</image:title>
@@ -292,7 +292,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/15</loc>
+    <loc>https://barthez-kenwou.dev/blog/devsecops-in-practice-sast-dast-0015</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/devsecops_loop.png</image:loc>
       <image:title>DevSecOps in Practice – SAST, DAST, SCA, IaC Scanning &amp; CI/CD Integration (Real Setup)</image:title>
@@ -300,7 +300,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/16</loc>
+    <loc>https://barthez-kenwou.dev/blog/scaling-react-app-ssr-performance-0016</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/1_PRSCPASXfR-Kc4sQ_0ZSKw.jpg</image:loc>
       <image:title>Scaling a React App (SSR, Caching, Performance) – Ce Que Je Fais Vraiment pour Passer à Des Milliers d’Utilisateurs</image:title>
@@ -308,7 +308,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/17</loc>
+    <loc>https://barthez-kenwou.dev/blog/npm-supply-chain-attacks-protection-0017</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_5ewfh3297139a4h7ofof.webp</image:loc>
       <image:title>Supply Chain Attacks sur npm – L’Affaire Axios et Comment Je Protège Mes Apps en DevSecOps</image:title>
@@ -316,7 +316,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/18</loc>
+    <loc>https://barthez-kenwou.dev/blog/odoo-kubernetes-erp-deployment-0018</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/1_Rb6VuLl-T4Jl2aBZipp5vA.jpg</image:loc>
       <image:title>How I Built and Deployed an ERP with Odoo + Kubernetes – Architecture Complète Production-Ready</image:title>
@@ -324,7 +324,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/19</loc>
+    <loc>https://barthez-kenwou.dev/blog/zustand-vs-redux-react-choice-0019</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/images%20(1).jpeg</image:loc>
       <image:title>Zustand vs Redux – Lequel Je Choisis Vraiment pour Mes Projets React &amp; Next.js</image:title>
@@ -332,7 +332,7 @@
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/20</loc>
+    <loc>https://barthez-kenwou.dev/blog/ai-website-builder-seminar-feedback-0020</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/seminar.jpeg</image:loc>
       <image:title>J’ai Piloté un Séminaire Intensif “Créer un Site Web avec l’IA” – Retours, Outils &amp; Méthode Complète</image:title>

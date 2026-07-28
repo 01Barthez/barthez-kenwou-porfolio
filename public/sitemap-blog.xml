@@ -2,126 +2,126 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://barthez-kenwou.dev/blog</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-07-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/1</loc>
+    <loc>https://barthez-kenwou.dev/blog/ci-cd-github-actions-zero-to-expert-0001</loc>
     <lastmod>2026-02-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/2</loc>
+    <loc>https://barthez-kenwou.dev/blog/deploy-react-aws-s3-cloudfront-route-53-0002</loc>
     <lastmod>2026-01-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/3</loc>
+    <loc>https://barthez-kenwou.dev/blog/optimize-nodejs-performance-pro-0003</loc>
     <lastmod>2025-09-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/4</loc>
+    <loc>https://barthez-kenwou.dev/blog/express-security-management-pro-0004</loc>
     <lastmod>2026-02-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/5</loc>
+    <loc>https://barthez-kenwou.dev/blog/deploy-full-stack-serverless-aws-0005</loc>
     <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/6</loc>
+    <loc>https://barthez-kenwou.dev/blog/aws-security-iam-best-practices-0006</loc>
     <lastmod>2026-03-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/7</loc>
+    <loc>https://barthez-kenwou.dev/blog/microservices-docker-kubernetes-mastery-0007</loc>
     <lastmod>2025-12-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/8</loc>
+    <loc>https://barthez-kenwou.dev/blog/aws-multi-environment-architecture-0008</loc>
     <lastmod>2026-04-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/9</loc>
+    <loc>https://barthez-kenwou.dev/blog/aws-cost-optimization-finops-0009</loc>
     <lastmod>2026-04-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/10</loc>
+    <loc>https://barthez-kenwou.dev/blog/production-ready-aws-architecture-0010</loc>
     <lastmod>2026-03-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/11</loc>
+    <loc>https://barthez-kenwou.dev/blog/secure-linux-server-hardening-0011</loc>
     <lastmod>2026-02-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/12</loc>
+    <loc>https://barthez-kenwou.dev/blog/production-ready-monitoring-stack-0012</loc>
     <lastmod>2026-01-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/13</loc>
+    <loc>https://barthez-kenwou.dev/blog/linux-server-fresh-vps-fortress-0013</loc>
     <lastmod>2026-04-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/14</loc>
+    <loc>https://barthez-kenwou.dev/blog/ci-cd-zero-downtime-deployment-0014</loc>
     <lastmod>2026-04-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/15</loc>
+    <loc>https://barthez-kenwou.dev/blog/devsecops-in-practice-sast-dast-0015</loc>
     <lastmod>2026-02-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/16</loc>
+    <loc>https://barthez-kenwou.dev/blog/scaling-react-app-ssr-performance-0016</loc>
     <lastmod>2025-10-10</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/17</loc>
+    <loc>https://barthez-kenwou.dev/blog/npm-supply-chain-attacks-protection-0017</loc>
     <lastmod>2026-04-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/18</loc>
+    <loc>https://barthez-kenwou.dev/blog/odoo-kubernetes-erp-deployment-0018</loc>
     <lastmod>2026-04-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/19</loc>
+    <loc>https://barthez-kenwou.dev/blog/zustand-vs-redux-react-choice-0019</loc>
     <lastmod>2026-04-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/blog/20</loc>
+    <loc>https://barthez-kenwou.dev/blog/ai-website-builder-seminar-feedback-0020</loc>
     <lastmod>2026-03-28</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

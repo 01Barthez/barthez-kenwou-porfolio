@@ -44,8 +44,8 @@ export const ProjectOverviewSection: React.FC<{ project: IProject }> = ({ projec
         <div className="lg:col-span-2 space-y-8">
           {fullDescription && (
             <div>
-              <h2 className="section-title !mb-5 flex items-center gap-3">
-                <span className="w-6 h-1 bg-primary rounded-full"></span>
+              <h2 className="text-lg md:text-xl font-bold text-foreground mb-4 md:mb-5 flex items-center gap-3 tracking-tight">
+                <span className="w-5 h-0.5 bg-primary rounded-full shrink-0" />
                 {language === 'fr' ? 'Aperçu du projet' : 'Project Overview'}
               </h2>
               <div className="text-muted-foreground leading-relaxed text-sm md:text-base whitespace-pre-line">
@@ -56,8 +56,8 @@ export const ProjectOverviewSection: React.FC<{ project: IProject }> = ({ projec
 
           {businessContext && (
             <div className="p-6 bg-primary/5 border border-primary/20 rounded-md">
-              <h3 className="text-xl font-semibold mb-3 text-foreground flex items-center gap-2">
-                <Briefcase className="w-5 h-5 text-primary" />
+              <h3 className="text-base md:text-lg font-semibold mb-2.5 text-foreground flex items-center gap-2 tracking-tight">
+                <Briefcase className="w-4 h-4 text-primary shrink-0" />
                 {language === 'fr' ? 'Contexte Métier' : 'Business Context'}
               </h3>
               <p className="text-muted-foreground text-sm md:text-base italic leading-relaxed">

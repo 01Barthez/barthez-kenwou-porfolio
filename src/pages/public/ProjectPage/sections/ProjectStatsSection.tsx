@@ -158,7 +158,7 @@ const ImpactMetricCard: React.FC<MetricProps> = ({
         <p className="mt-0.5 text-[8px] font-semibold uppercase leading-tight tracking-[0.12em] text-primary sm:text-[9px] sm:tracking-[0.14em]">
           {label}
         </p>
-      </div>
+    </div>
 
       <div className="relative mt-2 h-10 w-full sm:mt-2.5 sm:h-12 md:h-14">
         <div
@@ -204,8 +204,8 @@ const ImpactMetricCard: React.FC<MetricProps> = ({
           )}
         />
       </div>
-    </div>
-  );
+  </div>
+);
 };
 
 // ─── Section ───────────────────────────────────────────────────────────────────
@@ -286,7 +286,7 @@ export const ProjectStatsSection: React.FC = () => {
             </span>
           </h2>
           <p className="section-subtitle !mb-0 text-sm">
-            {isFr
+            {isFr 
               ? "Des solutions robustes déployées à l'échelle, alliant performance et automatisation."
               : 'Robust solutions deployed at scale, combining performance and automation.'}
           </p>

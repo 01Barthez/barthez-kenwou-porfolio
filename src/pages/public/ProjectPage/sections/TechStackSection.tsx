@@ -23,7 +23,7 @@ export const TechStackSection: React.FC<{ project: IProject }> = ({ project }) =
     <section className="mb-16 px-4 md:px-10 lg:px-14 animate-fade-in-up">
       <div className="flex items-center gap-4 mb-8">
         <div className="h-[1px] flex-grow bg-border/50"></div>
-        <h2 className="section-title px-4 text-center">
+        <h2 className="text-lg md:text-xl font-bold px-4 text-center text-foreground tracking-tight shrink-0">
           {language === 'fr' ? 'Technologies Utilisées' : 'Technologies Used'}
         </h2>
         <div className="h-[1px] flex-grow bg-border/50"></div>

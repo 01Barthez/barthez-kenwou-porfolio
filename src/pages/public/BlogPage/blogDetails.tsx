@@ -91,10 +91,9 @@ export const BlogDetailPage = () => {
             </motion.div>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-            {/* Sidebar Area - Now on the Left */}
-            <aside className="hidden lg:block lg:col-span-4 xl:col-span-3 min-w-0">
-              {/* Opacity-only: transform on parent would break position:fixed TOC */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 xl:gap-16">
+            {/* Sidebar — sticky TOC stays in its column */}
+            <aside className="hidden lg:block lg:col-span-4 xl:col-span-3 min-w-0 pr-2">
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}

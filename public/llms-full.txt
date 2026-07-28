@@ -32,10 +32,10 @@ Ce portfolio documente des études de cas réelles (SaaS, PWA, ERP Odoo, hardeni
 
 ## Projects detail
 
-### COMBO – ERP SaaS Modulaire pour la Gestion Intelligente de Restaurants
+### NEXUS – ERP SaaS Modulaire pour la Gestion Intelligente de Restaurants
 
-- URL: https://barthez-kenwou.dev/projects/1
-- EN: COMBO – Modular SaaS ERP for Smart Restaurant Management
+- URL: https://barthez-kenwou.dev/projects/nexus-modular-saas-erp-for-smart-restaurant-management-0001
+- EN: NEXUS – Modular SaaS ERP for Smart Restaurant Management
 - Category: SaaS • Fullstack • Cloud • DevOps
 - Status: En cours · Role: Fullstack Developer • DevOps Engineer • Architect · Duration: Projet long terme · Date: 2026
 - Featured: yes
@@ -46,7 +46,7 @@ Ce portfolio documente des études de cas réelles (SaaS, PWA, ERP Odoo, hardeni
 
 **FR:** ERP SaaS nouvelle génération pour restaurants, basé sur une architecture modulaire activable à la demande, combinant gestion opérationnelle, analytics et expérience client dans une plateforme unifiée.
 
-COMBO est une plateforme SaaS ambitieuse de nouvelle génération dédiée à la gestion intelligente et modulaire des restaurants. L’objectif est de fournir un système complet permettant à chaque restaurateur de construire son propre ERP sur mesure en activant uniquement les modules dont il a réellement besoin. La plateforme repose sur une architecture monolithique modulaire (modular monolith) structurée via Turborepo, garantissant une séparation stricte des domaines métiers (Commandes, Stocks, CRM, Comptabilité, etc.) tout en conservant la simplicité opérationnelle d’un monolithe. Le produit comprend : - Une vitrine SaaS optimisée SEO pour acquisition client - Un système de souscription avec paiement multi-canaux (Mobile Money, Stripe, banque) - Une application principale (PWA) pour les restaurateurs - Des interfaces dédiées (admin, staff, cuisine) Chaque restaurant peut configurer dynamiquement son environnement en activant des modules spécifiques : gestion des commandes (salle & online), menus & recettes avec calcul des coûts, gestion des stocks avec alertes, livraisons avec suivi temps réel, réservations intelligentes avec plan de salle, CRM client, facturation automatisée, report…
+NEXUS est une plateforme SaaS ambitieuse de nouvelle génération dédiée à la gestion intelligente et modulaire des restaurants. L’objectif est de fournir un système complet permettant à chaque restaurateur de construire son propre ERP sur mesure en activant uniquement les modules dont il a réellement besoin. La plateforme repose sur une architecture monolithique modulaire (modular monolith) structurée via Turborepo, garantissant une séparation stricte des domaines métiers (Commandes, Stocks, CRM, Comptabilité, etc.) tout en conservant la simplicité opérationnelle d’un monolithe. Le produit comprend : - Une vitrine SaaS optimisée SEO pour acquisition client - Un système de souscription avec paiement multi-canaux (Mobile Money, Stripe, banque) - Une application principale (PWA) pour les restaurateurs - Des interfaces dédiées (admin, staff, cuisine) Chaque restaurant peut configurer dynamiquement son environnement en activant des modules spécifiques : gestion des commandes (salle & online), menus & recettes avec calcul des coûts, gestion des stocks avec alertes, livraisons avec suivi temps réel, réservations intelligentes avec plan de salle, CRM client, facturation automatisée, report…
 
 **Problem:** Les solutions existantes de gestion de restaurant sont souvent rigides, coûteuses et mal adaptées aux réalités locales, obligeant les restaurateurs à utiliser plusieurs outils fragmentés.
 
@@ -54,7 +54,7 @@ COMBO est une plateforme SaaS ambitieuse de nouvelle génération dédiée à la
 
 ### Plateforme Web PWA GTA IT (Corporate + Backoffice)
 
-- URL: https://barthez-kenwou.dev/projects/12
+- URL: https://barthez-kenwou.dev/projects/gta-it-pwa-platform-corporate-admin-system-0012
 - EN: GTA IT PWA Platform (Corporate + Admin System)
 - Category: Full Stack & PWA
 - Status: Production · Role: Fullstack Developer · Duration: 4 mois · Date: Octobre 2023 - Février 2024
@@ -74,7 +74,7 @@ Conception et développement d’une plateforme web complète pour GTA (ESN) afi
 
 ### Kaza – Plateforme Immobilière Intelligente & Écosystème Conciergerie
 
-- URL: https://barthez-kenwou.dev/projects/3
+- URL: https://barthez-kenwou.dev/projects/kaza-smart-real-estate-platform-concierge-ecosystem-0003
 - EN: Kaza – Smart Real Estate Platform & Concierge Ecosystem
 - Category: Fullstack • DevOps • AI • Mobile
 - Status: En cours · Role: Fullstack Developer • DevOps Engineer · Duration: Projet long terme · Date: 2026
@@ -94,7 +94,7 @@ Conception et développement en cours d’une plateforme immobilière nouvelle g
 
 ### Portfolio Fullstack & DevOps (Personnel) – Plateforme de Positionnement Technique
 
-- URL: https://barthez-kenwou.dev/projects/4
+- URL: https://barthez-kenwou.dev/projects/fullstack-devops-portfolio-personal-technical-positioning-platform-0004
 - EN: Fullstack & DevOps Portfolio (Personal) – Technical Positioning Platform
 - Category: Fullstack • DevOps
 - Status: Production · Role: Fullstack Developer • DevOps Engineer · Duration: Projet continu · Date: 2026
@@ -114,7 +114,7 @@ Conception et développement d’un portfolio personnel avancé, pensé non comm
 
 ### Plateforme Web ONG ESOPA – WordPress & Infrastructure DevOps
 
-- URL: https://barthez-kenwou.dev/projects/5
+- URL: https://barthez-kenwou.dev/projects/esopa-ngo-web-platform-wordpress-devops-infrastructure-0005
 - EN: ESOPA NGO Web Platform – WordPress & DevOps Infrastructure
 - Category: DevOps • Web
 - Status: Production · Role: Fullstack Developer • DevOps Engineer · Duration: 1 mois · Date: 2025
@@ -134,7 +134,7 @@ Accompagnement complet de l’ONG ESOPA dans sa transformation digitale, allant 
 
 ### Secure Software Supply Chain Platform – DevSecOps Industriel
 
-- URL: https://barthez-kenwou.dev/projects/6
+- URL: https://barthez-kenwou.dev/projects/secure-software-supply-chain-platform-industrial-devsecops-0006
 - EN: Secure Software Supply Chain Platform – Industrial DevSecOps
 - Category: DevSecOps
 - Status: Actif · Role: DevOps Engineer · Duration: Projet continu · Date: 2026
@@ -154,7 +154,7 @@ Conception et implémentation d’une plateforme DevSecOps complète destinée �
 
 ### Plateforme ERP Odoo – Infrastructure Cloud & DevOps (INTELEK BTP)
 
-- URL: https://barthez-kenwou.dev/projects/7
+- URL: https://barthez-kenwou.dev/projects/odoo-erp-platform-cloud-devops-infrastructure-intelek-construction-0007
 - EN: Odoo ERP Platform – Cloud & DevOps Infrastructure (INTELEK Construction)
 - Category: DevOps • ERP
 - Status: Production · Role: DevOps Engineer · Duration: 2–3 mois · Date: 2026
@@ -174,7 +174,7 @@ Conception et déploiement d’une plateforme ERP complète basée sur Odoo pour
 
 ### Plateforme d’Observabilité Full Stack – Monitoring, Logs & Traces Corrélés
 
-- URL: https://barthez-kenwou.dev/projects/8
+- URL: https://barthez-kenwou.dev/projects/full-stack-observability-platform-metrics-logs-traces-correlation-0008
 - EN: Full Stack Observability Platform – Metrics, Logs & Traces Correlation
 - Category: DevOps • Observability
 - Status: MVP · Role: DevOps Engineer · Duration: Projet continu · Date: 2026
@@ -194,7 +194,7 @@ Conception et déploiement d’une stack complète d’observabilité open-sourc
 
 ### Plateforme Blog Backend-Driven – SEO, RBAC & Performance
 
-- URL: https://barthez-kenwou.dev/projects/9
+- URL: https://barthez-kenwou.dev/projects/backend-driven-blog-platform-seo-rbac-performance-0009
 - EN: Backend-Driven Blog Platform – SEO, RBAC & Performance
 - Category: Backend • Fullstack
 - Status: Production · Role: Backend Developer • DevOps · Duration: Projet continu · Date: 2026
@@ -214,7 +214,7 @@ Conception et développement d’une plateforme de blog avancée centrée sur le
 
 ### Hardening & Sécurisation Avancée d’un Serveur Linux (Ubuntu)
 
-- URL: https://barthez-kenwou.dev/projects/10
+- URL: https://barthez-kenwou.dev/projects/advanced-linux-server-hardening-security-ubuntu-0010
 - EN: Advanced Linux Server Hardening & Security (Ubuntu)
 - Category: Security • DevOps
 - Status: Actif · Role: DevOps Engineer · Duration: Projet continu · Date: 2026
@@ -234,7 +234,7 @@ Mise en place d’une stratégie complète de sécurisation (hardening) d’un s
 
 ### Plateforme de Gestion Intelligente de Files d’Attente
 
-- URL: https://barthez-kenwou.dev/projects/11
+- URL: https://barthez-kenwou.dev/projects/smart-queue-management-platform-0011
 - EN: Smart Queue Management Platform
 - Category: Fullstack
 - Status: MVP · Role: Scrum Master • Lead Developer · Duration: 2–3 mois · Date: 2025
@@ -254,7 +254,7 @@ Conception et développement d’une plateforme de gestion intelligente de files
 
 ### Plateforme Web GTA-Academy (Centre de formation)
 
-- URL: https://barthez-kenwou.dev/projects/2
+- URL: https://barthez-kenwou.dev/projects/gta-academy-web-platform-training-center-0002
 - EN: GTA-Academy Web Platform (Training Center)
 - Category: Full Stack
 - Status: Production · Role: Fullstack Developer · Duration: 1 semaine · Date: 2025
@@ -277,7 +277,7 @@ Conception et développement en urgence d’une plateforme web pour GTA-Academy,
 
 ### CI/CD avec GitHub Actions – De Zéro à Expert
 
-- URL: https://barthez-kenwou.dev/blog/1
+- URL: https://barthez-kenwou.dev/blog/ci-cd-github-actions-zero-to-expert-0001
 - Slug: ci-cd-github-actions-zero-to-expert
 - Category: DevOps · 2026-02-12 · 19 min
 - Tags: GitHub Actions, CI/CD, DevOps, Automation, Pipeline, Deployment, GitHub, OIDC
@@ -289,7 +289,7 @@ Conception et développement en urgence d’une plateforme web pour GTA-Academy,
 
 ### Guide Complet 2026 : Déployer une Application React sur AWS comme un Pro (S3 + CloudFront + Route 53)
 
-- URL: https://barthez-kenwou.dev/blog/2
+- URL: https://barthez-kenwou.dev/blog/deploy-react-aws-s3-cloudfront-route-53-0002
 - Slug: deploy-react-aws-s3-cloudfront-route-53
 - Category: AWS · 2026-01-29 · 12 min
 - Tags: AWS, React, CloudFront, S3, Route53, Déploiement, DevOps, SPA, OAC, CI/CD
@@ -301,7 +301,7 @@ Conception et développement en urgence d’une plateforme web pour GTA-Academy,
 
 ### Optimiser les Performances de votre Application Node.js comme un Expert
 
-- URL: https://barthez-kenwou.dev/blog/3
+- URL: https://barthez-kenwou.dev/blog/optimize-nodejs-performance-pro-0003
 - Slug: optimize-nodejs-performance-pro
 - Category: Backend · 2025-09-29 · 28 min
 - Tags: Node.js, Performance, Backend, Optimization, ExpressJS, Prisma, Redis, Caching, PM2, Nginx, Cloudflare
@@ -313,7 +313,7 @@ Conception et développement en urgence d’une plateforme web pour GTA-Academy,
 
 ### Gestion Complète de la Sécurité de votre Application Express.js comme un Expert
 
-- URL: https://barthez-kenwou.dev/blog/4
+- URL: https://barthez-kenwou.dev/blog/express-security-management-pro-0004
 - Slug: express-security-management-pro
 - Category: Backend · 2026-02-06 · 11 min
 - Tags: ExpressJS, Security, TypeScript, Backend, NodeJS, Helmet, Zod, OWASP, DevSecOps, Sécurité
@@ -325,7 +325,7 @@ Conception et développement en urgence d’une plateforme web pour GTA-Academy,
 
 ### Déployer une API Serverless Complète avec AWS API Gateway + Lambda + DynamoDB + Cognito + CI/CD (Full Stack React)
 
-- URL: https://barthez-kenwou.dev/blog/5
+- URL: https://barthez-kenwou.dev/blog/deploy-full-stack-serverless-aws-0005
 - Slug: deploy-full-stack-serverless-aws
 - Category: AWS · 2026-04-14 · 25 min
 - Tags: AWS, Serverless, APIGateway, Lambda, DynamoDB, Cognito, CodePipeline, FullStack, React, TypeScript, CI/CD
@@ -337,7 +337,7 @@ Conception et développement en urgence d’une plateforme web pour GTA-Academy,
 
 ### Sécurité AWS – Les Meilleures Pratiques IAM comme un Expert
 
-- URL: https://barthez-kenwou.dev/blog/6
+- URL: https://barthez-kenwou.dev/blog/aws-security-iam-best-practices-0006
 - Slug: aws-security-iam-best-practices
 - Category: AWS · 2026-03-29 · 29 min
 - Tags: AWS, IAM, Security, DevSecOps, LeastPrivilege, IAMIdentityCenter, AccessAnalyzer, SCPs, CloudSecurity
@@ -349,7 +349,7 @@ Conception et développement en urgence d’une plateforme web pour GTA-Academy,
 
 ### Architecture Microservices avec Docker et Kubernetes – De Zéro à Expert des Experts
 
-- URL: https://barthez-kenwou.dev/blog/7
+- URL: https://barthez-kenwou.dev/blog/microservices-docker-kubernetes-mastery-0007
 - Slug: microservices-docker-kubernetes-mastery
 - Category: DevOps · 2025-12-28 · 22 min
 - Tags: Microservices, Docker, Kubernetes, K8s, DevOps, GitOps, ArgoCD, Observability, ServiceMesh, CloudNative, Helm
@@ -361,7 +361,7 @@ Conception et développement en urgence d’une plateforme web pour GTA-Academy,
 
 ### Guide Ultime 2026 – Architecture Multi-Environnements (Dev / Staging / Prod) : La Mise en Place Complète que J’Applique sur Tous Mes Projets Clients
 
-- URL: https://barthez-kenwou.dev/blog/8
+- URL: https://barthez-kenwou.dev/blog/aws-multi-environment-architecture-0008
 - Slug: aws-multi-environment-architecture
 - Category: DevOps · 2026-04-01 · 25 min
 - Tags: MultiEnvironment, DevOps, GitOps, Terraform, Kubernetes, AWS, FeatureFlags, Observability, CI/CD, SecretsManagement
@@ -373,7 +373,7 @@ Conception et développement en urgence d’une plateforme web pour GTA-Academy,
 
 ### Stratégies d’Optimisation des Coûts AWS (FinOps) – Cas Réel de Savings que J’Applique Chez Mes Clients
 
-- URL: https://barthez-kenwou.dev/blog/9
+- URL: https://barthez-kenwou.dev/blog/aws-cost-optimization-finops-0009
 - Slug: aws-cost-optimization-finops
 - Category: DevOps · 2026-04-05 · 16 min
 - Tags: FinOps, AWSCostOptimization, CostSavings, SavingsPlans, SpotInstances, Graviton, AWS, DevOps
@@ -385,7 +385,7 @@ Conception et développement en urgence d’une plateforme web pour GTA-Academy,
 
 ### Designing a Production-Ready AWS Architecture (Real Case) – Ce Que Je Déploie Vraiment Chez Mes Clients
 
-- URL: https://barthez-kenwou.dev/blog/10
+- URL: https://barthez-kenwou.dev/blog/production-ready-aws-architecture-0010
 - Slug: production-ready-aws-architecture
 - Category: DevOps · 2026-03-21 · 28 min
 - Tags: ProductionReady, AWSArchitecture, EKS, Terraform, GitOps, MultiAccount, DevOps, Karpenter, Observability
@@ -397,7 +397,7 @@ Conception et développement en urgence d’une plateforme web pour GTA-Academy,
 
 ### How I Secure a Linux Server (Step-by-Step Hardening Guide) – Ce Que Je Fais Vraiment sur Tous Mes Serveurs
 
-- URL: https://barthez-kenwou.dev/blog/11
+- URL: https://barthez-kenwou.dev/blog/secure-linux-server-hardening-0011
 - Slug: secure-linux-server-hardening
 - Category: DevOps · 2026-02-28 · 24 min
 - Tags: LinuxHardening, ServerSecurity, SSHSecurity, Fail2Ban, DevOps, LinuxSecurity, AppArmor, UFW
@@ -409,7 +409,7 @@ Conception et développement en urgence d’une plateforme web pour GTA-Academy,
 
 ### Monitoring Stack Production-Ready – Prometheus + Grafana + Loki + Tempo + Alloy + Alerts (Ce Que Je Déploie Vraiment)
 
-- URL: https://barthez-kenwou.dev/blog/12
+- URL: https://barthez-kenwou.dev/blog/production-ready-monitoring-stack-0012
 - Slug: production-ready-monitoring-stack
 - Category: DevOps · 2026-01-06 · 56 min
 - Tags: Observability, Prometheus, Grafana, Loki, Tempo, Alloy, LGTM, Alerting, Kubernetes, DevOps
@@ -421,7 +421,7 @@ Conception et développement en urgence d’une plateforme web pour GTA-Academy,
 
 ### Linux Server – De VPS Vierge à Forteresse Complète
 
-- URL: https://barthez-kenwou.dev/blog/13
+- URL: https://barthez-kenwou.dev/blog/linux-server-fresh-vps-fortress-0013
 - Slug: linux-server-fresh-vps-fortress
 - Category: DevOps · 2026-04-12 · 32 min
 - Tags: LinuxHardening, ServerSecurity, CrowdSec, Naxsi, CSF, Fail2Ban, Cloudflare, UFW, DevOps, Ubuntu
@@ -433,7 +433,7 @@ Conception et développement en urgence d’une plateforme web pour GTA-Academy,
 
 ### CI/CD Pipeline for Zero Downtime Deployment (Real Setup) – Ce Que J’Utilise Vraiment sur Mes Projets Clients
 
-- URL: https://barthez-kenwou.dev/blog/14
+- URL: https://barthez-kenwou.dev/blog/ci-cd-zero-downtime-deployment-0014
 - Slug: ci-cd-zero-downtime-deployment
 - Category: DevOps · 2026-04-20 · 28 min
 - Tags: ZeroDowntime, CICD, ArgoCD, ArgoRollouts, GitOps, BlueGreen, Canary, FeatureFlags, Kubernetes, DevOps
@@ -445,7 +445,7 @@ Conception et développement en urgence d’une plateforme web pour GTA-Academy,
 
 ### DevSecOps in Practice – SAST, DAST, SCA, IaC Scanning & CI/CD Integration (Real Setup)
 
-- URL: https://barthez-kenwou.dev/blog/15
+- URL: https://barthez-kenwou.dev/blog/devsecops-in-practice-sast-dast-0015
 - Slug: devsecops-in-practice-sast-dast
 - Category: DevOps · 2026-02-13 · 37 min
 - Tags: DevSecOps, SAST, DAST, SCA, Trivy, ZAP, GitHubActions, CI/CD, Security, ShiftLeft
@@ -457,7 +457,7 @@ Conception et développement en urgence d’une plateforme web pour GTA-Academy,
 
 ### Scaling a React App (SSR, Caching, Performance) – Ce Que Je Fais Vraiment pour Passer à Des Milliers d’Utilisateurs
 
-- URL: https://barthez-kenwou.dev/blog/16
+- URL: https://barthez-kenwou.dev/blog/scaling-react-app-ssr-performance-0016
 - Slug: scaling-react-app-ssr-performance
 - Category: Frontend · 2025-10-10 · 29 min
 - Tags: ReactScaling, NextJS, SSR, ISR, Caching, Performance, ReactServerComponents, EdgeRendering, DevOps
@@ -469,7 +469,7 @@ Conception et développement en urgence d’une plateforme web pour GTA-Academy,
 
 ### Supply Chain Attacks sur npm – L’Affaire Axios et Comment Je Protège Mes Apps en DevSecOps
 
-- URL: https://barthez-kenwou.dev/blog/17
+- URL: https://barthez-kenwou.dev/blog/npm-supply-chain-attacks-protection-0017
 - Slug: npm-supply-chain-attacks-protection
 - Category: DevOps · 2026-04-14 · 16 min
 - Tags: SupplyChainSecurity, DevSecOps, npmSecurity, AxiosAttack, SAST, Trivy, ShiftLeft, DependencyConfusion
@@ -481,7 +481,7 @@ Conception et développement en urgence d’une plateforme web pour GTA-Academy,
 
 ### How I Built and Deployed an ERP with Odoo + Kubernetes – Architecture Complète Production-Ready
 
-- URL: https://barthez-kenwou.dev/blog/18
+- URL: https://barthez-kenwou.dev/blog/odoo-kubernetes-erp-deployment-0018
 - Slug: odoo-kubernetes-erp-deployment
 - Category: DevOps · 2026-04-20 · 43 min
 - Tags: Odoo, Kubernetes, ERP, EKS, GitOps, ArgoCD, Scaling, DevOps, Helm
@@ -493,7 +493,7 @@ Conception et développement en urgence d’une plateforme web pour GTA-Academy,
 
 ### Zustand vs Redux – Lequel Je Choisis Vraiment pour Mes Projets React & Next.js
 
-- URL: https://barthez-kenwou.dev/blog/19
+- URL: https://barthez-kenwou.dev/blog/zustand-vs-redux-react-choice-0019
 - Slug: zustand-vs-redux-react-choice
 - Category: Frontend · 2026-04-03 · 23 min
 - Tags: Zustand, Redux, ReactStateManagement, NextJS, Performance, Boilerplate, DevExperience
@@ -505,7 +505,7 @@ Conception et développement en urgence d’une plateforme web pour GTA-Academy,
 
 ### J’ai Piloté un Séminaire Intensif “Créer un Site Web avec l’IA” – Retours, Outils & Méthode Complète
 
-- URL: https://barthez-kenwou.dev/blog/20
+- URL: https://barthez-kenwou.dev/blog/ai-website-builder-seminar-feedback-0020
 - Slug: ai-website-builder-seminar-feedback
 - Category: Formation · 2026-03-28 · 15 min
 - Tags: DevWeb, IntelligenceArtificielle, PromptEngineering, Cursor, v0, BoltNew, NextJS, React, FormationTech

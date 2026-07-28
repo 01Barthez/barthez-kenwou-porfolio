@@ -1,59 +1,95 @@
 import React from 'react';
 import { IProject } from '@/entities/projets/model/project.types';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
-import { AlertCircle, CheckCircle2, Target } from 'lucide-react';
+import { useThemeStore } from '@/shared/state/useThemeStore';
+import { cn } from '@/shared/lib/utils';
 
-export const ProblemSolutionSection: React.FC<{ project: IProject }> = ({ project }) => {
+const PROBLEM_FLARE = '/images/project-problem-flare.webp';
+
+export const ProblemSolutionSection: React.FC<{ project: IProject }> = ({
+  project,
+}) => {
   const { language } = useLanguageStore();
+  const theme = useThemeStore((s) => s.theme);
+  const isDark = theme === 'dark';
   const problem = language === 'fr' ? project.problemFr : project.problemEn;
   const solutions = language === 'fr' ? project.solutionFr : project.solutionEn;
 
   if (!problem && (!solutions || solutions.length === 0)) return null;
 
   return (
-    <section className="mb-16 px-4 md:px-10 lg:px-14 animate-fade-in-up">
-      <div className="grid md:grid-cols-2 gap-8 lg:gap-16">
-        
-        {/* Problem */}
+    <section className="relative mb-16 px-4 md:px-10 lg:px-14 overflow-hidden animate-fade-in-up">
+      {/* Flare — vertically centered; from the right on desktop, behind glass on mobile */}
+      <div
+        className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
+        aria-hidden
+      >
+        <div
+          className={cn(
+            'absolute top-1/2 -translate-y-1/2',
+            'left-1/2 -translate-x-1/2 w-[min(130vw,28rem)]',
+            'md:left-auto md:right-[-4%] md:translate-x-0 md:w-[min(70vw,36rem)]',
+            'lg:w-[min(55vw,40rem)]',
+          )}
+        >
+          <img
+            src={PROBLEM_FLARE}
+            alt=""
+            decoding="async"
+            className={cn(
+              'w-full h-auto select-none',
+              'opacity-[0.32] dark:opacity-[0.48]',
+              '[mask-image:linear-gradient(90deg,transparent_0%,black_18%,black_100%),linear-gradient(0deg,transparent_0%,black_18%,black_82%,transparent_100%)]',
+              '[-webkit-mask-image:linear-gradient(90deg,transparent_0%,black_18%,black_100%),linear-gradient(0deg,transparent_0%,black_18%,black_82%,transparent_100%)]',
+              '[mask-composite:intersect] [-webkit-mask-composite:source-in]',
+            )}
+            style={{
+              mixBlendMode: isDark ? 'screen' : 'multiply',
+              filter: isDark
+                ? 'saturate(1.15) brightness(0.85)'
+                : 'saturate(0.9) brightness(1.05)',
+            }}
+          />
+        </div>
+        <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/55 to-transparent md:via-background/35" />
+      </div>
+
+      <div className="relative z-10 grid md:grid-cols-2 gap-5 md:gap-8 lg:gap-10">
         {problem && (
-          <div className="bg-destructive/5 border border-destructive/20 p-6 md:p-8 rounded-md relative overflow-hidden group">
-            <div className="absolute top-0 right-0 p-6 opacity-20 group-hover:opacity-40 transition-opacity">
-              <AlertCircle className="w-32 h-32 text-destructive" />
-            </div>
-            <div className="relative z-10">
-              <h2 className="section-title !mb-0 flex items-center gap-3">
-                <div className="p-2 rounded-md bg-destructive/10 text-destructive">
-                  <Target className="w-6 h-6" />
-                </div>
+          <div className="relative overflow-hidden rounded-md border border-border/40 bg-card/40 backdrop-blur-xl p-5 md:p-7 shadow-[0_8px_32px_-12px_rgba(0,0,0,0.4)]">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-transparent"
+            />
+            <div className="relative">
+              <h2 className="text-lg md:text-xl font-bold text-foreground mb-3 md:mb-4 tracking-tight">
                 {language === 'fr' ? 'Le Problème' : 'The Problem'}
               </h2>
-              <p className="text-muted-foreground leading-relaxed">
+              <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
                 {problem}
               </p>
             </div>
           </div>
         )}
 
-        {/* Solution */}
         {solutions && solutions.length > 0 && (
-          <div className="bg-primary/5 border border-primary/20 p-6 md:p-8 rounded-md relative overflow-hidden group">
-            <div className="absolute top-0 right-0 p-6 opacity-10 group-hover:opacity-20 transition-opacity">
-              <CheckCircle2 className="w-32 h-32 text-primary" />
-            </div>
-            <div className="relative z-10">
-              <h2 className="section-title !mb-4 flex items-center gap-3">
-                <div className="p-2 rounded-md bg-primary/10 text-primary">
-                  <CheckCircle2 className="w-6 h-6" />
-                </div>
+          <div className="relative overflow-hidden rounded-md border border-primary/25 bg-card/45 backdrop-blur-xl p-5 md:p-7 shadow-[0_8px_32px_-12px_rgba(124,58,237,0.18)]">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute inset-0 bg-gradient-to-br from-primary/12 via-transparent to-transparent"
+            />
+            <div className="relative">
+              <h2 className="text-lg md:text-xl font-bold text-foreground mb-3 md:mb-4 tracking-tight">
                 {language === 'fr' ? 'La Solution' : 'The Solution'}
               </h2>
-              <ul className="space-y-4">
+              <ul className="space-y-3">
                 {solutions.map((sol, idx) => (
                   <li key={idx} className="flex items-start gap-3">
-                    <span className="flex-shrink-0 w-6 h-6 rounded-full bg-primary/20 text-primary flex items-center justify-center text-xs font-bold mt-0.5">
+                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-primary/20 text-primary flex items-center justify-center text-[10px] font-bold mt-0.5">
                       {idx + 1}
                     </span>
-                    <span className="text-muted-foreground leading-relaxed">
+                    <span className="text-sm text-muted-foreground leading-relaxed">
                       {sol}
                     </span>
                   </li>
@@ -62,7 +98,6 @@ export const ProblemSolutionSection: React.FC<{ project: IProject }> = ({ projec
             </div>
           </div>
         )}
-
       </div>
     </section>
   );
