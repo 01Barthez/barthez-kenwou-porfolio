@@ -2,6 +2,7 @@ import { socialLinks } from '../constants/socialLink.const';
 
 export const contactsInfo = {
   name: 'Barthez Kenwou',
+  handle: 'barthez-kenwou',
   titleFr: 'Développeur Full Stack & Ingénieur DevOps',
   titleEn: 'Full Stack Developer & DevOps Engineer',
   subtitleFr: 'Spécialiste AWS Cloud',
@@ -14,4 +15,5 @@ export const contactsInfo = {
   repository: "https://github.com/barthez-kenwou?tab=repositories",
   github: socialLinks[0].href,
   linkedin: socialLinks[1].href,
+  facebook: socialLinks[2].href,
 };

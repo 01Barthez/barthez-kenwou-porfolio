@@ -1,9 +1,15 @@
 import React from 'react';
 import { ContactForm } from '@/entities/contact/ui/ContactForm.ui';
+import { cn } from '@/shared/lib/utils';
 
-export const ContactFormSection: React.FC = () => {
+export const ContactFormSection: React.FC<{ className?: string }> = ({ className }) => {
   return (
-    <div className="glass rounded-sm p-2 md:p-4 border border-border/50">
+    <div
+      className={cn(
+        'glass flex h-full flex-col rounded-sm border border-border/50 p-3 md:p-4',
+        className,
+      )}
+    >
       <ContactForm />
     </div>
   );

@@ -1,61 +1,41 @@
 import React from 'react';
-import { 
-  HiOutlineEnvelope, 
-  HiOutlineMapPin, 
-  HiOutlineClock 
+import {
+  HiOutlineEnvelope,
+  HiOutlineMapPin,
+  HiOutlineClock,
 } from 'react-icons/hi2';
-import { FaGithub, FaLinkedin } from 'react-icons/fa6';
-import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { useTranslation } from 'react-i18next';
 import { contactsInfo } from '@/shared/mocks/constContactInfo.mocks';
 import { ContactInfoCard } from '@/entities/contact/ui/ContactInfoCard.ui';
+import { SocialGeometry } from '@/entities/contact/ui/SocialGeometry.ui';
+import { cn } from '@/shared/lib/utils';
 
-export const ContactInfoSection: React.FC = () => {
-  const { language } = useLanguageStore();
+export const ContactInfoSection: React.FC<{ className?: string }> = ({ className }) => {
   const { t } = useTranslation();
 
   return (
-    <section className="space-y-4">
-      <ContactInfoCard 
+    <section className={cn('flex h-full flex-col gap-3', className)}>
+      <ContactInfoCard
         icon={HiOutlineEnvelope}
         label={t('contact.info.email')}
         value={contactsInfo.email}
         href={`mailto:${contactsInfo.email}`}
       />
 
-      <ContactInfoCard 
+      <ContactInfoCard
         icon={HiOutlineMapPin}
         label={t('contact.info.location')}
         value="Yaoundé, Cameroun"
       />
 
-      <ContactInfoCard 
+      <ContactInfoCard
         icon={HiOutlineClock}
         label={t('contact.info.availability')}
         value={t('contact.info.available')}
       />
 
-      {/* Social Links */}
-      <div className="glass rounded-sm p-3 border border-border/50 transition-colors">
-        <h3 className="text-xs uppercase tracking-widest font-bold text-foreground/70 mb-5">
-          {language === 'fr' ? 'Réseaux sociaux' : 'Social Networks'}
-        </h3>
-        <div className="grid grid-cols-2 gap-4">
-          <ContactInfoCard 
-            icon={FaGithub}
-            label="GitHub"
-            value="barthez-kenwou"
-            href={contactsInfo.github}
-            className="flex-col items-start !p-1.5"
-          />
-          <ContactInfoCard 
-            icon={FaLinkedin}
-            label="LinkedIn"
-            value="Barthez Kenwou"
-            href={contactsInfo.linkedin}
-            className="flex-col items-start !p-1.5"
-          />
-        </div>
+      <div className="mt-auto">
+        <SocialGeometry />
       </div>
     </section>
   );

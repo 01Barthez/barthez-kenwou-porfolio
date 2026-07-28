@@ -11,26 +11,36 @@ interface ContactInfoProps {
   className?: string;
 }
 
-export const ContactInfoCard: React.FC<ContactInfoProps> = ({ 
-  icon: Icon, 
-  label, 
-  value, 
-  href, 
+export const ContactInfoCard: React.FC<ContactInfoProps> = ({
+  icon: Icon,
+  label,
+  value,
+  href,
   className,
 }) => {
   const content = (
-    <div className={cn(
-      "glass p-1.5 rounded-sm border border-border/50 hover:border-primary/40 transition-all duration-300 group flex items-center gap-2",
-      className
-    )}>
-      <div className={cn(
-        "flex h-10 w-10 items-center justify-center rounded-sm bg-primary/10 border border-primary/20 group-hover:bg-primary group-hover:text-primary-foreground transition-all duration-500"// Dynamic background adjustment
-      )}>
-        <Icon className={cn("h-5 w-5")} />
+    <div
+      className={cn(
+        'group flex items-center gap-2 rounded-sm border border-border/50 bg-card/40 p-1.5 backdrop-blur-sm',
+        'transition-[border-color,background-color,box-shadow] duration-500 ease-out',
+        'hover:border-primary/25 hover:bg-card/70 hover:shadow-[0_8px_24px_-18px_hsla(268,45%,30%,0.35)]',
+        className,
+      )}
+    >
+      <div
+        className={cn(
+          'flex h-10 w-10 items-center justify-center rounded-sm border border-primary/15 bg-primary/8 text-foreground',
+          'transition-[background-color,border-color,color,transform] duration-500 ease-out',
+          'group-hover:border-primary/30 group-hover:bg-primary/15 group-hover:text-primary',
+        )}
+      >
+        <Icon className="h-5 w-5" />
       </div>
-      <div>
-        <p className="text-[10px] uppercase tracking-widest font-bold opacity-60 mb-0.5">{label}</p>
-        <p className="text-[11px] font-semibold text-foreground group-hover:text-primary transition-colors">
+      <div className="min-w-0">
+        <p className="mb-0.5 text-[10px] font-bold tracking-widest text-muted-foreground uppercase">
+          {label}
+        </p>
+        <p className="truncate text-[11px] font-semibold text-foreground transition-colors duration-500 group-hover:text-primary/90">
           {value}
         </p>
       </div>
@@ -39,11 +49,12 @@ export const ContactInfoCard: React.FC<ContactInfoProps> = ({
 
   if (href) {
     return (
-      <motion.a 
+      <motion.a
         href={href}
-        target={href.startsWith('http') ? "_blank" : undefined}
-        rel={href.startsWith('http') ? "noopener noreferrer" : undefined}
-        whileHover={{ x: 5 }}
+        target={href.startsWith('http') ? '_blank' : undefined}
+        rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+        whileHover={{ x: 2 }}
+        transition={{ type: 'spring', stiffness: 280, damping: 24 }}
         className="block cursor-pointer"
       >
         {content}
@@ -51,5 +62,9 @@ export const ContactInfoCard: React.FC<ContactInfoProps> = ({
     );
   }
 
-  return <motion.div whileHover={{ y: -2 }}>{content}</motion.div>;
+  return (
+    <motion.div whileHover={{ y: -1 }} transition={{ type: 'spring', stiffness: 300, damping: 26 }}>
+      {content}
+    </motion.div>
+  );
 };

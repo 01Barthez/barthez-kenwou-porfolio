@@ -20,22 +20,22 @@ export const ContactPage = () => {
         description="Contactez Barthez Kenwou — discutons de votre prochain projet web, cloud ou DevOps. Réponse rapide et solutions sur mesure."
       />
 
-      <div className="min-h-screen py-10 md:py-16 lg:py-20 overflow-x-clip">
+      <div className="min-h-screen overflow-x-clip py-10 md:py-16 lg:py-20">
         <HeroSection />
 
-        <div className="px-4 md:px-10 lg:px-14 grid lg:grid-cols-3 gap-4 -mt-6">
+        <div className="grid items-stretch gap-4 px-4 md:px-10 lg:-mt-6 lg:grid-cols-3 lg:px-14">
           <ContactInfoSection />
 
-          <div className="lg:col-span-2">
+          <div className="min-h-0 lg:col-span-2">
             <ContactFormSection />
           </div>
         </div>
 
-        <div className="px-4 md:px-10 lg:px-14 mt-4 md:mt-4">
+        <div className="mt-4 px-4 md:mt-4 md:px-10 lg:px-14">
           <EndContact />
         </div>
 
-        <div className="px-4 md:px-10 lg:px-14 mt-4 md:mt-4">
+        <div className="mt-4 px-4 md:mt-4 md:px-10 lg:px-14">
           <WaContact />
         </div>
 
