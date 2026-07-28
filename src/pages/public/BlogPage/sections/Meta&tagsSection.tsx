@@ -4,12 +4,13 @@ import { HiOutlineCalendar, HiOutlineClock, HiOutlineUser } from 'react-icons/hi
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { findByNumericId } from '@/shared/lib/entity-slug';
 
 export const MetaTagsSection: React.FC = () => {
   const { blogID } = useParams();
   const { language } = useLanguageStore();
 
-  const post = blogPostsData.find((p) => p.id === blogID) || {
+  const post = findByNumericId(blogPostsData, blogID) || {
     author: 'Barthez Kenwou',
     date: new Date().toISOString(),
     readTime: '5 min',

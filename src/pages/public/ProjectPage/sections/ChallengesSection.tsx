@@ -3,12 +3,13 @@ import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { Code2 } from 'lucide-react';
 import { useParams } from 'react-router-dom';
 import { projectsData } from '@/entities/projets/api/mocks/projectData.mocks';
+import { findByNumericId } from '@/shared/lib/entity-slug';
 
 export const ChallengesSection: React.FC = () => {
   const { language } = useLanguageStore();
 
-  const { id } = useParams();
-  const project = projectsData.find((p) => p.id === id) || { challengesEn: [], challengesFr: [] };
+  const { id, projectID } = useParams();
+  const project = findByNumericId(projectsData, projectID || id) || { challengesEn: [], challengesFr: [] };
 
   return (
     <div className="p-6 rounded-md bg-card border border-border">

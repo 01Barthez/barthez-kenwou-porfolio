@@ -3,12 +3,13 @@ import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { Share2, Twitter, Linkedin } from 'lucide-react';
 import React from 'react';
 import { useParams } from 'react-router-dom';
+import { findByNumericId } from '@/shared/lib/entity-slug';
 
 export const ShareSection: React.FC = () => {
   const { language } = useLanguageStore();
   const { blogID } = useParams();
 
-  const post = blogPostsData.find((p) => p.id === blogID) || { titleFr: '', titleEn: '' };
+  const post = findByNumericId(blogPostsData, blogID) || { titleFr: '', titleEn: '' };
 
   const shareUrl = window.location.href;
   const shareText = language === 'fr' ? post.titleFr : post.titleEn;

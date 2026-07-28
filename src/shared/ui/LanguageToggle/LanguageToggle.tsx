@@ -31,7 +31,7 @@ export const LanguageToggle = ({ flagOnly = false, className }: LanguageTogglePr
       onClick={handleToggle}
       disabled={isFlipping}
       className={cn(
-        'relative inline-flex items-center justify-center overflow-hidden rounded-md',
+        'relative inline-flex cursor-pointer items-center justify-center overflow-hidden rounded-md',
         'transition-all duration-300 ease-out',
         'hover:scale-105 hover:shadow-sm',
         'focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2',
@@ -41,7 +41,6 @@ export const LanguageToggle = ({ flagOnly = false, className }: LanguageTogglePr
         className,
       )}
       aria-label={isFrench ? 'Switch to English' : 'Passer en français'}
-      title={isFrench ? 'Switch to English' : 'Passer en français'}
       style={{ perspective: '1000px' }}
     >
       <div

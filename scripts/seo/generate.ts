@@ -6,6 +6,10 @@ import { blogPostsData } from '../../src/entities/blogs/api/mock/blog.mocks';
 import type { IProject } from '../../src/entities/projets/model/project.types';
 import type { IBlog } from '../../src/entities/blogs/model/blog.type';
 import {
+  getBlogPathSlug,
+  getProjectPathSlug,
+} from '../../src/shared/lib/entity-slug';
+import {
   AUTHOR_EMAIL,
   AUTHOR_LOCATION,
   AUTHOR_PHONE,
@@ -222,7 +226,7 @@ function generateSitemaps() {
       priority: 0.9,
     },
     ...projectsData.map((p) => ({
-      loc: absoluteUrl(`/projects/${p.id}`),
+      loc: absoluteUrl(`/projects/${getProjectPathSlug(p)}`),
       lastmod: TODAY,
       changefreq: 'monthly',
       priority: p.isFeatured ? 0.85 : 0.75,
@@ -237,7 +241,7 @@ function generateSitemaps() {
       priority: 0.8,
     },
     ...blogPostsData.map((p) => ({
-      loc: absoluteUrl(`/blog/${p.id}`),
+      loc: absoluteUrl(`/blog/${getBlogPathSlug(p)}`),
       lastmod: toSitemapDate(p.date, TODAY),
       changefreq: 'monthly',
       priority: 0.7,
@@ -271,7 +275,7 @@ function generateSitemaps() {
       )
       .join('\n');
     imageUrls.push(`  <url>
-    <loc>${escapeXml(absoluteUrl(`/projects/${p.id}`))}</loc>
+    <loc>${escapeXml(absoluteUrl(`/projects/${getProjectPathSlug(p)}`))}</loc>
 ${imageBlocks}
   </url>`);
   }
@@ -279,7 +283,7 @@ ${imageBlocks}
   for (const post of blogPostsData) {
     if (!post.image) continue;
     imageUrls.push(`  <url>
-    <loc>${escapeXml(absoluteUrl(`/blog/${post.id}`))}</loc>
+    <loc>${escapeXml(absoluteUrl(`/blog/${getBlogPathSlug(post)}`))}</loc>
     <image:image>
       <image:loc>${escapeXml(post.image)}</image:loc>
       <image:title>${escapeXml(blogTitle(post))}</image:title>
@@ -299,7 +303,7 @@ ${imageUrls.join('\n')}
   for (const p of projectsData) {
     if (!p.videoDemo) continue;
     videoBlocks.push(`  <url>
-    <loc>${escapeXml(absoluteUrl(`/projects/${p.id}`))}</loc>
+    <loc>${escapeXml(absoluteUrl(`/projects/${getProjectPathSlug(p)}`))}</loc>
     <video:video>
       <video:thumbnail_loc>${escapeXml(projectImage(p))}</video:thumbnail_loc>
       <video:title>${escapeXml(p.titleFr)}</video:title>
@@ -361,21 +365,21 @@ function generateLlms() {
   const projectLinks = projectsData
     .map(
       (p) =>
-        `- [${p.titleFr}](${absoluteUrl(`/projects/${p.id}`)}): ${truncate(p.descriptionFr, 140)} [${p.category}]`,
+        `- [${p.titleFr}](${absoluteUrl(`/projects/${getProjectPathSlug(p)}`)}): ${truncate(p.descriptionFr, 140)} [${p.category}]`,
     )
     .join('\n');
 
   const featuredLinks = featured
     .map(
       (p) =>
-        `- [${p.titleFr}](${absoluteUrl(`/projects/${p.id}`)}): ${truncate(p.descriptionFr, 140)}`,
+        `- [${p.titleFr}](${absoluteUrl(`/projects/${getProjectPathSlug(p)}`)}): ${truncate(p.descriptionFr, 140)}`,
     )
     .join('\n');
 
   const blogLinks = blogPostsData
     .map(
       (p) =>
-        `- [${blogTitle(p)}](${absoluteUrl(`/blog/${p.id}`)}): ${truncate(blogExcerpt(p), 120)} (${p.category}, ${p.readTime})`,
+        `- [${blogTitle(p)}](${absoluteUrl(`/blog/${getBlogPathSlug(p)}`)}): ${truncate(blogExcerpt(p), 120)} (${p.category}, ${p.readTime})`,
     )
     .join('\n');
 
@@ -441,7 +445,7 @@ ${categoryNotes}
       const tech = flattenTech(p).join(', ');
       return `### ${p.titleFr}
 
-- URL: ${absoluteUrl(`/projects/${p.id}`)}
+- URL: ${absoluteUrl(`/projects/${getProjectPathSlug(p)}`)}
 - EN: ${p.titleEn}
 - Category: ${p.category}
 - Status: ${p.status} · Role: ${p.role} · Duration: ${p.duration} · Date: ${p.date}
@@ -467,7 +471,7 @@ ${p.fullDescriptionFr ? truncate(p.fullDescriptionFr, 1200) : ''}
       const body = truncate((p.contentFr || '').replace(/```[\s\S]*?```/g, '[code]'), 1800);
       return `### ${blogTitle(p)}
 
-- URL: ${absoluteUrl(`/blog/${p.id}`)}
+- URL: ${absoluteUrl(`/blog/${getBlogPathSlug(p)}`)}
 - Slug: ${p.slug || 'n/a'}
 - Category: ${p.category} · ${p.date} · ${p.readTime}
 - Tags: ${(p.tags || []).join(', ')}
@@ -584,7 +588,7 @@ function buildPrerenderPages(): PrerenderPage[] {
       const list = projectsData
         .map(
           (proj) =>
-            `<li><a href="${absoluteUrl(`/projects/${proj.id}`)}"><strong>${escapeHtml(proj.titleFr)}</strong></a> — ${escapeHtml(truncate(proj.descriptionFr, 160))}</li>`,
+            `<li><a href="${absoluteUrl(`/projects/${getProjectPathSlug(proj)}`)}"><strong>${escapeHtml(proj.titleFr)}</strong></a> — ${escapeHtml(truncate(proj.descriptionFr, 160))}</li>`,
         )
         .join('\n');
       body += `<ul>\n${list}\n</ul>`;
@@ -593,7 +597,7 @@ function buildPrerenderPages(): PrerenderPage[] {
       const list = blogPostsData
         .map(
           (post) =>
-            `<li><a href="${absoluteUrl(`/blog/${post.id}`)}"><strong>${escapeHtml(blogTitle(post))}</strong></a> — ${escapeHtml(truncate(blogExcerpt(post), 140))} <em>(${escapeHtml(post.category)})</em></li>`,
+            `<li><a href="${absoluteUrl(`/blog/${getBlogPathSlug(post)}`)}"><strong>${escapeHtml(blogTitle(post))}</strong></a> — ${escapeHtml(truncate(blogExcerpt(post), 140))} <em>(${escapeHtml(post.category)})</em></li>`,
         )
         .join('\n');
       body += `<ul>\n${list}\n</ul>`;
@@ -611,7 +615,7 @@ function buildPrerenderPages(): PrerenderPage[] {
     const tech = flattenTech(proj);
     const solutions = (proj.solutionFr || []).map((s) => `<li>${escapeHtml(s)}</li>`).join('');
     pages.push({
-      path: `/projects/${proj.id}`,
+      path: `/projects/${getProjectPathSlug(proj)}`,
       title: `${truncate(proj.titleFr, 55)} | ${SITE_NAME}`,
       description: truncate(proj.descriptionFr, 160),
       image: projectImage(proj),
@@ -636,7 +640,7 @@ function buildPrerenderPages(): PrerenderPage[] {
         name: proj.titleFr,
         alternateName: proj.titleEn,
         description: proj.descriptionFr,
-        url: absoluteUrl(`/projects/${proj.id}`),
+        url: absoluteUrl(`/projects/${getProjectPathSlug(proj)}`),
         image: projectImage(proj),
         dateCreated: proj.date,
         author: { '@type': 'Person', name: SITE_NAME, url: SITE_URL },
@@ -649,10 +653,10 @@ function buildPrerenderPages(): PrerenderPage[] {
     const related = blogPostsData
       .filter((p) => p.category === post.category && p.id !== post.id)
       .slice(0, 4)
-      .map((p) => `<li><a href="${absoluteUrl(`/blog/${p.id}`)}">${escapeHtml(blogTitle(p))}</a></li>`)
+      .map((p) => `<li><a href="${absoluteUrl(`/blog/${getBlogPathSlug(p)}`)}">${escapeHtml(blogTitle(p))}</a></li>`)
       .join('');
     pages.push({
-      path: `/blog/${post.id}`,
+      path: `/blog/${getBlogPathSlug(post)}`,
       title: `${truncate(blogTitle(post), 55)} | Blog`,
       description: truncate(blogExcerpt(post), 160),
       image: post.image || DEFAULT_OG_IMAGE,
@@ -673,7 +677,7 @@ function buildPrerenderPages(): PrerenderPage[] {
         image: post.image,
         datePublished: post.date,
         author: { '@type': 'Person', name: post.author || SITE_NAME, url: SITE_URL },
-        mainEntityOfPage: absoluteUrl(`/blog/${post.id}`),
+        mainEntityOfPage: absoluteUrl(`/blog/${getBlogPathSlug(post)}`),
         keywords: (post.tags || []).join(', '),
         articleSection: post.category,
       },

@@ -8,6 +8,7 @@ import remarkGfm from 'remark-gfm';
 import { CodeBlock } from '@/shared/ui/code-block';
 import { Info, Lightbulb, ChevronRight, Hash, HelpCircle, MessageCircle, Plus, Minus, Tag } from 'lucide-react';
 import { motion, useScroll, useSpring, AnimatePresence } from 'framer-motion';
+import { findByNumericId } from '@/shared/lib/entity-slug';
 
 const FAQItem: React.FC<{ question: string; answer: string }> = ({ question, answer }) => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -63,7 +64,7 @@ export const ArticleContentSection: React.FC = () => {
   const { blogID } = useParams();
   const { language } = useLanguageStore();
 
-  const post = blogPostsData.find((p) => p.id === blogID) || { contentFr: '', contentEn: '' };
+  const post = findByNumericId(blogPostsData, blogID) || { contentFr: '', contentEn: '' };
   const content = language === 'fr' ? post.contentFr : post.contentEn;
 
   const { scrollYProgress } = useScroll();

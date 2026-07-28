@@ -7,12 +7,29 @@ import { SidebarTrigger } from '@/shared/ui/sidebar';
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/shared/ui/tooltip';
+import { useLanguageStore } from '@/shared/state/useLanguageStore';
+import { useThemeStore } from '@/shared/state/useThemeStore';
 
 export const MobileNavbar: React.FC = () => {
   const location = useLocation();
   const { t } = useTranslation();
   const IconBlog = navItems[5].icon;
   const textBlog = navItems[5].labelKey;
+  const language = useLanguageStore((s) => s.language);
+  const theme = useThemeStore((s) => s.theme);
+
+  const themeLabel =
+    theme === 'dark'
+      ? language === 'fr'
+        ? 'Passer en mode clair'
+        : 'Switch to light mode'
+      : language === 'fr'
+        ? 'Passer en mode sombre'
+        : 'Switch to dark mode';
+
+  const languageLabel =
+    language === 'fr' ? 'Switch to English' : 'Passer en français';
 
   // Bottom bar: skip Blog (top) + drop Contact for breathing room
   const bottomNavItems = navItems.filter((item) => item.id !== '/blog').slice(0, -1);
@@ -57,10 +74,30 @@ export const MobileNavbar: React.FC = () => {
           </Button>
         </div>
 
-        <div className="flex items-center gap-0 md:gap-2">
-          <ThemeToggle />
-          <LanguageToggle />
-        </div>
+        <TooltipProvider delayDuration={0}>
+          <div className="flex items-center gap-0 md:gap-2">
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div className="inline-flex">
+                  <ThemeToggle />
+                </div>
+              </TooltipTrigger>
+              <TooltipContent side="bottom" className="font-medium">
+                {themeLabel}
+              </TooltipContent>
+            </Tooltip>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div className="inline-flex">
+                  <LanguageToggle />
+                </div>
+              </TooltipTrigger>
+              <TooltipContent side="bottom" className="font-medium">
+                {languageLabel}
+              </TooltipContent>
+            </Tooltip>
+          </div>
+        </TooltipProvider>
       </nav>
 
       {/* Bottom Navbar */}

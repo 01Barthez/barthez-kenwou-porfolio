@@ -28,8 +28,8 @@ export const ProjectPage = () => {
           {/* Projects Grid with Filters */}
           <GridProject filterState={filterState} />
 
-          {/* New Stats Section */}
-          <ProjectStatsSection isVisible={filterState.filters.category === 'all'} />
+          {/* Impact stays visible regardless of project filters */}
+          <ProjectStatsSection />
 
           {/* New Strategic CTA */}
           <ProjectCTASection />

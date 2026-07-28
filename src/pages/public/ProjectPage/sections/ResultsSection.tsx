@@ -2,11 +2,12 @@ import React from 'react';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { useParams } from 'react-router-dom';
 import { projectsData } from '@/entities/projets/api/mocks/projectData.mocks';
+import { findByNumericId } from '@/shared/lib/entity-slug';
 
 export const ResultsSection: React.FC = () => {
   const { language } = useLanguageStore();
-  const { id } = useParams();
-  const project = projectsData.find((p) => p.id === id) || { resultsEn: [], resultsFr: [] };
+  const { id, projectID } = useParams();
+  const project = findByNumericId(projectsData, projectID || id) || { resultsEn: [], resultsFr: [] };
 
   return (
     <section className="mb-12">

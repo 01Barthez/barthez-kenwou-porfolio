@@ -3,10 +3,11 @@ import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { Calendar, Clock, ExternalLink, Github } from 'lucide-react';
 import { Link, useParams } from 'react-router-dom';
 import { projectsData } from '@/entities/projets/api/mocks/projectData.mocks';
+import { findByNumericId } from '@/shared/lib/entity-slug';
 
 export const TitleMeta: React.FC = () => {
   const { language } = useLanguageStore();
-  const { id } = useParams();
+  const { id, projectID } = useParams();
 
   const projectDef = {
     titleFr: '',
@@ -17,7 +18,7 @@ export const TitleMeta: React.FC = () => {
     github: '',
     demo: '',
   };
-  const project = projectsData.find((p) => p.id === id) || projectDef;
+  const project = findByNumericId(projectsData, projectID || id) || projectDef;
 
   return (
     <div className="mb-8">

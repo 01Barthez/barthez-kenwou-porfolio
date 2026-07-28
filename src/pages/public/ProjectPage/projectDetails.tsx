@@ -13,12 +13,14 @@ import { SEO } from '@/shared/ui/SEO/SEO';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { projectsData } from '@/entities/projets/api/mocks/projectData.mocks';
 import { truncateFonction } from '@/shared/ui/utils/truncateText/helpers';
+import { findByNumericId, getProjectPathSlug } from '@/shared/lib/entity-slug';
 
 export const ProjectDetailPage = () => {
   const { id, projectID } = useParams();
   const searchId = projectID || id;
-  const project = projectsData.find((p: any) => String(p.id) === searchId);
+  const project = findByNumericId(projectsData, searchId);
   const { language } = useLanguageStore();
+  const projectPath = project ? `/projects/${getProjectPathSlug(project)}` : `/projects/${searchId}`;
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -29,7 +31,7 @@ export const ProjectDetailPage = () => {
   return (
     <>
       <SEO
-        path={`/projects/${searchId}`}
+        path={projectPath}
         title={`${language === 'fr'
             ? truncateFonction(project?.titleFr || '', 60)
             : truncateFonction(project?.titleEn || '', 60)
@@ -49,7 +51,7 @@ export const ProjectDetailPage = () => {
           alternateName: language === 'fr' ? project.titleEn : project.titleFr,
           description: language === 'fr' ? project.descriptionFr : project.descriptionEn,
           image: project.images?.[0] || project.preview,
-          url: `https://barthez-kenwou.dev/projects/${searchId}`,
+          url: `https://barthez-kenwou.dev${projectPath}`,
           author: {
             '@type': 'Person',
             name: 'Barthez Kenwou',

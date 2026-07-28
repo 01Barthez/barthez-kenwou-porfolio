@@ -4,11 +4,12 @@ import { Image } from '@/shared/ui/Image';
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { findByNumericId } from '@/shared/lib/entity-slug';
 
 export const HeroDetailSection: React.FC = () => {
   const { blogID } = useParams();
   const { language } = useLanguageStore();
-  const post = blogPostsData.find((p) => p.id === blogID);
+  const post = findByNumericId(blogPostsData, blogID);
 
   if (!post) return null;
 

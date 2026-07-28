@@ -3,13 +3,15 @@ import { blogPostsData } from '@/entities/blogs/api/mock/blog.mocks';
 import { EmptyBlogCard } from '@/entities/blogs/ui/EmptyBlogCard.ui';
 import { categories } from '@/shared/constants/blogCategories.const';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
-import { HiOutlineMagnifyingGlass } from 'react-icons/hi2';
+import { HiOutlineMagnifyingGlass, HiOutlineSparkles } from 'react-icons/hi2';
 import React, { useState } from 'react';
+import { cn } from '@/shared/lib/utils';
 
 export const PostsGrid: React.FC = () => {
   const { language } = useLanguageStore();
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
+  const [searchFocused, setSearchFocused] = useState(false);
 
   const filteredPosts = blogPostsData.filter((post) => {
     const matchesCategory = activeCategory === 'All' || post.category === activeCategory;
@@ -20,32 +22,93 @@ export const PostsGrid: React.FC = () => {
     return matchesCategory && matchesSearch;
   });
 
+  const isExpanded = searchFocused || searchQuery.length > 0;
+
   return (
     <>
-      <div className="relative z-20 bg-background py-4 px-4 md:px-10 lg:px-14">
-        <section className="flex flex-col md:flex-row gap-4 mb-4">
-          <div className="relative flex-1">
-            <HiOutlineMagnifyingGlass className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+      <div className="relative z-20 bg-background px-4 py-4 md:px-10 lg:px-14">
+        <section className="mb-4 flex flex-col gap-4 md:flex-row md:items-center">
+          <div
+            className={cn(
+              'group/search relative w-full max-w-[11.5rem] transition-[max-width] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:max-w-[13rem]',
+              'md:max-w-[14rem]',
+              isExpanded && 'max-w-full sm:max-w-md md:max-w-xl',
+            )}
+          >
+            <div
+              className={cn(
+                'relative overflow-hidden rounded-full border transition-all duration-500',
+                'bg-secondary/40 backdrop-blur-md',
+                isExpanded
+                  ? 'border-primary/45 shadow-[0_0_0_3px_hsl(var(--primary)/0.12)] shadow-primary/20'
+                  : 'border-border/50 hover:border-primary/30',
+              )}
+            >
+              <div
+                aria-hidden
+                className={cn(
+                  'pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500',
+                  'bg-[radial-gradient(120%_80%_at_0%_50%,hsl(var(--primary)/0.18),transparent_55%)]',
+                  isExpanded && 'opacity-100',
+                )}
+              />
+              <div
+                aria-hidden
+                className={cn(
+                  'pointer-events-none absolute -inset-x-8 top-0 h-px bg-gradient-to-r from-transparent via-primary/60 to-transparent opacity-0 transition-opacity duration-500',
+                  isExpanded && 'opacity-100',
+                )}
+              />
 
-            <input
-              type="text"
-              placeholder={language === 'fr' ? 'Rechercher un article...' : 'Search articles...'}
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-9 pr-4 py-2.5 rounded-md bg-secondary/50 border border-border/50 focus:border-primary/50 focus:outline-none transition-colors text-sm text-foreground placeholder:text-muted-foreground/50"
-            />
+              <HiOutlineMagnifyingGlass
+                className={cn(
+                  'absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 transition-colors duration-300',
+                  isExpanded ? 'text-primary' : 'text-muted-foreground',
+                )}
+              />
+
+              <input
+                type="search"
+                placeholder={
+                  language === 'fr' ? 'Rechercher…' : 'Search…'
+                }
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onFocus={() => setSearchFocused(true)}
+                onBlur={() => setSearchFocused(false)}
+                className={cn(
+                  'relative z-10 w-full bg-transparent py-2.5 pl-9 pr-9 text-sm text-foreground outline-none',
+                  'placeholder:text-muted-foreground/55',
+                )}
+                aria-label={language === 'fr' ? 'Rechercher un article' : 'Search articles'}
+              />
+
+              <HiOutlineSparkles
+                className={cn(
+                  'pointer-events-none absolute right-3 top-1/2 h-3.5 w-3.5 -translate-y-1/2 transition-all duration-500',
+                  isExpanded
+                    ? 'scale-100 text-primary/80 opacity-100'
+                    : 'scale-75 text-muted-foreground/40 opacity-60',
+                )}
+              />
+            </div>
           </div>
 
-          <div className="flex flex-wrap gap-2" role="group" aria-label={language === 'fr' ? 'Catégories' : 'Categories'}>
+          <div
+            className="flex flex-wrap gap-2"
+            role="group"
+            aria-label={language === 'fr' ? 'Catégories' : 'Categories'}
+          >
             {categories.map((category) => (
               <button
                 key={category}
                 type="button"
                 onClick={() => setActiveCategory(category)}
-                className={`px-3 py-1.5 rounded-md text-xs font-bold uppercase tracking-wider transition-all border ${activeCategory === category
-                    ? 'bg-primary text-primary-foreground border-primary'
-                    : 'bg-secondary/30 text-muted-foreground hover:text-foreground border-border/50'
-                  }`}
+                className={`rounded-md border px-3 py-1.5 text-xs font-bold uppercase tracking-wider transition-all ${
+                  activeCategory === category
+                    ? 'border-primary bg-primary text-primary-foreground'
+                    : 'border-border/50 bg-secondary/30 text-muted-foreground hover:text-foreground'
+                }`}
               >
                 {category === 'All' ? (language === 'fr' ? 'Tous' : 'All') : category}
               </button>
@@ -60,7 +123,7 @@ export const PostsGrid: React.FC = () => {
             </div>
           )}
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+          <div className="mb-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {(activeCategory === 'All' && searchQuery === ''
               ? filteredPosts.slice(1)
               : filteredPosts

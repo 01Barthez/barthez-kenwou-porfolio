@@ -3,20 +3,24 @@ import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { Link, useParams } from 'react-router-dom';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 import { projectsData } from '@/entities/projets/api/mocks/projectData.mocks';
+import { findByNumericId, getProjectPathSlug } from '@/shared/lib/entity-slug';
 
 export const NavigationSection: React.FC = () => {
   const { language } = useLanguageStore();
-  const { id } = useParams();
-  const currentIndex = projectsData.findIndex((p) => p.id === id);
+  const { projectID, id } = useParams();
+  const current = findByNumericId(projectsData, projectID || id);
+  const currentIndex = current ? projectsData.findIndex((p) => p.id === current.id) : -1;
   const prevProject = currentIndex > 0 ? projectsData[currentIndex - 1] : null;
   const nextProject =
-    currentIndex < projectsData.length - 1 ? projectsData[currentIndex + 1] : null;
+    currentIndex >= 0 && currentIndex < projectsData.length - 1
+      ? projectsData[currentIndex + 1]
+      : null;
 
   return (
     <div className="flex justify-between items-center border-t border-border pt-8 mb-12">
       {prevProject ? (
         <Link
-          to={`/projects/${prevProject.id}`}
+          to={`/projects/${getProjectPathSlug(prevProject)}`}
           className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
         >
           <ArrowLeft className="h-4 w-4" />
@@ -29,7 +33,7 @@ export const NavigationSection: React.FC = () => {
       )}
       {nextProject && (
         <Link
-          to={`/projects/${nextProject.id}`}
+          to={`/projects/${getProjectPathSlug(nextProject)}`}
           className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
         >
           <span className="text-sm">

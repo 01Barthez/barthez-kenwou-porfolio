@@ -8,6 +8,9 @@ import { socialLinks } from '@/shared/constants/socialLink.const';
 import { CvButton } from '@/shared/ui/CvButton/CvButton';
 import { useNavbarPosition } from './hooks';
 import { motion } from 'framer-motion';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/shared/ui/tooltip';
+import { useLanguageStore } from '@/shared/state/useLanguageStore';
+import { useThemeStore } from '@/shared/state/useThemeStore';
 
 /**
  * Navbar Component - Barre de navigation principale de l'application
@@ -24,6 +27,20 @@ export const Navbar: React.FC = () => {
   const location = useLocation();
   const { t } = useTranslation();
   const navbarStyle = useNavbarPosition();
+  const language = useLanguageStore((s) => s.language);
+  const theme = useThemeStore((s) => s.theme);
+
+  const themeLabel =
+    theme === 'dark'
+      ? language === 'fr'
+        ? 'Passer en mode clair'
+        : 'Switch to light mode'
+      : language === 'fr'
+        ? 'Passer en mode sombre'
+        : 'Switch to dark mode';
+
+  const languageLabel =
+    language === 'fr' ? 'Switch to English' : 'Passer en français';
 
   return (
     <header
@@ -55,7 +72,6 @@ export const Navbar: React.FC = () => {
               >
                 {t(item.labelKey)}
 
-                {/* Background follows active  link */}
                 {isActive && (
                   <motion.div
                     layoutId="lamp"
@@ -79,40 +95,60 @@ export const Navbar: React.FC = () => {
           })}
         </div>
 
-        {/* Divider */}
         <div className="h-6 w-px bg-border" />
 
-        {/* Theme & Language toggles */}
-        <div className="flex items-center gap-1">
-          <ThemeToggle />
-          <LanguageToggle />
-        </div>
+        <TooltipProvider delayDuration={0}>
+          <div className="flex items-center gap-1">
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div className="inline-flex">
+                  <ThemeToggle />
+                </div>
+              </TooltipTrigger>
+              <TooltipContent side="bottom" className="font-medium">
+                {themeLabel}
+              </TooltipContent>
+            </Tooltip>
+            <Tooltip>
+              <TooltipTrigger asChild>
+                <div className="inline-flex">
+                  <LanguageToggle />
+                </div>
+              </TooltipTrigger>
+              <TooltipContent side="bottom" className="font-medium">
+                {languageLabel}
+              </TooltipContent>
+            </Tooltip>
+          </div>
 
-        {/* Divider */}
-        <div className="h-6 w-px bg-border" />
+          <div className="h-6 w-px bg-border" />
 
-        {/* Social Links */}
-        <div className="flex items-center gap-1">
-          {socialLinks.map((link) => {
-            const Icon = link.icon;
+          <div className="flex items-center gap-1">
+            {socialLinks.map((link) => {
+              const Icon = link.icon;
 
-            return (
-              <Link
-                key={link.label}
-                to={link.href}
-                className="flex h-6 w-6 items-center justify-center rounded-md text-muted-foreground transition-all duration-300 hover:bg-secondary hover:text-primary"
-                aria-label={link.label}
-                title={link.label}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Icon className="h-4 w-4" />
-              </Link>
-            );
-          })}
-        </div>
+              return (
+                <Tooltip key={link.label}>
+                  <TooltipTrigger asChild>
+                    <Link
+                      to={link.href}
+                      className="flex h-6 w-6 cursor-pointer items-center justify-center rounded-md text-muted-foreground transition-all duration-300 hover:bg-secondary hover:text-primary"
+                      aria-label={link.label}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Icon className="h-4 w-4" />
+                    </Link>
+                  </TooltipTrigger>
+                  <TooltipContent side="bottom" className="font-medium">
+                    {link.label}
+                  </TooltipContent>
+                </Tooltip>
+              );
+            })}
+          </div>
+        </TooltipProvider>
 
-        {/* CV Button */}
         <div className="transition-all hover:glow-primary hover:scale-105">
           <CvButton className="rounded-full" />
         </div>

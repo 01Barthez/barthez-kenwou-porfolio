@@ -9,7 +9,6 @@ export const ThemeToggle: React.FC<{ className?: string }> = () => {
     <AnimatedThemeToggler
       aria-label="Toggle theme"
       onToggle={toggle}
-      title="Toggle theme"
       duration={700}
     />
   );

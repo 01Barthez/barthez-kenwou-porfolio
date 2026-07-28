@@ -14,20 +14,22 @@ import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { truncateFonction } from '@/shared/ui/utils/truncateText/helpers';
 import { blogPostsData } from '@/entities/blogs/api/mock/blog.mocks';
 import { motion } from 'framer-motion';
+import { findByNumericId, getBlogPathSlug } from '@/shared/lib/entity-slug';
 
 export const BlogDetailPage = () => {
   const { blogID } = useParams();
-  const post = blogPostsData.find((p) => p.id === blogID);
+  const post = findByNumericId(blogPostsData, blogID);
   const { language } = useLanguageStore();
 
   if (!post) return <NotFoundPost />;
 
   const content = language === 'fr' ? post.contentFr : post.contentEn;
+  const blogPath = `/blog/${getBlogPathSlug(post)}`;
 
   return (
     <>
       <SEO
-        path={`/blog/${blogID}`}
+        path={blogPath}
         title={`${language === 'fr'
           ? truncateFonction(post?.titleFr || '', 60)
           : truncateFonction(post?.titleEn || post?.titleFr || '', 60)
@@ -64,7 +66,7 @@ export const BlogDetailPage = () => {
             name: post.author,
             url: 'https://barthez-kenwou.dev',
           },
-          mainEntityOfPage: `https://barthez-kenwou.dev/blog/${blogID}`,
+          mainEntityOfPage: `https://barthez-kenwou.dev${blogPath}`,
           keywords: post.tags.join(', '),
           articleSection: post.category,
         }}

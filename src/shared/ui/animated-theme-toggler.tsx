@@ -174,7 +174,7 @@ export const AnimatedThemeToggler = ({
         onClick={toggleTheme}
         disabled={isAnimating}
         className={cn(
-          'relative inline-flex items-center justify-center',
+          'relative inline-flex items-center justify-center cursor-pointer',
           'w-9 h-9 rounded-md',
           'transition-all duration-300 ease-out',
           'hover:scale-110 hover:rotate-12',
@@ -184,7 +184,6 @@ export const AnimatedThemeToggler = ({
           className,
         )}
         aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
-        title={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
         {...props}
       >
         {/* Ambient glow effect */}

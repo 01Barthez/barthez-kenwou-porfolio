@@ -2,10 +2,11 @@ import React from 'react';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { useParams } from 'react-router-dom';
 import { projectsData } from '@/entities/projets/api/mocks/projectData.mocks';
+import { findByNumericId } from '@/shared/lib/entity-slug';
 
 export const ProjectDescription: React.FC = () => {
-  const { id } = useParams();
-  const project = projectsData.find((p) => p.id === id) || {
+  const { id, projectID } = useParams();
+  const project = findByNumericId(projectsData, projectID || id) || {
     fullDescriptionFr: '',
     fullDescriptionEn: '',
   };

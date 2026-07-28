@@ -17,6 +17,7 @@ import {
 import { Image } from '@/shared/ui/Image';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { cn } from '@/shared/lib/utils';
+import { getProjectPathSlug } from '@/shared/lib/entity-slug';
 import { Button } from '@/shared/ui/button';
 
 import type { IProject, ProjectComplexity } from '../model/project.types';
@@ -50,6 +51,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
 
   const title = language === 'fr' ? project.titleFr : project.titleEn;
   const description = language === 'fr' ? project.descriptionFr : project.descriptionEn;
+  const projectHref = `/projects/${getProjectPathSlug(project)}`;
   const complexityKey = (project.complexity as ProjectComplexity) || 'Intermédiaire';
   const ComplexityIcon = COMPLEXITY_CONFIG[complexityKey]?.icon || Shield;
 
@@ -185,7 +187,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         {/* Header */}
         <div className="space-y-1">
           <Link
-            to={`/projects/${project.id}`}
+            to={projectHref}
             className="py-2 rounded-md flex items-center justify-between w-full"
             title="View Details"
           >
@@ -213,7 +215,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           ))}
           {allTechs.length > 5 && (
             <Link
-              to={`/projects/${project.id}`}
+              to={projectHref}
               className="flex items-center justify-center w-fit border border-border/30 px-2 rounded"
               title="View More"
             >
@@ -253,7 +255,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
               </Button>
             )}
             <Link
-              to={`/projects/${project.id}`}
+              to={projectHref}
               className="ml-1 p-2 rounded-md bg-primary/10 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300"
               title="View Details"
             >
