@@ -7,6 +7,10 @@ import {
   HiOutlineAcademicCap 
 } from 'react-icons/hi2';
 
+/**
+ * Prices are stored in EUR (source of truth).
+ * FCFA display uses the official peg: 1 EUR = 655.957 XAF.
+ */
 export const services = [
   {
     icon: HiOutlineCloud,
@@ -30,8 +34,10 @@ export const services = [
       'Serverless architecture with Lambda, API Gateway',
       'Highly available infrastructure (99.99%)',
     ],
+    priceEur: 500,
+    hourly: false,
     priceFr: 'À partir de 500€',
-    priceEn: 'Starting at $550',
+    priceEn: 'Starting at €500',
   },
   {
     icon: HiOutlineServerStack,
@@ -55,8 +61,10 @@ export const services = [
       'Monitoring and alerting (Prometheus, Grafana)',
       'Secrets management and DevSecOps security',
     ],
+    priceEur: 400,
+    hourly: false,
     priceFr: 'À partir de 400€',
-    priceEn: 'Starting at $450',
+    priceEn: 'Starting at €400',
   },
   {
     icon: HiOutlineCodeBracketSquare,
@@ -80,8 +88,10 @@ export const services = [
       'Secure authentication (OAuth, JWT)',
       'Automated tests and documentation',
     ],
+    priceEur: 300,
+    hourly: false,
     priceFr: 'À partir de 300€',
-    priceEn: 'Starting at $350',
+    priceEn: 'Starting at €300',
   },
   {
     icon: HiOutlineShieldCheck,
@@ -105,8 +115,10 @@ export const services = [
       'Recommendations and action plan',
       'Security team training',
     ],
+    priceEur: 600,
+    hourly: false,
     priceFr: 'À partir de 600€',
-    priceEn: 'Starting at $650',
+    priceEn: 'Starting at €600',
   },
   {
     icon: HiOutlineBolt,
@@ -128,8 +140,10 @@ export const services = [
       'Load balancing and auto-scaling',
       'Frontend optimization (bundle, lazy loading)',
     ],
+    priceEur: 350,
+    hourly: false,
     priceFr: 'À partir de 350€',
-    priceEn: 'Starting at $400',
+    priceEn: 'Starting at €350',
   },
   {
     icon: HiOutlineAcademicCap,
@@ -152,7 +166,9 @@ export const services = [
       'Code review and best practices',
       'Technical team support',
     ],
+    priceEur: 100,
+    hourly: true,
     priceFr: 'À partir de 100€/h',
-    priceEn: 'Starting at $120/h',
+    priceEn: 'Starting at €100/h',
   },
 ];

@@ -3,11 +3,13 @@ import { HiOutlineCheckCircle } from 'react-icons/hi2';
 import { IServices } from '../model/service.types';
 import { motion } from 'framer-motion';
 import { GlowingEffect } from '@/shared/ui/glowing-effect';
+import { cn } from '@/shared/lib/utils';
+import { AnimatedServicePrice } from './AnimatedServicePrice';
 
 export const ServiceCard: React.FC<{ Service: IServices }> = ({ Service }) => {
   const { language } = useLanguageStore();
 
-  const { titleFr, titleEn, descFr, descEn, featuresFr, featuresEn, priceFr, priceEn } =
+  const { titleFr, titleEn, descFr, descEn, featuresFr, featuresEn, priceEur, hourly } =
     Service;
 
   return (
@@ -16,57 +18,49 @@ export const ServiceCard: React.FC<{ Service: IServices }> = ({ Service }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      whileHover={{ y: -5 }}
-      className="group relative flex flex-col h-full bg-card/40 backdrop-blur-sm border border-border/50 rounded-md p-5 md:p-6 transition-all duration-300 hover:border-primary/40 hover:shadow-md hover:shadow-primary/5"
+      whileHover={{ y: -4 }}
+      className={cn(
+        'group relative flex h-full w-full flex-col rounded-md p-0.5',
+        'shadow-sm transition-all duration-500 hover:shadow-sm hover:shadow-primary/5',
+      )}
     >
       <GlowingEffect
         spread={60}
-        glow={true}
+        glow
         disabled={false}
         proximity={128}
         inactiveZone={0}
         borderWidth={2}
       />
 
-      {/* Decorative Gradient Background */}
-      <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-md" />
-
-      <div className="relative z-10 flex flex-col h-full">
-        {/* Header: Icon & Title */}
-        <div className="flex items-start gap-4 mb-4">
-          <h3 className="text-sm md:text-base font-bold text-foreground leading-tight pt-1">
+      <div className="relative z-10 flex h-full flex-col rounded-[inherit] border border-border/40 bg-card/90 p-5 backdrop-blur-md transition-colors duration-300 group-hover:border-transparent md:p-6">
+        <div className="mb-4 flex items-start gap-4">
+          <h3 className="pt-0.5 text-sm leading-tight font-bold text-foreground transition-colors duration-300 group-hover:text-primary md:text-base">
             {language === 'fr' ? titleFr : titleEn}
           </h3>
         </div>
 
-        {/* Description */}
-        <p className="text-muted-foreground text-[12px] md:text-xs leading-relaxed mb-5 opacity-90 italic font-medium">
+        <p className="mb-5 text-[12px] leading-relaxed font-medium text-muted-foreground italic opacity-90 md:text-xs">
           {language === 'fr' ? descFr : descEn}
         </p>
 
-        {/* Features List */}
-        <div className="flex-1 space-y-2.5 mb-6">
-          {(language === 'fr' ? featuresFr : featuresEn)
-            .slice(0, 4)
-            .map((feature: string, i: number) => (
-              <div key={i} className="flex items-start gap-2.5 group/item">
-                <HiOutlineCheckCircle className="h-3.5 w-3.5 text-primary/70 shrink-0 mt-0.5 group-hover/item:text-primary transition-colors" />
-                <span className="text-[11px] md:text-[12px] text-muted-foreground/90 leading-snug">
-                  {feature}
-                </span>
-              </div>
-            ))}
+        <div className="mb-6 flex-1 space-y-2.5">
+          {(language === 'fr' ? featuresFr : featuresEn).slice(0, 4).map((feature: string, i: number) => (
+            <div key={i} className="group/item flex items-start gap-2.5">
+              <HiOutlineCheckCircle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary/70 transition-colors group-hover/item:text-primary" />
+              <span className="text-[11px] leading-snug text-muted-foreground/90 md:text-[12px]">
+                {feature}
+              </span>
+            </div>
+          ))}
         </div>
 
-        {/* Footer: Price & Link */}
-        <div className="pt-4 border-t border-border/40 flex items-center justify-between">
-          <div className="flex flex-col">
-            <span className="text-[10px] uppercase tracking-wider text-muted-foreground/60 font-bold mb-0.5">
+        <div className="flex items-center justify-between border-t border-border/40 pt-4">
+          <div className="flex min-w-0 flex-col">
+            <span className="mb-0.5 text-[10px] font-bold tracking-wider text-muted-foreground/60 uppercase">
               {language === 'fr' ? 'À partir de' : 'Starting at'}
             </span>
-            <span className="text-sm font-bold text-primary">
-              {language === 'fr' ? priceFr.replace('À partir de ', '') : priceEn.replace('Starting at ', '')}
-            </span>
+            <AnimatedServicePrice amountEur={priceEur} hourly={hourly} />
           </div>
         </div>
       </div>

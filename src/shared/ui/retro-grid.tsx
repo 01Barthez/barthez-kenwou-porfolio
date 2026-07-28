@@ -835,7 +835,7 @@ export function RetroGrid({
     <div
       ref={containerRef}
       className={cn(
-        "pointer-events-none absolute size-full overflow-hidden",
+        "pointer-events-none absolute inset-0 overflow-hidden",
         className
       )}
       style={gridStyles}

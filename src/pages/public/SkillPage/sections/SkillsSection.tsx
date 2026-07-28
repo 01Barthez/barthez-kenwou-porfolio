@@ -24,7 +24,7 @@ const panelVariants = {
     opacity: 1,
     filter: 'blur(0px)',
     transition: {
-      x: { type: 'spring', stiffness: 120, damping: 22, mass: 0.75 },
+      x: { type: 'spring' as const, stiffness: 120, damping: 22, mass: 0.75 },
       opacity: { duration: 0.35 },
       filter: { duration: 0.4 },
       staggerChildren: 0.045,
@@ -53,7 +53,7 @@ const cardVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      type: 'spring',
+      type: 'spring' as const,
       stiffness: 160,
       damping: 22,
       mass: 0.65,

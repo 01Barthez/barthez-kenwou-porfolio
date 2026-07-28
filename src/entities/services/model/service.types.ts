@@ -9,13 +9,15 @@ export interface IServices {
   descEn: string;
   featuresFr: string[];
   featuresEn: string[];
+  /** Source-of-truth amount in EUR */
+  priceEur: number;
+  /** When true, price is billed per hour */
+  hourly: boolean;
   priceFr: string;
   priceEn: string;
 }
-
 
 export interface ServiceCardProps {
   service: (typeof services)[0];
   language: string;
 }
-

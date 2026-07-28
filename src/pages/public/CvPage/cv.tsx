@@ -40,7 +40,7 @@ export const CvPage = () => {
             <ButtonsCTASection />
           </div>
 
-          <RetroGrid className='md:-mt-16 -mt-20' />
+          <RetroGrid />
         </section>
 
         {/* CV Container */}

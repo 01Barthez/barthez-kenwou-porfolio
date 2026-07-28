@@ -21,7 +21,7 @@ export const HeroSection: React.FC = () => {
         </p>
       </div>
 
-      <RetroGrid className='md:-mt-16 -mt-20' />
+      <RetroGrid />
     </section>
 
   );
