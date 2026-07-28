@@ -81,13 +81,27 @@ export const SkillsSection: React.FC = () => {
         {/* Right Column: Skill Cards Grid */}
         <div className="flex-1 pt-6 md:pt-0">
           {activeFilter === 'all' ? (
-            <div className="flex justify-center items-center w-full min-h-[400px] mb-0 animate-fade-in">
+            <div className="relative mx-auto mb-0 flex w-full max-w-[300px] items-center justify-center sm:max-w-[320px] lg:max-w-[340px] xl:max-w-[360px] min-h-[280px] sm:min-h-[300px] lg:min-h-[320px] animate-fade-in">
+              {/* Soft depth haze — anchors the cloud into the frame */}
+              <div
+                aria-hidden
+                className="pointer-events-none absolute left-1/2 top-1/2 h-[78%] w-[78%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/15 blur-3xl opacity-70"
+              />
+              <div
+                aria-hidden
+                className="pointer-events-none absolute left-1/2 top-1/2 h-[52%] w-[52%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/10 blur-2xl opacity-80"
+              />
+              <div
+                aria-hidden
+                className="pointer-events-none absolute inset-0 rounded-full bg-[radial-gradient(circle_at_center,transparent_42%,hsl(var(--background)/0.55)_78%,hsl(var(--background)/0.85)_100%)]"
+              />
+
               <DeferredMount
-                className="w-full flex justify-center"
+                className="relative z-10 w-full flex justify-center"
                 timeout={700}
-                fallback={<div className="h-[400px] w-full" aria-hidden />}
+                fallback={<div className="aspect-square w-full" aria-hidden />}
               >
-                <IconCloud images={imageIcon} />
+                <IconCloud images={imageIcon} size={360} className="w-full" />
               </DeferredMount>
             </div>
           ) : (

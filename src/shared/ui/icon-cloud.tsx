@@ -15,6 +15,9 @@ interface Icon {
 interface IconCloudProps {
   icons?: React.ReactNode[]
   images?: string[]
+  className?: string
+  /** Display max width in px. Canvas stays 460 for sphere math. Default 460. */
+  size?: number
 }
 
 function easeOutCubic(t: number): number {
@@ -24,7 +27,7 @@ function easeOutCubic(t: number): number {
 const SPHERE_RADIUS = 200
 const IMAGE_SIZE = 60
 
-export function IconCloud({ icons, images }: IconCloudProps) {
+export function IconCloud({ icons, images, className, size = 460 }: IconCloudProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [iconPositions, setIconPositions] = useState<Icon[]>([])
   
@@ -327,12 +330,12 @@ export function IconCloud({ icons, images }: IconCloudProps) {
   }, [icons, images, iconPositions]) // Removed React state dependencies! Huge performance win!
 
   return (
-    <div className="mx-auto flex justify-center items-center overflow-hidden">
+    <div className={`mx-auto flex justify-center items-center overflow-hidden ${className ?? ""}`}>
       <canvas
         ref={canvasRef}
         width={460}
         height={460}
-        style={{ width: '100%', maxWidth: '460px', height: 'auto', aspectRatio: '1/1' }}
+        style={{ width: "100%", maxWidth: `${size}px`, height: "auto", aspectRatio: "1/1" }}
         onMouseDown={handleMouseDown}
         onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
