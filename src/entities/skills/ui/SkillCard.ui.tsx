@@ -1,42 +1,82 @@
+import {
+  Brain,
+  Clock3,
+  Lightbulb,
+  MessageCircle,
+  RefreshCw,
+  Users,
+  type LucideIcon,
+} from 'lucide-react';
 import { ISkill } from '../model/Skill.types';
+import { cn } from '@/shared/lib/utils';
+
+const SOFT_SKILL_ICONS: Record<string, LucideIcon> = {
+  Communication: MessageCircle,
+  'Problem Solving': Lightbulb,
+  'Team Leadership': Users,
+  Adaptability: RefreshCw,
+  'Time Management': Clock3,
+  'Critical Thinking': Brain,
+};
 
 export const SkillCard: React.FC<{ Skill: ISkill }> = ({ Skill }) => {
   const { name, category, level, icon } = Skill;
+  const SoftIcon = category === 'softSkills' ? SOFT_SKILL_ICONS[name] : undefined;
+  const hasImage = Boolean(icon?.startsWith('http'));
 
   return (
-    <div className="group relative flex flex-col p-2 rounded-sm bg-transparent border border-border/50 hover:border-primary/50 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-primary/15 isolate cursor-default">
-      
-      {/* Animated blob effect inside the card */}
-      <div className="absolute -top-20 -right-20 w-40 h-40 bg-primary/20 blur-3xl rounded-full group-hover:scale-150 transition-transform duration-700 pointer-events-none -z-10" />
-      <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-primary/10 blur-3xl rounded-full group-hover:scale-150 transition-transform duration-700 pointer-events-none -z-10" />
+    <div
+      className={cn(
+        'group relative isolate flex h-full cursor-default flex-col overflow-hidden rounded-sm border border-border/50 bg-transparent p-1.5 transition-all duration-500',
+        'hover:-translate-y-1.5 hover:border-primary/50 hover:shadow-primary/15',
+      )}
+    >
+      <div className="pointer-events-none absolute -top-20 -right-20 -z-10 h-40 w-40 rounded-full bg-primary/20 blur-3xl transition-transform duration-700 group-hover:scale-150" />
+      <div className="pointer-events-none absolute -bottom-20 -left-20 -z-10 h-40 w-40 rounded-full bg-primary/10 blur-3xl transition-transform duration-700 group-hover:scale-150" />
+      <div className="absolute inset-0 -z-10 bg-card/40 backdrop-blur-sm" />
 
-      {/* Glass overlay */}
-      <div className="absolute inset-0 bg-card/40 backdrop-blur-sm -z-10" />
-
-      <div className="flex items-start justify-center w-full mb-3">
-        <div className="relative w-12 h-12 rounded-sm bg-secondary/80 flex items-center justify-center border border-white/5 shadow-inner transition-transform duration-500 group-hover:scale-80 z-10">
-          {/* We now expect the icon to be an SVG URL */}
-          <img src={icon} alt={`${name} logo`} className="w-8 h-8 object-contain drop-shadow-sm transition-transform duration-500" />
+      <div className="mb-1.5 flex w-full shrink-0 items-start justify-center">
+        <div className="relative z-10 flex h-9 w-9 items-center justify-center rounded-sm border border-white/5 bg-secondary/80 shadow-inner transition-transform duration-500 group-hover:scale-90 sm:h-10 sm:w-10">
+          {SoftIcon ? (
+            <SoftIcon
+              className="h-5 w-5 text-primary/90 drop-shadow-sm sm:h-6 sm:w-6"
+              strokeWidth={1.75}
+              aria-hidden
+            />
+          ) : hasImage ? (
+            <img
+              src={icon}
+              alt=""
+              decoding="async"
+              crossOrigin="anonymous"
+              className="h-6 w-6 object-contain drop-shadow-sm transition-transform duration-500 sm:h-7 sm:w-7"
+            />
+          ) : (
+            <span
+              aria-hidden
+              className="text-[10px] font-bold uppercase tracking-wide text-muted-foreground/70"
+            >
+              {name.slice(0, 2)}
+            </span>
+          )}
         </div>
       </div>
 
       <div className="z-10 text-center">
-        <h3 className="text-sm font-bold text-foreground mb-0.5 group-hover:text-primary transition-colors duration-300">
+        <h3 className="mb-0.5 line-clamp-2 min-h-[2.1rem] text-[12px] leading-tight font-bold text-foreground transition-colors duration-300 group-hover:text-primary sm:text-[13px]">
           {name}
         </h3>
-        <p className="text-xs text-muted-foreground font-semibold">
-          {category}
+        <p className="text-[10px] font-semibold capitalize text-muted-foreground sm:text-[11px]">
+          {category === 'softSkills' ? 'Soft Skills' : category}
         </p>
       </div>
 
-      {/* Progress Bar (Glow line style) */}
-      <div className="mt-2 relative mx-auto w-[60px] h-[3px] bg-black/50 rounded-full overflow-hidden z-10">
-        <div 
-          className="absolute top-0 left-0 h-full bg-gradient-to-r from-primary to-primary/70 rounded-full transition-all duration-1000 ease-out group-hover:shadow-primary/20"
-          style={{ width: `${level}%` }}
-        >
-          {/* Animated shiny tip */}
-          <div className="absolute top-0 right-0 w-2 h-full bg-white blur-[1px] opacity-70" />
+      <div className="relative z-10 mx-auto mt-1.5 w-12">
+        <div className="relative h-[2px] overflow-hidden rounded-full bg-black/50">
+          <div
+            className="absolute top-0 left-0 h-full rounded-full bg-gradient-to-r from-primary to-primary/70 transition-all duration-1000 ease-out"
+            style={{ width: `${level}%` }}
+          />
         </div>
       </div>
     </div>

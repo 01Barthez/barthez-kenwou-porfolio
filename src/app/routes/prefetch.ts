@@ -1,4 +1,5 @@
 // Prefetch critical route bundles during idle time / on hover.
+import { useSkillIconsStore } from '@/entities/skills/model/useSkillIconsStore';
 
 export function prefetchRoutes() {
   if (typeof window === 'undefined') return;
@@ -12,6 +13,8 @@ export function prefetchRoutes() {
     void import('@/pages/public/BlogPage/blog');
     void import('@/pages/public/Contact/contact');
     void import('@/pages/public/CvPage/cv');
+    // Warm skill logo HTTP cache in the background (session-scoped).
+    void useSkillIconsStore.getState().ensureLoaded();
   };
 
   const rIC =
@@ -30,8 +33,10 @@ export async function prefetchRoute(path: string) {
       return import('@/pages/public/HomePage/home');
     case '/about':
       return import('@/pages/public/AboutPage/About');
-    case '/skills':
+    case '/skills': {
+      void useSkillIconsStore.getState().ensureLoaded();
       return import('@/pages/public/SkillPage/skill');
+    }
     case '/projects':
       return import('@/pages/public/ProjectPage/project');
     case '/services':

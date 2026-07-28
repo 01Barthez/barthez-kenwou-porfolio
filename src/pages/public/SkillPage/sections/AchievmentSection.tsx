@@ -9,15 +9,17 @@ export const AchievmentSection: React.FC = () => {
 
   return (
     <section className="px-4 md:px-10 lg:px-14">
-      <div className='glass rounded-sm p-3 border border-border'>
-        <div className="flex items-center gap-3 mb-3">
-          <div className="p-2 rounded-sm bg-primary/10">
+      <div className="glass rounded-md border border-border p-3">
+        <div className="mb-6 flex items-center gap-3">
+          <div className="rounded-sm bg-primary/10 p-2">
             <AiFillTrophy className="h-4 w-4 text-primary" />
           </div>
-          <h2 className="section-title !mb-0">{t('skills.achievements')}</h2>
+          <h3 className="text-xl font-semibold text-foreground">
+            {t('skills.achievements')}
+          </h3>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-between gap-3 md:gap-4 lg:gap-6">
+        <div className="grid grid-cols-2 justify-between gap-3 md:grid-cols-3 md:gap-4 lg:grid-cols-4 lg:gap-6">
           {achievements.map((achievement, index) => (
             <AchievmentCard key={index} Achievment={achievement} />
           ))}

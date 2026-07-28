@@ -109,13 +109,13 @@ export const skillsData = [
   { name: 'Caching Strategies', category: 'architecture', level: 85, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg' },
   { name: 'Message Queues', category: 'architecture', level: 80, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rabbitmq/rabbitmq-original.svg' },
 
-  // Soft Skills
-  { name: 'Communication', category: 'softSkills', level: 95, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/slack/slack-original.svg' },
-  { name: 'Problem Solving', category: 'softSkills', level: 95, icon: '' },
-  { name: 'Team Leadership', category: 'softSkills', level: 90, icon: '' },
-  { name: 'Adaptability', category: 'softSkills', level: 95, icon: '' },
-  { name: 'Time Management', category: 'softSkills', level: 90, icon: '' },
-  { name: 'Critical Thinking', category: 'softSkills', level: 90, icon: '' },
+  // Soft Skills — icons rendered via Lucide in SkillCard (no remote URL)
+  { name: 'Communication', category: 'softSkills', level: 95, icon: 'lucide' },
+  { name: 'Problem Solving', category: 'softSkills', level: 95, icon: 'lucide' },
+  { name: 'Team Leadership', category: 'softSkills', level: 90, icon: 'lucide' },
+  { name: 'Adaptability', category: 'softSkills', level: 95, icon: 'lucide' },
+  { name: 'Time Management', category: 'softSkills', level: 90, icon: 'lucide' },
+  { name: 'Critical Thinking', category: 'softSkills', level: 90, icon: 'lucide' },
 ];
 
 // All Categoryies with their respective skills
@@ -127,5 +127,9 @@ export const skillsByCategory = skillsData.reduce((acc: any, skill) => {
 
 // Tous les liens d'icônes extraits de skillsData, sans doublons
 export const imageIcon: string[] = Array.from(
-  new Set(skillsData.map(skill => skill.icon))
+  new Set(
+    skillsData
+      .map((skill) => skill.icon)
+      .filter((icon) => icon.startsWith('http')),
+  ),
 );

@@ -6,7 +6,7 @@ export const certifications = [
   },
   {
     name: 'AWS Solutions Architect Associate',
-    issuer: 'Amazon Web Services',
+    issuer: 'Udemy',
     year: '2026',
   },
   {

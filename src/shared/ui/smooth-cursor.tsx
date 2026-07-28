@@ -88,31 +88,34 @@ const DefaultCursorSVG: FC = () => {
 export function SmoothCursor({
   cursor = <DefaultCursorSVG />,
   springConfig = {
-    damping: 45,
-    stiffness: 400,
-    mass: 1,
+    damping: 38,
+    stiffness: 1600,
+    mass: 0.28,
     restDelta: 0.001,
   },
 }: SmoothCursorProps) {
   const lastMousePos = useRef<Position>({ x: 0, y: 0 })
   const velocity = useRef<Position>({ x: 0, y: 0 })
-  const lastUpdateTime = useRef(Date.now())
+  const lastUpdateTime = useRef(0)
   const previousAngle = useRef(0)
   const accumulatedRotation = useRef(0)
+  const latestPointer = useRef<PointerEvent | null>(null)
   const [isEnabled, setIsEnabled] = useState(false)
   const [isVisible, setIsVisible] = useState(false)
 
   const cursorX = useSpring(0, springConfig)
   const cursorY = useSpring(0, springConfig)
   const rotation = useSpring(0, {
-    ...springConfig,
-    damping: 60,
-    stiffness: 300,
+    damping: 42,
+    stiffness: 900,
+    mass: 0.35,
+    restDelta: 0.001,
   })
   const scale = useSpring(1, {
-    ...springConfig,
-    stiffness: 500,
-    damping: 35,
+    damping: 32,
+    stiffness: 900,
+    mass: 0.25,
+    restDelta: 0.001,
   })
 
   useEffect(() => {
@@ -141,12 +144,13 @@ export function SmoothCursor({
     }
 
     let timeout: ReturnType<typeof setTimeout> | null = null
+    let rafId = 0
 
     const updateVelocity = (currentPos: Position) => {
-      const currentTime = Date.now()
+      const currentTime = performance.now()
       const deltaTime = currentTime - lastUpdateTime.current
 
-      if (deltaTime > 0) {
+      if (deltaTime > 0 && lastUpdateTime.current > 0) {
         velocity.current = {
           x: (currentPos.x - lastMousePos.current.x) / deltaTime,
           y: (currentPos.y - lastMousePos.current.y) / deltaTime,
@@ -168,13 +172,13 @@ export function SmoothCursor({
       updateVelocity(currentPos)
 
       const speed = Math.sqrt(
-        Math.pow(velocity.current.x, 2) + Math.pow(velocity.current.y, 2)
+        velocity.current.x ** 2 + velocity.current.y ** 2
       )
 
       cursorX.set(currentPos.x)
       cursorY.set(currentPos.y)
 
-      if (speed > 0.1) {
+      if (speed > 0.08) {
         const currentAngle =
           Math.atan2(velocity.current.y, velocity.current.x) * (180 / Math.PI) +
           90
@@ -186,7 +190,7 @@ export function SmoothCursor({
         rotation.set(accumulatedRotation.current)
         previousAngle.current = currentAngle
 
-        scale.set(0.95)
+        scale.set(0.96)
 
         if (timeout !== null) {
           clearTimeout(timeout)
@@ -194,31 +198,33 @@ export function SmoothCursor({
 
         timeout = setTimeout(() => {
           scale.set(1)
-        }, 150)
+        }, 120)
       }
     }
 
-    let rafId = 0
-    const throttledPointerMove = (e: PointerEvent) => {
+    const onPointerMove = (e: PointerEvent) => {
       if (!isTrackablePointer(e.pointerType)) {
         return
       }
 
+      latestPointer.current = e
+
       if (rafId) return
 
       rafId = requestAnimationFrame(() => {
-        smoothPointerMove(e)
         rafId = 0
+        const next = latestPointer.current
+        if (next) {
+          smoothPointerMove(next)
+        }
       })
     }
 
     document.body.style.cursor = "none"
-    window.addEventListener("pointermove", throttledPointerMove, {
-      passive: true,
-    })
+    window.addEventListener("pointermove", onPointerMove, { passive: true })
 
     return () => {
-      window.removeEventListener("pointermove", throttledPointerMove)
+      window.removeEventListener("pointermove", onPointerMove)
       document.body.style.cursor = "auto"
       if (rafId) cancelAnimationFrame(rafId)
       if (timeout !== null) {
@@ -235,8 +241,10 @@ export function SmoothCursor({
     <motion.div
       style={{
         position: "fixed",
-        left: cursorX,
-        top: cursorY,
+        left: 0,
+        top: 0,
+        x: cursorX,
+        y: cursorY,
         translateX: "-50%",
         translateY: "-50%",
         rotate: rotation,
@@ -249,7 +257,7 @@ export function SmoothCursor({
       initial={false}
       animate={{ opacity: isVisible ? 1 : 0 }}
       transition={{
-        duration: 0.15,
+        duration: 0.1,
       }}
     >
       {cursor}
