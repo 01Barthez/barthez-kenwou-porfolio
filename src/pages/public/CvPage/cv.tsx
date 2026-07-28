@@ -24,15 +24,16 @@ export const CvPage = () => {
         description="CV de Barthez Kenwou — Développeur Full Stack & Ingénieur DevOps AWS. Expérience, compétences et parcours professionnel."
       />
 
-      <div className="min-h-screen overflow-x-clip px-4 py-14 md:px-10 md:py-16 lg:px-14 lg:py-20">
-        <section className="relative mb-8 animate-fade-in pt-10 text-center md:mb-12 md:pt-14">
-          <h1 className="section-title">
+      {/* No horizontal padding on shell — RetroGrid must be full-bleed like /projects */}
+      <div className="min-h-screen overflow-x-clip pt-16 md:py-16 lg:py-20">
+        <section className="relative mb-8 animate-fade-in pt-14 text-center md:mb-12 md:pt-16">
+          <h1 className="section-title relative z-10">
             {language === 'fr' ? 'Mon' : 'My'}
             <span className="bg-gradient-to-r from-foreground via-foreground/80 to-muted-foreground bg-clip-text text-transparent">
               &nbsp;CV
             </span>
           </h1>
-          <p className="section-subtitle mx-auto mt-2 max-w-lg !mb-0 text-sm">
+          <p className="section-subtitle relative z-10 mx-auto mt-2 max-w-lg !mb-0 text-sm">
             {language === 'fr'
               ? 'Parcours, compétences et réalisations — prêt à télécharger.'
               : 'Background, skills and achievements — ready to download.'}
@@ -40,22 +41,24 @@ export const CvPage = () => {
           <RetroGrid />
         </section>
 
-        <section className="relative z-10 mx-auto mb-8 max-w-4xl overflow-hidden rounded-md border border-border bg-card shadow-md print:border-none print:shadow-none md:mb-10">
-          <HeaderSection personalInfo={cvData.personalInfo} />
+        <div className="px-4 md:px-10 lg:px-14">
+          <section className="relative z-10 mx-auto mb-8 max-w-4xl overflow-hidden rounded-md border border-border bg-card shadow-md print:border-none print:shadow-none md:mb-10">
+            <HeaderSection personalInfo={cvData.personalInfo} />
 
-          <div className="space-y-5 p-3.5 sm:space-y-6 sm:p-6 md:space-y-8 md:p-8 print:p-6">
-            <ProfileSection />
-            <ExperienceSection experiences={cvData.experiences} />
-            <FeaturedProjectsSection projects={cvData.featuredProjects} />
-            <SkillsSection skills={cvData.skills} />
-            <SoftSkillsSection softSkills={(cvData.skills as any)?.softSkills} />
-            <CertificationSection education={cvData.education} />
-            <LanguageSection languages={cvData.languages} />
-            <ReferencesSection references={(cvData as any)?.references} />
-          </div>
-        </section>
+            <div className="space-y-5 p-3.5 sm:space-y-6 sm:p-6 md:space-y-8 md:p-8 print:p-6">
+              <ProfileSection />
+              <ExperienceSection experiences={cvData.experiences} />
+              <FeaturedProjectsSection projects={cvData.featuredProjects} />
+              <SkillsSection skills={cvData.skills} />
+              <SoftSkillsSection softSkills={(cvData.skills as any)?.softSkills} />
+              <CertificationSection education={cvData.education} />
+              <LanguageSection languages={cvData.languages} />
+              <ReferencesSection references={(cvData as any)?.references} />
+            </div>
+          </section>
 
-        <CTASection />
+          <CTASection />
+        </div>
       </div>
     </>
   );
