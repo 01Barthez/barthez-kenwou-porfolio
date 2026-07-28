@@ -1,33 +1,31 @@
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import React from 'react';
-import { User } from 'lucide-react';
+import { AboutSectionIcon } from './AboutSectionIcon';
 
 export const BioSection: React.FC = () => {
   const { language } = useLanguageStore();
 
   return (
-    <section className="glass rounded-md p-6 border border-border animate-fade-in">
+    <section className="glass rounded-md p-4 md:p-6 border border-border animate-fade-in">
       <div className="flex items-center gap-3 mb-4">
-        <div className="px-2 py-1 rounded-sm bg-primary/10">
-          <User className="h-4 w-6 text-primary" />
-        </div>
+        <AboutSectionIcon variant="bio" />
         <h3 className="text-xl font-semibold text-foreground">Bio</h3>
       </div>
      
       <div className="space-y-3 text-sm text-muted-foreground leading-relaxed">
         <p>
           {language === 'fr'
-            ? "Passionné par le développement web et le cloud computing depuis plus de 3 ans, je me spécialise dans la création d'applications web modernes, performantes et évolutives."
+            ? "Dans un contexte où produire du code devient de plus en plus accessible, la vraie différence se joue dans la capacité à concevoir et livrer des systèmes utiles, fiables et durables. Ma valeur réside dans ma capacité à transformer une idée, un besoin métier ou une vision produit en une solution scalable, robuste et réellement exploitable."
             : 'Passionate about web development and cloud computing for over 3 years, I specialize in creating modern, high-performance, and scalable web applications.'}
         </p>
         <p>
           {language === 'fr'
-            ? "Mon expertise couvre l'ensemble du cycle de développement, de la conception à la mise en production, en passant par l'optimisation des performances et la sécurité. Je maîtrise les technologies AWS et les pratiques DevOps pour garantir des déploiements fiables et automatisés."
+            ? "En tant que Développeur Full Stack et Ingénieur DevOps, j’interviens sur l’ensemble de la chaîne de valeur : architecture, développement, cloud, automatisation, sécurité, performance et mise en production. Mon approche ne consiste pas seulement à faire fonctionner un produit, mais à le rendre robuste, maintenable et prêt pour la réalité du terrain."
             : 'My expertise covers the entire development cycle, from design to production deployment, including performance optimization and security. I master AWS technologies and DevOps practices to ensure reliable and automated deployments.'}
         </p>
         <p>
           {language === 'fr'
-            ? "Toujours à la recherche de nouveaux défis, je m'investis continuellement dans l'apprentissage de nouvelles technologies et les meilleures pratiques du secteur."
+            ? "Je conçois la technologie comme un levier de livraison, de clarté et de confiance. Mon objectif est de construire des produits qui tiennent dans le temps, soutiennent la croissance et répondent à de vrais enjeux business."
             : 'Always looking for new challenges, I continuously invest in learning new technologies and industry best practices.'}
         </p>
       </div>

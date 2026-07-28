@@ -1,19 +1,17 @@
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import React from 'react';
-import { Briefcase } from 'lucide-react';
 import { experiences } from '@/entities/experiences/api/mocks/experiences.mocks';
 import { ExperienceCard } from '@/entities/experiences/ui/ExperienceCard.ui';
+import { AboutSectionIcon } from './AboutSectionIcon';
 
 export const ExperienceSection: React.FC = () => {
   const { language } = useLanguageStore();
 
   return (
-    <section className="glass rounded-md p-4 border border-border animate-fade-in">
+    <section className="glass rounded-md p-4 md:p-6 border border-border animate-fade-in">
       {/* title */}
       <div className="flex items-center gap-3 mb-6">
-        <div className="px-2 py-1 rounded-sm bg-primary/10">
-          <Briefcase className="h-4 w-6 text-primary" />
-        </div>
+        <AboutSectionIcon variant="experience" />
         <h3 className="text-xl font-semibold text-foreground">
           {language === 'fr' ? 'Expérience Professionnelle' : 'Professional Experience'}
         </h3>

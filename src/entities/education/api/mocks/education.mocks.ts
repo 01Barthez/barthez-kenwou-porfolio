@@ -1,14 +1,7 @@
 import { IEducation } from '../../model/education.types';
 
 export const education: IEducation[] = [
-  {
-    degreeFr: 'Parcours master Professionnel',
-    degreeEn: "Professionnal master's course",
-    school: 'Université Yaoundé 1',
-    period: '2026 - Now',
-  },
-
-  {
+{
     degreeFr: 'Formation en DevOps & AWS Cloud ',
     degreeEn: 'DevOps & AWS Cloud Training',
     school: 'FreeCodeCamp & Udemy',
@@ -26,7 +19,7 @@ export const education: IEducation[] = [
     degreeFr: 'Formation en development web Full-Stack',
     degreeEn: 'Full-Stack development training',
     school: 'IT Engineering Factory',
-    period: '2024',
+    period: '2025',
     link: 'https://credsverse.com/credentials/cc4d79b0-24b1-4270-bb66-f106886acba3',
   },
 

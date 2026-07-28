@@ -9,10 +9,10 @@ export const EducationCard: React.FC<{ Education: IEducation }> = ({ Education }
   const { degreeFr, degreeEn, link, school, period } = Education;
 
   return (
-    <div className="flex items-start justify-between px-4 py-2 rounded-md bg-secondary/30 hover:bg-secondary/50 transition-colors border border-transparent hover:border hover:border-primary/30 duration-300 transition-all">
+    <div className="cursor-default flex items-start justify-between px-4 py-2 rounded-md bg-secondary/70 hover:bg-secondary/10 transition-colors border border-transparent hover:border hover:border-primary/10 duration-300 transition-all">
       <div>
         <div className="flex items-center gap-2">
-          <h4 className="font-semibold text-sm text-foreground">
+          <h4 className="cursor-default font-semibold text-sm text-foreground">
             {language === 'fr' ? degreeFr : degreeEn}
           </h4>
 
@@ -28,10 +28,10 @@ export const EducationCard: React.FC<{ Education: IEducation }> = ({ Education }
           )}
         </div>
 
-        <p className="text-sm text-muted-foreground">{school}</p>
+        <p className="cursor-default text-sm text-muted-foreground">{school}</p>
       </div>
 
-      <span className="text-xs text-primary font-mono">{period}</span>
+      <span className="cursor-default text-xs text-primary font-mono">{period}</span>
     </div>
   );
 };

@@ -22,7 +22,7 @@ export const certifications = [
   {
     name: 'Full Stack Development',
     issuer: 'IT Engenineering Factory',
-    year: '2024',
+    year: '2025',
     link: 'https://credsverse.com/credentials/cc4d79b0-24b1-4270-bb66-f106886acba3',
   },
 ];

@@ -24,10 +24,10 @@ export const AboutPage: React.FC = () => {
             <HeroSection />
 
             {/* Profile Section */}
-            <div className="grid lg:grid-cols-3 gap-8 mb-20 px-4 md:px-10 lg:px-14">
+            <div className="grid lg:grid-cols-3 gap-8 mb-2 px-4 md:px-10 lg:px-14">
               {/* Profile Card */}
               <div className="lg:col-span-1">
-                <div className="sticky top-24 glass rounded-md p-6 border border-border">
+                <div className="sticky top-24 glass rounded-md p-4 md:p-6 border border-border">
                   <div className="absolute inset-0 z-10 rounded-md">
                     <Pointer className="fill-primary" />
                   </div>
@@ -38,7 +38,7 @@ export const AboutPage: React.FC = () => {
               </div>
 
               {/* Content */}
-              <div className="lg:col-span-2 space-y-12">
+              <div className="lg:col-span-2 space-y-6">
                 {/* Bio */}
                 <BioSection />
 
