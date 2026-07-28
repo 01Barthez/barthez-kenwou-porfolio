@@ -10,6 +10,16 @@ Allow: /blog
 Allow: /cv
 Allow: /contact
 
+# Social / messaging crawlers (WhatsApp uses Meta's facebookexternalhit)
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Facebot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
 # Error / private surfaces
 Disallow: /server-error
 Disallow: /admin

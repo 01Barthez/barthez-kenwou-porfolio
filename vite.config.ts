@@ -24,6 +24,7 @@ export default defineConfig(() => {
           'apple-touch-icon.png',
           'og-image.png',
           'og-image.jpg',
+          'og-share.jpg',
           'og-image.webp',
           'robots.txt',
           'humans.txt',

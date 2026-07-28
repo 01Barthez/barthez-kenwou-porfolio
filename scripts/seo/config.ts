@@ -7,7 +7,7 @@ export const DEFAULT_TITLE =
   'Barthez Kenwou | Développeur Full Stack & Ingénieur DevOps';
 export const DEFAULT_DESCRIPTION =
   'Portfolio de Barthez Kenwou — Développeur Full Stack JS & Ingénieur DevOps spécialiste AWS Cloud. Applications web modernes, CI/CD, Kubernetes et architectures cloud performantes.';
-export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.jpg?v=20260728`;
+export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-share.jpg`;
 export const AUTHOR_EMAIL = 'kenwoubarthez@gmail.com';
 export const AUTHOR_PHONE = '+237 655 646 688';
 export const AUTHOR_LOCATION = 'Yaoundé, Cameroun';
