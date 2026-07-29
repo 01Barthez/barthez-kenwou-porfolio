@@ -794,7 +794,7 @@ Got a question? Stuck somewhere? Leave a comment, I’ll answer personally.
 
 Salut à tous ! 👋
 
-Je m’appelle Barthez Kenwou, et depuis plus de 8 ans je construis des APIs Node.js à fort trafic pour des startups, des SaaS et des projets personnels qui montent jusqu’à plusieurs dizaines de milliers de requêtes par minute.
+Je m’appelle Barthez Kenwou, et depuis plus de 3 ans je construis des APIs Node.js à fort trafic pour des startups, des SaaS et des projets personnels qui montent jusqu’à plusieurs dizaines de milliers de requêtes par minute.
 
 Et je peux vous le dire sans détour : **la performance n’est pas un « nice-to-have »**. C’est ce qui fait la différence entre une application qui coûte cher et qui rage les utilisateurs… et une application fluide, scalable, qui fait plaisir à utiliser et qui fait baisser votre facture AWS/GCP de 60-70 %.
 
@@ -1129,7 +1129,7 @@ Thanks for reading all the way. You're now equipped like a true expert. Go imple
 
 Salut à tous ! 👋
 
-Je suis Barthez Kenwou, et depuis plus de 8 ans je construis et je maintiens des APIs Express.js + TypeScript en production pour des startups, des SaaS à fort trafic et des projets qui gèrent des données sensibles (paiements, données personnelles, etc.).
+Je suis Barthez Kenwou, et depuis plus de 3 ans je construis et je maintiens des APIs Express.js + TypeScript en production pour des startups, des SaaS à fort trafic et des projets qui gèrent des données sensibles (paiements, données personnelles, etc.).
 
 Express a fait un excellent travail avec sa documentation officielle sur la sécurité[](https://expressjs.com/en/advanced/best-practice-security.html), mais franchement, ça reste le minimum syndical. Dans la vraie vie, en 2026, avec les attaques qui évoluent tous les jours (OWASP Top 10 2025 en tête), il faut aller **beaucoup plus loin**.
 
@@ -1994,7 +1994,7 @@ Vous venez de déployer une **stack full-stack serverless professionnelle** avec
 
 Salut à tous ! 👋
 
-Je suis Barthez Kenwou, et depuis plus de 8 ans je construis et je sécurise des architectures AWS pour des startups, des SaaS et des projets qui gèrent des données sensibles et des milliers de requêtes par minute.
+Je suis Barthez Kenwou, et depuis plus de 3 ans je construis et je sécurise des architectures AWS pour des startups, des SaaS et des projets qui gèrent des données sensibles et des milliers de requêtes par minute.
 
 J’ai vu de tout : des comptes AWS piratés à cause d’une clé d’accès exposée sur GitHub, des rôles avec \`AdministratorAccess\` qui traînaient depuis 3 ans, ou encore des équipes qui utilisaient encore le root user pour tout et n’importe quoi…
 
@@ -2213,7 +2213,7 @@ Merci d’avoir lu jusqu’ici. Votre compte AWS est maintenant beaucoup plus s�
 
 Salut à tous ! 👋
 
-Je suis Barthez Kenwou, et depuis plus de 8 ans je conçois, je déploie et je fais évoluer des architectures microservices pour des startups, des SaaS et des projets qui gèrent des dizaines de milliers de requêtes par minute.
+Je suis Barthez Kenwou, et depuis plus de 3 ans je conçois, je déploie et je fais évoluer des architectures microservices pour des startups, des SaaS et des projets qui gèrent des dizaines de milliers de requêtes par minute.
 
 Vous avez suivi mes guides précédents :
 - Déploiement React sur AWS
