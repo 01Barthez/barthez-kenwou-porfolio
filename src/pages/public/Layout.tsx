@@ -5,6 +5,7 @@ import { Outlet, useLocation } from 'react-router-dom';
 import { Footer } from '@/widgets/Footer';
 import { Suspense } from 'react';
 import { RouteFallback } from '@/shared/ui/RouteFallback/RouteFallback';
+import { ErrorBoundary } from '@/app/lib/ErrorBoundary';
 
 function PageShell({ children }: { children: React.ReactNode }) {
   const location = useLocation();
@@ -17,6 +18,8 @@ function PageShell({ children }: { children: React.ReactNode }) {
 }
 
 export const PublicLayout = () => {
+  const location = useLocation();
+
   return (
     <SidebarProvider>
       <div className="w-full flex min-h-screen overflow-x-clip">
@@ -26,15 +29,21 @@ export const PublicLayout = () => {
           <Header />
 
           <main className="flex flex-1 flex-col p-0">
-            <Suspense
-              fallback={
-                <RouteFallback className="flex-1 min-h-[calc(100svh-10rem)]" />
-              }
-            >
-              <PageShell>
-                <Outlet />
-              </PageShell>
-            </Suspense>
+            {/*
+              Boundary around page content only — shell (aside / nav / footer) stays up.
+              key=pathname resets the boundary when the user navigates elsewhere.
+            */}
+            <ErrorBoundary key={location.pathname}>
+              <Suspense
+                fallback={
+                  <RouteFallback className="flex-1 min-h-[calc(100svh-10rem)]" />
+                }
+              >
+                <PageShell>
+                  <Outlet />
+                </PageShell>
+              </Suspense>
+            </ErrorBoundary>
           </main>
 
           <Footer />

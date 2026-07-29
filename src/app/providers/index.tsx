@@ -12,7 +12,8 @@ interface ProvidersProps {
 
 export const Providers: React.FC<ProvidersProps> = ({ children }) => {
   return (
-    <ErrorBoundary>
+    // Last-resort only (providers / router shell crash). Page errors are caught in PublicLayout.
+    <ErrorBoundary variant="fullscreen">
       <QueryProvider>
         <AuthProvider>
           <I18nProvider>

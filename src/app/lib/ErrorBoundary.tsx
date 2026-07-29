@@ -10,6 +10,8 @@ interface Props {
   onError?: (error: Error, info?: React.ErrorInfo, errorId?: string) => void;
   /** whether to show a 'report' button in the error UI */
   showReport?: boolean;
+  /** content keeps app chrome; fullscreen replaces everything */
+  variant?: 'content' | 'fullscreen';
 }
 
 interface State {
@@ -80,10 +82,9 @@ export class ErrorBoundary extends Component<Props, State> {
 
       return (
         <InternalErrorPage
+          variant={this.props.variant ?? 'content'}
           error={this.state.error}
           errorId={this.state.errorId}
-          onRetry={this.handleRetry}
-          onReport={this.props.showReport ? this.handleReport : undefined}
         />
       );
     }
