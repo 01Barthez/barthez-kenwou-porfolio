@@ -82,7 +82,12 @@ export default defineConfig(() => {
           // Keep SW precache lean — huge 3D/vendor chunks are runtime-cached
           maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
           globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2,webmanifest}'],
-          globIgnores: ['**/vendor.3d-*.js', '**/vendor.motion-*.js'],
+          // Exclude huge vendor chunks and any helper utilities that change hash on every build
+          globIgnores: [
+            '**/vendor.3d-*.js',
+            '**/vendor.motion-*.js',
+            '**/helpers-*.js',
+          ],
           runtimeCaching: [
             {
               urlPattern: /\.(?:png|jpg|jpeg|svg|gif|webp|avif)$/,

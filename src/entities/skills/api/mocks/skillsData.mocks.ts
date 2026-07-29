@@ -52,7 +52,7 @@ export const skillsData = [
   // Backend Skills
   { name: 'Node.js', category: 'backend', level: 95, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg' },
   { name: 'Express JS', category: 'backend', level: 85, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/express/express-original.svg' },
-  { name: 'REST API', category: 'backend', level: 85, icon: 'https://cdn.simpleicons.org/openapi/6BA539' },
+  { name: 'REST API', category: 'backend', level: 85, icon: 'https://cdn.simpleicons.org/swagger/85EA2D' },
   { name: 'Fast API', category: 'backend', level: 85, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/fastapi/fastapi-original.svg' },
   { name: 'Supabase', category: 'backend', level: 85, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg' },
   { name: 'Python', category: 'backend', level: 45, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg' },
@@ -89,7 +89,7 @@ export const skillsData = [
   { name: 'Linux', category: 'tools', level: 85, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linux/linux-original.svg' },
   { name: 'Scrum', category: 'tools', level: 85, icon: 'https://cdn.simpleicons.org/scrumalliance/009ADA' },
   { name: 'Agile', category: 'tools', level: 85, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg' },
-  { name: 'IA & Vibe Coding', category: 'tools', level: 85, icon: 'https://cdn.simpleicons.org/openai/412991' },
+  { name: 'IA & Vibe Coding', category: 'tools', level: 85, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg' },
   { name: 'DDD', category: 'tools', level: 85, icon: 'https://cdn.simpleicons.org/databricks/FF3621' },
   { name: 'CLEAN CODE', category: 'tools', level: 85, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/eslint/eslint-original.svg' },
   { name: 'VS Code', category: 'tools', level: 95, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg' },

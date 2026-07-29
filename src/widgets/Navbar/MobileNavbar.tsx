@@ -58,7 +58,7 @@ export const MobileNavbar: React.FC = () => {
             </Link>
           </Button>
 
-          <Button asChild className="w-fit px-2 h-8">
+          <Button asChild className="w-fit px-2 h-8 font-semibold text-primary-foreground contrast-more:text-white">
             <Link
               to="/cv"
               onMouseEnter={() => {
@@ -69,7 +69,7 @@ export const MobileNavbar: React.FC = () => {
               }}
             >
               <AiOutlineDownload className="mr-.5 h-2 w-2" />
-              <span className="text-xs">{t('nav.cv')}</span>
+              <span className="text-sm font-semibold !text-white">{t('nav.cv')}</span>
             </Link>
           </Button>
         </div>
