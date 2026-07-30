@@ -6,70 +6,301 @@ export const blogPostsData: IBlog[] = [
     "slug": "ci-cd-github-actions-zero-to-expert",
     "titleFr": "CI/CD avec GitHub Actions – De Zéro à Expert",
     "titleEn": "CI/CD with GitHub Actions – From Zero to Expert",
-    "excerptFr": "Maîtrisez GitHub Actions de A à Z : automatisez vos tests, builds, déploiements et bien plus. Guide complet, concret et à jour avec les meilleures pratiques 2026. Même si vous débutez, vous deviendrez autonome.",
-    "excerptEn": "Master GitHub Actions from A to Z: automate your tests, builds, deployments and more. Complete, practical and up-to-date guide with 2026 best practices. Even if you're a beginner, you'll become fully autonomous.",
+    "excerptFr": "Maîtrisez GitHub Actions de A à Z : automatisez vos tests, builds, déploiements et bien plus. Édition 2026 entièrement enrichie — 5 pipelines complets et détaillés (dont mon propre pipeline de production en bonus), toutes les fonctionnalités avancées expliquées en profondeur, et une feuille de route de bonnes pratiques pour passer de junior à expert. Même si vous débutez, vous deviendrez autonome.",
+    "excerptEn": "Master GitHub Actions from A to Z: automate your tests, builds, deployments and more. Fully expanded 2026 edition — 5 complete, detailed pipelines (including my own real production pipeline as a bonus), every advanced feature explained in depth, and a best-practices roadmap to take you from junior to expert. Even if you're a beginner, you'll become fully autonomous.",
     "contentFr": `
 ## Introduction
 
 Imaginez ceci : vous poussez votre code sur \`main\`, et **en quelques minutes** :
 - Vos tests tournent automatiquement
 - Votre application est buildée
-- Elle est déployée sur AWS, Vercel, ou votre serveur
+- Elle est déployée sur AWS, Vercel, Docker, ou votre propre VPS
 - Vous recevez une notification si quelque chose plante
+- Et si un scan de sécurité détecte un secret qui traîne ou une faille critique, tout s'arrête avant que ça parte en prod
 
-C’est exactement ce que permet **GitHub Actions**, et c’est gratuit pour la plupart des projets !
+C'est exactement ce que permet **GitHub Actions**, et c'est gratuit pour la plupart des projets !
 
-Dans ce guide **ultra-complet et à jour 2026**, je vais vous accompagner pas à pas, comme si on était assis côte à côte. Que vous soyez étudiant, freelance, ou développeur en entreprise, vous allez passer de « je ne sais pas par où commencer » à « je maîtrise mon pipeline CI/CD comme un pro ».
+Cet article est la version **ultra-complète, remaniée et boostée 2026** de mon guide GitHub Actions. Je l'ai entièrement retravaillé parce que je voulais aller beaucoup plus loin : moins de survol, plus de matière, plus d'exemples concrets, plus de vécu terrain. L'objectif ne change pas : vous accompagner pas à pas, comme si on était assis côte à côte devant le même terminal. Mais cette fois, on ne s'arrête pas à « ça marche ». On va jusqu'à « je comprends pourquoi ça marche, et je sais comment faire évoluer ça vers un pipeline de niveau pro ».
 
-Nous allons couvrir :
-- Les concepts fondamentaux
-- La création de workflows simples et avancés
-- Tests automatisés (Jest, Vitest, Cypress…)
-- Builds et déploiements (AWS S3/CloudFront, Vercel, Docker…)
-- Secrets, environnements, matrices, cache, artefacts
-- Bonnes pratiques de sécurité et de performance
-- Un pipeline complet prêt à copier-coller
+Que vous soyez étudiant, freelance, ou développeur en entreprise, vous allez passer de « je ne sais pas par où commencer » à « je conçois mes pipelines CI/CD comme un ingénieur DevOps confirmé ».
+
+Voici ce qu'on va couvrir, et croyez-moi, il y a de la matière :
+
+- Les concepts fondamentaux, expliqués vraiment en profondeur (events, jobs, steps, runners, contexts…)
+- **5 pipelines complets et détaillés**, du plus simple au plus avancé — CI basique, déploiement AWS S3/CloudFront avec OIDC, build Docker + déploiement VPS via SSH, preview deployments automatiques sur Vercel pour chaque Pull Request, et en bonus, **le pipeline réel que j'utilise en production pour mon propre portfolio** (celui que vous êtes probablement en train de lire actuellement)
+- Toutes les fonctionnalités avancées, chacune avec sa propre section détaillée : secrets, matrices, cache, environnements, notifications, workflows réutilisables, actions composites, concurrency, scans de sécurité, OIDC, runners self-hosted, debugging…
+- Un chapitre **Bonnes pratiques 2026** qui ne se contente pas de lister des points, mais qui explique le pourquoi de chaque pratique, avec des retours d'expérience de projets réels
+- Un pipeline complet prêt à copier-coller, et bien plus
 
 Prenez un café ☕, ouvrez votre repository, et allons-y ensemble !
 
 ## 1. Prérequis
 
-Avant de commencer, assurez-vous d’avoir :
+Avant de commencer, assurez-vous d'avoir :
 
 - Un compte GitHub (gratuit suffit)
 - Un repository avec un projet (Node.js, React, Next.js, Python, etc.)
 - Connaissance basique de Git et des commandes terminal
 - (Optionnel mais recommandé) : un projet avec des tests (Jest, Vitest, etc.)
 
-**Astuce** : Si vous n’avez pas encore de tests, on commencera par un pipeline simple et on ajoutera la complexité progressivement.
+**Petite checklist avant de vous lancer**, pour être sûr de bien profiter de la suite :
+- Vous savez faire un \`git push\` et ouvrir une Pull Request ? Parfait, c'est tout ce qu'il faut niveau Git.
+- Vous avez déjà écrit un fichier YAML (même juste pour Docker Compose) ? Encore mieux, mais pas obligatoire, je vous explique la syntaxe au fur et à mesure.
+- Vous ne savez pas ce qu'est l'intégration continue ou le déploiement continu ? Aucun souci, on part de zéro dans la section suivante.
 
-## 2. Concepts de base de GitHub Actions
+**Astuce** : Si vous n'avez pas encore de tests, on commencera par un pipeline simple et on ajoutera la complexité progressivement. Ne bloquez surtout pas sur « je n'ai pas de tests donc je ne peux pas faire de CI/CD » — c'est une idée reçue. On peut très bien commencer par juste automatiser un build, puis ajouter les tests plus tard.
 
-### Workflows
-Un **workflow** est un fichier YAML placé dans le dossier \`.github/workflows/\`.  
-C’est l’orchestrateur complet de votre automatisation.
+## 2. Comprendre GitHub Actions de A à Z (les fondations)
 
-### Events (Déclencheurs)
-Ce qui lance le workflow :
-- \`push\` sur une branche
-- \`pull_request\`
-- \`schedule\` (cron)
-- \`workflow_dispatch\` (lancement manuel depuis l’interface)
-- Release, issue, etc.
+C'est LA partie sur laquelle je veux vraiment m'attarder, parce que c'est celle qu'on survole trop souvent dans les tutos. Si vous comprenez bien ces fondations, absolument tout le reste de cet article (et tous les pipelines que vous croiserez dans votre carrière) deviendra lisible presque instantanément. Donc on prend notre temps.
 
-### Jobs
-Un workflow peut contenir plusieurs **jobs** qui s’exécutent en parallèle ou en séquence.  
-Chaque job tourne sur un **runner** (machine virtuelle : ubuntu-latest, windows-latest, macos-latest…).
+### 2.1 La vue d'ensemble : comment tout s'articule
 
-### Steps
-Chaque job est composé d’**étapes** (steps) :
-- \`uses:\` → utiliser une Action communautaire (ex. actions/checkout)
-- \`run:\` → exécuter une commande shell
+Avant de rentrer dans le vocabulaire, voici l'image mentale à garder en tête, du plus haut niveau au plus bas niveau :
 
-### Runner
-La machine virtuelle fournie par GitHub (2-core, 7 GB RAM pour les runners gratuits).
+1. Il se passe **quelque chose** dans votre repository GitHub (un push, une Pull Request, un clic manuel…) → c'est un **event** (déclencheur)
+2. Cet event déclenche un ou plusieurs **workflows** (des fichiers YAML dans \`.github/workflows/\`)
+3. Chaque workflow contient un ou plusieurs **jobs** (des unités de travail indépendantes)
+4. Chaque job tourne sur un **runner** (une machine virtuelle fraîche, jetable, propre)
+5. Chaque job exécute une suite de **steps** (des étapes séquentielles : installer, tester, builder, déployer…)
+6. Chaque step utilise soit une **Action** existante (\`uses:\`), soit une **commande shell** (\`run:\`)
 
-## 3. Créer votre premier Workflow – CI simple
+Concrètement : **Event → Workflow → Jobs → Runner → Steps**. Retenez cette chaîne, c'est la colonne vertébrale de tout ce qui suit.
+
+### 2.2 Les Workflows
+
+Un **workflow** est un fichier YAML placé dans le dossier \`.github/workflows/\`. C'est l'orchestrateur complet de votre automatisation : c'est lui qui dit « quand est-ce que je me déclenche » et « qu'est-ce que je fais quand je me déclenche ».
+
+Quelques points qu'on oublie souvent de préciser aux débutants :
+
+- Vous pouvez avoir **plusieurs fichiers de workflow** dans le même repository (\`ci.yml\`, \`deploy.yml\`, \`codeql.yml\`…). Chacun est totalement indépendant, avec ses propres déclencheurs.
+- Le nom du fichier n'a pas d'importance particulière pour GitHub (ça peut s'appeler \`n_importe_quoi.yml\`), mais le champ \`name:\` en haut du fichier est ce qui s'affiche dans l'onglet **Actions** de votre repo — donnez-lui toujours un nom clair.
+- **Bonne pratique dès le départ** : séparez vos préoccupations. Un workflow pour la CI (tests, lint), un autre pour le déploiement, un autre pour la sécurité (CodeQL, Dependabot). Ça facilite énormément la lecture et le debug plus tard, plutôt qu'un seul fichier de 500 lignes qui fait tout.
+
+### 2.3 Les Events (déclencheurs) — la porte d'entrée de tout pipeline
+
+C'est ce qui lance le workflow. Et c'est plus riche que ce qu'on montre habituellement. Voici les événements que vous rencontrerez le plus souvent, avec des exemples concrets pour chacun :
+
+**\`push\`** — le plus courant. Se déclenche à chaque poussée de commit.
+
+\`\`\`yaml
+on:
+  push:
+    branches: [main, develop]       # seulement sur ces branches
+    paths: ['src/**', 'package.json'] # seulement si ces fichiers ont changé
+    tags: ['v*.*.*']                 # ou seulement sur un tag de version
+\`\`\`
+
+Astuce importante : \`paths\` est très utile dans un monorepo pour éviter de relancer tout le pipeline quand seul le README a changé.
+
+**\`pull_request\`** — se déclenche à l'ouverture, la mise à jour, ou la réouverture d'une PR.
+
+\`\`\`yaml
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]  # valeurs par défaut, mais on peut ajouter "ready_for_review" par exemple
+\`\`\`
+
+⚠️ **Piège classique à connaître** : il existe aussi \`pull_request_target\`, qui ressemble à \`pull_request\` mais qui s'exécute avec les **permissions et secrets du repo de base**, même pour une PR venant d'un fork externe. C'est très pratique pour poster des commentaires automatiques, mais **dangereux** si vous exécutez du code non fiable venant de la PR (un attaquant pourrait exfiltrer vos secrets). Règle d'or : n'utilisez \`pull_request_target\` que si vous ne checkout jamais le code de la PR elle-même, ou alors avec une extrême prudence.
+
+**\`schedule\`** — pour lancer un workflow à intervalle régulier (cron), utile pour des tâches de maintenance, des scans de sécurité nocturnes, ou des rapports automatiques.
+
+\`\`\`yaml
+on:
+  schedule:
+    - cron: '0 3 * * *'   # tous les jours à 3h du matin (UTC)
+\`\`\`
+
+Petit rappel de syntaxe cron pour ceux qui l'ont oubliée : \`minute heure jour-du-mois mois jour-de-la-semaine\`. Donc \`0 3 * * *\` = "à la minute 0, de l'heure 3, tous les jours". Et \`0 9 * * 1\` = "tous les lundis à 9h".
+
+**\`workflow_dispatch\`** — le déclenchement manuel, depuis l'interface GitHub (bouton "Run workflow"). Indispensable pour des déploiements manuels contrôlés, ou pour tester un workflow sans avoir à pousser un commit.
+
+\`\`\`yaml
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environnement cible'
+        required: true
+        default: 'staging'
+        type: choice
+        options: [staging, production]
+\`\`\`
+
+Ces \`inputs\` sont ensuite accessibles dans le workflow via \`\${{ inputs.environment }}\` — extrêmement pratique pour un déploiement où vous voulez choisir la cible au moment du clic.
+
+**\`workflow_call\`** — permet à un workflow d'être **appelé par un autre workflow** comme une fonction réutilisable. On en reparle en détail dans la section "Fonctionnalités avancées", c'est une des notions les plus puissantes et les moins connues des débutants.
+
+**Autres events utiles à connaître** : \`release\` (à la publication d'une release GitHub), \`issues\` et \`issue_comment\` (pour automatiser la gestion d'issues, des bots de triage), \`repository_dispatch\` (déclenchement externe via l'API GitHub, utile pour chaîner des repos entre eux).
+
+**Une chose essentielle qu'on oublie de dire** : un même workflow peut avoir **plusieurs déclencheurs en même temps**. C'est même très fréquent :
+
+\`\`\`yaml
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+\`\`\`
+
+Ici, le workflow tourne sur chaque push vers main, sur chaque PR vers main, ET peut être lancé manuellement. C'est exactement le pattern qu'on utilisera dans nos exemples plus bas.
+
+### 2.4 Les Jobs — les unités de travail
+
+Un workflow peut contenir plusieurs **jobs**. Par défaut, **les jobs tournent en parallèle**, sauf si vous précisez une dépendance entre eux avec \`needs:\`.
+
+\`\`\`yaml
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps: [...]
+
+  build:
+    needs: test              # attend que "test" ait réussi avant de démarrer
+    runs-on: ubuntu-latest
+    steps: [...]
+
+  deploy:
+    needs: [test, build]     # attend que LES DEUX aient réussi
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'   # condition supplémentaire
+    steps: [...]
+\`\`\`
+
+Ce qu'il faut vraiment retenir sur les jobs, et qu'on explique rarement en détail :
+
+- **\`runs-on\`** : choisit la machine virtuelle. \`ubuntu-latest\` est le choix par défaut (le moins cher en minutes, le plus rapide à démarrer). \`windows-latest\` et \`macos-latest\` existent aussi, mais coûtent plus cher en minutes de build (macOS coûte jusqu'à 10x plus cher en minutes consommées !). Vous pouvez aussi pointer vers un **runner self-hosted** (votre propre machine).
+- **\`needs\`** : définit le graphe de dépendances (un DAG). Sans \`needs\`, tous les jobs démarrent en même temps, ce qui est parfait pour paralléliser des choses indépendantes (lint + tests unitaires + scan de sécurité, par exemple), mais dangereux si un job dépend du résultat d'un autre.
+- **\`if\`** : condition d'exécution du job entier. Très utile pour n'exécuter le déploiement que sur \`main\`, ou seulement lors d'un \`workflow_dispatch\`.
+- **\`outputs\`** : un job peut exposer des valeurs que les jobs suivants pourront lire via \`needs.nom_du_job.outputs.ma_valeur\`. C'est comme ça qu'on fait circuler, par exemple, le tag Docker généré par le job de build vers le job de déploiement (on le voit dans l'Exemple 5 plus bas).
+- **\`permissions\`** : chaque job peut définir ses propres permissions sur le \`GITHUB_TOKEN\` (lecture seule sur le contenu, écriture sur les packages, etc.). Toujours donner le **strict minimum** nécessaire — c'est une des règles de sécurité les plus importantes qu'on détaille plus loin.
+- **\`timeout-minutes\`** : évite qu'un job reste bloqué indéfiniment (et consomme vos minutes gratuites) si un process ne répond plus. Je mets systématiquement une valeur raisonnable (10, 15, 30 minutes selon le job).
+- **\`continue-on-error\`** : permet à un job (ou un step) d'échouer sans faire échouer tout le workflow. Utile pour des vérifications "informatives" qui ne doivent pas bloquer, comme un lint de style qu'on veut voir sans qu'il bloque le merge.
+- **\`environment\`** : rattache le job à un environnement GitHub (staging, production…), ce qui permet d'activer des règles de protection (reviewers obligatoires, délai d'attente). On détaille ça dans les fonctionnalités avancées.
+
+### 2.5 Les Steps : \`uses\` vs \`run\`, et comment vraiment les comprendre
+
+C'est le point que vous avez raison de vouloir approfondir, parce que c'est là que 90% de l'action se passe concrètement. Chaque job est composé d'**étapes** (steps), exécutées **dans l'ordre**, de haut en bas.
+
+Il y a deux façons fondamentales de définir une étape :
+
+**\`uses:\`** → vous utilisez une **Action** déjà écrite par la communauté ou par GitHub lui-même. Une Action, c'est un petit programme réutilisable, versionné, publié sur le Marketplace GitHub Actions (ou juste dans un repo public). C'est l'équivalent d'installer une librairie plutôt que de réécrire le code vous-même.
+
+Voici les actions que vous croiserez le plus souvent en pratique, avec leur rôle exact :
+
+| Action | À quoi elle sert |
+|---|---|
+| \`actions/checkout@v4\` | Récupère le code de votre repo sur le runner. Quasiment toujours la toute première étape de chaque job. |
+| \`actions/setup-node@v4\` | Installe une version précise de Node.js, et peut gérer le cache npm/yarn/pnpm automatiquement. |
+| \`actions/setup-python@v5\` | Pareil, mais pour Python (avec cache pip). |
+| \`actions/cache@v4\` | Cache manuel et générique de n'importe quel dossier (node_modules, ~/.m2, dépendances Go…). |
+| \`actions/upload-artifact@v4\` / \`download-artifact@v4\` | Sauvegarde un fichier/dossier produit par un job pour le récupérer dans un autre job, ou le télécharger depuis l'interface GitHub. |
+| \`docker/setup-buildx-action@v3\` | Configure Docker Buildx pour des builds d'images multi-plateformes plus rapides. |
+| \`docker/login-action@v3\` | Se connecte à un registre Docker (Docker Hub, GHCR, ECR…). |
+| \`docker/build-push-action@v6\` | Build ET push une image Docker en une seule étape, avec gestion de cache intégrée. |
+| \`aws-actions/configure-aws-credentials@v4\` | Configure les credentials AWS pour les étapes suivantes (idéalement via OIDC, on y revient). |
+| \`appleboy/ssh-action@v1\` | Exécute un script à distance sur un serveur via SSH — parfait pour un déploiement sur VPS. |
+| \`slackapi/slack-github-action@v2\` | Envoie une notification dans un canal Slack. |
+| \`github/codeql-action\` | Lance une analyse de sécurité statique (SAST) sur votre code. |
+| \`softprops/action-gh-release@v2\` | Crée automatiquement une Release GitHub avec changelog et artefacts attachés. |
+| \`peter-evans/create-pull-request@v6\` | Crée automatiquement une Pull Request (super pratique pour des mises à jour automatisées de dépendances). |
+
+Chaque action a des **inputs** (paramètres) qu'on passe via \`with:\`, et parfois des **outputs** qu'on peut réutiliser dans les étapes suivantes.
+
+**\`run:\`** → vous exécutez directement une commande shell, comme dans votre terminal. C'est ce qu'on utilise pour tout ce qui n'a pas déjà une Action toute faite, ou pour de la logique simple.
+
+Quelques cas d'usage concrets de \`run:\` pour bien saisir la logique :
+
+\`\`\`yaml
+# Cas 1 : une commande simple, une ligne
+- name: Install dependencies
+  run: npm ci
+
+# Cas 2 : plusieurs commandes en séquence (le "|" garde les retours à la ligne)
+- name: Prepare environment
+  run: |
+    cp .env.example .env
+    echo "Build starting at $(date)" >> build.log
+
+# Cas 3 : définir une variable pour les étapes suivantes via GITHUB_ENV
+- name: Extract version
+  run: echo "APP_VERSION=$(node -p "require('./package.json').version")" >> "$GITHUB_ENV"
+
+# Cas 4 : exposer une valeur en output pour un AUTRE JOB via GITHUB_OUTPUT
+- name: Set image tag
+  id: vars
+  run: echo "tag=sha-\${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
+
+# Cas 5 : écrire un résumé visible directement dans l'onglet Actions (Step Summary)
+- name: Publish summary
+  run: echo "### ✅ Tests passés avec succès" >> "$GITHUB_STEP_SUMMARY"
+
+# Cas 6 : choisir un shell différent (utile sur Windows, ou pour du Python inline)
+- name: Run with a specific shell
+  shell: bash
+  run: ./scripts/deploy.sh
+\`\`\`
+
+La règle simple pour choisir : **si une Action fiable existe déjà pour ce que vous voulez faire, utilisez-la** (elle gère les cas limites, les erreurs, la compatibilité multi-OS mieux que vous ne le feriez en 5 minutes). **Sinon, \`run:\` avec une commande shell fait très bien le travail.**
+
+### 2.6 Le Runner — la machine qui exécute tout ça
+
+Le **runner**, c'est la machine virtuelle qui exécute réellement vos steps. Points clés à retenir :
+
+- Les runners **GitHub-hosted** (\`ubuntu-latest\`, etc.) sont **jetables** : une machine toute neuve est provisionnée à chaque exécution de job, puis détruite juste après. Ça veut dire que rien ne persiste d'une exécution à l'autre (d'où l'intérêt du cache et des artifacts).
+- Specs typiques d'un runner Ubuntu gratuit : 2 cœurs CPU, 7 Go de RAM, 14 Go de stockage SSD. Suffisant pour l'immense majorité des projets.
+- Il existe aussi des **runners self-hosted** : votre propre machine (ou serveur, ou VM cloud) que vous enregistrez comme runner. Utile quand vous avez besoin de plus de puissance (build IA, compilation lourde), d'un accès réseau spécifique (déployer dans un VPC privé sans exposer de credentials), ou simplement pour réduire les coûts sur un très gros volume de builds. GitHub propose aussi **ARC (Actions Runner Controller)** pour orchestrer des runners self-hosted dans Kubernetes de façon élastique.
+- Chaque minute d'exécution sur un runner GitHub-hosted **consomme votre quota** (2000 minutes/mois gratuites pour un compte gratuit, illimité pour les repos publics). C'est pour ça que le cache et l'optimisation du pipeline ne sont pas juste du confort, c'est aussi une question de coût.
+
+### 2.7 Les Contexts et les expressions — la notion qu'on oublie presque toujours d'expliquer
+
+Voici une notion **fondamentale** que quasiment aucun tutoriel débutant n'explique clairement, et pourtant vous la croisez à chaque ligne : les **contexts**. Un context, c'est un objet accessible via la syntaxe \`\${{ }}\` qui vous donne accès à des informations sur l'exécution en cours.
+
+Les contexts les plus utiles à connaître :
+
+| Context | Contient |
+|---|---|
+| \`github\` | Infos sur l'event déclencheur : \`github.repository\`, \`github.sha\`, \`github.ref\`, \`github.actor\`, \`github.event_name\`… |
+| \`env\` | Les variables d'environnement définies dans le workflow (\`env:\` au niveau global, job, ou step). |
+| \`secrets\` | Vos secrets configurés dans les Settings du repo (\`secrets.MON_SECRET\`). |
+| \`needs\` | Les outputs des jobs précédents (\`needs.build.outputs.image_tag\`). |
+| \`matrix\` | La valeur courante dans une stratégie matricielle (\`matrix.node-version\`). |
+| \`steps\` | Les outputs des steps précédents dans le même job (\`steps.vars.outputs.tag\`). |
+| \`inputs\` | Les valeurs saisies lors d'un \`workflow_dispatch\` ou \`workflow_call\`. |
+
+Et les **expressions** permettent de faire de la logique directement dans le YAML : opérateurs de comparaison (\`==\`, \`!=\`), fonctions (\`contains()\`, \`startsWith()\`, \`toJson()\`, \`fromJson()\`), et opérateurs logiques (\`&&\`, \`||\`).
+
+\`\`\`yaml
+if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+\`\`\`
+
+Retenez bien cette syntaxe, elle revient constamment dans les pipelines avancés (et dans notre pipeline bonus plus bas, qui l'utilise énormément).
+
+### 2.8 GITHUB_TOKEN et les permissions — la base de la sécurité
+
+À chaque exécution de workflow, GitHub génère automatiquement un jeton temporaire appelé \`GITHUB_TOKEN\`, accessible via \`secrets.GITHUB_TOKEN\`. Il permet d'interagir avec l'API GitHub (créer un commentaire, pousser une image sur GHCR, créer une release…) **sans que vous ayez à créer de token manuellement**. Il expire automatiquement à la fin du job.
+
+Par défaut, ce token a soit des permissions larges soit restreintes selon la configuration de votre organisation. La bonne pratique — qu'on détaille dans le chapitre sécurité — est de **toujours déclarer explicitement les permissions minimales nécessaires**, au niveau du workflow ou du job :
+
+\`\`\`yaml
+permissions:
+  contents: read      # lire le code, c'est tout ce dont j'ai besoin ici
+  packages: write      # sauf ce job qui doit pousser une image sur GHCR
+\`\`\`
+
+Voilà, vous avez maintenant toutes les fondations. On va s'en servir immédiatement dans les cinq pipelines complets qui suivent.
+
+## 3. Cinq pipelines complets, du débutant à l'expert
+
+Plutôt que de vous montrer seulement un ou deux exemples, on va traverser **cinq pipelines réels**, chacun avec un objectif différent, une complexité croissante, et surtout : **une explication complète après chaque bloc de code**, qui vous dit pourquoi chaque choix a été fait, à quoi faire attention, et comment l'adapter à votre propre projet.
+
+Dans chaque bloc de code, j'ai ajouté des **commentaires directement dans le YAML** (en anglais, comme il est d'usage dans le code source, même si l'article est en français) pour que vous compreniez déjà beaucoup en lisant simplement le code. Puis, juste en dessous, une explication qui reprend les points clés sous un autre angle.
+
+### Exemple 1 — CI simple : Tests + Build (le point de départ pour tout le monde)
+
+C'est le strict minimum indispensable, celui par lequel tout projet devrait commencer, même le plus petit side-project.
 
 Créez le dossier et le fichier :
 
@@ -85,58 +316,66 @@ name: CI Pipeline
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [main, develop]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   test-and-build:
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: fetch the repository code onto the runner
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # Step 2: install Node.js and let GitHub cache npm dependencies automatically
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm'          # Cache automatique des node_modules
+          cache: 'npm'
 
+      # Step 3: clean, reproducible install — respects package-lock.json exactly
       - name: Install dependencies
         run: npm ci
 
+      # Step 4: run the test suite — the whole pipeline stops here if a test fails
       - name: Run tests
         run: npm test
 
+      # Step 5: only reached if tests passed — build the production bundle
       - name: Build application
         run: npm run build
 
+      # Step 6: store the build output so it can be downloaded or reused by another job
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
           name: build-output
-          path: build/          # ou dist/ selon votre outil
+          path: build/          # or dist/ depending on your build tool
 \`\`\`
 
-**Explications détaillées :**
-- \`actions/checkout@v4\` : récupère votre code
-- \`actions/setup-node@v4\` avec \`cache: 'npm'\` : installe Node et met en cache les dépendances (gain de temps énorme !)
-- \`npm ci\` : installation propre et reproductible (mieux que \`npm install\`)
-- \`upload-artifact\` : garde le build pour l’utiliser dans un autre job ou le télécharger
+**Ce qu'il faut vraiment comprendre ici, au-delà du "ça marche" :**
 
-Validez en poussant sur \`main\`. Allez dans l’onglet **Actions** de votre repo : vous verrez votre workflow tourner en direct !
+- **Pourquoi \`npm ci\` et pas \`npm install\`** ? Parce que \`npm ci\` supprime d'abord \`node_modules\`, puis installe **exactement** ce qui est écrit dans \`package-lock.json\`, sans jamais le modifier. C'est plus rapide, 100% reproductible, et ça évite le fameux "ça marche chez moi mais pas en CI" causé par une version de dépendance légèrement différente. En pipeline, \`npm install\` ne devrait quasiment jamais être utilisé.
+- **Pourquoi \`cache: 'npm'\` dans \`setup-node\`** ? Sans ça, chaque exécution retélécharge toutes les dépendances depuis zéro (souvent 30 à 90 secondes perdues à chaque run). Avec le cache activé, GitHub restaure automatiquement le dossier \`~/.npm\` d'une exécution à l'autre tant que \`package-lock.json\` n'a pas changé. Sur un projet avec beaucoup de dépendances, ça peut diviser le temps de build par deux ou trois.
+- **Pourquoi les tests AVANT le build** ? Parce qu'on veut échouer le plus vite possible ("fail fast"). Pas la peine de passer 2 minutes à builder une application dont les tests sont cassés — autant le savoir en 20 secondes.
+- **À quoi sert vraiment \`upload-artifact\` ici** ? Si ce job était le seul du pipeline, ce n'est pas strictement nécessaire. Mais dès que vous ajoutez un second job (déploiement, scan de sécurité sur le build…), c'est la seule façon de faire passer le résultat d'un job à l'autre, puisque chaque job démarre sur une machine vierge.
+- **Sur quoi faire attention** : le déclencheur couvre \`push\` sur \`main\`/\`develop\` ET \`pull_request\` vers \`main\`. Ça veut dire que sur une PR, ce workflow tourne à chaque nouveau commit poussé sur la branche de la PR — c'est voulu, ça vous permet de voir si la PR est "verte" avant de merger. Pensez à ajouter une règle de protection de branche qui **exige que ce check passe** avant de pouvoir merger (Settings → Branches → Branch protection rules → Require status checks to pass).
 
-## 4. Pipeline Complet : Tests + Build + Déploiement sur AWS S3/CloudFront
+Validez en poussant sur \`main\`. Allez dans l'onglet **Actions** de votre repo : vous verrez votre workflow tourner en direct, avec chaque step qui s'affiche et se déplie pour voir les logs.
 
-Voici un workflow plus puissant (inspiré de l’article précédent sur React + AWS) :
+### Exemple 2 — Pipeline complet : Tests + Build + Déploiement sur AWS S3/CloudFront (avec OIDC)
+
+Voici un cran au-dessus : un vrai pipeline de déploiement pour une application front-end statique (React, Vue, ou un simple site statique) hébergée sur AWS.
 
 \`\`\`yaml
 name: CI/CD - Test, Build & Deploy to AWS
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
 
 env:
   AWS_REGION: eu-west-1
@@ -152,14 +391,15 @@ jobs:
           node-version: 20
           cache: 'npm'
       - run: npm ci
+      # "--coverage" also produces a coverage report we could upload/publish later
       - run: npm test -- --coverage
 
   build-and-deploy:
-    needs: test
+    needs: test              # never deploy code whose tests haven't passed
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      id-token: write     # Pour OIDC avec AWS (recommandé)
+      id-token: write        # REQUIRED for OIDC — lets GitHub request a short-lived AWS token
 
     steps:
       - uses: actions/checkout@v4
@@ -176,174 +416,1316 @@ jobs:
       - name: Build
         run: npm run build
 
+      # No AWS access keys stored anywhere — GitHub exchanges its OIDC token
+      # for a short-lived AWS session token by assuming this IAM role
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           role-to-assume: arn:aws:iam::123456789012:role/GitHubActionsRole
           aws-region: \${{ env.AWS_REGION }}
 
+      # "--delete" removes from S3 anything that no longer exists locally
       - name: Deploy to S3
         run: aws s3 sync ./build/ s3://\${{ env.S3_BUCKET }} --delete
 
+      # Forces CloudFront edge locations to fetch the new files instead of serving stale cache
       - name: Invalidate CloudFront cache
         run: aws cloudfront create-invalidation --distribution-id E1234567890ABC --paths "/*"
 \`\`\`
 
-**Points forts de ce pipeline :**
-- Job \`test\` qui doit réussir avant le déploiement (\`needs: test\`)
-- Utilisation d’**OIDC** (pas de secrets AWS longs à vie)
-- Déploiement sécurisé et invalidation de cache CloudFront
+**Pourquoi ce pipeline est construit exactement comme ça, et pas autrement :**
 
-## 5. Fonctionnalités Avancées
+- **\`needs: test\`** : c'est la garde-fou la plus importante du fichier. Sans elle, un bug qui casse les tests pourrait quand même finir déployé en production si le job de déploiement n'attend pas le résultat du job de test. Séparer \`test\` et \`build-and-deploy\` en deux jobs distincts (plutôt qu'un seul job avec toutes les étapes à la suite) permet aussi de paralléliser d'autres jobs indépendants à l'avenir (par exemple un scan de sécurité) sans tout ralentir.
+- **Pourquoi OIDC plutôt que des clés d'accès AWS classiques (\`AWS_ACCESS_KEY_ID\` / \`AWS_SECRET_ACCESS_KEY\`)** ? C'est probablement le point de sécurité le plus important de tout cet article, donc prenons le temps de bien l'expliquer. Avec des clés classiques stockées en secrets GitHub, vous avez un couple de credentials **valide indéfiniment**, qui donne accès à votre compte AWS même en dehors de GitHub Actions. Si ces secrets fuitent (mauvaise configuration, log qui les affiche par erreur, dépôt compromis), l'attaquant a un accès total et permanent. Avec **OIDC (OpenID Connect)**, il n'y a **aucun secret AWS stocké nulle part**. À chaque exécution, GitHub génère un jeton d'identité signé et vérifiable, prouvant "je suis bien le workflow X du repo Y". Ce jeton est envoyé à AWS STS, qui vérifie une relation de confiance préalablement configurée (une IAM Role avec une "trust policy" qui n'accepte que les jetons venant de votre repo GitHub précis), et renvoie en échange un jeton de session AWS **valide seulement quelques minutes**. Résultat : même si quelqu'un intercepte ce jeton de session, il expire presque immédiatement et ne peut pas être réutilisé plus tard.
+- **\`permissions: id-token: write\`** : sans cette ligne, le job n'a même pas le droit de demander un jeton OIDC à GitHub. C'est une permission qu'il faut explicitement activer, précisément parce qu'elle est sensible.
+- **Pourquoi invalider CloudFront après le déploiement** ? CloudFront met en cache vos fichiers sur des centaines de serveurs "edge" dans le monde entier pour la rapidité. Sans invalidation, vos utilisateurs pourraient continuer à voir l'ancienne version de votre site pendant des heures après un déploiement (selon le TTL configuré). Attention cependant : \`--paths "/*"\` invalide **tout**, ce qui a un coût (les 1000 premières invalidations par mois sont gratuites, au-delà c'est facturé). Sur un gros site avec beaucoup de fichiers statiques versionnés (avec un hash dans le nom de fichier, comme le fait Webpack/Vite par défaut), vous pouvez souvent vous contenter d'invalider uniquement \`/index.html\` et quelques fichiers non-versionnés.
+- **Sur quoi faire vraiment attention** : ce pipeline ne se déclenche que sur \`push\` vers \`main\`, pas sur les PR — logique, on ne veut pas déployer en prod à chaque commit de PR. Mais pensez à ajouter un job de test qui, lui, tourne aussi sur \`pull_request\`, pour valider les PR avant de merger (vous pouvez reprendre le job \`test\` de l'Exemple 1 pour ça dans un fichier séparé).
 
-### Secrets et Variables d’environnement
-- Allez dans **Settings → Secrets and variables → Actions**
-- Ajoutez \`AWS_ACCESS_KEY_ID\`, \`AWS_SECRET_ACCESS_KEY\` (ou mieux : utilisez OIDC)
-- Utilisez \`secrets.MA_CLE\` dans le workflow
 
-### Matrix Strategy (tester sur plusieurs versions)
+### Exemple 3 — Build Docker + déploiement sur un VPS via SSH
+
+Cet exemple correspond à une situation extrêmement courante : vous avez une application (API Node.js, app Python/Django, service Go…) que vous packagez en image Docker, et vous voulez la déployer automatiquement sur votre propre serveur (VPS OVH, Hetzner, DigitalOcean…) plutôt que sur un service managé.
+
 \`\`\`yaml
-strategy:
-  matrix:
-    node-version: [18, 20, 22]
+name: Build & Deploy Docker to VPS
+
+on:
+  push:
+    branches: [main]
+
+env:
+  IMAGE_NAME: mon-organisation/mon-api
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write        # needed to push images to GitHub Container Registry (GHCR)
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Enables faster, cache-aware, multi-platform Docker builds
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      # Authenticate against GHCR using the automatically-generated GITHUB_TOKEN
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: \${{ github.actor }}
+          password: \${{ secrets.GITHUB_TOKEN }}
+
+      # Tag with both the commit SHA (for traceability/rollback) and "latest" (for simplicity)
+      - name: Build and push image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: |
+            ghcr.io/\${{ env.IMAGE_NAME }}:\${{ github.sha }}
+            ghcr.io/\${{ env.IMAGE_NAME }}:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    steps:
+      # Connects over SSH using a private key stored as a secret, and runs a remote script
+      - name: Deploy over SSH
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: \${{ secrets.VPS_HOST }}
+          username: \${{ secrets.VPS_USER }}
+          key: \${{ secrets.VPS_SSH_KEY }}
+          script: |
+            set -e
+            echo "\${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u \${{ github.actor }} --password-stdin
+            docker pull ghcr.io/\${{ github.repository }}:latest
+            docker stop mon-api || true
+            docker rm mon-api || true
+            docker run -d --name mon-api --restart unless-stopped -p 3000:3000 ghcr.io/\${{ github.repository }}:latest
+            docker image prune -f
 \`\`\`
 
-### Cache avancé
-Utilisez \`actions/cache@v4\` pour des dossiers spécifiques (ex. Cypress, Python, etc.).
+**Ce qui mérite une vraie explication ici :**
 
-### Environnements (Environments)
-Créez des environnements \`staging\` et \`production\` avec des protections (reviewers, wait timer).
+- **Pourquoi taguer l'image avec \`github.sha\` EN PLUS de \`latest\`** ? \`latest\` est pratique pour toujours pointer vers "la version courante", mais c'est un tag mutable — il change de sens à chaque déploiement. Le tag basé sur le SHA du commit, lui, est **immuable** : \`ghcr.io/mon-app:a3f9c21\` pointera **toujours** vers cette exécution précise, même dans six mois. C'est ce qui vous sauve la vie le jour où vous devez faire un rollback rapide vers une version précédente précise — vous n'avez qu'à relancer un \`docker run\` avec le SHA de la version qui marchait.
+- **\`docker stop ... || true\` et \`docker rm ... || true\`** : le \`|| true\` est un petit détail crucial. Sans ça, si le conteneur \`mon-api\` n'existe pas encore (premier déploiement), la commande \`docker stop\` échouerait et ferait planter tout le script (\`set -e\` arrête le script à la moindre erreur). Le \`|| true\` dit "même si cette commande échoue, continue quand même" — utile pour des commandes dont l'échec est un cas normal et attendu.
+- **Pourquoi passer par GHCR (GitHub Container Registry) plutôt que Docker Hub** ? Parce que l'authentification se fait automatiquement avec le \`GITHUB_TOKEN\` déjà disponible, sans avoir à créer et gérer un compte/token Docker Hub séparé. Et si votre repo est privé, l'image GHCR l'est aussi par défaut — cohérent et simple à raisonner.
+- **\`docker image prune -f\`** : sans nettoyage régulier, les anciennes images Docker s'accumulent sur votre VPS et finissent par remplir le disque. Cette ligne supprime les images "dangling" (celles qui ne sont plus taguées, typiquement les anciennes versions de \`latest\`).
+- **Sur quoi faire attention** : ce pipeline suppose que Docker est déjà installé sur le VPS, et que le port 3000 est bien celui exposé par votre application. Pensez aussi à la gestion des variables d'environnement sensibles de votre appli (base de données, clés API) — ne les mettez jamais en dur dans le \`docker run\` d'un script versionné, préférez un fichier \`.env\` déjà présent sur le serveur, monté avec \`--env-file\`.
+- **Pour aller plus loin** : ce pattern manuel avec \`docker run\` fonctionne très bien pour un service unique, mais dès que vous avez plusieurs services liés (base de données, cache Redis, reverse proxy), passez à **Docker Compose** sur le serveur (\`docker compose pull && docker compose up -d\`) — c'est justement l'approche utilisée dans le pipeline bonus tout à la fin de cet article.
 
-### Notifications (Slack, Discord, Email)
-Utilisez des actions comme \`slackapi/slack-github-action\`.
+### Exemple 4 — Preview Deployments automatiques sur Vercel pour chaque Pull Request
 
-## 6. Bonnes Pratiques 2026
+Celui-ci change de registre : au lieu de déployer uniquement en production, on va donner **un environnement de test isolé et accessible par URL pour chaque Pull Request**, généré et détruit automatiquement. C'est le genre de workflow qui impressionne énormément en entretien, et qui change vraiment le quotidien d'une équipe (chacun peut littéralement cliquer sur un lien dans la PR pour voir le résultat, sans rien installer).
 
-- Toujours utiliser les versions majeures (\`@v4\`) et pas les tags flottants
-- Activer \`permissions\` minimales pour chaque job (sécurité)
-- Utiliser \`npm ci\` au lieu de \`npm install\`
-- Mettre en cache tout ce qui peut l’être
-- Séparer les jobs (test / build / deploy)
-- Utiliser OIDC au lieu de secrets AWS classiques
-- Ajouter des labels et des noms clairs sur les steps
+\`\`\`yaml
+name: Vercel Preview Deployments
 
-## 7. Dépannage (vous n’êtes jamais bloqué)
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
 
-- **Workflow ne se déclenche pas** → Vérifiez le nom de la branche et le chemin du fichier YAML
-- **"Permission denied"** → Vérifiez les \`permissions:\` en haut du job
-- **Cache ne fonctionne pas** → Vérifiez la clé de cache
-- **Déploiement échoue** → Vérifiez les logs AWS dans la console GitHub
-- **Temps d’exécution trop long** → Optimisez avec du cache et des runners plus gros (GitHub-hosted ou self-hosted)
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write     # needed to post/update the preview link comment on the PR
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - run: npm ci
+
+      # Vercel CLI builds and deploys straight from the runner, no dashboard click needed
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Pull Vercel project settings
+        run: vercel pull --yes --environment=preview --token=\${{ secrets.VERCEL_TOKEN }}
+
+      - name: Build project artifacts
+        run: vercel build --token=\${{ secrets.VERCEL_TOKEN }}
+
+      # Deploys the pre-built output and captures the resulting preview URL
+      - name: Deploy to Vercel (preview)
+        id: deploy
+        run: |
+          url=$(vercel deploy --prebuilt --token=\${{ secrets.VERCEL_TOKEN }})
+          echo "preview_url=$url" >> "$GITHUB_OUTPUT"
+
+      # Posts (or updates) a single comment on the PR with the live preview link
+      - name: Comment preview URL on the PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const url = "\${{ steps.deploy.outputs.preview_url }}";
+            const body = \`🚀 Preview déployée : \${url}\`;
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+            const existing = comments.find(c => c.body.includes("Preview déployée"));
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                comment_id: existing.id, body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: context.issue.number, body,
+              });
+            }
+\`\`\`
+
+**Pourquoi ce pipeline est précieux, et ce qu'il faut comprendre pour le faire vôtre :**
+
+- **\`vercel pull\` puis \`vercel build\` puis \`vercel deploy --prebuilt\`** : c'est le pattern officiel recommandé par Vercel quand on veut buildé soi-même dans GitHub Actions plutôt que de laisser l'intégration GitHub native de Vercel s'en charger. L'intérêt : vous gardez un contrôle total sur le pipeline (vous pouvez insérer des tests, des scans, des étapes personnalisées avant le déploiement), plutôt que de dépendre d'une boîte noire.
+- **Pourquoi mettre à jour le commentaire existant plutôt que d'en créer un nouveau à chaque push** ? Sans cette logique de recherche de commentaire existant (\`comments.find(...)\`), chaque nouveau commit sur la PR ajouterait un nouveau commentaire "Preview déployée", et après 15 commits votre PR serait polluée par 15 commentaires quasi identiques. Mettre à jour le même commentaire garde la conversation propre et lisible.
+- **\`actions/github-script@v7\`** : une action très puissante qu'on n'a pas encore vue jusqu'ici — elle vous donne un accès direct et authentifié à l'API GitHub (via l'objet \`github\`) directement en JavaScript, dans le YAML. Extrêmement utile dès que vous voulez faire de la logique un peu plus riche que ce que permettent les steps YAML classiques (ici : chercher un commentaire existant, le mettre à jour ou en créer un nouveau).
+- **\`permissions: pull-requests: write\`** : sans cette permission explicite, l'appel à \`createComment\`/\`updateComment\` échouerait avec une erreur 403. C'est un excellent exemple concret de pourquoi il faut toujours vérifier les permissions nécessaires **avant** de se lancer dans le debug d'un mystérieux échec d'API.
+- **Sur quoi faire attention** : pensez à la question du nettoyage. Vercel supprime automatiquement les previews après une période d'inactivité configurable, mais si vous gérez ça vous-même sur un autre hébergeur (par exemple des previews Docker éphémères sur votre propre infra), ajoutez un second workflow déclenché sur \`pull_request: types: [closed]\` qui détruit l'environnement de preview correspondant — sinon vous accumulez des environnements zombies qui coûtent de l'argent et de la RAM pour rien.
+- **Pour aller plus loin** : ce même pattern (déployer, capturer une URL, commenter la PR) fonctionne à l'identique avec Netlify, AWS Amplify, Cloudflare Pages, ou même votre propre infra Docker éphémère — seule l'étape de déploiement change, toute la logique de commentaire automatique reste réutilisable telle quelle.
+
+
+### Exemple 5 (BONUS) — Le pipeline réel de mon propre portfolio, en production
+
+Et maintenant, le morceau que je voulais vraiment partager avec vous : **le pipeline que j'utilise réellement**, aujourd'hui, pour déployer ce portfolio et ce blog que vous êtes en train de lire. Pas un exemple pédagogique simplifié — le vrai fichier, avec les vrais choix, les vrais compromis, et le niveau de sécurité que j'ai jugé nécessaire pour un projet exposé publiquement sur internet.
+
+Le contexte : un site React/Vite, buildé avec Bun, packagé en image Docker et poussé sur GHCR (GitHub Container Registry), déployé sur un **VPS OVH**, avec **Watchtower** qui surveille en continu le registre et recrée automatiquement le conteneur dès qu'une nouvelle image \`:latest\` est disponible. Le tout précédé d'une chaîne de sécurité complète : scan de secrets, analyse statique de code, scan de vulnérabilités du filesystem, puis scan de l'image Docker finale.
+
+\`\`\`yaml
+# =============================================================================
+# Deploy to OVH VPS via GHCR + Watchtower
+# =============================================================================
+#
+# Flow (push to main):
+#   CI (format/lint/typecheck/tests/md/build)
+#   → Gitleaks
+#   → SonarQube
+#   → Trivy FS
+#   → Build & push image to GHCR (sha + latest)
+#   → Trivy image scan
+#   → SSH deploy (compose pull + up)
+#
+# Watchtower on the VPS also polls GHCR and recreates when :latest moves.
+#
+# REQUIRED SECRETS (GitHub → Settings → Secrets and variables → Actions):
+#   SONAR_TOKEN, SONAR_HOST_URL
+#   OVH_SSH_HOST, OVH_SSH_USER, OVH_SSH_KEY
+#   OVH_SSH_PORT          (optional, default 22)
+#   OVH_APP_DIR           (optional, default /srv/apps/barthez-kenwou-portfolio)
+#   GHCR_PULL_TOKEN       (recommended — PAT read:packages for private GHCR on VPS / Watchtower)
+#   GITLEAKS_LICENSE      (optional — org/pro gitleaks-action features)
+#
+# NOTE: repo is private → GHCR package is private. VPS + Watchtower MUST docker login GHCR.
+# Prefer GHCR_PULL_TOKEN (long-lived PAT) over GITHUB_TOKEN for server-side pulls.
+# =============================================================================
+
+name: Deploy VPS (GHCR)
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: \${{ github.repository }}
+  NODE_VERSION: "22"
+  BUN_VERSION: "1.3.12"
+
+# Cancels any in-progress run for the same branch when a newer commit arrives —
+# no point deploying an outdated commit that's already been superseded
+concurrency:
+  group: deploy-vps-\${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  packages: write
+  security-events: write
+  pull-requests: write
+
+jobs:
+  ci:
+    name: CI — format, lint, typecheck, test, build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: \${{ env.BUN_VERSION }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: \${{ env.NODE_VERSION }}
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile --ignore-scripts
+
+      - name: Format check
+        run: bun run format:check
+        continue-on-error: true
+
+      - name: Markdown lint
+        run: bun run md:lint
+        continue-on-error: true
+
+      - name: ESLint
+        run: bun run lint
+
+      - name: Typecheck
+        run: bun run typecheck
+
+      - name: Unit tests
+        run: bun run test:ci
+
+      - name: Prepare .env for build
+        run: |
+          cp .env.example .env
+          sed -i 's|^VITE_SITE_URL=.*|VITE_SITE_URL=https://barthez-kenwou.dev|' .env
+          sed -i 's|^VITE_APP_URL=.*|VITE_APP_URL=https://barthez-kenwou.dev|' .env
+          sed -i 's|^VITE_ENVIRONMENT=.*|VITE_ENVIRONMENT=production|' .env
+
+      - name: Production build
+        env:
+          NODE_ENV: production
+          VITE_SKIP_IMAGEMIN: "true"
+          CI: "true"
+        run: bunx vite build
+
+      - name: Upload dist artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
+          retention-days: 7
+
+  gitleaks:
+    name: Gitleaks — secrets scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0   # full git history — Gitleaks scans every past commit, not just HEAD
+
+      - name: Gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_LICENSE: \${{ secrets.GITLEAKS_LICENSE }}
+
+  sonarqube:
+    name: SonarQube — SAST
+    runs-on: ubuntu-latest
+    needs: [ci]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      # Skip gracefully instead of failing the whole pipeline if Sonar isn't configured
+      - name: Detect Sonar credentials
+        id: sonar
+        run: |
+          if [ -n "\${{ secrets.SONAR_TOKEN }}" ] && [ -n "\${{ secrets.SONAR_HOST_URL }}" ]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::SONAR_TOKEN / SONAR_HOST_URL missing — skipping SonarQube"
+          fi
+
+      - name: Setup Bun
+        if: steps.sonar.outputs.enabled == 'true'
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: \${{ env.BUN_VERSION }}
+
+      - name: Install dependencies
+        if: steps.sonar.outputs.enabled == 'true'
+        run: bun install --frozen-lockfile --ignore-scripts
+
+      - name: Unit tests with coverage
+        if: steps.sonar.outputs.enabled == 'true'
+        run: bun run test:coverage
+        continue-on-error: true
+
+      - name: SonarQube Scan
+        if: steps.sonar.outputs.enabled == 'true'
+        uses: SonarSource/sonarqube-scan-action@v6
+        env:
+          SONAR_TOKEN: \${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: \${{ secrets.SONAR_HOST_URL }}
+
+  trivy-fs:
+    name: Trivy — filesystem / deps
+    runs-on: ubuntu-latest
+    needs: [ci]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Trivy FS scan
+        uses: aquasecurity/trivy-action@v0.36.0
+        with:
+          scan-type: fs
+          scan-ref: .
+          severity: CRITICAL,HIGH
+          exit-code: "1"          # fail the pipeline if a critical/high vuln is found
+          ignore-unfixed: true    # don't block on vulns with no available fix yet
+          format: table
+
+  build-push:
+    name: Build & push GHCR image
+    runs-on: ubuntu-latest
+    needs: [ci, gitleaks, trivy-fs, sonarqube]   # every security gate must pass first
+    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'))
+    outputs:
+      digest: \${{ steps.build.outputs.digest }}
+      image: \${{ steps.ref.outputs.image }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Download dist artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: \${{ env.REGISTRY }}
+          username: \${{ github.actor }}
+          password: \${{ secrets.GITHUB_TOKEN }}
+
+      # Generates consistent tags: the full sha, "latest" (only on default branch), and the branch name
+      - name: Docker metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: \${{ env.REGISTRY }}/\${{ env.IMAGE_NAME }}
+          tags: |
+            type=sha,prefix=sha-,format=long
+            type=raw,value=latest,enable={{is_default_branch}}
+            type=ref,event=branch
+
+      - name: Build and push (nginx runtime + CI dist)
+        id: build
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: infra/docker/Dockerfile.runtime
+          push: true
+          tags: \${{ steps.meta.outputs.tags }}
+          labels: \${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          build-args: |
+            BUILD_DATE=\${{ github.run_started_at }}
+            VCS_REF=\${{ github.sha }}
+            VERSION=\${{ github.sha }}
+
+      - name: Export image ref (lowercase)
+        id: ref
+        run: |
+          echo "image=$(echo '\${{ env.REGISTRY }}/\${{ env.IMAGE_NAME }}' | tr '[:upper:]' '[:lower:]')" >> "$GITHUB_OUTPUT"
+
+  trivy-image:
+    name: Trivy — container image
+    runs-on: ubuntu-latest
+    needs: [build-push]
+    steps:
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: \${{ env.REGISTRY }}
+          username: \${{ github.actor }}
+          password: \${{ secrets.GITHUB_TOKEN }}
+
+      # Scanning the digest (not a mutable tag) guarantees we scan the EXACT image just built
+      - name: Trivy image scan
+        uses: aquasecurity/trivy-action@v0.36.0
+        with:
+          image-ref: \${{ needs.build-push.outputs.image }}@\${{ needs.build-push.outputs.digest }}
+          severity: CRITICAL,HIGH
+          exit-code: "1"
+          ignore-unfixed: true
+          format: table
+
+  deploy:
+    name: Deploy OVH VPS
+    runs-on: ubuntu-latest
+    needs: [build-push, trivy-image]
+    environment: production   # requires manual approval / branch restriction if configured
+    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'))
+    steps:
+      - name: Deploy over SSH
+        uses: appleboy/ssh-action@v1.2.0
+        env:
+          GHCR_IMAGE: ghcr.io/\${{ github.repository }}
+          IMAGE_TAG: latest
+        with:
+          host: \${{ secrets.OVH_SSH_HOST }}
+          username: \${{ secrets.OVH_SSH_USER }}
+          key: \${{ secrets.OVH_SSH_KEY }}
+          port: \${{ secrets.OVH_SSH_PORT }}
+          script_stop: true
+          script: |
+            set -euo pipefail
+            APP_DIR="\${{ secrets.OVH_APP_DIR }}"
+            if [ -z "$APP_DIR" ]; then
+              APP_DIR="/srv/apps/barthez-kenwou-portfolio"
+            fi
+            IMAGE="ghcr.io/\${{ github.repository }}"
+            TAG="latest"
+
+            echo "==> App directory: $APP_DIR"
+            mkdir -p "$APP_DIR"
+            cd "$APP_DIR"
+
+            if [ ! -f docker-compose.yml ]; then
+              echo "ERROR: docker-compose.yml missing in $APP_DIR"
+              echo "Bootstrap the VPS once — see docs/deployment/DEPLOY_VPS.md"
+              exit 1
+            fi
+
+            echo "==> Login GHCR (private package)"
+            PULL_TOKEN="\${{ secrets.GHCR_PULL_TOKEN }}"
+            if [ -z "$PULL_TOKEN" ]; then
+              PULL_TOKEN="\${{ secrets.GITHUB_TOKEN }}"
+            fi
+            echo "$PULL_TOKEN" | docker login ghcr.io -u "\${{ github.actor }}" --password-stdin
+
+            export IMAGE_TAG="$TAG"
+            export GHCR_IMAGE="$IMAGE"
+
+            echo "==> Pull & recreate (network web-proxy for Nginx Proxy Manager)"
+            docker compose pull web
+            docker compose up -d --remove-orphans web
+
+            if docker compose config --profiles 2>/dev/null | grep -q watchtower; then
+              docker compose --profile watchtower up -d
+            fi
+
+            docker image prune -f
+            echo "==> Health check"
+            sleep 3
+            docker compose exec -T web wget -qO- http://127.0.0.1:8080/health
+            echo
+            echo "Deploy OK — \${IMAGE}:\${TAG}"
+            echo "NPM: barthez-kenwou.dev → barthez-portfolio-web:8080 (web-proxy)"
+\`\`\`
+
+**Pourquoi ce pipeline ressemble à ça, avec le recul de l'avoir réellement en production :**
+
+- **Pourquoi autant de jobs de sécurité avant même de construire l'image** ? Parce que j'ai appris à mes dépens (et en observant beaucoup d'incidents chez d'autres) qu'il vaut largement mieux bloquer un déploiement en amont que de découvrir un secret exposé ou une dépendance vulnérable une fois que le site est déjà en ligne. **Gitleaks** scanne tout l'historique Git à la recherche de clés API, tokens ou mots de passe accidentellement commités. **SonarQube** fait de l'analyse statique de code (SAST) : bugs potentiels, code smells, vulnérabilités connues dans la logique du code lui-même. **Trivy FS** scanne le système de fichiers et les dépendances (SCA — Software Composition Analysis) à la recherche de CVE connues dans vos librairies. Et **Trivy image** refait le même travail, mais sur l'image Docker finale, qui peut introduire ses propres vulnérabilités via l'image de base ou les paquets système installés. Ce sont quatre couches de sécurité complémentaires, pas redondantes : chacune couvre un angle d'attaque différent.
+- **Pourquoi le job \`sonarqube\` "skip gracieusement" si les credentials manquent, plutôt que d'échouer** ? Parce que je veux que ce workflow reste utilisable tel quel dans un fork ou un environnement où SonarQube n'est pas encore configuré, sans bloquer tout le monde. C'est un pattern que je recommande chaque fois qu'une intégration est "optionnelle mais recommandée" plutôt que strictement obligatoire.
+- **Pourquoi scanner l'image via son digest (\`@sha256:...\`) plutôt que via son tag** ? Un tag comme \`:latest\` est mutable — entre le moment où l'image est poussée et le moment où Trivy la scanne quelques secondes après, rien ne garantit en théorie que \`:latest\` pointe encore vers la même image (si un autre workflow tournait en parallèle, par exemple). Le digest, lui, est un hash cryptographique unique de cette image précise — aucune ambiguïté possible sur ce qu'on scanne réellement.
+- **Pourquoi GHCR + Watchtower plutôt qu'un déploiement SSH classique avec \`docker compose up\` immédiat** ? C'est un choix d'architecture délibéré. Le job \`deploy\` fait bien un \`docker compose pull && up\` via SSH — ça, c'est le déploiement "actif", déclenché par le pipeline. Mais **Watchtower**, en plus, tourne en continu sur le VPS et vérifie périodiquement si l'image \`:latest\` sur GHCR a changé, indépendamment du pipeline. C'est une **redondance volontaire** : si jamais le job de déploiement échoue silencieusement pour une raison réseau, ou si je dois recréer le conteneur manuellement après une intervention sur le serveur, Watchtower rattrape le coup tout seul dans les minutes qui suivent. Le prix à payer : il faut que Watchtower s'authentifie aussi sur GHCR (repo privé), d'où le \`GHCR_PULL_TOKEN\`, un Personal Access Token de longue durée avec le scope \`read:packages\` uniquement — jamais le \`GITHUB_TOKEN\` du run (qui expire à la fin du job et ne serait d'aucune utilité pour un service qui tourne en continu sur le serveur).
+- **Pourquoi préférer \`GHCR_PULL_TOKEN\` à \`GITHUB_TOKEN\` pour le pull côté serveur** ? Le \`GITHUB_TOKEN\` n'existe que le temps du job — une fois le workflow terminé, il est révoqué. Watchtower, lui, tourne 24/7 sur le VPS et a besoin d'un token qui reste valide dans la durée pour continuer à s'authentifier sur GHCR à chaque vérification. D'où la nécessité d'un PAT dédié, scope minimal, stocké uniquement en secret GitHub (jamais en clair sur le serveur).
+- **\`concurrency\` avec \`cancel-in-progress: true\`** : si je pousse deux commits coup sur coup, le premier run en cours est automatiquement annulé au profit du second. Ça évite de gaspiller des minutes de CI sur une version de toute façon obsolète, et ça évite aussi un scénario dangereux où deux déploiements se chevaucheraient sur le même serveur.
+- **\`environment: production\` sur le job \`deploy\`** : ça me permet, si je le souhaite, d'ajouter une règle de protection GitHub (validation manuelle obligatoire avant déploiement, restriction à certains reviewers) sans toucher au reste du pipeline. Sur ce projet personnel je n'ai pas activé de reviewer obligatoire, mais sur un projet d'équipe ou client, c'est la première chose que j'active.
+- **Le health check final (\`wget http://127.0.0.1:8080/health\`)** : c'est un détail qui a l'air anodin mais qui compte énormément. Sans lui, le pipeline se termine "vert" dès que \`docker compose up -d\` retourne, même si le conteneur crash 2 secondes après son démarrage. Avec ce check, si l'application ne répond pas correctement sur son endpoint de santé, le déploiement est marqué en échec — et je le sais immédiatement, plutôt que de découvrir le site en panne une heure plus tard par hasard.
+- **\`--ignore-scripts\` sur \`bun install\`** : ça empêche l'exécution de scripts \`postinstall\` arbitraires provenant de dépendances tierces pendant l'installation — une protection supplémentaire contre une attaque de la chaîne d'approvisionnement (supply chain attack) où un paquet compromis exécuterait du code malveillant au moment de l'installation.
+
+C'est ce niveau de détail — chaque ligne pensée, chaque choix justifiable — qui fait la différence entre un pipeline "qui marche" et un pipeline sur lequel vous pouvez dormir tranquille la nuit.
+
+
+## 4. Fonctionnalités avancées — chacune méritait sa propre section, alors la voici
+
+On ne va plus se contenter de lister ces fonctionnalités en deux lignes. Chacune ci-dessous a droit à une vraie explication, avec du contexte d'usage réel.
+
+### 4.1 Secrets et variables d'environnement
+
+Il y a une distinction importante que beaucoup de développeurs ne font jamais : **secrets** vs **variables**.
+
+- **Secrets** (\`Settings → Secrets and variables → Actions → Secrets\`) : chiffrés, jamais affichés en clair dans les logs (GitHub les masque automatiquement, même si vous faites un \`echo\` accidentel dessus — ils apparaissent comme \`***\`). À utiliser pour tout ce qui est sensible : clés API, mots de passe, tokens, clés SSH privées.
+- **Variables** (\`Settings → Secrets and variables → Actions → Variables\`) : non chiffrées, visibles en clair dans l'interface et dans les logs. À utiliser pour des valeurs non sensibles mais qu'on veut centraliser sans les coder en dur dans le YAML : un nom de région AWS, une URL d'environnement, un numéro de version par défaut.
+
+Trois niveaux de portée existent pour les deux : **repository** (spécifique à un repo), **environment** (spécifique à un environnement comme "production", voir plus bas), et **organization** (partagé entre plusieurs repos — pratique pour un token utilisé par toute une équipe, avec un contrôle fin de quels repos y ont accès).
+
+\`\`\`yaml
+env:
+  API_URL: \${{ vars.API_URL }}          # variable, visible en clair
+steps:
+  - run: curl -H "Authorization: Bearer \${{ secrets.API_TOKEN }}" $API_URL   # secret, masqué dans les logs
+\`\`\`
+
+**Piège à connaître** : un secret n'est accessible que dans le contexte \`secrets.*\` — il n'est **jamais** automatiquement injecté comme variable d'environnement système, sauf si vous le faites explicitement via \`env:\`. Et attention, si vous passez un secret dans une commande shell composée (par exemple concaténé dans une URL), GitHub peut ne pas réussir à le masquer entièrement dans les logs si sa valeur exacte est transformée avant d'être affichée (encodée en base64, par exemple) — c'est une source classique de fuite accidentelle.
+
+### 4.2 Matrix Strategy — tester (ou déployer) sur plusieurs combinaisons en parallèle
+
+La stratégie matricielle permet de dupliquer automatiquement un job pour chaque combinaison de valeurs que vous définissez — extrêmement utile pour tester la compatibilité de votre code sur plusieurs versions de langage, plusieurs OS, ou plusieurs bases de données.
+
+\`\`\`yaml
+jobs:
+  test:
+    strategy:
+      fail-fast: false        # si une combinaison échoue, les autres continuent quand même
+      max-parallel: 4         # limite le nombre de jobs simultanés (utile pour ne pas saturer vos minutes)
+      matrix:
+        node-version: [18, 20, 22]
+        os: [ubuntu-latest, windows-latest]
+        exclude:
+          - node-version: 18
+            os: windows-latest   # cette combinaison précise ne sera pas testée
+    runs-on: \${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: \${{ matrix.node-version }}
+      - run: npm ci && npm test
+\`\`\`
+
+Ce fichier génère **automatiquement 5 jobs** (3 versions Node × 2 OS, moins la combinaison exclue), tous en parallèle. Points clés :
+
+- **\`fail-fast: false\`** est presque toujours ce que vous voulez pour une matrice de tests : par défaut (\`fail-fast: true\`), dès qu'une seule combinaison échoue, GitHub annule immédiatement toutes les autres — ce qui vous empêche de voir si le problème touche une seule combinaison ou toutes. Désactivez-le pour avoir une vue complète.
+- Vous pouvez aussi générer une matrice **dynamiquement**, à partir d'un job précédent, avec \`fromJson()\` — utile par exemple pour construire la liste des packages à tester dans un monorepo à partir d'un script qui détecte ce qui a changé.
+- **Attention au coût** : chaque cellule de la matrice consomme ses propres minutes de CI. Une matrice 5×5×3 = 75 jobs peut sembler séduisante en théorie, mais coûte 75 fois plus de minutes qu'un seul job. Ne matricez que ce qui a réellement besoin d'être testé sur plusieurs combinaisons.
+
+### 4.3 Cache avancé — l'arme la plus sous-exploitée
+
+\`actions/cache\` va bien au-delà du cache automatique de \`setup-node\`. Vous pouvez cacher **n'importe quel dossier**, avec un contrôle fin de la clé de cache :
+
+\`\`\`yaml
+- name: Cache dependencies
+  uses: actions/cache@v4
+  with:
+    path: |
+      ~/.cache/pip
+      ~/.m2/repository
+    key: \${{ runner.os }}-deps-\${{ hashFiles('**/requirements.txt', '**/pom.xml') }}
+    restore-keys: |
+      \${{ runner.os }}-deps-
+\`\`\`
+
+Ce qu'il faut comprendre pour vraiment en tirer parti :
+
+- **\`key\`** doit changer dès que le contenu à cacher change — d'où l'usage de \`hashFiles()\` sur les fichiers de dépendances. Si la clé ne change jamais, vous risquez de restaurer un cache obsolète.
+- **\`restore-keys\`** définit des clés de secours partielles : si aucune clé exacte n'est trouvée, GitHub cherche la correspondance la plus récente qui commence par ce préfixe. C'est ce qui permet, même après un changement de dépendances, de repartir d'un cache "proche" plutôt que de tout retélécharger.
+- **Limites à connaître** : 10 Go de cache maximum par repository, et les entrées non utilisées depuis plus de 7 jours sont automatiquement supprimées. Sur un repo très actif avec beaucoup de branches, vous pouvez rapidement approcher cette limite — GitHub supprime alors les caches les moins récemment utilisés.
+- **Le cache Docker via Buildx** (\`cache-from: type=gha\` / \`cache-to: type=gha,mode=max\` qu'on a utilisé dans les Exemples 3 et 5) est un cas spécial extrêmement puissant : il cache les **layers Docker individuels**, pas juste les dépendances. Résultat : si seul votre code applicatif change mais pas votre \`package.json\`, l'étape \`npm install\` de votre Dockerfile est entièrement servie depuis le cache, et seul le layer de copie du code est reconstruit — un gain de temps souvent spectaculaire (on parle parfois de builds qui passent de 4 minutes à 20 secondes).
+
+### 4.4 Environnements (Environments) et règles de protection
+
+Un **environment** GitHub (\`Settings → Environments\`) n'est pas juste une étiquette — c'est un véritable point de contrôle.
+
+\`\`\`yaml
+jobs:
+  deploy:
+    environment:
+      name: production
+      url: https://mon-app.com    # affiché comme lien cliquable dans l'interface GitHub
+    runs-on: ubuntu-latest
+    steps: [...]
+\`\`\`
+
+Ce que vous pouvez configurer sur un environnement, et pourquoi c'est puissant :
+
+- **Required reviewers** : le job se met en pause et attend qu'une personne désignée clique sur "Approve" avant de continuer. Indispensable pour tout déploiement en production dans un contexte d'équipe.
+- **Wait timer** : force un délai minimum (par exemple 10 minutes) avant que le déploiement puisse démarrer — utile comme "fenêtre de rattrapage" pour annuler un déploiement accidentel.
+- **Deployment branches** : restreint quelles branches ont le droit de déployer vers cet environnement (typiquement, seule \`main\` peut déployer vers \`production\`, alors que n'importe quelle branche peut déployer vers \`staging\`).
+- **Secrets et variables scopés à l'environnement** : un secret \`DATABASE_URL\` peut avoir une valeur différente en \`staging\` et en \`production\`, tout en gardant le même nom dans votre YAML.
+
+### 4.5 Notifications (Slack, Discord, Email, Teams)
+
+\`\`\`yaml
+- name: Notify Slack on failure
+  if: failure()
+  uses: slackapi/slack-github-action@v2
+  with:
+    webhook: \${{ secrets.SLACK_WEBHOOK_URL }}
+    webhook-type: incoming-webhook
+    payload: |
+      {
+        "text": "🔴 Déploiement échoué sur \`\${{ github.repository }}\` (commit \`\${{ github.sha }}\`) — <\${{ github.server_url }}/\${{ github.repository }}/actions/runs/\${{ github.run_id }}|voir les logs>"
+      }
+\`\`\`
+
+Le conseil le plus important ici, tiré de l'expérience : **ne notifiez pas à chaque succès**. Une équipe qui reçoit une notification Slack à chaque déploiement réussi finit par ignorer totalement le canal ("alert fatigue") — et c'est précisément le jour où l'échec important arrive que personne ne le remarque, noyé dans le bruit. Réservez les notifications automatiques aux **échecs** (\`if: failure()\`) et, éventuellement, aux déploiements réussis en production uniquement (pas en staging, pas sur chaque job de CI).
+
+### 4.6 Workflows réutilisables (\`workflow_call\`) — factoriser vos pipelines comme des fonctions
+
+C'est une des fonctionnalités les plus puissantes et les moins connues des débutants. Un **workflow réutilisable** se comporte comme une fonction : vous lui passez des paramètres (\`inputs\`), il peut recevoir des \`secrets\`, et il retourne des \`outputs\`.
+
+Fichier \`./.github/workflows/reusable-deploy.yml\` :
+
+\`\`\`yaml
+name: Reusable Deploy
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+    secrets:
+      deploy-token:
+        required: true
+    outputs:
+      deployed-url:
+        value: \${{ jobs.deploy.outputs.url }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    outputs:
+      url: \${{ steps.deploy.outputs.url }}
+    steps:
+      - id: deploy
+        run: |
+          echo "Déploiement vers \${{ inputs.environment }}..."
+          echo "url=https://\${{ inputs.environment }}.mon-app.com" >> "$GITHUB_OUTPUT"
+\`\`\`
+
+Et pour l'appeler depuis un autre workflow (potentiellement dans un autre repo !) :
+
+\`\`\`yaml
+jobs:
+  call-staging:
+    uses: ./.github/workflows/reusable-deploy.yml
+    with:
+      environment: staging
+    secrets:
+      deploy-token: \${{ secrets.DEPLOY_TOKEN }}
+\`\`\`
+
+L'intérêt concret : si vous avez 5 microservices avec exactement le même pattern de déploiement, vous écrivez la logique **une seule fois**, dans un repo central si besoin, et chaque microservice l'appelle avec ses propres paramètres. Le jour où vous améliorez le pipeline de déploiement, vous le faites à un seul endroit.
+
+### 4.7 Actions composites (\`.github/actions/\`) — la bonne pratique qu'on oublie trop souvent
+
+Différence importante avec les workflows réutilisables : une **action composite** factorise une **suite de steps**, pas un job entier, et s'utilise directement avec \`uses:\` dans n'importe quel job, exactement comme une action tierce.
+
+Créez \`.github/actions/setup-project/action.yml\` :
+
+\`\`\`yaml
+name: 'Setup Project'
+description: 'Checkout, install Node.js, and restore dependencies with cache'
+inputs:
+  node-version:
+    description: 'Version de Node.js à installer'
+    required: false
+    default: '20'
+runs:
+  using: 'composite'
+  steps:
+    - uses: actions/setup-node@v4
+      with:
+        node-version: \${{ inputs.node-version }}
+        cache: 'npm'
+    - run: npm ci
+      shell: bash    # obligatoire pour tout step "run" dans une action composite
+\`\`\`
+
+Et dans vos workflows, à la place de répéter ces 5 lignes dans chaque job de chaque fichier :
+
+\`\`\`yaml
+steps:
+  - uses: actions/checkout@v4
+  - uses: ./.github/actions/setup-project
+    with:
+      node-version: '22'
+\`\`\`
+
+C'est exactement le principe **DRY (Don't Repeat Yourself)** appliqué à vos pipelines. Dès que vous avez le même bloc de 3-4 steps qui revient dans plus de deux workflows, c'est le signal qu'il faut l'extraire en action composite. C'est une pratique standard dans les équipes matures, et pourtant très rarement enseignée aux débutants.
+
+### 4.8 Concurrency — éviter les exécutions inutiles ou dangereuses
+
+\`\`\`yaml
+concurrency:
+  group: \${{ github.workflow }}-\${{ github.ref }}
+  cancel-in-progress: true
+\`\`\`
+
+Deux usages très différents à bien distinguer :
+
+- Sur un workflow de **CI** (tests sur une PR) : \`cancel-in-progress: true\` est presque toujours souhaitable. Si vous poussez 3 commits en 2 minutes, seul le dernier a besoin d'être testé — annuler les runs précédents économise des minutes et donne un feedback plus rapide.
+- Sur un workflow de **déploiement** : soyez plus prudent. Annuler un déploiement en plein milieu de son exécution peut laisser votre infrastructure dans un état incohérent (par exemple, une migration de base de données à moitié appliquée). Le pipeline bonus plus haut utilise \`cancel-in-progress: true\`, mais uniquement parce que l'étape de déploiement elle-même reste courte et idempotente (\`docker compose up -d\` peut être relancé sans risque).
+
+### 4.9 Filtrage par chemin et exécution conditionnelle — indispensable en monorepo
+
+\`\`\`yaml
+on:
+  push:
+    paths:
+      - 'apps/api/**'
+      - 'packages/shared/**'
+\`\`\`
+
+Pour des besoins plus fins qu'un simple \`paths:\` (par exemple, décider dynamiquement quels jobs lancer selon ce qui a changé), l'action communautaire \`dorny/paths-filter\` est la référence :
+
+\`\`\`yaml
+- uses: dorny/paths-filter@v3
+  id: changes
+  with:
+    filters: |
+      api: ['apps/api/**']
+      web: ['apps/web/**']
+- if: steps.changes.outputs.api == 'true'
+  run: echo "L'API a changé, on lance son pipeline"
+\`\`\`
+
+Sur un monorepo avec plusieurs applications, combiner ce filtrage avec les workflows réutilisables (4.6) et une matrice dynamique (4.2) vous permet de ne construire et déployer **que** ce qui a réellement changé — un gain de temps et de coût énorme dès que le monorepo grossit.
+
+### 4.10 Artifacts — bien comprendre quand les utiliser (et quand ne pas les utiliser)
+
+On a déjà croisé \`upload-artifact\`/\`download-artifact\` plusieurs fois. Une confusion fréquente : **artifact ou cache, lequel choisir ?**
+
+- **Cache** : pour des données qui **accélèrent** un futur run mais ne sont pas strictement indispensables à son succès (dépendances, layers Docker). Un cache manquant ralentit, il ne casse rien.
+- **Artifact** : pour transporter un résultat **produit par ce run précis** vers un autre job du même run, ou pour le mettre à disposition en téléchargement humain (rapport de tests, build de production, résultats de scan). Un artifact manquant fait généralement planter le job qui en dépend.
+
+Pensez aussi à la rétention (\`retention-days\`) — par défaut 90 jours, ce qui peut consommer inutilement votre quota de stockage sur un repo avec beaucoup de builds. Réduisez-la (7 jours, comme dans notre pipeline bonus) pour des artefacts de build intermédiaires que personne ne consultera jamais après le déploiement.
+
+### 4.11 La chaîne complète de sécurité applicative (DevSecOps)
+
+Le pipeline bonus utilise quatre outils de sécurité différents — profitons-en pour clarifier ce que chacun couvre, parce que ce sont des catégories qu'on confond souvent :
+
+| Catégorie | Ce qu'elle détecte | Exemple d'outil |
+|---|---|---|
+| **Secret scanning** | Clés API, mots de passe, tokens commités par erreur, y compris dans l'historique Git | Gitleaks, GitHub Advanced Security secret scanning |
+| **SAST** (Static Application Security Testing) | Failles dans la logique de votre propre code (injection, mauvaise gestion d'erreurs, patterns dangereux) | SonarQube, CodeQL, Semgrep |
+| **SCA** (Software Composition Analysis) | CVE connues dans vos dépendances tierces (librairies npm, paquets pip…) | Trivy (mode fs), Dependabot, Snyk |
+| **Container scanning** | Vulnérabilités dans l'image Docker finale : image de base, paquets système, layers | Trivy (mode image), Grype |
+
+Une pratique que je recommande fortement et qu'on n'a pas encore mentionnée : activer **Dependabot** (\`.github/dependabot.yml\`) pour que vos dépendances (et vos propres Actions GitHub !) reçoivent automatiquement des Pull Requests de mise à jour dès qu'une nouvelle version corrige une vulnérabilité — combiné à votre CI qui valide automatiquement ces PR, vous obtenez un système de sécurité qui se maintient presque tout seul.
+
+### 4.12 OIDC en profondeur — comprendre le mécanisme, pas juste le copier-coller
+
+On a vu OIDC dans l'Exemple 2 pour AWS, mais le mécanisme est **générique** et fonctionne aussi avec Google Cloud, Azure, ou HashiCorp Vault. Voici ce qui se passe réellement, étape par étape :
+
+1. Votre job démarre avec \`permissions: id-token: write\`.
+2. Quand une action comme \`configure-aws-credentials\` en a besoin, GitHub génère un **jeton JWT signé**, contenant des informations vérifiables : le repo, la branche, l'environnement, l'event déclencheur.
+3. Ce jeton est envoyé au fournisseur cloud (AWS STS, par exemple), qui vérifie sa signature auprès de GitHub (via un endpoint OIDC public), puis vérifie que le contenu du jeton correspond à une **trust policy** préalablement configurée côté cloud (par exemple : "n'accepte que les jetons où \`repo == mon-org/mon-repo\` ET \`ref == refs/heads/main\`").
+4. Si tout correspond, le fournisseur cloud renvoie des credentials temporaires (souvent valides 15 à 60 minutes).
+
+**Ce que ça change concrètement pour vous** : vous pouvez configurer une trust policy qui n'autorise **que** les déploiements depuis la branche \`main\` de votre repo précis à assumer le rôle de production — même si quelqu'un obtenait un accès complet à votre repo GitHub sur une autre branche, il ne pourrait pas déployer en prod avec ce mécanisme. C'est une isolation bien plus fine que ce que permettent des clés d'API statiques.
+
+### 4.13 Runners self-hosted et ARC
+
+Quand les runners GitHub-hosted ne suffisent plus (besoin de GPU pour de l'entraînement de modèle, accès réseau à une base de données interne sans l'exposer sur internet, ou simplement volume de build trop important pour rester rentable), vous pouvez héberger vos propres runners. Pour un usage occasionnel, un runner installé manuellement sur une VM suffit. Pour un usage à l'échelle d'une équipe, **ARC (Actions Runner Controller)** permet d'orchestrer une flotte de runners éphémères dans un cluster Kubernetes, avec scaling automatique selon la charge — chaque job reçoit un pod tout neuf, dans le même esprit d'isolation que les runners GitHub-hosted, mais sur votre propre infrastructure.
+
+### 4.14 Débugger un workflow qui ne fait pas ce que vous attendez
+
+Quelques techniques qui font gagner un temps fou :
+
+- **Logs de debug détaillés** : ajoutez le secret \`ACTIONS_STEP_DEBUG\` à \`true\` dans les secrets du repo pour obtenir des logs bien plus verbeux sur chaque step.
+- **\`GITHUB_STEP_SUMMARY\`** : comme vu plus haut, permet d'écrire un résumé Markdown lisible directement dans l'interface, plutôt que de fouiller dans des logs bruts — très utile pour afficher un résumé de couverture de tests ou de résultats de scan.
+- **Session de debug interactive** : l'action \`mxschmitt/action-tmate\` ouvre une session SSH interactive directement sur le runner en cas d'échec, vous permettant d'inspecter l'état exact de la machine au moment du problème.
+- **Tester localement avec \`act\`** : l'outil open-source [nektos/act](https://github.com/nektos/act) exécute vos workflows GitHub Actions **localement**, dans Docker, sans avoir à pousser un commit à chaque itération. Un gain de temps massif quand vous développez ou déboguez un pipeline complexe.
+
+
+## 5. Bonnes pratiques 2026 — ce qui sépare un pipeline "qui marche" d'un pipeline de niveau expert
+
+C'est le chapitre que je voulais vraiment enrichir. Pas une liste de 7 points qu'on oublie 5 minutes après l'avoir lue, mais une vraie feuille de route, organisée par thème, avec le "pourquoi" à chaque fois. Si vous appliquez tout ce qui suit, vous serez très clairement au-dessus de la moyenne des pipelines que je croise en entreprise.
+
+### 5.1 Sécurité — la priorité absolue
+
+- **Épinglez vos Actions par SHA complet, pas seulement par tag** : \`uses: actions/checkout@v4\` est pratique, mais un tag comme \`v4\` peut techniquement être déplacé par le mainteneur de l'action (ou par un attaquant qui compromettrait son compte) vers un commit différent, malveillant. Pour un niveau de sécurité maximal sur des Actions sensibles (celles qui manipulent des secrets), préférez \`uses: actions/checkout@a1b2c3d...\` (le SHA complet du commit), avec un commentaire indiquant la version correspondante. Dependabot peut maintenir ces SHA à jour automatiquement.
+- **Permissions minimales par défaut** : configurez \`permissions: {}\` (ou \`contents: read\` seulement) au niveau du workflow, puis n'élargissez que job par job, step par step, exactement ce qui est nécessaire. Idéalement, configurez aussi au niveau de l'organisation GitHub que le \`GITHUB_TOKEN\` par défaut de tous les nouveaux repos soit en lecture seule.
+- **OIDC plutôt que des secrets cloud statiques**, systématiquement, dès que le fournisseur cloud le supporte (AWS, GCP, Azure, HashiCorp Vault le supportent tous).
+- **Méfiez-vous de \`pull_request_target\`** : ne l'utilisez jamais en checkoutant le code de la PR pour l'exécuter directement (tests, build). Si vous devez absolument le faire, séparez en deux workflows : un premier limité, sans accès aux secrets, qui build/teste le code de la PR ; un second, avec \`pull_request_target\`, qui se contente de lire les résultats du premier (via artifacts) pour poster un commentaire, sans jamais exécuter de code venant de la PR elle-même.
+- **Auditez les Actions tierces avant de les utiliser** : vérifiez le nombre d'étoiles, la date de dernière mise à jour, si le code source est lisible et cohérent avec sa description. Une Action avec \`uses:\` a un accès potentiel à tout ce que le job peut voir, y compris les secrets exposés dans l'environnement.
+- **Activez le secret scanning et le push protection de GitHub** (Settings → Code security) en plus de Gitleaks dans votre pipeline — la protection au moment du push (avant même que le commit n'atteigne le repo) est une couche supplémentaire précieuse.
+- **Protégez vos environnements sensibles** avec des reviewers obligatoires, et restreignez les branches autorisées à déployer vers la production.
+
+### 5.2 Performance et maîtrise des coûts
+
+- **Cache tout ce qui peut l'être**, sans exception : dépendances, layers Docker, résultats de compilation. C'est souvent le levier le plus rentable en temps d'ingénierie investi.
+- **Parallélisez ce qui est indépendant** (lint, tests unitaires, scan de sécurité peuvent presque toujours tourner en même temps plutôt qu'en séquence), mais **séquencez ce qui doit l'être** via \`needs\` — ne bloquez pas un déploiement derrière un job qui n'a aucun rapport avec la validité du code à déployer.
+- **Utilisez \`concurrency\` avec \`cancel-in-progress\`** sur vos pipelines de CI pour ne jamais payer deux fois le prix d'un run devenu obsolète.
+- **Choisissez le bon runner pour le bon job** : \`ubuntu-latest\` par défaut, ne passez à \`macos-latest\` (nettement plus cher) que si vous avez réellement besoin de builder pour iOS/macOS.
+- **Envisagez les runners self-hosted** dès que votre volume de minutes GitHub-hosted devient significatif financièrement — le point de bascule dépend de votre usage, mais au-delà de quelques milliers de minutes par mois, ça mérite un calcul.
+- **Limitez la taille de vos matrices** à ce qui apporte réellement de la valeur — testez sur les versions de Node/Python que vos utilisateurs utilisent réellement, pas sur toutes les versions qui existent "au cas où".
+- **Optimisez vos images Docker** : images de base minimales (\`alpine\`, \`distroless\`), builds multi-stage pour ne garder que le strict nécessaire dans l'image finale, ce qui accélère à la fois le build, le push, et le pull côté serveur.
+
+### 5.3 Maintenabilité — pour que le pipeline vive plus longtemps que vous
+
+- **DRY vos workflows** avec les actions composites (4.7) et les workflows réutilisables (4.6) dès que vous répétez la même logique dans plus de deux fichiers.
+- **Centralisez les versions** dans un bloc \`env:\` en haut de fichier (\`NODE_VERSION: "22"\`) plutôt que de les répéter en dur à chaque \`with:\` — un seul endroit à changer le jour où vous montez de version.
+- **Nommez chaque step clairement** (\`name:\`) — un log qui affiche "Run npm ci" plutôt que juste la commande brute est beaucoup plus rapide à parcourir pour trouver où ça a cassé.
+- **Commentez votre YAML**, exactement comme dans les exemples de cet article — un pipeline sans commentaires devient vite un mystère, y compris pour son propre auteur six mois plus tard.
+- **Linter vos workflows** avec \`actionlint\` (en local ou en pré-commit) pour attraper les erreurs de syntaxe et les incohérences avant même de pousser le commit.
+- **Documentez les secrets requis** en en-tête de fichier (comme dans le pipeline bonus) — la personne qui doit configurer le repo pour la première fois vous remerciera.
+- **Versionnez vos actions composites et workflows réutilisables** avec des tags sémantiques si elles sont partagées entre plusieurs repos, exactement comme n'importe quelle librairie.
+
+### 5.4 Fiabilité — un pipeline qui échoue proprement plutôt que silencieusement
+
+- **\`timeout-minutes\` sur chaque job** — un job qui reste bloqué 6 heures parce qu'une commande interactive attend une entrée utilisateur qui ne viendra jamais, ça arrive plus souvent qu'on ne le pense.
+- **Health checks après chaque déploiement**, comme dans le pipeline bonus — un déploiement "vert" qui a en réalité mis en ligne une application qui crash est le pire des scénarios, parce qu'il donne une fausse confiance.
+- **Stratégie de rollback pensée à l'avance** : tags d'image immuables par SHA (Exemple 3 et 5), pour pouvoir revenir en un clic à la version précédente sans reconstruire quoi que ce soit.
+- **Retry sur les étapes réseau fragiles** (téléchargement de dépendances, appel à une API tierce) avec une action comme \`nick-fields/retry\`, plutôt que de faire échouer tout le pipeline pour une erreur réseau transitoire de 2 secondes.
+- **Idempotence des scripts de déploiement** : votre script de déploiement doit pouvoir être relancé plusieurs fois de suite sans casser quoi que ce soit (le \`|| true\` de l'Exemple 3, le \`--remove-orphans\` de l'Exemple 5, sont des détails qui vont dans ce sens).
+
+### 5.5 Collaboration en équipe
+
+- **Branch protection rules** couplées aux noms exacts de vos jobs de CI (Settings → Branches → Require status checks to pass before merging) — sans ça, un check qui échoue reste juste "informatif" et n'empêche personne de merger quand même.
+- **CODEOWNERS** sur le dossier \`.github/workflows/\` lui-même — les changements de pipeline devraient être revus avec autant d'attention que le code applicatif, puisqu'ils ont accès à vos secrets de production.
+- **Badges de statut dans le README** (\`![CI](https://github.com/org/repo/actions/workflows/ci.yml/badge.svg)\`) — un signal visuel immédiat de la santé du projet pour n'importe qui qui arrive dessus.
+- **Documentez le pipeline dans le repo** (un \`docs/deployment/\` comme mentionné dans le pipeline bonus) — les secrets requis, comment bootstrapper un nouvel environnement, comment déclencher un déploiement manuel.
+
+### 5.6 Observabilité
+
+- **\`GITHUB_STEP_SUMMARY\`** pour rendre les résultats importants (couverture de tests, résultats de scan de sécurité) visibles immédiatement dans l'interface, sans avoir à dérouler des logs bruts.
+- **Notifications ciblées**, pas systématiques (voir 4.5) — le signal doit rester rare pour rester utile.
+- **Conservez les artefacts de rapports** (couverture de tests, résultats Trivy/SonarQube) avec une rétention adaptée, pour pouvoir investiguer une régression a posteriori.
+- **Liens directs vers les logs** dans vos notifications (comme dans l'exemple Slack de la section 4.5) — ne forcez jamais quelqu'un à chercher manuellement quel run a échoué.
+
+### 5.7 Ce que l'expérience terrain m'a appris (et qu'on ne lit dans aucune documentation officielle)
+
+- **Un pipeline trop strict tue l'adoption** : si votre CI bloque une PR pour un lint de style mineur avec la même sévérité qu'une faille de sécurité critique, les développeurs finissent par chercher des moyens de contourner le pipeline plutôt que de le respecter. Réservez \`exit-code: 1\` (bloquant) aux vrais problèmes, et laissez le reste en \`continue-on-error: true\` avec un rapport visible.
+- **Le premier déploiement automatisé d'un projet doit toujours être fait en présence de quelqu'un**, jamais un vendredi à 18h, même quand "ça a l'air de marcher en local" — l'automatisation réduit le risque humain, elle ne l'élimine pas.
+- **La redondance délibérée (comme Watchtower dans le pipeline bonus) vaut souvent mieux qu'un pipeline "parfait" mais unique** — un système avec deux chemins indépendants vers le même résultat (le pipeline actif ET le poller passif) est plus résilient qu'un système avec un seul chemin ultra-optimisé mais fragile.
+- **Investissez dans le pipeline dès le premier jour d'un projet**, même minimaliste (l'Exemple 1 suffit largement au démarrage) — un projet qui grandit sans CI/CD accumule une dette qui devient de plus en plus coûteuse à rattraper plus tard.
+- **Testez vos scripts de déploiement en isolant chaque commande avant de les mettre en pipeline** — le nombre de fois où un \`sed\` mal échappé ou un chemin relatif faux ne se révèle qu'en production reste étonnamment élevé, même chez des développeurs expérimentés.
 
 ## Conclusion
 
-Félicitations ! Vous venez de passer de zéro à un niveau **expert** sur GitHub Actions.
+Voilà, vous venez de traverser un chemin complet : des concepts fondamentaux (events, jobs, steps, runners, contexts) jusqu'à cinq pipelines réels et détaillés, en passant par toutes les fonctionnalités avancées (matrices, cache, environnements, workflows réutilisables, actions composites, OIDC, sécurité DevSecOps) et une feuille de route de bonnes pratiques pensée pour durer.
 
-Vous savez maintenant créer des pipelines professionnels, sécurisés, rapides et maintenables. Que ce soit pour un projet perso, une startup ou une grande entreprise, vous avez entre les mains l’un des outils les plus puissants de l’écosystème DevOps moderne.
+Vous savez maintenant créer des pipelines professionnels, sécurisés, rapides et maintenables — et surtout, vous comprenez **pourquoi** chaque choix est fait, pas juste "comment le copier-coller". C'est cette compréhension qui vous permettra d'adapter tout ça à votre propre contexte, votre propre stack, vos propres contraintes.
+
+Que ce soit pour un projet perso, une startup ou une grande entreprise, vous avez entre les mains l'un des outils les plus puissants de l'écosystème DevOps moderne — et un vrai exemple de pipeline de production, celui de ce site même, pour vous en inspirer directement.
 
 **Prochaines étapes recommandées :**
-- Migrer tous vos projets vers des workflows avec OIDC
-- Ajouter des tests E2E (Cypress ou Playwright)
-- Mettre en place des environnements de preview (avec Vercel ou AWS Amplify)
-- Explorer GitHub Actions pour Terraform, Docker, Kubernetes…
+- Commencez petit (Exemple 1) si vous n'avez encore rien, puis montez en complexité progressivement
+- Migrez vos projets existants vers OIDC si vous utilisez encore des clés cloud statiques
+- Ajoutez des tests E2E (Cypress ou Playwright) à votre pipeline de CI
+- Extrayez vos steps répétés en actions composites dès que vous en voyez la même suite dans deux workflows
+- Explorez GitHub Actions pour Terraform, Kubernetes, ou vos propres besoins spécifiques
 
-Vous avez une question ? Un workflow qui ne marche pas ? Un cas particulier (monorepo, mobile, etc.) ?  
+Vous avez une question ? Un workflow qui ne marche pas ? Un cas particulier (monorepo, mobile, etc.) ?
 Laissez un commentaire juste en dessous, je vous réponds personnellement.
 
 Si cet article vous a aidé, **partagez-le** avec vos collègues ou sur LinkedIn – ça fait toujours plaisir !
 
 **Tags** : #GitHubActions #CICD #DevOps #Automation #DevOpsEngineer #GitHub
 
-Merci d’avoir pris le temps de lire jusqu’ici. Vous êtes maintenant beaucoup plus fort qu’hier. Continuez comme ça ! 🚀
+Merci d'avoir pris le temps de lire jusqu'ici. Vous êtes maintenant beaucoup plus fort qu'hier. Continuez comme ça ! 🚀
+
   `,
     "contentEn": `
 ## Introduction
 
-Imagine this: you push your code to \`main\`, and within minutes:
+Picture this: you push your code to \`main\`, and **within minutes**:
 - Your tests run automatically
-- Your application is built
-- It's deployed to AWS, Vercel, or your server
-- You get notified if anything fails
+- Your application gets built
+- It gets deployed to AWS, Vercel, Docker, or your own VPS
+- You get notified if anything breaks
+- And if a security scan catches a leaked secret or a critical vulnerability, everything stops before it ever reaches production
 
 That's exactly what **GitHub Actions** enables, and it's free for most projects!
 
-In this **ultimate 2026 guide**, I'll walk you through everything step by step, as if we were sitting side by side. Whether you're a student, freelancer, or enterprise developer, you'll go from "I don't know where to start" to "I master my CI/CD pipeline like a pro".
+This article is the **fully rewritten, massively expanded 2026 edition** of my GitHub Actions guide. I rebuilt it from the ground up because I wanted to go much further: less skimming the surface, more real substance, more concrete examples, more field-tested experience. The goal hasn't changed: walk you through this step by step, as if we were sitting side by side in front of the same terminal. But this time, we don't stop at "it works." We go all the way to "I understand why it works, and I know how to evolve this into a production-grade pipeline."
 
-We will cover:
-- Fundamental concepts
-- Simple and advanced workflows
-- Automated testing (Jest, Vitest, Cypress…)
-- Builds and deployments (AWS S3/CloudFront, Vercel, Docker…)
-- Secrets, environments, matrices, caching, artifacts
-- Security and performance best practices
-- A complete ready-to-copy pipeline
+Whether you're a student, a freelancer, or an engineer at a company, you'll go from "I don't know where to start" to "I design my CI/CD pipelines like a seasoned DevOps engineer."
 
-Grab a coffee ☕, open your repository, and let's do this together!
+Here's what we're covering, and trust me, there's a lot:
+
+- The fundamental concepts, actually explained in depth this time (events, jobs, steps, runners, contexts…)
+- **5 complete, fully detailed pipelines**, from the simplest to the most advanced — basic CI, AWS S3/CloudFront deployment with OIDC, Docker build + VPS deployment over SSH, automatic preview deployments on Vercel for every Pull Request, and as a bonus, **the actual pipeline I run in production for my own portfolio** (the one serving the page you're reading right now)
+- Every advanced feature, each with its own dedicated section: secrets, matrices, caching, environments, notifications, reusable workflows, composite actions, concurrency, security scanning, OIDC, self-hosted runners, debugging…
+- A **2026 Best Practices** chapter that doesn't just list bullet points, but explains the "why" behind each practice, with lessons pulled from real projects
+- A ready-to-copy complete pipeline, and much more
+
+Grab a coffee ☕, open up your repository, and let's do this together!
 
 ## 1. Prerequisites
 
 Before starting, make sure you have:
 
-- A GitHub account (free is enough)
+- A GitHub account (the free tier is enough)
 - A repository with a project (Node.js, React, Next.js, Python, etc.)
 - Basic knowledge of Git and terminal commands
-- (Optional but recommended): a project with tests (Jest, Vitest, etc.)
+- (Optional but recommended): a project that already has some tests (Jest, Vitest, etc.)
 
-**Pro tip**: If you don't have tests yet, we'll start with a simple pipeline and gradually add complexity.
+**A quick checklist before diving in**, just to make sure you get the most out of what follows:
+- Can you already do a \`git push\` and open a Pull Request? Perfect, that's all the Git you need.
+- Have you already written a YAML file before (even just for Docker Compose)? Even better, but not required — I'll explain the syntax as we go.
+- Have no idea what continuous integration or continuous deployment even means? No problem, we start from zero in the next section.
 
-## 2. GitHub Actions Core Concepts
+**Tip**: If you don't have tests yet, we'll start with a simple pipeline and progressively add complexity. Don't let "I don't have tests so I can't do CI/CD" stop you — that's a common misconception. You can absolutely start by just automating a build, and add tests later.
 
-### Workflows
-A **workflow** is a YAML file located in \`.github/workflows/\`.  
-It's the complete orchestrator of your automation.
+## 2. Understanding GitHub Actions from A to Z (the foundations)
 
-### Events (Triggers)
-What launches the workflow:
-- \`push\` to a branch
-- \`pull_request\`
-- \`schedule\` (cron)
-- \`workflow_dispatch\` (manual trigger)
-- Release, issue, etc.
+This is THE part I really want to slow down on, because it's the one tutorials tend to rush through. If you truly understand these foundations, literally everything else in this article (and every pipeline you'll ever run into in your career) becomes almost instantly readable. So let's take our time.
 
-### Jobs
-A workflow can contain multiple **jobs** that run in parallel or sequentially.  
-Each job runs on a **runner** (virtual machine: ubuntu-latest, windows-latest, macos-latest…).
+### 2.1 The big picture: how it all fits together
 
-### Steps
-Each job consists of **steps**:
-- \`uses:\` → use a community Action
-- \`run:\` → execute a shell command
+Before diving into vocabulary, here's the mental model to keep in mind, from the highest level down to the lowest:
 
-### Runner
-The virtual machine provided by GitHub (2-core, 7 GB RAM for free runners).
+1. Something **happens** in your GitHub repository (a push, a Pull Request, a manual click…) → that's an **event** (trigger)
+2. That event triggers one or more **workflows** (YAML files inside \`.github/workflows/\`)
+3. Each workflow contains one or more **jobs** (independent units of work)
+4. Each job runs on a **runner** (a fresh, disposable, clean virtual machine)
+5. Each job executes a sequence of **steps** (sequential stages: install, test, build, deploy…)
+6. Each step either uses an existing **Action** (\`uses:\`) or runs a **shell command** (\`run:\`)
 
-## 3. Your First Workflow – Simple CI
+In short: **Event → Workflow → Jobs → Runner → Steps**. Remember that chain — it's the backbone of everything that follows.
 
-Create the folder and file:
+### 2.2 Workflows
+
+A **workflow** is a YAML file placed inside the \`.github/workflows/\` folder. It's the complete orchestrator of your automation: it decides "when do I trigger" and "what do I do once triggered."
+
+A few points that beginners rarely get told explicitly:
+
+- You can have **multiple workflow files** in the same repository (\`ci.yml\`, \`deploy.yml\`, \`codeql.yml\`…). Each one is fully independent, with its own triggers.
+- The file name itself doesn't matter much to GitHub (you could call it \`whatever.yml\`), but the \`name:\` field at the top is what shows up in your repo's **Actions** tab — always give it a clear name.
+- **Good practice from day one**: separate concerns. One workflow for CI (tests, linting), another for deployment, another for security (CodeQL, Dependabot). It makes everything far easier to read and debug later, compared to one 500-line file trying to do everything.
+
+### 2.3 Events (triggers) — the entry point of every pipeline
+
+This is what launches the workflow. And it's richer than what most tutorials show. Here are the events you'll run into most often, with concrete examples for each:
+
+**\`push\`** — the most common one. Fires on every commit push.
+
+\`\`\`yaml
+on:
+  push:
+    branches: [main, develop]         # only on these branches
+    paths: ['src/**', 'package.json'] # only if these files changed
+    tags: ['v*.*.*']                   # or only on a version tag
+\`\`\`
+
+Useful tip: \`paths\` is extremely valuable in a monorepo, to avoid re-running the whole pipeline just because the README changed.
+
+**\`pull_request\`** — fires when a PR is opened, updated, or reopened.
+
+\`\`\`yaml
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]  # the defaults, but you can add e.g. "ready_for_review"
+\`\`\`
+
+⚠️ **A classic trap worth knowing about**: there's also \`pull_request_target\`, which looks like \`pull_request\` but runs with the **permissions and secrets of the base repository**, even for a PR coming from an external fork. It's very handy for posting automated comments, but **dangerous** if you run untrusted PR code with it (an attacker could exfiltrate your secrets). Golden rule: only use \`pull_request_target\` if you never check out the PR's own code, or handle it with extreme care.
+
+**\`schedule\`** — runs a workflow on a recurring interval (cron), useful for maintenance tasks, nightly security scans, or automated reports.
+
+\`\`\`yaml
+on:
+  schedule:
+    - cron: '0 3 * * *'   # every day at 3 AM (UTC)
+\`\`\`
+
+Quick cron syntax refresher for anyone who's forgotten it: \`minute hour day-of-month month day-of-week\`. So \`0 3 * * *\` means "at minute 0 of hour 3, every day." And \`0 9 * * 1\` means "every Monday at 9 AM."
+
+**\`workflow_dispatch\`** — manual triggering from the GitHub UI (the "Run workflow" button). Essential for controlled manual deployments, or for testing a workflow without having to push a commit.
+
+\`\`\`yaml
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Target environment'
+        required: true
+        default: 'staging'
+        type: choice
+        options: [staging, production]
+\`\`\`
+
+These \`inputs\` are then accessible inside the workflow through \`\${{ inputs.environment }}\` — extremely handy for a deployment where you want to pick the target right when you click the button.
+
+**\`workflow_call\`** — allows a workflow to be **called by another workflow**, like a reusable function. We'll dive into this in detail in the "Advanced Features" section — it's one of the most powerful, and least known, concepts for beginners.
+
+**Other useful events to know about**: \`release\` (fires when a GitHub release is published), \`issues\` and \`issue_comment\` (for automating issue management, triage bots), \`repository_dispatch\` (external trigger via the GitHub API, useful for chaining repos together).
+
+**One essential thing that often goes unsaid**: a single workflow can have **several triggers at once**. It's actually very common:
+
+\`\`\`yaml
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+\`\`\`
+
+Here, the workflow runs on every push to main, on every PR targeting main, AND can be triggered manually. This is exactly the pattern we'll use in the examples below.
+
+### 2.4 Jobs — the units of work
+
+A workflow can contain multiple **jobs**. By default, **jobs run in parallel**, unless you explicitly declare a dependency with \`needs:\`.
+
+\`\`\`yaml
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps: [...]
+
+  build:
+    needs: test              # waits for "test" to succeed before starting
+    runs-on: ubuntu-latest
+    steps: [...]
+
+  deploy:
+    needs: [test, build]     # waits for BOTH to succeed
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'   # extra condition
+    steps: [...]
+\`\`\`
+
+What's really worth remembering about jobs, and what tutorials rarely spell out:
+
+- **\`runs-on\`**: picks the virtual machine. \`ubuntu-latest\` is the default choice (cheapest in minutes, fastest to spin up). \`windows-latest\` and \`macos-latest\` also exist, but cost more in consumed minutes (macOS can cost up to 10x more minutes for the same wall-clock time!). You can also point to a **self-hosted runner** (your own machine).
+- **\`needs\`**: defines the dependency graph (a DAG). Without \`needs\`, all jobs start at the same time, which is perfect for parallelizing independent things (lint + unit tests + security scan, for example), but dangerous if a job depends on another job's result.
+- **\`if\`**: a condition for the entire job. Very useful to only run deployment on \`main\`, or only during a \`workflow_dispatch\`.
+- **\`outputs\`**: a job can expose values that downstream jobs can read via \`needs.job_name.outputs.my_value\`. That's how, for example, a Docker tag generated in the build job flows into the deploy job (we'll see this in Example 5 below).
+- **\`permissions\`**: each job can define its own \`GITHUB_TOKEN\` permissions (read-only on contents, write on packages, etc.). Always grant the **strict minimum** required — it's one of the most important security rules, covered in detail later.
+- **\`timeout-minutes\`**: prevents a job from hanging indefinitely (and burning through your free minutes) if a process stops responding. I always set a sensible value (10, 15, 30 minutes depending on the job).
+- **\`continue-on-error\`**: lets a job (or step) fail without failing the whole workflow. Useful for "informational" checks that shouldn't block a merge, like a style lint you want visibility on without it gating anything.
+- **\`environment\`**: ties the job to a GitHub environment (staging, production…), which enables protection rules (required reviewers, wait timers). Covered in the advanced features section.
+
+### 2.5 Steps: \`uses\` vs \`run\`, and how to really understand them
+
+This is exactly the point you were right to want more depth on, because this is where 90% of the actual action happens. Each job is made up of **steps**, executed **in order**, top to bottom.
+
+There are two fundamental ways to define a step:
+
+**\`uses:\`** → you use an **Action** already written by the community or by GitHub itself. An Action is a small, versioned, reusable program published on the GitHub Actions Marketplace (or just in a public repo). It's the equivalent of installing a library instead of writing the code yourself.
+
+Here are the actions you'll run into most often in practice, with their exact role:
+
+| Action | What it does |
+|---|---|
+| \`actions/checkout@v4\` | Fetches your repo's code onto the runner. Almost always the very first step of every job. |
+| \`actions/setup-node@v4\` | Installs a specific Node.js version, and can automatically manage npm/yarn/pnpm caching. |
+| \`actions/setup-python@v5\` | Same thing, but for Python (with pip caching). |
+| \`actions/cache@v4\` | Manual, generic caching of any folder (node_modules, ~/.m2, Go dependencies…). |
+| \`actions/upload-artifact@v4\` / \`download-artifact@v4\` | Saves a file/folder produced by a job so it can be retrieved by another job, or downloaded from the GitHub UI. |
+| \`docker/setup-buildx-action@v3\` | Configures Docker Buildx for faster, multi-platform image builds. |
+| \`docker/login-action@v3\` | Logs into a Docker registry (Docker Hub, GHCR, ECR…). |
+| \`docker/build-push-action@v6\` | Builds AND pushes a Docker image in a single step, with built-in cache handling. |
+| \`aws-actions/configure-aws-credentials@v4\` | Configures AWS credentials for the following steps (ideally via OIDC, more on that below). |
+| \`appleboy/ssh-action@v1\` | Runs a script on a remote server over SSH — perfect for a VPS deployment. |
+| \`slackapi/slack-github-action@v2\` | Sends a notification to a Slack channel. |
+| \`github/codeql-action\` | Runs static security analysis (SAST) on your code. |
+| \`softprops/action-gh-release@v2\` | Automatically creates a GitHub Release with changelog and attached artifacts. |
+| \`peter-evans/create-pull-request@v6\` | Automatically opens a Pull Request (great for automated dependency updates). |
+
+Every action has **inputs** (parameters) passed via \`with:\`, and sometimes **outputs** you can reuse in later steps.
+
+**\`run:\`** → you run a shell command directly, just like in your terminal. This is what you use for anything that doesn't already have a ready-made Action, or for simple logic.
+
+A few concrete use cases for \`run:\` to really nail down the logic:
+
+\`\`\`yaml
+# Case 1: a single simple command
+- name: Install dependencies
+  run: npm ci
+
+# Case 2: several commands in sequence (the "|" preserves line breaks)
+- name: Prepare environment
+  run: |
+    cp .env.example .env
+    echo "Build starting at $(date)" >> build.log
+
+# Case 3: define a variable for the following steps via GITHUB_ENV
+- name: Extract version
+  run: echo "APP_VERSION=$(node -p "require('./package.json').version")" >> "$GITHUB_ENV"
+
+# Case 4: expose a value as an output for ANOTHER JOB via GITHUB_OUTPUT
+- name: Set image tag
+  id: vars
+  run: echo "tag=sha-\${GITHUB_SHA::7}" >> "$GITHUB_OUTPUT"
+
+# Case 5: write a summary visible directly in the Actions tab (Step Summary)
+- name: Publish summary
+  run: echo "### ✅ Tests passed successfully" >> "$GITHUB_STEP_SUMMARY"
+
+# Case 6: choose a different shell (useful on Windows, or for inline Python)
+- name: Run with a specific shell
+  shell: bash
+  run: ./scripts/deploy.sh
+\`\`\`
+
+The simple rule for choosing: **if a reliable Action already exists for what you want to do, use it** (it handles edge cases, errors, cross-OS compatibility far better than you'd manage in 5 minutes). **Otherwise, \`run:\` with a shell command does the job perfectly well.**
+
+### 2.6 The Runner — the machine that actually executes everything
+
+The **runner** is the virtual machine that actually executes your steps. Key things to remember:
+
+- **GitHub-hosted** runners (\`ubuntu-latest\`, etc.) are **disposable**: a brand-new machine is provisioned for every job run, then destroyed right after. That means nothing persists between runs (which is exactly why caching and artifacts matter).
+- Typical specs for a free Ubuntu runner: 2 CPU cores, 7 GB of RAM, 14 GB of SSD storage. Plenty for the vast majority of projects.
+- **Self-hosted runners** also exist: your own machine (or server, or cloud VM) that you register as a runner. Useful when you need more power (AI training builds, heavy compilation), specific network access (deploying into a private VPC without exposing credentials), or simply to cut costs at very high build volumes. GitHub also offers **ARC (Actions Runner Controller)** to orchestrate self-hosted runners elastically inside Kubernetes.
+- Every minute spent on a GitHub-hosted runner **counts against your quota** (2000 free minutes/month on a free account, unlimited for public repos). That's why caching and pipeline optimization aren't just about comfort — they're also a cost question.
+
+### 2.7 Contexts and expressions — the concept almost everyone forgets to explain
+
+Here's a **foundational** concept that almost no beginner tutorial explains clearly, even though you run into it on nearly every line: **contexts**. A context is an object accessible through the \`\${{ }}\` syntax that gives you information about the current run.
+
+The most useful contexts to know:
+
+| Context | Contains |
+|---|---|
+| \`github\` | Info about the triggering event: \`github.repository\`, \`github.sha\`, \`github.ref\`, \`github.actor\`, \`github.event_name\`… |
+| \`env\` | The environment variables defined in the workflow (\`env:\` at the workflow, job, or step level). |
+| \`secrets\` | Your secrets configured in the repo's Settings (\`secrets.MY_SECRET\`). |
+| \`needs\` | The outputs of previous jobs (\`needs.build.outputs.image_tag\`). |
+| \`matrix\` | The current value inside a matrix strategy (\`matrix.node-version\`). |
+| \`steps\` | The outputs of previous steps within the same job (\`steps.vars.outputs.tag\`). |
+| \`inputs\` | The values entered during a \`workflow_dispatch\` or \`workflow_call\`. |
+
+And **expressions** let you write actual logic directly in YAML: comparison operators (\`==\`, \`!=\`), functions (\`contains()\`, \`startsWith()\`, \`toJson()\`, \`fromJson()\`), and logical operators (\`&&\`, \`||\`).
+
+\`\`\`yaml
+if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+\`\`\`
+
+Remember this syntax well — it comes up constantly in advanced pipelines (and heavily in our bonus pipeline further down).
+
+### 2.8 GITHUB_TOKEN and permissions — the foundation of security
+
+On every workflow run, GitHub automatically generates a temporary token called \`GITHUB_TOKEN\`, accessible through \`secrets.GITHUB_TOKEN\`. It lets you interact with the GitHub API (create a comment, push an image to GHCR, create a release…) **without you ever having to manually create a token**. It expires automatically at the end of the job.
+
+By default, this token has either broad or restricted permissions depending on your organization's configuration. The best practice — covered in the security chapter — is to **always explicitly declare the minimum necessary permissions**, at the workflow or job level:
+
+\`\`\`yaml
+permissions:
+  contents: read      # only need to read the code here
+  packages: write      # except this job, which needs to push an image to GHCR
+\`\`\`
+
+There you go — you now have all the foundations. Let's put them to immediate use in the five complete pipelines that follow.
+
+## 3. Five complete pipelines, from beginner to expert
+
+Instead of showing you just one or two examples, we're going to walk through **five real pipelines**, each with a different goal, increasing complexity, and most importantly: **a full explanation after every code block**, telling you why each choice was made, what to watch out for, and how to adapt it to your own project.
+
+Inside every code block, I've added **comments directly in the YAML** (in English, as is standard practice in source code, even though this article is written in English here as well) so that you already understand a lot just from reading the code. Then, right below, an explanation that revisits the key points from a different angle.
+
+### Example 1 — Simple CI: Tests + Build (the starting point for everyone)
+
+This is the strict minimum every project should start with, even the smallest side project.
+
+Create the folder and the file:
 
 \`\`\`bash
 mkdir -p .github/workflows
 touch .github/workflows/ci.yml
 \`\`\`
 
-Paste this:
+Paste this in:
 
 \`\`\`yaml
 name: CI Pipeline
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [main, develop]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   test-and-build:
     runs-on: ubuntu-latest
 
     steps:
+      # Step 1: fetch the repository code onto the runner
       - name: Checkout code
         uses: actions/checkout@v4
+
+      # Step 2: install Node.js and let GitHub cache npm dependencies automatically
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      # Step 3: clean, reproducible install — respects package-lock.json exactly
+      - name: Install dependencies
+        run: npm ci
+
+      # Step 4: run the test suite — the whole pipeline stops here if a test fails
+      - name: Run tests
+        run: npm test
+
+      # Step 5: only reached if tests passed — build the production bundle
+      - name: Build application
+        run: npm run build
+
+      # Step 6: store the build output so it can be downloaded or reused by another job
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-output
+          path: build/          # or dist/ depending on your build tool
+\`\`\`
+
+**What really matters here, beyond just "it works":**
+
+- **Why \`npm ci\` instead of \`npm install\`?** Because \`npm ci\` first deletes \`node_modules\`, then installs **exactly** what's written in \`package-lock.json\`, without ever modifying it. It's faster, 100% reproducible, and it avoids the classic "works on my machine but not in CI" caused by a slightly different dependency version. In a pipeline, \`npm install\` should almost never be used.
+- **Why \`cache: 'npm'\` inside \`setup-node\`?** Without it, every run re-downloads all dependencies from scratch (often 30 to 90 seconds wasted on every run). With caching enabled, GitHub automatically restores the \`~/.npm\` folder from one run to the next as long as \`package-lock.json\` hasn't changed. On a project with a lot of dependencies, this can cut build time by half or more.
+- **Why run tests BEFORE the build?** Because we want to fail as fast as possible ("fail fast"). No point spending 2 minutes building an application whose tests are already broken — better to know that in 20 seconds.
+- **What's \`upload-artifact\` actually for here?** If this job were the only one in the pipeline, it's not strictly necessary. But the moment you add a second job (deployment, a security scan on the build…), it's the only way to pass the result of one job to another, since every job starts on a blank machine.
+- **What to watch out for**: the trigger covers \`push\` on \`main\`/\`develop\` AND \`pull_request\` targeting \`main\`. That means on a PR, this workflow runs on every new commit pushed to the PR branch — that's intentional, it lets you see whether the PR is "green" before merging. Remember to add a branch protection rule that **requires this check to pass** before merging (Settings → Branches → Branch protection rules → Require status checks to pass).
+
+Push to \`main\` to see it in action. Go to your repo's **Actions** tab: you'll see your workflow running live, with each step expandable to view its logs.
+
+### Example 2 — Full pipeline: Tests + Build + Deployment to AWS S3/CloudFront (with OIDC)
+
+Here's a step up: a real deployment pipeline for a static front-end application (React, Vue, or a plain static site) hosted on AWS.
+
+\`\`\`yaml
+name: CI/CD - Test, Build & Deploy to AWS
+
+on:
+  push:
+    branches: [main]
+
+env:
+  AWS_REGION: eu-west-1
+  S3_BUCKET: my-react-app-prod
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+      - run: npm ci
+      # "--coverage" also produces a coverage report we could upload/publish later
+      - run: npm test -- --coverage
+
+  build-and-deploy:
+    needs: test              # never deploy code whose tests haven't passed
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write        # REQUIRED for OIDC — lets GitHub request a short-lived AWS token
+
+    steps:
+      - uses: actions/checkout@v4
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -354,39 +1736,928 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run tests
-        run: npm test
-
-      - name: Build application
+      - name: Build
         run: npm run build
 
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v4
+      # No AWS access keys stored anywhere — GitHub exchanges its OIDC token
+      # for a short-lived AWS session token by assuming this IAM role
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
         with:
-          name: build-output
-          path: build/
+          role-to-assume: arn:aws:iam::123456789012:role/GitHubActionsRole
+          aws-region: \${{ env.AWS_REGION }}
+
+      # "--delete" removes from S3 anything that no longer exists locally
+      - name: Deploy to S3
+        run: aws s3 sync ./build/ s3://\${{ env.S3_BUCKET }} --delete
+
+      # Forces CloudFront edge locations to fetch the new files instead of serving stale cache
+      - name: Invalidate CloudFront cache
+        run: aws cloudfront create-invalidation --distribution-id E1234567890ABC --paths "/*"
 \`\`\`
 
-(Explications détaillées identiques à la version française…)
+**Why this pipeline is built exactly this way, and not some other way:**
 
-## 4. Full Pipeline: Test + Build + Deploy to AWS S3/CloudFront
+- **\`needs: test\`**: this is the single most important safeguard in the file. Without it, a bug that breaks the tests could still end up deployed to production if the deployment job doesn't wait on the test job's result. Splitting \`test\` and \`build-and-deploy\` into two separate jobs (rather than one job with every step in sequence) also lets you parallelize other independent jobs in the future (a security scan, for instance) without slowing everything down.
+- **Why OIDC instead of classic AWS access keys (\`AWS_ACCESS_KEY_ID\` / \`AWS_SECRET_ACCESS_KEY\`)?** This is probably the single most important security point in this entire article, so let's take the time to really explain it. With classic keys stored as GitHub secrets, you have a credential pair that's **valid indefinitely**, granting access to your AWS account even outside of GitHub Actions. If those secrets leak (a misconfiguration, a log accidentally printing them, a compromised repo), the attacker gets total, permanent access. With **OIDC (OpenID Connect)**, there is **no AWS secret stored anywhere at all**. On every run, GitHub generates a signed, verifiable identity token proving "I am indeed workflow X from repo Y." That token is sent to AWS STS, which checks a trust relationship configured beforehand (an IAM Role with a "trust policy" that only accepts tokens coming from your exact GitHub repo), and returns in exchange an AWS session token **valid for only a few minutes**. The result: even if someone intercepts that session token, it expires almost immediately and can't be reused later.
+- **\`permissions: id-token: write\`**: without this line, the job doesn't even have the right to request an OIDC token from GitHub. It's a permission you must explicitly enable, precisely because it's sensitive.
+- **Why invalidate CloudFront after deployment?** CloudFront caches your files across hundreds of edge servers worldwide for speed. Without invalidation, your users could keep seeing the old version of your site for hours after a deployment (depending on the configured TTL). Careful though: \`--paths "/*"\` invalidates **everything**, which has a cost (the first 1000 invalidations per month are free, beyond that it's billed). On a large site with many hashed, versioned static assets (which Webpack/Vite do by default), you can often get away with only invalidating \`/index.html\` and a handful of non-versioned files.
+- **What to really watch out for**: this pipeline only triggers on \`push\` to \`main\`, not on PRs — makes sense, we don't want to deploy to prod on every PR commit. But do add a test job that also runs on \`pull_request\`, to validate PRs before merging (you can reuse the \`test\` job from Example 1 for that in a separate file).
 
-(Version anglaise complète du pipeline avancé avec OIDC, etc.)
 
-## 5. Advanced Features
-## 6. Best Practices 2026
-## 7. Troubleshooting
+### Example 3 — Docker build + deployment to a VPS over SSH
+
+This example matches an extremely common situation: you have an application (a Node.js API, a Python/Django app, a Go service…) that you package as a Docker image, and you want to deploy it automatically to your own server (an OVH, Hetzner, or DigitalOcean VPS…) instead of a managed platform.
+
+\`\`\`yaml
+name: Build & Deploy Docker to VPS
+
+on:
+  push:
+    branches: [main]
+
+env:
+  IMAGE_NAME: my-org/my-api
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write        # needed to push images to GitHub Container Registry (GHCR)
+
+    steps:
+      - uses: actions/checkout@v4
+
+      # Enables faster, cache-aware, multi-platform Docker builds
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      # Authenticate against GHCR using the automatically-generated GITHUB_TOKEN
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: \${{ github.actor }}
+          password: \${{ secrets.GITHUB_TOKEN }}
+
+      # Tag with both the commit SHA (for traceability/rollback) and "latest" (for simplicity)
+      - name: Build and push image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: |
+            ghcr.io/\${{ env.IMAGE_NAME }}:\${{ github.sha }}
+            ghcr.io/\${{ env.IMAGE_NAME }}:latest
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    steps:
+      # Connects over SSH using a private key stored as a secret, and runs a remote script
+      - name: Deploy over SSH
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: \${{ secrets.VPS_HOST }}
+          username: \${{ secrets.VPS_USER }}
+          key: \${{ secrets.VPS_SSH_KEY }}
+          script: |
+            set -e
+            echo "\${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u \${{ github.actor }} --password-stdin
+            docker pull ghcr.io/\${{ github.repository }}:latest
+            docker stop my-api || true
+            docker rm my-api || true
+            docker run -d --name my-api --restart unless-stopped -p 3000:3000 ghcr.io/\${{ github.repository }}:latest
+            docker image prune -f
+\`\`\`
+
+**What genuinely deserves an explanation here:**
+
+- **Why tag the image with \`github.sha\` IN ADDITION to \`latest\`?** \`latest\` is convenient for always pointing to "the current version," but it's a mutable tag — its meaning changes with every deployment. The SHA-based tag, on the other hand, is **immutable**: \`ghcr.io/my-app:a3f9c21\` will **always** point to that exact run, even six months from now. This is what saves you the day you need a fast, precise rollback to a specific earlier version — you just re-run \`docker run\` with the SHA of the version that worked.
+- **\`docker stop ... || true\` and \`docker rm ... || true\`**: the \`|| true\` is a small but crucial detail. Without it, if the \`my-api\` container doesn't exist yet (first deployment), the \`docker stop\` command would fail and crash the whole script (\`set -e\` stops the script on the first error). \`|| true\` says "even if this command fails, keep going anyway" — useful for commands whose failure is a normal, expected case.
+- **Why go through GHCR (GitHub Container Registry) instead of Docker Hub?** Because authentication happens automatically with the already-available \`GITHUB_TOKEN\`, without having to create and manage a separate Docker Hub account/token. And if your repo is private, the GHCR image is private by default too — consistent and easy to reason about.
+- **\`docker image prune -f\`**: without regular cleanup, old Docker images pile up on your VPS and eventually fill the disk. This line removes "dangling" images (ones no longer tagged, typically old versions of \`latest\`).
+- **What to watch out for**: this pipeline assumes Docker is already installed on the VPS, and that port 3000 is indeed the one exposed by your application. Also think about how you handle sensitive environment variables for your app (database, API keys) — never hardcode them into the \`docker run\` of a versioned script; prefer an \`.env\` file already present on the server, mounted with \`--env-file\`.
+- **Going further**: this manual \`docker run\` pattern works great for a single service, but the moment you have several linked services (database, Redis cache, reverse proxy), move to **Docker Compose** on the server (\`docker compose pull && docker compose up -d\`) — which is exactly the approach used in the bonus pipeline at the very end of this article.
+
+### Example 4 — Automatic Preview Deployments on Vercel for every Pull Request
+
+This one shifts gears entirely: instead of only deploying to production, we're going to give **an isolated, URL-accessible test environment for every Pull Request**, automatically created and destroyed. This is the kind of workflow that genuinely impresses in interviews, and that changes a team's daily life for the better (anyone can literally click a link in the PR to see the result, with nothing to install).
+
+\`\`\`yaml
+name: Vercel Preview Deployments
+
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize, reopened]
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write     # needed to post/update the preview link comment on the PR
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - run: npm ci
+
+      # Vercel CLI builds and deploys straight from the runner, no dashboard click needed
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Pull Vercel project settings
+        run: vercel pull --yes --environment=preview --token=\${{ secrets.VERCEL_TOKEN }}
+
+      - name: Build project artifacts
+        run: vercel build --token=\${{ secrets.VERCEL_TOKEN }}
+
+      # Deploys the pre-built output and captures the resulting preview URL
+      - name: Deploy to Vercel (preview)
+        id: deploy
+        run: |
+          url=$(vercel deploy --prebuilt --token=\${{ secrets.VERCEL_TOKEN }})
+          echo "preview_url=$url" >> "$GITHUB_OUTPUT"
+
+      # Posts (or updates) a single comment on the PR with the live preview link
+      - name: Comment preview URL on the PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const url = "\${{ steps.deploy.outputs.preview_url }}";
+            const body = \`🚀 Preview deployed: \${url}\`;
+            const { data: comments } = await github.rest.issues.listComments({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+            });
+            const existing = comments.find(c => c.body.includes("Preview deployed"));
+            if (existing) {
+              await github.rest.issues.updateComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                comment_id: existing.id, body,
+              });
+            } else {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: context.issue.number, body,
+              });
+            }
+\`\`\`
+
+**Why this pipeline is valuable, and what you need to understand to make it your own:**
+
+- **\`vercel pull\` then \`vercel build\` then \`vercel deploy --prebuilt\`**: this is the officially recommended pattern from Vercel when you want to build the project yourself inside GitHub Actions rather than letting Vercel's native GitHub integration handle it. The benefit: you keep full control over the pipeline (you can insert tests, scans, custom steps before deployment), rather than depending on a black box.
+- **Why update the existing comment instead of creating a new one on every push?** Without this lookup logic (\`comments.find(...)\`), every new commit on the PR would add a fresh "Preview deployed" comment, and after 15 commits your PR would be cluttered with 15 near-identical comments. Updating the same comment keeps the conversation clean and readable.
+- **\`actions/github-script@v7\`**: a very powerful action we haven't seen yet — it gives you direct, authenticated access to the GitHub API (through the \`github\` object) right inside your YAML, in JavaScript. Extremely useful the moment you need logic richer than what plain YAML steps allow (here: finding an existing comment, updating it or creating a new one).
+- **\`permissions: pull-requests: write\`**: without this explicit permission, the call to \`createComment\`/\`updateComment\` would fail with a 403 error. A great concrete example of why you should always check required permissions **before** diving into debugging a mysterious API failure.
+- **What to watch out for**: think about cleanup. Vercel automatically removes previews after a configurable period of inactivity, but if you're managing this yourself on another host (say, ephemeral Docker previews on your own infrastructure), add a second workflow triggered on \`pull_request: types: [closed]\` that tears down the matching preview environment — otherwise you accumulate zombie environments that cost you money and RAM for nothing.
+- **Going further**: this same pattern (deploy, capture a URL, comment on the PR) works identically with Netlify, AWS Amplify, Cloudflare Pages, or even your own ephemeral Docker infrastructure — only the deployment step changes, all the automated-comment logic stays reusable as-is.
+
+
+### Example 5 (BONUS) — The actual pipeline behind my own portfolio, in production
+
+And now, the piece I really wanted to share with you: **the pipeline I actually use**, today, to deploy this very portfolio and this very blog you're reading. Not a simplified teaching example — the real file, with the real choices, the real trade-offs, and the level of security I judged necessary for a project publicly exposed on the internet.
+
+The context: a React/Vite site, built with Bun, packaged as a Docker image and pushed to GHCR (GitHub Container Registry), deployed to an **OVH VPS**, with **Watchtower** continuously watching the registry and automatically recreating the container the moment a new \`:latest\` image is available. All of it preceded by a full security chain: secret scanning, static code analysis, filesystem vulnerability scanning, then a scan of the final Docker image.
+
+\`\`\`yaml
+# =============================================================================
+# Deploy to OVH VPS via GHCR + Watchtower
+# =============================================================================
+#
+# Flow (push to main):
+#   CI (format/lint/typecheck/tests/md/build)
+#   → Gitleaks
+#   → SonarQube
+#   → Trivy FS
+#   → Build & push image to GHCR (sha + latest)
+#   → Trivy image scan
+#   → SSH deploy (compose pull + up)
+#
+# Watchtower on the VPS also polls GHCR and recreates when :latest moves.
+#
+# REQUIRED SECRETS (GitHub → Settings → Secrets and variables → Actions):
+#   SONAR_TOKEN, SONAR_HOST_URL
+#   OVH_SSH_HOST, OVH_SSH_USER, OVH_SSH_KEY
+#   OVH_SSH_PORT          (optional, default 22)
+#   OVH_APP_DIR           (optional, default /srv/apps/barthez-kenwou-portfolio)
+#   GHCR_PULL_TOKEN       (recommended — PAT read:packages for private GHCR on VPS / Watchtower)
+#   GITLEAKS_LICENSE      (optional — org/pro gitleaks-action features)
+#
+# NOTE: repo is private → GHCR package is private. VPS + Watchtower MUST docker login GHCR.
+# Prefer GHCR_PULL_TOKEN (long-lived PAT) over GITHUB_TOKEN for server-side pulls.
+# =============================================================================
+
+name: Deploy VPS (GHCR)
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  workflow_dispatch:
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: \${{ github.repository }}
+  NODE_VERSION: "22"
+  BUN_VERSION: "1.3.12"
+
+# Cancels any in-progress run for the same branch when a newer commit arrives —
+# no point deploying an outdated commit that's already been superseded
+concurrency:
+  group: deploy-vps-\${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  packages: write
+  security-events: write
+  pull-requests: write
+
+jobs:
+  ci:
+    name: CI — format, lint, typecheck, test, build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: \${{ env.BUN_VERSION }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: \${{ env.NODE_VERSION }}
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile --ignore-scripts
+
+      - name: Format check
+        run: bun run format:check
+        continue-on-error: true
+
+      - name: Markdown lint
+        run: bun run md:lint
+        continue-on-error: true
+
+      - name: ESLint
+        run: bun run lint
+
+      - name: Typecheck
+        run: bun run typecheck
+
+      - name: Unit tests
+        run: bun run test:ci
+
+      - name: Prepare .env for build
+        run: |
+          cp .env.example .env
+          sed -i 's|^VITE_SITE_URL=.*|VITE_SITE_URL=https://barthez-kenwou.dev|' .env
+          sed -i 's|^VITE_APP_URL=.*|VITE_APP_URL=https://barthez-kenwou.dev|' .env
+          sed -i 's|^VITE_ENVIRONMENT=.*|VITE_ENVIRONMENT=production|' .env
+
+      - name: Production build
+        env:
+          NODE_ENV: production
+          VITE_SKIP_IMAGEMIN: "true"
+          CI: "true"
+        run: bunx vite build
+
+      - name: Upload dist artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: dist
+          path: dist
+          retention-days: 7
+
+  gitleaks:
+    name: Gitleaks — secrets scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0   # full git history — Gitleaks scans every past commit, not just HEAD
+
+      - name: Gitleaks
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: \${{ secrets.GITHUB_TOKEN }}
+          GITLEAKS_LICENSE: \${{ secrets.GITLEAKS_LICENSE }}
+
+  sonarqube:
+    name: SonarQube — SAST
+    runs-on: ubuntu-latest
+    needs: [ci]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      # Skip gracefully instead of failing the whole pipeline if Sonar isn't configured
+      - name: Detect Sonar credentials
+        id: sonar
+        run: |
+          if [ -n "\${{ secrets.SONAR_TOKEN }}" ] && [ -n "\${{ secrets.SONAR_HOST_URL }}" ]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::SONAR_TOKEN / SONAR_HOST_URL missing — skipping SonarQube"
+          fi
+
+      - name: Setup Bun
+        if: steps.sonar.outputs.enabled == 'true'
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: \${{ env.BUN_VERSION }}
+
+      - name: Install dependencies
+        if: steps.sonar.outputs.enabled == 'true'
+        run: bun install --frozen-lockfile --ignore-scripts
+
+      - name: Unit tests with coverage
+        if: steps.sonar.outputs.enabled == 'true'
+        run: bun run test:coverage
+        continue-on-error: true
+
+      - name: SonarQube Scan
+        if: steps.sonar.outputs.enabled == 'true'
+        uses: SonarSource/sonarqube-scan-action@v6
+        env:
+          SONAR_TOKEN: \${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: \${{ secrets.SONAR_HOST_URL }}
+
+  trivy-fs:
+    name: Trivy — filesystem / deps
+    runs-on: ubuntu-latest
+    needs: [ci]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Trivy FS scan
+        uses: aquasecurity/trivy-action@v0.36.0
+        with:
+          scan-type: fs
+          scan-ref: .
+          severity: CRITICAL,HIGH
+          exit-code: "1"          # fail the pipeline if a critical/high vuln is found
+          ignore-unfixed: true    # don't block on vulns with no available fix yet
+          format: table
+
+  build-push:
+    name: Build & push GHCR image
+    runs-on: ubuntu-latest
+    needs: [ci, gitleaks, trivy-fs, sonarqube]   # every security gate must pass first
+    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'))
+    outputs:
+      digest: \${{ steps.build.outputs.digest }}
+      image: \${{ steps.ref.outputs.image }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Download dist artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dist
+          path: dist
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: \${{ env.REGISTRY }}
+          username: \${{ github.actor }}
+          password: \${{ secrets.GITHUB_TOKEN }}
+
+      # Generates consistent tags: the full sha, "latest" (only on default branch), and the branch name
+      - name: Docker metadata
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: \${{ env.REGISTRY }}/\${{ env.IMAGE_NAME }}
+          tags: |
+            type=sha,prefix=sha-,format=long
+            type=raw,value=latest,enable={{is_default_branch}}
+            type=ref,event=branch
+
+      - name: Build and push (nginx runtime + CI dist)
+        id: build
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: infra/docker/Dockerfile.runtime
+          push: true
+          tags: \${{ steps.meta.outputs.tags }}
+          labels: \${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          build-args: |
+            BUILD_DATE=\${{ github.run_started_at }}
+            VCS_REF=\${{ github.sha }}
+            VERSION=\${{ github.sha }}
+
+      - name: Export image ref (lowercase)
+        id: ref
+        run: |
+          echo "image=$(echo '\${{ env.REGISTRY }}/\${{ env.IMAGE_NAME }}' | tr '[:upper:]' '[:lower:]')" >> "$GITHUB_OUTPUT"
+
+  trivy-image:
+    name: Trivy — container image
+    runs-on: ubuntu-latest
+    needs: [build-push]
+    steps:
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: \${{ env.REGISTRY }}
+          username: \${{ github.actor }}
+          password: \${{ secrets.GITHUB_TOKEN }}
+
+      # Scanning the digest (not a mutable tag) guarantees we scan the EXACT image just built
+      - name: Trivy image scan
+        uses: aquasecurity/trivy-action@v0.36.0
+        with:
+          image-ref: \${{ needs.build-push.outputs.image }}@\${{ needs.build-push.outputs.digest }}
+          severity: CRITICAL,HIGH
+          exit-code: "1"
+          ignore-unfixed: true
+          format: table
+
+  deploy:
+    name: Deploy OVH VPS
+    runs-on: ubuntu-latest
+    needs: [build-push, trivy-image]
+    environment: production   # requires manual approval / branch restriction if configured
+    if: github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'))
+    steps:
+      - name: Deploy over SSH
+        uses: appleboy/ssh-action@v1.2.0
+        env:
+          GHCR_IMAGE: ghcr.io/\${{ github.repository }}
+          IMAGE_TAG: latest
+        with:
+          host: \${{ secrets.OVH_SSH_HOST }}
+          username: \${{ secrets.OVH_SSH_USER }}
+          key: \${{ secrets.OVH_SSH_KEY }}
+          port: \${{ secrets.OVH_SSH_PORT }}
+          script_stop: true
+          script: |
+            set -euo pipefail
+            APP_DIR="\${{ secrets.OVH_APP_DIR }}"
+            if [ -z "$APP_DIR" ]; then
+              APP_DIR="/srv/apps/barthez-kenwou-portfolio"
+            fi
+            IMAGE="ghcr.io/\${{ github.repository }}"
+            TAG="latest"
+
+            echo "==> App directory: $APP_DIR"
+            mkdir -p "$APP_DIR"
+            cd "$APP_DIR"
+
+            if [ ! -f docker-compose.yml ]; then
+              echo "ERROR: docker-compose.yml missing in $APP_DIR"
+              echo "Bootstrap the VPS once — see docs/deployment/DEPLOY_VPS.md"
+              exit 1
+            fi
+
+            echo "==> Login GHCR (private package)"
+            PULL_TOKEN="\${{ secrets.GHCR_PULL_TOKEN }}"
+            if [ -z "$PULL_TOKEN" ]; then
+              PULL_TOKEN="\${{ secrets.GITHUB_TOKEN }}"
+            fi
+            echo "$PULL_TOKEN" | docker login ghcr.io -u "\${{ github.actor }}" --password-stdin
+
+            export IMAGE_TAG="$TAG"
+            export GHCR_IMAGE="$IMAGE"
+
+            echo "==> Pull & recreate (network web-proxy for Nginx Proxy Manager)"
+            docker compose pull web
+            docker compose up -d --remove-orphans web
+
+            if docker compose config --profiles 2>/dev/null | grep -q watchtower; then
+              docker compose --profile watchtower up -d
+            fi
+
+            docker image prune -f
+            echo "==> Health check"
+            sleep 3
+            docker compose exec -T web wget -qO- http://127.0.0.1:8080/health
+            echo
+            echo "Deploy OK — \${IMAGE}:\${TAG}"
+            echo "NPM: barthez-kenwou.dev → barthez-portfolio-web:8080 (web-proxy)"
+\`\`\`
+
+**Why this pipeline looks the way it does, with the hindsight of actually running it in production:**
+
+- **Why so many security jobs before even building the image?** Because I learned the hard way (and by watching plenty of incidents happen to others) that it's far better to block a deployment upstream than to discover an exposed secret or a vulnerable dependency once the site is already live. **Gitleaks** scans the entire Git history for accidentally committed API keys, tokens, or passwords. **SonarQube** does static code analysis (SAST): potential bugs, code smells, known vulnerabilities in the code's own logic. **Trivy FS** scans the filesystem and dependencies (SCA — Software Composition Analysis) for known CVEs in your libraries. And **Trivy image** does the same work again, but on the final Docker image, which can introduce its own vulnerabilities through the base image or installed system packages. These are four complementary security layers, not redundant ones: each covers a different attack surface.
+- **Why does the \`sonarqube\` job "skip gracefully" if credentials are missing, instead of failing?** Because I want this workflow to remain usable as-is in a fork or an environment where SonarQube isn't configured yet, without blocking everyone. It's a pattern I recommend anytime an integration is "optional but recommended" rather than strictly mandatory.
+- **Why scan the image via its digest (\`@sha256:...\`) rather than its tag?** A tag like \`:latest\` is mutable — between the moment the image is pushed and the moment Trivy scans it a few seconds later, nothing theoretically guarantees \`:latest\` still points to the same image (if another workflow were running in parallel, for instance). The digest, on the other hand, is a unique cryptographic hash of that exact image — no ambiguity about what's actually being scanned.
+- **Why GHCR + Watchtower instead of a classic SSH deployment with an immediate \`docker compose up\`?** This is a deliberate architectural choice. The \`deploy\` job does perform an "active" \`docker compose pull && up\` over SSH, triggered by the pipeline. But **Watchtower**, in addition, runs continuously on the VPS and periodically checks whether the \`:latest\` image on GHCR has changed, independently of the pipeline. This is **intentional redundancy**: if the deploy job were to fail silently for some network reason, or if I need to manually recreate the container after some server-side intervention, Watchtower catches up on its own within minutes. The price to pay: Watchtower also needs to authenticate against GHCR (private repo), hence the \`GHCR_PULL_TOKEN\`, a long-lived Personal Access Token scoped only to \`read:packages\` — never the run's \`GITHUB_TOKEN\` (which expires at the end of the job and would be useless for a service running continuously on the server).
+- **Why prefer \`GHCR_PULL_TOKEN\` over \`GITHUB_TOKEN\` for server-side pulls?** \`GITHUB_TOKEN\` only exists for the duration of the job — once the workflow finishes, it's revoked. Watchtower, on the other hand, runs 24/7 on the VPS and needs a token that stays valid over time to keep authenticating against GHCR on every check. Hence the need for a dedicated PAT, minimal scope, stored only as a GitHub secret (never in plain text on the server).
+- **\`concurrency\` with \`cancel-in-progress: true\`**: if I push two commits back to back, the first in-progress run is automatically canceled in favor of the second. This avoids wasting CI minutes on a version that's obsolete anyway, and also avoids a dangerous scenario where two deployments would overlap on the same server.
+- **\`environment: production\` on the \`deploy\` job**: this lets me, if I want to, add a GitHub protection rule (mandatory manual approval before deployment, restricted to specific reviewers) without touching the rest of the pipeline. On this personal project I haven't enabled a required reviewer, but on a team or client project, that's the very first thing I turn on.
+- **The final health check (\`wget http://127.0.0.1:8080/health\`)**: this looks like a minor detail but matters enormously. Without it, the pipeline finishes "green" as soon as \`docker compose up -d\` returns, even if the container crashes 2 seconds after starting. With this check, if the application doesn't respond correctly on its health endpoint, the deployment is marked as failed — and I know it immediately, instead of discovering the site is down an hour later by chance.
+- **\`--ignore-scripts\` on \`bun install\`**: this prevents arbitrary \`postinstall\` scripts from third-party dependencies from running during installation — an extra layer of protection against a supply-chain attack where a compromised package would execute malicious code at install time.
+
+It's this level of detail — every line intentional, every choice justifiable — that makes the difference between a pipeline that "works" and a pipeline you can actually sleep soundly at night with.
+
+
+## 4. Advanced features — each one deserved its own section, so here they are
+
+We're no longer going to just list these features in two lines each. Every one below gets a real explanation, with real usage context.
+
+### 4.1 Secrets and environment variables
+
+There's an important distinction many developers never quite make: **secrets** vs **variables**.
+
+- **Secrets** (\`Settings → Secrets and variables → Actions → Secrets\`): encrypted, never shown in plain text in logs (GitHub automatically masks them, even if you accidentally \`echo\` them — they show up as \`***\`). Use these for anything sensitive: API keys, passwords, tokens, private SSH keys.
+- **Variables** (\`Settings → Secrets and variables → Actions → Variables\`): unencrypted, visible in plain text in the UI and in logs. Use these for non-sensitive values you want centralized without hardcoding them into your YAML: an AWS region name, an environment URL, a default version number.
+
+Three scopes exist for both: **repository** (specific to one repo), **environment** (specific to an environment like "production," see below), and **organization** (shared across multiple repos — handy for a token used by a whole team, with fine-grained control over which repos can access it).
+
+\`\`\`yaml
+env:
+  API_URL: \${{ vars.API_URL }}          # variable, shown in plain text
+steps:
+  - run: curl -H "Authorization: Bearer \${{ secrets.API_TOKEN }}" $API_URL   # secret, masked in logs
+\`\`\`
+
+**A trap worth knowing about**: a secret is only accessible through the \`secrets.*\` context — it is **never** automatically injected as a system environment variable, unless you explicitly do so via \`env:\`. And be careful: if you pass a secret through a composed shell command (say, concatenated into a URL), GitHub might not fully manage to mask it in logs if its exact value gets transformed before being displayed (base64-encoded, for example) — that's a classic source of accidental leakage.
+
+### 4.2 Matrix Strategy — testing (or deploying) across multiple combinations in parallel
+
+A matrix strategy automatically duplicates a job for every combination of values you define — extremely useful for testing your code's compatibility across multiple language versions, multiple OSes, or multiple databases.
+
+\`\`\`yaml
+jobs:
+  test:
+    strategy:
+      fail-fast: false        # if one combination fails, the others keep running anyway
+      max-parallel: 4         # caps how many jobs run simultaneously (helps avoid burning through minutes)
+      matrix:
+        node-version: [18, 20, 22]
+        os: [ubuntu-latest, windows-latest]
+        exclude:
+          - node-version: 18
+            os: windows-latest   # this exact combination won't be tested
+    runs-on: \${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: \${{ matrix.node-version }}
+      - run: npm ci && npm test
+\`\`\`
+
+This file **automatically generates 5 jobs** (3 Node versions × 2 OSes, minus the excluded combination). Key points:
+
+- **\`fail-fast: false\`** is almost always what you want for a test matrix: by default (\`fail-fast: true\`), the moment a single combination fails, GitHub immediately cancels all the others — which prevents you from seeing whether the problem affects one combination or all of them. Turn it off to get the full picture.
+- You can also generate a matrix **dynamically**, from a previous job, using \`fromJson()\` — useful, for example, to build the list of packages to test in a monorepo based on a script that detects what changed.
+- **Watch the cost**: every matrix cell consumes its own CI minutes. A 5×5×3 matrix = 75 jobs might sound appealing in theory, but costs 75 times more minutes than a single job. Only matrix what genuinely needs to be tested across multiple combinations.
+
+### 4.3 Advanced caching — the most under-used weapon
+
+\`actions/cache\` goes well beyond the automatic caching in \`setup-node\`. You can cache **any folder**, with fine-grained control over the cache key:
+
+\`\`\`yaml
+- name: Cache dependencies
+  uses: actions/cache@v4
+  with:
+    path: |
+      ~/.cache/pip
+      ~/.m2/repository
+    key: \${{ runner.os }}-deps-\${{ hashFiles('**/requirements.txt', '**/pom.xml') }}
+    restore-keys: |
+      \${{ runner.os }}-deps-
+\`\`\`
+
+What you need to understand to actually make the most of it:
+
+- **\`key\`** should change the moment the content being cached changes — hence using \`hashFiles()\` on your dependency files. If the key never changes, you risk restoring a stale cache.
+- **\`restore-keys\`** define partial fallback keys: if no exact key match is found, GitHub looks for the most recent match starting with that prefix. That's what lets you, even after a dependency change, start from a "close" cache instead of re-downloading everything from scratch.
+- **Limits worth knowing**: 10 GB of cache maximum per repository, and entries unused for more than 7 days get automatically evicted. On a very active repo with many branches, you can quickly approach this limit — GitHub then evicts the least recently used caches.
+- **Docker caching via Buildx** (\`cache-from: type=gha\` / \`cache-to: type=gha,mode=max\`, used in Examples 3 and 5) is a special, extremely powerful case: it caches **individual Docker layers**, not just dependencies. Result: if only your application code changes but not your \`package.json\`, your Dockerfile's \`npm install\` step is served entirely from cache, and only the code-copy layer gets rebuilt — a gain in speed that's often dramatic (builds sometimes go from 4 minutes down to 20 seconds).
+
+### 4.4 Environments and protection rules
+
+A GitHub **environment** (\`Settings → Environments\`) isn't just a label — it's a genuine control point.
+
+\`\`\`yaml
+jobs:
+  deploy:
+    environment:
+      name: production
+      url: https://my-app.com    # shown as a clickable link in the GitHub UI
+    runs-on: ubuntu-latest
+    steps: [...]
+\`\`\`
+
+What you can configure on an environment, and why it's powerful:
+
+- **Required reviewers**: the job pauses and waits for a designated person to click "Approve" before continuing. Essential for any production deployment in a team context.
+- **Wait timer**: forces a minimum delay (say, 10 minutes) before deployment can start — useful as a "cooling-off window" to cancel an accidental deployment.
+- **Deployment branches**: restricts which branches are allowed to deploy to this environment (typically, only \`main\` can deploy to \`production\`, while any branch can deploy to \`staging\`).
+- **Secrets and variables scoped to the environment**: a \`DATABASE_URL\` secret can have a different value in \`staging\` versus \`production\`, while keeping the same name in your YAML.
+
+### 4.5 Notifications (Slack, Discord, Email, Teams)
+
+\`\`\`yaml
+- name: Notify Slack on failure
+  if: failure()
+  uses: slackapi/slack-github-action@v2
+  with:
+    webhook: \${{ secrets.SLACK_WEBHOOK_URL }}
+    webhook-type: incoming-webhook
+    payload: |
+      {
+        "text": "🔴 Deployment failed on \`\${{ github.repository }}\` (commit \`\${{ github.sha }}\`) — <\${{ github.server_url }}/\${{ github.repository }}/actions/runs/\${{ github.run_id }}|view logs>"
+      }
+\`\`\`
+
+The most important advice here, drawn straight from experience: **don't notify on every success**. A team that gets a Slack notification for every successful deployment eventually tunes out the channel entirely ("alert fatigue") — and it's precisely on the day an important failure happens that nobody notices it, drowned in the noise. Reserve automatic notifications for **failures** (\`if: failure()\`) and, optionally, for successful production deployments only (not staging, not every CI job).
+
+### 4.6 Reusable workflows (\`workflow_call\`) — factoring your pipelines like functions
+
+This is one of the most powerful, and least known, features for beginners. A **reusable workflow** behaves like a function: you pass it parameters (\`inputs\`), it can receive \`secrets\`, and it returns \`outputs\`.
+
+File \`./.github/workflows/reusable-deploy.yml\`:
+
+\`\`\`yaml
+name: Reusable Deploy
+
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+    secrets:
+      deploy-token:
+        required: true
+    outputs:
+      deployed-url:
+        value: \${{ jobs.deploy.outputs.url }}
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    outputs:
+      url: \${{ steps.deploy.outputs.url }}
+    steps:
+      - id: deploy
+        run: |
+          echo "Deploying to \${{ inputs.environment }}..."
+          echo "url=https://\${{ inputs.environment }}.my-app.com" >> "$GITHUB_OUTPUT"
+\`\`\`
+
+And to call it from another workflow (potentially in another repo!):
+
+\`\`\`yaml
+jobs:
+  call-staging:
+    uses: ./.github/workflows/reusable-deploy.yml
+    with:
+      environment: staging
+    secrets:
+      deploy-token: \${{ secrets.DEPLOY_TOKEN }}
+\`\`\`
+
+The concrete benefit: if you have 5 microservices with the exact same deployment pattern, you write the logic **once**, in a central repo if needed, and each microservice calls it with its own parameters. The day you improve the deployment pipeline, you do it in exactly one place.
+
+### 4.7 Composite actions (\`.github/actions/\`) — the best practice that's too often forgotten
+
+An important difference from reusable workflows: a **composite action** factors out a **sequence of steps**, not a whole job, and is used directly with \`uses:\` inside any job, exactly like a third-party action.
+
+Create \`.github/actions/setup-project/action.yml\`:
+
+\`\`\`yaml
+name: 'Setup Project'
+description: 'Checkout, install Node.js, and restore dependencies with cache'
+inputs:
+  node-version:
+    description: 'Node.js version to install'
+    required: false
+    default: '20'
+runs:
+  using: 'composite'
+  steps:
+    - uses: actions/setup-node@v4
+      with:
+        node-version: \${{ inputs.node-version }}
+        cache: 'npm'
+    - run: npm ci
+      shell: bash    # required for every "run" step inside a composite action
+\`\`\`
+
+And in your workflows, instead of repeating those 5 lines in every job of every file:
+
+\`\`\`yaml
+steps:
+  - uses: actions/checkout@v4
+  - uses: ./.github/actions/setup-project
+    with:
+      node-version: '22'
+\`\`\`
+
+This is exactly the **DRY (Don't Repeat Yourself)** principle applied to your pipelines. The moment the same block of 3-4 steps shows up in more than two workflows, that's your signal to extract it into a composite action. This is standard practice on mature teams, and yet it's very rarely taught to beginners.
+
+### 4.8 Concurrency — avoiding wasteful or dangerous runs
+
+\`\`\`yaml
+concurrency:
+  group: \${{ github.workflow }}-\${{ github.ref }}
+  cancel-in-progress: true
+\`\`\`
+
+Two very different use cases to keep separate:
+
+- On a **CI** workflow (tests on a PR): \`cancel-in-progress: true\` is almost always desirable. If you push 3 commits in 2 minutes, only the last one needs testing — canceling the earlier runs saves minutes and gives faster feedback.
+- On a **deployment** workflow: be more careful. Canceling a deployment mid-run can leave your infrastructure in an inconsistent state (a half-applied database migration, for example). The bonus pipeline above does use \`cancel-in-progress: true\`, but only because the deploy step itself stays short and idempotent (\`docker compose up -d\` can be safely re-run).
+
+### 4.9 Path filtering and conditional execution — essential in a monorepo
+
+\`\`\`yaml
+on:
+  push:
+    paths:
+      - 'apps/api/**'
+      - 'packages/shared/**'
+\`\`\`
+
+For finer-grained needs than a simple \`paths:\` filter (for example, dynamically deciding which jobs to run based on what changed), the community action \`dorny/paths-filter\` is the reference tool:
+
+\`\`\`yaml
+- uses: dorny/paths-filter@v3
+  id: changes
+  with:
+    filters: |
+      api: ['apps/api/**']
+      web: ['apps/web/**']
+- if: steps.changes.outputs.api == 'true'
+  run: echo "API changed, running its pipeline"
+\`\`\`
+
+In a monorepo with several applications, combining this filtering with reusable workflows (4.6) and a dynamic matrix (4.2) lets you build and deploy **only** what actually changed — a huge saving in time and cost as the monorepo grows.
+
+### 4.10 Artifacts — knowing when to use them (and when not to)
+
+We've already run into \`upload-artifact\`/\`download-artifact\` several times. A common source of confusion: **cache or artifact, which one?**
+
+- **Cache**: for data that **speeds up** a future run but isn't strictly required for its success (dependencies, Docker layers). A missing cache slows things down, it doesn't break anything.
+- **Artifact**: for carrying a result **produced by this specific run** to another job in the same run, or for making it available for human download (a test report, a production build, scan results). A missing artifact usually crashes the job depending on it.
+
+Also think about retention (\`retention-days\`) — the default is 90 days, which can needlessly eat into your storage quota on a repo with a lot of builds. Shorten it (7 days, as in our bonus pipeline) for intermediate build artifacts nobody will ever look at once deployment is done.
+
+### 4.11 The full application security chain (DevSecOps)
+
+The bonus pipeline uses four different security tools — let's use this to clarify what each one actually covers, since these are categories people often mix up:
+
+| Category | What it detects | Example tool |
+|---|---|---|
+| **Secret scanning** | API keys, passwords, tokens accidentally committed, including in Git history | Gitleaks, GitHub Advanced Security secret scanning |
+| **SAST** (Static Application Security Testing) | Flaws in your own code's logic (injection, poor error handling, dangerous patterns) | SonarQube, CodeQL, Semgrep |
+| **SCA** (Software Composition Analysis) | Known CVEs in your third-party dependencies (npm libraries, pip packages…) | Trivy (fs mode), Dependabot, Snyk |
+| **Container scanning** | Vulnerabilities in the final Docker image: base image, system packages, layers | Trivy (image mode), Grype |
+
+One practice I strongly recommend that we haven't mentioned yet: enable **Dependabot** (\`.github/dependabot.yml\`) so your dependencies (and your own GitHub Actions!) automatically get update Pull Requests the moment a new version fixes a vulnerability — combined with your CI automatically validating those PRs, you get a security system that pretty much maintains itself.
+
+### 4.12 OIDC in depth — understanding the mechanism, not just copy-pasting it
+
+We saw OIDC in Example 2 for AWS, but the mechanism is **generic** and also works with Google Cloud, Azure, or HashiCorp Vault. Here's what actually happens, step by step:
+
+1. Your job starts with \`permissions: id-token: write\`.
+2. When an action like \`configure-aws-credentials\` needs it, GitHub generates a **signed JWT token**, containing verifiable claims: the repo, the branch, the environment, the triggering event.
+3. That token is sent to the cloud provider (AWS STS, for example), which verifies its signature against GitHub (via a public OIDC endpoint), then checks that the token's content matches a **trust policy** configured beforehand on the cloud side (for example: "only accept tokens where \`repo == my-org/my-repo\` AND \`ref == refs/heads/main\`").
+4. If everything matches, the cloud provider returns temporary credentials (often valid for 15 to 60 minutes).
+
+**What this actually means for you**: you can configure a trust policy that **only** allows deployments from the \`main\` branch of your exact repo to assume the production role — even if someone gained full access to your GitHub repo on some other branch, they couldn't deploy to prod through this mechanism. That's a far finer-grained isolation than what static API keys allow.
+
+### 4.13 Self-hosted runners and ARC
+
+When GitHub-hosted runners aren't enough anymore (you need a GPU for model training, network access to an internal database without exposing it to the internet, or simply your build volume has grown too large to stay cost-effective), you can host your own runners. For occasional use, a runner manually installed on a VM is enough. For team-scale usage, **ARC (Actions Runner Controller)** lets you orchestrate a fleet of ephemeral runners inside a Kubernetes cluster, with automatic scaling based on load — every job gets a brand-new pod, in the same spirit of isolation as GitHub-hosted runners, but on your own infrastructure.
+
+### 4.14 Debugging a workflow that isn't doing what you expect
+
+A few techniques that save enormous amounts of time:
+
+- **Detailed debug logging**: add the \`ACTIONS_STEP_DEBUG\` secret set to \`true\` in your repo's secrets to get much more verbose logs for every step.
+- **\`GITHUB_STEP_SUMMARY\`**: as seen earlier, lets you write a readable Markdown summary directly in the UI, instead of digging through raw logs — very useful for showing a test coverage summary or scan results.
+- **Interactive debug session**: the \`mxschmitt/action-tmate\` action opens an interactive SSH session directly on the runner when something fails, letting you inspect the machine's exact state at the moment of the problem.
+- **Test locally with \`act\`**: the open-source tool [nektos/act](https://github.com/nektos/act) runs your GitHub Actions workflows **locally**, in Docker, without having to push a commit for every iteration. A massive time saver when developing or debugging a complex pipeline.
+
+
+## 5. 2026 Best Practices — what separates a pipeline that "works" from one at expert level
+
+This is the chapter I really wanted to enrich. Not a list of 7 bullet points you forget 5 minutes after reading it, but an actual roadmap, organized by theme, with the "why" spelled out every time. If you apply everything below, you'll clearly be above the average pipeline I come across in the industry.
+
+### 5.1 Security — the absolute priority
+
+- **Pin your Actions to a full SHA, not just a tag**: \`uses: actions/checkout@v4\` is convenient, but a tag like \`v4\` can technically be moved by the action's maintainer (or by an attacker who compromised their account) to point to a different, malicious commit. For maximum security on sensitive Actions (ones that handle secrets), prefer \`uses: actions/checkout@a1b2c3d...\` (the full commit SHA), with a comment noting the corresponding version. Dependabot can keep these SHAs updated automatically.
+- **Minimal permissions by default**: set \`permissions: {}\` (or just \`contents: read\`) at the workflow level, then only widen permissions job by job, step by step, to exactly what's needed. Ideally, also configure at the GitHub organization level that every new repo's default \`GITHUB_TOKEN\` is read-only.
+- **OIDC instead of static cloud secrets**, systematically, whenever the cloud provider supports it (AWS, GCP, Azure, and HashiCorp Vault all do).
+- **Be wary of \`pull_request_target\`**: never use it while checking out and running the PR's own code (tests, build). If you absolutely must, split it into two workflows: a first, limited one, with no secret access, that builds/tests the PR's code; a second one, using \`pull_request_target\`, that only reads the first workflow's results (via artifacts) to post a comment, never executing code coming from the PR itself.
+- **Audit third-party Actions before using them**: check the star count, the date of the last update, whether the source code is readable and consistent with its description. An Action used with \`uses:\` has potential access to everything the job can see, including any secrets exposed in the environment.
+- **Enable GitHub's secret scanning and push protection** (Settings → Code security) in addition to Gitleaks in your pipeline — protection at push time (before the commit even reaches the repo) is a valuable extra layer.
+- **Protect your sensitive environments** with required reviewers, and restrict which branches are allowed to deploy to production.
+
+### 5.2 Performance and cost control
+
+- **Cache everything that can be cached**, no exceptions: dependencies, Docker layers, build outputs. It's often the single most cost-effective lever for the engineering time invested.
+- **Parallelize whatever is independent** (linting, unit tests, security scanning can almost always run at the same time rather than sequentially), but **sequence whatever must be** through \`needs\` — never gate a deployment behind a job that has nothing to do with whether the code being deployed is valid.
+- **Use \`concurrency\` with \`cancel-in-progress\`** on your CI pipelines so you never pay twice for a run that's already obsolete.
+- **Pick the right runner for the right job**: \`ubuntu-latest\` by default, only switch to \`macos-latest\` (noticeably more expensive) if you genuinely need to build for iOS/macOS.
+- **Consider self-hosted runners** once your GitHub-hosted minutes usage becomes financially significant — the break-even point depends on your usage, but past a few thousand minutes a month, it's worth doing the math.
+- **Keep your matrices sized to what actually adds value** — test against the Node/Python versions your users actually run, not every version that exists "just in case."
+- **Optimize your Docker images**: minimal base images (\`alpine\`, \`distroless\`), multi-stage builds to keep only what's strictly necessary in the final image, which speeds up build, push, and server-side pull all at once.
+
+### 5.3 Maintainability — so the pipeline outlives you
+
+- **DRY your workflows** with composite actions (4.7) and reusable workflows (4.6) the moment you repeat the same logic across more than two files.
+- **Centralize versions** in an \`env:\` block at the top of the file (\`NODE_VERSION: "22"\`) rather than repeating them hardcoded in every \`with:\` — a single place to change the day you bump the version.
+- **Name every step clearly** (\`name:\`) — a log that shows "Run npm ci" instead of just the raw command is much faster to scan when hunting for where things broke.
+- **Comment your YAML**, exactly like in this article's examples — a pipeline with no comments quickly becomes a mystery, even to its own author six months later.
+- **Lint your workflows** with \`actionlint\` (locally or as a pre-commit hook) to catch syntax errors and inconsistencies before you even push the commit.
+- **Document the required secrets** at the top of the file (like in the bonus pipeline) — whoever has to set up the repo for the first time will thank you.
+- **Version your shared composite actions and reusable workflows** with semantic tags if they're shared across multiple repos, exactly like any other library.
+
+### 5.4 Reliability — a pipeline that fails cleanly rather than silently
+
+- **\`timeout-minutes\` on every job** — a job stuck for 6 hours because some interactive command is waiting on input that will never come happens more often than you'd think.
+- **Health checks after every deployment**, as in the bonus pipeline — a "green" deployment that actually shipped a crashing application is the worst possible outcome, because it gives false confidence.
+- **A rollback strategy thought through in advance**: immutable, SHA-tagged images (Examples 3 and 5), so you can revert to the previous version in one click without rebuilding anything.
+- **Retry fragile network steps** (dependency downloads, third-party API calls) with an action like \`nick-fields/retry\`, rather than failing the whole pipeline over a 2-second transient network blip.
+- **Idempotent deployment scripts**: your deployment script should be safely re-runnable multiple times in a row without breaking anything (the \`|| true\` in Example 3, the \`--remove-orphans\` in Example 5, are both details going in that direction).
+
+### 5.5 Team collaboration
+
+- **Branch protection rules** tied to the exact names of your CI jobs (Settings → Branches → Require status checks to pass before merging) — without this, a failing check stays purely "informational" and doesn't stop anyone from merging anyway.
+- **CODEOWNERS** on the \`.github/workflows/\` folder itself — pipeline changes should be reviewed with just as much care as application code, since they have access to your production secrets.
+- **Status badges in the README** (\`![CI](https://github.com/org/repo/actions/workflows/ci.yml/badge.svg)\`) — an instant visual signal of the project's health for anyone landing on it.
+- **Document the pipeline in the repo** (a \`docs/deployment/\` folder, as mentioned in the bonus pipeline) — required secrets, how to bootstrap a new environment, how to trigger a manual deployment.
+
+### 5.6 Observability
+
+- **\`GITHUB_STEP_SUMMARY\`** to make important results (test coverage, security scan results) instantly visible in the UI, without having to scroll through raw logs.
+- **Targeted notifications, not blanket ones** (see 4.5) — the signal has to stay rare to stay useful.
+- **Keep report artifacts** (test coverage, Trivy/SonarQube results) with an appropriate retention period, so you can investigate a regression after the fact.
+- **Direct links to logs** in your notifications (like in the Slack example in 4.5) — never make someone manually hunt down which run failed.
+
+### 5.7 What field experience taught me (and that you won't find in any official documentation)
+
+- **An overly strict pipeline kills adoption**: if your CI blocks a PR over a minor style lint with the same severity as a critical security flaw, developers eventually find ways to work around the pipeline instead of respecting it. Reserve \`exit-code: 1\` (blocking) for actual problems, and leave the rest as \`continue-on-error: true\` with a visible report.
+- **A project's first automated deployment should always happen with someone present**, never on a Friday at 6 PM, even when "it seems to work locally" — automation reduces human risk, it doesn't eliminate it.
+- **Deliberate redundancy (like Watchtower in the bonus pipeline) is often worth more than a "perfect" but single-path pipeline** — a system with two independent paths to the same outcome (the active pipeline AND the passive poller) is more resilient than a system with a single, ultra-optimized but fragile path.
+- **Invest in the pipeline from day one of a project**, even a minimal one (Example 1 is more than enough to start) — a project that grows without CI/CD accumulates debt that becomes increasingly expensive to pay down later.
+- **Test your deployment scripts by isolating each command before putting them in the pipeline** — the number of times a badly escaped \`sed\` or a wrong relative path only reveals itself in production remains surprisingly high, even among experienced developers.
 
 ## Conclusion
 
-Congratulations! You've gone from zero to **expert** level on GitHub Actions.
+There you have it — you've just walked a complete path: from the fundamental concepts (events, jobs, steps, runners, contexts) all the way to five real, fully detailed pipelines, through every advanced feature (matrices, caching, environments, reusable workflows, composite actions, OIDC, DevSecOps security) and a best-practices roadmap built to last.
 
-... (version anglaise complète et dans le même ton chaleureux)
+You now know how to build professional, secure, fast, and maintainable pipelines — and more importantly, you understand **why** each choice is made, not just "how to copy-paste it." That understanding is exactly what will let you adapt all of this to your own context, your own stack, your own constraints.
+
+Whether it's for a side project, a startup, or a large company, you now hold one of the most powerful tools in the modern DevOps ecosystem in your hands — plus a real production pipeline example, from this very site, to draw inspiration from directly.
+
+**Recommended next steps:**
+- Start small (Example 1) if you have nothing yet, then progressively increase complexity
+- Migrate your existing projects to OIDC if you're still using static cloud keys
+- Add E2E tests (Cypress or Playwright) to your CI pipeline
+- Extract repeated steps into composite actions the moment you see the same sequence in two workflows
+- Explore GitHub Actions for Terraform, Kubernetes, or your own specific needs
+
+Got a question? A workflow that's not working? A special case (monorepo, mobile, etc.)?
+Leave a comment right below, I answer personally.
+
+If this article helped you, **share it** with your colleagues or on LinkedIn — it always means a lot!
+
+**Tags**: #GitHubActions #CICD #DevOps #Automation #DevOpsEngineer #GitHub
+
+Thanks for taking the time to read all the way through. You're a lot stronger now than you were yesterday. Keep it up! 🚀
+
   `,
     "image": "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/github_actions_ci_cd.png",
     "category": "DevOps",
     "date": "2026-02-12",
-    "readTime": "19 min",
+    "readTime": "55 min",
     "author": "Barthez Kenwou",
     "tags": ["GitHub Actions", "CI/CD", "DevOps", "Automation", "Pipeline", "Deployment", "GitHub", "OIDC"]
   },
@@ -396,30 +2667,33 @@ Congratulations! You've gone from zero to **expert** level on GitHub Actions.
     "slug": "deploy-react-aws-s3-cloudfront-route-53",
     "titleFr": "Guide Complet 2026 : Déployer une Application React sur AWS comme un Pro (S3 + CloudFront + Route 53)",
     "titleEn": "Complete 2026 Guide: Deploy a React Application on AWS Like a Pro (S3 + CloudFront + Route 53)",
-    "excerptFr": "Apprenez à déployer votre application React en toute sécurité, avec un CDN mondial ultra-rapide, un nom de domaine personnalisé et une architecture moderne (bucket privé + OAC). Zéro serveur, coût mini, performance maximale. Étape par étape, même si vous débutez.",
-    "excerptEn": "Learn how to deploy your React app securely with a global CDN, custom domain, and modern architecture (private bucket + OAC). No servers, minimal cost, maximum performance. Step-by-step, even if you're a beginner.",
+    "excerptFr": "Apprenez à déployer votre application React en toute sécurité, avec un CDN mondial ultra-rapide, un nom de domaine personnalisé et une architecture moderne (bucket privé + OAC). Édition 2026 entièrement enrichie — chaque brique de l'architecture expliquée en profondeur (S3, CloudFront, OAC, Route 53, ACM), trois pipelines CI/CD complets, et une feuille de route de bonnes pratiques. Zéro serveur, coût mini, performance maximale. Étape par étape, même si vous débutez.",
+    "excerptEn": "Learn how to deploy your React app securely with a global CDN, custom domain, and modern architecture (private bucket + OAC). Fully expanded 2026 edition — every building block of the architecture explained in depth (S3, CloudFront, OAC, Route 53, ACM), three complete CI/CD pipelines, and a best-practices roadmap. No servers, minimal cost, maximum performance. Step-by-step, even if you're a beginner.",
     "contentFr": `
 ## Introduction
 
-Déployer une application React sur AWS peut sembler intimidant… mais une fois que vous avez la bonne méthode, c’est **incroyablement simple, sécurisé et puissant**.
+Déployer une application React sur AWS peut sembler intimidant… mais une fois que vous avez la bonne méthode, c'est **incroyablement simple, sécurisé et puissant**.
 
-Dans ce guide ultra-complet (mis à jour 2026), vous allez apprendre à héberger votre SPA React avec :
-- Un bucket S3 **privé** (plus sécurisé que l’ancienne méthode publique)
-- CloudFront + **Origin Access Control (OAC)** pour un CDN mondial ultra-rapide
-- Gestion parfaite du routing client-side (React Router, Vite, etc.)
+Cet article est la version **entièrement remaniée et boostée 2026** de mon guide de déploiement React sur AWS. Comme pour mon guide GitHub Actions, je voulais aller beaucoup plus loin que "voici les étapes à suivre" : je veux que vous compreniez **pourquoi** chaque brique existe, comment elles s'articulent entre elles, et ce qui distingue une architecture de tutoriel d'une architecture que vous pouvez montrer fièrement à un CTO.
+
+Dans ce guide ultra-complet, vous allez apprendre à héberger votre SPA React avec :
+- Un bucket S3 **privé** (plus sécurisé que l'ancienne méthode publique)
+- CloudFront + **Origin Access Control (OAC)** pour un CDN mondial ultra-rapide — et vous allez vraiment comprendre pourquoi OAC et pas autre chose
+- Gestion parfaite du routing client-side (React Router, Vite, etc.) — avec l'explication complète du **pourquoi** ce problème existe
 - Un nom de domaine personnalisé + HTTPS gratuit avec Route 53
-- Des optimisations de performance et de cache
-- Un pipeline CI/CD optionnel pour déployer en un clic
+- Des optimisations de performance, de cache, et de sécurité approfondies (WAF, headers, CloudFront Functions, Lambda@Edge)
+- **Trois variantes de pipeline CI/CD** complètes (démarrage rapide, version sécurisée avec OIDC, et version multi-environnements avec validation manuelle)
+- Une feuille de route de bonnes pratiques 2026 pensée pour durer
 
-À la fin de cet article, vous aurez une application **professionnelle**, rapide partout dans le monde, sécurisée et qui coûte presque rien.
+À la fin de cet article, vous aurez une application **professionnelle**, rapide partout dans le monde, sécurisée, peu coûteuse — et surtout, vous saurez exactement pourquoi chaque brique de l'architecture est là.
 
-Prêts ? Allons-y, je vous guide pas à pas comme si on était ensemble devant votre ordinateur.
+Prêts ? Allons-y, je vous guide pas à pas comme si on était ensemble devant votre ordinateur, café en main ☕.
 
 ---
 
 ## Prérequis
 
-Avant de commencer, assurez-vous d’avoir :
+Avant de commencer, assurez-vous d'avoir :
 - Un compte AWS actif ([aws.amazon.com](https://aws.amazon.com))
 - AWS CLI v2 installé et configuré (\`aws --version\`, \`aws configure\`)
 - Node.js (v18 ou supérieur) et npm/yarn/pnpm
@@ -427,176 +2701,587 @@ Avant de commencer, assurez-vous d’avoir :
 - Un nom de domaine (optionnel mais recommandé)
 - Des droits administrateur sur votre compte AWS (ou un utilisateur IAM avec les permissions nécessaires)
 
-**Astuce de pro** : Créez un utilisateur IAM dédié avec une policy « AdministratorAccess » pour ce tutoriel.
+**Petite checklist avant de vous lancer** :
+- Vous savez ce qu'est un fichier \`.env\` et comment configurer des credentials AWS en local ? Parfait.
+- Vous ne connaissez pas encore la différence entre S3, CloudFront et Route 53 ? Aucun souci, c'est exactement l'objet de la section suivante — on part de zéro.
+- Votre application utilise React Router (ou un routeur client-side équivalent) ? Gardez ça en tête, on y revient en détail plus loin, c'est un point sur lequel énormément de gens bloquent sans comprendre pourquoi.
+
+**Astuce de pro** : Créez un utilisateur IAM dédié avec une policy « AdministratorAccess » pour suivre ce tutoriel confortablement. Mais retenez bien ceci : **ce n'est pas une pratique à garder en production**. On revient en détail sur les permissions IAM correctement scopées dans la section Bonnes pratiques, à la toute fin.
 
 ---
 
-## Étape 0 : Préparer et builder votre application React
+## 1. Comprendre l'architecture AWS de A à Z (avant de taper la moindre commande)
+
+Exactement comme pour mon guide GitHub Actions, je préfère qu'on prenne le temps de comprendre les briques **avant** de les assembler. Si vous zappez cette section, vous saurez suivre les étapes — mais vous ne saurez pas quoi faire le jour où quelque chose ne se passe pas comme prévu. Et croyez-moi, dans une stack avec 4 services AWS différents qui communiquent entre eux, ce jour-là arrive plus vite qu'on ne le pense.
+
+### 1.1 Vue d'ensemble : le trajet d'une requête, de A à Z
+
+Voici exactement ce qui se passe quand un visiteur tape \`https://app.mondomaine.com\` dans son navigateur :
+
+1. Le navigateur interroge **Route 53** (notre service DNS) : "à quelle adresse correspond ce nom de domaine ?"
+2. Route 53 répond avec un enregistrement **Alias** pointant vers votre distribution **CloudFront**.
+3. Le navigateur se connecte au point de présence CloudFront (**edge location**) le plus proche géographiquement de lui.
+4. Si CloudFront a déjà ce fichier en cache à cet endroit (**cache hit**), il le renvoie immédiatement — en quelques millisecondes, sans jamais contacter S3.
+5. Sinon (**cache miss**), CloudFront va chercher le fichier à **l'origine** : votre bucket **S3**, en s'authentifiant via **OAC (Origin Access Control)**.
+6. S3 renvoie le fichier, CloudFront le met en cache à cet edge location pour les prochains visiteurs, puis le renvoie au navigateur.
+7. Le HTTPS tout du long est garanti par un certificat **ACM (AWS Certificate Manager)**, attaché à la distribution CloudFront.
+
+Résumez cette chaîne dans votre tête : **Navigateur → Route 53 (DNS) → CloudFront (CDN, cache mondial) → OAC (authentification) → S3 (stockage privé)**. Chaque étape de ce guide correspond à la configuration d'un maillon précis de cette chaîne.
+
+### 1.2 S3 — le stockage, brique de base
+
+**S3 (Simple Storage Service)** est un service de stockage d'objets : vous y déposez des fichiers (des "objects"), organisés dans des "buckets" (un peu comme des dossiers racine, mais avec des règles bien à eux). Chaque fichier a une "key" (son chemin, par exemple \`assets/index-a3f9.js\`).
+
+Ce qu'il faut savoir avant de foncer :
+
+- **Ancienne méthode (à éviter en 2026)** : activer le mode "Static website hosting" directement sur le bucket, et rendre le bucket **public**. Ça marchait, mais ça exposait directement votre bucket sur une URL S3 brute, sans passer par un CDN, sans HTTPS natif, et surtout : n'importe qui connaissant (ou devinant) le nom de votre bucket pouvait explorer son contenu directement, en contournant complètement CloudFront (et donc votre cache, votre WAF si vous en avez un, vos règles de sécurité).
+- **Méthode recommandée (celle qu'on utilise ici)** : bucket **entièrement privé** (Block all public access activé), où **seul CloudFront** a le droit d'y accéder, via OAC. Personne ne peut atteindre vos fichiers directement — tout le trafic est obligatoirement filtré par CloudFront.
+- S3 est facturé au stockage (quelques centimes par Go) et par requête — pour un site statique de taille raisonnable, la facture S3 est presque toujours négligeable (voir la section coûts plus loin).
+
+### 1.3 CloudFront — le CDN qui rend tout rapide (et sécurisé)
+
+Un **CDN (Content Delivery Network)** est un réseau de serveurs répartis dans le monde entier (les **edge locations**, ou points de présence) qui mettent en cache une copie de votre contenu au plus près géographiquement de chaque visiteur. Résultat : un utilisateur au Japon ne va pas chercher vos fichiers jusqu'en Europe à chaque clic — CloudFront lui sert une copie mise en cache depuis Tokyo.
+
+**CloudFront** est le CDN d'AWS. Une **distribution** CloudFront, c'est la configuration complète : quelle est l'origine (votre bucket S3), quelles règles de cache appliquer, quel certificat HTTPS utiliser, quel comportement adopter sur les erreurs, etc.
+
+Concepts clés à bien saisir :
+
+- **Cache behavior** : les règles qui définissent, pour un pattern d'URL donné, comment CloudFront doit se comporter (quelle origine contacter, quelle politique de cache appliquer).
+- **Cache policy** : définit la durée de mise en cache (**TTL — Time To Live**) et quels éléments de la requête (headers, cookies, query strings) influencent le cache. \`CachingOptimized\` est le préréglage AWS recommandé pour du contenu statique : il maximise la durée de cache et ignore les cookies/headers non pertinents.
+- **Invalidation** : force CloudFront à re-télécharger un fichier depuis l'origine plutôt que de servir la version en cache, même si le TTL n'est pas encore expiré. Indispensable après chaque déploiement (on le fait dans nos pipelines).
+
+### 1.4 OAC vs OAI — comprendre ce choix technique en profondeur
+
+C'est un point que la plupart des tutoriels expédient en une phrase ("cochez OAC"), et pourtant comprendre la différence vous évite des heures de debug le jour où ça ne marche pas.
+
+- **OAI (Origin Access Identity)** — l'ancienne méthode, encore largement documentée sur internet parce qu'elle existe depuis des années. C'est une "identité" spéciale que CloudFront présente à S3, à qui on donne l'autorisation de lire le bucket via une bucket policy. Ça fonctionne, mais ça a des limitations : pas de support du chiffrement SSE-KMS sur le bucket, pas de support de toutes les méthodes HTTP, une signature de requête moins robuste (SigV2).
+- **OAC (Origin Access Control)** — la méthode moderne (introduite en 2022), qui remplace OAI et qu'AWS recommande désormais pour absolument tous les nouveaux projets. OAC utilise une signature **SigV4** (la même norme de signature que le reste des API AWS), supporte le chiffrement KMS, et fonctionne avec toutes les méthodes HTTP. Concrètement pour vous : **utilisez toujours OAC**, sauf si vous maintenez une distribution existante ancienne qui utilise encore OAI.
+
+Quand vous créez un OAC via la console, AWS génère automatiquement (ou vous propose de générer) la **bucket policy** correspondante sur S3, qui ressemble à ceci :
+
+\`\`\`json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowCloudFrontServicePrincipal",
+      "Effect": "Allow",
+      "Principal": { "Service": "cloudfront.amazonaws.com" },
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::mon-app-react-prod/*",
+      "Condition": {
+        "StringEquals": {
+          "AWS:SourceArn": "arn:aws:cloudfront::123456789012:distribution/EDFDVBD6EXAMPLE"
+        }
+      }
+    }
+  ]
+}
+\`\`\`
+
+**Ce qui compte vraiment dans ce JSON** : la condition \`AWS:SourceArn\` restreint l'accès à **une distribution CloudFront précise**, identifiée par son ARN. Ça veut dire que même si quelqu'un d'autre dans votre compte AWS créait une autre distribution CloudFront, elle ne pourrait pas lire ce bucket — seule la distribution exacte que vous avez configurée y a accès. C'est le principe de moindre privilège appliqué au niveau infrastructure.
+
+### 1.5 Route 53 — la couche DNS
+
+**Route 53** est le service DNS géré d'AWS. Une **hosted zone** est l'ensemble des enregistrements DNS pour un domaine donné. Trois types d'enregistrements que vous croiserez ici :
+
+- **A / AAAA** : associe un nom de domaine directement à une adresse IP (v4 / v6). Pas ce qu'on utilise ici, car CloudFront n'a pas d'IP fixe (il utilise énormément d'IP différentes selon l'edge location).
+- **CNAME** : associe un nom de domaine à un **autre nom de domaine**. Fonctionne pour un sous-domaine (\`app.mondomaine.com\`), mais **ne peut pas être utilisé sur un domaine racine/apex** (\`mondomaine.com\` tout court) — c'est une limitation du protocole DNS lui-même, pas d'AWS.
+- **Alias** : une extension propriétaire d'AWS, qui se comporte comme un CNAME mais **peut** être utilisé sur un domaine racine, et surtout, est **gratuit en requêtes DNS** quand la cible est une ressource AWS comme CloudFront. C'est donc systématiquement le bon choix ici : un enregistrement Alias pointant vers votre distribution CloudFront.
+
+### 1.6 ACM — les certificats HTTPS gratuits et auto-renouvelés
+
+**AWS Certificate Manager (ACM)** génère et gère vos certificats SSL/TLS gratuitement, avec renouvellement automatique tant que la validation DNS reste en place.
+
+**Le piège absolu à connaître** : pour qu'un certificat ACM soit utilisable par CloudFront, il **doit obligatoirement être demandé dans la région \`us-east-1\`** (Virginie du Nord) — même si votre bucket S3 et le reste de votre infrastructure sont dans une toute autre région (\`eu-west-1\` par exemple). C'est une exigence spécifique à CloudFront (qui est un service "global"), et c'est de loin l'erreur la plus fréquente que je vois chez les débutants : ils demandent le certificat dans leur région habituelle, puis ne comprennent pas pourquoi CloudFront ne le propose pas dans la liste.
+
+### 1.7 Le problème du routing SPA — pourquoi ça casse, et pourquoi la solution marche
+
+C'est probablement le concept le plus mal compris de tout ce guide, alors prenons vraiment le temps de l'expliquer.
+
+Une application React classique (avec React Router, par exemple) est une **Single Page Application (SPA)** : il n'existe physiquement qu'**un seul fichier HTML réel** (\`index.html\`). Toutes les autres "pages" (\`/dashboard\`, \`/profil\`, \`/settings/notifications\`…) n'existent pas en tant que fichiers — elles sont générées **dynamiquement côté client**, par du JavaScript qui intercepte la navigation et affiche le bon composant, sans jamais recharger la page depuis le serveur.
+
+Le problème apparaît dans un cas précis : quand un utilisateur **arrive directement** sur une de ces routes (en tapant l'URL directement, en rafraîchissant la page, ou en cliquant sur un lien partagé) plutôt que de naviguer depuis l'intérieur de l'application. Dans ce cas, le navigateur fait une vraie requête HTTP vers \`/dashboard\`. CloudFront la transmet à S3. Et S3... n'a évidemment aucun fichier qui s'appelle \`dashboard\` (seul \`index.html\` existe). Comme le bucket est privé et protégé par OAC, S3 renvoie une erreur **403 Forbidden** (plutôt qu'un 404, à cause de la façon dont l'autorisation est vérifiée avant même de chercher l'objet).
+
+**La solution — les Custom Error Responses** — consiste à dire à CloudFront : "si jamais tu reçois un 403 ou un 404 de la part de l'origine, ne transmets pas cette erreur au visiteur. À la place, sers \`/index.html\` avec un code de statut 200." Résultat : peu importe l'URL demandée, le visiteur reçoit toujours votre application React, qui se charge, initialise React Router, lit l'URL dans la barre d'adresse du navigateur, et affiche le bon composant côté client. La boucle est bouclée.
+
+**Point d'attention à connaître** : cette technique a un effet de bord — vos **vraies** erreurs 404 (un lien vraiment cassé, une faute de frappe dans l'URL) renvoient désormais aussi un 200 avec votre application. Ça veut dire que c'est à **votre routeur React** (pas à CloudFront) de gérer l'affichage d'une page "404 non trouvée" pour les routes qui n'existent pas dans votre \`<Routes>\` — un \`<Route path="*" element={<NotFound />} />\` en fin de définition de vos routes, par exemple.
+
+### 1.8 IAM — les permissions, brique invisible mais critique
+
+**IAM (Identity and Access Management)** contrôle qui a le droit de faire quoi sur votre compte AWS. On utilise dans ce tutoriel un utilisateur avec la policy \`AdministratorAccess\` pour simplifier l'apprentissage — mais retenez que c'est l'équivalent de donner les clés de la maison entière pour aller chercher du pain à la boulangerie du coin. On détaille la version correctement scopée (uniquement ce qu'il faut, sur les ressources précises dont vous avez besoin) dans la section Bonnes pratiques.
+
+Voilà, vous avez maintenant la carte mentale complète de l'architecture. Passons à la pratique.
+
+
+## 2. Le déploiement pas à pas, avec les explications qui manquaient
+
+### Étape 0 : Préparer et builder votre application React
 
 Dans le dossier de votre projet :
+
 \`\`\`bash
+# Create React App (Webpack) — outputs to build/
 npm run build
-# ou pour Vite :
+
+# Vite — outputs to dist/
 npm run build
 \`\`\`
 
-Cela crée le dossier **\`build/\`** (CRA) ou **\`dist/\`** (Vite).
-C’est **ce dossier** que nous allons déployer.
+Cela crée le dossier **\`build/\`** (CRA) ou **\`dist/\`** (Vite) — un dossier rempli de fichiers HTML/CSS/JS statiques, optimisés, minifiés, avec des noms de fichiers "hashés" (par exemple \`index-a3f9c21.js\`). **C'est ce dossier** que nous allons déployer, rien d'autre.
 
-**Important pour le SPA routing** : Rien à changer côté code si vous utilisez React Router en mode BrowserRouter.
+**Pourquoi le hash dans les noms de fichiers a une vraie importance ici** : ce n'est pas juste esthétique. Ce hash change **uniquement** quand le contenu du fichier change réellement. C'est ce qui permet de configurer un cache CloudFront **extrêmement long** (un an, voire plus) sur ces fichiers-là sans jamais risquer de servir une version obsolète — puisqu'un changement de contenu produit automatiquement un nouveau nom de fichier, donc une nouvelle URL, donc un cache miss inévitable et correct. On reprend ce point en détail dans la section cache avancé plus loin.
 
----
+**Important pour le SPA routing** : rien à changer côté code si vous utilisez React Router en mode \`BrowserRouter\` — la configuration se fait entièrement côté CloudFront (Étape 3).
 
-## Étape 1 : Créer un bucket S3 privé
+### Étape 1 : Créer un bucket S3 privé
 
-### Via la console AWS :
+#### Via la console AWS :
 1. Allez sur **S3** → **Create bucket**
-2. Nom : \`mon-app-react-prod\` (doit être unique mondialement)
-3. Région : \`eu-west-1\` (ou celle qui vous convient)
-4. **Block all public access** → **ON**
-5. Décochez « Use Bucket Policy to restrict access » si demandé
+2. Nom : \`mon-app-react-prod\` (doit être unique **mondialement**, tous comptes AWS confondus — c'est un espace de noms global)
+3. Région : \`eu-west-1\` (ou celle qui vous convient — idéalement la plus proche de la majorité de vos utilisateurs, même si CloudFront compensera en grande partie ce choix)
+4. **Block all public access** → **ON** (laissez cette case cochée — c'est le cœur de toute l'architecture sécurisée qu'on construit)
+5. Décochez « Use Bucket Policy to restrict access » si demandé (on configurera la bucket policy nous-mêmes à l'Étape 3, via OAC)
 6. Créez le bucket
 
-### Via CLI :
+#### Via CLI :
+
 \`\`\`bash
+# Region must match wherever you plan to reference this bucket later (S3 sync, IAM policies, etc.)
 aws s3 mb s3://mon-app-react-prod --region eu-west-1
 \`\`\`
 
----
+**Sur quoi faire attention** : le nom de bucket est visible dans certaines URLs internes et logs — évitez d'y mettre des informations sensibles (ne nommez pas votre bucket \`mon-app-secrete-client-x-prod\`, par exemple). Un nom neutre et descriptif suffit amplement.
 
-## Étape 2 : Uploader vos fichiers dans le bucket
+### Étape 2 : Uploader vos fichiers dans le bucket
 
 \`\`\`bash
+# CRA
 aws s3 sync build/ s3://mon-app-react-prod --delete
-# Pour Vite :
+
+# Vite
 aws s3 sync dist/ s3://mon-app-react-prod --delete
 \`\`\`
 
-Le flag \`--delete\` supprime les anciens fichiers inutiles.
+**Pourquoi \`sync\` plutôt que \`cp\`** ? \`aws s3 sync\` compare intelligemment la source et la destination, et ne transfère que les fichiers nouveaux ou modifiés — beaucoup plus rapide qu'un \`cp\` récursif qui retransfère tout à chaque fois, surtout sur un site avec beaucoup d'assets.
 
----
+**Pourquoi le flag \`--delete\` est important, mais aussi dangereux** : il supprime du bucket S3 tout fichier qui n'existe plus dans votre dossier local \`build/\`/\`dist/\`. C'est exactement ce qu'on veut pour un déploiement propre (pas de vieux fichiers JS orphelins qui traînent indéfiniment), mais **attention** : si vous synchronisez accidentellement le mauvais dossier local (un dossier vide, par exemple, suite à un build qui a échoué silencieusement), \`--delete\` viderait votre bucket de production. Bonne pratique : dans un pipeline CI/CD, faites toujours précéder cette commande d'une vérification que le build a bien produit des fichiers (\`ls build/ | wc -l\` supérieur à un seuil minimal, par exemple), avant de synchroniser.
 
-## Étape 3 : Configurer CloudFront avec OAC
+### Étape 3 : Configurer CloudFront avec OAC
 
 1. Allez sur **CloudFront** → **Create distribution**
-2. **Origin domain** : sélectionnez votre bucket S3
-3. **Origin access** → **Origin access control settings (recommended)**
-4. **Viewer protocol policy** → Redirect HTTP to HTTPS
-5. **Allowed HTTP methods** → GET, HEAD, OPTIONS
+2. **Origin domain** : sélectionnez votre bucket S3 (\`mon-app-react-prod.s3.eu-west-1.amazonaws.com\`)
+3. **Origin access** → **Origin access control settings (recommended)** → créez un nouvel OAC (gardez les valeurs par défaut)
+4. **Viewer protocol policy** → Redirect HTTP to HTTPS *(force tous les visiteurs en HTTPS, jamais de contenu servi en clair)*
+5. **Allowed HTTP methods** → GET, HEAD, OPTIONS *(un site statique n'a besoin de rien de plus — pas de POST/PUT/DELETE vers S3 directement)*
 6. **Cache policy** → **CachingOptimized**
-7. **Compress objects automatically** → Yes
-8. **Custom error responses** (CRUCIAL pour React Router) :
+7. **Compress objects automatically** → Yes *(CloudFront compresse automatiquement en Gzip/Brotli — gain de bande passante quasi gratuit)*
+8. **Custom error responses** (voir section 1.7 — **l'étape la plus critique pour une SPA**) :
    - Error code 403 → Response code : 200 → Response page path : \`/index.html\`
    - Error code 404 → Response code : 200 → Response page path : \`/index.html\`
 9. **Default root object** : \`index.html\`
 10. Créez la distribution.
 
-**Temps d’attente** : 10 à 15 minutes.
+**Temps d'attente** : 10 à 15 minutes — CloudFront doit propager votre configuration à des centaines d'edge locations dans le monde entier. C'est normal, ne paniquez pas si \`https://xxxxx.cloudfront.net\` ne répond pas immédiatement.
 
----
+**Ce qu'il faut vraiment retenir de cette étape** : sans les deux règles de custom error response de l'étape 8, votre application fonctionnera parfaitement... tant que les utilisateurs cliquent uniquement sur des liens internes depuis la page d'accueil. Le jour où quelqu'un partage un lien direct vers \`/produit/42\` ou rafraîchit sa page sur \`/dashboard\`, il tombera sur une erreur brute au lieu de votre application. C'est l'un des bugs les plus fréquents et les plus déroutants pour les débutants qui déploient leur première SPA sur S3/CloudFront — désormais vous savez exactement pourquoi ça arrive et comment l'éviter dès le départ.
 
-## Étape 4 : Ajouter un nom de domaine personnalisé avec Route 53
+### Étape 4 : Ajouter un nom de domaine personnalisé avec Route 53
 
-### 1. Demander un certificat SSL (ACM)
-- Région : **us-east-1**
-- Request certificate → Public → Domain name : \`app.mondomaine.com\`
-- Validation DNS → Route 53
+#### 1. Demander un certificat SSL (ACM)
+- Région : **us-east-1** *(obligatoire pour CloudFront, voir section 1.6 — sinon votre certificat n'apparaîtra tout simplement pas dans la liste déroulante de CloudFront)*
+- Request certificate → Public → Domain name : \`app.mondomaine.com\` (pensez à ajouter aussi \`*.mondomaine.com\` si vous prévoyez d'autres sous-domaines à l'avenir)
+- Validation DNS → Route 53 *(ACM peut créer automatiquement l'enregistrement de validation directement dans votre hosted zone Route 53 si les deux sont dans le même compte — un clic suffit)*
 
-### 2. Configurer Route 53
+#### 2. Configurer Route 53
 1. Allez dans **Route 53** → Hosted zones
 2. Cliquez sur votre domaine
-3. **Create record** → Alias vers votre distribution CloudFront
+3. **Create record** → Alias vers votre distribution CloudFront *(voir section 1.5 pour comprendre pourquoi un Alias et pas un CNAME)*
 
-Mettez à jour votre distribution CloudFront avec le domaine et le certificat.
+Mettez à jour votre distribution CloudFront avec le nom de domaine personnalisé (champ "Alternate domain names / CNAMEs") et sélectionnez le certificat ACM que vous venez de créer.
 
----
+**Sur quoi faire attention** : la propagation DNS peut prendre de quelques minutes à quelques heures selon le TTL précédent de votre domaine (si vous migrez depuis un autre hébergeur). Testez avec \`dig app.mondomaine.com\` ou \`nslookup app.mondomaine.com\` pour vérifier que la résolution DNS pointe bien vers CloudFront avant de vous inquiéter.
 
-## Bonus : Optimisations avancées
 
-- **Caching** : Cache Policies personnalisées
-- **Security** : AWS WAF devant CloudFront
-- **Performance** : Response headers policy
-- **Monitoring** : CloudFront logs + CloudWatch
+## 3. Fonctionnalités avancées — chacune mérite sa propre explication
 
----
+On ne va pas se contenter de lister ça en 4 puces. Voici ce qu'il y a vraiment à savoir pour passer d'un déploiement "qui marche" à une infrastructure de niveau pro.
 
-## Bonus : Pipeline CI/CD avec GitHub Actions
+### 3.1 Cache Policies — la stratégie qui change tout
+
+Le préréglage \`CachingOptimized\` suffit pour démarrer, mais une vraie stratégie de cache différencie **deux catégories de fichiers** :
+
+- **Assets versionnés/hashés** (\`index-a3f9c21.js\`, \`main-8b21.css\`) : comme vu à l'Étape 0, leur nom change dès que leur contenu change. Vous pouvez donc leur appliquer un cache **quasi infini** sans risque :
+
+\`\`\`
+Cache-Control: public, max-age=31536000, immutable
+\`\`\`
+
+- **\`index.html\`** (et tout fichier non versionné) : c'est le point d'entrée qui référence les assets hashés. Lui, en revanche, doit être revérifié à **chaque visite**, sinon vos utilisateurs pourraient continuer à charger une ancienne version de l'application qui pointe vers des assets qui n'existent plus après un déploiement :
+
+\`\`\`
+Cache-Control: no-cache
+\`\`\`
+
+Cette distinction se configure soit via les métadonnées S3 au moment de l'upload (\`aws s3 cp --cache-control\`), soit via une **Cache Policy CloudFront personnalisée** appliquée sur un comportement de cache dédié (par exemple, un comportement spécifique pour le pattern \`/index.html\` avec un TTL de 0).
+
+### 3.2 AWS WAF — protéger votre CDN en amont
+
+**AWS WAF (Web Application Firewall)** se place devant CloudFront et filtre les requêtes malveillantes avant même qu'elles n'atteignent votre distribution : injections SQL, cross-site scripting, bots connus, limitation de débit (rate limiting) par IP. Pour un site vitrine à faible trafic, ce n'est pas toujours indispensable dès le premier jour, mais dès que votre application gère de l'authentification, des formulaires, ou de la donnée sensible, activez au minimum les **AWS Managed Rules** de base (\`AWSManagedRulesCommonRuleSet\`) — quelques clics, un coût mensuel modeste, une protection significative contre les attaques automatisées les plus courantes.
+
+### 3.3 Response Headers Policy — les en-têtes de sécurité qu'on oublie
+
+CloudFront permet d'attacher automatiquement des en-têtes de sécurité à chaque réponse, sans toucher à votre code applicatif :
+
+- **\`Strict-Transport-Security\` (HSTS)** : force le navigateur à toujours utiliser HTTPS pour votre domaine, même si un utilisateur tape volontairement \`http://\`.
+- **\`X-Content-Type-Options: nosniff\`** : empêche le navigateur de deviner le type MIME d'un fichier, une protection contre certaines attaques d'injection de contenu.
+- **\`Content-Security-Policy\` (CSP)** : restreint les sources autorisées à charger des scripts, styles, images — une des défenses les plus efficaces contre le cross-site scripting (XSS), même si elle demande un peu de configuration fine selon les librairies tierces que vous chargez.
+- **\`Referrer-Policy\`** : contrôle quelles informations sont transmises dans l'en-tête \`Referer\` lors de la navigation vers un autre site.
+
+Tout ça se configure en une seule **Response Headers Policy**, réutilisable sur plusieurs distributions.
+
+### 3.4 CloudFront Functions et Lambda@Edge — de la logique au plus près de l'utilisateur
+
+Deux options existent pour exécuter du code personnalisé directement à l'edge, avant que la requête n'atteigne (ou ne reparte de) votre origine :
+
+- **CloudFront Functions** : ultra-légères (JavaScript uniquement, quelques millisecondes d'exécution max), parfaites pour des manipulations simples de requête/réponse — réécriture d'URL, ajout d'en-têtes, redirections basées sur des règles simples, tests A/B basiques par cookie.
+- **Lambda@Edge** : plus puissant (Node.js ou Python, accès réseau, jusqu'à plusieurs secondes d'exécution), pour de la logique plus lourde — authentification à l'edge, personnalisation de contenu selon la géolocalisation, transformation d'image à la volée.
+
+Pour la grande majorité des SPA React, vous n'aurez besoin d'aucun des deux au démarrage — mais c'est bon à savoir le jour où vous voulez, par exemple, rediriger automatiquement selon la langue du navigateur sans repasser par votre code applicatif.
+
+### 3.5 Monitoring — CloudWatch et logs CloudFront
+
+Activez les **CloudFront access logs** (livrés dans un bucket S3 dédié) pour avoir une trace complète de chaque requête : IP, user-agent, statut de réponse, cache hit/miss. Couplez ça avec des métriques **CloudWatch** (taux d'erreur 4xx/5xx, taux de cache hit, volume de données transférées) et des alarmes automatiques (par exemple, une alerte si le taux d'erreur 5xx dépasse 1% sur 5 minutes). C'est ce qui vous permet de savoir qu'un problème existe **avant** qu'un utilisateur ne vous le signale.
+
+### 3.6 Multi-environnements et déploiements progressifs
+
+Sur un projet qui grandit, vous voudrez rapidement séparer **staging** et **production** — deux buckets S3 distincts, deux distributions CloudFront distinctes, avec éventuellement un sous-domaine dédié (\`staging.mondomaine.com\`). Pour des déploiements encore plus prudents en production, CloudFront propose désormais le **Continuous Deployment** : vous pouvez router un petit pourcentage du trafic réel (1%, 5%, 10%) vers une nouvelle version de votre distribution avant de basculer 100% du trafic — l'équivalent d'un déploiement canary, mais directement au niveau du CDN.
+
+### 3.7 Infrastructure as Code — arrêter de cliquer dans la console
+
+Tout ce qu'on vient de configurer à la main (bucket, distribution, OAC, certificat, enregistrement DNS) peut — et devrait, dès que le projet dépasse le stade du prototype — être défini en code, avec **Terraform** ou **AWS CDK**. L'intérêt : reproductibilité totale (recréer l'environnement staging en une commande), historique versionné de chaque changement d'infrastructure, et revue de code sur les changements d'infra exactement comme sur le code applicatif. On y revient brièvement en piste d'amélioration dans la conclusion.
+
+
+## 4. Trois pipelines CI/CD, du démarrage rapide à la version pro
+
+Exactement comme pour mon guide GitHub Actions (que je vous recommande d'ailleurs de lire en complément si ce n'est pas déjà fait, on y détaille chaque concept en profondeur), voici trois variantes concrètes de pipeline de déploiement automatique, chacune adaptée à une situation différente.
+
+### Pipeline A — Démarrage rapide (clés IAM statiques)
+
+C'est la version la plus rapide à mettre en place — parfaite pour un side-project ou pour valider que tout le reste de l'architecture fonctionne, mais **à faire évoluer vers le Pipeline B dès que le projet devient sérieux**.
 
 \`\`\`yaml
 name: Deploy to AWS
+
 on:
   push:
-    branches: [ main ]
+    branches: [main]
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Install Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: 'npm'
+
       - run: npm ci
       - run: npm run build
+
+      # Static long-lived credentials — quick to set up, but see Pipeline B for why this isn't ideal
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: \${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: \${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-west-1
+
+      # Safety check: don't sync (and --delete!) an accidentally empty build folder
+      - name: Sanity check build output
+        run: |
+          count=$(find build -type f | wc -l)
+          if [ "$count" -lt 5 ]; then
+            echo "Build output looks suspicious ($count files) — aborting deploy"
+            exit 1
+          fi
+
       - run: aws s3 sync build/ s3://mon-app-react-prod --delete
       - run: aws cloudfront create-invalidation --distribution-id E1234567890 --paths "/*"
 \`\`\`
 
----
+**Ce qu'il faut comprendre ici** : la commande \`create-invalidation --paths "/*"\` invalide **tout** le cache CloudFront à chaque déploiement. Pratique et sans risque d'erreur, mais ça a un coût au-delà des 1000 invalidations gratuites par mois, et ça vous prive temporairement des bénéfices du cache pour tous vos visiteurs juste après un déploiement. Avec la distinction de cache de la section 3.1 (assets hashés en cache quasi infini, \`index.html\` jamais caché), vous pouvez en réalité vous contenter d'invalider uniquement \`/index.html\` — les assets versionnés n'ont, par construction, jamais besoin d'invalidation.
 
-## Estimation des coûts (2026)
+**La faiblesse de sécurité de cette version** : \`AWS_ACCESS_KEY_ID\` et \`AWS_SECRET_ACCESS_KEY\` sont des credentials **statiques et valides indéfiniment**, stockés en secret GitHub. S'ils fuitent d'une façon ou d'une autre, l'accès qu'ils donnent reste valide jusqu'à ce que vous pensiez à les révoquer manuellement. C'est exactement le problème que le Pipeline B résout.
 
-- S3 : < 0,50 €
-- CloudFront : 1 à 5 €
-- Route 53 : 0,50 € + domaine
-- **Total mensuel** : **moins de 10 €**
+### Pipeline B (recommandé) — Version sécurisée avec OIDC
 
----
+\`\`\`yaml
+name: Deploy to AWS (OIDC)
 
-## Dépannage courant
+on:
+  push:
+    branches: [main]
 
-- **403 Forbidden** → Vérifiez l’OAC
-- **Routes SPA ne marchent pas** → Vérifiez les Custom Error Responses
-- **Certificat SSL en attente** → Vérifiez la validation DNS
-- **Changements pas visibles** → Invalidez le cache CloudFront
+permissions:
+  contents: read
+  id-token: write     # REQUIRED — lets GitHub request a short-lived AWS token, no static keys needed
 
----
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - run: npm ci
+      - run: npm run build
+
+      - name: Sanity check build output
+        run: |
+          count=$(find build -type f | wc -l)
+          if [ "$count" -lt 5 ]; then
+            echo "Build output looks suspicious ($count files) — aborting deploy"
+            exit 1
+          fi
+
+      # No secrets stored — GitHub's OIDC token is exchanged for a short-lived AWS session
+      - name: Configure AWS credentials via OIDC
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::123456789012:role/GitHubActionsDeployRole
+          aws-region: eu-west-1
+
+      - run: aws s3 sync build/ s3://mon-app-react-prod --delete
+
+      # Only invalidate what actually needs it — hashed assets never do (see 3.1)
+      - run: aws cloudfront create-invalidation --distribution-id E1234567890 --paths "/index.html"
+\`\`\`
+
+Pour que ça fonctionne, il faut préalablement créer, côté AWS, un rôle IAM (\`GitHubActionsDeployRole\`) avec une **trust policy** qui n'accepte que les jetons venant de votre repo GitHub précis :
+
+\`\`\`json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Federated": "arn:aws:iam::123456789012:oidc-provider/token.actions.githubusercontent.com"
+      },
+      "Action": "sts:AssumeRoleWithWebIdentity",
+      "Condition": {
+        "StringEquals": {
+          "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
+        },
+        "StringLike": {
+          "token.actions.githubusercontent.com:sub": "repo:mon-org/mon-repo:ref:refs/heads/main"
+        }
+      }
+    }
+  ]
+}
+\`\`\`
+
+**Pourquoi c'est nettement mieux** : aucun secret AWS de longue durée ne traîne dans vos secrets GitHub. La condition \`token.actions.githubusercontent.com:sub\` restreint l'usage de ce rôle **uniquement** aux workflows tournant sur la branche \`main\` de ce repo précis — même un contributeur avec un accès en écriture sur une autre branche ne pourrait pas assumer ce rôle et déployer en production. J'explique le mécanisme OIDC complet, étape par étape, dans mon guide GitHub Actions — foncez le lire si ce n'est pas encore fait, ça vaut le détour pour bien comprendre ce qui se passe sous le capot.
+
+**Le rôle IAM lui-même** doit avoir une policy scopée au strict nécessaire (pas d'\`AdministratorAccess\` !) :
+
+\`\`\`json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": ["s3:PutObject", "s3:DeleteObject", "s3:ListBucket"],
+      "Resource": [
+        "arn:aws:s3:::mon-app-react-prod",
+        "arn:aws:s3:::mon-app-react-prod/*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": "cloudfront:CreateInvalidation",
+      "Resource": "arn:aws:cloudfront::123456789012:distribution/E1234567890"
+    }
+  ]
+}
+\`\`\`
+
+C'est ça, le principe de moindre privilège en pratique : ce rôle peut lire/écrire dans **ce bucket précis** et invalider **cette distribution précise** — rien de plus.
+
+### Pipeline C — Multi-environnements avec validation manuelle avant la production
+
+Sur un projet d'équipe, vous voudrez presque toujours un déploiement automatique en staging à chaque merge, mais un **contrôle humain** avant que ça parte en production.
+
+\`\`\`yaml
+name: Deploy Multi-Environment
+
+on:
+  push:
+    branches: [main, develop]
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      artifact-name: build-\${{ github.sha }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: build-\${{ github.sha }}
+          path: build/
+
+  deploy-staging:
+    needs: build
+    if: github.ref == 'refs/heads/develop'
+    runs-on: ubuntu-latest
+    environment: staging          # no required reviewers — deploys instantly
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: build-\${{ github.sha }}
+          path: build
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::123456789012:role/GitHubActionsDeployRole
+          aws-region: eu-west-1
+      - run: aws s3 sync build/ s3://mon-app-react-staging --delete
+      - run: aws cloudfront create-invalidation --distribution-id ESTAGING123 --paths "/index.html"
+
+  deploy-production:
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: production       # required reviewers configured in GitHub — pauses here for approval
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: build-\${{ github.sha }}
+          path: build
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::123456789012:role/GitHubActionsDeployRole
+          aws-region: eu-west-1
+      - run: aws s3 sync build/ s3://mon-app-react-prod --delete
+      - run: aws cloudfront create-invalidation --distribution-id E1234567890 --paths "/index.html"
+\`\`\`
+
+**Ce qui fait la valeur de ce pipeline** : le job \`build\` ne construit l'application **qu'une seule fois**, et le même artefact buildé est déployé à la fois vers staging et (après validation) vers la production — vous testez exactement le binaire qui partira en prod, jamais un rebuild potentiellement différent. Le champ \`environment: production\`, couplé à une règle de reviewers obligatoires configurée dans les Settings GitHub du repo, met le job en pause et attend qu'un humain clique sur "Approve" avant de continuer — le filet de sécurité qui manquait aux deux pipelines précédents.
+
+
+## 5. Estimation des coûts (2026) — comprendre ce qui coûte vraiment
+
+Pour un site de taille moyenne (quelques milliers de visites/mois) :
+
+- **S3** : stockage (quelques centimes par Go/mois) + requêtes GET/PUT (négligeable) → généralement **moins de 0,50 €/mois**
+- **CloudFront** : c'est le **transfert de données sortant** (data transfer out) qui domine la facture, pas le stockage ni les requêtes en elles-mêmes → typiquement **1 à 5 €/mois** pour un trafic modéré, le premier To sortant par mois faisant partie du free tier AWS pendant les 12 premiers mois d'un nouveau compte
+- **Route 53** : environ 0,50 €/mois par hosted zone, + le coût du nom de domaine lui-même si vous l'achetez via Route 53 (sinon, juste la hosted zone)
+- **ACM** : **gratuit**, tant que le certificat est utilisé avec un service AWS comme CloudFront
+- **WAF** (si activé) : quelques euros par mois de frais fixes + un coût minime par million de requêtes évaluées
+
+**Total mensuel typique pour un petit-moyen projet : moins de 10 €**, hors nom de domaine.
+
+**Ce qui fait vraiment grimper la facture**, et qu'il faut surveiller si votre trafic grossit sérieusement : le volume de données transférées sortantes (un site avec beaucoup d'images ou de vidéos non optimisées peut voir ce poste grimper rapidement), et le nombre de requêtes en cas de cache hit ratio très faible (un mauvais réglage de cache policy qui force CloudFront à recontacter S3 à chaque requête au lieu de servir depuis le cache edge). Surveillez votre **cache hit ratio** dans les métriques CloudFront — un ratio sain pour un site statique bien configuré dépasse largement 90%.
+
+## 6. Dépannage courant — les erreurs qu'on croise (presque) toujours
+
+- **403 Forbidden en visitant le site** → Vérifiez que l'OAC est bien attaché à l'origine, et que la bucket policy générée référence bien l'ARN exact de votre distribution CloudFront (voir section 1.4). Une erreur de copier-coller sur l'ARN est la cause la plus fréquente.
+- **Les routes de la SPA ne marchent pas au rafraîchissement** → Vérifiez les Custom Error Responses (403 et 404 → 200 + \`/index.html\`, voir section 1.7). C'est de très loin l'oubli le plus fréquent.
+- **Certificat SSL bloqué en "Pending validation"** → Vérifiez que l'enregistrement DNS de validation a bien été créé dans Route 53 (ACM peut le faire automatiquement si tout est dans le même compte — sinon il faut l'ajouter manuellement). Et vérifiez bien que le certificat a été demandé dans **us-east-1** (section 1.6).
+- **Les changements déployés ne sont pas visibles** → Le cache CloudFront sert encore l'ancienne version : lancez une invalidation (\`aws cloudfront create-invalidation --paths "/*"\`), ou attendez l'expiration du TTL configuré.
+- **\`AccessDenied\` lors du \`s3 sync\` en pipeline CI/CD** → Vérifiez que le rôle/utilisateur IAM utilisé a bien les permissions \`s3:PutObject\`, \`s3:DeleteObject\` (nécessaire pour \`--delete\`) et \`s3:ListBucket\` sur le bucket exact.
+- **Le domaine racine (\`mondomaine.com\` sans www/sous-domaine) ne fonctionne pas** → Assurez-vous d'utiliser un enregistrement **Alias**, pas un CNAME (voir section 1.5) — un CNAME est structurellement impossible sur un domaine apex.
+
+## 7. Bonnes pratiques 2026
+
+### Sécurité
+- **Bucket S3 toujours privé**, \`Block all public access\` activé sans exception — c'est le fondement de toute cette architecture.
+- **OAC plutôt qu'OAI** pour toute nouvelle distribution (section 1.4).
+- **OIDC plutôt que des clés IAM statiques** en pipeline CI/CD (Pipeline B) — pas d'exception dès que le projet dépasse le stade du prototype personnel.
+- **IAM scopé au strict nécessaire** : ni votre utilisateur de développement local ni votre rôle CI/CD ne devraient avoir \`AdministratorAccess\` en usage courant — uniquement les actions précises sur les ressources précises dont ils ont besoin.
+- **WAF devant CloudFront** dès que l'application gère de l'authentification ou des données sensibles.
+- **Response Headers Policy** avec HSTS, CSP et les autres en-têtes de sécurité (section 3.3) — quelques minutes de configuration pour une protection significative.
+
+### Performance et coûts
+- **Distinguez le cache des assets hashés (quasi infini) de celui d'\`index.html\` (jamais caché)** — la stratégie de cache la plus rentable de tout cet article (section 3.1).
+- **N'invalidez que ce qui a besoin de l'être** (\`/index.html\`, pas \`/*\`) une fois cette distinction en place.
+- **Compression automatique activée** sur la distribution CloudFront.
+- **Surveillez votre cache hit ratio** — c'est le meilleur indicateur unique de la santé de votre configuration de cache.
+
+### Fiabilité et observabilité
+- **Activez les logs CloudFront + des alarmes CloudWatch** sur le taux d'erreur 5xx (section 3.5) — sachez qu'un problème existe avant que vos utilisateurs ne vous le disent.
+- **Un artefact buildé une seule fois, déployé partout** (Pipeline C) plutôt que de rebuilder à chaque environnement — élimine une source entière de "ça marchait en staging mais pas en prod".
+- **Validation manuelle avant la production** dès qu'il y a plus d'une personne sur le projet (Pipeline C, \`environment: production\` avec reviewers).
+
+### Maintenabilité
+- **Passez à l'Infrastructure as Code (Terraform ou CDK)** dès que le projet dépasse le stade du prototype (section 3.7) — la configuration cliquée à la main dans la console devient vite impossible à reproduire fidèlement ou à auditer.
+- **Documentez les IDs de vos ressources** (bucket, distribution CloudFront, rôle IAM) directement dans le repo — un README ou un fichier \`docs/infrastructure.md\` qui évite de devoir fouiller la console AWS six mois plus tard pour retrouver un ARN.
+
+### Ce que l'expérience terrain apprend
+- **Le premier déploiement d'un nouveau domaine mérite toujours un peu de patience** : entre la propagation CloudFront (10-15 min) et la propagation DNS (qui peut varier bien plus selon votre registrar), ne testez pas trop tôt en pensant que ça ne marche pas.
+- **Un bucket S3 mal nommé se corrige difficilement** : le nom est unique mondialement et ne se renomme pas — choisissez-le avec soin dès le départ plutôt que de devoir migrer plus tard.
+- **La vraie complexité de cette architecture n'est pas technique, elle est dans la compréhension du flux** : une fois que vous avez la carte mentale de la section 1.1 bien en tête, chaque futur problème se résout en identifiant simplement à quel maillon de la chaîne il appartient.
 
 ## Conclusion
 
-Félicitations ! Vous venez de déployer une application React **professionnelle, sécurisée, ultra-rapide et scalable** sur AWS.
+Félicitations ! Vous venez de déployer une application React **professionnelle, sécurisée, ultra-rapide et scalable** sur AWS — et surtout, vous comprenez maintenant **pourquoi** chaque brique de cette architecture existe : le rôle exact de S3, de CloudFront, d'OAC, de Route 53, d'ACM, et la raison précise du fameux problème de routing SPA.
 
-**Prochaines étapes ?**
-- Ajouter un backend avec API Gateway + Lambda
-- Mettre en place des tests automatisés
-- Passer à Terraform/CDK
+Vous n'avez plus besoin de serveur, de Heroku, de Vercel ou de Netlify si vous voulez un contrôle total et une optimisation fine des coûts. Vous avez désormais une stack que vous pouvez présenter fièrement à un CTO ou un client, avec une vraie compréhension de chaque décision d'architecture.
 
-Si vous avez une question, laissez un commentaire !
+**Prochaines étapes recommandées ?**
+- Ajoutez un backend avec API Gateway + Lambda si votre application en a besoin
+- Passez à l'Infrastructure as Code (Terraform/CDK) pour rendre toute cette infrastructure reproductible et versionnée
+- Mettez en place le Pipeline C (multi-environnements) dès que vous travaillez à plusieurs sur le projet
+- Explorez CloudFront Continuous Deployment pour des déploiements progressifs en production
+
+Si vous avez suivi ce guide jusqu'au bout, vous méritez bien un **café bien mérité** ☕
+
+Une question ? Un blocage quelque part ? Laissez un commentaire, je réponds personnellement.
+
+**Partagez cet article** si vous l'avez trouvé utile — ça aide d'autres développeurs à se lancer !
 
 #AWS #React #CloudFront #S3 #DevOps #Déploiement #Cloud
+
   `,
-    contentEn: `
+    "contentEn": `
 ## Introduction
 
-Deploying a React application on AWS might seem daunting at first… but once you have the right method, it’s **incredibly simple, secure, and powerful**.
+Deploying a React application on AWS might seem daunting at first… but once you have the right method, it's **incredibly simple, secure, and powerful**.
 
-In this ultra-complete guide (updated for 2026), you’ll learn how to host your React SPA with:
+This article is the **fully rewritten, massively expanded 2026 edition** of my React-on-AWS deployment guide. Just like with my GitHub Actions guide, I wanted to go much further than "here are the steps to follow": I want you to understand **why** each building block exists, how they fit together, and what separates a tutorial architecture from one you can proudly show off to a CTO.
+
+In this ultra-complete guide, you'll learn how to host your React SPA with:
 - A **private** S3 bucket (more secure than the old public method)
-- CloudFront + **Origin Access Control (OAC)** for a global, ultra-fast CDN
-- Perfect client-side routing handling (React Router, Vite, etc.)
+- CloudFront + **Origin Access Control (OAC)** for a global, ultra-fast CDN — and you'll actually understand why OAC and not something else
+- Perfect client-side routing handling (React Router, Vite, etc.) — with the full explanation of **why** this problem exists in the first place
 - A custom domain name + free HTTPS with Route 53
-- Performance and cache optimizations
-- An optional CI/CD pipeline for one-click deployment
+- Deep performance, caching, and security optimizations (WAF, headers, CloudFront Functions, Lambda@Edge)
+- **Three complete CI/CD pipeline variants** (quick start, secure version with OIDC, and multi-environment version with manual approval)
+- A 2026 best-practices roadmap built to last
 
-By the end of this article, you’ll have a **professional**, globally fast, secure, and cost-effective application.
+By the end of this article, you'll have a **professional**, globally fast, secure, and cost-effective application — and more importantly, you'll know exactly why every piece of the architecture is there.
 
-Ready? Let’s go step by step, as if we were sitting together in front of your computer.
+Ready? Let's go step by step, as if we were sitting together in front of your computer, coffee in hand ☕.
 
 ---
 
@@ -610,174 +3295,572 @@ Before you start, make sure you have:
 - A domain name (optional but recommended)
 - Admin rights on your AWS account (or an IAM user with the necessary permissions)
 
-**Pro tip**: Create a dedicated IAM user with an “AdministratorAccess” policy for this tutorial.
+**A quick checklist before diving in**:
+- Do you already know what a \`.env\` file is and how to set up AWS credentials locally? Perfect.
+- Don't yet know the difference between S3, CloudFront, and Route 53? No problem, that's exactly what the next section is for — we start from zero.
+- Does your app use React Router (or an equivalent client-side router)? Keep that in mind, we come back to it in detail further down — it's the point where an enormous number of people get stuck without understanding why.
+
+**Pro tip**: Create a dedicated IAM user with an "AdministratorAccess" policy to comfortably follow this tutorial. But keep this in mind: **this is not a practice to keep in production**. We cover properly scoped IAM permissions in detail in the Best Practices section, right at the end.
 
 ---
 
-## Step 0: Prepare and Build Your React App
+## 1. Understanding the AWS architecture from A to Z (before typing a single command)
+
+Just like in my GitHub Actions guide, I'd rather we take the time to understand the building blocks **before** assembling them. If you skip this section, you'll know how to follow the steps — but you won't know what to do the day something doesn't go as planned. And trust me, in a stack with 4 different AWS services talking to each other, that day comes faster than you'd think.
+
+### 1.1 The big picture: a request's full journey
+
+Here's exactly what happens when a visitor types \`https://app.mydomain.com\` into their browser:
+
+1. The browser queries **Route 53** (our DNS service): "what address does this domain name correspond to?"
+2. Route 53 responds with an **Alias** record pointing to your **CloudFront** distribution.
+3. The browser connects to the CloudFront point of presence (**edge location**) geographically closest to it.
+4. If CloudFront already has this file cached at that location (**cache hit**), it returns it immediately — in a few milliseconds, never contacting S3 at all.
+5. Otherwise (**cache miss**), CloudFront fetches the file from the **origin**: your **S3** bucket, authenticating via **OAC (Origin Access Control)**.
+6. S3 returns the file, CloudFront caches it at that edge location for future visitors, then returns it to the browser.
+7. HTTPS throughout is guaranteed by an **ACM (AWS Certificate Manager)** certificate, attached to the CloudFront distribution.
+
+Keep this chain in your head: **Browser → Route 53 (DNS) → CloudFront (CDN, global cache) → OAC (authentication) → S3 (private storage)**. Every step in this guide corresponds to configuring one precise link in that chain.
+
+### 1.2 S3 — storage, the base building block
+
+**S3 (Simple Storage Service)** is an object storage service: you drop files ("objects") into it, organized into "buckets" (a bit like root folders, but with their own set of rules). Every file has a "key" (its path, e.g. \`assets/index-a3f9.js\`).
+
+What you should know before rushing ahead:
+
+- **The old method (to avoid in 2026)**: enable "Static website hosting" mode directly on the bucket, and make the bucket **public**. It worked, but it exposed your bucket directly on a raw S3 URL, bypassing any CDN, with no native HTTPS, and worse: anyone who knew (or guessed) your bucket name could browse its contents directly, completely bypassing CloudFront (and therefore your cache, your WAF if you have one, your security rules).
+- **The recommended method (what we use here)**: a **fully private** bucket (Block all public access enabled), where **only CloudFront** is allowed to access it, via OAC. Nobody can reach your files directly — all traffic is mandatorily filtered through CloudFront.
+- S3 is billed for storage (a few cents per GB) and per request — for a reasonably sized static site, the S3 bill is almost always negligible (see the cost section below).
+
+### 1.3 CloudFront — the CDN that makes everything fast (and secure)
+
+A **CDN (Content Delivery Network)** is a network of servers spread across the globe (**edge locations**, or points of presence) that cache a copy of your content as geographically close as possible to each visitor. Result: a user in Japan doesn't fetch your files all the way from Europe on every click — CloudFront serves them a cached copy from Tokyo.
+
+**CloudFront** is AWS's CDN. A CloudFront **distribution** is the complete configuration: what's the origin (your S3 bucket), what caching rules apply, which HTTPS certificate to use, what behavior to adopt on errors, etc.
+
+Key concepts worth grasping:
+
+- **Cache behavior**: the rules that define, for a given URL pattern, how CloudFront should behave (which origin to contact, which cache policy to apply).
+- **Cache policy**: defines the caching duration (**TTL — Time To Live**) and which parts of the request (headers, cookies, query strings) affect caching. \`CachingOptimized\` is AWS's recommended preset for static content: it maximizes cache duration and ignores irrelevant cookies/headers.
+- **Invalidation**: forces CloudFront to re-fetch a file from the origin instead of serving the cached version, even if the TTL hasn't expired yet. Essential after every deployment (we do this in our pipelines).
+
+### 1.4 OAC vs OAI — understanding this technical choice in depth
+
+This is a point most tutorials rush through in one sentence ("check OAC"), and yet understanding the difference saves you hours of debugging the day something doesn't work.
+
+- **OAI (Origin Access Identity)** — the old method, still widely documented online because it's been around for years. It's a special "identity" that CloudFront presents to S3, which is granted read permission through a bucket policy. It works, but it has limitations: no support for SSE-KMS encryption on the bucket, not all HTTP methods supported, a less robust request signature (SigV2).
+- **OAC (Origin Access Control)** — the modern method (introduced in 2022), which replaces OAI and is now recommended by AWS for absolutely every new project. OAC uses **SigV4** signing (the same signing standard as the rest of the AWS APIs), supports KMS encryption, and works with every HTTP method. In practice for you: **always use OAC**, unless you're maintaining an existing legacy distribution that still uses OAI.
+
+When you create an OAC through the console, AWS automatically generates (or offers to generate) the corresponding S3 **bucket policy**, which looks like this:
+
+\`\`\`json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowCloudFrontServicePrincipal",
+      "Effect": "Allow",
+      "Principal": { "Service": "cloudfront.amazonaws.com" },
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::my-react-app-prod/*",
+      "Condition": {
+        "StringEquals": {
+          "AWS:SourceArn": "arn:aws:cloudfront::123456789012:distribution/EDFDVBD6EXAMPLE"
+        }
+      }
+    }
+  ]
+}
+\`\`\`
+
+**What really matters in this JSON**: the \`AWS:SourceArn\` condition restricts access to **one specific CloudFront distribution**, identified by its ARN. That means even if someone else in your AWS account created another CloudFront distribution, it wouldn't be able to read this bucket — only the exact distribution you configured has access. That's the least-privilege principle applied at the infrastructure level.
+
+### 1.5 Route 53 — the DNS layer
+
+**Route 53** is AWS's managed DNS service. A **hosted zone** is the set of DNS records for a given domain. Three record types you'll run into here:
+
+- **A / AAAA**: maps a domain name directly to an IP address (v4 / v6). Not what we use here, since CloudFront doesn't have a fixed IP (it uses a huge number of different IPs depending on the edge location).
+- **CNAME**: maps a domain name to **another domain name**. Works for a subdomain (\`app.mydomain.com\`), but **cannot be used on a root/apex domain** (\`mydomain.com\` by itself) — that's a limitation of the DNS protocol itself, not of AWS.
+- **Alias**: an AWS proprietary extension that behaves like a CNAME but **can** be used on a root domain, and crucially, is **free of DNS query charges** when the target is an AWS resource like CloudFront. It's therefore always the right choice here: an Alias record pointing to your CloudFront distribution.
+
+### 1.6 ACM — free, auto-renewing HTTPS certificates
+
+**AWS Certificate Manager (ACM)** generates and manages your SSL/TLS certificates for free, with automatic renewal as long as DNS validation stays in place.
+
+**The absolute trap to know about**: for an ACM certificate to be usable by CloudFront, it **must be requested in the \`us-east-1\` region** (Northern Virginia) — even if your S3 bucket and the rest of your infrastructure live in a completely different region (\`eu-west-1\`, for example). This is a requirement specific to CloudFront (which is a "global" service), and it's by far the most common mistake I see beginners make: they request the certificate in their usual region, then can't figure out why CloudFront doesn't offer it in the dropdown list.
+
+### 1.7 The SPA routing problem — why it breaks, and why the fix works
+
+This is probably the most misunderstood concept in this entire guide, so let's really take the time to explain it.
+
+A typical React application (using React Router, for example) is a **Single Page Application (SPA)**: there physically exists only **one real HTML file** (\`index.html\`). Every other "page" (\`/dashboard\`, \`/profile\`, \`/settings/notifications\`…) doesn't exist as a file — it's generated **dynamically on the client**, by JavaScript that intercepts navigation and renders the right component, without ever reloading the page from the server.
+
+The problem shows up in one specific case: when a user **arrives directly** on one of these routes (by typing the URL directly, refreshing the page, or clicking a shared link) instead of navigating from inside the application. In that case, the browser makes a real HTTP request to \`/dashboard\`. CloudFront forwards it to S3. And S3... obviously has no file called \`dashboard\` (only \`index.html\` exists). Since the bucket is private and protected by OAC, S3 returns a **403 Forbidden** error (rather than a 404, due to the way authorization is checked before even looking up the object).
+
+**The fix — Custom Error Responses** — is to tell CloudFront: "if you ever get a 403 or a 404 from the origin, don't pass that error along to the visitor. Instead, serve \`/index.html\` with a 200 status code." The result: no matter which URL was requested, the visitor always receives your React application, which loads, initializes React Router, reads the URL from the browser's address bar, and renders the right component on the client. The loop closes.
+
+**Something worth watching out for**: this technique has a side effect — your **real** 404 errors (a genuinely broken link, a typo in the URL) now also return a 200 with your application. That means it's **your React router**'s job (not CloudFront's) to handle displaying a "page not found" screen for routes that don't exist in your \`<Routes>\` — a \`<Route path="*" element={<NotFound />} />\` at the end of your route definitions, for example.
+
+### 1.8 IAM — permissions, the invisible but critical building block
+
+**IAM (Identity and Access Management)** controls who's allowed to do what on your AWS account. This tutorial uses a user with the \`AdministratorAccess\` policy to keep things simple for learning — but keep in mind that's the equivalent of handing over the keys to the entire house just to go buy bread at the corner bakery. We cover the properly scoped version (only what's needed, on the exact resources you need) in the Best Practices section.
+
+There you go — you now have the complete mental map of the architecture. Let's get to the practical part.
+
+
+## 2. The step-by-step deployment, with the explanations that were missing
+
+### Step 0: Prepare and Build Your React App
 
 In your project folder:
+
 \`\`\`bash
+# Create React App (Webpack) — outputs to build/
 npm run build
-# or for Vite:
+
+# Vite — outputs to dist/
 npm run build
 \`\`\`
 
-This creates the **\`build/\`** (CRA) or **\`dist/\`** (Vite) folder.
-This is the folder we will deploy.
+This creates the **\`build/\`** (CRA) or **\`dist/\`** (Vite) folder — a folder full of static, optimized, minified HTML/CSS/JS files, with "hashed" file names (e.g. \`index-a3f9c21.js\`). **This is the folder** we're going to deploy, nothing else.
 
-**Important for SPA routing**: No code changes are needed if you use React Router in BrowserRouter mode.
+**Why the hash in file names actually matters here**: it's not just cosmetic. This hash changes **only** when the file's content actually changes. That's what lets you configure an **extremely long** CloudFront cache (a year, even more) on these files without ever risking serving a stale version — since a content change automatically produces a new file name, hence a new URL, hence an inevitable and correct cache miss. We come back to this in detail in the advanced caching section further down.
 
----
+**Important for SPA routing**: no code changes needed if you use React Router in \`BrowserRouter\` mode — the configuration happens entirely on the CloudFront side (Step 3).
 
-## Step 1: Create a Private S3 Bucket
+### Step 1: Create a Private S3 Bucket
 
-### Via AWS Console:
+#### Via AWS Console:
 1. Go to **S3** → **Create bucket**
-2. Name: \`my-react-app-prod\` (must be globally unique)
-3. Region: \`eu-west-1\` (or your preferred region)
-4. **Block all public access** → **ON**
-5. Uncheck “Use Bucket Policy to restrict access” if prompted
+2. Name: \`my-react-app-prod\` (must be **globally** unique, across every AWS account — it's a global namespace)
+3. Region: \`eu-west-1\` (or your preferred region — ideally the one closest to most of your users, even though CloudFront will largely compensate for this choice anyway)
+4. **Block all public access** → **ON** (leave this checked — it's the foundation of the entire secure architecture we're building)
+5. Uncheck "Use Bucket Policy to restrict access" if prompted (we'll configure the bucket policy ourselves in Step 3, via OAC)
 6. Create the bucket
 
-### Via CLI:
+#### Via CLI:
+
 \`\`\`bash
+# Region must match wherever you'll reference this bucket later (S3 sync, IAM policies, etc.)
 aws s3 mb s3://my-react-app-prod --region eu-west-1
 \`\`\`
 
----
+**What to watch out for**: the bucket name is visible in some internal URLs and logs — avoid putting sensitive information in it (don't name your bucket \`my-secret-client-x-app-prod\`, for instance). A neutral, descriptive name is more than enough.
 
-## Step 2: Upload Your Files to the Bucket
+### Step 2: Upload Your Files to the Bucket
 
 \`\`\`bash
+# CRA
 aws s3 sync build/ s3://my-react-app-prod --delete
-# For Vite:
+
+# Vite
 aws s3 sync dist/ s3://my-react-app-prod --delete
 \`\`\`
 
-The \`--delete\` flag removes old, unnecessary files.
+**Why \`sync\` instead of \`cp\`?** \`aws s3 sync\` intelligently compares source and destination, and only transfers new or modified files — much faster than a recursive \`cp\` that re-uploads everything every time, especially on a site with a lot of assets.
 
----
+**Why the \`--delete\` flag matters, but is also dangerous**: it removes any file from the S3 bucket that no longer exists in your local \`build/\`/\`dist/\` folder. That's exactly what you want for a clean deployment (no orphaned old JS files lingering forever), but **be careful**: if you accidentally sync the wrong local folder (an empty one, say, following a build that silently failed), \`--delete\` would wipe your production bucket clean. Good practice: in a CI/CD pipeline, always precede this command with a check that the build actually produced files (\`ls build/ | wc -l\` above some minimal threshold, for example), before syncing.
 
-## Step 3: Configure CloudFront with OAC
+### Step 3: Configure CloudFront with OAC
 
 1. Go to **CloudFront** → **Create distribution**
-2. **Origin domain**: Select your S3 bucket (\`my-react-app-prod.s3.eu-west-1.amazonaws.com\`)
-3. **Origin access** → **Origin access control settings (recommended)**
-   - Create a new OAC (keep default values)
-4. **Viewer protocol policy** → Redirect HTTP to HTTPS
-5. **Allowed HTTP methods** → GET, HEAD, OPTIONS
+2. **Origin domain**: select your S3 bucket (\`my-react-app-prod.s3.eu-west-1.amazonaws.com\`)
+3. **Origin access** → **Origin access control settings (recommended)** → create a new OAC (keep the default values)
+4. **Viewer protocol policy** → Redirect HTTP to HTTPS *(forces every visitor onto HTTPS, never serve content in the clear)*
+5. **Allowed HTTP methods** → GET, HEAD, OPTIONS *(a static site needs nothing more — no POST/PUT/DELETE directly against S3)*
 6. **Cache policy** → **CachingOptimized**
-7. **Compress objects automatically** → Yes
-8. **Custom error responses** (CRUCIAL for React Router):
+7. **Compress objects automatically** → Yes *(CloudFront automatically compresses with Gzip/Brotli — near-free bandwidth savings)*
+8. **Custom error responses** (see section 1.7 — **the most critical step for a SPA**):
    - Error code 403 → Response code: 200 → Response page path: \`/index.html\`
    - Error code 404 → Response code: 200 → Response page path: \`/index.html\`
 9. **Default root object**: \`index.html\`
 10. Create the distribution.
 
-**Wait time**: 10 to 15 minutes.
+**Wait time**: 10 to 15 minutes — CloudFront needs to propagate your configuration to hundreds of edge locations worldwide. That's normal, don't panic if \`https://xxxxx.cloudfront.net\` doesn't respond right away.
 
----
+**What you really need to remember from this step**: without the two custom error response rules from step 8, your application will work perfectly... as long as users only click internal links from the home page. The day someone shares a direct link to \`/product/42\` or refreshes their page on \`/dashboard\`, they'll hit a raw error instead of your application. This is one of the most common and most confusing bugs for beginners deploying their first SPA on S3/CloudFront — now you know exactly why it happens and how to avoid it from the start.
 
-## Step 4: Add a Custom Domain with Route 53
+### Step 4: Add a Custom Domain with Route 53
 
-### 1. Request an SSL Certificate (ACM)
-- Region: **us-east-1** (required for CloudFront)
-- Request certificate → Public → Domain name: \`app.mydomain.com\` (and \`*.mydomain.com\` for wildcard)
-- DNS validation → Route 53
+#### 1. Request an SSL Certificate (ACM)
+- Region: **us-east-1** *(mandatory for CloudFront, see section 1.6 — otherwise your certificate simply won't show up in CloudFront's dropdown list)*
+- Request certificate → Public → Domain name: \`app.mydomain.com\` (also add \`*.mydomain.com\` if you're planning other subdomains in the future)
+- DNS validation → Route 53 *(ACM can automatically create the validation record directly in your Route 53 hosted zone if both are in the same account — a single click does it)*
 
-### 2. Configure Route 53
+#### 2. Configure Route 53
 1. Go to **Route 53** → Hosted zones
 2. Click on your domain
-3. **Create record** → Alias to your CloudFront distribution
+3. **Create record** → Alias to your CloudFront distribution *(see section 1.5 to understand why an Alias and not a CNAME)*
 
-Update your CloudFront distribution with the domain and certificate.
+Update your CloudFront distribution with the custom domain name (the "Alternate domain names / CNAMEs" field) and select the ACM certificate you just created.
 
----
+**What to watch out for**: DNS propagation can take anywhere from a few minutes to a few hours depending on your domain's previous TTL (if you're migrating from another host). Test with \`dig app.mydomain.com\` or \`nslookup app.mydomain.com\` to check that DNS resolution actually points to CloudFront before worrying that something's broken.
 
-## Bonus: Advanced Optimizations
 
-- **Caching**: Use custom Cache Policies for static assets (long TTL) and index.html (short TTL or no-cache)
-- **Security**: Add AWS WAF in front of CloudFront (DDoS, SQL injection protection, etc.)
-- **Performance**: Enable **Response headers policy** for security headers (HSTS, CSP, etc.)
-- **Monitoring**: Enable CloudFront logs + CloudWatch
+## 3. Advanced features — each one deserves its own explanation
 
----
+We're not going to just list this in 4 bullet points. Here's what's genuinely worth knowing to go from a deployment that "works" to a pro-level infrastructure.
 
-## Bonus: CI/CD Pipeline with GitHub Actions
+### 3.1 Cache Policies — the strategy that changes everything
+
+The \`CachingOptimized\` preset is enough to get started, but a real caching strategy differentiates **two categories of files**:
+
+- **Versioned/hashed assets** (\`index-a3f9c21.js\`, \`main-8b21.css\`): as seen in Step 0, their name changes the moment their content changes. You can therefore apply an **almost infinite** cache to them with zero risk:
+
+\`\`\`
+Cache-Control: public, max-age=31536000, immutable
+\`\`\`
+
+- **\`index.html\`** (and any non-versioned file): this is the entry point that references the hashed assets. It, on the other hand, must be re-checked on **every visit**, otherwise your users could keep loading an old version of the application that points to assets which no longer exist after a deployment:
+
+\`\`\`
+Cache-Control: no-cache
+\`\`\`
+
+This distinction is configured either through S3 object metadata at upload time (\`aws s3 cp --cache-control\`), or through a **custom CloudFront Cache Policy** applied to a dedicated cache behavior (for example, a specific behavior for the \`/index.html\` pattern with a TTL of 0).
+
+### 3.2 AWS WAF — protecting your CDN upstream
+
+**AWS WAF (Web Application Firewall)** sits in front of CloudFront and filters malicious requests before they ever reach your distribution: SQL injection, cross-site scripting, known bots, per-IP rate limiting. For a low-traffic showcase site, this isn't always essential from day one, but the moment your application handles authentication, forms, or sensitive data, enable at least the basic **AWS Managed Rules** (\`AWSManagedRulesCommonRuleSet\`) — a few clicks, a modest monthly cost, meaningful protection against the most common automated attacks.
+
+### 3.3 Response Headers Policy — the security headers people forget
+
+CloudFront can automatically attach security headers to every response, without touching your application code:
+
+- **\`Strict-Transport-Security\` (HSTS)**: forces the browser to always use HTTPS for your domain, even if a user deliberately types \`http://\`.
+- **\`X-Content-Type-Options: nosniff\`**: prevents the browser from guessing a file's MIME type, a protection against certain content-injection attacks.
+- **\`Content-Security-Policy\` (CSP)**: restricts which sources are allowed to load scripts, styles, images — one of the most effective defenses against cross-site scripting (XSS), even though it requires some fine-tuning depending on which third-party libraries you load.
+- **\`Referrer-Policy\`**: controls what information gets sent in the \`Referer\` header when navigating to another site.
+
+All of this is configured in a single **Response Headers Policy**, reusable across multiple distributions.
+
+### 3.4 CloudFront Functions and Lambda@Edge — logic as close to the user as possible
+
+Two options exist for running custom code right at the edge, before a request reaches (or leaves) your origin:
+
+- **CloudFront Functions**: ultra-lightweight (JavaScript only, a few milliseconds of execution max), perfect for simple request/response manipulation — URL rewriting, adding headers, simple rule-based redirects, basic cookie-driven A/B testing.
+- **Lambda@Edge**: more powerful (Node.js or Python, network access, up to several seconds of execution), for heavier logic — edge authentication, content personalization based on geolocation, on-the-fly image transformation.
+
+For the vast majority of React SPAs, you won't need either of these at launch — but it's good to know about the day you want, say, to automatically redirect based on browser language without going through your application code.
+
+### 3.5 Monitoring — CloudWatch and CloudFront logs
+
+Enable **CloudFront access logs** (delivered into a dedicated S3 bucket) to get a full record of every request: IP, user agent, response status, cache hit/miss. Pair that with **CloudWatch** metrics (4xx/5xx error rate, cache hit ratio, data transfer volume) and automatic alarms (for instance, an alert if the 5xx error rate exceeds 1% over 5 minutes). This is what lets you know a problem exists **before** a user tells you about it.
+
+### 3.6 Multi-environments and progressive deployments
+
+On a growing project, you'll quickly want to separate **staging** and **production** — two separate S3 buckets, two separate CloudFront distributions, possibly with a dedicated subdomain (\`staging.mydomain.com\`). For even more careful production deployments, CloudFront now offers **Continuous Deployment**: you can route a small percentage of real traffic (1%, 5%, 10%) to a new version of your distribution before flipping 100% of traffic over — the equivalent of a canary deployment, but right at the CDN level.
+
+### 3.7 Infrastructure as Code — stop clicking through the console
+
+Everything we just configured by hand (bucket, distribution, OAC, certificate, DNS record) can — and should, the moment the project outgrows the prototype stage — be defined as code, with **Terraform** or **AWS CDK**. The benefit: full reproducibility (recreate the staging environment with one command), a versioned history of every infrastructure change, and code review on infra changes exactly like on application code. We touch on this briefly as a next step in the conclusion.
+
+
+## 4. Three CI/CD pipelines, from quick start to pro version
+
+Just like in my GitHub Actions guide (which I'd actually recommend reading alongside this one if you haven't already — it covers every concept there in a lot more depth), here are three concrete deployment pipeline variants, each suited to a different situation.
+
+### Pipeline A — Quick start (static IAM keys)
+
+This is the fastest version to set up — perfect for a side project, or to validate that the rest of the architecture works, but **you should evolve it into Pipeline B the moment the project becomes serious**.
 
 \`\`\`yaml
 name: Deploy to AWS
+
 on:
   push:
-    branches: [ main ]
+    branches: [main]
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
       - name: Install Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: 'npm'
+
       - run: npm ci
       - run: npm run build
+
+      # Static long-lived credentials — quick to set up, but see Pipeline B for why this isn't ideal
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: \${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: \${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: eu-west-1
+
+      # Safety check: don't sync (and --delete!) an accidentally empty build folder
+      - name: Sanity check build output
+        run: |
+          count=$(find build -type f | wc -l)
+          if [ "$count" -lt 5 ]; then
+            echo "Build output looks suspicious ($count files) — aborting deploy"
+            exit 1
+          fi
+
       - run: aws s3 sync build/ s3://my-react-app-prod --delete
       - run: aws cloudfront create-invalidation --distribution-id E1234567890 --paths "/*"
 \`\`\`
 
----
+**What to understand here**: the \`create-invalidation --paths "/*"\` command invalidates **the entire** CloudFront cache on every deployment. Convenient and mistake-proof, but it has a cost beyond the 1000 free invalidations per month, and it temporarily strips away the cache benefits for every visitor right after a deployment. With the caching distinction from section 3.1 (hashed assets cached almost forever, \`index.html\` never cached), you can actually get away with invalidating only \`/index.html\` — versioned assets, by construction, never need invalidation.
 
-## Cost Estimate (2026)
+**This version's security weakness**: \`AWS_ACCESS_KEY_ID\` and \`AWS_SECRET_ACCESS_KEY\` are **static, indefinitely valid** credentials, stored as GitHub secrets. If they leak somehow, the access they grant stays valid until you remember to manually revoke them. That's exactly the problem Pipeline B solves.
 
-For a medium-sized app (a few thousand visits/month):
-- S3: < €0.50
-- CloudFront: €1 to €5 (data transfer)
-- Route 53: €0.50 + domain
-- **Total monthly cost**: **less than €10**
+### Pipeline B (recommended) — Secure version with OIDC
 
----
+\`\`\`yaml
+name: Deploy to AWS (OIDC)
 
-## Common Troubleshooting
+on:
+  push:
+    branches: [main]
 
-- **403 Forbidden** → Check that OAC is properly attached to the origin
-- **SPA routes not working** → Check Custom Error Responses (403 and 404 → 200 + /index.html)
-- **SSL certificate pending** → Check DNS validation in ACM
-- **Changes not visible** → Invalidate CloudFront cache (\`Create Invalidation\` with \`/*\`)
+permissions:
+  contents: read
+  id-token: write     # REQUIRED — lets GitHub request a short-lived AWS token, no static keys needed
 
----
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - run: npm ci
+      - run: npm run build
+
+      - name: Sanity check build output
+        run: |
+          count=$(find build -type f | wc -l)
+          if [ "$count" -lt 5 ]; then
+            echo "Build output looks suspicious ($count files) — aborting deploy"
+            exit 1
+          fi
+
+      # No secrets stored — GitHub's OIDC token is exchanged for a short-lived AWS session
+      - name: Configure AWS credentials via OIDC
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::123456789012:role/GitHubActionsDeployRole
+          aws-region: eu-west-1
+
+      - run: aws s3 sync build/ s3://my-react-app-prod --delete
+
+      # Only invalidate what actually needs it — hashed assets never do (see 3.1)
+      - run: aws cloudfront create-invalidation --distribution-id E1234567890 --paths "/index.html"
+\`\`\`
+
+For this to work, you first need to create, on the AWS side, an IAM role (\`GitHubActionsDeployRole\`) with a **trust policy** that only accepts tokens coming from your exact GitHub repo:
+
+\`\`\`json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Federated": "arn:aws:iam::123456789012:oidc-provider/token.actions.githubusercontent.com"
+      },
+      "Action": "sts:AssumeRoleWithWebIdentity",
+      "Condition": {
+        "StringEquals": {
+          "token.actions.githubusercontent.com:aud": "sts.amazonaws.com"
+        },
+        "StringLike": {
+          "token.actions.githubusercontent.com:sub": "repo:my-org/my-repo:ref:refs/heads/main"
+        }
+      }
+    }
+  ]
+}
+\`\`\`
+
+**Why this is significantly better**: no long-lived AWS secret sits around in your GitHub secrets. The \`token.actions.githubusercontent.com:sub\` condition restricts this role's usage **exclusively** to workflows running on the \`main\` branch of this exact repo — even a contributor with write access to another branch couldn't assume this role and deploy to production. I explain the full OIDC mechanism, step by step, in my GitHub Actions guide — go read it if you haven't yet, it's well worth it to really understand what's happening under the hood.
+
+**The IAM role itself** should have a policy scoped to the strict minimum (no \`AdministratorAccess\`!):
+
+\`\`\`json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": ["s3:PutObject", "s3:DeleteObject", "s3:ListBucket"],
+      "Resource": [
+        "arn:aws:s3:::my-react-app-prod",
+        "arn:aws:s3:::my-react-app-prod/*"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": "cloudfront:CreateInvalidation",
+      "Resource": "arn:aws:cloudfront::123456789012:distribution/E1234567890"
+    }
+  ]
+}
+\`\`\`
+
+That's the least-privilege principle in practice: this role can read/write to **this specific bucket** and invalidate **this specific distribution** — nothing more.
+
+### Pipeline C — Multi-environment with manual approval before production
+
+On a team project, you'll almost always want automatic deployment to staging on every merge, but a **human checkpoint** before anything goes to production.
+
+\`\`\`yaml
+name: Deploy Multi-Environment
+
+on:
+  push:
+    branches: [main, develop]
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      artifact-name: build-\${{ github.sha }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: build-\${{ github.sha }}
+          path: build/
+
+  deploy-staging:
+    needs: build
+    if: github.ref == 'refs/heads/develop'
+    runs-on: ubuntu-latest
+    environment: staging          # no required reviewers — deploys instantly
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: build-\${{ github.sha }}
+          path: build
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::123456789012:role/GitHubActionsDeployRole
+          aws-region: eu-west-1
+      - run: aws s3 sync build/ s3://my-react-app-staging --delete
+      - run: aws cloudfront create-invalidation --distribution-id ESTAGING123 --paths "/index.html"
+
+  deploy-production:
+    needs: build
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment: production       # required reviewers configured in GitHub — pauses here for approval
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: build-\${{ github.sha }}
+          path: build
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::123456789012:role/GitHubActionsDeployRole
+          aws-region: eu-west-1
+      - run: aws s3 sync build/ s3://my-react-app-prod --delete
+      - run: aws cloudfront create-invalidation --distribution-id E1234567890 --paths "/index.html"
+\`\`\`
+
+**What makes this pipeline valuable**: the \`build\` job only builds the application **once**, and that same built artifact gets deployed to both staging and (after approval) production — you're testing the exact binary that will ship to prod, never a potentially different rebuild. The \`environment: production\` field, paired with a required-reviewers rule configured in the repo's GitHub Settings, pauses the job and waits for a human to click "Approve" before continuing — the safety net missing from the two previous pipelines.
+
+
+## 5. Cost Estimate (2026) — understanding what actually costs money
+
+For a medium-sized site (a few thousand visits/month):
+
+- **S3**: storage (a few cents per GB/month) + GET/PUT requests (negligible) → usually **under €0.50/month**
+- **CloudFront**: it's **outbound data transfer** that dominates the bill, not storage or requests themselves → typically **€1 to €5/month** for moderate traffic, with the first TB of outbound transfer per month falling under the AWS free tier during a new account's first 12 months
+- **Route 53**: about €0.50/month per hosted zone, plus the cost of the domain name itself if you buy it through Route 53 (otherwise, just the hosted zone)
+- **ACM**: **free**, as long as the certificate is used with an AWS service like CloudFront
+- **WAF** (if enabled): a few euros a month in fixed fees plus a small cost per million requests evaluated
+
+**Typical monthly total for a small-to-medium project: under €10**, excluding the domain name.
+
+**What actually drives the bill up**, and what to watch if your traffic grows significantly: the volume of outbound data transfer (a site with a lot of unoptimized images or videos can see this line item climb fast), and request volume when the cache hit ratio is very low (a poor cache policy setup that forces CloudFront to re-contact S3 on every request instead of serving from the edge cache). Watch your **cache hit ratio** in CloudFront metrics — a healthy ratio for a well-configured static site is well above 90%.
+
+## 6. Common Troubleshooting — the errors you'll (almost) always run into
+
+- **403 Forbidden when visiting the site** → Check that OAC is properly attached to the origin, and that the generated bucket policy correctly references the exact ARN of your CloudFront distribution (see section 1.4). A copy-paste mistake on the ARN is the most common cause.
+- **SPA routes don't work on refresh** → Check the Custom Error Responses (403 and 404 → 200 + \`/index.html\`, see section 1.7). This is by far the most frequently missed step.
+- **SSL certificate stuck in "Pending validation"** → Check that the DNS validation record was actually created in Route 53 (ACM can do this automatically if everything's in the same account — otherwise you need to add it manually). And double-check the certificate was requested in **us-east-1** (section 1.6).
+- **Deployed changes aren't visible** → CloudFront's cache is still serving the old version: run an invalidation (\`aws cloudfront create-invalidation --paths "/*"\`), or wait for the configured TTL to expire.
+- **\`AccessDenied\` during \`s3 sync\` in a CI/CD pipeline** → Check that the IAM role/user being used has \`s3:PutObject\`, \`s3:DeleteObject\` (required for \`--delete\`), and \`s3:ListBucket\` permissions on the exact bucket.
+- **The root domain (\`mydomain.com\` with no www/subdomain) doesn't work** → Make sure you're using an **Alias** record, not a CNAME (see section 1.5) — a CNAME is structurally impossible on an apex domain.
+
+## 7. 2026 Best Practices
+
+### Security
+- **S3 bucket always private**, \`Block all public access\` enabled without exception — this is the foundation of this entire architecture.
+- **OAC rather than OAI** for any new distribution (section 1.4).
+- **OIDC rather than static IAM keys** in your CI/CD pipeline (Pipeline B) — no exceptions once the project outgrows a personal prototype.
+- **IAM scoped to the strict minimum**: neither your local development user nor your CI/CD role should have \`AdministratorAccess\` for everyday use — only the exact actions on the exact resources they actually need.
+- **WAF in front of CloudFront** the moment the application handles authentication or sensitive data.
+- **Response Headers Policy** with HSTS, CSP, and the other security headers (section 3.3) — a few minutes of setup for meaningful protection.
+
+### Performance and cost
+- **Distinguish the cache for hashed assets (near-infinite) from \`index.html\`'s cache (never cached)** — the single most cost-effective caching strategy in this entire article (section 3.1).
+- **Only invalidate what actually needs it** (\`/index.html\`, not \`/*\`) once that distinction is in place.
+- **Automatic compression enabled** on the CloudFront distribution.
+- **Watch your cache hit ratio** — it's the single best indicator of your caching configuration's health.
+
+### Reliability and observability
+- **Enable CloudFront logs + CloudWatch alarms** on the 5xx error rate (section 3.5) — know a problem exists before your users tell you about it.
+- **Build the artifact once, deploy it everywhere** (Pipeline C) rather than rebuilding for each environment — eliminates an entire category of "it worked in staging but not in prod."
+- **Manual validation before production** the moment there's more than one person on the project (Pipeline C, \`environment: production\` with reviewers).
+
+### Maintainability
+- **Move to Infrastructure as Code (Terraform or CDK)** the moment the project outgrows the prototype stage (section 3.7) — configuration clicked by hand in the console quickly becomes impossible to reliably reproduce or audit.
+- **Document your resource IDs** (bucket, CloudFront distribution, IAM role) directly in the repo — a README or a \`docs/infrastructure.md\` file that saves you from having to dig through the AWS console six months later to find an ARN.
+
+### What field experience teaches you
+- **A new domain's first deployment always deserves a bit of patience**: between CloudFront propagation (10-15 min) and DNS propagation (which can vary far more depending on your registrar), don't test too early and assume it's broken.
+- **A poorly named S3 bucket is hard to fix later**: the name is globally unique and can't be renamed — choose it carefully from the start rather than having to migrate later.
+- **This architecture's real complexity isn't technical, it's in understanding the flow**: once you have the mental map from section 1.1 firmly in mind, every future problem gets solved simply by identifying which link in the chain it belongs to.
 
 ## Conclusion
 
-Congratulations! You’ve just deployed a **professional, secure, ultra-fast, and scalable** React app on AWS.
+Congratulations! You've just deployed a **professional, secure, ultra-fast, and scalable** React application on AWS — and more importantly, you now understand **why** every piece of this architecture exists: the exact role of S3, CloudFront, OAC, Route 53, ACM, and the precise reason behind the famous SPA routing problem.
 
-You no longer need a server, Heroku, Vercel, or Netlify if you want full control and cost optimization.
+You no longer need a server, Heroku, Vercel, or Netlify if you want full control and fine-grained cost optimization. You now have a stack you can proudly show off to a CTO or a client, with a real understanding of every architectural decision.
 
-You now have a stack you can proudly show to a CTO or client.
+**Recommended next steps?**
+- Add a backend with API Gateway + Lambda if your application needs one
+- Move to Infrastructure as Code (Terraform/CDK) to make this whole infrastructure reproducible and versioned
+- Set up Pipeline C (multi-environment) the moment you're working with others on the project
+- Explore CloudFront Continuous Deployment for progressive production rollouts
 
-**Next steps?**
-- Add a backend with API Gateway + Lambda
-- Set up automated tests
-- Move to Terraform/CDK for infrastructure as code
+If you followed this guide all the way through, you've earned yourself a well-deserved **coffee** ☕
 
-If you followed this guide, you deserve a **well-earned coffee** ☕
+Got a question? Stuck somewhere? Leave a comment, I'll answer personally.
 
-Got a question? Stuck somewhere? Leave a comment, I’ll answer personally.
-
-**Share this article** if you found it useful—it helps other devs get started!
+**Share this article** if you found it useful — it helps other developers get started!
 
 #AWS #React #CloudFront #S3 #DevOps #Deployment #Cloud
+
   `,
     "image": "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/maxresdefault.jpg",
     "category": "AWS",
     "date": "2026-01-29",
-    "readTime": "12 min",
+    "readTime": "30 min",
     "author": "Barthez Kenwou",
     "tags": ["AWS", "React", "CloudFront", "S3", "Route53", "Déploiement", "DevOps", "SPA", "OAC", "CI/CD"]
   },
