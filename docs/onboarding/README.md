@@ -1,5 +1,16 @@
 # Onboarding
 
-This folder is a short playbook to get a new developer productive quickly.
+Playbook to get productive on this portfolio.
 
-Start with `setup-local.md` then follow `first-feature.md` to add a small change and open a PR.
+| Step | Doc |
+| :--- | :--- |
+| 1. Local setup | [setup-local.md](./setup-local.md) |
+| 2. First feature / PR | [first-feature.md](./first-feature.md) |
+| 3. FAQ | [faq.md](./faq.md) |
+
+Also useful:
+
+- [../guidelines/README.md](../guidelines/README.md)
+- [../architecture/frontend-architecture.md](../architecture/frontend-architecture.md)
+- [../../CONTRIBUTING.md](../../CONTRIBUTING.md)
+- [../deployment/README.md](../deployment/README.md) — only if you touch infra / CD

@@ -1,30 +1,57 @@
-# 📘 Project Documentation
+# Project documentation
 
-Welcome to the documentation for the **Barthez Kenwou Portfolio**. This guide helps developers understand the system's design, domain models, and development workflows.
+Documentation for the **Barthez Kenwou Portfolio** — architecture, domain, workflows, and production deployment.
 
-## 🗺 Documentation Map
-
-### 🏛 [Architecture](./architecture/frontend-architecture.md)
-Learn about Feature-Sliced Design (FSD), layer hierarchies, and the build system.
-
-### ✨ [Features](./features/README.md)
-Discover the user-facing capabilities including Theme Management, Internationalization, and the Blog Engine.
-
-### 📦 [Entities](./entities/README.md)
-Understand the core domain models: Projects, Blog posts, Skills, and Services.
-
-### 🚀 [Onboarding](./onboarding/README.md)
-Follow the guide to set up your local environment and start contributing using **Bun** and **Vite**.
-
-### 📏 [Guidelines](./guidelines/README.md)
-Coding standards, naming conventions, and testing strategies to maintain high code quality.
+Live site: [https://barthez-kenwou.dev](https://barthez-kenwou.dev)
 
 ---
 
-## 🛠 Tech Stack Overview
+## Documentation map
 
-- **Core**: React 18, TypeScript, Vite (Rolldown)
-- **Styling**: Tailwind CSS 4, Framer Motion
-- **Content**: Velite, Shiki, React Markdown
-- **Testing**: Vitest, Cypress
-- **Quality**: Lighthouse CI, Husky, Commitlint
+| Area | Description |
+| :--- | :--- |
+| [Architecture](./architecture/README.md) | FSD layers, routing, state, diagrams |
+| [Features](./features/README.md) | Theme, i18n, contact, and related capabilities |
+| [Entities](./entities/README.md) | Domain models (project, blog, skill, experience) |
+| [Onboarding](./onboarding/README.md) | Local setup, first feature, FAQ |
+| [Guidelines](./guidelines/README.md) | Coding standards, naming, testing, deps |
+| [Deployment](./deployment/README.md) | OVH VPS, GHCR, Watchtower, NPM |
+| [API conventions](./api/README.md) | Client conventions and error handling |
+| [ADRs](./decisions/README.md) | Architecture decision records |
+| [Project analysis](./PROJECT_ANALYSIS.md) | Executive summary of the product and stack |
+
+Related (outside `docs/`):
+
+- [../README.md](../README.md) — project entrypoint
+- [../infra/README.md](../infra/README.md) — Docker / nginx
+- [../.github/workflows/README.md](../.github/workflows/README.md) — CI/CD workflows
+- [../CONTRIBUTING.md](../CONTRIBUTING.md) — contribution rules
+- [../scripts/README.md](../scripts/README.md) — build / tooling scripts
+
+---
+
+## Tech stack (summary)
+
+| Layer | Tools |
+| :--- | :--- |
+| **Core** | React 18, TypeScript, Vite (Rolldown), Bun |
+| **UI** | Tailwind CSS 4, Radix UI, Framer Motion |
+| **State / forms** | Zustand, React Hook Form, Zod |
+| **Content** | Velite, React Markdown, Shiki |
+| **i18n** | i18next |
+| **QA** | Vitest, Cypress, Storybook, Lighthouse CI, Husky, Commitlint |
+| **Runtime / CD** | Nginx, Docker, GHCR, GitHub Actions, Watchtower, Nginx Proxy Manager |
+
+---
+
+## Quick start
+
+```bash
+bun install
+cp .env.example .env
+bun run dev
+```
+
+Details: [onboarding/setup-local.md](./onboarding/setup-local.md)
+
+Production deploy: [deployment/DEPLOY_VPS.md](./deployment/DEPLOY_VPS.md)

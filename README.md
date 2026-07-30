@@ -1,102 +1,158 @@
-# 🚀 Barthez Kenwou Portfolio
+# Barthez Kenwou Portfolio
 
-> **Full Stack Developer & DevOps Engineer | AWS Cloud Specialist**
+Professional portfolio of **Barthez Kenwou** — Full Stack Developer & DevOps Engineer (AWS).  
+Live site: [https://barthez-kenwou.dev](https://barthez-kenwou.dev)
 
-Welcome to the source code of my professional portfolio. This project is a showcase of modern web engineering, featuring high-performance rendering, sophisticated animations, and a robust architectural foundation.
-
----
-
-[![Build Status](https://img.shields.io/github/actions/workflow/status/org/barthez-kenwou-portfolio/ci.yml?branch=main)](https://github.com/org/barthez-kenwou-portfolio/actions/workflows/ci.yml)
 [![Version](https://img.shields.io/badge/version-1.4.0-blue.svg)](./package.json)
 [![License](https://img.shields.io/badge/license-UNLICENSED-red.svg)](./LICENSE)
 [![Conventional Commits](https://img.shields.io/badge/Conventional%20Commits-1.0.0-yellow.svg)](https://conventionalcommits.org)
 
 ---
 
-## ✨ Key Features
+## Overview
 
-- **💎 Premium UX/UI**: Sophisticated Dark/Light modes, Aurora backgrounds, interactive Cobe 3D Globe, and smooth Framer Motion transitions.
-- **🏗 FSD Architecture**: Strictly follows **Feature-Sliced Design** for maximum modularity and maintainability.
-- **📝 Markdown Blog**: Dynamic blog engine powered by **Velite** and **Shiki** for beautiful syntax highlighting.
-- **🌐 Multilingual**: Full internationalization (I18n) support via `i18next`.
-- **⚡ Performance First**: Powered by **Vite (Rolldown)** and **Bun**, achieving near-perfect Lighthouse scores.
-- **📱 PWA Ready**: Installable application with offline support and optimized assets.
-- **🧪 Quality Orchestration**: Vitest for units, Cypress for E2E, and Lighthouse CI for performance monitoring.
+SPA portfolio built with React 18 + TypeScript, Feature-Sliced Design, and a production DevOps pipeline (GHCR → OVH VPS).
+
+**Highlights**
+
+- Dark premium UI, glassmorphism, Framer Motion, PWA
+- FR / EN via `i18next`
+- Blog (Markdown + Shiki), projects, skills, services, CV (PDF)
+- SEO: sitemaps, Open Graph, robots, prerender-oriented meta
+- CI/CD: GitHub Actions → Gitleaks → SonarQube → Trivy → GHCR → SSH deploy + Watchtower
+
+Full documentation lives in [`docs/`](./docs/README.md).
 
 ---
 
-## 🛠 Tech Stack
+## Tech stack
 
 | Layer | Tools |
 | :--- | :--- |
-| **Foundation** | React 18, TypeScript, Vite (Rolldown Engine) |
-| **Styling** | Tailwind CSS 4, Framer Motion, Motion |
+| **App** | React 18, TypeScript, Vite (Rolldown), Bun |
+| **UI** | Tailwind CSS 4, Radix UI, Framer Motion / Motion |
+| **State & forms** | Zustand, React Hook Form, Zod |
 | **Content** | Velite, React Markdown, Shiki |
-| **State** | Zustand |
-| **Forms** | React Hook Form, Zod |
-| **QA** | Vitest, Cypress, Storybook, Lighthouse CI |
-| **Environment** | Bun, Husky, Commitlint |
+| **i18n** | i18next, react-i18next |
+| **QA** | Vitest, Cypress, Storybook, ESLint, Prettier, Lighthouse CI |
+| **Runtime** | Nginx (Alpine), Docker, PWA (Workbox) |
+| **CD** | GitHub Actions, GHCR, Watchtower, Nginx Proxy Manager (OVH VPS) |
 
 ---
 
-## 🏗 Project Structure
+## Project structure
 
-The project follows the **Feature-Sliced Design** methodology:
-
-```bash
+```text
 src/
-├── app/       # Bootstrap (providers, routes, global styles)
-├── pages/     # Page composition (Home, Blog, Projects, etc.)
-├── widgets/   # Complex UI blocks (Navbar, Footer, Sidebar)
-├── features/  # Interactive user scenarios (ThemeToggle, I18n)
-├── entities/  # Domain models (Article, Project, Skill)
-└── shared/    # Infrastructure (UI Kit, Hooks, API, Utils)
+├── app/        # Providers, router, global styles
+├── pages/      # Route compositions (Home, Blog, Projects, …)
+├── widgets/    # Navbar, Sidebar, Footer, …
+├── features/   # User scenarios (theme, language, contact, …)
+├── entities/   # Domain (blog, projects, skills, …)
+└── shared/     # UI kit, hooks, config, utils
+
+infra/          # Docker, nginx, compose, VPS bootstrap
+docs/           # Architecture, guidelines, deployment
+.github/        # CI / CD workflows
 ```
 
-For more details, see the [**Documentation Folder**](./docs/).
+Architecture details: [docs/architecture](./docs/architecture/frontend-architecture.md).
 
 ---
 
-## 🚀 Getting Started
+## Getting started
 
 ### Prerequisites
-- [Bun](https://bun.sh/) (version >= 1.3)
-- Node.js (version >= 18)
 
-### Installation
-1. **Clone & Enter:**
-   ```bash
-   git clone https://github.com/org/barthez-kenwou-portfolio.git
-   cd barthez-kenwou-portfolio
-   ```
-2. **Install Dependencies:**
-   ```bash
-   bun install
-   ```
-3. **Environment Setup:**
-   ```bash
-   cp .env.example .env
-   ```
+- [Bun](https://bun.sh/) >= 1.3
+- Node.js >= 18 (CI / tooling fallback)
+- Git
 
-### Development
+### Install
+
 ```bash
-bun dev
+git clone git@github.com:barthez-kenwou/barthez-kenwou-porfolio.git
+cd barthez-kenwou-porfolio
+bun install
+cp .env.example .env
 ```
-Open `http://localhost:5173` to see the magic.
+
+### Develop
+
+```bash
+bun run dev
+```
+
+App: `http://localhost:5173`
+
+See [docs/onboarding/setup-local.md](./docs/onboarding/setup-local.md).
 
 ---
 
-## 🛠 Scripts
+## Scripts
 
 | Command | Description |
 | :--- | :--- |
-| `bun run build` | Production build (via `scripts/build.sh`) |
-| `bun run lint` | Run ESLint checks |
-| `bun run test` | Execute unit tests with Vitest |
-| `bun run storybook` | Launch component documentation |
-| `bun run e2e:open` | Open Cypress for integration testing |
+| `bun run dev` | Vite dev server |
+| `bun run build` | Production build (`scripts/build.sh`) |
+| `bun run preview` | Preview production build |
+| `bun run lint` | ESLint |
+| `bun run typecheck` | TypeScript (`tsc --noEmit`) |
+| `bun run test` / `test:ci` | Vitest |
+| `bun run validate` | lint + typecheck + test:ci |
+| `bun run e2e:open` / `e2e:run` | Cypress |
+| `bun run storybook` | Storybook |
+| `bun run seo:generate` | Generate SEO artifacts |
 
 ---
 
-## 📄 License
-This project is `UNLICENSED`. Self-hosted and managed by **Barthez Kenwou**.
+## Deployment
+
+Production path:
+
+```text
+push main → CI → Gitleaks → SonarQube → Trivy
+         → Docker image → GHCR (sha + latest)
+         → SSH on OVH VPS (compose pull/up)
+         → Watchtower keeps :latest in sync
+```
+
+Edge: Nginx Proxy Manager → `barthez-portfolio-web:8080` (TLS).
+
+Guides:
+
+- [docs/deployment/DEPLOY_VPS.md](./docs/deployment/DEPLOY_VPS.md)
+- [infra/README.md](./infra/README.md)
+- [.github/workflows/README.md](./.github/workflows/README.md)
+
+Local image smoke test:
+
+```bash
+NODE_ENV=production VITE_SKIP_IMAGEMIN=true bunx vite build
+docker build -f infra/docker/Dockerfile.runtime -t barthez-kenwou-portfolio:local .
+docker run --rm -p 18080:8080 barthez-kenwou-portfolio:local
+curl -fsS http://127.0.0.1:18080/health
+```
+
+---
+
+## Documentation map
+
+| Section | Path |
+| :--- | :--- |
+| Docs index | [docs/README.md](./docs/README.md) |
+| Architecture | [docs/architecture](./docs/architecture/frontend-architecture.md) |
+| Features | [docs/features](./docs/features/README.md) |
+| Entities | [docs/entities](./docs/entities/README.md) |
+| Guidelines | [docs/guidelines](./docs/guidelines/README.md) |
+| Onboarding | [docs/onboarding](./docs/onboarding/README.md) |
+| Deployment | [docs/deployment](./docs/deployment/README.md) |
+| ADRs | [docs/decisions](./docs/decisions/README.md) |
+| Project analysis | [docs/PROJECT_ANALYSIS.md](./docs/PROJECT_ANALYSIS.md) |
+| Contributing | [CONTRIBUTING.md](./CONTRIBUTING.md) |
+
+---
+
+## License
+
+`UNLICENSED` — owned and maintained by **Barthez Kenwou**.

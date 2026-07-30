@@ -1,99 +1,113 @@
-# 🚀 Project Analysis: Barthez Kenwou Portfolio
+# Project analysis: Barthez Kenwou Portfolio
 
-## 📌 Executive Summary
-The **Barthez Kenwou Portfolio** is a high-end, modern web application designed to showcase the skills, projects, and professional background of a Full Stack Developer & DevOps Engineer. The project stands out for its sophisticated design, interactive elements, and robust architectural foundations using **Feature-Sliced Design (FSD)**.
+## Executive summary
+
+High-end personal portfolio for **Barthez Kenwou** (Full Stack & DevOps).  
+Focus: premium dark UI, FSD architecture, SEO, PWA, and a real production CD path to an OVH VPS via GHCR.
+
+Live: [https://barthez-kenwou.dev](https://barthez-kenwou.dev)
 
 ---
 
-## 🛠 Tech Stack & Tools
+## Tech stack
 
 | Category | Technologies |
 | :--- | :--- |
-| **Frontend** | React 18, Vite (Custom Rolldown), TypeScript |
-| **Styling** | Tailwind CSS 4, Framer Motion, Motion, Radix UI |
+| **Frontend** | React 18, TypeScript, Vite (Rolldown), Bun |
+| **UI** | Tailwind CSS 4, Radix UI, Framer Motion / Motion |
 | **Architecture** | Feature-Sliced Design (FSD) |
-| **State Management** | Zustand |
-| **Content** | Velite, React Markdown, Shiki (Syntax Highlighting) |
-| **I18n** | i18next, React i18next |
+| **State** | Zustand |
+| **Content** | Velite, React Markdown, Shiki |
+| **i18n** | i18next, react-i18next |
 | **Forms** | React Hook Form, Zod |
-| **Testing** | Vitest, Cypress |
-| **Documentation** | Storybook, JSDoc |
-| **CI/CD / Quality** | Husky, Commitlint, Lighthouse CI, PWA |
+| **QA** | Vitest, Cypress, Storybook, ESLint, Prettier, Husky, Commitlint |
+| **Runtime** | Nginx (Alpine), Docker, PWA (Workbox) |
+| **CD / security** | GitHub Actions, GHCR, Gitleaks, SonarQube, Trivy, Watchtower, Nginx Proxy Manager |
 
 ---
 
-## 🏗 Architecture Overview (FSD)
-The project is strictly organized following **Feature-Sliced Design**, which ensures scalability and maintainability:
+## Architecture (FSD)
 
-- **`src/app`**: Root configuration (providers, router, global styles).
-- **`src/pages`**: Composition layer for pages. 
-    - *Home, About, Blog, Contact, CV, Projects, Services, Skills.*
-- **`src/widgets`**: Composition of features and entities into larger UI blocks (e.g., Navbar, Footer).
-- **`src/features`**: Implementation of user scenarios (e.g., Theme switching, Language toggle, Contact form).
-- **`src/entities`**: Business logic and domain data (e.g., Blog content, Project data).
-- **`src/shared`**: Reusable infrastructure (UI components, hooks, utility functions).
+| Layer | Role |
+| :--- | :--- |
+| `src/app` | Providers, router, global styles |
+| `src/pages` | Route compositions (Home, About, Blog, Contact, CV, Projects, Services, Skills, …) |
+| `src/widgets` | Navbar, Sidebar, Footer, … |
+| `src/features` | Theme, language, contact, … |
+| `src/entities` | Blog, projects, skills, experiences, services, … |
+| `src/shared` | UI kit, hooks, config, utils |
 
----
-
-## ✨ Key Features & User Experience
-
-### 1. **Premium Visual Experience**
-- **Dynamic Themes**: Dark and Light modes with complex animations (Aurora backgrounds, interactive blobs).
-- **Interactive UI**: Custom cursors, mouse particles, and 3D globes (Cobe/Three.js).
-- **Micro-interactions**: Use of Framer Motion for smooth transitions and hover effects.
-
-### 2. **Technical Excellence**
-- **I18n Ready**: Full support for multiple languages using `i18next`.
-- **Dynamic Blog**: Content is managed via Markdown files, processed by **Velite**, and rendered with high-quality syntax highlighting (Shiki).
-- **Performance Optimized**: Uses code splitting, image optimization (Vite Imagemin), and follows PWA best practices.
-- **Accessibility**: Integration of Radix UI primitives ensuring ARIA compliance.
-
-### 3. **DevOps & Professional Grade**
-- **Quality Gates**: ESLint, Prettier, and Commitlint setup with Husky git hooks.
-- **Automated Performance Audit**: Lighthouse CI integration for tracking performance metrics.
-- **E2E Testing**: Cypress for critical user path testing.
+Details: [architecture/frontend-architecture.md](./architecture/frontend-architecture.md)
 
 ---
 
-## 📁 Key File Locations
-- **Content Config**: `velite.config.ts`
-- **Tailwind Config**: `tailwind.config.ts`
-- **Global Styles**: `src/index.css` & `src/app/style/`
-- **Shared Components**: `src/shared/ui/`
-- **Pages**: `src/pages/public/`
+## Product surface
+
+- Premium dark / light UI (glassmorphism, ambient flares, motion)
+- Multilingual FR / EN
+- Blog with syntax highlighting
+- Projects, skills, services, testimonials, CV (PDF)
+- SEO artifacts (sitemaps, OG, robots, llms.txt)
+- Branding error pages (404 / ErrorBoundary) that keep site chrome when possible
+- Installable PWA
 
 ---
 
-## 🚀 Getting Started (Fast Track)
+## DevOps & quality
 
-### Installation
+```text
+push main → CI (format / lint / typecheck / tests / build)
+         → Gitleaks → SonarQube → Trivy FS
+         → Docker (Dockerfile.runtime + dist) → GHCR
+         → Trivy image → SSH compose pull/up
+         → Watchtower syncs :latest on VPS
+```
+
+TLS: Nginx Proxy Manager → `barthez-portfolio-web:8080` on `web-proxy`.
+
+Full guide: [deployment/DEPLOY_VPS.md](./deployment/DEPLOY_VPS.md)
+
+---
+
+## Key paths
+
+| Concern | Path |
+| :--- | :--- |
+| Content / Velite | `velite.config.ts` |
+| Tailwind / theme tokens | `tailwind.config.ts`, `src/index.css`, `src/app/style/` |
+| Shared UI | `src/shared/ui/` |
+| Public pages | `src/pages/public/` |
+| Nginx / Docker | `infra/docker/` |
+| CD workflow | `.github/workflows/deploy-vps.yml` |
+
+---
+
+## Fast track
+
 ```bash
 bun install
+cp .env.example .env
+bun run dev
 ```
 
-### Development
-```bash
-bun dev
-```
-
-### Build & Production
 ```bash
 bun run build
 bun run preview
 ```
 
-### Verification
 ```bash
-bun run lint
-bun run typecheck
-bun run test
+bun run lint && bun run typecheck && bun run test:ci
 ```
+
+Onboarding: [onboarding/setup-local.md](./onboarding/setup-local.md)
 
 ---
 
-## 🎨 Design Philosophy
-The portfolio follows a "Glassmorphism" and "Dark Modern" aesthetic, prioritizing:
-- **Contrast and Readability**
-- **Motion-driven UI**
-- **Typography-first design**
-- **Developer-centric details** (Terminal components, code blocks).
+## Design direction
+
+Dark premium / glassmorphism:
+
+- Contrast and readability first
+- Motion used for hierarchy, not noise
+- Typography aligned across pages
+- Developer-facing details (code blocks, terminal-like accents where relevant)

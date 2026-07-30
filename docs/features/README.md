@@ -1,16 +1,26 @@
-# ✨ Features
+# Features
 
-Features represent user-facing capabilities that provide direct business value. In this portfolio, features focus on engagement and presentation.
+User-facing capabilities. In FSD, a feature is an isolated user scenario that may use **entities** and **shared**, but must not import other features or pages.
 
-## Key Features
+## Documented features
 
-- [**Theme Management**](./theme-switching.md) — Dynamic Dark/Light mode engine.
-- [**Internationalization (I18n)**](./i18n.md) — Multilingual support.
-- [**Blog Engine**](./blog-engine.md) — Dynamic content delivery and rendering.
-- [**Portfolio Filtering**](./portfolio-filtering.md) — Browsing projects by category/tech.
+| Feature | Doc |
+| :--- | :--- |
+| Theme (dark / light) | [theme-switching.md](./theme-switching.md) |
+| Internationalization (FR / EN) | [i18n.md](./i18n.md) |
+| Contact system | [contact-system.md](./contact-system.md) |
 
-## Functional Specs
+## Also in the product (see source / entities)
 
-1. **Isolation**: Every feature should be as isolated as possible from other features.
-2. **Coupling**: Features can use **Entities** and **Shared** layers, but should never depend on other **Features** or **Pages**.
-3. **Public API**: Only expose what is necessary via the `index.ts` of the feature slice.
+These are implemented as pages + entities rather than dedicated feature docs:
+
+- Blog (Markdown / Velite / Shiki) — [../entities/blog.md](../entities/blog.md)
+- Projects portfolio — [../entities/project.md](../entities/project.md)
+- Skills — [../entities/skill.md](../entities/skill.md)
+- CV / PDF export, services, testimonials — under `src/pages/public/` and `src/entities/`
+
+## Rules
+
+1. **Isolation** — keep feature code self-contained.
+2. **Coupling** — only depend on entities and shared.
+3. **Public API** — export only through the feature `index.ts` / public entry.

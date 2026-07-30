@@ -1,5 +1,10 @@
 # Infrastructure
 
+Docker, nginx, and VPS bootstrap for [barthez-kenwou.dev](https://barthez-kenwou.dev).
+
+Full deploy guide: [docs/deployment/DEPLOY_VPS.md](../docs/deployment/DEPLOY_VPS.md)  
+Docs index: [docs/deployment/README.md](../docs/deployment/README.md)
+
 ## Docker (production path)
 
 | File | Purpose |

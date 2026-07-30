@@ -1,36 +1,38 @@
 # Contributing
 
-This repository is a template for production-ready frontend projects. Follow these guidelines to keep the codebase high-quality and maintainable.
+Rules for contributing to this portfolio while keeping quality and architecture intact.
 
-## Commit messages
+## Commits
 
-- Use Conventional Commits (see commitlint in the project). Example: `feat: add login form`.
+Use [Conventional Commits](https://www.conventionalcommits.org/) (enforced by Commitlint + Husky).
+
+Examples: `feat: …`, `fix: …`, `docs: …`, `chore: …`.
 
 ## Branches & PRs
 
-- Create feature branches from `development` or `main` depending on workflow.
-- Open PRs with clear descriptions and link design/issue.
-- CI runs on each PR: format, lint, typecheck, build.
+- Branch from `main` (or the active integration branch for your workflow).
+- Open a PR with a clear summary and test notes.
+- CI runs on PRs (`ci.yml`: format, lint, typecheck, tests, build).
 
-## PR Review
+## Review
 
-- Assign reviewers and ensure `CODEOWNERS` is satisfied.
-- Add changelog notes where relevant.
+- Respect [`.github/CODEOWNERS`](./.github/CODEOWNERS).
+- Prefer small, reviewable diffs.
+- Update docs under `docs/` when behavior, architecture, or deploy paths change.
 
 ## Local checks before PR
-
-Run these locally before opening a PR:
 
 ```bash
 bun install
 bun run format:check
 bun run lint
 bun run typecheck
+bun run test:ci
 bun run build
 ```
 
-## Architecture & Code Standards
+Or: `bun run validate` then `bun run build`.
 
-- Follow Domain-Driven Design for features (see `docs/ARCHITECTURE.md`).
-- Apply SOLID, KISS, DRY.
-- Prefer public feature barrels (`src/features/public.ts`) — avoid deep imports into `ui/` or `model/`.
+## Documentation
+
+See [docs/README.md](./docs/README.md) and [docs/guidelines/documentation-rules.md](./docs/guidelines/documentation-rules.md).

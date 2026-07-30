@@ -1,16 +1,26 @@
-# 📦 Entities
+# Entities
 
-Entities are the core business domain models of the portfolio. They define the data structures and contracts used across the application.
+Core domain models. They define data shapes and contracts used across pages, widgets, and features.
 
-## Core Entities
+## Documented entities
 
-- [**Project**](./project.md) — Portrays the technical works and products.
-- [**Blog**](./blog.md) — Articles, snippets, and educational content.
-- [**Skill**](./skill.md) — Technical competencies and tools.
-- [**Service**](./service.md) — Professional offerings (DevOps, Cloud, Development).
+| Entity | Doc |
+| :--- | :--- |
+| Project | [project.md](./project.md) |
+| Blog | [blog.md](./blog.md) |
+| Skill | [skill.md](./skill.md) |
+| Experience | [experience.md](./experience.md) |
 
-## General Rules
+## Also present in `src/entities/`
 
-1. **Schema Validation**: All entities must define a Zod schema for runtime validation (especially for data coming from Velite).
-2. **Type Safety**: Entities should export TypeScript types derived from their Zod schemas.
-3. **Mappers**: If the raw data from the content layer doesn't match the UI requirements, provide a small mapper in the entity slice.
+Document as needed when the public API stabilizes:
+
+- `services` — professional offerings
+- `certifications`, `education`, `cv`, `contact`, `testimonies`, `userProfile`, `achievment`
+
+## Rules
+
+1. Prefer Zod schemas for runtime validation of content / mock data.
+2. Export TypeScript types derived from those schemas.
+3. Keep mappers in the entity slice when raw data differs from UI needs.
+4. Do not import from `features/`, `widgets/`, or `pages/`.
