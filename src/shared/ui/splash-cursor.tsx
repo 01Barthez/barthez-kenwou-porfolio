@@ -98,24 +98,17 @@ export function SplashCursor({
     };
 
     // Get WebGL context (WebGL1 or WebGL2) — degrade silently when unavailable
-    let gl: WebGLRenderingContext | WebGL2RenderingContext | null = null;
-    let ext: {
-      formatRGBA: { internalFormat: number; format: number } | null;
-      formatRG: { internalFormat: number; format: number } | null;
-      formatR: { internalFormat: number; format: number } | null;
-      halfFloatTexType: number;
-      supportLinearFiltering: boolean;
-    } | null = null;
-
+    let webgl: ReturnType<typeof getWebGLContext>;
     try {
-      const ctx = getWebGLContext(canvas);
-      gl = ctx.gl;
-      ext = ctx.ext;
+      webgl = getWebGLContext(canvas);
     } catch {
       return;
     }
+    if (!webgl.gl || !webgl.ext) return;
 
-    if (!gl || !ext) return;
+    // Non-null locals so nested closures type-check (TS does not narrow across functions)
+    const gl = webgl.gl;
+    const ext = webgl.ext;
 
     // If no linear filtering, reduce resolution
     if (!ext.supportLinearFiltering) {
