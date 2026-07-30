@@ -11,8 +11,8 @@ type LanguageState = {
 export const useLanguageStore = create<LanguageState>()(
   persist(
     (set) => ({
-      language: 'fr',
-      toggleLanguage: () => set((state) => ({ language: state.language === 'fr' ? 'en' : 'fr' })),
+      language: 'en',
+      toggleLanguage: () => set((state) => ({ language: state.language === 'en' ? 'fr' : 'en' })),
     }),
     {
       name: 'language-storage',

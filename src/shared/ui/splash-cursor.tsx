@@ -97,8 +97,24 @@ export function SplashCursor({
       TRANSPARENT,
     };
 
-    // Get WebGL context (WebGL1 or WebGL2)
-    const { gl, ext } = getWebGLContext(canvas);
+    // Get WebGL context (WebGL1 or WebGL2) — degrade silently when unavailable
+    let gl: WebGLRenderingContext | WebGL2RenderingContext | null = null;
+    let ext: {
+      formatRGBA: { internalFormat: number; format: number } | null;
+      formatRG: { internalFormat: number; format: number } | null;
+      formatR: { internalFormat: number; format: number } | null;
+      halfFloatTexType: number;
+      supportLinearFiltering: boolean;
+    } | null = null;
+
+    try {
+      const ctx = getWebGLContext(canvas);
+      gl = ctx.gl;
+      ext = ctx.ext;
+    } catch {
+      return;
+    }
+
     if (!gl || !ext) return;
 
     // If no linear filtering, reduce resolution
@@ -124,7 +140,7 @@ export function SplashCursor({
       }
 
       if (!gl) {
-        throw new Error('Unable to initialize WebGL.');
+        return { gl: null, ext: null };
       }
 
       const isWebGL2 = 'drawBuffers' in gl;

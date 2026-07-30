@@ -98,12 +98,12 @@ function writeUrlset(entries: UrlEntry[]): string {
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`;
 }
 
-function blogTitle(post: IBlog, lang: 'fr' | 'en' = 'fr'): string {
+function blogTitle(post: IBlog, lang: 'fr' | 'en' = 'en'): string {
   if (lang === 'en') return post.titleEn?.trim() || post.titleFr;
   return post.titleFr;
 }
 
-function blogExcerpt(post: IBlog, lang: 'fr' | 'en' = 'fr'): string {
+function blogExcerpt(post: IBlog, lang: 'fr' | 'en' = 'en'): string {
   if (lang === 'en') {
     return (
       post.excerptEn?.trim() ||

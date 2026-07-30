@@ -1,34 +1,28 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
-import LanguageDetector from 'i18next-browser-languagedetector';
 
-// Import your translation files
 import fr from '@/shared/assets/locales/fr/translation.json';
 import en from '@/shared/assets/locales/en/translation.json';
 
-i18n
-  .use(LanguageDetector)
-  .use(initReactI18next)
-  .init({
-    resources: {
-      en: {
-        translation: en,
-      },
-      fr: {
-        translation: fr,
-      },
+/**
+ * Default language is English. Persistence + toggle live in `useLanguageStore`;
+ * `I18nProvider` syncs i18n via `changeLanguage` — no browser auto-detection.
+ */
+i18n.use(initReactI18next).init({
+  resources: {
+    en: {
+      translation: en,
     },
-    fallbackLng: 'fr',
-    debug: process.env.NODE_ENV === 'development',
-
-    interpolation: {
-      escapeValue: false, // not needed for react as it escapes by default
+    fr: {
+      translation: fr,
     },
-    detection: {
-      order: ['localStorage', 'navigator'],
-      caches: ['localStorage'],
-      lookupLocalStorage: 'language-storage', // This must match the name in your zustand persist middleware
-    },
-  });
+  },
+  lng: 'en',
+  fallbackLng: 'en',
+  debug: process.env.NODE_ENV === 'development',
+  interpolation: {
+    escapeValue: false,
+  },
+});
 
 export default i18n;

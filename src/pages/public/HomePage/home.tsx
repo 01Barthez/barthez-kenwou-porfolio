@@ -6,6 +6,7 @@ import { WhyChooseMeSection } from './sections/WhyChooseMeSection';
 import { TestimonialsSection } from './sections/TestimonialsSection';
 import { CTASection } from './sections/CTASection';
 import { DeferredMount } from '@/shared/ui/DeferredMount';
+import { ErrorBoundary } from '@/app/lib/ErrorBoundary';
 
 const SplashCursor = lazy(() =>
   import('@/shared/ui/splash-cursor').then((m) => ({ default: m.SplashCursor })),
@@ -17,13 +18,25 @@ const PresentationVideo = lazy(() =>
   })),
 );
 
+function canUseWebGL(): boolean {
+  try {
+    const canvas = document.createElement('canvas');
+    return !!(
+      window.WebGLRenderingContext &&
+      (canvas.getContext('webgl2') || canvas.getContext('webgl') || canvas.getContext('experimental-webgl'))
+    );
+  } catch {
+    return false;
+  }
+}
+
 function DeferredSplash() {
   const [ready, setReady] = useState(false);
 
   useEffect(() => {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const coarse = window.matchMedia('(pointer: coarse)').matches;
-    if (reduced || coarse) return;
+    if (reduced || coarse || !canUseWebGL()) return;
 
     const schedule =
       (window as Window & { requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number })
@@ -41,9 +54,11 @@ function DeferredSplash() {
   if (!ready) return null;
 
   return (
-    <Suspense fallback={null}>
-      <SplashCursor />
-    </Suspense>
+    <ErrorBoundary fallback={null}>
+      <Suspense fallback={null}>
+        <SplashCursor />
+      </Suspense>
+    </ErrorBoundary>
   );
 }
 

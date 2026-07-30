@@ -12,6 +12,7 @@ import {
   SOCIAL,
   absoluteUrl,
 } from '@/shared/config/site';
+import { useLanguageStore } from '@/shared/state/useLanguageStore';
 
 export type OpenGraph = {
   title?: string;
@@ -157,12 +158,14 @@ export const SEO: React.FC<SEOProps> = ({
   description = DEFAULT_DESCRIPTION,
   canonical,
   path,
-  lang = 'fr',
+  lang: langProp,
   openGraph,
   noIndex = false,
   jsonLd,
   additionalMeta = [],
 }) => {
+  const storeLang = useLanguageStore((s) => s.language);
+  const lang = langProp ?? storeLang;
   const pageTitle = buildPageTitle(title);
   const pageUrl = canonical || (path ? absoluteUrl(path) : absoluteUrl('/'));
   const ogTitle = openGraph?.title || pageTitle;
