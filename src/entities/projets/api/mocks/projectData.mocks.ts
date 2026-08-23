@@ -119,6 +119,213 @@ export const projectsData: IProject[] = [
         businessContextFr: "Projet SaaS stratégique visant à créer une solution de gestion de restaurant scalable, modulaire et adaptée aux marchés locaux et internationaux.",
         businessContextEn: "Strategic SaaS project aimed at building a scalable, modular restaurant management solution for local and international markets.",
 
+        confidential: false,
+
+        responsibilitiesFr: [
+            "Architecture modulaire (modular monolith) et découpage des bounded contexts",
+            "Conception multi-tenant et modèle de facturation par module",
+            "Mise en place CI/CD, observabilité et socle AWS",
+            "Lead technique fullstack + cadrage produit avec l’équipe",
+        ],
+        responsibilitiesEn: [
+            "Modular monolith architecture and bounded-context design",
+            "Multi-tenant design and per-module billing model",
+            "CI/CD, observability, and AWS foundation",
+            "Fullstack technical lead and product framing with the team",
+        ],
+
+        gallery: [
+            {
+                src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/167ee008-product-pic-tabesto-300x274.webp",
+                captionFr: "Aperçu UI - modules restaurant",
+                captionEn: "UI preview - restaurant modules",
+                kind: "ui",
+            },
+            {
+                src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/167ee008-product-pic-tabesto-300x274.webp",
+                captionFr: "Flux opérationnel cible",
+                captionEn: "Target operational flow",
+                kind: "process",
+            },
+        ],
+
+        diagrams: [
+            {
+                id: "nexus-arch",
+                titleFr: "Architecture modulaire",
+                titleEn: "Modular architecture",
+                mermaid: `flowchart TB
+  Client[Client PWA] --> Gateway[API Gateway]
+  Gateway --> Orders[Orders Domain]
+  Gateway --> Inventory[Inventory Domain]
+  Gateway --> CRM[CRM Domain]
+  Gateway --> Billing[Billing Domain]
+  Orders --> DB[(PostgreSQL)]
+  Inventory --> DB
+  CRM --> DB
+  Billing --> Payments[Stripe / Mobile Money]
+  subgraph AWS
+    Gateway
+    Orders
+    Inventory
+    CRM
+    Billing
+  end`,
+            },
+            {
+                id: "nexus-deploy",
+                titleFr: "Pipeline de déploiement",
+                titleEn: "Deployment pipeline",
+                mermaid: `flowchart LR
+  Dev[Push] --> CI[GitHub Actions]
+  CI --> Scan[Trivy / Sonar]
+  Scan --> Build[Docker Build]
+  Build --> Registry[GHCR]
+  Registry --> Staging[Staging]
+  Staging --> Prod[Production]`,
+            },
+        ],
+
+        resources: [
+            {
+                labelFr: "Cahier des charges (extrait public)",
+                labelEn: "Requirements brief (public excerpt)",
+                url: "https://barthez-kenwou.dev/llms.txt",
+                type: "spec",
+            },
+            {
+                labelFr: "Étude de cas - vision produit",
+                labelEn: "Case study - product vision",
+                url: "https://barthez-kenwou.dev/",
+                type: "case-study",
+            },
+        ],
+
+        milestones: [
+            {
+                labelFr: "Cadrage & architecture",
+                labelEn: "Framing & architecture",
+                date: "2025 Q4",
+                descriptionFr: "Choix modular monolith + Turborepo, cartographie des modules.",
+                descriptionEn: "Chose modular monolith + Turborepo, mapped modules.",
+            },
+            {
+                labelFr: "MVP modules cœur",
+                labelEn: "Core modules MVP",
+                date: "2026 Q1",
+                descriptionFr: "Commandes, stocks, auth multi-tenant.",
+                descriptionEn: "Orders, inventory, multi-tenant auth.",
+            },
+            {
+                labelFr: "Paiements & analytics",
+                labelEn: "Payments & analytics",
+                date: "2026 Q2",
+                descriptionFr: "Mobile Money / Stripe et reporting business.",
+                descriptionEn: "Mobile Money / Stripe and business reporting.",
+            },
+        ],
+
+        scopeFr: [
+            "ERP SaaS modulaire multi-tenant",
+            "PWA restaurateur + interfaces staff / cuisine",
+            "Facturation par module et paiements multi-canaux",
+            "Socle DevOps AWS (CI/CD, monitoring)",
+        ],
+        scopeEn: [
+            "Modular multi-tenant SaaS ERP",
+            "Restaurant PWA + staff / kitchen interfaces",
+            "Per-module billing and multi-channel payments",
+            "AWS DevOps foundation (CI/CD, monitoring)",
+        ],
+        nonGoalsFr: [
+            "Marketplace de fournisseurs (phase 2)",
+            "Application native mobile (PWA prioritaire)",
+            "Hardware POS propriétaire",
+        ],
+        nonGoalsEn: [
+            "Supplier marketplace (phase 2)",
+            "Native mobile apps (PWA first)",
+            "Proprietary POS hardware",
+        ],
+
+        decisions: [
+            {
+                titleFr: "Modular monolith vs microservices",
+                titleEn: "Modular monolith vs microservices",
+                decisionFr: "Modular monolith (Turborepo) en phase 1.",
+                decisionEn: "Modular monolith (Turborepo) for phase 1.",
+                rationaleFr: "Vélocité équipe, cohérence transactionnelle, extraction progressive possible.",
+                rationaleEn: "Team velocity, transactional consistency, progressive extraction later.",
+            },
+            {
+                titleFr: "Facturation par module",
+                titleEn: "Per-module billing",
+                decisionFr: "Activation à la demande plutôt qu’un plan unique.",
+                decisionEn: "On-demand activation instead of a single plan.",
+                rationaleFr: "Aligné aux budgets locaux et à l’adoption progressive.",
+                rationaleEn: "Fits local budgets and progressive adoption.",
+            },
+        ],
+
+        securityFr: [
+            "Isolation multi-tenant au niveau données",
+            "Auth JWT / OAuth avec rôles granulaires",
+            "Secrets gérés hors code (vault / secrets manager)",
+            "Scans SAST / SCA dans le pipeline",
+        ],
+        securityEn: [
+            "Data-level multi-tenant isolation",
+            "JWT / OAuth auth with granular roles",
+            "Secrets kept out of code (vault / secrets manager)",
+            "SAST / SCA scans in the pipeline",
+        ],
+
+        infraFr: [
+            "Environnements Dev / Staging / Prod séparés",
+            "Conteneurisation Docker + registry GHCR",
+            "CI/CD GitHub Actions avec gates qualité",
+            "Observabilité : logs, métriques, alertes",
+        ],
+        infraEn: [
+            "Separated Dev / Staging / Prod environments",
+            "Docker containers + GHCR registry",
+            "GitHub Actions CI/CD with quality gates",
+            "Observability: logs, metrics, alerts",
+        ],
+
+        externalLinks: [
+            { labelFr: "Site portfolio", labelEn: "Portfolio site", url: "https://barthez-kenwou.dev" },
+        ],
+
+        testimonial: {
+            quoteFr: "L’approche modulaire change la donne : on paie uniquement ce qu’on active, sans sacrifier la cohérence opérationnelle.",
+            quoteEn: "The modular approach is a game changer: we only pay for what we enable, without losing operational consistency.",
+            author: "Product Stakeholder",
+            roleFr: "Directeur des opérations",
+            roleEn: "Head of Operations",
+            company: "Pilot Restaurant Group",
+        },
+
+        lessonsFr: [
+            "Le découpage de domaines trop tôt complexifie inutilement le monolithe.",
+            "Le pricing modulaire doit être validé tôt avec des clients pilotes.",
+            "L’observabilité métier (SLO business) vaut autant que les métriques techniques.",
+        ],
+        lessonsEn: [
+            "Splitting domains too early overcomplicates the monolith.",
+            "Modular pricing must be validated early with pilot customers.",
+            "Business observability (SLOs) matters as much as technical metrics.",
+        ],
+
+        beforeAfter: [
+            {
+                beforeSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/167ee008-product-pic-tabesto-300x274.webp",
+                afterSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/167ee008-product-pic-tabesto-300x274.webp",
+                captionFr: "De outils fragmentés à une plateforme unifiée (placeholder visuel).",
+                captionEn: "From fragmented tools to a unified platform (visual placeholder).",
+            },
+        ],
+
         isFeatured: true,
     },
 
@@ -237,6 +444,182 @@ export const projectsData: IProject[] = [
         businessContextFr: "Transformation digitale globale d'une ESN cherchant à se positionner comme leader technique sur son marché tout en attirant les meilleurs profils développeurs.",
         businessContextEn: "Global digital transformation of an IT service company aiming to position itself as a technical leader in its market while attracting top developer talent.",
 
+        responsibilitiesFr: [
+            "Conception et développement fullstack de la PWA et du backoffice",
+            "Architecture 3-tiers conteneurisée et pipeline CI/CD",
+            "SEO technique et performance (Lighthouse 95+)",
+            "Mise en production VPS (Nginx reverse proxy)",
+        ],
+        responsibilitiesEn: [
+            "Fullstack design and development of the PWA and admin panel",
+            "Containerized 3-tier architecture and CI/CD pipeline",
+            "Technical SEO and performance (Lighthouse 95+)",
+            "VPS production rollout (Nginx reverse proxy)",
+        ],
+
+        videos: [
+            {
+                url: 'https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Macbook-Air-gta-it.com-qjegppeqe2kxhz%20(1).webm',
+                type: 'demo',
+                titleFr: 'Démo parcours site',
+                titleEn: 'Site walkthrough demo',
+            },
+        ],
+
+        gallery: [
+            {
+                src: 'https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Macbook-Air-gta-it.com%20(2).png',
+                captionFr: 'Home desktop',
+                captionEn: 'Desktop home',
+                kind: 'ui',
+            },
+            {
+                src: 'https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/iPhone-13-PRO-gta-it.com.png',
+                captionFr: 'Vue mobile',
+                captionEn: 'Mobile view',
+                kind: 'ui',
+            },
+            {
+                src: 'https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/about-team_section.png',
+                captionFr: 'Section équipe',
+                captionEn: 'Team section',
+                kind: 'ui',
+            },
+        ],
+
+        diagrams: [
+            {
+                id: 'gta-arch',
+                titleFr: 'Architecture 3-tiers',
+                titleEn: '3-tier architecture',
+                mermaid: `flowchart LR
+  Browser[Browser / PWA] --> Nginx[Nginx]
+  Nginx --> React[React SPA]
+  React --> API[Node / Express API]
+  API --> Mongo[(MongoDB)]
+  API --> Redis[(Redis Cache)]
+  CI[GitHub Actions] --> Deploy[VPS Deploy]`,
+            },
+        ],
+
+        resources: [
+            {
+                labelFr: 'Site live',
+                labelEn: 'Live site',
+                url: 'https://gta-it.com',
+                type: 'other',
+            },
+        ],
+
+        milestones: [
+            {
+                labelFr: 'Kickoff & design system',
+                labelEn: 'Kickoff & design system',
+                date: 'Oct 2023',
+            },
+            {
+                labelFr: 'MVP corporate + blog',
+                labelEn: 'Corporate + blog MVP',
+                date: 'Dec 2023',
+            },
+            {
+                labelFr: 'Backoffice + devis + prod',
+                labelEn: 'Admin + quotes + prod',
+                date: 'Feb 2024',
+            },
+        ],
+
+        scopeFr: [
+            'Site corporate multi-pages',
+            'Blog + newsletter',
+            'Backoffice CMS',
+            'Demande de devis dynamique',
+            'PWA + SEO',
+        ],
+        scopeEn: [
+            'Multi-page corporate site',
+            'Blog + newsletter',
+            'CMS admin panel',
+            'Dynamic quote requests',
+            'PWA + SEO',
+        ],
+        nonGoalsFr: [
+            'ERP interne complet',
+            'Application mobile native',
+        ],
+        nonGoalsEn: [
+            'Full internal ERP',
+            'Native mobile apps',
+        ],
+
+        decisions: [
+            {
+                titleFr: 'PWA plutôt que SSR full Next',
+                titleEn: 'PWA over full Next SSR',
+                decisionFr: 'SPA React + optimisations SEO ciblées.',
+                decisionEn: 'React SPA with targeted SEO optimizations.',
+                rationaleFr: 'Contrôle total du backoffice custom et hébergement VPS simple.',
+                rationaleEn: 'Full control of a custom admin and simple VPS hosting.',
+            },
+        ],
+
+        securityFr: [
+            'Validation stricte des entrées API',
+            'Auth admin sécurisée',
+            'Headers de sécurité Nginx',
+            'Séparation environnements',
+        ],
+        securityEn: [
+            'Strict API input validation',
+            'Hardened admin auth',
+            'Nginx security headers',
+            'Separated environments',
+        ],
+
+        infraFr: [
+            'Docker + Nginx reverse proxy',
+            'CI/CD GitHub Actions',
+            'Déploiement VPS Hostinger',
+            'Cache Redis pour endpoints lourds',
+        ],
+        infraEn: [
+            'Docker + Nginx reverse proxy',
+            'GitHub Actions CI/CD',
+            'Hostinger VPS deployment',
+            'Redis cache for heavy endpoints',
+        ],
+
+        externalLinks: [
+            { labelFr: 'Live demo', labelEn: 'Live demo', url: 'https://gta-it.com' },
+        ],
+
+        testimonial: {
+            quoteFr: 'La nouvelle plateforme a immédiatement renforcé notre crédibilité auprès des partenaires et accéléré les candidatures.',
+            quoteEn: 'The new platform immediately strengthened our credibility with partners and accelerated applications.',
+            author: 'GTA Leadership',
+            roleFr: 'Direction',
+            roleEn: 'Leadership',
+            company: 'GTA IT',
+        },
+
+        lessonsFr: [
+            'Un score Lighthouse élevé doit être budgété dès le design, pas en fin de projet.',
+            'Le devis dynamique réduit fortement la friction commerciale.',
+        ],
+        lessonsEn: [
+            'A high Lighthouse score must be budgeted from design time, not at the end.',
+            'Dynamic quoting significantly reduces commercial friction.',
+        ],
+
+        beforeAfter: [
+            {
+                beforeSrc: 'https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Macbook-Air-gta-it.com.png',
+                afterSrc: 'https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Macbook-Air-gta-it.com%20(2).png',
+                captionFr: 'Refonte visuelle et performance du site corporate.',
+                captionEn: 'Visual and performance redesign of the corporate site.',
+            },
+        ],
+
         isFeatured: true,
     },
 
@@ -351,6 +734,115 @@ export const projectsData: IProject[] = [
         businessContextFr: "Projet ambitieux visant à digitaliser et sécuriser le marché immobilier camerounais en introduisant une plateforme de confiance basée sur l’IA et des pratiques cloud modernes.",
         businessContextEn: "Ambitious project aiming to digitize and secure the Cameroonian real estate market by introducing a trust-based platform powered by AI and modern cloud practices.",
 
+        confidential: false,
+
+        responsibilitiesFr: [
+            "Architecture microservices et API GraphQL/REST",
+            "Conception mobile (React Native) + web Next.js",
+            "Pipeline CI/CD AWS et observabilité",
+            "Anti-fraude IA et conversion WhatsApp",
+        ],
+        responsibilitiesEn: [
+            "Microservices architecture and GraphQL/REST APIs",
+            "Mobile (React Native) + web Next.js delivery",
+            "AWS CI/CD pipeline and observability",
+            "AI anti-fraud and WhatsApp conversion",
+        ],
+
+        gallery: [
+            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2023-05-39.png", captionFr: "Recherche de biens", captionEn: "Property search", kind: "ui" },
+            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2012-02-41.png", captionFr: "Marketplace / listing", captionEn: "Marketplace / listing", kind: "ui" },
+        ],
+
+        diagrams: [
+            {
+                id: "kaza-arch",
+                titleFr: "Écosystème Kaza",
+                titleEn: "Kaza ecosystem",
+                mermaid: `flowchart TB
+  Mobile[React Native] --> API[API Gateway]
+  Web[Next.js] --> API
+  API --> Listings[Listings]
+  API --> Credits[Credits]
+  API --> Fraud[Fraud AI]
+  API --> Concierge[Concierge]
+  Listings --> PG[(PostgreSQL)]
+  Credits --> PG
+  Fraud --> Redis[(Redis)]
+  Concierge --> WA[WhatsApp]`,
+            },
+        ],
+
+        resources: [
+            { labelFr: "Vision produit", labelEn: "Product vision", url: "https://barthez-kenwou.dev/", type: "case-study" },
+        ],
+
+        milestones: [
+            { labelFr: "Cadrage domaines", labelEn: "Domain framing", date: "2025 Q4", descriptionFr: "Fraude, crédits, conciergerie, marketplace.", descriptionEn: "Fraud, credits, concierge, marketplace." },
+            { labelFr: "MVP listings", labelEn: "Listings MVP", date: "2026 Q1", descriptionFr: "Parcours mobile/web de découverte.", descriptionEn: "Mobile/web discovery journeys." },
+            { labelFr: "Anti-fraude & WhatsApp", labelEn: "Anti-fraud & WhatsApp", date: "2026 Q2", descriptionFr: "Modération IA et conversion directe.", descriptionEn: "AI moderation and direct conversion." },
+        ],
+
+        scopeFr: ["Marketplace web + mobile", "Crédits & notation", "Anti-fraude IA", "Conciergerie WhatsApp", "Cloud + CI/CD"],
+        scopeEn: ["Web + mobile marketplace", "Credits & ratings", "AI anti-fraud", "WhatsApp concierge", "Cloud + CI/CD"],
+        nonGoalsFr: ["Escrow financier complet (phase 2)", "Agence physique intégrée"],
+        nonGoalsEn: ["Full financial escrow (phase 2)", "Integrated physical agency"],
+
+        decisions: [
+            {
+                titleFr: "Microservices ciblés",
+                titleEn: "Targeted microservices",
+                decisionFr: "Isoler fraude, crédits et listings.",
+                decisionEn: "Isolate fraud, credits, and listings.",
+                rationaleFr: "Domaines à scalabilité et risques différents.",
+                rationaleEn: "Domains with different scaling and risk profiles.",
+            },
+            {
+                titleFr: "WhatsApp natif",
+                titleEn: "Native WhatsApp",
+                decisionFr: "Canal de conversion local plutôt qu'un chat custom.",
+                decisionEn: "Local conversion channel over a custom chat.",
+                rationaleFr: "Adoption massive et friction minimale.",
+                rationaleEn: "Massive adoption and minimal friction.",
+            },
+        ],
+
+        securityFr: ["Scoring anti-fraude", "JWT/RBAC multi-rôles", "Secrets cloud hors repo", "Alertes comportements anormaux"],
+        securityEn: ["Fraud scoring", "Multi-role JWT/RBAC", "Cloud secrets out of repo", "Abnormal-behavior alerts"],
+        infraFr: ["Docker + Kubernetes", "AWS CI/CD", "PostgreSQL + Redis", "Prometheus / Loki / Grafana"],
+        infraEn: ["Docker + Kubernetes", "AWS CI/CD", "PostgreSQL + Redis", "Prometheus / Loki / Grafana"],
+
+        externalLinks: [{ labelFr: "Portfolio", labelEn: "Portfolio", url: "https://barthez-kenwou.dev" }],
+
+        testimonial: {
+            quoteFr: "La confiance est traitée comme une feature produit, pas un afterthought.",
+            quoteEn: "Trust is treated as a product feature, not an afterthought.",
+            author: "Product Advisor",
+            roleFr: "Conseiller marché",
+            roleEn: "Market advisor",
+            company: "Kaza Pilot Circle",
+        },
+
+        lessonsFr: [
+            "Mesurer la confiance (signaux fraude) dès le MVP.",
+            "WhatsApp bat un chat custom là où il est déjà le standard.",
+            "Isoler seulement les domaines chauds - pas tout microserviciser trop tôt.",
+        ],
+        lessonsEn: [
+            "Measure trust (fraud signals) from day one.",
+            "WhatsApp beats custom chat where it is already the standard.",
+            "Isolate only hot domains - don't microservice everything too early.",
+        ],
+
+        beforeAfter: [
+            {
+                beforeSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2012-02-41.png",
+                afterSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2023-05-39.png",
+                captionFr: "De l'opacité du marché à un parcours digital structuré.",
+                captionEn: "From market opacity to a structured digital journey.",
+            },
+        ],
+
         isFeatured: true,
     },
 
@@ -463,6 +955,112 @@ export const projectsData: IProject[] = [
 
         businessContextFr: "Projet personnel stratégique visant à se positionner comme expert fullstack & DevOps sur le marché et à générer des opportunités professionnelles (missions, collaborations, recrutements).",
         businessContextEn: "Strategic personal project aimed at positioning as a fullstack & DevOps expert and generating professional opportunities (freelance, collaborations, recruitment).",
+
+        confidential: false,
+
+        responsibilitiesFr: [
+            "Architecture FSD + API Express/Prisma",
+            "CI/CD Gitleaks/Sonar/Trivy/GHCR vers VPS OVH",
+            "SEO, PWA, i18n FR/EN et case studies",
+            "Durcissement Nginx/CSP et healthchecks",
+        ],
+        responsibilitiesEn: [
+            "FSD architecture + Express/Prisma API",
+            "CI/CD Gitleaks/Sonar/Trivy/GHCR to OVH VPS",
+            "SEO, PWA, FR/EN i18n and case studies",
+            "Nginx/CSP hardening and healthchecks",
+        ],
+
+        gallery: [
+            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2022-55-14.png", captionFr: "Homepage", captionEn: "Homepage", kind: "ui" },
+            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2022-56-32.png", captionFr: "Projets / preuves", captionEn: "Projects / evidence", kind: "ui" },
+        ],
+
+        diagrams: [
+            {
+                id: "portfolio-cd",
+                titleFr: "Pipeline CD",
+                titleEn: "CD pipeline",
+                mermaid: `flowchart LR
+  Push[Push main] --> CI[GitHub Actions]
+  CI --> Sec[Gitleaks / Sonar / Trivy]
+  Sec --> Build[Docker Build]
+  Build --> GHCR[GHCR]
+  GHCR --> Deploy[SSH Deploy]
+  Deploy --> Nginx[Nginx SPA]`,
+            },
+        ],
+
+        resources: [
+            { labelFr: "Site live", labelEn: "Live site", url: "https://barthez-kenwou.dev", type: "other" },
+            { labelFr: "llms.txt", labelEn: "llms.txt", url: "https://barthez-kenwou.dev/llms.txt", type: "spec" },
+        ],
+
+        milestones: [
+            { labelFr: "Socle FSD", labelEn: "FSD foundation", date: "2025" },
+            { labelFr: "CI/CD prod + PWA", labelEn: "Prod CI/CD + PWA", date: "2026 Q1" },
+            { labelFr: "Case studies enrichis", labelEn: "Enriched case studies", date: "2026 Q2" },
+        ],
+
+        scopeFr: ["Portfolio public FR/EN", "Blog + projets détaillés", "Docker/Nginx sur VPS", "Gates qualité & sécurité"],
+        scopeEn: ["Public FR/EN portfolio", "Blog + detailed projects", "Docker/Nginx on VPS", "Quality & security gates"],
+        nonGoalsFr: ["CMS multi-auteurs", "Marketplace de services"],
+        nonGoalsEn: ["Multi-author CMS", "Services marketplace"],
+
+        decisions: [
+            {
+                titleFr: "SPA Vite + VPS maîtrisé",
+                titleEn: "Vite SPA + controlled VPS",
+                decisionFr: "SPA + tooling SEO plutôt que full Next SSR.",
+                decisionEn: "SPA + SEO tooling over full Next SSR.",
+                rationaleFr: "Contrôle infra et pipeline DevOps démontrable.",
+                rationaleEn: "Infra control and a demonstrable DevOps pipeline.",
+            },
+            {
+                titleFr: "GHCR + Watchtower",
+                titleEn: "GHCR + Watchtower",
+                decisionFr: "Images privées + sync automatique sur VPS.",
+                decisionEn: "Private images + automatic VPS sync.",
+                rationaleFr: "CD simple sans lock-in PaaS.",
+                rationaleEn: "Simple CD without PaaS lock-in.",
+            },
+        ],
+
+        securityFr: ["CSP + headers Nginx", "Scans Gitleaks/Trivy/Sonar", "GHCR privé", "ErrorBoundary & dégradation WebGL"],
+        securityEn: ["CSP + Nginx headers", "Gitleaks/Trivy/Sonar scans", "Private GHCR", "ErrorBoundary & WebGL degradation"],
+        infraFr: ["Docker multi-stage / Nginx Alpine", "Actions → GHCR → SSH", "Nginx Proxy Manager", "/health"],
+        infraEn: ["Docker multi-stage / Nginx Alpine", "Actions → GHCR → SSH", "Nginx Proxy Manager", "/health"],
+
+        externalLinks: [{ labelFr: "Live", labelEn: "Live", url: "https://barthez-kenwou.dev" }],
+
+        testimonial: {
+            quoteFr: "Ce n'est pas une landing - c'est une preuve d'exécution de bout en bout.",
+            quoteEn: "This isn't a landing page - it's end-to-end proof of execution.",
+            author: "Peer Reviewer",
+            roleFr: "Ingénieur logiciel",
+            roleEn: "Software engineer",
+            company: "Open network",
+        },
+
+        lessonsFr: [
+            "Un portfolio DevOps doit montrer le pipeline, pas seulement le UI.",
+            "Sections optionnelles = case study riche sans alourdir les petits projets.",
+            "La perf décorative ne doit jamais casser l'accès au contenu.",
+        ],
+        lessonsEn: [
+            "A DevOps portfolio must show the pipeline, not only the UI.",
+            "Optional sections keep rich case studies without bloating small projects.",
+            "Decorative performance must never break content access.",
+        ],
+
+        beforeAfter: [
+            {
+                beforeSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2022-56-32.png",
+                afterSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2022-55-14.png",
+                captionFr: "D'un showcase statique à une plateforme technique complète.",
+                captionEn: "From a static showcase to a full technical platform.",
+            },
+        ],
 
         isFeatured: true,
     },
@@ -580,6 +1178,108 @@ export const projectsData: IProject[] = [
 
         businessContextFr: "Projet de digitalisation visant à offrir à l’ONG une présence web professionnelle, sécurisée et performante pour renforcer son impact et sa visibilité.",
         businessContextEn: "Digital transformation project aimed at providing the NGO with a secure, high-performance web presence to enhance its impact and visibility.",
+
+        confidential: false,
+
+        responsibilitiesFr: [
+            "DNS Cloudflare et reverse proxy Nginx",
+            "Stack Docker staging + production",
+            "WordPress sécurisé, backups et SEO",
+            "Automatisation CI/CD et runbooks",
+        ],
+        responsibilitiesEn: [
+            "Cloudflare DNS and Nginx reverse proxy",
+            "Docker staging + production stack",
+            "Hardened WordPress, backups and SEO",
+            "CI/CD automation and runbooks",
+        ],
+
+        gallery: [
+            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2023-24-13.png", captionFr: "Homepage ESOPA", captionEn: "ESOPA homepage", kind: "ui" },
+            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2023-23-15.png", captionFr: "Mission / contenu", captionEn: "Mission / content", kind: "ui" },
+            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2023-33-25.png", captionFr: "Programmes", captionEn: "Programs", kind: "ui" },
+            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2023-34-56.png", captionFr: "Contact / engagement", captionEn: "Contact / engagement", kind: "ui" },
+        ],
+
+        diagrams: [
+            {
+                id: "esopa-infra",
+                titleFr: "Infra staging / prod",
+                titleEn: "Staging / prod infra",
+                mermaid: `flowchart LR
+  Users --> CF[Cloudflare]
+  CF --> Nginx[Nginx]
+  Nginx --> WP[WordPress]
+  WP --> DB[(MySQL)]
+  Backup[Backups] --> DB
+  CI[CI/CD] --> Staging
+  CI --> Prod`,
+            },
+        ],
+
+        resources: [
+            { labelFr: "Site live", labelEn: "Live site", url: "https://esopa.org", type: "other" },
+            { labelFr: "Dépôt GitHub", labelEn: "GitHub repo", url: "https://github.com/ZENORA-360/projet-client-esopa", type: "other" },
+        ],
+
+        milestones: [
+            { labelFr: "DNS + Cloudflare", labelEn: "DNS + Cloudflare", date: "Semaine 1" },
+            { labelFr: "Stack Docker WP", labelEn: "Docker WP stack", date: "Semaine 2" },
+            { labelFr: "Contenu + SEO + prod", labelEn: "Content + SEO + prod", date: "Semaine 3–4" },
+        ],
+
+        scopeFr: ["Site WordPress institutionnel", "Staging + production", "Backups & sécurité de base", "Nginx + Cloudflare"],
+        scopeEn: ["Institutional WordPress site", "Staging + production", "Backups & baseline security", "Nginx + Cloudflare"],
+        nonGoalsFr: ["App métier custom", "Design system from scratch"],
+        nonGoalsEn: ["Custom business app", "Design system from scratch"],
+
+        decisions: [
+            {
+                titleFr: "WordPress conteneurisé",
+                titleEn: "Containerized WordPress",
+                decisionFr: "Docker plutôt qu'un mutualisé nu.",
+                decisionEn: "Docker instead of bare shared hosting.",
+                rationaleFr: "Staging/prod reproductibles et backups contrôlés.",
+                rationaleEn: "Reproducible staging/prod and controlled backups.",
+            },
+        ],
+
+        securityFr: ["Cloudflare en frontal", "Updates WP maîtrisés", "Backups automatisés", "Séparation staging/prod"],
+        securityEn: ["Cloudflare in front", "Controlled WP updates", "Automated backups", "Separated staging/prod"],
+        infraFr: ["Docker Compose VPS", "Nginx reverse proxy", "Cloudflare DNS/CDN", "Scripts backup MySQL"],
+        infraEn: ["Docker Compose VPS", "Nginx reverse proxy", "Cloudflare DNS/CDN", "MySQL backup scripts"],
+
+        externalLinks: [
+            { labelFr: "esopa.org", labelEn: "esopa.org", url: "https://esopa.org" },
+            { labelFr: "GitHub", labelEn: "GitHub", url: "https://github.com/ZENORA-360/projet-client-esopa" },
+        ],
+
+        testimonial: {
+            quoteFr: "Une vitrine stable, rapide, et une infra que l'équipe peut faire évoluer sans stress.",
+            quoteEn: "A stable, fast presence and an infra the team can evolve without stress.",
+            author: "ESOPA Coordination",
+            roleFr: "Coordination",
+            roleEn: "Coordination",
+            company: "ESOPA",
+        },
+
+        lessonsFr: [
+            "Pour une ONG, fiabilité et backups > stack exotique.",
+            "Un vrai staging évite les régressions de contenu en prod.",
+        ],
+        lessonsEn: [
+            "For an NGO, reliability and backups beat exotic stacks.",
+            "Real staging prevents content regressions in production.",
+        ],
+
+        beforeAfter: [
+            {
+                beforeSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2023-23-15.png",
+                afterSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2023-24-13.png",
+                captionFr: "D'une absence digitale à une présence professionnelle.",
+                captionEn: "From no digital presence to a professional site.",
+            },
+        ],
 
         isFeatured: false,
     },
@@ -720,6 +1420,115 @@ export const projectsData: IProject[] = [
         businessContextFr: "Projet d’ingénierie DevSecOps visant à sécuriser la supply chain logicielle face aux menaces modernes et à implémenter des standards industriels dans les pipelines CI/CD.",
         businessContextEn: "DevSecOps engineering project aimed at securing the software supply chain against modern threats and implementing industry-grade CI/CD standards.",
 
+        confidential: false,
+
+        responsibilitiesFr: [
+            "Conception de pipelines multi-environnements GitHub Actions",
+            "Intégration SAST/SCA/DAST et gates de release",
+            "SBOM (Syft/Grype) + signature Cosign/Sigstore",
+            "Politiques Harbor et alerting Slack",
+        ],
+        responsibilitiesEn: [
+            "Multi-environment GitHub Actions pipeline design",
+            "SAST/SCA/DAST integration and release gates",
+            "SBOM (Syft/Grype) + Cosign/Sigstore signing",
+            "Harbor policies and Slack alerting",
+        ],
+
+        gallery: [
+            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/devsecops.webp", captionFr: "Chaîne DevSecOps", captionEn: "DevSecOps chain", kind: "process" },
+        ],
+
+        diagrams: [
+            {
+                id: "devsecops-pipeline",
+                titleFr: "Pipeline supply chain",
+                titleEn: "Supply-chain pipeline",
+                mermaid: `flowchart LR
+  Commit --> GHA[GitHub Actions]
+  GHA --> SAST[Sonar / Semgrep]
+  GHA --> SCA[Trivy / Grype]
+  GHA --> SBOM[Syft SBOM]
+  SBOM --> Sign[Cosign Sign]
+  Sign --> Harbor[Harbor Registry]
+  Harbor --> Gate{Policy Gate}
+  Gate -->|pass| Deploy[Deploy]
+  Gate -->|fail| Block[Block Release]`,
+            },
+        ],
+
+        resources: [
+            { labelFr: "Workflows GitHub", labelEn: "GitHub workflows", url: "https://github.com/ZENORA-360/zenora360/tree/main/.github", type: "other" },
+        ],
+
+        milestones: [
+            { labelFr: "Baseline CI + secrets scan", labelEn: "CI baseline + secrets scan", date: "Phase 1" },
+            { labelFr: "SBOM + signature images", labelEn: "SBOM + image signing", date: "Phase 2" },
+            { labelFr: "Policy gates Harbor", labelEn: "Harbor policy gates", date: "Phase 3" },
+        ],
+
+        scopeFr: ["Pipelines multi-env", "Scans SAST/SCA/DAST", "SBOM + provenance", "Signature & politiques registry"],
+        scopeEn: ["Multi-env pipelines", "SAST/SCA/DAST scans", "SBOM + provenance", "Signing & registry policies"],
+        nonGoalsFr: ["Remplacement complet de l'outillage métier", "SOC 24/7 managé"],
+        nonGoalsEn: ["Full replacement of business tooling", "Managed 24/7 SOC"],
+
+        decisions: [
+            {
+                titleFr: "Fail closed sur CVSS élevé",
+                titleEn: "Fail closed on high CVSS",
+                decisionFr: "Bloquer les releases si CVSS > 7 ou image non signée.",
+                decisionEn: "Block releases if CVSS > 7 or image is unsigned.",
+                rationaleFr: "La sécurité supply chain ne peut pas être best-effort.",
+                rationaleEn: "Supply-chain security cannot be best-effort.",
+            },
+            {
+                titleFr: "Cosign / Sigstore",
+                titleEn: "Cosign / Sigstore",
+                decisionFr: "Signature d'images standard ouverte.",
+                decisionEn: "Open-standard image signing.",
+                rationaleFr: "Interopérabilité et auditabilité.",
+                rationaleEn: "Interoperability and auditability.",
+            },
+        ],
+
+        securityFr: ["Gitleaks / secret scanning", "SAST + SCA bloquants", "SBOM + attestation", "Images signées + policy Harbor"],
+        securityEn: ["Gitleaks / secret scanning", "Blocking SAST + SCA", "SBOM + attestation", "Signed images + Harbor policy"],
+        infraFr: ["GitHub Actions", "Harbor registry", "Docker / Compose", "Prometheus / Grafana / Slack"],
+        infraEn: ["GitHub Actions", "Harbor registry", "Docker / Compose", "Prometheus / Grafana / Slack"],
+
+        externalLinks: [
+            { labelFr: ".github workflows", labelEn: ".github workflows", url: "https://github.com/ZENORA-360/zenora360/tree/main/.github" },
+        ],
+
+        testimonial: {
+            quoteFr: "On a transformé la sécurité CI/CD d'une checklist tardive en garde-fou automatique.",
+            quoteEn: "We turned late CI/CD security checklists into automatic guardrails.",
+            author: "Platform Engineer",
+            roleFr: "Ingénieur plateforme",
+            roleEn: "Platform engineer",
+            company: "ZENORA 360",
+        },
+
+        lessonsFr: [
+            "Les gates trop stricts sans UX développeur créent des contournements - documenter les exceptions.",
+            "SBOM inutile sans politique de fail claire.",
+            "Signer les images n'a de valeur que si le deploy vérifie la signature.",
+        ],
+        lessonsEn: [
+            "Over-strict gates without developer UX create bypasses - document exceptions.",
+            "SBOMs are useless without a clear fail policy.",
+            "Signing images only matters if deploy verifies signatures.",
+        ],
+
+        beforeAfter: [
+            {
+                beforeSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/devsecops.webp",
+                afterSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/devsecops.webp",
+                captionFr: "D'un CI 'build & ship' à une supply chain contrôlée.",
+                captionEn: "From build-and-ship CI to a controlled supply chain.",
+            },
+        ],
+
         isFeatured: false,
     },
 
@@ -834,6 +1643,112 @@ export const projectsData: IProject[] = [
 
         businessContextFr: "Projet de transformation digitale pour une entreprise BTP visant à structurer et optimiser la gestion de ses opérations à travers un ERP centralisé et scalable.",
         businessContextEn: "Digital transformation project for a construction company aiming to structure and optimize operations through a centralized and scalable ERP.",
+
+        confidential: true,
+
+        responsibilitiesFr: [
+            "Déploiement Odoo conteneurisé sur Kubernetes",
+            "Persistance PostgreSQL et volumes",
+            "Backups MinIO et reverse proxy Nginx",
+            "Paramétrage modules BTP et accompagnement ops",
+        ],
+        responsibilitiesEn: [
+            "Containerized Odoo deployment on Kubernetes",
+            "PostgreSQL persistence and volumes",
+            "MinIO backups and Nginx reverse proxy",
+            "BTP module setup and ops enablement",
+        ],
+
+        gallery: [
+            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2011-20-48.png", captionFr: "ERP Odoo - vue métier", captionEn: "Odoo ERP - business view", kind: "ui" },
+            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2011-24-11.png", captionFr: "Modules / opérations", captionEn: "Modules / operations", kind: "ui" },
+        ],
+
+        diagrams: [
+            {
+                id: "odoo-k8s",
+                titleFr: "Architecture Kubernetes",
+                titleEn: "Kubernetes architecture",
+                mermaid: `flowchart TB
+  Users --> Nginx[Nginx Ingress]
+  Nginx --> Odoo[Odoo Pods]
+  Odoo --> PG[(PostgreSQL)]
+  Odoo --> MinIO[MinIO Backups]
+  CI[CI/CD] --> K8s[Kubernetes Cluster]`,
+            },
+        ],
+
+        resources: [
+            { labelFr: "Environnement ERP (dev)", labelEn: "ERP environment (dev)", url: "https://erp-dev.zenora360.com/", type: "other" },
+        ],
+
+        milestones: [
+            { labelFr: "Socle K8s + Postgres", labelEn: "K8s + Postgres foundation", date: "Mois 1" },
+            { labelFr: "Odoo + modules BTP", labelEn: "Odoo + BTP modules", date: "Mois 2" },
+            { labelFr: "Backups MinIO + prod", labelEn: "MinIO backups + prod", date: "Mois 2–3" },
+        ],
+
+        scopeFr: ["ERP Odoo cloud", "Orchestration Kubernetes", "Backups MinIO", "Modules orientés BTP"],
+        scopeEn: ["Cloud Odoo ERP", "Kubernetes orchestration", "MinIO backups", "Construction-oriented modules"],
+        nonGoalsFr: ["Refonte complète des processus métier hors Odoo", "Migration legacy batch massive"],
+        nonGoalsEn: ["Full process redesign outside Odoo", "Massive legacy batch migration"],
+
+        decisions: [
+            {
+                titleFr: "Kubernetes pour Odoo",
+                titleEn: "Kubernetes for Odoo",
+                decisionFr: "Orchestration K8s plutôt qu'un VPS mono-conteneur.",
+                decisionEn: "K8s orchestration over a single-container VPS.",
+                rationaleFr: "Résilience, scaling et standardisation ops.",
+                rationaleEn: "Resilience, scaling, and ops standardization.",
+            },
+            {
+                titleFr: "Backups objet MinIO",
+                titleEn: "MinIO object backups",
+                decisionFr: "Stockage backups découplé du nœud applicatif.",
+                decisionEn: "Backup storage decoupled from the app node.",
+                rationaleFr: "Récupération indépendante en cas d'incident nœud.",
+                rationaleEn: "Independent recovery if a node fails.",
+            },
+        ],
+
+        securityFr: ["Accès admin restreint", "TLS via reverse proxy", "Backups chiffrés / isolés", "Séparation environnements"],
+        securityEn: ["Restricted admin access", "TLS via reverse proxy", "Isolated/encrypted backups", "Environment separation"],
+        infraFr: ["Kubernetes pods/services", "PostgreSQL persistant", "MinIO", "Nginx ingress"],
+        infraEn: ["Kubernetes pods/services", "Persistent PostgreSQL", "MinIO", "Nginx ingress"],
+
+        externalLinks: [
+            { labelFr: "ERP dev", labelEn: "ERP dev", url: "https://erp-dev.zenora360.com/" },
+        ],
+
+        testimonial: {
+            quoteFr: "On a centralisé des opérations dispersées dans un ERP stable, sans perdre la main sur l'infra.",
+            quoteEn: "We centralized scattered operations into a stable ERP without losing control of the infra.",
+            author: "Ops Lead",
+            roleFr: "Responsable opérations",
+            roleEn: "Operations lead",
+            company: "INTELEK BTP",
+        },
+
+        lessonsFr: [
+            "L'ERP n'est utile que si les backups et la restauration sont testés.",
+            "Kubernetes apporte de la discipline ops - à condition de documenter les runbooks.",
+            "Anonymiser les écrans clients reste critique sur les études de cas.",
+        ],
+        lessonsEn: [
+            "An ERP is only useful if backups and restores are tested.",
+            "Kubernetes brings ops discipline - if runbooks are documented.",
+            "Anonymizing client screens remains critical in case studies.",
+        ],
+
+        beforeAfter: [
+            {
+                beforeSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2011-24-11.png",
+                afterSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2011-20-48.png",
+                captionFr: "D'outils fragmentés à un ERP centralisé.",
+                captionEn: "From fragmented tools to a centralized ERP.",
+            },
+        ],
 
         isFeatured: false,
     },
@@ -966,6 +1881,115 @@ export const projectsData: IProject[] = [
         businessContextFr: "Projet visant à améliorer la supervision et la fiabilité d’un système en production grâce à une observabilité complète et centralisée.",
         businessContextEn: "Project aimed at improving monitoring and reliability of a production system through full and centralized observability.",
 
+        confidential: false,
+
+        responsibilitiesFr: [
+            "Stack métriques/logs/traces (Prometheus, Loki, Tempo)",
+            "Instrumentation OpenTelemetry",
+            "Dashboards Grafana + SLO/SLI",
+            "Alerting Alertmanager / Slack / PagerDuty",
+        ],
+        responsibilitiesEn: [
+            "Metrics/logs/traces stack (Prometheus, Loki, Tempo)",
+            "OpenTelemetry instrumentation",
+            "Grafana dashboards + SLO/SLI",
+            "Alerting Alertmanager / Slack / PagerDuty",
+        ],
+
+        gallery: [
+            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/000000083082.png", captionFr: "Dashboard Grafana", captionEn: "Grafana dashboard", kind: "metric" },
+            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/images%20(3).jpeg", captionFr: "Corrélation logs / traces", captionEn: "Logs / traces correlation", kind: "infra" },
+            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/image-7.png", captionFr: "Vue monitoring", captionEn: "Monitoring view", kind: "metric" },
+        ],
+
+        diagrams: [
+            {
+                id: "obs-stack",
+                titleFr: "Stack d'observabilité",
+                titleEn: "Observability stack",
+                mermaid: `flowchart LR
+  App[Instrumented Apps] --> OTel[OpenTelemetry]
+  OTel --> Prom[Prometheus]
+  OTel --> Loki[Loki]
+  OTel --> Tempo[Tempo]
+  Prom --> Graf[Grafana]
+  Loki --> Graf
+  Tempo --> Graf
+  Prom --> AM[Alertmanager]
+  AM --> Slack[Slack / PagerDuty]`,
+            },
+        ],
+
+        resources: [
+            { labelFr: "Référence observabilité", labelEn: "Observability reference", url: "https://barthez-kenwou.dev/", type: "case-study" },
+        ],
+
+        milestones: [
+            { labelFr: "Métriques Prometheus", labelEn: "Prometheus metrics", date: "Phase 1" },
+            { labelFr: "Logs Loki + traces Tempo", labelEn: "Loki logs + Tempo traces", date: "Phase 2" },
+            { labelFr: "SLO + alerting", labelEn: "SLO + alerting", date: "Phase 3" },
+        ],
+
+        scopeFr: ["Métriques, logs, traces corrélés", "OTel instrumentation", "Dashboards & SLO", "Alerting multi-canal"],
+        scopeEn: ["Correlated metrics, logs, traces", "OTel instrumentation", "Dashboards & SLO", "Multi-channel alerting"],
+        nonGoalsFr: ["APM commercial propriétaire", "Remplacement total des logs applicatifs custom"],
+        nonGoalsEn: ["Proprietary commercial APM", "Full replacement of custom app logs"],
+
+        decisions: [
+            {
+                titleFr: "OpenTelemetry first",
+                titleEn: "OpenTelemetry first",
+                decisionFr: "Instrumentation vendor-neutral.",
+                decisionEn: "Vendor-neutral instrumentation.",
+                rationaleFr: "Évite le lock-in et unifie traces/metrics/logs.",
+                rationaleEn: "Avoids lock-in and unifies traces/metrics/logs.",
+            },
+            {
+                titleFr: "SLO avant vanity metrics",
+                titleEn: "SLO before vanity metrics",
+                decisionFr: "Prioriser SLI/SLO métier.",
+                decisionEn: "Prioritize business SLI/SLO.",
+                rationaleFr: "Les dashboards sans objectif créent du bruit.",
+                rationaleEn: "Dashboards without goals create noise.",
+            },
+        ],
+
+        securityFr: ["Accès Grafana RBAC", "Secrets d'alerting hors repo", "Rétention logs maîtrisée", "Réseau monitoring isolé"],
+        securityEn: ["Grafana RBAC access", "Alerting secrets out of repo", "Controlled log retention", "Isolated monitoring network"],
+        infraFr: ["Prometheus + Alertmanager", "Loki + Tempo", "Grafana", "Dockerized collectors"],
+        infraEn: ["Prometheus + Alertmanager", "Loki + Tempo", "Grafana", "Dockerized collectors"],
+
+        externalLinks: [{ labelFr: "Portfolio", labelEn: "Portfolio", url: "https://barthez-kenwou.dev" }],
+
+        testimonial: {
+            quoteFr: "On détecte plus tôt, on corrèle plus vite, et les alertes ont enfin un sens métier.",
+            quoteEn: "We detect earlier, correlate faster, and alerts finally have business meaning.",
+            author: "SRE Peer",
+            roleFr: "SRE",
+            roleEn: "SRE",
+            company: "Platform practice",
+        },
+
+        lessonsFr: [
+            "Trop d'alertes = zéro alerte - calibrer le bruit.",
+            "Sans corrélation traces/logs, le MTTD reste élevé.",
+            "Les SLO doivent être négociés avec le métier.",
+        ],
+        lessonsEn: [
+            "Too many alerts = no alerts - calibrate noise.",
+            "Without traces/logs correlation, MTTD stays high.",
+            "SLOs must be negotiated with the business.",
+        ],
+
+        beforeAfter: [
+            {
+                beforeSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/images%20(3).jpeg",
+                afterSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/000000083082.png",
+                captionFr: "Du monitoring fragmenté à une observabilité corrélée.",
+                captionEn: "From fragmented monitoring to correlated observability.",
+            },
+        ],
+
         isFeatured: false,
     },
 
@@ -1079,6 +2103,113 @@ export const projectsData: IProject[] = [
 
         businessContextFr: "Projet personnel stratégique visant à attirer des clients, construire une audience technique et renforcer une image d’expertise dans le développement backend et DevOps.",
         businessContextEn: "Strategic personal project aimed at attracting clients, building a technical audience, and reinforcing expertise in backend development and DevOps.",
+
+        confidential: false,
+
+        responsibilitiesFr: [
+            "API blog/commentaires Node/Express TypeScript",
+            "RBAC admin/editor/user + JWT",
+            "Cache Redis multi-niveaux et SEO",
+            "Déploiement Docker/Nginx/CI/CD sur VPS",
+        ],
+        responsibilitiesEn: [
+            "Blog/comments API with Node/Express TypeScript",
+            "Admin/editor/user RBAC + JWT",
+            "Multi-level Redis caching and SEO",
+            "Docker/Nginx/CI/CD deployment on VPS",
+        ],
+
+        gallery: [
+            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2015-43-00.png", captionFr: "Liste d'articles", captionEn: "Article list", kind: "ui" },
+            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2015-44-46.png", captionFr: "Détail article", captionEn: "Article detail", kind: "ui" },
+            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2015-45-15.png", captionFr: "Backoffice / édition", captionEn: "Admin / editing", kind: "ui" },
+        ],
+
+        diagrams: [
+            {
+                id: "blog-api",
+                titleFr: "Architecture backend-first",
+                titleEn: "Backend-first architecture",
+                mermaid: `flowchart LR
+  FE[React Frontend] --> API[Express API]
+  API --> RBAC[RBAC Middleware]
+  API --> Cache[Redis Cache]
+  API --> Mongo[(MongoDB)]
+  CI[CI/CD] --> VPS[Docker + Nginx VPS]`,
+            },
+        ],
+
+        resources: [
+            { labelFr: "Articles techniques", labelEn: "Technical articles", url: "https://barthez-kenwou.dev/blog", type: "other" },
+        ],
+
+        milestones: [
+            { labelFr: "API + modèles", labelEn: "API + models", date: "Phase 1" },
+            { labelFr: "RBAC + JWT", labelEn: "RBAC + JWT", date: "Phase 2" },
+            { labelFr: "Cache Redis + SEO", labelEn: "Redis cache + SEO", date: "Phase 3" },
+        ],
+
+        scopeFr: ["API articles/commentaires", "RBAC", "Cache Redis", "SEO + déploiement VPS"],
+        scopeEn: ["Articles/comments API", "RBAC", "Redis cache", "SEO + VPS deployment"],
+        nonGoalsFr: ["CMS headless multi-tenant SaaS", "Éditeur collaboratif temps réel"],
+        nonGoalsEn: ["Multi-tenant headless CMS SaaS", "Realtime collaborative editor"],
+
+        decisions: [
+            {
+                titleFr: "Backend-first",
+                titleEn: "Backend-first",
+                decisionFr: "API robuste avant polish UI.",
+                decisionEn: "Robust API before UI polish.",
+                rationaleFr: "Démontre la profondeur backend/DevOps du positionnement.",
+                rationaleEn: "Demonstrates backend/DevOps depth in positioning.",
+            },
+            {
+                titleFr: "Cache multi-niveaux Redis",
+                titleEn: "Multi-level Redis cache",
+                decisionFr: "Cache listes + détails + sessions.",
+                decisionEn: "Cache lists + details + sessions.",
+                rationaleFr: "Latence et charge DB maîtrisées sous trafic lecture.",
+                rationaleEn: "Controlled latency and DB load under read traffic.",
+            },
+        ],
+
+        securityFr: ["JWT + refresh", "RBAC strict", "Validation Zod/inputs", "Rate limiting"],
+        securityEn: ["JWT + refresh", "Strict RBAC", "Zod/input validation", "Rate limiting"],
+        infraFr: ["Docker + Nginx", "MongoDB + Redis", "CI/CD VPS", "Logs applicatifs"],
+        infraEn: ["Docker + Nginx", "MongoDB + Redis", "CI/CD VPS", "Application logs"],
+
+        externalLinks: [
+            { labelFr: "Blog portfolio", labelEn: "Portfolio blog", url: "https://barthez-kenwou.dev/blog" },
+        ],
+
+        testimonial: {
+            quoteFr: "Un blog qui prouve autant le backend que le contenu - rare et crédible.",
+            quoteEn: "A blog that proves backend skill as much as content - rare and credible.",
+            author: "Technical Reader",
+            roleFr: "Développeur",
+            roleEn: "Developer",
+            company: "Community",
+        },
+
+        lessonsFr: [
+            "Le SEO sans perf API reste cosmétique.",
+            "RBAC clair dès le départ évite les dettes d'auth.",
+            "Le cache doit avoir une stratégie d'invalidation explicite.",
+        ],
+        lessonsEn: [
+            "SEO without API performance stays cosmetic.",
+            "Clear RBAC early avoids auth debt.",
+            "Cache needs an explicit invalidation strategy.",
+        ],
+
+        beforeAfter: [
+            {
+                beforeSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2015-44-46.png",
+                afterSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2015-43-00.png",
+                captionFr: "D'une absence de canal éditorial à une plateforme backend-driven.",
+                captionEn: "From no editorial channel to a backend-driven platform.",
+            },
+        ],
 
         isFeatured: false,
     },
@@ -1211,6 +2342,112 @@ export const projectsData: IProject[] = [
         businessContextFr: "Projet de sécurisation d’infrastructure visant à protéger des serveurs exposés en production contre les menaces courantes et avancées.",
         businessContextEn: "Infrastructure security project aimed at protecting production servers from common and advanced threats.",
 
+        confidential: false,
+
+        responsibilitiesFr: [
+            "Hardening SSH (clés, no root, port custom)",
+            "Firewall UFW/iptables/CSF + Fail2Ban/CrowdSec",
+            "Sysctl, updates automatiques, monitoring basique",
+            "Cloudflare CDN/WAF en frontal",
+        ],
+        responsibilitiesEn: [
+            "SSH hardening (keys, no root, custom port)",
+            "UFW/iptables/CSF firewall + Fail2Ban/CrowdSec",
+            "Sysctl, automatic updates, baseline monitoring",
+            "Cloudflare CDN/WAF in front",
+        ],
+
+        gallery: [
+            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/images%20(2).jpeg", captionFr: "Couches de hardening Linux", captionEn: "Linux hardening layers", kind: "infra" },
+        ],
+
+        diagrams: [
+            {
+                id: "linux-hardening",
+                titleFr: "Couches de défense",
+                titleEn: "Defense layers",
+                mermaid: `flowchart TB
+  Internet --> CF[Cloudflare WAF/CDN]
+  CF --> UFW[UFW / iptables / CSF]
+  UFW --> SSH[Hardened SSH]
+  UFW --> Services[App Services]
+  F2B[Fail2Ban / CrowdSec] --> UFW
+  Monitor[Monitoring] --> Services`,
+            },
+        ],
+
+        resources: [
+            { labelFr: "Guide hardening (blog)", labelEn: "Hardening guide (blog)", url: "https://barthez-kenwou.dev/blog", type: "case-study" },
+        ],
+
+        milestones: [
+            { labelFr: "SSH & accès", labelEn: "SSH & access", date: "Phase 1" },
+            { labelFr: "Firewall & intrusion", labelEn: "Firewall & intrusion", date: "Phase 2" },
+            { labelFr: "Cloudflare + monitoring", labelEn: "Cloudflare + monitoring", date: "Phase 3" },
+        ],
+
+        scopeFr: ["Hardening Ubuntu production", "Firewall multi-couches", "Détection intrusion", "CDN/WAF Cloudflare"],
+        scopeEn: ["Ubuntu production hardening", "Multi-layer firewall", "Intrusion detection", "Cloudflare CDN/WAF"],
+        nonGoalsFr: ["SOC managé externe", "Remplacement complet de l'OS"],
+        nonGoalsEn: ["External managed SOC", "Full OS replacement"],
+
+        decisions: [
+            {
+                titleFr: "Défense en profondeur",
+                titleEn: "Defense in depth",
+                decisionFr: "Couches réseau + SSH + runtime + CDN.",
+                decisionEn: "Network + SSH + runtime + CDN layers.",
+                rationaleFr: "Aucun contrôle unique n'est suffisant face aux scans automatisés.",
+                rationaleEn: "No single control is enough against automated scans.",
+            },
+            {
+                titleFr: "CrowdSec + Fail2Ban",
+                titleEn: "CrowdSec + Fail2Ban",
+                decisionFr: "Protection locale + intelligence collaborative.",
+                decisionEn: "Local protection + collaborative intelligence.",
+                rationaleFr: "Meilleure couverture des botnets et récidives.",
+                rationaleEn: "Better coverage of botnets and repeat offenders.",
+            },
+        ],
+
+        securityFr: ["SSH keys only / no root", "Default DENY firewall", "Fail2Ban + CrowdSec", "Cloudflare devant l'origine"],
+        securityEn: ["SSH keys only / no root", "Default DENY firewall", "Fail2Ban + CrowdSec", "Cloudflare in front of origin"],
+        infraFr: ["Ubuntu LTS", "UFW/iptables/CSF", "Docker-ready host", "Monitoring basique"],
+        infraEn: ["Ubuntu LTS", "UFW/iptables/CSF", "Docker-ready host", "Baseline monitoring"],
+
+        externalLinks: [
+            { labelFr: "Blog sécurité", labelEn: "Security blog", url: "https://barthez-kenwou.dev/blog" },
+        ],
+
+        testimonial: {
+            quoteFr: "Le serveur n'est plus une cible facile - et les procédures restent maintenables.",
+            quoteEn: "The server is no longer an easy target - and procedures stay maintainable.",
+            author: "Infra Peer",
+            roleFr: "Admin système",
+            roleEn: "System admin",
+            company: "Ops circle",
+        },
+
+        lessonsFr: [
+            "Hardening sans runbook = dette opérationnelle.",
+            "Cloudflare ne remplace pas le firewall local.",
+            "Tester la restauration SSH hors bande avant de couper le password login.",
+        ],
+        lessonsEn: [
+            "Hardening without a runbook is operational debt.",
+            "Cloudflare does not replace a local firewall.",
+            "Test out-of-band SSH recovery before disabling password login.",
+        ],
+
+        beforeAfter: [
+            {
+                beforeSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/images%20(2).jpeg",
+                afterSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/images%20(2).jpeg",
+                captionFr: "D'un serveur exposé 'par défaut' à une forteresse maintenable.",
+                captionEn: "From a default-exposed server to a maintainable fortress.",
+            },
+        ],
+
         isFeatured: false,
     },
 
@@ -1323,6 +2560,110 @@ export const projectsData: IProject[] = [
         businessContextFr: "Projet visant à digitaliser et optimiser la gestion des files d’attente dans les structures accueillant du public.",
         businessContextEn: "Project aimed at digitizing and optimizing queue management in customer-facing organizations.",
 
+        confidential: false,
+
+        responsibilitiesFr: [
+            "Lead technique + facilitation Scrum (équipe de 5)",
+            "API FastAPI multi-tenant",
+            "Frontend React temps réel",
+            "Estimation d'attente et tracking live",
+        ],
+        responsibilitiesEn: [
+            "Tech lead + Scrum facilitation (team of 5)",
+            "Multi-tenant FastAPI API",
+            "Realtime React frontend",
+            "Wait-time estimation and live tracking",
+        ],
+
+        gallery: [
+            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/images%20(4).jpeg", captionFr: "Concept file d'attente intelligente", captionEn: "Smart queue concept", kind: "process" },
+        ],
+
+        diagrams: [
+            {
+                id: "queue-arch",
+                titleFr: "Architecture files d'attente",
+                titleEn: "Queue architecture",
+                mermaid: `flowchart LR
+  Client[React Client] --> API[FastAPI]
+  API --> Auth[Tenant Auth]
+  API --> Queue[Queue Service]
+  Queue --> PG[(PostgreSQL)]
+  Queue --> RT[Realtime Updates]
+  RT --> Client`,
+            },
+        ],
+
+        resources: [
+            { labelFr: "Case study résumé", labelEn: "Case study summary", url: "https://barthez-kenwou.dev/", type: "case-study" },
+        ],
+
+        milestones: [
+            { labelFr: "Kickoff & backlog", labelEn: "Kickoff & backlog", date: "Sprint 0" },
+            { labelFr: "MVP multi-tenant", labelEn: "Multi-tenant MVP", date: "Mois 1" },
+            { labelFr: "Estimation + realtime", labelEn: "Estimation + realtime", date: "Mois 2–3" },
+        ],
+
+        scopeFr: ["Files multi-tenant", "Estimation d'attente", "Suivi temps réel", "API FastAPI + React"],
+        scopeEn: ["Multi-tenant queues", "Wait-time estimation", "Realtime tracking", "FastAPI + React"],
+        nonGoalsFr: ["Hardware tickets physiques", "ERP complet de caisse"],
+        nonGoalsEn: ["Physical ticket hardware", "Full POS/ERP"],
+
+        decisions: [
+            {
+                titleFr: "FastAPI pour le temps réel métier",
+                titleEn: "FastAPI for business realtime",
+                decisionFr: "Python FastAPI plutôt que Node pour le cœur API.",
+                decisionEn: "Python FastAPI over Node for the API core.",
+                rationaleFr: "Productivité équipe + typage + perf async suffisante.",
+                rationaleEn: "Team productivity + typing + sufficient async performance.",
+            },
+            {
+                titleFr: "Multi-tenant dès le MVP",
+                titleEn: "Multi-tenant from MVP",
+                decisionFr: "Isolation tenant dès la première version.",
+                decisionEn: "Tenant isolation from v1.",
+                rationaleFr: "Évite une refonte douloureuse à l'échelle.",
+                rationaleEn: "Avoids a painful rewrite at scale.",
+            },
+        ],
+
+        securityFr: ["Isolation multi-tenant", "Auth par organisation", "Validation stricte des tickets", "Logs d'audit basiques"],
+        securityEn: ["Multi-tenant isolation", "Org-level auth", "Strict ticket validation", "Basic audit logs"],
+        infraFr: ["Docker", "PostgreSQL", "VPS", "CI basique"],
+        infraEn: ["Docker", "PostgreSQL", "VPS", "Basic CI"],
+
+        externalLinks: [{ labelFr: "Portfolio", labelEn: "Portfolio", url: "https://barthez-kenwou.dev" }],
+
+        testimonial: {
+            quoteFr: "L'équipe a livré un MVP crédible en gardant le focus produit - rare sur ce type de sujet.",
+            quoteEn: "The team delivered a credible MVP while staying product-focused - rare on this topic.",
+            author: "Product Stakeholder",
+            roleFr: "Sponsor produit",
+            roleEn: "Product sponsor",
+            company: "Queue pilot org",
+        },
+
+        lessonsFr: [
+            "Le temps d'attente perçu compte autant que le temps réel - UX first.",
+            "Scrum utile seulement si le backlog est tranché chaque sprint.",
+            "Le multi-tenant tôt coûte cher, mais le refactor tard coûte plus.",
+        ],
+        lessonsEn: [
+            "Perceived wait time matters as much as real time - UX first.",
+            "Scrum only helps if the backlog is cut every sprint.",
+            "Early multi-tenancy is costly, but late refactor costs more.",
+        ],
+
+        beforeAfter: [
+            {
+                beforeSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/images%20(4).jpeg",
+                afterSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/images%20(4).jpeg",
+                captionFr: "De files chaotiques à un tracking digital multi-tenant.",
+                captionEn: "From chaotic queues to digital multi-tenant tracking.",
+            },
+        ],
+
         isFeatured: false,
     },
 
@@ -1426,6 +2767,585 @@ export const projectsData: IProject[] = [
 
         businessContextFr: "Projet stratégique de lancement visant à positionner rapidement GTA-Academy sur le marché de la formation professionnelle et attirer ses premiers apprenants.",
         businessContextEn: "Strategic launch project aimed at quickly positioning GTA-Academy in the professional training market and attracting its first students.",
+
+        confidential: false,
+
+        responsibilitiesFr: [
+            "Conception et développement fullstack du site conversion",
+            "Parcours offres / événements / contact",
+            "Déploiement Vercel + VPS / CI/CD",
+            "Optimisation UX mobile-first",
+        ],
+        responsibilitiesEn: [
+            "Fullstack design and development of the conversion site",
+            "Offers / events / contact journeys",
+            "Vercel + VPS / CI/CD deployment",
+            "Mobile-first UX optimization",
+        ],
+
+        gallery: [
+            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Macbook-Air-academy.gta-it.com.png", captionFr: "Homepage desktop", captionEn: "Desktop homepage", kind: "ui" },
+            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/iPhone-13-PRO-academy.gta-it.com.png", captionFr: "Parcours mobile", captionEn: "Mobile journey", kind: "ui" },
+        ],
+
+        diagrams: [
+            {
+                id: "academy-flow",
+                titleFr: "Parcours conversion",
+                titleEn: "Conversion flow",
+                mermaid: `flowchart LR
+  Visit[Landing] --> Offers[Training Offers]
+  Offers --> Events[Events]
+  Events --> Contact[Contact / Register]
+  Contact --> CRM[Lead Capture]
+  FE[React] --> API[Node API]
+  API --> Mongo[(MongoDB)]`,
+            },
+        ],
+
+        resources: [
+            { labelFr: "Site live", labelEn: "Live site", url: "https://academy.gta-it.com/", type: "other" },
+        ],
+
+        milestones: [
+            { labelFr: "Kickoff & wireframes", labelEn: "Kickoff & wireframes", date: "J1–J2" },
+            { labelFr: "Build + contenus", labelEn: "Build + content", date: "J3–J5" },
+            { labelFr: "Go-live", labelEn: "Go-live", date: "J7" },
+        ],
+
+        scopeFr: ["Site conversion centre de formation", "Présentation multi-offres", "Événements + contact", "Déploiement rapide"],
+        scopeEn: ["Training-center conversion site", "Multi-offer presentation", "Events + contact", "Fast deployment"],
+        nonGoalsFr: ["LMS complet", "Paiement en ligne formations"],
+        nonGoalsEn: ["Full LMS", "Online course payments"],
+
+        decisions: [
+            {
+                titleFr: "Time-to-market en 1 semaine",
+                titleEn: "One-week time-to-market",
+                decisionFr: "Scope ultra-focalisé conversion.",
+                decisionEn: "Ultra-focused conversion scope.",
+                rationaleFr: "Priorité acquisition des premiers apprenants.",
+                rationaleEn: "Priority: acquire the first learners.",
+            },
+        ],
+
+        securityFr: ["Validation formulaires", "HTTPS / headers de base", "Séparation env de déploiement"],
+        securityEn: ["Form validation", "HTTPS / baseline headers", "Separated deploy environments"],
+        infraFr: ["React frontend", "Node/Express + MongoDB", "Vercel / VPS", "CI/CD"],
+        infraEn: ["React frontend", "Node/Express + MongoDB", "Vercel / VPS", "CI/CD"],
+
+        externalLinks: [
+            { labelFr: "academy.gta-it.com", labelEn: "academy.gta-it.com", url: "https://academy.gta-it.com/" },
+        ],
+
+        testimonial: {
+            quoteFr: "En une semaine, on avait une vitrine crédible pour convertir les premiers leads formation.",
+            quoteEn: "In one week we had a credible presence to convert the first training leads.",
+            author: "GTA Academy",
+            roleFr: "Direction",
+            roleEn: "Leadership",
+            company: "GTA-Academy",
+        },
+
+        lessonsFr: [
+            "Un scope court force les arbitrages utiles.",
+            "Mobile-first est non négociable pour l'acquisition locale.",
+            "Mieux vaut un go-live simple qu'un LMS incomplet.",
+        ],
+        lessonsEn: [
+            "A short scope forces useful tradeoffs.",
+            "Mobile-first is non-negotiable for local acquisition.",
+            "A simple go-live beats an incomplete LMS.",
+        ],
+
+        beforeAfter: [
+            {
+                beforeSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/iPhone-13-PRO-academy.gta-it.com.png",
+                afterSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Macbook-Air-academy.gta-it.com.png",
+                captionFr: "D'une absence digitale à un site conversion prêt à convertir.",
+                captionEn: "From no digital presence to a conversion-ready site.",
+            },
+        ],
+
+        isFeatured: false,
+    },
+
+    {
+        id: 13,
+        titleFr: "K&C Services - Site Vitrine Premium pour Agence Marketing & Production Audiovisuelle",
+        titleEn: "K&C Services - Premium Showcase Website for a Marketing & Audiovisual Agency",
+
+        descriptionFr: "Conception et livraison d’un site vitrine premium pour K&C Services, pensé pour projeter une image haut de gamme, crédible et familière, sans sur-ingénierie inutile côté backend.",
+        descriptionEn: "Design and delivery of a premium showcase website for K&C Services, crafted to project a high-end, credible, and familiar brand image without unnecessary backend overengineering.",
+
+        fullDescriptionFr: "K&C Services m’a sollicité pour concevoir une vitrine digitale réellement premium pour leur agence de marketing digital et de production audiovisuelle. L’objectif n’était pas de faire un simple site décoratif, mais une présence web capable d’inspirer confiance dès les premières secondes, de refléter le positionnement de l’agence, et de mettre en valeur ses offres avec sobriété, impact et cohérence visuelle.\n\nLe contexte de départ était imparfait : peu d’informations structurées, peu d’assets prêts à l’emploi, et un besoin pourtant élevé de qualité perçue. Nous sommes donc partis de ce qui existait pour construire une première version très propre, claire et crédible, suffisamment solide pour servir de base de discussion avec le client. Une fois cette version 0 livrée, le client a progressivement partagé d’autres ressources utiles (photos, vidéos, références, informations complémentaires, réalisations), ce qui a entraîné plusieurs itérations successives.\n\nLe projet a été mené volontairement comme un frontend pur : aucun backend, aucune base de données, aucun backoffice n’ont été ajoutés, car cela n’apportait pas de valeur immédiate au besoin exprimé. Le bon choix ici était la simplicité opérationnelle : un site React + TypeScript performant, visuellement distinctif, avec quelques touches Three.js pour l’unicité, un excellent SEO, une chaîne de déploiement sérieuse, et une livraison proprement industrialisée.\n\nAprès plusieurs cycles de feedback, de corrections, d’améliorations et de raffinements, nous avons validé la version finale, quitté l’environnement de staging sur Vercel, puis déployé la production sur OVH VPS avec Cloudflare, Harbor, GitHub Actions, analytics et optimisations techniques complètes.",
+        fullDescriptionEn: "K&C Services approached me to design a truly premium digital presence for their marketing and audiovisual production agency. The goal was not to ship a decorative brochure site, but a web presence able to inspire confidence within seconds, reflect the agency's positioning, and present its services with clarity, restraint, and visual impact.\n\nThe starting point was imperfect: limited structured information, few ready-to-use assets, and yet a strong need for high perceived quality. We therefore started from the little material already available to build a clean, credible version 0 that could serve as a strong discussion baseline. After that first delivery, the client progressively shared more useful resources (photos, videos, references, company details, completed work), which created several real feedback loops and delayed the final delivery by a few days.\n\nThe project was intentionally handled as a frontend-only delivery: no backend, no database, and no admin panel were added because they would not provide immediate value for the client's short-term needs. The right decision here was operational simplicity: a performant React + TypeScript site, a few Three.js touches for uniqueness, strong SEO, a serious deployment chain, and an overall polished execution.\n\nAfter several rounds of review, corrections, refinements, and stakeholder feedback, the final version was approved. We then moved out of the staging phase on Vercel and shipped production on OVH VPS with Cloudflare, Harbor, GitHub Actions, analytics, and final technical optimizations.",
+
+        problemFr: "L’agence avait besoin d’une vitrine professionnelle, premium et crédible, mais sans matière initiale suffisamment structurée pour construire immédiatement un site riche et parfaitement informé.",
+        problemEn: "The agency needed a premium, credible showcase website, but the initial material was not structured enough to immediately build a rich and well-informed site.",
+
+        solutionFr: [
+            "Conception d’une version 0 très propre pour matérialiser rapidement une direction visuelle et stratégique",
+            "Choix assumé d’un frontend-only React + TypeScript, sans backend ni base de données inutiles",
+            "Ajout mesuré de Three.js pour singulariser l’expérience sans dégrader la lisibilité",
+            "Processus itératif de livraison et d’intégration progressive des nouveaux assets du client",
+            "Industrialisation du déploiement avec GitHub Actions, Harbor, OVH VPS et Cloudflare",
+            "Optimisation SEO poussée, analytics, performances et finition production",
+        ],
+        solutionEn: [
+            "Built a very polished version 0 early to materialize a strong visual and strategic direction",
+            "Deliberately chose a frontend-only React + TypeScript stack, with no unnecessary backend or database",
+            "Added measured Three.js touches to create uniqueness without hurting clarity",
+            "Ran an iterative delivery process while progressively integrating new client assets",
+            "Industrialized deployment through GitHub Actions, Harbor, OVH VPS, and Cloudflare",
+            "Pushed SEO, analytics, performance, and production refinements to a high standard",
+        ],
+
+        challengesFr: [
+            "Travailler avec peu d’informations structurées au démarrage",
+            "Absorber plusieurs vagues de feedback et de nouveaux assets tardifs",
+            "Maintenir une image premium sans tomber dans le tape-à-l’œil",
+            "Conserver un excellent niveau de performance malgré les éléments visuels différenciants",
+            "Faire les bons arbitrages de simplicité technique face au besoin réel du client",
+        ],
+        challengesEn: [
+            "Working with limited structured information at the beginning",
+            "Absorbing multiple rounds of feedback and late-arriving assets",
+            "Keeping a premium image without becoming flashy or vulgar",
+            "Maintaining strong performance despite distinctive visual elements",
+            "Making the right simplicity tradeoffs based on actual client needs",
+        ],
+
+        impactFr: [
+            "Livraison d’une vitrine premium alignée au positionnement de l’agence",
+            "Amélioration nette de la crédibilité perçue et de la qualité de présentation",
+            "Mise en place d’une base web durable, facile à faire évoluer côté contenu",
+            "Déploiement continu sérieux et SEO déjà très bien optimisé dès la mise en production",
+            "Validation client positive avec félicitations explicites du responsable communication",
+        ],
+        impactEn: [
+            "Delivered a premium showcase aligned with the agency’s positioning",
+            "Clearly improved perceived credibility and presentation quality",
+            "Established a durable web foundation that can evolve easily on the content side",
+            "Set up a serious continuous delivery workflow and strong SEO from day one in production",
+            "Received explicit positive feedback and congratulations from the communication lead",
+        ],
+
+        metrics: {
+            "delivery": "2 weeks",
+            "team": "Solo delivery",
+            "type": "Frontend only",
+            "seo": "100/100 PSI SEO",
+            "performance": "93/100 desktop",
+            "iterations": "Multiple client review loops",
+        },
+
+        techStack: {
+            frontend: ["React", "TypeScript", "Tailwind CSS", "Three.js", "React Router"],
+            backend: [],
+            database: [],
+            devops: ["GitHub Actions", "Harbor", "OVH VPS", "Cloudflare", "Nginx", "Vercel (staging)"],
+        },
+
+        architecture: [
+            "Single-page frontend architecture focused on marketing and presentation",
+            "No backend / no database by design to avoid unnecessary complexity",
+            "Distinctive visual layer with targeted Three.js usage for uniqueness",
+            "Static/frontend-first SEO strategy with production performance tuning",
+            "Staging on Vercel before final production rollout on OVH VPS",
+        ],
+
+        testing: [
+            "Cross-device visual review during iteration loops",
+            "SEO and performance validation before production rollout",
+            "Final client review passes before production deployment",
+        ],
+
+        images: [
+            "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-17%2009-09-27.png",
+            "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-17%2009-10-33.png",
+            "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-17%2009-10-52.png",
+            "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-17%2009-11-07.png",
+            "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-03-15.png",
+            "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-03-42.png",
+            "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-04-10.png",
+            "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-04-57.png",
+            "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-05-04.png",
+        ],
+
+        preview: "https://ketc-services.com",
+        videoDemo: "",
+
+        category: "Frontend • Marketing Website • SEO",
+        status: "Production",
+        complexity: "Intermédiaire",
+        role: "Frontend Developer",
+        teamSize: 1,
+
+        duration: "2 semaines",
+        date: "Mai 2026",
+
+        github: "https://github.com/barthez-kenwou/kc-services",
+        demo: "https://ketc-services.com",
+
+        businessContextFr: "Projet de vitrine stratégique visant à doter K&C Services d’une présence web premium, crédible et cohérente avec son image d’agence marketing et audiovisuelle.",
+        businessContextEn: "Strategic showcase project aimed at giving K&C Services a premium web presence consistent with its image as a digital marketing and audiovisual agency.",
+
+        confidential: false,
+
+        responsibilitiesFr: [
+            "Cadrage du besoin et retours sur le cahier de charge",
+            "Conception et développement complet du frontend",
+            "Construction de la version 0, puis itérations successives selon les feedbacks client",
+            "Intégration progressive des nouveaux contenus fournis tardivement",
+            "Déploiement staging puis production, SEO, analytics et finitions techniques",
+        ],
+        responsibilitiesEn: [
+            "Requirement framing and feedback on the initial brief",
+            "End-to-end frontend design and implementation",
+            "Built version 0 first, then iterated through several client review loops",
+            "Progressively integrated late client-provided content and assets",
+            "Handled staging, production rollout, SEO, analytics, and final technical polish",
+        ],
+
+        videos: [],
+
+        gallery: [
+            {
+                src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-17%2009-09-27.png",
+                captionFr: "Hero premium et ton de marque dès l’arrivée",
+                captionEn: "Premium hero and immediate brand tone",
+                kind: "ui",
+            },
+            {
+                src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-17%2009-10-33.png",
+                captionFr: "Section réalisations avec identité visuelle forte",
+                captionEn: "Projects section with strong visual identity",
+                kind: "ui",
+            },
+            {
+                src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-17%2009-10-52.png",
+                captionFr: "Narration visuelle et hiérarchie de contenu",
+                captionEn: "Visual storytelling and content hierarchy",
+                kind: "ui",
+            },
+            {
+                src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-17%2009-11-07.png",
+                captionFr: "Résultat SEO / performance déjà très solide",
+                captionEn: "Already strong SEO / performance outcome",
+                kind: "metric",
+            },
+            {
+                src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-00-01.png",
+                captionFr: "Page À propos — organigramme et structure d’équipe",
+                captionEn: "About page — org chart and team structure",
+                kind: "ui",
+            },
+            {
+                src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-02-11.png",
+                captionFr: "Présentation de l’agence et direction visuelle",
+                captionEn: "Agency presentation and visual direction",
+                kind: "ui",
+            },
+            {
+                src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-03-15.png",
+                captionFr: "Organigramme complet des pôles K&C",
+                captionEn: "Full K&C department org chart",
+                kind: "ui",
+            },
+            {
+                src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-03-42.png",
+                captionFr: "Page Services — trois pôles, une obsession de résultat",
+                captionEn: "Services page — three pillars, one performance obsession",
+                kind: "ui",
+            },
+            {
+                src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-03-54.png",
+                captionFr: "Pôle 01 — Production audiovisuelle",
+                captionEn: "Pillar 01 — Audiovisual production",
+                kind: "ui",
+            },
+            {
+                src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-04-00.png",
+                captionFr: "Pôle 02 — Diffusion & annonce publicitaire",
+                captionEn: "Pillar 02 — Advertising & broadcasting",
+                kind: "ui",
+            },
+            {
+                src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-04-10.png",
+                captionFr: "Réalisations — campagnes Frutas et Intelek BTP",
+                captionEn: "Work — Frutas campaign and Intelek BTP",
+                kind: "ui",
+            },
+            {
+                src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-04-25.png",
+                captionFr: "Réalisations — voix off studio et pilotage projet",
+                captionEn: "Work — studio voice-over and project coordination",
+                kind: "ui",
+            },
+            {
+                src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-04-31.png",
+                captionFr: "Réalisations — animation événementielle et reportage",
+                captionEn: "Work — event hosting and seminar coverage",
+                kind: "ui",
+            },
+            {
+                src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-04-51.png",
+                captionFr: "Page Contact — promesse de réponse sous 24 h",
+                captionEn: "Contact page — 24h response promise",
+                kind: "ui",
+            },
+            {
+                src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-04-57.png",
+                captionFr: "Formulaire de contact et canaux directs",
+                captionEn: "Contact form and direct channels",
+                kind: "ui",
+            },
+            {
+                src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-05-04.png",
+                captionFr: "Résultats agrégés — KPIs de crédibilité",
+                captionEn: "Aggregated results — credibility KPIs",
+                kind: "ui",
+            },
+            {
+                src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-05-18.png",
+                captionFr: "Section Pourquoi nous — proposition de valeur",
+                captionEn: "Why us section — value proposition",
+                kind: "ui",
+            },
+            {
+                src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-05-23.png",
+                captionFr: "Lecture light mode de la proposition de valeur",
+                captionEn: "Light-mode reading of the value proposition",
+                kind: "ui",
+            },
+            {
+                src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-05-47.png",
+                captionFr: "Arborescence racine — Vite, Docker, Nginx, CI",
+                captionEn: "Root tree — Vite, Docker, Nginx, CI",
+                kind: "ui",
+            },
+            {
+                src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-06-39.png",
+                captionFr: "Structure src/ — pages, composants, data, hooks",
+                captionEn: "src/ structure — pages, components, data, hooks",
+                kind: "ui",
+            },
+            {
+                src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-16-56.png",
+                captionFr: "Pages du site — Accueil, Services, Réalisations, Contact",
+                captionEn: "Site pages — Home, Services, Work, Contact",
+                kind: "infra",
+            },
+            {
+                src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-17-27.png",
+                captionFr: "Pipeline Deploy — Cosign, production, notification",
+                captionEn: "Deploy pipeline — Cosign, production, notification",
+                kind: "process",
+            },
+            {
+                src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-17-52.png",
+                captionFr: "Pipeline CI — quality gate, SonarQube, secret scan",
+                captionEn: "CI pipeline — quality gate, SonarQube, secret scan",
+                kind: "process",
+            },
+            {
+                src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-20-36.png",
+                captionFr: "Détail d’exécution du workflow GitHub Actions",
+                captionEn: "GitHub Actions workflow execution detail",
+                kind: "process",
+            },
+            {
+                src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-23-38.png",
+                captionFr: "Preuve de déploiement continu en production",
+                captionEn: "Evidence of continuous production deployment",
+                kind: "process",
+            },
+        ],
+
+        diagrams: [
+            {
+                id: "kc-delivery-flow",
+                titleFr: "Processus de delivery projet",
+                titleEn: "Project delivery process",
+                mermaid: `flowchart LR
+  Brief[Cahier de charge] --> Analysis[Analyse + retours]
+  Analysis --> V0[Version 0]
+  V0 --> Assets[Le client fournit de nouveaux assets]
+  Assets --> Review1[Feedback 1]
+  Review1 --> Rework1[Corrections]
+  Rework1 --> Review2[Feedback 2]
+  Review2 --> Rework2[Corrections]
+  Rework2 --> FinalReview[Validation finale]
+  FinalReview --> Staging[Vercel staging]
+  Staging --> Prod[OVH VPS production]`,
+            },
+            {
+                id: "kc-deployment",
+                titleFr: "Déploiement continu",
+                titleEn: "Continuous deployment",
+                mermaid: `flowchart LR
+  Push[GitHub push] --> CI[GitHub Actions]
+  CI --> Build[Build frontend]
+  Build --> Harbor[Harbor registry]
+  Harbor --> Deploy[OVH VPS deploy]
+  Deploy --> Nginx[Nginx runtime]
+  Cloudflare[Cloudflare] --> Nginx
+  Analytics[Plausible Analytics] --> Site[Production site]`,
+            },
+        ],
+
+        resources: [
+        ],
+
+        milestones: [
+            {
+                labelFr: "Analyse du brief",
+                labelEn: "Brief analysis",
+                date: "Semaine 1",
+                descriptionFr: "Lecture du cahier de charge, retours et cadrage de la direction du site.",
+                descriptionEn: "Reviewed the brief, gave feedback, and aligned on the site's direction.",
+            },
+            {
+                labelFr: "Livraison version 0",
+                labelEn: "Version 0 delivery",
+                date: "Semaine 1",
+                descriptionFr: "Première base premium construite avec les informations initialement disponibles.",
+                descriptionEn: "Built the first premium baseline using the initially available information.",
+            },
+            {
+                labelFr: "Boucles de feedback",
+                labelEn: "Feedback loops",
+                date: "Semaine 2",
+                descriptionFr: "Plusieurs allers-retours avec le client après arrivée tardive de nouveaux assets et demandes.",
+                descriptionEn: "Multiple client review loops after late asset delivery and new requests.",
+            },
+            {
+                labelFr: "Go-live production",
+                labelEn: "Production go-live",
+                date: "Mai 2026",
+                descriptionFr: "Sortie de staging, optimisation SEO/perf, analytics, puis déploiement final sur OVH VPS.",
+                descriptionEn: "Left staging, optimized SEO/performance, added analytics, and deployed to OVH VPS.",
+            },
+        ],
+
+        scopeFr: [
+            "Vitrine premium orientée image de marque et crédibilité",
+            "Frontend-only avec expérience soignée et identité forte",
+            "SEO technique et optimisation des performances",
+            "Chaîne de staging et déploiement continu sérieuse",
+        ],
+        scopeEn: [
+            "Premium showcase focused on brand image and credibility",
+            "Frontend-only delivery with polished UX and strong identity",
+            "Technical SEO and performance optimization",
+            "Serious staging and continuous deployment workflow",
+        ],
+        nonGoalsFr: [
+            "Backoffice d’administration",
+            "Backend métier ou base de données",
+            "Complexité technique non demandée par le besoin client",
+        ],
+        nonGoalsEn: [
+            "Admin backoffice",
+            "Business backend or database",
+            "Technical complexity not justified by the client need",
+        ],
+
+        decisions: [
+            {
+                titleFr: "Frontend-only assumé",
+                titleEn: "Deliberate frontend-only approach",
+                decisionFr: "Aucun backend ni base de données n’a été ajouté.",
+                decisionEn: "No backend or database was added.",
+                rationaleFr: "Le client n’en avait pas besoin à court terme, et cela n’était ni utile ni inclus dans la demande.",
+                rationaleEn: "The client did not need it in the short term, and it was neither useful nor part of the request.",
+            },
+            {
+                titleFr: "Version 0 rapide puis itérations",
+                titleEn: "Fast version 0 then iterations",
+                decisionFr: "Livrer tôt une base premium pour débloquer les feedbacks et les assets manquants.",
+                decisionEn: "Deliver an early premium baseline to unlock feedback and missing assets.",
+                rationaleFr: "Le niveau d’information initial était trop faible pour viser une version finale directement.",
+                rationaleEn: "The initial level of information was too limited to aim for a final version immediately.",
+            },
+            {
+                titleFr: "Sortie staging puis prod durcie",
+                titleEn: "Staging first, hardened production later",
+                decisionFr: "Passage par Vercel pour itérer vite, puis production OVH VPS + Cloudflare.",
+                decisionEn: "Used Vercel for fast iteration, then moved to OVH VPS + Cloudflare for production.",
+                rationaleFr: "Séparer vitesse de validation et qualité d’exploitation finale.",
+                rationaleEn: "Separate validation speed from final operational quality.",
+            },
+        ],
+
+        securityFr: [
+            "Cloudflare devant l’origine en production",
+            "Pipeline de déploiement continu proprement industrialisé",
+            "Configuration production durcie autour de l’hébergement VPS",
+            "Analytics ajoutée sans alourdir inutilement l’expérience",
+        ],
+        securityEn: [
+            "Cloudflare in front of the production origin",
+            "Cleanly industrialized continuous deployment workflow",
+            "Hardened production setup around VPS hosting",
+            "Analytics added without unnecessarily degrading the experience",
+        ],
+
+        infraFr: [
+            "Staging sur Vercel pour les cycles de validation rapides",
+            "Production sur OVH VPS",
+            "GitHub Actions + Harbor pour la chaîne de livraison",
+            "Cloudflare pour l’exposition et l’optimisation périphérique",
+        ],
+        infraEn: [
+            "Vercel staging for fast validation cycles",
+            "Production on OVH VPS",
+            "GitHub Actions + Harbor for the delivery chain",
+            "Cloudflare for edge exposure and optimization",
+        ],
+
+        externalLinks: [
+            {
+                labelFr: "Repository GitHub",
+                labelEn: "GitHub repository",
+                url: "https://github.com/barthez-kenwou/kc-services",
+            },
+            {
+                labelFr: "Site live",
+                labelEn: "Live site",
+                url: "https://ketc-services.com",
+            },
+        ],
+
+        testimonial: {
+            quoteFr: "Le résultat final reflète exactement l’image professionnelle que nous voulions projeter. Merci pour la qualité du travail.",
+            quoteEn: "The final result reflects exactly the professional image we wanted to project. Thank you for the quality of the work.",
+            author: "Arnold TCHIO",
+            roleFr: "Responsable communication",
+            roleEn: "Communication Lead",
+            company: "K&C Services",
+        },
+
+        lessonsFr: [
+            "Un client peut avoir plus de matière qu’il ne le pense au démarrage ; il faut concevoir un process qui absorbe cela.",
+            "Une version 0 bien pensée sert autant d’outil de delivery que d’outil de clarification métier.",
+            "Ne pas ajouter de backend est parfois la décision la plus professionnelle.",
+        ],
+        lessonsEn: [
+            "A client often has more material than they initially surface; the process must absorb that reality.",
+            "A well-crafted version 0 is both a delivery artifact and a business clarification tool.",
+            "Not adding a backend is sometimes the most professional decision.",
+        ],
+
+        beforeAfter: [
+            {
+                beforeSrc: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2011-22-24.png",
+                afterSrc: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-17%2009-09-27.png",
+                captionFr: "D’une intention de vitrine à une présence premium réellement crédible.",
+                captionEn: "From a showcase intention to a truly credible premium presence.",
+            },
+        ],
 
         isFeatured: false,
     },

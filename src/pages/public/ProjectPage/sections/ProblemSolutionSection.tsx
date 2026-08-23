@@ -27,9 +27,10 @@ export const ProblemSolutionSection: React.FC<{ project: IProject }> = ({
         <div
           className={cn(
             'absolute top-1/2 -translate-y-1/2',
-            'left-1/2 -translate-x-1/2 w-[min(130vw,28rem)]',
-            'md:left-auto md:right-[-4%] md:translate-x-0 md:w-[min(70vw,36rem)]',
-            'lg:w-[min(55vw,40rem)]',
+            'left-1/2 -translate-x-1/2 w-[min(140vw,32rem)]',
+            'md:left-auto md:right-[-12%] md:translate-x-0 md:w-[min(95vw,52rem)]',
+            'lg:right-[-10%] lg:w-[min(80vw,58rem)]',
+            'xl:w-[min(72vw,64rem)]',
           )}
         >
           <img
@@ -37,17 +38,17 @@ export const ProblemSolutionSection: React.FC<{ project: IProject }> = ({
             alt=""
             decoding="async"
             className={cn(
-              'w-full h-auto select-none',
-              'opacity-[0.32] dark:opacity-[0.48]',
-              '[mask-image:linear-gradient(90deg,transparent_0%,black_18%,black_100%),linear-gradient(0deg,transparent_0%,black_18%,black_82%,transparent_100%)]',
-              '[-webkit-mask-image:linear-gradient(90deg,transparent_0%,black_18%,black_100%),linear-gradient(0deg,transparent_0%,black_18%,black_82%,transparent_100%)]',
+              'w-full h-auto select-none scale-110 md:scale-125 lg:scale-[1.35]',
+              'opacity-[0.36] dark:opacity-[0.55]',
+              '[mask-image:linear-gradient(90deg,transparent_0%,black_12%,black_100%),linear-gradient(0deg,transparent_0%,black_14%,black_86%,transparent_100%)]',
+              '[-webkit-mask-image:linear-gradient(90deg,transparent_0%,black_12%,black_100%),linear-gradient(0deg,transparent_0%,black_14%,black_86%,transparent_100%)]',
               '[mask-composite:intersect] [-webkit-mask-composite:source-in]',
             )}
             style={{
               mixBlendMode: isDark ? 'screen' : 'multiply',
               filter: isDark
-                ? 'saturate(1.15) brightness(0.85)'
-                : 'saturate(0.9) brightness(1.05)',
+                ? 'saturate(1.18) brightness(0.9)'
+                : 'saturate(0.95) brightness(1.05)',
             }}
           />
         </div>

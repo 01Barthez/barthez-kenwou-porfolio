@@ -79,7 +79,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   const renderMedia = (media: string, isActive: boolean) => {
     if (!media) return null;
     const isVideo = media.endsWith('.mp4') || media.endsWith('.webm') || media.endsWith('.ogg');
-    const baseClasses = "w-full h-full object-cover transition-transform duration-500 group-hover:scale-110";
+    const baseClasses = "w-full h-full object-cover transition-transform duration-500";
     if (isVideo) {
       return (
         <video
@@ -96,7 +96,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   };
 
   return (
-    <article className="group relative flex flex-col h-full rounded-md bg-card border border-border overflow-hidden transition-all duration-300 hover:shadow-md hover:shadow-primary/5 hover:border-primary/20">
+    <article className="group rounded relative flex flex-col h-full overflow-hidden transition-all duration-300">
       {/* ── Image Area ────────────────────────────────────────────────────── */}
       <div className="relative h-56 w-full overflow-hidden bg-muted group/carousel">
         {project.images.length > 1 ? (
@@ -174,8 +174,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
         </div>
 
         {/* Complexity (Bottom Left Overlay) */}
-        <div className="absolute bottom-4 left-4 flex items-center gap-1.5 px-2 py-1 rounded-md bg-black/50 backdrop-blur-md border border-white/10 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 z-30 pointer-events-none">
-          <ComplexityIcon className={cn("h-3 w-3", COMPLEXITY_CONFIG[complexityKey]?.color || 'text-white')} />
+        <div className="absolute bottom-4 left-4 flex items-center px-3 py-.5 rounded-md bg-black/50 backdrop-blur-md border border-white/10 opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 z-30 pointer-events-none">
           <span className="text-[10px] font-bold text-white truncate shadow-sm">
             {project.complexity}
           </span>
@@ -198,7 +197,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
             <ArrowUpRight className="mt-0.5 h-4 w-4 shrink-0 opacity-0 -translate-x-1 transition-all group-hover:translate-x-0 group-hover:opacity-100" />
           </Link>
 
-          <p className="text-xs leading-relaxed text-muted-foreground line-clamp-3">
+          <p className="cursor-default text-xs leading-relaxed text-muted-foreground line-clamp-3">
             {description}
           </p>
         </div>

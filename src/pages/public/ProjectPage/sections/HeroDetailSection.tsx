@@ -122,6 +122,11 @@ export const HeroDetailSection: React.FC<Props> = ({ project }) => {
                 {project.category}
               </span>
               {project.status && <ProjectStatusBadge status={project.status} />}
+              {project.confidential && (
+                <span className="px-3 py-1 rounded-md bg-white/10 backdrop-blur-md text-white/90 font-semibold text-[10px] md:text-xs uppercase tracking-wider border border-white/20">
+                  {language === 'fr' ? 'NDA / Anonymisé' : 'NDA / Anonymized'}
+                </span>
+              )}
             </div>
 
             <h1 className="text-2xl md:text-3xl font-bold text-white mb-2.5 tracking-tight leading-snug">

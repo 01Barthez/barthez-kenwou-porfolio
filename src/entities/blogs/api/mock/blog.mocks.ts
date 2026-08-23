@@ -4399,7 +4399,7 @@ C'est le point le plus contre-intuitif de ce guide, et pourtant l'un des plus im
 - **Mesurez toujours avant d'optimiser.** L'idée qu'optimiser sans avoir mesuré le vrai goulot d'étranglement est une perte de temps classique dans notre industrie — et c'est très souvent vrai. Passer trois jours à optimiser une requête qui tourne une fois par jour pour un rapport admin, alors que 80 % de votre trafic réel passe sur trois endpoints complètement différents, c'est du temps d'ingénieur perdu.
 - **Comparez le coût ingénieur au coût infra.** Parfois, monter d'un cran de tier serveur pour 20 $/mois de plus coûte objectivement moins cher que trois jours de travail d'optimisation fine. Ce n'est pas un aveu d'échec, c'est du bon sens économique.
 - **Priorisez sur le trafic réel, pas sur vos intuitions.** Regardez vos vraies métriques de production (APM) pour savoir quels endpoints concentrent réellement la charge — c'est souvent une surprise par rapport à ce qu'on imaginait avant de regarder les chiffres.
-- **Trop de cache peut devenir un bug, pas une feature.** Chaque couche de cache ajoutée est un endroit de plus où une donnée peut devenir périmée. Avant d'ajouter un cache, demandez-vous si la simplicité et la fraîcheur des données ne valent pas mieux que le gain de perf, selon le contexte métier.
+- **Trop de cache peut devenir un bug, pas une feature.** Chaque couche de cache ajoutée est un endroit de plus où une donnée peut devenir périmée. Avant d'ajouter un cache, demandez-vous si la simplicité et la fraîcheur des données ne valent pas mieux que le gain de perf, selon le Contexte Métier.
 
 ## 13. Checklist finale ultra-complète 2026
 
@@ -9486,7 +9486,7 @@ Chaque microservice a son propre pipeline GitHub Actions ou GitLab CI qui :
 - Pods root
 - Pas de PDB (une maintenance de cluster peut faire tomber tous les replicas d'un coup)
 - Tout dans un seul namespace (aucune isolation, RBAC impossible à granulariser)
-- Un microservice par table de base de données au lieu d'un microservice par contexte métier (sur-découpage qui multiplie les appels réseau pour rien)
+- Un microservice par table de base de données au lieu d'un microservice par Contexte Métier (sur-découpage qui multiplie les appels réseau pour rien)
 
 **Optimisation des coûts, concrètement** :
 - **Cluster Autoscaler** pour ajuster le nombre de nœuds au trafic réel, pas un nombre fixe dimensionné pour le pic

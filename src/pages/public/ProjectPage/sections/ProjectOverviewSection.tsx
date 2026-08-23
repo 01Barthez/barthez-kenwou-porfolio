@@ -20,8 +20,8 @@ export const ProjectOverviewSection: React.FC<{ project: IProject }> = ({ projec
     <section className="mb-16 px-4 md:px-10 lg:px-14 animate-fade-in-up">
       <div className="grid lg:grid-cols-3 gap-12 items-start">
         
-        {/* Left Column: Stats */}
-        <div className="lg:col-span-1 bg-secondary/30 p-6 rounded-md border border-border/50 backdrop-blur-sm shadow-sm">
+        {/* Left Column: Stats — sticky until this section ends */}
+        <div className="lg:col-span-1 lg:sticky lg:top-28 self-start bg-secondary/30 p-6 rounded-md border border-border/50 backdrop-blur-sm shadow-sm">
           <h3 className="text-lg font-bold mb-5 text-foreground">
             {language === 'fr' ? 'Détails du projet' : 'Project Details'}
           </h3>
@@ -57,12 +57,34 @@ export const ProjectOverviewSection: React.FC<{ project: IProject }> = ({ projec
           {businessContext && (
             <div className="p-6 bg-primary/5 border border-primary/20 rounded-md">
               <h3 className="text-base md:text-lg font-semibold mb-2.5 text-foreground flex items-center gap-2 tracking-tight">
-                <Briefcase className="w-4 h-4 text-primary shrink-0" />
                 {language === 'fr' ? 'Contexte Métier' : 'Business Context'}
               </h3>
               <p className="text-muted-foreground text-sm md:text-base italic leading-relaxed">
                 "{businessContext}"
               </p>
+            </div>
+          )}
+
+          {((language === 'fr' ? project.responsibilitiesFr : project.responsibilitiesEn) ?? [])
+            .length > 0 && (
+            <div>
+              <h3 className="text-base md:text-lg font-semibold mb-3 text-foreground tracking-tight">
+                {language === 'fr' ? 'Responsabilités' : 'Responsibilities'}
+              </h3>
+              <ul className="space-y-2">
+                {(language === 'fr'
+                  ? project.responsibilitiesFr!
+                  : project.responsibilitiesEn!
+                ).map((item, idx) => (
+                  <li
+                    key={idx}
+                    className="flex gap-2.5 text-sm text-muted-foreground leading-relaxed"
+                  >
+                    <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           )}
         </div>

@@ -3,9 +3,21 @@ import { ProjectNotFound } from './sections/ProjectNotFound';
 import { HeroDetailSection } from './sections/HeroDetailSection';
 import { ProjectOverviewSection } from './sections/ProjectOverviewSection';
 import { ProblemSolutionSection } from './sections/ProblemSolutionSection';
-import { ArchitectureTestingSection } from './sections/ArchitectureTestingSection';
-import { ImpactSection } from './sections/ImpactSection';
+import { ProjectVideoSection } from './sections/ProjectVideoSection';
 import { TechStackSection } from './sections/TechStackSection';
+import { ProjectGallerySection } from './sections/ProjectGallerySection';
+import { ArchitectureTestingSection } from './sections/ArchitectureTestingSection';
+import { ProjectDiagramsSection } from './sections/ProjectDiagramsSection';
+import { ProjectScopeSection } from './sections/ProjectScopeSection';
+import { ProjectTimelineSection } from './sections/ProjectTimelineSection';
+import { ProjectDecisionsSection } from './sections/ProjectDecisionsSection';
+import { ProjectSecurityInfraSection } from './sections/ProjectSecurityInfraSection';
+import { ImpactSection } from './sections/ImpactSection';
+import { ProjectBeforeAfterSection } from './sections/ProjectBeforeAfterSection';
+import { ProjectTestimonialSection } from './sections/ProjectTestimonialSection';
+import { ProjectLessonsSection } from './sections/ProjectLessonsSection';
+import { ProjectResourcesSection } from './sections/ProjectResourcesSection';
+import { ProjectLinksSection } from './sections/ProjectLinksSection';
 import { OtherProjectSection } from './sections/OtherProjectSection';
 import { CTADetailsSection } from './sections/CTADetailsSection';
 import { useParams } from 'react-router-dom';
@@ -65,32 +77,28 @@ export const ProjectDetailPage = () => {
         }}
       />
 
-      <div className="min-h-screen overflow-x-clip">
-        {/* Hero Image & Primary Info */}
+      <div className="min-h-screen">
         <HeroDetailSection project={project} />
-
-        {/* Overview & Core details */}
         <ProjectOverviewSection project={project} />
-
-        {/* Problem and Solution */}
         <ProblemSolutionSection project={project} />
-
-        {/* Tech Stack */}
+        <ProjectVideoSection project={project} />
         <TechStackSection project={project} />
-
-        {/* Architecture & Testing */}
+        <ProjectGallerySection project={project} />
         <ArchitectureTestingSection project={project} />
-
-        {/* Impact / Results / Metrics / Challenges */}
+        <ProjectDiagramsSection project={project} />
+        <ProjectScopeSection project={project} />
+        <ProjectTimelineSection project={project} />
+        <ProjectDecisionsSection project={project} />
+        <ProjectSecurityInfraSection project={project} />
         <ImpactSection project={project} />
-
-        {/* Other Projects */}
+        <ProjectBeforeAfterSection project={project} />
+        <ProjectTestimonialSection project={project} />
+        <ProjectLessonsSection project={project} />
+        <ProjectResourcesSection project={project} />
+        <ProjectLinksSection project={project} />
         <OtherProjectSection currentProjectId={project.id} />
-
-        {/* Strong CTA */}
         <CTADetailsSection />
       </div>
     </>
   );
 };
-

@@ -1,21 +1,47 @@
-# 🏗 Project Entity
+# Project entity
 
-The `Project` entity represents a specific technical achievement or product showcased in the portfolio.
+The `Project` entity represents a technical delivery showcased in the portfolio.
 
-## Data Source
-Projects are managed in `src/entities/Project/data/` or via Velite.
+## Source
 
-## Attributes
+`src/entities/projets/api/mocks/projectData.mocks.ts`  
+Types: `src/entities/projets/model/project.types.ts`
 
-- `id`: Unique identifier.
-- `title`: Display name of the project.
-- `description`: Short summary.
-- `category`: e.g., "Full Stack", "DevOps", "Mobile".
-- `tags`: List of technologies used (React, AWS, Docker).
-- `image`: URL or path to the thumbnail.
-- `links`: Project links (GitHub, Live demo).
-- `featured`: Boolean to highlight the project on the home page.
+## Core fields
 
-## Implementation Details
-- **Schema**: Defined using Zod in `src/entities/Project/model/types.ts`.
-- **UI Components**: Cards and detail views are located in `src/entities/Project/ui/`.
+- Identity: `id`, `titleFr/En`, `descriptionFr/En`, `fullDescriptionFr/En`
+- Narrative: `problem*`, `solution*`, `challenges*`, `impact*`, `businessContext*`
+- Delivery: `techStack`, `architecture`, `testing`, `metrics`
+- Media cover: `images[]`, `preview`
+- Meta: `category`, `status`, `complexity`, `role`, `teamSize`, `duration`, `date`
+- Links: `github`, `demo`, `isFeatured`
+
+## Case-study extensions (all optional)
+
+Sections on the detail page render **only when data is present**:
+
+| Field | Section |
+| :--- | :--- |
+| `responsibilitiesFr/En` | Overview |
+| `confidential` | Hero badge (NDA / anonymized) |
+| `videos[]` / `videoDemo` | Videos (YouTube/Vimeo or `.mp4`/`.webm`) |
+| `gallery[]` | Gallery + lightbox |
+| `diagrams[]` | Mermaid diagrams |
+| `scope*` / `nonGoals*` | Scope |
+| `milestones[]` | Timeline |
+| `decisions[]` | Key decisions (ADR light) |
+| `security*` / `infra*` | Security & infrastructure |
+| `beforeAfter[]` | Before / After |
+| `testimonial` | Client quote |
+| `lessons*` | Lessons learned |
+| `resources[]` / `documentation` / `caseStudy` | Public documents |
+| `externalLinks[]` | Extra links |
+
+## Detail page order
+
+Hero → Overview → Problem/Solution → Videos → Tech → Gallery → Architecture/Testing → Diagrams → Scope → Timeline → Decisions → Security/Infra → Impact → Before/After → Testimonial → Lessons → Resources → Links → Other projects → CTA
+
+## UI
+
+Page composition: `src/pages/public/ProjectPage/projectDetails.tsx`  
+Cards: `src/entities/projets/ui/`

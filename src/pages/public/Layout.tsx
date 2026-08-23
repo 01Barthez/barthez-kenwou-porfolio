@@ -22,10 +22,11 @@ export const PublicLayout = () => {
 
   return (
     <SidebarProvider>
-      <div className="w-full flex min-h-screen overflow-x-clip">
+      <div className="w-full flex min-h-screen">
         <AppSidebar />
 
-        <div className="w-full min-w-0 flex-1 flex flex-col overflow-x-clip">
+        {/* Avoid overflow-x-clip here: it breaks position:sticky for page sections */}
+        <div className="w-full min-w-0 flex-1 flex flex-col">
           <Header />
 
           <main className="flex flex-1 flex-col p-0">
