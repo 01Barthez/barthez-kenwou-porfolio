@@ -4,325 +4,1062 @@ export const projectsData: IProject[] = [
 
     {
         id: 1,
-        titleFr: "NEXUS – ERP SaaS Modulaire pour la Gestion Intelligente de Restaurants",
-        titleEn: "NEXUS – Modular SaaS ERP for Smart Restaurant Management",
+        titleFr: "NEXUS - ERP SaaS modulaire pour la restauration",
+        titleEn: "NEXUS - Modular SaaS ERP for restaurants",
 
-        descriptionFr: "ERP SaaS nouvelle génération pour restaurants, basé sur une architecture modulaire activable à la demande, combinant gestion opérationnelle, analytics et expérience client dans une plateforme unifiée.",
-        descriptionEn: "Next-generation SaaS ERP for restaurants, built on a modular on-demand architecture combining operations, analytics, and customer experience in a unified platform.",
+        descriptionFr: "ERP SaaS multi-tenant porté par ZENORA : modules activables à la demande, offline-first, paiements locaux, conçu pour toutes tailles de restaurants et tous appareils.",
+        descriptionEn: "Multi-tenant SaaS ERP by ZENORA: on-demand modules, offline-first, local payments, built for every restaurant size and every device.",
 
-        fullDescriptionFr: "NEXUS est une plateforme SaaS ambitieuse de nouvelle génération dédiée à la gestion intelligente et modulaire des restaurants. L’objectif est de fournir un système complet permettant à chaque restaurateur de construire son propre ERP sur mesure en activant uniquement les modules dont il a réellement besoin.\n\nLa plateforme repose sur une architecture monolithique modulaire (modular monolith) structurée via Turborepo, garantissant une séparation stricte des domaines métiers (Commandes, Stocks, CRM, Comptabilité, etc.) tout en conservant la simplicité opérationnelle d’un monolithe.\n\nLe produit comprend :\n- Une vitrine SaaS optimisée SEO pour acquisition client\n- Un système de souscription avec paiement multi-canaux (Mobile Money, Stripe, banque)\n- Une application principale (PWA) pour les restaurateurs\n- Des interfaces dédiées (admin, staff, cuisine)\n\nChaque restaurant peut configurer dynamiquement son environnement en activant des modules spécifiques : gestion des commandes (salle & online), menus & recettes avec calcul des coûts, gestion des stocks avec alertes, livraisons avec suivi temps réel, réservations intelligentes avec plan de salle, CRM client, facturation automatisée, reporting avancé (PDF/Excel), point de vente (POS), comptabilité, et écran cuisine.\n\nLe système intègre des capacités avancées : multi-tenant, gestion des rôles, analytics en temps réel, optimisation des performances, SEO, sécurité et scalabilité cloud-native. L’infrastructure est conçue pour AWS avec une approche DevOps complète (CI/CD, monitoring, observabilité).\n\nCe projet vise à créer une solution SaaS compétitive capable de rivaliser avec des solutions internationales, tout en étant adaptée aux réalités locales (paiements Mobile Money, flexibilité modulaire, coûts maîtrisés).",
-        fullDescriptionEn: "NEXUS is a next-generation SaaS platform designed for intelligent and modular restaurant management. The goal is to provide a complete system allowing each restaurant owner to build a custom ERP by activating only the modules they need.\n\nThe platform is built on a modular monolithic architecture using Turborepo, ensuring strict separation of business domains (Orders, Inventory, CRM, Accounting, etc.) while maintaining operational simplicity.\n\nThe product includes:\n- A SEO-optimized SaaS landing platform for customer acquisition\n- Subscription system with multi-channel payments (Mobile Money, Stripe, banking)\n- Main PWA application for restaurant owners\n- Dedicated interfaces (admin, staff, kitchen)\n\nEach restaurant can dynamically configure its system by enabling modules such as: order management (in-house & online), menu & recipe costing, inventory with alerts, delivery tracking, smart reservations, CRM, invoicing, advanced analytics (PDF/Excel), POS system, accounting, and kitchen display.\n\nThe system integrates advanced capabilities: multi-tenancy, role management, real-time analytics, performance optimization, SEO, security, and cloud-native scalability. Infrastructure is designed for AWS with a full DevOps approach (CI/CD, monitoring, observability).\n\nThis project aims to build a competitive SaaS solution capable of rivaling international products while being adapted to local market realities (Mobile Money payments, modular flexibility, cost efficiency).",
+        fullDescriptionFr: `NEXUS est un ERP SaaS de gestion de restaurants conçu et développé au sein de l'ESN ZENORA. La philosophie produit est simple : le restaurateur n'active que les modules dont il a besoin — chaque module est un ensemble de fonctionnalités qui résout un besoin métier précis (POS, menu, cuisine, stocks, RH, etc.).
 
-        problemFr: "Les solutions existantes de gestion de restaurant sont souvent rigides, coûteuses et mal adaptées aux réalités locales, obligeant les restaurateurs à utiliser plusieurs outils fragmentés.",
-        problemEn: "Existing restaurant management solutions are often rigid, expensive, and poorly adapted to local realities, forcing restaurant owners to use fragmented tools.",
+Le parcours utilisateur est pensé de bout en bout : découverte sur la vitrine marketing, authentification (email/password, OAuth2, WhatsApp), choix de plan (essai ou achat avec paiement), onboarding du restaurant, puis entrée dans l'ERP. Une fois dedans, les modules inclus dans la formule sont disponibles ; le marketplace permet d'acheter et configurer des modules additionnels selon l'évolution du besoin.
+
+Techniquement, NEXUS repose sur un monolithe modulaire Turborepo (pnpm workspaces) pensé pour une éventuelle extraction microservices plus tard. Surfaces : portail marketing (Next.js), ERP web (thin app), backoffice super-admin, API Fastify. Isolation multi-tenant en schema-per-tenant PostgreSQL (public pour plateforme/billing/auth, t_{slug} pour le métier via Kysely). Le kernel charge dynamiquement les modules activés. Socle offline-first (Dexie + sync push/pull) pour le terrain. Billing abstrait (Stripe + Flutterwave / Mobile Money) avec activation uniquement via webhooks.
+
+Je suis à l'origine de l'architecture globale et de la conception/implémentation de la quasi-totalité des cœurs plateforme (auth, database, billing, kernel, sync, search, events, caching, storage, queue, scheduler, AI, …), ainsi que des modules dashboard et menu — le socle sur lequel l'équipe étend le produit.`,
+        fullDescriptionEn: `NEXUS is a restaurant SaaS ERP designed and built at the ZENORA digital services company. The product philosophy is simple: restaurant owners enable only the modules they need — each module is a feature set that solves a precise business need (POS, menu, kitchen, inventory, HR, etc.).
+
+The user journey is end-to-end: marketing site discovery, authentication (email/password, OAuth2, WhatsApp), plan selection (trial or paid checkout), restaurant onboarding, then ERP entry. Inside the product, plan-included modules are available; the marketplace lets operators buy and configure additional modules as needs evolve.
+
+Technically, NEXUS is a Turborepo modular monolith (pnpm workspaces) designed so microservices extraction remains possible later. Surfaces: marketing portal (Next.js), web ERP (thin app), super-admin backoffice, Fastify API. Multi-tenant isolation via PostgreSQL schema-per-tenant (public for platform/billing/auth, t_{slug} for business data via Kysely). The kernel dynamically loads enabled modules. Offline-first foundation (Dexie + push/pull sync) for floor operations. Abstracted billing (Stripe + Flutterwave / Mobile Money) with activation only via webhooks.
+
+I originated the overall architecture and designed/implemented nearly all platform cores (auth, database, billing, kernel, sync, search, events, caching, storage, queue, scheduler, AI, …), plus the dashboard and menu modules — the foundation the team extends.`,
+
+        problemFr: "Les restaurateurs jonglent avec 5 à 12 outils déconnectés (POS, stocks, RH, réservations, livraison). Les solutions internationales sont rigides, chères, peu adaptées à l'Afrique (Mobile Money, devises, offline terrain) et obligent à payer un pack monolithique sans pouvoir composer à la carte.",
+        problemEn: "Restaurant operators juggle 5–12 disconnected tools (POS, inventory, HR, reservations, delivery). International solutions are rigid, expensive, poorly adapted to Africa (Mobile Money, currencies, floor offline), and force a monolithic pack instead of à-la-carte composition.",
 
         solutionFr: [
-            "Architecture SaaS modulaire avec activation à la demande des fonctionnalités",
-            "Système multi-tenant permettant la gestion de plusieurs restaurants",
-            "Modules métiers indépendants (Commandes, Stocks, CRM, Comptabilité, etc.)",
-            "Paiement intégré multi-canaux (Mobile Money, Stripe, bancaire)",
-            "Application PWA performante accessible sur tous les appareils",
-            "Analytics avancé et reporting (SLO business, revenus, performances)",
-            "Infrastructure cloud AWS avec CI/CD, monitoring et sécurité",
+            "ERP unifié avec marketplace de modules activables/désactivables à la demande",
+            "Parcours complet : vitrine → auth → plan/paiement → onboarding → ERP → marketplace",
+            "Multi-tenant schema-per-tenant (isolation forte des données restaurant)",
+            "Offline-first sur POS / commandes / cuisine / tables avec sync autoritative cloud",
+            "Paiements locaux et internationaux (Flutterwave / Mobile Money + Stripe)",
+            "Multi-device et responsive (web, tablette caisse, KDS, mobile gérant)",
+            "Monolithe modulaire Turborepo + kernel, prêt pour extraction progressive",
+            "Cores plateforme réutilisables (auth, billing, sync, search, events, AI, …)",
         ],
         solutionEn: [
-            "Modular SaaS architecture with on-demand feature activation",
-            "Multi-tenant system supporting multiple restaurants",
-            "Independent business modules (Orders, Inventory, CRM, Accounting, etc.)",
-            "Integrated multi-channel payments (Mobile Money, Stripe, banking)",
-            "High-performance PWA accessible on all devices",
-            "Advanced analytics and reporting (business SLOs, revenue, performance)",
-            "AWS cloud infrastructure with CI/CD, monitoring, and security",
+            "Unified ERP with an on-demand enable/disable module marketplace",
+            "Full journey: marketing → auth → plan/payment → onboarding → ERP → marketplace",
+            "Schema-per-tenant multi-tenancy (strong restaurant data isolation)",
+            "Offline-first for POS / orders / kitchen / tables with authoritative cloud sync",
+            "Local and international payments (Flutterwave / Mobile Money + Stripe)",
+            "Multi-device responsive UX (web, POS tablet, KDS, owner mobile)",
+            "Turborepo modular monolith + kernel, ready for progressive extraction",
+            "Reusable platform cores (auth, billing, sync, search, events, AI, …)",
         ],
 
         challengesFr: [
-            "Concevoir une architecture modulaire tout en restant monolithique",
-            "Gérer la complexité multi-tenant et isolation des données",
-            "Optimiser les performances avec un grand nombre de modules",
-            "Implémenter un système de facturation flexible par module",
-            "Assurer la scalabilité et la sécurité sur AWS",
-            "Maintenir une excellente UX malgré la richesse fonctionnelle",
+            "Concevoir un kernel de modules type Odoo sans complexité microservices jour 1",
+            "Isolation multi-tenant fiable (schema switching, pool, migrations N schémas)",
+            "Offline-first réel (événements, conflits, idempotence) — pas un simple cache PWA",
+            "Billing SaaS abstrait multi-providers + add-ons modules via marketplace",
+            "Thin app ERP : navigation et shell dynamiques selon modules installés",
+            "Maintenir vélocité d'équipe à 4 tout en posant des fondations long terme",
+            "Documenter ADRs, registry ~45 modules et phases d'exécution avant code massif",
         ],
         challengesEn: [
-            "Designing a modular yet monolithic architecture",
-            "Handling multi-tenant complexity and data isolation",
-            "Optimizing performance with many modules",
-            "Implementing flexible per-module billing system",
-            "Ensuring scalability and security on AWS",
-            "Maintaining excellent UX despite feature richness",
+            "Design an Odoo-like module kernel without day-1 microservices complexity",
+            "Reliable multi-tenant isolation (schema switching, pool, N-schema migrations)",
+            "Real offline-first (events, conflicts, idempotency) — not a naive PWA cache",
+            "Abstract multi-provider SaaS billing + marketplace module add-ons",
+            "Thin ERP app: dynamic navigation/shell based on installed modules",
+            "Keep a 4-person team shipping while laying long-term foundations",
+            "Document ADRs, ~45-module registry and execution phases before mass coding",
         ],
 
         impactFr: [
-            "Digitalisation complète des opérations restaurant",
-            "Réduction des coûts via modularité (payer uniquement ce qui est utilisé)",
-            "Amélioration de la productivité et des marges",
-            "Centralisation des opérations dans une plateforme unique",
-            "Création d’un produit SaaS scalable à fort potentiel business",
+            "Socle produit ZENORA positionné pour Europe et Afrique (devises, Mobile Money, offline)",
+            "Architecture et cores plateforme déjà opérationnels (auth, billing, kernel, sync, menu…)",
+            "Modèle économique aligné : starter gratuit + plans + modules à la carte",
+            "Équipe capable d'étendre verticalement module par module sur un contrat kernel unique",
+            "Cible : produit consommable pour restaurants pilotes (journée de service complète)",
         ],
         impactEn: [
-            "Full digitization of restaurant operations",
-            "Cost reduction via modular pricing (pay only for used features)",
-            "Improved productivity and margins",
-            "Centralized operations in a single platform",
-            "Creation of a scalable high-value SaaS product",
+            "ZENORA product foundation positioned for Europe and Africa (currencies, Mobile Money, offline)",
+            "Architecture and platform cores already operational (auth, billing, kernel, sync, menu…)",
+            "Business model aligned: free starter + plans + à-la-carte modules",
+            "Team can extend vertically module-by-module on a single kernel contract",
+            "Target: consumable product for pilot restaurants (full service day)",
         ],
 
         metrics: {
-            "architecture": "Modular Monolith (Turborepo)",
-            "multiTenant": "true",
-            "modules": "10+ modules métiers",
-            "scalability": "Cloud-native (AWS)",
+            "architecture": "Modular monolith (Turborepo + pnpm)",
+            "multiTenant": "Schema-per-tenant (PostgreSQL)",
+            "modulesRegistry": "~45 modules (catalogued)",
+            "cores": "18+ packages core/*",
+            "team": "4 (architect/fullstack, backend, fullstack+DevOps, product)",
+            "started": "Planification Mars 2026 · Code Mai 2026",
+            "target": "Consommable Décembre 2026",
             "status": "En développement actif",
         },
 
         techStack: {
-            frontend: ["Next.js", "TypeScript", "Tailwind CSS", "PWA"],
-            backend: ["Node.js", "API Routes / Services"],
-            database: ["PostgreSQL"],
-            devops: ["AWS", "Docker", "CI/CD", "Monitoring", "Observability"],
+            frontend: ["Next.js (App Router)", "TypeScript", "Tailwind CSS", "Zustand", "Dexie (offline)", "PWA"],
+            backend: ["Node.js", "Fastify", "Prisma (public)", "Kysely (tenant)", "BullMQ", "WebSockets"],
+            database: ["PostgreSQL", "Redis"],
+            devops: ["Docker", "GitHub Actions", "Husky", "Infisical", "Flagsmith", "Nginx", "Terraform", "Ansible", "Kubernetes", "Argo CD", "AWS", "Prometheus", "Grafana"],
         },
 
         architecture: [
-            "Modular Monolith avec séparation stricte des domaines",
-            "Turborepo pour gestion multi-packages",
-            "Multi-tenant architecture",
-            "API centralisée avec modules découplés",
-            "Infrastructure AWS scalable",
-            "CI/CD + monitoring + observabilité",
+            "Monorepo Turborepo : apps (website, web-erp, admin, api) + core/* + modules/* + packages/*",
+            "API Fastify monolithe avec plugins isolés et kernel de chargement dynamique",
+            "Multi-tenant schema-per-tenant : Prisma sur public, SQL+Kysely sur t_{slug}",
+            "Event bus in-process (@nexus/core-events) — pas d'appels directs module→module",
+            "Offline-first : journal d'événements local + SyncEngine + projections cloud",
+            "Billing engine abstrait (Stripe / Flutterwave / mock) — activation via webhooks uniquement",
+            "Évolution prévue : monolithe → extraction microservices quand le besoin est réel",
         ],
 
         testing: [
-            "Tests unitaires modules critiques",
-            "Tests d’intégration",
-            "Tests E2E (flux commandes, paiements)",
+            "Typecheck / lint monorepo (Turbo)",
+            "Tests unitaires packages critiques (auth, validators, kernel)",
+            "Checklists E2E billing sandbox (checkout, webhooks, add-ons)",
+            "Revues cross-device sur shell ERP et modules terrain",
+            "Hooks Husky pre-commit / pre-push (qualité avant merge)",
         ],
 
         images: [
-            "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/167ee008-product-pic-tabesto-300x274.webp",
-        ],
+            "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-logo-full.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-brand-01.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-sidebar-modules.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-ui-extra-02.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-menu-categories-dark.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-ui-extra-03.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-menu-carte-akenx.png",
+           ],
 
-        preview: "",
+        preview: "https://nexus-erp.com",
         videoDemo: "",
 
-        category: "SaaS • Fullstack • Cloud • DevOps",
+        category: "SaaS • ERP • Fullstack • Architecture • Multi-tenant",
         status: "En cours",
-        complexity: "Expert",
-        role: "Fullstack Developer • DevOps Engineer • Architect",
-        teamSize: 3,
+        complexity: "Avancé",
+        role: "Lead Architect • Fullstack",
+        teamSize: 4,
 
-        duration: "Projet long terme",
+        duration: "Mars 2026 → en cours",
         date: "2026",
 
         github: "",
-        demo: "",
+        demo: "https://nexus-erp.com",
 
-        businessContextFr: "Projet SaaS stratégique visant à créer une solution de gestion de restaurant scalable, modulaire et adaptée aux marchés locaux et internationaux.",
-        businessContextEn: "Strategic SaaS project aimed at building a scalable, modular restaurant management solution for local and international markets.",
+        businessContextFr: "Produit stratégique de l'ESN ZENORA (Yaoundé) : digitaliser la restauration avec une plateforme modulaire compétitive à l'international, native Afrique (Mobile Money, offline, multi-devises), et extensible via marketplace.",
+        businessContextEn: "Strategic ZENORA (Yaoundé) product: digitize restaurants with a modular platform competitive internationally, Africa-native (Mobile Money, offline, multi-currency), and extensible via marketplace.",
 
-        confidential: false,
+        confidential: true,
 
         responsibilitiesFr: [
-            "Architecture modulaire (modular monolith) et découpage des bounded contexts",
-            "Conception multi-tenant et modèle de facturation par module",
-            "Mise en place CI/CD, observabilité et socle AWS",
-            "Lead technique fullstack + cadrage produit avec l’équipe",
+            "Architecture globale de l'ERP (monolithe modulaire, topologie apps, ADRs)",
+            "Conception et implémentation des cores : auth, database, billing/invoicing, kernel, sync, queue, events, search, caching, storage, scheduler, AI, documents, http, mailer, notification-center, execution…",
+            "Schéma multi-tenant (public + blueprint tenant) et stratégie DDL",
+            "Modules dashboard et menu (premier vertical slice bout-en-bout)",
+            "Moteur de recherche, système de paiement SaaS, sync offline-first",
+            "Packages partagés et contrats (SDK, validators, types, module-ui)",
+            "Cadrage technique avec backend, fullstack/DevOps et product owner",
         ],
         responsibilitiesEn: [
-            "Modular monolith architecture and bounded-context design",
-            "Multi-tenant design and per-module billing model",
-            "CI/CD, observability, and AWS foundation",
-            "Fullstack technical lead and product framing with the team",
+            "Overall ERP architecture (modular monolith, apps topology, ADRs)",
+            "Design and implementation of cores: auth, database, billing/invoicing, kernel, sync, queue, events, search, caching, storage, scheduler, AI, documents, http, mailer, notification-center, execution…",
+            "Multi-tenant schema design (public + tenant blueprint) and DDL strategy",
+            "Dashboard and menu modules (first end-to-end vertical slice)",
+            "Search engine, SaaS payment engine, offline-first sync",
+            "Shared packages and contracts (SDK, validators, types, module-ui)",
+            "Technical framing with backend, fullstack/DevOps, and product owner",
         ],
 
         gallery: [
             {
-                src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/167ee008-product-pic-tabesto-300x274.webp",
-                captionFr: "Aperçu UI - modules restaurant",
-                captionEn: "UI preview - restaurant modules",
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-logo-full.png",
+                captionFr: "Wordmark NEXUS complet",
+                captionEn: "Full NEXUS wordmark",
+                kind: "other",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-logo-mark.png",
+                captionFr: "Logo NEXUS — marque produit ZENORA",
+                captionEn: "NEXUS logo — ZENORA product mark",
+                kind: "other",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-brand-02.png",
+                captionFr: "Slide de couverture — présentation business ZENORA",
+                captionEn: "Cover slide — ZENORA business presentation",
+                kind: "other",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-brand-01.png",
+                captionFr: "Sept piliers produit — modularité, offline, multi-device, Afrique",
+                captionEn: "Seven product pillars — modularity, offline, multi-device, Africa",
+                kind: "other",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-brand-03.png",
+                captionFr: "Cartographie modules — hub NEXUS et domaines métier",
+                captionEn: "Module map — NEXUS hub and business domains",
+                kind: "diagram",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-brand-04.png",
+                captionFr: "Plans & tarification — Starter à Enterprise",
+                captionEn: "Plans & pricing — Starter to Enterprise",
+                kind: "other",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-product-concept-01.png",
+                captionFr: "Matrice concurrentielle — Mobile Money, offline, entrée à 0€",
+                captionEn: "Competitive matrix — Mobile Money, offline, €0 entry",
+                kind: "other",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-product-concept-03.png",
+                captionFr: "Slide architecture modulaire pour stakeholders",
+                captionEn: "Modular architecture slide for stakeholders",
+                kind: "diagram",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-hero-art.png",
+                captionFr: "Direction artistique — univers visuel produit",
+                captionEn: "Art direction — product visual universe",
+                kind: "other",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-visual-01.png",
+                captionFr: "Illustration métier — table, commandes et paiement",
+                captionEn: "Domain illustration — table, orders and payment",
+                kind: "other",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-visual-02.png",
+                captionFr: "Illustration multi-canal — KDS cuisine et commande mobile",
+                captionEn: "Multi-channel illustration — kitchen KDS and mobile order",
+                kind: "other",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-visual-03.png",
+                captionFr: "Illustration parcours — commande digitale vers service en salle",
+                captionEn: "Journey illustration — digital order to table service",
+                kind: "other",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-visual-04.png",
+                captionFr: "Illustration réservation — pont entre booking digital et salle",
+                captionEn: "Reservation illustration — digital booking to dining room",
+                kind: "other",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-visual-05.png",
+                captionFr: "Illustration multi-device — pilotage restaurant sur tablette",
+                captionEn: "Multi-device illustration — restaurant ops on tablet",
+                kind: "other",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-device-mock.png",
+                captionFr: "Mockup device — expérience restauration sur écran tactile",
+                captionEn: "Device mockup — restaurant experience on touchscreen",
+                kind: "other",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-marketing-landing.png",
+                captionFr: "Navigation modulaire — badges commandes, réservations, stocks",
+                captionEn: "Modular navigation — orders, reservations, stock badges",
+               kind: "diagram",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-marketplace-modules.png",
+                captionFr: "Marketplace — catalogue modules POS, commandes, réservations",
+                captionEn: "Marketplace — POS, orders, reservations module catalog",
+                kind: "infra",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-erp-dashboard-shell.png",
+                captionFr: "Shell ERP — sidebar organisée par pôles métier",
+                captionEn: "ERP shell — sidebar organized by business domains",
+                kind: "process",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-sidebar-modules.png",
+                captionFr: "Vitrine marketing — hero et preview du dashboard ERP",
+                captionEn: "Marketing site — hero and ERP dashboard preview",
+                  kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-ui-extra-02.png",
+                captionFr: "Module Menu (dark) — catégories et états d’erreur API",
+                captionEn: "Menu module (dark) — categories and API error states",
                 kind: "ui",
             },
             {
-                src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/167ee008-product-pic-tabesto-300x274.webp",
-                captionFr: "Flux opérationnel cible",
-                captionEn: "Target operational flow",
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-dashboard-header.png",
+                captionFr: "Header ERP — recherche globale, multi-sites, export données",
+                captionEn: "ERP header — global search, multi-site, data export",
+                kind: "process",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-menu-module-light.png",
+                captionFr: "Module Menu (light) — carte, sync POS offline, import CSV",
+                captionEn: "Menu module (light) — catalog, offline POS sync, CSV import",
+                kind: "process",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-menu-module-light-2.png",
+                captionFr: "Module Menu — création d’article et sync snapshot POS",
+                captionEn: "Menu module — item creation and POS snapshot sync",
+                kind: "infra",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-github-repo.png",
+                captionFr: "Module Menu (light, Premium) — onglet Carte et nouvel article",
+                captionEn: "Menu module (light, Premium) — Catalog tab and new item",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-menu-categories-dark.png",
+                captionFr: "Module Menu (dark) — gestion des catégories",
+                captionEn: "Menu module (dark) — category management",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-ui-extra-01.png",
+                captionFr: "Module Menu (dark) — formulaire nouvelle catégorie",
+                captionEn: "Menu module (dark) — new category form",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-menu-carte-akenx.png",
+                captionFr: "Tenant Akenx — gestion de la carte et des articles",
+                captionEn: "Akenx tenant — menu catalog and items",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-menu-disponibilites.png",
+                captionFr: "Module Menu — onglet disponibilités (plages et canaux)",
+                captionEn: "Menu module — availability tab (slots and channels)",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-ui-extra-03.png",
+                captionFr: "Module Menu — placeholder disponibilités par canal",
+                captionEn: "Menu module — per-channel availability placeholder",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-user-profile.png",
+                captionFr: "Compte utilisateur — profil, rôles et collaborateurs",
+                captionEn: "User account — profile, roles and collaborators",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-ui-extra-04.png",
+                captionFr: "Compte utilisateur (Akenx) — informations personnelles et fuseau",
+                captionEn: "User account (Akenx) — personal info and timezone",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-supabase-tenants.png",
+                captionFr: "PostgreSQL — schémas tenants (t_demo-restaurant, t_barthez…)",
+                captionEn: "PostgreSQL — tenant schemas (t_demo-restaurant, t_barthez…)",
+                kind: "infra",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-api-logs-tenant.png",
+                captionFr: "Logs API — résolution tenant Kysely et routes kernel",
+                captionEn: "API logs — tenant Kysely resolution and kernel routes",
+                kind: "infra",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-product-concept-02.png",
+                captionFr: "Monorepo racine — apps, core, modules, packages, infra, Turbo",
+                captionEn: "Root monorepo — apps, core, modules, packages, infra, Turbo",
+                kind: "infra",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-product-concept-04.png",
+                captionFr: "Packages partagés — auth, sdk, offline-client, ui, validators…",
+                captionEn: "Shared packages — auth, sdk, offline-client, ui, validators…",
+                kind: "infra",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-product-concept-05.png",
+                captionFr: "Dossier modules/ — domaines métier isolés (POS, menu, kitchen…)",
+                captionEn: "modules/ folder — isolated domains (POS, menu, kitchen…)",
+                kind: "infra",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-product-concept-06.png",
+                captionFr: "Arborescence modules — 11 packages métier sous kernel",
+                captionEn: "Modules tree — 11 domain packages under the kernel",
+                kind: "infra",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-web-dev-logs.png",
+                captionFr: "Dev monorepo — checkout billing multi-devises et auth proxy",
+                captionEn: "Monorepo dev — multi-currency billing checkout and auth proxy",
+                kind: "process",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-github-private.png",
+                captionFr: "Dépôt ZENORA-360/Nexus-ERP — stack, tags et structure monorepo",
+                captionEn: "ZENORA-360/Nexus-ERP repo — stack, tags and monorepo layout",
+                kind: "process",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-husky-hooks.png",
+                captionFr: "Hooks Git Husky — pre-commit, pre-push, commit-msg",
+                captionEn: "Husky Git hooks — pre-commit, pre-push, commit-msg",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-husky-tree.png",
+                captionFr: "Arborescence .husky — garde-fous qualité avant merge",
+                captionEn: ".husky tree — quality gates before merge",
                 kind: "process",
             },
         ],
 
         diagrams: [
             {
-                id: "nexus-arch",
-                titleFr: "Architecture modulaire",
-                titleEn: "Modular architecture",
+                id: "nexus-system-overview",
+                titleFr: "Vue système — apps, API, données",
+                titleEn: "System overview — apps, API, data",
                 mermaid: `flowchart TB
-  Client[Client PWA] --> Gateway[API Gateway]
-  Gateway --> Orders[Orders Domain]
-  Gateway --> Inventory[Inventory Domain]
-  Gateway --> CRM[CRM Domain]
-  Gateway --> Billing[Billing Domain]
-  Orders --> DB[(PostgreSQL)]
-  Inventory --> DB
-  CRM --> DB
-  Billing --> Payments[Stripe / Mobile Money]
-  subgraph AWS
-    Gateway
-    Orders
-    Inventory
-    CRM
-    Billing
+  subgraph clients [Surfaces]
+    WEB[Portal Website :2000]
+    APP[Web ERP :3000]
+    ADM[Admin Backoffice :5001]
+  end
+  subgraph api [API Fastify :4000]
+    GW[Gateway + Plugins]
+    KER[core/kernel]
+    AUTH[core/auth]
+    BILL[core/billing]
+    SYNC[core/sync]
+  end
+  subgraph data [Données]
+    PUB[(PostgreSQL public)]
+    TEN[(PostgreSQL t_slug)]
+    REDIS[(Redis + BullMQ)]
+    S3[(Object Storage)]
+    IDB[(IndexedDB Dexie)]
+  end
+  WEB --> GW
+  APP --> GW
+  APP --> IDB
+  ADM --> GW
+  APP -->|push/pull WS| SYNC
+  GW --> AUTH
+  GW --> BILL
+  GW --> KER
+  GW --> SYNC
+  AUTH --> PUB
+  BILL --> PUB
+  KER --> TEN
+  SYNC --> TEN
+  SYNC --> REDIS
+  KER --> S3`,
+            },
+            {
+                id: "nexus-user-journey",
+                titleFr: "Parcours acquisition → ERP → marketplace",
+                titleEn: "Acquisition → ERP → marketplace journey",
+                mermaid: `flowchart LR
+  A[Vitrine marketing] --> B[Auth email OAuth WhatsApp]
+  B --> C{Plan}
+  C -->|Essai 14j| D[Onboarding restaurant]
+  C -->|Achat| E[Checkout paiement]
+  E --> D
+  D --> F[Provision schéma t_slug]
+  F --> G[ERP modules inclus]
+  G --> H[Marketplace]
+  H --> I[Achat module]
+  I --> J[Config + usage]
+  J --> G`,
+            },
+            {
+                id: "nexus-multi-tenant",
+                titleFr: "Multi-tenant schema-per-tenant",
+                titleEn: "Schema-per-tenant multi-tenancy",
+                mermaid: `flowchart TB
+  REQ[Requête HTTP] --> RESOLVE{Résolution tenant}
+  RESOLVE -->|subdomain| SLUG[slug restaurant]
+  RESOLVE -->|JWT tid| SLUG
+  RESOLVE -->|header X-Tenant-ID| SLUG
+  SLUG --> MW[core/http tenant plugin]
+  MW --> PUB[(public: tenants billing auth modules)]
+  MW --> KY[withTenantKysely SET LOCAL search_path]
+  KY --> TS[(t_slug: métier POS menu orders)]
+  subgraph lifecycle [Cycle de vie]
+    REG[Inscription] --> CREATE[Créer tenant public]
+    CREATE --> PROV[Provisionner schéma]
+    PROV --> MIG[Migrations SQL modules]
+    MIG --> ACT[Activer modules du plan]
   end`,
             },
             {
-                id: "nexus-deploy",
-                titleFr: "Pipeline de déploiement",
-                titleEn: "Deployment pipeline",
+                id: "nexus-kernel-modules",
+                titleFr: "Kernel — découverte et activation modules",
+                titleEn: "Kernel — module discovery and activation",
+                mermaid: `sequenceDiagram
+  participant API as apps/api
+  participant S as core/storage
+  participant C as core/caching
+  participant K as core/kernel
+  participant FS as modules/
+  participant DB as PostgreSQL public
+  participant F as Fastify
+  API->>S: bootstrapStorage
+  API->>C: bootstrapCaching
+  API->>K: bootstrapKernel
+  K->>FS: discoverModules manifests
+  K->>DB: sync catalogue modules
+  API->>K: registerKernelRoutes
+  K->>FS: import entry.api modules actifs
+  K->>F: register routes /api/v1
+  Note over K,F: requireModule hook par tenant`,
+            },
+            {
+                id: "nexus-marketplace",
+                titleFr: "Marketplace — achat et activation module",
+                titleEn: "Marketplace — purchase and activate module",
+                mermaid: `flowchart TB
+  U[Restaurateur] --> CAT[Catalogue /tenant/modules/catalog]
+  CAT --> PICK[Choisir module]
+  PICK --> DEP{Dépendances OK?}
+  DEP -->|non| RES[Résoudre dépendances]
+  RES --> PICK
+  DEP -->|oui| CHK[POST billing checkout type=addon]
+  CHK --> PSP[Stripe ou Flutterwave]
+  PSP --> WH[Webhook signé]
+  WH --> ACT[Activer installed_modules]
+  ACT --> NAV[Sidebar /m/module enrichie]
+  ACT --> DDL[Migrations tenant si besoin]`,
+            },
+            {
+                id: "nexus-offline-sync",
+                titleFr: "Offline-first — events, sync, projections",
+                titleEn: "Offline-first — events, sync, projections",
                 mermaid: `flowchart LR
-  Dev[Push] --> CI[GitHub Actions]
-  CI --> Scan[Trivy / Sonar]
-  Scan --> Build[Docker Build]
-  Build --> Registry[GHCR]
-  Registry --> Staging[Staging]
-  Staging --> Prod[Production]`,
+  subgraph device [Device POS / KDS]
+    UI[UI optimistic]
+    EVT[Journal events]
+    STATE[État Dexie]
+    ENG[SyncEngine]
+    UI --> EVT
+    EVT --> STATE
+    ENG --> EVT
+  end
+  subgraph cloud [Cloud]
+    SYNC[core/sync]
+    Q[core/queue BullMQ]
+    AUTH_DB[(t_slug autoritatif)]
+    PROJ[Projections read models]
+  end
+  ENG -->|push| SYNC
+  SYNC -->|pull + WS| ENG
+  SYNC --> Q
+  Q --> AUTH_DB
+  AUTH_DB --> PROJ
+  PROJ -->|dashboard CA| UI`,
+            },
+            {
+                id: "nexus-billing",
+                titleFr: "Billing SaaS — essai, checkout, webhooks",
+                titleEn: "SaaS billing — trial, checkout, webhooks",
+                mermaid: `flowchart TB
+  PRICE[Pricing page] --> MODE{mode}
+  MODE -->|trial| REG1[Signup]
+  MODE -->|subscribe| REG2[Signup]
+  REG1 --> ONB[Onboarding]
+  REG2 --> ONB
+  ONB --> TEN[POST /tenants/onboard]
+  TEN --> TRIAL[Tenant trialing 14j]
+  TRIAL --> ERP[Accès ERP]
+  REG2 --> CHK[POST /billing/checkout]
+  CHK --> PROV[Provider Stripe / Flutterwave]
+  PROV --> WH[Webhook]
+  WH --> ACTIVE[Statut active + facture]
+  ACTIVE --> ERP
+  ERP --> ADD[Achat module add-on]
+  ADD --> CHK`,
+            },
+            {
+                id: "nexus-auth",
+                titleFr: "Authentification — couches et tokens",
+                titleEn: "Authentication — layers and tokens",
+                mermaid: `flowchart TB
+  subgraph http [HTTP]
+    R[Routes auth]
+    P[authPlugin]
+  end
+  subgraph svc [Services]
+    AS[AuthService]
+    SS[SessionService]
+    TS[TokenService]
+  end
+  subgraph data [Persistance]
+    SR[SessionRepository Prisma]
+    CRYPTO[auth-crypto hash]
+  end
+  R --> AS
+  P --> AS
+  AS --> SS
+  AS --> TS
+  SS --> SR
+  TS --> CRYPTO
+  AS -->|OAuth| OAUTH[Google / Facebook]
+  AS -->|login| EMAIL[email + password]
+  Note1[Access 15min + Refresh] --- TS`,
+            },
+            {
+                id: "nexus-core-map",
+                titleFr: "Carte des cores plateforme",
+                titleEn: "Platform cores map",
+                mermaid: `flowchart TB
+  API[apps/api] --> HTTP[core/http]
+  API --> AUTH[core/auth]
+  API --> KER[core/kernel]
+  API --> DB[core/database]
+  API --> BILL[core/billing]
+  API --> INV[core/invoicing]
+  API --> SYNC[core/sync]
+  API --> Q[core/queue]
+  API --> EVT[core/events]
+  API --> CACHE[core/caching]
+  API --> STOR[core/storage]
+  API --> SEARCH[core/search-engine]
+  API --> MAIL[core/mailer]
+  API --> NOTIF[core/notification-center]
+  API --> SCHED[core/scheduler]
+  API --> EXEC[core/execution]
+  API --> AI[core/ai]
+  API --> DOCS[core/documents]
+  KER --> MOD[modules/*]
+  EVT --> MOD
+  SYNC --> Q`,
+            },
+            {
+                id: "nexus-monorepo",
+                titleFr: "Topologie monorepo Turborepo",
+                titleEn: "Turborepo monorepo topology",
+                mermaid: `flowchart TB
+  ROOT[NEXUS monorepo]
+  ROOT --> APPS[apps/]
+  ROOT --> CORE[core/]
+  ROOT --> MODS[modules/]
+  ROOT --> PKGS[packages/]
+  ROOT --> INFRA[infra/]
+  APPS --> WEB[portals/website]
+  APPS --> ERP[app/web-erp]
+  APPS --> ADMIN[admin/backoffice]
+  APPS --> API[api Fastify]
+  MODS --> MENU[menu]
+  MODS --> POS[pos orders kitchen tables]
+  MODS --> DASH[dashboard]
+  MODS --> SYS[_system]
+  PKGS --> SDK[sdk validators types ui]
+  PKGS --> OFF[offline-client]
+  PKGS --> THEME[theme module-ui]`,
+            },
+            {
+                id: "nexus-service-day",
+                titleFr: "Phase 0 — journée de service",
+                titleEn: "Phase 0 — service day flow",
+                mermaid: `flowchart LR
+  M[Menu carte] --> O[Commande]
+  O --> T[Table / salle]
+  O --> K[Kitchen KDS]
+  K --> P[Paiement POS]
+  P --> E[Events sync]
+  E --> D[Dashboard CA]
+  subgraph offline [Terrain offline-capable]
+    O
+    T
+    K
+    P
+  end`,
+            },
+            {
+                id: "nexus-data-layers",
+                titleFr: "Couches données Prisma vs Kysely",
+                titleEn: "Data layers Prisma vs Kysely",
+                mermaid: `flowchart TB
+  subgraph publicSchema [Schéma public]
+    T[tenants]
+    U[users sessions]
+    B[billing invoices coupons]
+    C[modules catalogue]
+    FF[feature_flags]
+  end
+  subgraph tenantSchema [Schéma t_slug]
+    MENU[menu categories items]
+    ORD[orders lines]
+    FLOOR[tables floor]
+    POS[pos sessions payments]
+    KDS[kitchen tickets]
+  end
+  PRISMA[Prisma] --> publicSchema
+  KYSELY[Kysely + SQL migrations] --> tenantSchema
+  PLATFORM[Plateforme SaaS] --> PRISMA
+  METIER[Métier restaurant] --> KYSELY`,
+            },
+            {
+                id: "nexus-events",
+                titleFr: "Bus événements inter-modules",
+                titleEn: "Inter-module event bus",
+                mermaid: `flowchart LR
+  POS[module pos] -->|order.paid| BUS[core/events]
+  ORD[module orders] -->|order.created| BUS
+  KDS[module kitchen] -->|ticket.bumped| BUS
+  BUS --> DASH[module dashboard]
+  BUS --> INV[module inventory]
+  BUS --> ANAL[analytics]
+  BUS -.-> NOTE[handlers in-process - pas d appels directs module a module]`,
+            },
+            {
+                id: "nexus-use-cases",
+                titleFr: "Cas d'utilisation NEXUS",
+                titleEn: "NEXUS use cases",
+                mermaid: `flowchart TB
+  subgraph system [NEXUS ERP SaaS]
+    UC1["S'inscrire et choisir un plan"]
+    UC2[Onboarder le restaurant]
+    UC3[Gerer menu et disponibilites]
+    UC4[Prendre et suivre une commande]
+    UC5[Encaisser au POS]
+    UC6[Traiter tickets cuisine KDS]
+    UC7[Acheter un module marketplace]
+    UC8[Consulter le dashboard CA]
+    UC9[Administrer tenants et catalogue]
+  end
+  G((Invite))
+  R((Restaurateur))
+  S((Serveur caisse))
+  C((Cuisinier))
+  A((Admin plateforme))
+  G --- UC1
+  R --- UC2
+  R --- UC3
+  R --- UC7
+  R --- UC8
+  S --- UC4
+  S --- UC5
+  C --- UC6
+  A --- UC9`,
+            },
+            {
+                id: "nexus-auth-sequence",
+                titleFr: "Séquence — flux d'authentification",
+                titleEn: "Sequence — authentication flow",
+                mermaid: `sequenceDiagram
+  actor U as Utilisateur
+  participant FE as Website ou ERP
+  participant API as apps/api
+  participant AUTH as core/auth
+  participant DB as PostgreSQL public
+  participant OAUTH as Google Facebook
+  U->>FE: Choisit canal auth
+  alt Email + password
+    FE->>API: POST /auth/login
+    API->>AUTH: AuthService.login
+    AUTH->>DB: Verifie credentials
+    AUTH->>DB: Cree session
+    AUTH-->>API: access 15min + refresh
+  else OAuth2
+    FE->>OAUTH: Redirect consent
+    OAUTH-->>FE: Authorization code
+    FE->>API: POST /auth/oauth/callback
+    API->>AUTH: Exchange + upsert user
+    AUTH->>DB: Session
+  else WhatsApp OTP
+    FE->>API: POST /auth/whatsapp/start
+    API->>AUTH: Envoie OTP
+    U->>FE: Saisie OTP
+    FE->>API: POST /auth/whatsapp/verify
+    API->>AUTH: Valide OTP + session
+  end
+  API-->>FE: Cookies HttpOnly BFF
+  FE->>API: Requete protegee
+  API->>AUTH: authPlugin JWT session
+  AUTH-->>API: Identite + roles
+  API-->>FE: 200 OK`,
+            },
+            {
+                id: "nexus-service-day-sequence",
+                titleFr: "Séquence — journée de service",
+                titleEn: "Sequence — service day flow",
+                mermaid: `sequenceDiagram
+  actor SRV as Serveur
+  actor CUI as Cuisinier
+  participant MENU as module menu
+  participant FLOOR as module tables
+  participant ORD as module orders
+  participant KDS as module kitchen
+  participant POS as module pos
+  participant EVT as core/events
+  participant SYNC as core/sync
+  participant DASH as module dashboard
+  SRV->>MENU: Consulte carte active
+  SRV->>FLOOR: Assigne table
+  SRV->>ORD: Cree commande
+  ORD->>EVT: publish order.created
+  EVT->>KDS: Cree ticket cuisine
+  CUI->>KDS: Prep + bump ticket
+  KDS->>EVT: publish ticket.bumped
+  EVT->>ORD: Statut pret
+  SRV->>POS: Encaissement
+  POS->>EVT: publish order.paid
+  EVT->>DASH: Maj CA temps reel
+  Note over POS,SYNC: Offline: journal local puis push
+  POS->>SYNC: Push events
+  SYNC-->>DASH: Projections cloud`,
+            },
+            {
+                id: "nexus-infra-phases",
+                titleFr: "Phases infrastructure",
+                titleEn: "Infrastructure phases",
+                mermaid: `flowchart LR
+  P0[Phase 0 Local Docker] --> P1[Phase 1 Staging / Production]
+  P1 --> P2[Phase 2 Kubernetes]
+  P2 --> P3[Phase 3 Multi-région]
+  P0 --- D0[Compose Postgres Redis MinIO]
+  P1 --- D1[VPS / cloud + Nginx + CI]
+  P2 --- D2[K8s + autoscaling]
+  P3 --- D3[DR multi-région]`,
             },
         ],
 
         resources: [
             {
-                labelFr: "Cahier des charges (extrait public)",
-                labelEn: "Requirements brief (public excerpt)",
-                url: "https://barthez-kenwou.dev/llms.txt",
-                type: "spec",
+                labelFr: "Présentation business NEXUS (PDF)",
+                labelEn: "NEXUS business presentation (PDF)",
+                url: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-presentation.pdf",
+                type: "slides",
             },
             {
-                labelFr: "Étude de cas - vision produit",
-                labelEn: "Case study - product vision",
-                url: "https://barthez-kenwou.dev/",
-                type: "case-study",
+                labelFr: "Site produit nexus-erp.com",
+                labelEn: "Product site nexus-erp.com",
+                url: "https://nexus-erp.com",
+                type: "other",
+            },
+            {
+                labelFr: "Site ZENORA",
+                labelEn: "ZENORA website",
+                url: "https://www.zenora360.com",
+                type: "other",
             },
         ],
 
         milestones: [
             {
-                labelFr: "Cadrage & architecture",
-                labelEn: "Framing & architecture",
-                date: "2025 Q4",
-                descriptionFr: "Choix modular monolith + Turborepo, cartographie des modules.",
-                descriptionEn: "Chose modular monolith + Turborepo, mapped modules.",
+                labelFr: "Cadrage produit & docs",
+                labelEn: "Product framing & docs",
+                date: "Mars 2026",
+                descriptionFr: "Vision, ADRs, registry modules, architecture monorepo.",
+                descriptionEn: "Vision, ADRs, module registry, monorepo architecture.",
             },
             {
-                labelFr: "MVP modules cœur",
-                labelEn: "Core modules MVP",
-                date: "2026 Q1",
-                descriptionFr: "Commandes, stocks, auth multi-tenant.",
-                descriptionEn: "Orders, inventory, multi-tenant auth.",
+                labelFr: "Premières lignes de code",
+                labelEn: "First lines of code",
+                date: "Mai 2026",
+                descriptionFr: "Socle Turborepo, API Fastify, cores auth/database/kernel.",
+                descriptionEn: "Turborepo foundation, Fastify API, auth/database/kernel cores.",
             },
             {
-                labelFr: "Paiements & analytics",
-                labelEn: "Payments & analytics",
-                date: "2026 Q2",
-                descriptionFr: "Mobile Money / Stripe et reporting business.",
-                descriptionEn: "Mobile Money / Stripe and business reporting.",
+                labelFr: "Billing + onboarding + thin app",
+                labelEn: "Billing + onboarding + thin app",
+                date: "Juin–Juil. 2026",
+                descriptionFr: "Checkout Stripe/Flutterwave, provision tenant, shell ERP, marketplace UI.",
+                descriptionEn: "Stripe/Flutterwave checkout, tenant provision, ERP shell, marketplace UI.",
+            },
+            {
+                labelFr: "Offline-first + vertical menu",
+                labelEn: "Offline-first + menu vertical",
+                date: "Juin–Juil. 2026",
+                descriptionFr: "Sync O1–O3, Dexie client, module menu bout-en-bout.",
+                descriptionEn: "Sync O1–O3, Dexie client, end-to-end menu module.",
+            },
+            {
+                labelFr: "Journée de service (Phase 0)",
+                labelEn: "Service day (Phase 0)",
+                date: "H2 2026",
+                descriptionFr: "Menu → commande → cuisine → paiement → CA dashboard.",
+                descriptionEn: "Menu → order → kitchen → payment → dashboard revenue.",
+            },
+            {
+                labelFr: "Produit consommable pilotes",
+                labelEn: "Consumable for pilots",
+                date: "Déc. 2026",
+                descriptionFr: "Cible : restaurants pilotes opérationnels sur le cœur Phase 0.",
+                descriptionEn: "Target: pilot restaurants operational on Phase 0 core.",
             },
         ],
 
         scopeFr: [
-            "ERP SaaS modulaire multi-tenant",
-            "PWA restaurateur + interfaces staff / cuisine",
-            "Facturation par module et paiements multi-canaux",
-            "Socle DevOps AWS (CI/CD, monitoring)",
+            "ERP SaaS multi-tenant pour restauration (toutes tailles / types / localisations)",
+            "Vitrine marketing + auth + plans + onboarding + ERP + marketplace modules",
+            "Cores plateforme (auth, billing, kernel, sync, search, events, AI…)",
+            "Modules Phase 0 : menu, orders, tables, POS, kitchen, dashboard",
+            "Offline-first terrain + paiements locaux / internationaux",
+            "Documentation ADRs, registry modules, runbooks infra progressive",
         ],
         scopeEn: [
-            "Modular multi-tenant SaaS ERP",
-            "Restaurant PWA + staff / kitchen interfaces",
-            "Per-module billing and multi-channel payments",
-            "AWS DevOps foundation (CI/CD, monitoring)",
+            "Multi-tenant SaaS ERP for restaurants (all sizes / types / locales)",
+            "Marketing site + auth + plans + onboarding + ERP + module marketplace",
+            "Platform cores (auth, billing, kernel, sync, search, events, AI…)",
+            "Phase 0 modules: menu, orders, tables, POS, kitchen, dashboard",
+            "Floor offline-first + local / international payments",
+            "ADRs documentation, module registry, progressive infra runbooks",
         ],
         nonGoalsFr: [
-            "Marketplace de fournisseurs (phase 2)",
-            "Application native mobile (PWA prioritaire)",
+            "Microservices dès le jour 1 (extraction progressive seulement)",
+            "Remplacer la comptabilité Odoo/Sage — intégration / export privilégiés",
             "Hardware POS propriétaire",
+            "IA vitrine avant données opérationnelles réelles (IA sous le capot en P3)",
+            "45 modules UI complets sans backend — vertical slices livrables d'abord",
         ],
         nonGoalsEn: [
-            "Supplier marketplace (phase 2)",
-            "Native mobile apps (PWA first)",
+            "Day-1 microservices (progressive extraction only)",
+            "Replacing Odoo/Sage accounting — prefer integration / export",
             "Proprietary POS hardware",
+            "Showcase AI before real operational data (under-the-hood AI in P3)",
+            "45 full UI modules without backend — ship vertical slices first",
         ],
 
         decisions: [
             {
-                titleFr: "Modular monolith vs microservices",
-                titleEn: "Modular monolith vs microservices",
-                decisionFr: "Modular monolith (Turborepo) en phase 1.",
-                decisionEn: "Modular monolith (Turborepo) for phase 1.",
-                rationaleFr: "Vélocité équipe, cohérence transactionnelle, extraction progressive possible.",
-                rationaleEn: "Team velocity, transactional consistency, progressive extraction later.",
+                titleFr: "Monolithe modulaire (Turborepo)",
+                titleEn: "Modular monolith (Turborepo)",
+                decisionFr: "Monorepo pnpm + Turborepo plutôt que microservices initiaux.",
+                decisionEn: "pnpm + Turborepo monorepo instead of initial microservices.",
+                rationaleFr: "Vélocité équipe, transactions cohérentes, extraction possible plus tard (ADR-001).",
+                rationaleEn: "Team velocity, consistent transactions, later extraction possible (ADR-001).",
             },
             {
-                titleFr: "Facturation par module",
-                titleEn: "Per-module billing",
-                decisionFr: "Activation à la demande plutôt qu’un plan unique.",
-                decisionEn: "On-demand activation instead of a single plan.",
-                rationaleFr: "Aligné aux budgets locaux et à l’adoption progressive.",
-                rationaleEn: "Fits local budgets and progressive adoption.",
+                titleFr: "Modules type Odoo + kernel",
+                titleEn: "Odoo-like modules + kernel",
+                decisionFr: "Packages modules isolés + manifest + chargement kernel.",
+                decisionEn: "Isolated module packages + manifest + kernel loading.",
+                rationaleFr: "Activation à la demande, testabilité, marketplace (ADR-002).",
+                rationaleEn: "On-demand activation, testability, marketplace (ADR-002).",
+            },
+            {
+                titleFr: "Schema-per-tenant",
+                titleEn: "Schema-per-tenant",
+                decisionFr: "Un schéma PostgreSQL t_{slug} par restaurant.",
+                decisionEn: "One PostgreSQL t_{slug} schema per restaurant.",
+                rationaleFr: "Isolation forte sans coût database-per-tenant (ADR-003).",
+                rationaleEn: "Strong isolation without database-per-tenant cost (ADR-003).",
+            },
+            {
+                titleFr: "Stack Fastify + Next.js + Prisma/Kysely",
+                titleEn: "Fastify + Next.js + Prisma/Kysely stack",
+                decisionFr: "Fastify plugins, Next App Router, Prisma public + Kysely tenant.",
+                decisionEn: "Fastify plugins, Next App Router, Prisma public + Kysely tenant.",
+                rationaleFr: "Isolation plugins, SEO vitrine, type-safety et schema switching (ADR-004).",
+                rationaleEn: "Plugin isolation, marketing SEO, type-safety and schema switching (ADR-004).",
+            },
+            {
+                titleFr: "Thin app ERP",
+                titleEn: "Thin ERP app",
+                decisionFr: "UI métier co-localisée modules/*/frontend, shell dans web-erp.",
+                decisionEn: "Domain UI co-located in modules/*/frontend, shell in web-erp.",
+                rationaleFr: "Sidebar dynamique selon modules installés (ADR-005).",
+                rationaleEn: "Dynamic sidebar from installed modules (ADR-005).",
+            },
+            {
+                titleFr: "Offline-first event-sourced",
+                titleEn: "Event-sourced offline-first",
+                decisionFr: "Journal d'événements + SyncEngine, pas Last-Write-Wins naïf.",
+                decisionEn: "Event journal + SyncEngine, not naive Last-Write-Wins.",
+                rationaleFr: "Le service continue sans réseau ; le cloud reste autoritatif (ADR-009).",
+                rationaleEn: "Service continues offline; cloud stays authoritative (ADR-009).",
+            },
+            {
+                titleFr: "Billing abstrait multi-providers",
+                titleEn: "Abstract multi-provider billing",
+                decisionFr: "API billing unique ; Stripe + Flutterwave ; activation webhook-only.",
+                decisionEn: "Single billing API; Stripe + Flutterwave; webhook-only activation.",
+                rationaleFr: "Frontend découplé des PSP ; conformité et reprise fiables.",
+                rationaleEn: "Frontend decoupled from PSPs; reliable compliance and recovery.",
             },
         ],
 
         securityFr: [
-            "Isolation multi-tenant au niveau données",
-            "Auth JWT / OAuth avec rôles granulaires",
-            "Secrets gérés hors code (vault / secrets manager)",
-            "Scans SAST / SCA dans le pipeline",
+            "Isolation schema-per-tenant — aucune fuite possible par oubli de filtre tenant_id",
+            "Auth multi-canal : JWT access/refresh, sessions, RBAC granulaire, OAuth2, WhatsApp",
+            "BFF sécurisé (cookies HttpOnly, CSRF) via @nexus/auth-session",
+            "Secrets centralisés (Infisical) — zéro secret en clair dans le repo",
+            "Feature flags (Flagsmith) pour exposer progressivement les capacités sensibles",
+            "Billing : webhooks signés (Stripe / Flutterwave) ; activation jamais côté navigateur",
+            "Audit trail plateforme + soft-delete tenant avec rétention et purge contrôlée",
+            "Chaîne DevSecOps : gitleaks, SAST/SCA, image scanning, policies admission K8s",
+            "TLS de bout en bout, chiffrement au repos (volumes / object storage), rotation des clés",
+            "Segmentation réseau (private subnets), least-privilege IAM, WAF / Cloudflare en frontal",
+            "Conformité RGPD native (consentement, export, droit à l’oubli) et journalisation d’accès",
         ],
         securityEn: [
-            "Data-level multi-tenant isolation",
-            "JWT / OAuth auth with granular roles",
-            "Secrets kept out of code (vault / secrets manager)",
-            "SAST / SCA scans in the pipeline",
+            "Schema-per-tenant isolation — no data leak from a forgotten tenant_id filter",
+            "Multi-channel auth: JWT access/refresh, sessions, granular RBAC, OAuth2, WhatsApp",
+            "Secure BFF (HttpOnly cookies, CSRF) via @nexus/auth-session",
+            "Centralized secrets (Infisical) — zero plaintext secrets in the repo",
+            "Feature flags (Flagsmith) to progressively expose sensitive capabilities",
+            "Billing: signed webhooks (Stripe / Flutterwave); never activate from the browser",
+            "Platform audit trail + tenant soft-delete with retention and controlled purge",
+            "DevSecOps chain: gitleaks, SAST/SCA, image scanning, Kubernetes admission policies",
+            "End-to-end TLS, encryption at rest (volumes / object storage), key rotation",
+            "Network segmentation (private subnets), least-privilege IAM, WAF / Cloudflare edge",
+            "Native GDPR posture (consent, export, right to erasure) and access logging",
         ],
 
         infraFr: [
-            "Environnements Dev / Staging / Prod séparés",
-            "Conteneurisation Docker + registry GHCR",
-            "CI/CD GitHub Actions avec gates qualité",
-            "Observabilité : logs, métriques, alertes",
+            "Socle actuel : Docker Compose, Nginx, PostgreSQL, Redis, object storage (MinIO/S3)",
+            "CI/CD GitHub Actions + Husky (pre-commit / pre-push) dès le monorepo",
+            "Cible production AWS : VPC, EKS (Kubernetes), ALB, RDS PostgreSQL, ElastiCache Redis",
+            "IaC Terraform pour le provisionnement cloud ; Ansible pour le bootstrap nœuds / config",
+            "GitOps Argo CD pour le déploiement déclaratif des workloads sur le cluster",
+            "Observabilité : Prometheus, Grafana, logs structurés, alertes SLO métier et techniques",
+            "Stockage fichiers scoped par tenant ; backups automatisés + PITR base de données",
+            "Roadmap infra documentée : local → staging/prod → Kubernetes → multi-région",
         ],
         infraEn: [
-            "Separated Dev / Staging / Prod environments",
-            "Docker containers + GHCR registry",
-            "GitHub Actions CI/CD with quality gates",
-            "Observability: logs, metrics, alerts",
+            "Current foundation: Docker Compose, Nginx, PostgreSQL, Redis, object storage (MinIO/S3)",
+            "GitHub Actions CI/CD + Husky (pre-commit / pre-push) from the monorepo",
+            "Production target on AWS: VPC, EKS (Kubernetes), ALB, RDS PostgreSQL, ElastiCache Redis",
+            "Terraform for cloud provisioning; Ansible for node bootstrap / configuration",
+            "Argo CD GitOps for declarative workload deployment on the cluster",
+            "Observability: Prometheus, Grafana, structured logs, business and technical SLO alerts",
+            "Tenant-scoped file storage; automated backups + database PITR",
+            "Documented infra roadmap: local → staging/prod → Kubernetes → multi-region",
         ],
 
         externalLinks: [
-            { labelFr: "Site portfolio", labelEn: "Portfolio site", url: "https://barthez-kenwou.dev" },
+            { labelFr: "NEXUS ERP", labelEn: "NEXUS ERP", url: "https://nexus-erp.com" },
+            { labelFr: "ZENORA", labelEn: "ZENORA", url: "https://www.zenora360.com" },
         ],
-
-        testimonial: {
-            quoteFr: "L’approche modulaire change la donne : on paie uniquement ce qu’on active, sans sacrifier la cohérence opérationnelle.",
-            quoteEn: "The modular approach is a game changer: we only pay for what we enable, without losing operational consistency.",
-            author: "Product Stakeholder",
-            roleFr: "Directeur des opérations",
-            roleEn: "Head of Operations",
-            company: "Pilot Restaurant Group",
-        },
 
         lessonsFr: [
-            "Le découpage de domaines trop tôt complexifie inutilement le monolithe.",
-            "Le pricing modulaire doit être validé tôt avec des clients pilotes.",
-            "L’observabilité métier (SLO business) vaut autant que les métriques techniques.",
+            "Sur un ERP multi-tenant, l’architecture et les contrats (kernel, DDL, billing) doivent précéder la densité fonctionnelle — sinon chaque module devient une dette structurelle.",
+            "Le schema-per-tenant impose une discipline opérationnelle (migrations N schémas, pool, search_path) ; c’est le prix d’une isolation réellement auditable.",
+            "Offline-first en restauration n’est pas un cache : sans journal d’événements, résolution de conflits et vérité cloud autoritative, le terrain casse le produit.",
+            "Un marketplace de modules n’a de sens que si le provisionnement tenant, le pricing et l’activation partagent le même pipeline (checkout → webhook → installed_modules).",
+            "Thin app + manifests : la complexité initiale se rentabilise dès que la navigation, les permissions et le bundle suivent l’état réel des modules installés.",
+            "Documenter les ADR et le registry avant d’accélérer le delivery évite de scaler une ambiguïté — la vélocité d’une équipe de quatre dépend de décisions écrites.",
         ],
         lessonsEn: [
-            "Splitting domains too early overcomplicates the monolith.",
-            "Modular pricing must be validated early with pilot customers.",
-            "Business observability (SLOs) matters as much as technical metrics.",
+            "On a multi-tenant ERP, architecture and contracts (kernel, DDL, billing) must precede feature density — otherwise every module becomes structural debt.",
+            "Schema-per-tenant demands operational discipline (N-schema migrations, pool, search_path); that is the cost of truly auditable isolation.",
+            "Restaurant offline-first is not a cache: without an event journal, conflict resolution and an authoritative cloud truth, the floor breaks the product.",
+            "A module marketplace only works if tenant provisioning, pricing and activation share one pipeline (checkout → webhook → installed_modules).",
+            "Thin app + manifests: early complexity pays off once navigation, permissions and bundling follow the real installed-module state.",
+            "Writing ADRs and the registry before accelerating delivery prevents scaling ambiguity — a four-person team’s velocity depends on written decisions.",
         ],
 
         beforeAfter: [
             {
-                beforeSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/167ee008-product-pic-tabesto-300x274.webp",
-                afterSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/167ee008-product-pic-tabesto-300x274.webp",
-                captionFr: "De outils fragmentés à une plateforme unifiée (placeholder visuel).",
-                captionEn: "From fragmented tools to a unified platform (visual placeholder).",
+                beforeSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                afterSrc: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-ui-extra-02.png",
+                captionFr: "De l’absence de produit à une interface ERP opérationnelle (module Menu).",
+                captionEn: "From no product to an operational ERP interface (Menu module).",
             },
         ],
 
@@ -3349,4 +4086,4 @@ export const projectsData: IProject[] = [
 
         isFeatured: false,
     },
-];
+];     
