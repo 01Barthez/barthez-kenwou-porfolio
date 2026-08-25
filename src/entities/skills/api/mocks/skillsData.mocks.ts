@@ -109,7 +109,7 @@ export const skillsData = [
   { name: 'Caching Strategies', category: 'architecture', level: 85, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg' },
   { name: 'Message Queues', category: 'architecture', level: 80, icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rabbitmq/rabbitmq-original.svg' },
 
-  // Soft Skills — icons rendered via Lucide in SkillCard (no remote URL)
+  // Soft Skills - icons rendered via Lucide in SkillCard (no remote URL)
   { name: 'Communication', category: 'softSkills', level: 95, icon: 'lucide' },
   { name: 'Problem Solving', category: 'softSkills', level: 95, icon: 'lucide' },
   { name: 'Team Leadership', category: 'softSkills', level: 90, icon: 'lucide' },

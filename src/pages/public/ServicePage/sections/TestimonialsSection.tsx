@@ -78,7 +78,7 @@ export const TestimonialsSection: React.FC = () => {
         </div>
 
         <div className="relative mb-8 flex h-[450px] w-full min-w-0 flex-row items-center justify-center gap-2 overflow-hidden [perspective:300px] md:col-span-4 md:mb-0 md:h-110">
-          {/* Orbit flare — behind the testimonial marquee (centered on mobile) */}
+          {/* Orbit flare - behind the testimonial marquee (centered on mobile) */}
           <div
             className="pointer-events-none absolute inset-0 z-0 overflow-hidden select-none"
             aria-hidden

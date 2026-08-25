@@ -1,5 +1,5 @@
 /**
- * Paste any common video URL — embed + thumbnail are derived automatically.
+ * Paste any common video URL - embed + thumbnail are derived automatically.
  * Supports YouTube (watch / youtu.be / shorts / embed / live) and Vimeo.
  */
 

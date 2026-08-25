@@ -6,7 +6,7 @@ import { ChevronDown } from 'lucide-react';
 interface FilterDropdownProps {
   /** Button label */
   label: string;
-  /** Number of active selections inside — drives the highlight style */
+  /** Number of active selections inside - drives the highlight style */
   activeCount: number;
   children: React.ReactNode;
 }

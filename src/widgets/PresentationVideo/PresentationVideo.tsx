@@ -18,7 +18,7 @@ export const PresentationVideo: React.FC = () => {
   if (!video) {
     if (import.meta.env.DEV && PRESENTATION_YOUTUBE_URL) {
       console.warn(
-        '[PresentationVideo] Lien invalide — colle un lien YouTube dans PRESENTATION_YOUTUBE_URL.',
+        '[PresentationVideo] Lien invalide - colle un lien YouTube dans PRESENTATION_YOUTUBE_URL.',
       );
     }
     return null;
@@ -46,8 +46,8 @@ export const PresentationVideo: React.FC = () => {
             thumbnailSrc={video.thumbnailSrc}
             thumbnailAlt={
               language === 'fr'
-                ? 'Présentation — Barthez Kenwou'
-                : 'Presentation — Barthez Kenwou'
+                ? 'Présentation - Barthez Kenwou'
+                : 'Presentation - Barthez Kenwou'
             }
           />
         </div>

@@ -6,7 +6,7 @@ import en from '@/shared/assets/locales/en/translation.json';
 
 /**
  * Default language is English. Persistence + toggle live in `useLanguageStore`;
- * `I18nProvider` syncs i18n via `changeLanguage` — no browser auto-detection.
+ * `I18nProvider` syncs i18n via `changeLanguage` - no browser auto-detection.
  */
 i18n.use(initReactI18next).init({
   resources: {

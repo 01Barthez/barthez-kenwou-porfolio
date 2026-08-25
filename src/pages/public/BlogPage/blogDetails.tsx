@@ -73,7 +73,7 @@ export const BlogDetailPage = () => {
       />
 
       <div className="min-h-screen bg-background relative overflow-x-clip">
-        {/* Background Decorative Elements — contained so they never create page-level X scroll */}
+        {/* Background Decorative Elements - contained so they never create page-level X scroll */}
         <div className="pointer-events-none absolute inset-0 overflow-hidden -z-10" aria-hidden>
           <div className="absolute top-0 right-0 w-[min(400px,70vw)] h-[min(400px,70vw)] bg-primary/5 rounded-full blur-[100px] translate-x-1/3 -translate-y-1/3" />
           <div className="absolute bottom-0 left-0 w-[min(400px,70vw)] h-[min(400px,70vw)] bg-primary/5 rounded-full blur-[100px] -translate-x-1/3 translate-y-1/3" />
@@ -81,7 +81,7 @@ export const BlogDetailPage = () => {
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 md:pt-32 pb-16">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 xl:gap-16">
-            {/* Sidebar — fixed TOC pinned to this column while reading */}
+            {/* Sidebar - fixed TOC pinned to this column while reading */}
             <aside className="hidden lg:block lg:col-span-4 xl:col-span-3 min-w-0 relative">
               <TableOfContents content={content} variant="desktop" />
             </aside>

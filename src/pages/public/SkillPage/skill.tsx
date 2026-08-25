@@ -23,7 +23,7 @@ export const SkillPage: React.FC = () => {
       <SEO
         path="/skills"
         title="Compétences"
-        description="Technologies et outils maîtrisés — Cloud AWS, DevOps, Full Stack JS, React, Node.js, Kubernetes, Terraform et CI/CD."
+        description="Technologies et outils maîtrisés - Cloud AWS, DevOps, Full Stack JS, React, Node.js, Kubernetes, Terraform et CI/CD."
       />
 
       {!iconsReady ? (

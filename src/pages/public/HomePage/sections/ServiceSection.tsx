@@ -21,7 +21,7 @@ export const ServiceSection: React.FC = () => {
 
   return (
     <section className="relative z-10 overflow-x-clip px-4 md:px-10 lg:px-14 py-8 md:py-8 lg:py-0">
-      {/* Ambient flare — bottom-right, discreet (mirrors hero strategy) */}
+      {/* Ambient flare - bottom-right, discreet (mirrors hero strategy) */}
       <div
         className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
         aria-hidden

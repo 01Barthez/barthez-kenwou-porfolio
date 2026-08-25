@@ -11,7 +11,7 @@ export const ServicePage: React.FC = () => {
       <SEO
         path="/services"
         title="Services"
-        description="Solutions professionnelles — Architecture Cloud AWS, DevOps & CI/CD, développement Full Stack, audit sécurité, optimisation performance et consulting."
+        description="Solutions professionnelles - Architecture Cloud AWS, DevOps & CI/CD, développement Full Stack, audit sécurité, optimisation performance et consulting."
       />
 
       <div className="min-h-screen overflow-x-clip py-16 md:py-16 lg:py-20">

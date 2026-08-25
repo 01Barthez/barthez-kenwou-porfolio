@@ -56,8 +56,8 @@ export const ProjectSection: React.FC<Props> = ({ projects, language }) => {
       <View style={styles.projectsMoreNotice}>
         <Text style={styles.projectsMoreText}>
           {isFr
-            ? 'Note — Sélection limitée à 3 projets phares dans ce CV. Portfolio projets complet (études de cas, démos, stack technique) : '
-            : 'Note — Limited to 3 featured projects in this CV. Full projects portfolio (case studies, demos, tech stack): '}
+            ? 'Note - Sélection limitée à 3 projets phares dans ce CV. Portfolio projets complet (études de cas, démos, stack technique) : '
+            : 'Note - Limited to 3 featured projects in this CV. Full projects portfolio (case studies, demos, tech stack): '}
           <Link src={PROJECTS_PORTFOLIO_URL} style={styles.projectsMoreLink}>
             {PROJECTS_PORTFOLIO_URL}
           </Link>

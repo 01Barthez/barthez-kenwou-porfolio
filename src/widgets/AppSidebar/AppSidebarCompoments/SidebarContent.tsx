@@ -11,7 +11,7 @@ import { navItems } from '@/shared/constants/navItems.const';
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/shared/ui/tooltip';
 
 /**
- * Sidebar navigation — list items must sit inside a real <ul> (SidebarMenu)
+ * Sidebar navigation - list items must sit inside a real <ul> (SidebarMenu)
  * for a well-formed accessibility tree.
  */
 export const SidebarContentSection: React.FC = () => {

@@ -48,7 +48,7 @@ export const HeroDetailSection: React.FC<Props> = ({ project }) => {
   return (
     <div className="relative overflow-hidden mb-12 md:mb-16 group border-b border-border/40">
       <div className="relative w-full h-[52vh] md:h-[62vh] min-h-[22rem] bg-muted overflow-hidden">
-        {/* Back — clear of floating navbar, same idea as blog pt-20/28 */}
+        {/* Back - clear of floating navbar, same idea as blog pt-20/28 */}
         <div className="absolute top-24 left-4 md:top-28 md:left-8 z-30">
           <Link
             to="/projects"
@@ -107,13 +107,13 @@ export const HeroDetailSection: React.FC<Props> = ({ project }) => {
           renderMedia(project.images[0] || project.preview || '', true)
         )}
 
-        {/* Very dark overlays — bright project shots stay readable */}
+        {/* Very dark overlays - bright project shots stay readable */}
         <div className="absolute inset-0 bg-black/55 pointer-events-none z-10" />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/75 to-black/45 pointer-events-none z-10" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-transparent to-transparent pointer-events-none z-10" />
       </div>
 
-      {/* Title block anchored to bottom — detached from navbar */}
+      {/* Title block anchored to bottom - detached from navbar */}
       <div className="absolute inset-x-0 bottom-0 z-30 px-4 pb-8 pt-24 sm:px-8 md:px-10 md:pb-10 md:pt-28 pointer-events-none">
         <div className="pointer-events-auto max-w-3xl flex flex-col md:flex-row md:items-end justify-between gap-5">
           <div className="min-w-0">

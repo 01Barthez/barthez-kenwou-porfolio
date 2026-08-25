@@ -4,7 +4,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/lib/utils';
 
 /**
- * Brand spectrum CTA — animated multi-stop border + underglow.
+ * Brand spectrum CTA - animated multi-stop border + underglow.
  * Fill stays dark/light so the moving spectrum rim stays readable.
  */
 const spectrumButtonVariants = cva(
@@ -28,7 +28,7 @@ const spectrumButtonVariants = cva(
   {
     variants: {
       variant: {
-        /** Dark fill + vivid rim — primary CTA */
+        /** Dark fill + vivid rim - primary CTA */
         solid: cn(
           'text-white',
           // Light: near-ink fill (kept as-is). Dark: darkviolet so it separates from secondary + page bg.

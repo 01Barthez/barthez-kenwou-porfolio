@@ -187,7 +187,7 @@ export const experiences = [
     descriptionEn: [
       "Frontend / Backend / FullStack Application Development(React, TypeScript, Node.js, Express) as part of an intensive training program",
       "Design and integration of REST / GraphQL APIs for web and mobile applications, including database management(MongoDB, PostgreSQL)",
-      "Completion of practical projects(web platforms, e- commerce sites, etc.)—over 10 hands - on projects",
+      "Completion of practical projects(web platforms, e- commerce sites, etc.)-over 10 hands - on projects",
       "Proficiency in UI / UX design tools(Figma, Canva) and conversion of mockups into responsive, accessible frontend code",
       "Implementation of clean code best practices, unit testing, and team collaboration(Git, GitHub, Scrum)",
       "Participation in collaborative projects and code reviews",

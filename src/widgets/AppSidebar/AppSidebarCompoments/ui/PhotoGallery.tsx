@@ -6,7 +6,7 @@ import { PhotoGalleryProps } from '../types/type';
 import { cn } from '@/shared/lib';
 
 /**
- * PhotoGallery — immersive profile gallery
+ * PhotoGallery - immersive profile gallery
  * Mobile: both chevrons stay inset + swipe to change photo.
  */
 export const PhotoGallery = ({ photos, isOpen, onClose, initialIndex = 0 }: PhotoGalleryProps) => {
@@ -121,7 +121,7 @@ export const PhotoGallery = ({ photos, isOpen, onClose, initialIndex = 0 }: Phot
           </div>
         </div>
 
-        {/* Stage — image + overlaid nav (never clipped off-screen) */}
+        {/* Stage - image + overlaid nav (never clipped off-screen) */}
         <div
           className="relative h-full w-full min-w-0 flex items-center justify-center px-10 sm:px-12 py-10"
           onTouchStart={onTouchStart}

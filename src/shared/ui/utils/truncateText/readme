@@ -1,4 +1,4 @@
-# TruncatedText — util / composant de troncature (SEO + React + Tooltip)
+# TruncatedText - util / composant de troncature (SEO + React + Tooltip)
 
 `TruncatedText` permet d’afficher du texte tronqué de manière propre, accessible et optimisée SEO.
 
@@ -24,12 +24,12 @@ Il supporte deux modes **mutuellement exclusifs** :
 
 | Prop            | Type                 | Default   | Description                                                    |
 | --------------- | -------------------- | --------- | -------------------------------------------------------------- |
-| `text`          | `string`             | —         | Texte à afficher                                               |
-| `size`          | `number`             | —         | Longueur max (mode `words`) ou nombre de lignes (mode `lines`) |
+| `text`          | `string`             | -         | Texte à afficher                                               |
+| `size`          | `number`             | -         | Longueur max (mode `words`) ou nombre de lignes (mode `lines`) |
 | `mode`          | `"words" \| "lines"` | `"words"` | Type de troncature                                             |
 | `addEllipsis`   | `boolean`            | `true`    | Ellipsis en mode `words` (forcé en `lines`)                    |
 | `enableTooltip` | `boolean`            | `false`   | Active le tooltip shadcn (ignoré en `lines`)                   |
-| `className`     | `string`             | —         | Styles personnalisés                                           |
+| `className`     | `string`             | -         | Styles personnalisés                                           |
 
 ---
 

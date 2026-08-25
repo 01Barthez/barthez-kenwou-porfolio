@@ -37,7 +37,7 @@ export const ProcessSection: React.FC = () => {
         {/* Background Decorative Gradient */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-primary/5 blur-[120px] rounded-full pointer-events-none -z-10" />
 
-        {/* Central Background Globe — deferred until near viewport */}
+        {/* Central Background Globe - deferred until near viewport */}
         <div className="absolute z-5 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[78%] max-w-[560px] md:w-[62%] md:max-w-[520px] lg:max-w-[480px] aspect-square pointer-events-none -z-20 select-none opacity-35 dark:opacity-22 flex items-center justify-center">
           <DeferredMount
             className="absolute inset-0"

@@ -1,2 +1,2 @@
-// Public feature barrel — only live features
+// Public feature barrel - only live features
 export * from './projets-browse';

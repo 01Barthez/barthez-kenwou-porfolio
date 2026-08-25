@@ -21,10 +21,10 @@ export const CvPage = () => {
       <SEO
         path="/cv"
         title="CV"
-        description="CV de Barthez Kenwou — Développeur Full Stack & Ingénieur DevOps AWS. Expérience, compétences et parcours professionnel."
+        description="CV de Barthez Kenwou - Développeur Full Stack & Ingénieur DevOps AWS. Expérience, compétences et parcours professionnel."
       />
 
-      {/* No horizontal padding on shell — RetroGrid must be full-bleed like /projects */}
+      {/* No horizontal padding on shell - RetroGrid must be full-bleed like /projects */}
       <div className="min-h-screen overflow-x-clip pt-16 md:py-16 lg:py-20">
         <section className="relative mb-8 animate-fade-in pt-14 text-center md:mb-12 md:pt-16">
           <h1 className="section-title relative z-10">
@@ -35,8 +35,8 @@ export const CvPage = () => {
           </h1>
           <p className="section-subtitle relative z-10 mx-auto mt-2 max-w-lg !mb-0 text-sm">
             {language === 'fr'
-              ? 'Parcours, compétences et réalisations — prêt à télécharger.'
-              : 'Background, skills and achievements — ready to download.'}
+              ? 'Parcours, compétences et réalisations - prêt à télécharger.'
+              : 'Background, skills and achievements - ready to download.'}
           </p>
           <RetroGrid />
         </section>

@@ -31,7 +31,7 @@ export const PublicLayout = () => {
 
           <main className="flex flex-1 flex-col p-0">
             {/*
-              Boundary around page content only — shell (aside / nav / footer) stays up.
+              Boundary around page content only - shell (aside / nav / footer) stays up.
               key=pathname resets the boundary when the user navigates elsewhere.
             */}
             <ErrorBoundary key={location.pathname}>

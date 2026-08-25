@@ -9,7 +9,7 @@ type AuroraRibbonsProps = {
 };
 
 /**
- * Brand aurora ribbons — generative simplex-noise strokes for CTA ambient.
+ * Brand aurora ribbons - generative simplex-noise strokes for CTA ambient.
  * Optimized: pauses off-screen / hidden tab, adaptive quality, single-pass path.
  */
 export function AuroraRibbons({ className, ribbonCount = 4 }: AuroraRibbonsProps) {
@@ -145,7 +145,7 @@ export function AuroraRibbons({ className, ribbonCount = 4 }: AuroraRibbonsProps
       if (!running) return;
 
       if (!inView || !pageVisible) {
-        // Sleep while off-screen — wake via IO / visibility handlers
+        // Sleep while off-screen - wake via IO / visibility handlers
         frameId = 0;
         return;
       }
@@ -185,7 +185,7 @@ export function AuroraRibbons({ className, ribbonCount = 4 }: AuroraRibbonsProps
         ctx.shadowColor = useGlowBlur ? stops.glow : 'transparent';
         ctx.stroke();
 
-        // Core — reuse same path math once more (cheap vs shadowBlur)
+        // Core - reuse same path math once more (cheap vs shadowBlur)
         buildRibbonPath(i, baseY, mx, my);
         const coreGrad = ctx.createLinearGradient(0, 0, width, 0);
         coreGrad.addColorStop(0, 'transparent');

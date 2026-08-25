@@ -95,7 +95,7 @@ export const SidebarFooterSection: React.FC = () => {
           </div>
         </div>
 
-        {/* CV — spectrum primary (sidebar only) */}
+        {/* CV - spectrum primary (sidebar only) */}
         {isExpanded && (
           <SpectrumButton asChild variant="solid" size="default" className="w-full">
             <Link to="/cv">

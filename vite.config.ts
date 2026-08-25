@@ -41,10 +41,10 @@ export default defineConfig(() => {
           'icons/*.png',
         ],
         manifest: {
-          name: 'Barthez Kenwou — Portfolio',
+          name: 'Barthez Kenwou - Portfolio',
           short_name: 'Barthez K.',
           description:
-            'Portfolio de Barthez Kenwou — DevOps & Full-Stack JS. Applications web modernes, cloud et CI/CD.',
+            'Portfolio de Barthez Kenwou - DevOps & Full-Stack JS. Applications web modernes, cloud et CI/CD.',
           theme_color: '#1a1548',
           background_color: '#100e28',
           display: 'standalone',
@@ -79,7 +79,7 @@ export default defineConfig(() => {
           ],
         },
         workbox: {
-          // Keep SW precache lean — huge 3D/vendor chunks are runtime-cached
+          // Keep SW precache lean - huge 3D/vendor chunks are runtime-cached
           maximumFileSizeToCacheInBytes: 4 * 1024 * 1024,
           globPatterns: ['**/*.{js,css,html,ico,png,svg,woff2,webmanifest}'],
           // Exclude huge vendor chunks and any helper utilities that change hash on every build
@@ -153,7 +153,7 @@ export default defineConfig(() => {
       }),
     );
 
-    // Image minify needs native tooling — skip in Docker (set VITE_SKIP_IMAGEMIN=true)
+    // Image minify needs native tooling - skip in Docker (set VITE_SKIP_IMAGEMIN=true)
     if (process.env.VITE_SKIP_IMAGEMIN !== 'true') {
       plugins.push(
         viteImagemin({
@@ -201,7 +201,7 @@ export default defineConfig(() => {
             ) {
               return 'vendor.react';
             }
-            // Let Vite split the rest — avoid one mega vendor blob
+            // Let Vite split the rest - avoid one mega vendor blob
           },
         },
       },

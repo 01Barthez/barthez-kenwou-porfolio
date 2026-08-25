@@ -41,7 +41,7 @@ export const ReferencesSection: React.FC<ReferencesSectionProps> = ({ references
               <Building2 className="mt-0.5 h-3.5 w-3.5 shrink-0 sm:h-4 sm:w-4" />
               <p className="text-[11px] font-semibold leading-snug sm:text-sm">
                 <span>{language === 'fr' ? ref.roleFr : ref.roleEn}</span>
-                <span className="text-primary/80"> — {ref.company}</span>
+                <span className="text-primary/80"> - {ref.company}</span>
               </p>
             </div>
 

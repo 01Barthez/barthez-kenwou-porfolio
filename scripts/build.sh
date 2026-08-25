@@ -6,7 +6,7 @@ if command -v bun >/dev/null 2>&1; then
 elif command -v node >/dev/null 2>&1; then
   node ./scripts/check-env.js || exit 1
 else
-  echo "[scripts] warning: neither bun nor node found — skipping env check"
+  echo "[scripts] warning: neither bun nor node found - skipping env check"
 fi
 
 echo "[scripts] build: running TypeScript & Vite build"
@@ -23,6 +23,6 @@ elif command -v node >/dev/null 2>&1; then
   echo "[scripts] error: bun is required for scripts/seo/generate.ts"
   exit 1
 else
-  echo "[scripts] error: bun not found — cannot generate SEO assets"
+  echo "[scripts] error: bun not found - cannot generate SEO assets"
   exit 1
 fi

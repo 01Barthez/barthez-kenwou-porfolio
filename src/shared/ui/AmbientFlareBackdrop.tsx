@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useThemeStore } from '@/shared/state/useThemeStore';
 import { cn } from '@/shared/lib/utils';
 
-/** Shared purple-wave ambient — full-bleed cover, loads before overlay UI. */
+/** Shared purple-wave ambient - full-bleed cover, loads before overlay UI. */
 export const AMBIENT_FLARE_SRC = '/images/ambient-flare.webp';
 export const AMBIENT_FLARE_FALLBACK = '/images/ambient-flare.png';
 
@@ -83,7 +83,7 @@ export const AmbientFlareBackdrop: React.FC<AmbientFlareBackdropProps> = ({
 
       {vignette && (
         <>
-          {/* Top + bottom fade — keep bottom very light so wave stays visible at edges */}
+          {/* Top + bottom fade - keep bottom very light so wave stays visible at edges */}
           <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-transparent to-background/30" />
           <div className="absolute inset-0 bg-gradient-to-r from-background/45 via-transparent to-background/45" />
         </>

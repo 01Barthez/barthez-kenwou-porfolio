@@ -76,7 +76,7 @@ export class ErrorBoundary extends Component<Props, State> {
 
   render() {
     if (this.state.hasError) {
-      // Allow explicit null fallback (silent degrade) — do not use truthiness
+      // Allow explicit null fallback (silent degrade) - do not use truthiness
       if (this.props.fallback !== undefined) {
         return this.props.fallback;
       }

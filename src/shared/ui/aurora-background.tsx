@@ -8,7 +8,7 @@ interface AuroraBackgroundProps extends React.HTMLProps<HTMLDivElement> {
   intensity?: "soft" | "normal";
 }
 
-/** Theme-aware aurora — soft lilac pearl in light, deep violet haze in dark */
+/** Theme-aware aurora - soft lilac pearl in light, deep violet haze in dark */
 export const AuroraBackground = ({
   className,
   children,

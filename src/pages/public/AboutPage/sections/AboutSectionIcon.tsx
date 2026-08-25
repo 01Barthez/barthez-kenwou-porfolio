@@ -9,7 +9,7 @@ type AboutSectionIconProps = {
 };
 
 /**
- * Static 3D section icons — readable at a glance, no motion, light frame only.
+ * Static 3D section icons - readable at a glance, no motion, light frame only.
  */
 export function AboutSectionIcon({ variant, className }: AboutSectionIconProps) {
   const rawId = React.useId().replace(/:/g, '');
@@ -72,13 +72,13 @@ export function AboutSectionIcon({ variant, className }: AboutSectionIconProps) 
   );
 }
 
-/** Clear person mark: round head + shoulders — instantly “profile / bio”. */
+/** Clear person mark: round head + shoulders - instantly “profile / bio”. */
 function BioGlyph({ id }: { id: string }) {
   return (
     <g filter={`url(#${id}-d)`}>
       <ellipse cx="16" cy="28.6" rx="6.5" ry="1.35" fill="hsla(270,40%,10%,0.22)" />
 
-      {/* shoulders / bust — readable silhouette */}
+      {/* shoulders / bust - readable silhouette */}
       <path
         d="M7.5 27.2 C7.5 21.8 11.2 19.2 16 19.2 C20.8 19.2 24.5 21.8 24.5 27.2"
         fill={`url(#${id}-p)`}
@@ -115,7 +115,7 @@ function BioGlyph({ id }: { id: string }) {
   );
 }
 
-/** Classic briefcase: thick handle + rectangular body + latch — unmistakable. */
+/** Classic briefcase: thick handle + rectangular body + latch - unmistakable. */
 function ExperienceGlyph({ id }: { id: string }) {
   return (
     <g filter={`url(#${id}-d)`}>
@@ -171,7 +171,7 @@ function ExperienceGlyph({ id }: { id: string }) {
   );
 }
 
-/** Mortarboard + tassel — polished, diploma quieter so the cap reads first. */
+/** Mortarboard + tassel - polished, diploma quieter so the cap reads first. */
 function EducationGlyph({ id }: { id: string }) {
   return (
     <g filter={`url(#${id}-d)`}>
@@ -223,7 +223,7 @@ function EducationGlyph({ id }: { id: string }) {
         strokeLinecap="round"
       />
 
-      {/* compact diploma — secondary cue only */}
+      {/* compact diploma - secondary cue only */}
       <rect x="9.5" y="22.4" width="10.5" height="3.6" rx="0.5" fill="hsl(42 35% 88%)" />
       <rect x="9.5" y="22.4" width="10.5" height="0.7" fill="hsl(42 25% 78%)" />
       <ellipse cx="20" cy="24.2" rx="1.1" ry="2.2" fill={`url(#${id}-gold)`} />

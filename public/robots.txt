@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-# Public portfolio — index pages and content
+# Public portfolio - index pages and content
 Allow: /about
 Allow: /services
 Allow: /projects

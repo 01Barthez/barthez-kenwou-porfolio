@@ -22,7 +22,7 @@ export const TestimonialsSection: React.FC = () => {
 
   return (
     <section className="relative max-w-7xl mx-auto py-12 md:py-16 lg:py-20 px-4 md:px-10 lg:px-14 overflow-x-clip">
-      {/* Ambient flare — painted before content; non-interactive */}
+      {/* Ambient flare - painted before content; non-interactive */}
       <div
         className="pointer-events-none absolute inset-0 z-0 overflow-hidden select-none"
         aria-hidden

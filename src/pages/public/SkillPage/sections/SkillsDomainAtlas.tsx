@@ -17,7 +17,7 @@ type SkillsDomainAtlasProps = {
 };
 
 /**
- * SkillsDomainAtlas — cartographic instrument for domain navigation.
+ * SkillsDomainAtlas - cartographic instrument for domain navigation.
  * Meridian rail, soft isometric domain marks, density meters.
  */
 export function SkillsDomainAtlas({
@@ -200,7 +200,7 @@ export function SkillsDomainAtlas({
         </div>
       </header>
 
-      {/* Body: meridian + nodes — single shared vertical axis */}
+      {/* Body: meridian + nodes - single shared vertical axis */}
       <div ref={bodyRef} className="relative px-2.5 py-2.5">
         {/* Full dashed guide (inactive path) */}
         <div
@@ -211,7 +211,7 @@ export function SkillsDomainAtlas({
               'repeating-linear-gradient(to bottom, transparent 0 3px, hsla(268,40%,70%,0.45) 3px 5px)',
           }}
         />
-        {/* Lit solid rail — height measured to active node center */}
+        {/* Lit solid rail - height measured to active node center */}
         <motion.div
           aria-hidden
           className="pointer-events-none absolute left-4 top-5 z-[1] w-px -translate-x-1/2 rounded-full bg-gradient-to-b from-primary/55 via-primary to-primary"
@@ -230,7 +230,7 @@ export function SkillsDomainAtlas({
 
             return (
               <li key={filter.id} className="relative">
-                {/* Meridian node — same axis as rail */}
+                {/* Meridian node - same axis as rail */}
                 <span
                   aria-hidden
                   className={cn(

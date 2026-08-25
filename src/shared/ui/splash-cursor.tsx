@@ -97,7 +97,7 @@ export function SplashCursor({
       TRANSPARENT,
     };
 
-    // Get WebGL context (WebGL1 or WebGL2) — degrade silently when unavailable
+    // Get WebGL context (WebGL1 or WebGL2) - degrade silently when unavailable
     let webgl: ReturnType<typeof getWebGLContext>;
     try {
       webgl = getWebGLContext(canvas);
@@ -965,7 +965,7 @@ export function SplashCursor({
     let pageVisible = document.visibilityState === 'visible';
 
     function updateFrame() {
-      // Pause WebGL sim when tab is hidden — biggest idle cost on Home
+      // Pause WebGL sim when tab is hidden - biggest idle cost on Home
       if (!pageVisible) {
         rafId = 0;
         return;
@@ -1283,7 +1283,7 @@ export function SplashCursor({
     function generateColor(): ColorRGB {
       const isDark = document.documentElement.classList.contains('dark');
 
-      // Curated amethyst / violet / silver — marries Pearl & Amethyst light + Brilliant Obscure dark
+      // Curated amethyst / violet / silver - marries Pearl & Amethyst light + Brilliant Obscure dark
       const hues = [0.70, 0.73, 0.76, 0.79, 0.68, 0.82];
       const h = hues[Math.floor(Math.random() * hues.length)];
 
@@ -1306,7 +1306,7 @@ export function SplashCursor({
         : 0.65 + Math.random() * 0.18;
 
       const c = HSVtoRGB(h, s, v);
-      // Fluid sim amplifies ~×10 on splat — keep subtle so text stays readable
+      // Fluid sim amplifies ~×10 on splat - keep subtle so text stays readable
       const scale = isDark ? 0.12 : 0.1;
       c.r *= scale;
       c.g *= scale;

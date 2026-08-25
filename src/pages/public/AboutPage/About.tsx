@@ -14,7 +14,7 @@ export const AboutPage: React.FC = () => {
       <SEO
         path="/about"
         title="À propos"
-        description="Passionné par l'innovation technologique — Mon expertise couvre l'ensemble du cycle de développement, de la conception à la mise en production. Technologies AWS, DevOps, et applications web modernes."
+        description="Passionné par l'innovation technologique - Mon expertise couvre l'ensemble du cycle de développement, de la conception à la mise en production. Technologies AWS, DevOps, et applications web modernes."
       />
 
       <div className="min-h-screen w-full mx-auto overflow-x-clip">

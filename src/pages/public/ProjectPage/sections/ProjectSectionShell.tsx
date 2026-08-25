@@ -10,7 +10,7 @@ type Props = {
   centered?: boolean;
 };
 
-/** Shared chrome for project detail sections — one job, one headline. */
+/** Shared chrome for project detail sections - one job, one headline. */
 export const ProjectSectionShell: React.FC<Props> = ({
   title,
   subtitle,

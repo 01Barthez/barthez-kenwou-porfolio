@@ -9,7 +9,7 @@ createRoot(document.getElementById('root')!).render(
   </StrictMode>,
 );
 
-// PWA only in production builds — Vite dev has no sw.js (SPA fallback returns HTML).
+// PWA only in production builds - Vite dev has no sw.js (SPA fallback returns HTML).
 if (import.meta.env.PROD && import.meta.env.VITE_ENABLE_PWA === 'true') {
   import('./app/config/pwa/registerServiceWorker')
     .then((m) => m.registerServiceWorker())

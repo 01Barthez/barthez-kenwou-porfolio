@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 # =============================================================================
-# Barthez Kenwou Portfolio — Nginx-only image (expects host `dist/`)
+# Barthez Kenwou Portfolio - Nginx-only image (expects host `dist/`)
 #
 #   bun install --frozen-lockfile && bun run build
 #   docker build -f infra/docker/Dockerfile.runtime -t barthez-kenwou-portfolio:local .

@@ -78,7 +78,7 @@ export const TableOfContents: React.FC<TableOfContentsProps> = ({
     return () => observer.disconnect();
   }, [toc]);
 
-  // Pin desktop TOC to the aside column — sticky is broken by overflow-x: clip ancestors
+  // Pin desktop TOC to the aside column - sticky is broken by overflow-x: clip ancestors
   useLayoutEffect(() => {
     if (variant !== 'desktop') return;
 

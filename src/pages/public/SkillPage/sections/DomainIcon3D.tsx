@@ -21,7 +21,7 @@ const KNOWN = new Set([
 ]);
 
 /**
- * Soft isometric domain marks — thematic, quiet chroma, no motion.
+ * Soft isometric domain marks - thematic, quiet chroma, no motion.
  * Crafted to support the label, not compete with it.
  */
 export function DomainIcon3D({ id, active = false, className }: DomainIcon3DProps) {

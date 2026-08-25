@@ -49,7 +49,7 @@ npm-debug.log*
 Thumbs.db
 *.tsbuildinfo
 
-# Docker meta (avoid recursive context bloat — paths still COPY'd explicitly)
+# Docker meta (avoid recursive context bloat - paths still COPY'd explicitly)
 docker-compose*.yml
 .dockerignore
 

@@ -19,7 +19,7 @@ export const ProblemSolutionSection: React.FC<{ project: IProject }> = ({
 
   return (
     <section className="relative mb-16 px-4 md:px-10 lg:px-14 overflow-hidden animate-fade-in-up">
-      {/* Flare — vertically centered; from the right on desktop, behind glass on mobile */}
+      {/* Flare - vertically centered; from the right on desktop, behind glass on mobile */}
       <div
         className="pointer-events-none absolute inset-0 z-0 overflow-hidden"
         aria-hidden

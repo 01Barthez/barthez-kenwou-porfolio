@@ -20,7 +20,7 @@ export const ProjectOverviewSection: React.FC<{ project: IProject }> = ({ projec
     <section className="mb-16 px-4 md:px-10 lg:px-14 animate-fade-in-up">
       <div className="grid lg:grid-cols-3 gap-12 items-start">
         
-        {/* Left Column: Stats — sticky until this section ends */}
+        {/* Left Column: Stats - sticky until this section ends */}
         <div className="lg:col-span-1 lg:sticky lg:top-28 self-start bg-secondary/30 p-6 rounded-md border border-border/50 backdrop-blur-sm shadow-sm">
           <h3 className="text-lg font-bold mb-5 text-foreground">
             {language === 'fr' ? 'Détails du projet' : 'Project Details'}

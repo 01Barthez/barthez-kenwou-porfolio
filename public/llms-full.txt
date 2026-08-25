@@ -1,6 +1,6 @@
-# Barthez Kenwou — Portfolio — Full context for LLMs
+# Barthez Kenwou - Portfolio - Full context for LLMs
 
-> Portfolio de Barthez Kenwou — Développeur Full Stack JS & Ingénieur DevOps spécialiste AWS Cloud. Applications web modernes, CI/CD, Kubernetes et architectures cloud performantes.
+> Portfolio de Barthez Kenwou - Développeur Full Stack JS & Ingénieur DevOps spécialiste AWS Cloud. Applications web modernes, CI/CD, Kubernetes et architectures cloud performantes.
 
 ## Identity
 
@@ -21,14 +21,14 @@ Ce portfolio documente des études de cas réelles (SaaS, PWA, ERP Odoo, hardeni
 
 ## Primary pages
 
-- Barthez Kenwou | Développeur Full Stack & Ingénieur DevOps: https://barthez-kenwou.dev/ — Passionné par le développement web et le cloud depuis plus de 3 ans. Applications web modernes, CI/CD, Kubernetes et architectures AWS performantes.
-- À propos | Barthez Kenwou: https://barthez-kenwou.dev/about — Parcours, vision et expertise de Barthez Kenwou — Full Stack, DevOps et cloud AWS.
-- Services | Barthez Kenwou: https://barthez-kenwou.dev/services — Développement Full Stack, DevOps, CI/CD, Kubernetes, sécurisation cloud AWS et accompagnement technique.
-- Projets | Barthez Kenwou: https://barthez-kenwou.dev/projects — Études de cas : SaaS, PWA, ERP, DevSecOps, observabilité et plateformes cloud.
-- Compétences | Barthez Kenwou: https://barthez-kenwou.dev/skills — Stack technique : React, TypeScript, Node.js, AWS, Docker, Kubernetes, Terraform, CI/CD, observabilité.
-- Blog | Barthez Kenwou: https://barthez-kenwou.dev/blog — Tutoriels DevOps, AWS, Node.js, React, Kubernetes, sécurité et bonnes pratiques production.
-- CV | Barthez Kenwou: https://barthez-kenwou.dev/cv — Curriculum vitae de Barthez Kenwou — expériences, formations et compétences Full Stack &amp; DevOps.
-- Contact | Barthez Kenwou: https://barthez-kenwou.dev/contact — Contactez Barthez Kenwou pour un projet web, DevOps ou cloud AWS. Email, WhatsApp, LinkedIn.
+- Barthez Kenwou | Développeur Full Stack & Ingénieur DevOps: https://barthez-kenwou.dev/ - Passionné par le développement web et le cloud depuis plus de 3 ans. Applications web modernes, CI/CD, Kubernetes et architectures AWS performantes.
+- À propos | Barthez Kenwou: https://barthez-kenwou.dev/about - Parcours, vision et expertise de Barthez Kenwou - Full Stack, DevOps et cloud AWS.
+- Services | Barthez Kenwou: https://barthez-kenwou.dev/services - Développement Full Stack, DevOps, CI/CD, Kubernetes, sécurisation cloud AWS et accompagnement technique.
+- Projets | Barthez Kenwou: https://barthez-kenwou.dev/projects - Études de cas : SaaS, PWA, ERP, DevSecOps, observabilité et plateformes cloud.
+- Compétences | Barthez Kenwou: https://barthez-kenwou.dev/skills - Stack technique : React, TypeScript, Node.js, AWS, Docker, Kubernetes, Terraform, CI/CD, observabilité.
+- Blog | Barthez Kenwou: https://barthez-kenwou.dev/blog - Tutoriels DevOps, AWS, Node.js, React, Kubernetes, sécurité et bonnes pratiques production.
+- CV | Barthez Kenwou: https://barthez-kenwou.dev/cv - Curriculum vitae de Barthez Kenwou - expériences, formations et compétences Full Stack &amp; DevOps.
+- Contact | Barthez Kenwou: https://barthez-kenwou.dev/contact - Contactez Barthez Kenwou pour un projet web, DevOps ou cloud AWS. Email, WhatsApp, LinkedIn.
 
 ## Projects detail
 

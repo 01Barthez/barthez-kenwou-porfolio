@@ -136,7 +136,7 @@ export const AnimatedList = React.memo(
       startFilled ? seedIndex : 0,
     )
     const [paused, setPaused] = useState(false)
-    /** First paint of the seeded stack — no enter blur on those cards */
+    /** First paint of the seeded stack - no enter blur on those cards */
     const [hasCycled, setHasCycled] = useState(!startFilled)
     const rootRef = useRef<HTMLDivElement | null>(null)
     const inView = useInView(rootRef, { amount: 0.2, once: false })

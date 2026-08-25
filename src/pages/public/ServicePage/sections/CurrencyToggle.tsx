@@ -4,7 +4,7 @@ import { cn } from '@/shared/lib/utils';
 import { useServiceCurrencyStore } from '@/entities/services/model/useServiceCurrencyStore';
 
 /**
- * Compact EUR ↔ FCFA switch — ON = Euro (default), OFF = FCFA.
+ * Compact EUR ↔ FCFA switch - ON = Euro (default), OFF = FCFA.
  */
 export function CurrencyToggle({ className }: { className?: string }) {
   const { language } = useLanguageStore();

@@ -21,7 +21,7 @@ interface ProjectFilterBarProps {
   activeTechs: string[];
   activeRole: ProjectRole | null;
   activeStatus: ProjectStatus | null;
-  /** Total secondary active count — drives visibility of the reset button */
+  /** Total secondary active count - drives visibility of the reset button */
   secondaryActiveCount: number;
   /** Action callbacks */
   onTechToggle: (tech: string) => void;
@@ -120,7 +120,7 @@ export const ProjectFilterBar: React.FC<ProjectFilterBarProps> = ({
         })}
       </FilterDropdown>
 
-      {/* ── Reset — only visible when secondary filters are active ── */}
+      {/* ── Reset - only visible when secondary filters are active ── */}
       {secondaryActiveCount > 0 && (
         <button
           type="button"

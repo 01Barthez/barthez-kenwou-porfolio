@@ -2,7 +2,7 @@ import React from 'react';
 import { cn } from '@/shared/lib';
 
 /**
- * Branded route loader — monogram core, dual orbits, shimmer rail.
+ * Branded route loader - monogram core, dual orbits, shimmer rail.
  * Vertically + horizontally centered in its container.
  */
 export const RouteFallback: React.FC<{ className?: string; fullScreen?: boolean }> = ({

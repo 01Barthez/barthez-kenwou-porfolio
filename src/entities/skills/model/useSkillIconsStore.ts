@@ -15,7 +15,7 @@ let inflight: Promise<void> | null = null;
 
 /**
  * Session-scoped readiness for skill logos.
- * Stores only status (not blobs) — the browser HTTP cache holds the bytes.
+ * Stores only status (not blobs) - the browser HTTP cache holds the bytes.
  */
 export const useSkillIconsStore = createAppStore<SkillIconsState>(
   (set, get) => ({

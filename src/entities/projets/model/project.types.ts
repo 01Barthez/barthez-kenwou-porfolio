@@ -118,7 +118,7 @@ export interface IProject {
   problemEn: string;
   solutionFr: string[];
   solutionEn: string[];
-  /** @deprecated prefer solutionFr — kept for older section bindings */
+  /** @deprecated prefer solutionFr - kept for older section bindings */
   solutionsFr?: string[];
   solutionsEn?: string[];
   challengesFr?: string[];

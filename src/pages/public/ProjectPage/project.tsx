@@ -14,7 +14,7 @@ export const ProjectPage = () => {
       <SEO
         path="/projects"
         title="Projets"
-        description="Réalisations récentes — applications web, plateformes cloud et solutions DevOps conçues par Barthez Kenwou."
+        description="Réalisations récentes - applications web, plateformes cloud et solutions DevOps conçues par Barthez Kenwou."
       />
       <div className="min-h-screen py-10 md:py-16 lg:py-20 overflow-x-clip">
         {/* Header - Centered */}

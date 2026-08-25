@@ -1,6 +1,6 @@
 # Barthez Kenwou
 
-> Portfolio de Barthez Kenwou — Développeur Full Stack JS & Ingénieur DevOps spécialiste AWS Cloud. Applications web modernes, CI/CD, Kubernetes et architectures cloud performantes.
+> Portfolio de Barthez Kenwou - Développeur Full Stack JS & Ingénieur DevOps spécialiste AWS Cloud. Applications web modernes, CI/CD, Kubernetes et architectures cloud performantes.
 
 Barthez Kenwou est un développeur Full Stack JavaScript et ingénieur DevOps spécialisé AWS Cloud, basé à Yaoundé, Cameroun.
 Ce site portfolio présente ses services, compétences, études de cas projets et articles techniques (FR/EN).

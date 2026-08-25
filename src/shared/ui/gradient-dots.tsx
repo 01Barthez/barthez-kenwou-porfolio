@@ -15,7 +15,7 @@ type GradientDotsProps = React.ComponentProps<typeof motion.div> & {
 
 /**
  * Animated dotted gradient field for CTA sections.
- * Theme-aware amethyst washes — visible pulse, no rainbow hue-rotate.
+ * Theme-aware amethyst washes - visible pulse, no rainbow hue-rotate.
  */
 export function GradientDots({
   dotSize = 7,

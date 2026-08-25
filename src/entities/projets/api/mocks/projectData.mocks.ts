@@ -10,20 +10,20 @@ export const projectsData: IProject[] = [
         descriptionFr: "ERP SaaS multi-tenant porté par ZENORA : modules activables à la demande, offline-first, paiements locaux, conçu pour toutes tailles de restaurants et tous appareils.",
         descriptionEn: "Multi-tenant SaaS ERP by ZENORA: on-demand modules, offline-first, local payments, built for every restaurant size and every device.",
 
-        fullDescriptionFr: `NEXUS est un ERP SaaS de gestion de restaurants conçu et développé au sein de l'ESN ZENORA. La philosophie produit est simple : le restaurateur n'active que les modules dont il a besoin — chaque module est un ensemble de fonctionnalités qui résout un besoin métier précis (POS, menu, cuisine, stocks, RH, etc.).
+        fullDescriptionFr: `NEXUS est un ERP SaaS de gestion de restaurants conçu et développé au sein de l'ESN ZENORA. La philosophie produit est simple : le restaurateur n'active que les modules dont il a besoin - chaque module est un ensemble de fonctionnalités qui résout un besoin métier précis (POS, menu, cuisine, stocks, RH, etc.).
 
 Le parcours utilisateur est pensé de bout en bout : découverte sur la vitrine marketing, authentification (email/password, OAuth2, WhatsApp), choix de plan (essai ou achat avec paiement), onboarding du restaurant, puis entrée dans l'ERP. Une fois dedans, les modules inclus dans la formule sont disponibles ; le marketplace permet d'acheter et configurer des modules additionnels selon l'évolution du besoin.
 
 Techniquement, NEXUS repose sur un monolithe modulaire Turborepo (pnpm workspaces) pensé pour une éventuelle extraction microservices plus tard. Surfaces : portail marketing (Next.js), ERP web (thin app), backoffice super-admin, API Fastify. Isolation multi-tenant en schema-per-tenant PostgreSQL (public pour plateforme/billing/auth, t_{slug} pour le métier via Kysely). Le kernel charge dynamiquement les modules activés. Socle offline-first (Dexie + sync push/pull) pour le terrain. Billing abstrait (Stripe + Flutterwave / Mobile Money) avec activation uniquement via webhooks.
 
-Je suis à l'origine de l'architecture globale et de la conception/implémentation de la quasi-totalité des cœurs plateforme (auth, database, billing, kernel, sync, search, events, caching, storage, queue, scheduler, AI, …), ainsi que des modules dashboard et menu — le socle sur lequel l'équipe étend le produit.`,
-        fullDescriptionEn: `NEXUS is a restaurant SaaS ERP designed and built at the ZENORA digital services company. The product philosophy is simple: restaurant owners enable only the modules they need — each module is a feature set that solves a precise business need (POS, menu, kitchen, inventory, HR, etc.).
+Je suis à l'origine de l'architecture globale et de la conception/implémentation de la quasi-totalité des cœurs plateforme (auth, database, billing, kernel, sync, search, events, caching, storage, queue, scheduler, AI, …), ainsi que des modules dashboard et menu - le socle sur lequel l'équipe étend le produit.`,
+        fullDescriptionEn: `NEXUS is a restaurant SaaS ERP designed and built at the ZENORA digital services company. The product philosophy is simple: restaurant owners enable only the modules they need - each module is a feature set that solves a precise business need (POS, menu, kitchen, inventory, HR, etc.).
 
 The user journey is end-to-end: marketing site discovery, authentication (email/password, OAuth2, WhatsApp), plan selection (trial or paid checkout), restaurant onboarding, then ERP entry. Inside the product, plan-included modules are available; the marketplace lets operators buy and configure additional modules as needs evolve.
 
 Technically, NEXUS is a Turborepo modular monolith (pnpm workspaces) designed so microservices extraction remains possible later. Surfaces: marketing portal (Next.js), web ERP (thin app), super-admin backoffice, Fastify API. Multi-tenant isolation via PostgreSQL schema-per-tenant (public for platform/billing/auth, t_{slug} for business data via Kysely). The kernel dynamically loads enabled modules. Offline-first foundation (Dexie + push/pull sync) for floor operations. Abstracted billing (Stripe + Flutterwave / Mobile Money) with activation only via webhooks.
 
-I originated the overall architecture and designed/implemented nearly all platform cores (auth, database, billing, kernel, sync, search, events, caching, storage, queue, scheduler, AI, …), plus the dashboard and menu modules — the foundation the team extends.`,
+I originated the overall architecture and designed/implemented nearly all platform cores (auth, database, billing, kernel, sync, search, events, caching, storage, queue, scheduler, AI, …), plus the dashboard and menu modules - the foundation the team extends.`,
 
         problemFr: "Les restaurateurs jonglent avec 5 à 12 outils déconnectés (POS, stocks, RH, réservations, livraison). Les solutions internationales sont rigides, chères, peu adaptées à l'Afrique (Mobile Money, devises, offline terrain) et obligent à payer un pack monolithique sans pouvoir composer à la carte.",
         problemEn: "Restaurant operators juggle 5–12 disconnected tools (POS, inventory, HR, reservations, delivery). International solutions are rigid, expensive, poorly adapted to Africa (Mobile Money, currencies, floor offline), and force a monolithic pack instead of à-la-carte composition.",
@@ -52,7 +52,7 @@ I originated the overall architecture and designed/implemented nearly all platfo
         challengesFr: [
             "Concevoir un kernel de modules type Odoo sans complexité microservices jour 1",
             "Isolation multi-tenant fiable (schema switching, pool, migrations N schémas)",
-            "Offline-first réel (événements, conflits, idempotence) — pas un simple cache PWA",
+            "Offline-first réel (événements, conflits, idempotence) - pas un simple cache PWA",
             "Billing SaaS abstrait multi-providers + add-ons modules via marketplace",
             "Thin app ERP : navigation et shell dynamiques selon modules installés",
             "Maintenir vélocité d'équipe à 4 tout en posant des fondations long terme",
@@ -61,7 +61,7 @@ I originated the overall architecture and designed/implemented nearly all platfo
         challengesEn: [
             "Design an Odoo-like module kernel without day-1 microservices complexity",
             "Reliable multi-tenant isolation (schema switching, pool, N-schema migrations)",
-            "Real offline-first (events, conflicts, idempotency) — not a naive PWA cache",
+            "Real offline-first (events, conflicts, idempotency) - not a naive PWA cache",
             "Abstract multi-provider SaaS billing + marketplace module add-ons",
             "Thin ERP app: dynamic navigation/shell based on installed modules",
             "Keep a 4-person team shipping while laying long-term foundations",
@@ -105,9 +105,9 @@ I originated the overall architecture and designed/implemented nearly all platfo
             "Monorepo Turborepo : apps (website, web-erp, admin, api) + core/* + modules/* + packages/*",
             "API Fastify monolithe avec plugins isolés et kernel de chargement dynamique",
             "Multi-tenant schema-per-tenant : Prisma sur public, SQL+Kysely sur t_{slug}",
-            "Event bus in-process (@nexus/core-events) — pas d'appels directs module→module",
+            "Event bus in-process (@nexus/core-events) - pas d'appels directs module→module",
             "Offline-first : journal d'événements local + SyncEngine + projections cloud",
-            "Billing engine abstrait (Stripe / Flutterwave / mock) — activation via webhooks uniquement",
+            "Billing engine abstrait (Stripe / Flutterwave / mock) - activation via webhooks uniquement",
             "Évolution prévue : monolithe → extraction microservices quand le besoin est réel",
         ],
 
@@ -177,38 +177,38 @@ I originated the overall architecture and designed/implemented nearly all platfo
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-logo-mark.png",
-                captionFr: "Logo NEXUS — marque produit ZENORA",
-                captionEn: "NEXUS logo — ZENORA product mark",
+                captionFr: "Logo NEXUS - marque produit ZENORA",
+                captionEn: "NEXUS logo - ZENORA product mark",
                 kind: "other",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-brand-02.png",
-                captionFr: "Slide de couverture — présentation business ZENORA",
-                captionEn: "Cover slide — ZENORA business presentation",
+                captionFr: "Slide de couverture - présentation business ZENORA",
+                captionEn: "Cover slide - ZENORA business presentation",
                 kind: "other",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-brand-01.png",
-                captionFr: "Sept piliers produit — modularité, offline, multi-device, Afrique",
-                captionEn: "Seven product pillars — modularity, offline, multi-device, Africa",
+                captionFr: "Sept piliers produit - modularité, offline, multi-device, Afrique",
+                captionEn: "Seven product pillars - modularity, offline, multi-device, Africa",
                 kind: "other",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-brand-03.png",
-                captionFr: "Cartographie modules — hub NEXUS et domaines métier",
-                captionEn: "Module map — NEXUS hub and business domains",
+                captionFr: "Cartographie modules - hub NEXUS et domaines métier",
+                captionEn: "Module map - NEXUS hub and business domains",
                 kind: "diagram",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-brand-04.png",
-                captionFr: "Plans & tarification — Starter à Enterprise",
-                captionEn: "Plans & pricing — Starter to Enterprise",
+                captionFr: "Plans & tarification - Starter à Enterprise",
+                captionEn: "Plans & pricing - Starter to Enterprise",
                 kind: "other",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-product-concept-01.png",
-                captionFr: "Matrice concurrentielle — Mobile Money, offline, entrée à 0€",
-                captionEn: "Competitive matrix — Mobile Money, offline, €0 entry",
+                captionFr: "Matrice concurrentielle - Mobile Money, offline, entrée à 0€",
+                captionEn: "Competitive matrix - Mobile Money, offline, €0 entry",
                 kind: "other",
             },
             {
@@ -219,200 +219,200 @@ I originated the overall architecture and designed/implemented nearly all platfo
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-hero-art.png",
-                captionFr: "Direction artistique — univers visuel produit",
-                captionEn: "Art direction — product visual universe",
+                captionFr: "Direction artistique - univers visuel produit",
+                captionEn: "Art direction - product visual universe",
                 kind: "other",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-visual-01.png",
-                captionFr: "Illustration métier — table, commandes et paiement",
-                captionEn: "Domain illustration — table, orders and payment",
+                captionFr: "Illustration métier - table, commandes et paiement",
+                captionEn: "Domain illustration - table, orders and payment",
                 kind: "other",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-visual-02.png",
-                captionFr: "Illustration multi-canal — KDS cuisine et commande mobile",
-                captionEn: "Multi-channel illustration — kitchen KDS and mobile order",
+                captionFr: "Illustration multi-canal - KDS cuisine et commande mobile",
+                captionEn: "Multi-channel illustration - kitchen KDS and mobile order",
                 kind: "other",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-visual-03.png",
-                captionFr: "Illustration parcours — commande digitale vers service en salle",
-                captionEn: "Journey illustration — digital order to table service",
+                captionFr: "Illustration parcours - commande digitale vers service en salle",
+                captionEn: "Journey illustration - digital order to table service",
                 kind: "other",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-visual-04.png",
-                captionFr: "Illustration réservation — pont entre booking digital et salle",
-                captionEn: "Reservation illustration — digital booking to dining room",
+                captionFr: "Illustration réservation - pont entre booking digital et salle",
+                captionEn: "Reservation illustration - digital booking to dining room",
                 kind: "other",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-visual-05.png",
-                captionFr: "Illustration multi-device — pilotage restaurant sur tablette",
-                captionEn: "Multi-device illustration — restaurant ops on tablet",
+                captionFr: "Illustration multi-device - pilotage restaurant sur tablette",
+                captionEn: "Multi-device illustration - restaurant ops on tablet",
                 kind: "other",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-device-mock.png",
-                captionFr: "Mockup device — expérience restauration sur écran tactile",
-                captionEn: "Device mockup — restaurant experience on touchscreen",
+                captionFr: "Mockup device - expérience restauration sur écran tactile",
+                captionEn: "Device mockup - restaurant experience on touchscreen",
                 kind: "other",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-marketing-landing.png",
-                captionFr: "Navigation modulaire — badges commandes, réservations, stocks",
-                captionEn: "Modular navigation — orders, reservations, stock badges",
+                captionFr: "Navigation modulaire - badges commandes, réservations, stocks",
+                captionEn: "Modular navigation - orders, reservations, stock badges",
                 kind: "diagram",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-marketplace-modules.png",
-                captionFr: "Marketplace — catalogue modules POS, commandes, réservations",
-                captionEn: "Marketplace — POS, orders, reservations module catalog",
+                captionFr: "Marketplace - catalogue modules POS, commandes, réservations",
+                captionEn: "Marketplace - POS, orders, reservations module catalog",
                 kind: "infra",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-erp-dashboard-shell.png",
-                captionFr: "Shell ERP — sidebar organisée par pôles métier",
-                captionEn: "ERP shell — sidebar organized by business domains",
+                captionFr: "Shell ERP - sidebar organisée par pôles métier",
+                captionEn: "ERP shell - sidebar organized by business domains",
                 kind: "process",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-sidebar-modules.png",
-                captionFr: "Vitrine marketing — hero et preview du dashboard ERP",
-                captionEn: "Marketing site — hero and ERP dashboard preview",
+                captionFr: "Vitrine marketing - hero et preview du dashboard ERP",
+                captionEn: "Marketing site - hero and ERP dashboard preview",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-ui-extra-02.png",
-                captionFr: "Module Menu (dark) — catégories et états d’erreur API",
-                captionEn: "Menu module (dark) — categories and API error states",
+                captionFr: "Module Menu (dark) - catégories et états d’erreur API",
+                captionEn: "Menu module (dark) - categories and API error states",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-dashboard-header.png",
-                captionFr: "Header ERP — recherche globale, multi-sites, export données",
-                captionEn: "ERP header — global search, multi-site, data export",
+                captionFr: "Header ERP - recherche globale, multi-sites, export données",
+                captionEn: "ERP header - global search, multi-site, data export",
                 kind: "process",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-menu-module-light.png",
-                captionFr: "Module Menu (light) — carte, sync POS offline, import CSV",
-                captionEn: "Menu module (light) — catalog, offline POS sync, CSV import",
+                captionFr: "Module Menu (light) - carte, sync POS offline, import CSV",
+                captionEn: "Menu module (light) - catalog, offline POS sync, CSV import",
                 kind: "process",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-menu-module-light-2.png",
-                captionFr: "Module Menu — création d’article et sync snapshot POS",
-                captionEn: "Menu module — item creation and POS snapshot sync",
+                captionFr: "Module Menu - création d’article et sync snapshot POS",
+                captionEn: "Menu module - item creation and POS snapshot sync",
                 kind: "infra",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-github-repo.png",
-                captionFr: "Module Menu (light, Premium) — onglet Carte et nouvel article",
-                captionEn: "Menu module (light, Premium) — Catalog tab and new item",
+                captionFr: "Module Menu (light, Premium) - onglet Carte et nouvel article",
+                captionEn: "Menu module (light, Premium) - Catalog tab and new item",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-menu-categories-dark.png",
-                captionFr: "Module Menu (dark) — gestion des catégories",
-                captionEn: "Menu module (dark) — category management",
+                captionFr: "Module Menu (dark) - gestion des catégories",
+                captionEn: "Menu module (dark) - category management",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-ui-extra-01.png",
-                captionFr: "Module Menu (dark) — formulaire nouvelle catégorie",
-                captionEn: "Menu module (dark) — new category form",
+                captionFr: "Module Menu (dark) - formulaire nouvelle catégorie",
+                captionEn: "Menu module (dark) - new category form",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-menu-carte-akenx.png",
-                captionFr: "Tenant Akenx — gestion de la carte et des articles",
-                captionEn: "Akenx tenant — menu catalog and items",
+                captionFr: "Tenant Akenx - gestion de la carte et des articles",
+                captionEn: "Akenx tenant - menu catalog and items",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-menu-disponibilites.png",
-                captionFr: "Module Menu — onglet disponibilités (plages et canaux)",
-                captionEn: "Menu module — availability tab (slots and channels)",
+                captionFr: "Module Menu - onglet disponibilités (plages et canaux)",
+                captionEn: "Menu module - availability tab (slots and channels)",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-ui-extra-03.png",
-                captionFr: "Module Menu — placeholder disponibilités par canal",
-                captionEn: "Menu module — per-channel availability placeholder",
+                captionFr: "Module Menu - placeholder disponibilités par canal",
+                captionEn: "Menu module - per-channel availability placeholder",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-user-profile.png",
-                captionFr: "Compte utilisateur — profil, rôles et collaborateurs",
-                captionEn: "User account — profile, roles and collaborators",
+                captionFr: "Compte utilisateur - profil, rôles et collaborateurs",
+                captionEn: "User account - profile, roles and collaborators",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-ui-extra-04.png",
-                captionFr: "Compte utilisateur (Akenx) — informations personnelles et fuseau",
-                captionEn: "User account (Akenx) — personal info and timezone",
+                captionFr: "Compte utilisateur (Akenx) - informations personnelles et fuseau",
+                captionEn: "User account (Akenx) - personal info and timezone",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-supabase-tenants.png",
-                captionFr: "PostgreSQL — schémas tenants (t_demo-restaurant, t_barthez…)",
-                captionEn: "PostgreSQL — tenant schemas (t_demo-restaurant, t_barthez…)",
+                captionFr: "PostgreSQL - schémas tenants (t_demo-restaurant, t_barthez…)",
+                captionEn: "PostgreSQL - tenant schemas (t_demo-restaurant, t_barthez…)",
                 kind: "infra",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-api-logs-tenant.png",
-                captionFr: "Logs API — résolution tenant Kysely et routes kernel",
-                captionEn: "API logs — tenant Kysely resolution and kernel routes",
+                captionFr: "Logs API - résolution tenant Kysely et routes kernel",
+                captionEn: "API logs - tenant Kysely resolution and kernel routes",
                 kind: "infra",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-product-concept-02.png",
-                captionFr: "Monorepo racine — apps, core, modules, packages, infra, Turbo",
-                captionEn: "Root monorepo — apps, core, modules, packages, infra, Turbo",
+                captionFr: "Monorepo racine - apps, core, modules, packages, infra, Turbo",
+                captionEn: "Root monorepo - apps, core, modules, packages, infra, Turbo",
                 kind: "infra",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-product-concept-04.png",
-                captionFr: "Packages partagés — auth, sdk, offline-client, ui, validators…",
-                captionEn: "Shared packages — auth, sdk, offline-client, ui, validators…",
+                captionFr: "Packages partagés - auth, sdk, offline-client, ui, validators…",
+                captionEn: "Shared packages - auth, sdk, offline-client, ui, validators…",
                 kind: "infra",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-product-concept-05.png",
-                captionFr: "Dossier modules/ — domaines métier isolés (POS, menu, kitchen…)",
-                captionEn: "modules/ folder — isolated domains (POS, menu, kitchen…)",
+                captionFr: "Dossier modules/ - domaines métier isolés (POS, menu, kitchen…)",
+                captionEn: "modules/ folder - isolated domains (POS, menu, kitchen…)",
                 kind: "infra",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-product-concept-06.png",
-                captionFr: "Arborescence modules — 11 packages métier sous kernel",
-                captionEn: "Modules tree — 11 domain packages under the kernel",
+                captionFr: "Arborescence modules - 11 packages métier sous kernel",
+                captionEn: "Modules tree - 11 domain packages under the kernel",
                 kind: "infra",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-web-dev-logs.png",
-                captionFr: "Dev monorepo — checkout billing multi-devises et auth proxy",
-                captionEn: "Monorepo dev — multi-currency billing checkout and auth proxy",
+                captionFr: "Dev monorepo - checkout billing multi-devises et auth proxy",
+                captionEn: "Monorepo dev - multi-currency billing checkout and auth proxy",
                 kind: "process",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-github-private.png",
-                captionFr: "Dépôt ZENORA-360/Nexus-ERP — stack, tags et structure monorepo",
-                captionEn: "ZENORA-360/Nexus-ERP repo — stack, tags and monorepo layout",
+                captionFr: "Dépôt ZENORA-360/Nexus-ERP - stack, tags et structure monorepo",
+                captionEn: "ZENORA-360/Nexus-ERP repo - stack, tags and monorepo layout",
                 kind: "process",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-husky-hooks.png",
-                captionFr: "Hooks Git Husky — pre-commit, pre-push, commit-msg",
-                captionEn: "Husky Git hooks — pre-commit, pre-push, commit-msg",
+                captionFr: "Hooks Git Husky - pre-commit, pre-push, commit-msg",
+                captionEn: "Husky Git hooks - pre-commit, pre-push, commit-msg",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-husky-tree.png",
-                captionFr: "Arborescence .husky — garde-fous qualité avant merge",
-                captionEn: ".husky tree — quality gates before merge",
+                captionFr: "Arborescence .husky - garde-fous qualité avant merge",
+                captionEn: ".husky tree - quality gates before merge",
                 kind: "process",
             },
         ],
@@ -420,8 +420,8 @@ I originated the overall architecture and designed/implemented nearly all platfo
         diagrams: [
             {
                 id: "nexus-system-overview",
-                titleFr: "Vue système — apps, API, données",
-                titleEn: "System overview — apps, API, data",
+                titleFr: "Vue système - apps, API, données",
+                titleEn: "System overview - apps, API, data",
                 mermaid: `flowchart TB
   subgraph clients [Surfaces]
     WEB[Portal Website :2000]
@@ -497,8 +497,8 @@ I originated the overall architecture and designed/implemented nearly all platfo
             },
             {
                 id: "nexus-kernel-modules",
-                titleFr: "Kernel — découverte et activation modules",
-                titleEn: "Kernel — module discovery and activation",
+                titleFr: "Kernel - découverte et activation modules",
+                titleEn: "Kernel - module discovery and activation",
                 mermaid: `sequenceDiagram
   participant API as apps/api
   participant S as core/storage
@@ -519,8 +519,8 @@ I originated the overall architecture and designed/implemented nearly all platfo
             },
             {
                 id: "nexus-marketplace",
-                titleFr: "Marketplace — achat et activation module",
-                titleEn: "Marketplace — purchase and activate module",
+                titleFr: "Marketplace - achat et activation module",
+                titleEn: "Marketplace - purchase and activate module",
                 mermaid: `flowchart TB
   U[Restaurateur] --> CAT[Catalogue /tenant/modules/catalog]
   CAT --> PICK[Choisir module]
@@ -536,8 +536,8 @@ I originated the overall architecture and designed/implemented nearly all platfo
             },
             {
                 id: "nexus-offline-sync",
-                titleFr: "Offline-first — events, sync, projections",
-                titleEn: "Offline-first — events, sync, projections",
+                titleFr: "Offline-first - events, sync, projections",
+                titleEn: "Offline-first - events, sync, projections",
                 mermaid: `flowchart LR
   subgraph device [Device POS / KDS]
     UI[UI optimistic]
@@ -563,8 +563,8 @@ I originated the overall architecture and designed/implemented nearly all platfo
             },
             {
                 id: "nexus-billing",
-                titleFr: "Billing SaaS — essai, checkout, webhooks",
-                titleEn: "SaaS billing — trial, checkout, webhooks",
+                titleFr: "Billing SaaS - essai, checkout, webhooks",
+                titleEn: "SaaS billing - trial, checkout, webhooks",
                 mermaid: `flowchart TB
   PRICE[Pricing page] --> MODE{mode}
   MODE -->|trial| REG1[Signup]
@@ -584,8 +584,8 @@ I originated the overall architecture and designed/implemented nearly all platfo
             },
             {
                 id: "nexus-auth",
-                titleFr: "Authentification — couches et tokens",
-                titleEn: "Authentication — layers and tokens",
+                titleFr: "Authentification - couches et tokens",
+                titleEn: "Authentication - layers and tokens",
                 mermaid: `flowchart TB
   subgraph http [HTTP]
     R[Routes auth]
@@ -662,8 +662,8 @@ I originated the overall architecture and designed/implemented nearly all platfo
             },
             {
                 id: "nexus-service-day",
-                titleFr: "Phase 0 — journée de service",
-                titleEn: "Phase 0 — service day flow",
+                titleFr: "Phase 0 - journée de service",
+                titleEn: "Phase 0 - service day flow",
                 mermaid: `flowchart LR
   M[Menu carte] --> O[Commande]
   O --> T[Table / salle]
@@ -748,8 +748,8 @@ I originated the overall architecture and designed/implemented nearly all platfo
             },
             {
                 id: "nexus-auth-sequence",
-                titleFr: "Séquence — flux d'authentification",
-                titleEn: "Sequence — authentication flow",
+                titleFr: "Séquence - flux d'authentification",
+                titleEn: "Sequence - authentication flow",
                 mermaid: `sequenceDiagram
   actor U as Utilisateur
   participant FE as Website ou ERP
@@ -785,8 +785,8 @@ I originated the overall architecture and designed/implemented nearly all platfo
             },
             {
                 id: "nexus-service-day-sequence",
-                titleFr: "Séquence — journée de service",
-                titleEn: "Sequence — service day flow",
+                titleFr: "Séquence - journée de service",
+                titleEn: "Sequence - service day flow",
                 mermaid: `sequenceDiagram
   actor SRV as Serveur
   actor CUI as Cuisinier
@@ -912,17 +912,17 @@ I originated the overall architecture and designed/implemented nearly all platfo
         ],
         nonGoalsFr: [
             "Microservices dès le jour 1 (extraction progressive seulement)",
-            "Remplacer la comptabilité Odoo/Sage — intégration / export privilégiés",
+            "Remplacer la comptabilité Odoo/Sage - intégration / export privilégiés",
             "Hardware POS propriétaire",
             "IA vitrine avant données opérationnelles réelles (IA sous le capot en P3)",
-            "45 modules UI complets sans backend — vertical slices livrables d'abord",
+            "45 modules UI complets sans backend - vertical slices livrables d'abord",
         ],
         nonGoalsEn: [
             "Day-1 microservices (progressive extraction only)",
-            "Replacing Odoo/Sage accounting — prefer integration / export",
+            "Replacing Odoo/Sage accounting - prefer integration / export",
             "Proprietary POS hardware",
             "Showcase AI before real operational data (under-the-hood AI in P3)",
-            "45 full UI modules without backend — ship vertical slices first",
+            "45 full UI modules without backend - ship vertical slices first",
         ],
 
         decisions: [
@@ -985,10 +985,10 @@ I originated the overall architecture and designed/implemented nearly all platfo
         ],
 
         securityFr: [
-            "Isolation schema-per-tenant — aucune fuite possible par oubli de filtre tenant_id",
+            "Isolation schema-per-tenant - aucune fuite possible par oubli de filtre tenant_id",
             "Auth multi-canal : JWT access/refresh, sessions, RBAC granulaire, OAuth2, WhatsApp",
             "BFF sécurisé (cookies HttpOnly, CSRF) via @nexus/auth-session",
-            "Secrets centralisés (Infisical) — zéro secret en clair dans le repo",
+            "Secrets centralisés (Infisical) - zéro secret en clair dans le repo",
             "Feature flags (Flagsmith) pour exposer progressivement les capacités sensibles",
             "Billing : webhooks signés (Stripe / Flutterwave) ; activation jamais côté navigateur",
             "Audit trail plateforme + soft-delete tenant avec rétention et purge contrôlée",
@@ -998,10 +998,10 @@ I originated the overall architecture and designed/implemented nearly all platfo
             "Conformité RGPD native (consentement, export, droit à l’oubli) et journalisation d’accès",
         ],
         securityEn: [
-            "Schema-per-tenant isolation — no data leak from a forgotten tenant_id filter",
+            "Schema-per-tenant isolation - no data leak from a forgotten tenant_id filter",
             "Multi-channel auth: JWT access/refresh, sessions, granular RBAC, OAuth2, WhatsApp",
             "Secure BFF (HttpOnly cookies, CSRF) via @nexus/auth-session",
-            "Centralized secrets (Infisical) — zero plaintext secrets in the repo",
+            "Centralized secrets (Infisical) - zero plaintext secrets in the repo",
             "Feature flags (Flagsmith) to progressively expose sensitive capabilities",
             "Billing: signed webhooks (Stripe / Flutterwave); never activate from the browser",
             "Platform audit trail + tenant soft-delete with retention and controlled purge",
@@ -1038,20 +1038,20 @@ I originated the overall architecture and designed/implemented nearly all platfo
         ],
 
         lessonsFr: [
-            "Sur un ERP multi-tenant, l’architecture et les contrats (kernel, DDL, billing) doivent précéder la densité fonctionnelle — sinon chaque module devient une dette structurelle.",
+            "Sur un ERP multi-tenant, l’architecture et les contrats (kernel, DDL, billing) doivent précéder la densité fonctionnelle - sinon chaque module devient une dette structurelle.",
             "Le schema-per-tenant impose une discipline opérationnelle (migrations N schémas, pool, search_path) ; c’est le prix d’une isolation réellement auditable.",
             "Offline-first en restauration n’est pas un cache : sans journal d’événements, résolution de conflits et vérité cloud autoritative, le terrain casse le produit.",
             "Un marketplace de modules n’a de sens que si le provisionnement tenant, le pricing et l’activation partagent le même pipeline (checkout → webhook → installed_modules).",
             "Thin app + manifests : la complexité initiale se rentabilise dès que la navigation, les permissions et le bundle suivent l’état réel des modules installés.",
-            "Documenter les ADR et le registry avant d’accélérer le delivery évite de scaler une ambiguïté — la vélocité d’une équipe de quatre dépend de décisions écrites.",
+            "Documenter les ADR et le registry avant d’accélérer le delivery évite de scaler une ambiguïté - la vélocité d’une équipe de quatre dépend de décisions écrites.",
         ],
         lessonsEn: [
-            "On a multi-tenant ERP, architecture and contracts (kernel, DDL, billing) must precede feature density — otherwise every module becomes structural debt.",
+            "On a multi-tenant ERP, architecture and contracts (kernel, DDL, billing) must precede feature density - otherwise every module becomes structural debt.",
             "Schema-per-tenant demands operational discipline (N-schema migrations, pool, search_path); that is the cost of truly auditable isolation.",
             "Restaurant offline-first is not a cache: without an event journal, conflict resolution and an authoritative cloud truth, the floor breaks the product.",
             "A module marketplace only works if tenant provisioning, pricing and activation share one pipeline (checkout → webhook → installed_modules).",
             "Thin app + manifests: early complexity pays off once navigation, permissions and bundling follow the real installed-module state.",
-            "Writing ADRs and the registry before accelerating delivery prevents scaling ambiguity — a four-person team’s velocity depends on written decisions.",
+            "Writing ADRs and the registry before accelerating delivery prevents scaling ambiguity - a four-person team’s velocity depends on written decisions.",
         ],
 
         beforeAfter: [
@@ -1068,14 +1068,14 @@ I originated the overall architecture and designed/implemented nearly all platfo
 
     {
         id: 2,
-        titleFr: "GTA IT — Plateforme corporate PWA & backoffice ESN",
-        titleEn: "GTA IT — Corporate PWA platform & ESN admin",
+            titleFr: "GTA IT - Plateforme corporate PWA & backoffice ESN",
+        titleEn: "GTA IT - Corporate PWA platform & ESN admin",
 
         descriptionFr: "Plateforme web professionnelle pour l'ESN Global Technology & Associates : vitrine d'expertise, génération de leads, recrutement, blog et pilotage des activités via backoffice.",
         descriptionEn: "Professional web platform for the IT services firm Global Technology & Associates: expertise showcase, lead generation, recruitment, blog, and operations steering via an admin backoffice.",
 
-        fullDescriptionFr: "Conception et livraison solo de la plateforme digitale de lancement de GTA (Global Technology & Associates), ESN camerounaise en phase de montée en puissance. Le brief était clair : sortir une vitrine crédible, rapide et convaincante — à la fois preuve d'expertise technique et centre névralgique des activités (devis, recrutement, contact, blog, catalogue projets/services). En environ un mois, j'ai conçu l'architecture, le design system dark/light, les parcours conversion, le CMS backoffice, l'API Express/MongoDB et le déploiement Docker/Nginx avec CI/CD. Le résultat live sur gta-it.com a été explicitement salué par M. Gilles Tanko (CEO) — et sert depuis de référence commerciale et de preuve sociale face aux partenaires.",
-        fullDescriptionEn: "Solo design and delivery of the launch digital platform for GTA (Global Technology & Associates), a Cameroonian IT services company scaling up. The brief was clear: ship a credible, fast, convincing showcase — both proof of technical expertise and the operational hub for activities (quotes, recruitment, contact, blog, projects/services catalog). In about one month I designed the architecture, dark/light design system, conversion journeys, admin CMS, Express/MongoDB API and Docker/Nginx deployment with CI/CD. The live result on gta-it.com was explicitly praised by Gilles Tanko (CEO) — and has since served as a commercial reference and social proof with partners.",
+        fullDescriptionFr: "Conception et livraison solo de la plateforme digitale de lancement de GTA (Global Technology & Associates), ESN camerounaise en phase de montée en puissance. Le brief était clair : sortir une vitrine crédible, rapide et convaincante - à la fois preuve d'expertise technique et centre névralgique des activités (devis, recrutement, contact, blog, catalogue projets/services). En environ un mois, j'ai conçu l'architecture, le design system dark/light, les parcours conversion, le CMS backoffice, l'API Express/MongoDB et le déploiement Docker/Nginx avec CI/CD. Le résultat live sur gta-it.com a été explicitement salué par M. Gilles Tanko (CEO) - et sert depuis de référence commerciale et de preuve sociale face aux partenaires.",
+        fullDescriptionEn: "Solo design and delivery of the launch digital platform for GTA (Global Technology & Associates), a Cameroonian IT services company scaling up. The brief was clear: ship a credible, fast, convincing showcase - both proof of technical expertise and the operational hub for activities (quotes, recruitment, contact, blog, projects/services catalog). In about one month I designed the architecture, dark/light design system, conversion journeys, admin CMS, Express/MongoDB API and Docker/Nginx deployment with CI/CD. The live result on gta-it.com was explicitly praised by Gilles Tanko (CEO) - and has since served as a commercial reference and social proof with partners.",
 
         problemFr: "GTA lançait ses activités sans présence digitale à la hauteur de son ambition. Sans vitrine robuste, l'ESN peinait à convaincre prospects et partenaires, à capter des leads qualifiés, à recruter, et à démontrer concrètement son niveau d'exécution technique.",
         problemEn: "GTA was launching without a digital presence matching its ambition. Without a robust showcase, the firm struggled to convince prospects and partners, capture qualified leads, recruit, and concretely prove its technical execution level.",
@@ -1135,7 +1135,7 @@ I originated the overall architecture and designed/implemented nearly all platfo
             "Delivery": "~1 mois solo",
             "Surfaces": "15+ pages + admin",
             "i18n": "FR / EN / DE",
-            "Status": "Production — gta-it.com",
+            "Status": "Production - gta-it.com",
         },
 
         techStack: {
@@ -1147,7 +1147,7 @@ I originated the overall architecture and designed/implemented nearly all platfo
 
         architecture: [
             "SPA React/TypeScript (Vite + SWC) avec lazy routes et code splitting",
-            "API Express séparée (api.gta-it.com) — MongoDB pour contenus/leads, Redis en cache",
+            "API Express séparée (api.gta-it.com) - MongoDB pour contenus/leads, Redis en cache",
             "État client Zustand (session, CMS admin, settings thème/langue/cookies)",
             "PWA : Service Worker, cache Workbox, mode offline, installabilité",
             "Nginx TLS (HSTS, CSP, gzip) servant le build statique conteneurisé",
@@ -1216,98 +1216,98 @@ I originated the overall architecture and designed/implemented nearly all platfo
         gallery: [
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-logo.png",
-                captionFr: "Identité GTA — wordmark et signature Global Technology & Associates",
-                captionEn: "GTA identity — wordmark and Global Technology & Associates signature",
+                captionFr: "Identité GTA - wordmark et signature Global Technology & Associates",
+                captionEn: "GTA identity - wordmark and Global Technology & Associates signature",
                 kind: "other",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-hero-home.png",
-                captionFr: "Hero Accueil — proposition de valeur et CTA devis",
-                captionEn: "Home hero — value proposition and quote CTAs",
+                captionFr: "Hero Accueil - proposition de valeur et CTA devis",
+                captionEn: "Home hero - value proposition and quote CTAs",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-splash-loading.png",
-                captionFr: "Splash PWA — branding, citation et chargement animé",
-                captionEn: "PWA splash — branding, quote and animated loading",
+                captionFr: "Splash PWA - branding, citation et chargement animé",
+                captionEn: "PWA splash - branding, quote and animated loading",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-home-projects.png",
-                captionFr: "Home — carrousel projets récents (DHJ, e-commerce, Animal Scanner)",
-                captionEn: "Home — recent projects carousel (DHJ, e-commerce, Animal Scanner)",
+                captionFr: "Home - carrousel projets récents (DHJ, e-commerce, Animal Scanner)",
+                captionEn: "Home - recent projects carousel (DHJ, e-commerce, Animal Scanner)",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-home-blog.png",
-                captionFr: "Home — articles récents et positionnement expertise",
-                captionEn: "Home — recent articles and thought-leadership positioning",
+                captionFr: "Home - articles récents et positionnement expertise",
+                captionEn: "Home - recent articles and thought-leadership positioning",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-about-team.png",
-                captionFr: "À propos — équipe d'experts (CEO, CTO, Fullstack, Cyber, DevOps)",
-                captionEn: "About — expert team (CEO, CTO, Fullstack, Cyber, DevOps)",
+                captionFr: "À propos - équipe d'experts (CEO, CTO, Fullstack, Cyber, DevOps)",
+                captionEn: "About - expert team (CEO, CTO, Fullstack, Cyber, DevOps)",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-testimonials.png",
-                captionFr: "Témoignages clients — carrousel social proof",
-                captionEn: "Client testimonials — social-proof carousel",
+                captionFr: "Témoignages clients - carrousel social proof",
+                captionEn: "Client testimonials - social-proof carousel",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-projects-grid.png",
-                captionFr: "Galerie Projets — filtres, stack tags et case studies",
-                captionEn: "Projects gallery — filters, stack tags and case studies",
+                captionFr: "Galerie Projets - filtres, stack tags et case studies",
+                captionEn: "Projects gallery - filters, stack tags and case studies",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-hero-cta.png",
-                captionFr: "CTA conversion — devis gratuit et découverte services",
-                captionEn: "Conversion CTA — free quote and services discovery",
+                captionFr: "CTA conversion - devis gratuit et découverte services",
+                captionEn: "Conversion CTA - free quote and services discovery",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-quote-form.png",
-                captionFr: "Demande de devis multi-étapes — contact et type de service",
-                captionEn: "Multi-step quote request — contact and service type",
+                captionFr: "Demande de devis multi-étapes - contact et type de service",
+                captionEn: "Multi-step quote request - contact and service type",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-careers-apply.png",
-                captionFr: "Carrière — candidature multi-étapes (profil professionnel)",
-                captionEn: "Careers — multi-step application (professional profile)",
+                captionFr: "Carrière - candidature multi-étapes (profil professionnel)",
+                captionEn: "Careers - multi-step application (professional profile)",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-project-structure.png",
-                captionFr: "Arborescence frontend — pages, stores Zustand, Cypress, PWA",
-                captionEn: "Frontend tree — pages, Zustand stores, Cypress, PWA",
+                captionFr: "Arborescence frontend - pages, stores Zustand, Cypress, PWA",
+                captionEn: "Frontend tree - pages, Zustand stores, Cypress, PWA",
                 kind: "infra",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-github-repo.png",
-                captionFr: "Dépôt privé gta — Docker, Nginx, Actions, docs",
-                captionEn: "Private gta repo — Docker, Nginx, Actions, docs",
+                captionFr: "Dépôt privé gta - Docker, Nginx, Actions, docs",
+                captionEn: "Private gta repo - Docker, Nginx, Actions, docs",
                 kind: "process",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-pagespeed.png",
-                captionFr: "PageSpeed Insights desktop — Perf 93, A11y 91, BP 92, SEO 92",
-                captionEn: "PageSpeed Insights desktop — Perf 93, A11y 91, BP 92, SEO 92",
+                captionFr: "PageSpeed Insights desktop - Perf 93, A11y 91, BP 92, SEO 92",
+                captionEn: "PageSpeed Insights desktop - Perf 93, A11y 91, BP 92, SEO 92",
                 kind: "metric",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-seo-serp.png",
-                captionFr: "SERP Google — gta-it.com en tête sur agence IT Cameroun",
-                captionEn: "Google SERP — gta-it.com ranking for Cameroon IT agency",
+                captionFr: "SERP Google - gta-it.com en tête sur agence IT Cameroun",
+                captionEn: "Google SERP - gta-it.com ranking for Cameroon IT agency",
                 kind: "metric",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-brand-overview.png",
-                captionFr: "Fiche marque — services, contacts et ancrage Yaoundé",
-                captionEn: "Brand card — services, contacts and Yaoundé footprint",
+                captionFr: "Fiche marque - services, contacts et ancrage Yaoundé",
+                captionEn: "Brand card - services, contacts and Yaoundé footprint",
                 kind: "metric",
             },
         ],
@@ -1367,8 +1367,8 @@ I originated the overall architecture and designed/implemented nearly all platfo
             },
             {
                 id: "gta-quote-sequence",
-                titleFr: "Séquence — demande de devis",
-                titleEn: "Sequence — quote request",
+                titleFr: "Séquence - demande de devis",
+                titleEn: "Sequence - quote request",
                 mermaid: `sequenceDiagram
   actor U as Prospect
   participant FE as SPA QuoteForm
@@ -1389,8 +1389,8 @@ I originated the overall architecture and designed/implemented nearly all platfo
             },
             {
                 id: "gta-career-sequence",
-                titleFr: "Séquence — candidature carrière",
-                titleEn: "Sequence — career application",
+                titleFr: "Séquence - candidature carrière",
+                titleEn: "Sequence - career application",
                 mermaid: `sequenceDiagram
   actor C as Candidat
   participant FE as Careers SPA
@@ -1428,8 +1428,8 @@ I originated the overall architecture and designed/implemented nearly all platfo
             },
             {
                 id: "gta-cms-flow",
-                titleFr: "Backoffice — pilotage contenus & leads",
-                titleEn: "Admin — content & leads steering",
+                titleFr: "Backoffice - pilotage contenus & leads",
+                titleEn: "Admin - content & leads steering",
                 mermaid: `flowchart TB
   ADM[Admin authentifie JWT] --> DASH[Dashboard]
   DASH --> BLOG[Blogs / Actualites]
@@ -1446,8 +1446,8 @@ I originated the overall architecture and designed/implemented nearly all platfo
             },
             {
                 id: "gta-cicd",
-                titleFr: "CI/CD — build et déploiement",
-                titleEn: "CI/CD — build and deploy",
+                titleFr: "CI/CD - build et déploiement",
+                titleEn: "CI/CD - build and deploy",
                 mermaid: `flowchart LR
   DEV[Push / PR] --> GH[GitHub Actions]
   GH --> LINT[Lint + typecheck]
@@ -1460,8 +1460,8 @@ I originated the overall architecture and designed/implemented nearly all platfo
             },
             {
                 id: "gta-pwa",
-                titleFr: "PWA — cache et offline",
-                titleEn: "PWA — cache and offline",
+                titleFr: "PWA - cache et offline",
+                titleEn: "PWA - cache and offline",
                 mermaid: `flowchart TB
   APP[React App] --> SW[Service Worker]
   SW --> PRE[Precache shell]
@@ -1641,20 +1641,20 @@ I originated the overall architecture and designed/implemented nearly all platfo
             author: "Gilles Tanko",
             roleFr: "CEO & Fondateur",
             roleEn: "CEO & Founder",
-            company: "GTA — Global Technology & Associates",
+            company: "GTA - Global Technology & Associates",
         },
 
         lessonsFr: [
             "Pour une ESN, le site corporate n'est pas une brochure : c'est un artefact commercial. Perf, SEO et craft UI sont des arguments de vente autant que le catalogue de services.",
             "Un funnel devis/carrière bien validé (Zod) bat une dizaine de pages marketing supplémentaires : chaque lead doit arriver propre en backoffice.",
-            "Livrer solo en un mois impose de trancher tôt (SPA+PWA+VPS) et d'industrialiser le déploiement dès le premier build — sinon la 'dernière semaine' mange la qualité.",
+            "Livrer solo en un mois impose de trancher tôt (SPA+PWA+VPS) et d'industrialiser le déploiement dès le premier build - sinon la 'dernière semaine' mange la qualité.",
             "i18n et dark/light ne sont pas du polish : ils élargissent immédiatement l'audience (local + international) et renforcent la perception premium.",
             "Le compliment du CEO ne valide pas seulement l'UI : il valide un système (acquisition + recrutement + contenu) aligné sur les priorités business du lancement.",
         ],
         lessonsEn: [
             "For an IT services firm, the corporate site is not a brochure: it is a commercial artifact. Perf, SEO and UI craft sell as hard as the service catalog.",
             "A well-validated quote/careers funnel (Zod) beats ten extra marketing pages: every lead must land clean in the admin.",
-            "Solo delivery in one month forces early stack choices (SPA+PWA+VPS) and deployment industrialization from the first build — otherwise the 'last week' eats quality.",
+            "Solo delivery in one month forces early stack choices (SPA+PWA+VPS) and deployment industrialization from the first build - otherwise the 'last week' eats quality.",
             "i18n and dark/light are not polish: they immediately widen audience (local + international) and reinforce a premium perception.",
             "CEO praise does not only validate UI: it validates a system (acquisition + hiring + content) aligned with launch business priorities.",
         ],
@@ -1673,8 +1673,8 @@ I originated the overall architecture and designed/implemented nearly all platfo
 
     {
         id: 3,
-        titleFr: "KAZA — Marketplace immobilière de confiance (Afrique)",
-        titleEn: "KAZA — Trust-first real-estate marketplace (Africa)",
+        titleFr: "KAZA - Marketplace immobilière de confiance (Afrique)",
+        titleEn: "KAZA - Trust-first real-estate marketplace (Africa)",
 
         descriptionFr: "Plateforme web & mobile pour trouver et publier un logement en Afrique : recherche gratuite pour les locataires, crédits bailleurs, IA anti-fraude et contact direct WhatsApp.",
         descriptionEn: "Web & mobile platform to find and publish housing in Africa: free search for seekers, landlord credits, AI anti-fraud and direct WhatsApp contact.",
@@ -1682,8 +1682,8 @@ I originated the overall architecture and designed/implemented nearly all platfo
         fullDescriptionFr: "KAZA (ex-CamerLog) est la plateforme immobilière de confiance conçue pour le marché camerounais et extensible à l'Afrique subsaharienne. Le projet répond à un problème quotidien : trouver un logement rapidement, sans arnaque aux frais de visite, sans opacité de prix, et sans intermédiaires opaques. Depuis mai 2026, une équipe de cinq personnes (deux développeurs dont moi en lead architecture / fullstack, produit, marketing et opérations) structure et développe un écosystème complet : application mobile React Native, plateforme web, API Fastify, montée de crédits Mobile Money (Orange / MTN), certification bailleur, moteur de recherche multi-filtres, et pipeline IA anti-fraude (doublons médias, prix aberrants, patterns de faux bailleurs). Locataires et diaspora cherchent gratuitement ; les bailleurs, agents et hôtels consomment des crédits pour publier. L'objectif : devenir le standard de confiance type Airbnb adapté aux réalités africaines, en démarrant sur Douala et Yaoundé.",
         fullDescriptionEn: "KAZA (formerly CamerLog) is the trust-first real-estate platform designed for the Cameroonian market and expandable across Sub-Saharan Africa. It tackles a daily problem: find housing fast, without visit-fee scams, price opacity, or opaque middlemen. Since May 2026, a five-person team (two developers including me as lead architect / fullstack, plus product, marketing and operations) has been structuring and building a full ecosystem: React Native mobile app, web platform, Fastify API, Mobile Money credit top-ups (Orange / MTN), landlord certification, multi-filter search, and an AI anti-fraud pipeline (media duplicates, outlier prices, fake-landlord patterns). Seekers and diaspora search for free; landlords, agents and hotels spend credits to publish. The goal: become the Airbnb-class trust standard adapted to African realities, starting in Douala and Yaounde.",
 
-        problemFr: "Chaque mois, des milliers de personnes cherchent chambres, studios, maisons, boutiques ou séjours courts via WhatsApp et Facebook — un marché bruyant où se mêlent vraies annonces, plaques de rue et arnaques (frais de visite sans visite, faux logements, doublons). Les locataires peinent à filtrer et à contacter en confiance ; les bailleurs peinent à être trouvés rapidement. Il n'existe pas de plateforme dominante de confiance au Cameroun.",
-        problemEn: "Every month, thousands look for rooms, studios, houses, shops or short stays via WhatsApp and Facebook — a noisy market mixing real listings, street signs and scams (visit fees with no visit, fake housing, duplicates). Seekers struggle to filter and contact with trust; landlords struggle to be found quickly. No dominant trust platform exists in Cameroon.",
+        problemFr: "Chaque mois, des milliers de personnes cherchent chambres, studios, maisons, boutiques ou séjours courts via WhatsApp et Facebook - un marché bruyant où se mêlent vraies annonces, plaques de rue et arnaques (frais de visite sans visite, faux logements, doublons). Les locataires peinent à filtrer et à contacter en confiance ; les bailleurs peinent à être trouvés rapidement. Il n'existe pas de plateforme dominante de confiance au Cameroun.",
+        problemEn: "Every month, thousands look for rooms, studios, houses, shops or short stays via WhatsApp and Facebook - a noisy market mixing real listings, street signs and scams (visit fees with no visit, fake housing, duplicates). Seekers struggle to filter and contact with trust; landlords struggle to be found quickly. No dominant trust platform exists in Cameroon.",
 
         solutionFr: [
             "Marketplace dual-sided : recherche 100% gratuite pour le locataire / acheteur ; publication montée par crédits côté bailleur",
@@ -1791,8 +1791,8 @@ I originated the overall architecture and designed/implemented nearly all platfo
         github: "",
         demo: "",
 
-        businessContextFr: "Projet strategique pour digitaliser l'acces au logement au Cameroun (puis CEMAC / Afrique de l'Ouest) en creant une marketplace de confiance : chercheur gratuit, bailleur payeur via credits, IA anti-fraude et contact WhatsApp natif — la ou Facebook/OLX et les agents traditionnels ne resolvent pas la fraude.",
-        businessContextEn: "Strategic project to digitize housing access in Cameroon (then CEMAC / West Africa) by building a trust marketplace: free seekers, credit-paying landlords, AI anti-fraud and native WhatsApp contact — where Facebook/OLX and traditional agents fail on fraud.",
+        businessContextFr: "Projet strategique pour digitaliser l'acces au logement au Cameroun (puis CEMAC / Afrique de l'Ouest) en creant une marketplace de confiance : chercheur gratuit, bailleur payeur via credits, IA anti-fraude et contact WhatsApp natif - la ou Facebook/OLX et les agents traditionnels ne resolvent pas la fraude.",
+        businessContextEn: "Strategic project to digitize housing access in Cameroon (then CEMAC / West Africa) by building a trust marketplace: free seekers, credit-paying landlords, AI anti-fraud and native WhatsApp contact - where Facebook/OLX and traditional agents fail on fraud.",
 
         confidential: false,
 
@@ -1816,62 +1816,62 @@ I originated the overall architecture and designed/implemented nearly all platfo
         gallery: [
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-preview.webp",
-                captionFr: "Direction produit KAZA — aperçu plateforme immobilière de confiance",
-                captionEn: "KAZA product direction — trust-first real-estate platform preview",
+                captionFr: "Direction produit KAZA - aperçu plateforme immobilière de confiance",
+                captionEn: "KAZA product direction - trust-first real-estate platform preview",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-home-feed.png",
-                captionFr: "Feed Accueil — catégories, badges certifiés et listings FCFA",
-                captionEn: "Home feed — categories, certified badges and FCFA listings",
+                captionFr: "Feed Accueil - catégories, badges certifiés et listings FCFA",
+                captionEn: "Home feed - categories, certified badges and FCFA listings",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-figma-flows-01.png",
-                captionFr: "Design system mobile — parcours complet (auth, feed, detail, chat)",
-                captionEn: "Mobile design system — full journeys (auth, feed, detail, chat)",
+                captionFr: "Design system mobile - parcours complet (auth, feed, detail, chat)",
+                captionEn: "Mobile design system - full journeys (auth, feed, detail, chat)",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-figma-flows-02.png",
-                captionFr: "Cartographie UX — discovery, carte, filtres et profils",
-                captionEn: "UX map — discovery, map, filters and profiles",
+                captionFr: "Cartographie UX - discovery, carte, filtres et profils",
+                captionEn: "UX map - discovery, map, filters and profiles",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-figma-flows-03.png",
-                captionFr: "Parcours premium — onboarding, fiches biens et contact bailleur",
-                captionEn: "Premium journeys — onboarding, listings and landlord contact",
+                captionFr: "Parcours premium - onboarding, fiches biens et contact bailleur",
+                captionEn: "Premium journeys - onboarding, listings and landlord contact",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-explore-neighborhoods.png",
-                captionFr: "Explorer — quartiers populaires (Bastos, Bonapriso) et categories",
-                captionEn: "Explore — popular neighborhoods (Bastos, Bonapriso) and categories",
+                captionFr: "Explorer - quartiers populaires (Bastos, Bonapriso) et categories",
+                captionEn: "Explore - popular neighborhoods (Bastos, Bonapriso) and categories",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-map-explorer.png",
-                captionFr: "Carte interactive — pins prix et preview villa (Yaoundé)",
-                captionEn: "Interactive map — price pins and villa preview (Yaounde)",
+                captionFr: "Carte interactive - pins prix et preview villa (Yaoundé)",
+                captionEn: "Interactive map - price pins and villa preview (Yaounde)",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-property-details.png",
-                captionFr: "Fiche bien — galerie, badges confiance, détails financiers, CTA WhatsApp",
-                captionEn: "Listing detail — gallery, trust badges, financials, WhatsApp CTA",
+                captionFr: "Fiche bien - galerie, badges confiance, détails financiers, CTA WhatsApp",
+                captionEn: "Listing detail - gallery, trust badges, financials, WhatsApp CTA",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-reviews-whatsapp.png",
-                captionFr: "Détail bas de page — disponibilité, map Douala, reviews, discussion bailleur",
-                captionEn: "Detail footer — availability, Douala map, reviews, landlord chat",
+                captionFr: "Détail bas de page - disponibilité, map Douala, reviews, discussion bailleur",
+                captionEn: "Detail footer - availability, Douala map, reviews, landlord chat",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-landlord-credits.png",
-                captionFr: "Espace bailleur — crédits, publication multi-étapes, boutique MoMo, certification",
-                captionEn: "Landlord space — credits, multi-step publish, MoMo shop, certification",
+                captionFr: "Espace bailleur - crédits, publication multi-étapes, boutique MoMo, certification",
+                captionEn: "Landlord space - credits, multi-step publish, MoMo shop, certification",
                 kind: "ui",
             },
         ],
@@ -1952,8 +1952,8 @@ I originated the overall architecture and designed/implemented nearly all platfo
             },
             {
                 id: "kaza-credits",
-                titleFr: "Modele economique — credits",
-                titleEn: "Business model — credits",
+                titleFr: "Modele economique - credits",
+                titleEn: "Business model - credits",
                 mermaid: `flowchart LR
   BUY[Achat pack credits MoMo] --> WALLET[Wallet bailleur]
   BONUS[Credits offerts signup] --> WALLET
@@ -1966,8 +1966,8 @@ I originated the overall architecture and designed/implemented nearly all platfo
             },
             {
                 id: "kaza-seeker-sequence",
-                titleFr: "Sequence — chercheur vers contact",
-                titleEn: "Sequence — seeker to contact",
+                titleFr: "Sequence - chercheur vers contact",
+                titleEn: "Sequence - seeker to contact",
                 mermaid: `sequenceDiagram
   actor U as Chercheur
   participant APP as App KAZA
@@ -1987,8 +1987,8 @@ I originated the overall architecture and designed/implemented nearly all platfo
             },
             {
                 id: "kaza-publish-sequence",
-                titleFr: "Sequence — publication bailleur",
-                titleEn: "Sequence — landlord publish",
+                titleFr: "Sequence - publication bailleur",
+                titleEn: "Sequence - landlord publish",
                 mermaid: `sequenceDiagram
   actor L as Bailleur
   participant APP as App KAZA
@@ -2025,8 +2025,8 @@ I originated the overall architecture and designed/implemented nearly all platfo
             },
             {
                 id: "kaza-payments",
-                titleFr: "Sequence — achat credits Mobile Money",
-                titleEn: "Sequence — Mobile Money credit purchase",
+                titleFr: "Sequence - achat credits Mobile Money",
+                titleEn: "Sequence - Mobile Money credit purchase",
                 mermaid: `sequenceDiagram
   actor L as Bailleur
   participant APP as App
@@ -2198,14 +2198,14 @@ I originated the overall architecture and designed/implemented nearly all platfo
         externalLinks: [],
 
         lessonsFr: [
-            "Sur un marche gangrene par la fraude, la confiance doit etre un domaine produit (badges, IA, certification) — pas un paragraphe legal.",
+            "Sur un marche gangrene par la fraude, la confiance doit etre un domaine produit (badges, IA, certification) - pas un paragraphe legal.",
             "Le modele chercheur-gratuit / bailleur-credits aligne l'incitation : la demande scale ; l'offre finance la qualite.",
             "WhatsApp n'est pas un raccourci paresseux : c'est le canal de conversion local ; l'app doit y mener proprement.",
             "Un Fastify modulaire protege la velocite d'une petite equipe tout en isolant fraude et paiements pour une extraction future.",
             "Designer toute la surface UX avant de coder les modules critiques reduit les allers-retours produit/dev sur un marketplace multi-acteurs.",
         ],
         lessonsEn: [
-            "On a fraud-heavy market, trust must be a product domain (badges, AI, certification) — not a legal paragraph.",
+            "On a fraud-heavy market, trust must be a product domain (badges, AI, certification) - not a legal paragraph.",
             "Free-seeker / landlord-credits aligns incentives: demand scales; supply funds quality.",
             "WhatsApp is not a lazy shortcut: it is the local conversion channel; the app must lead there cleanly.",
             "Modular Fastify protects a small team's velocity while isolating fraud and payments for later extraction.",
@@ -2226,29 +2226,29 @@ I originated the overall architecture and designed/implemented nearly all platfo
 
     {
         id: 4,
-        titleFr: "barthez-kenwou.dev — Portfolio de positionnement technique",
-        titleEn: "barthez-kenwou.dev — Technical positioning portfolio",
+        titleFr: "barthez-kenwou.dev - Portfolio de positionnement technique",
+        titleEn: "barthez-kenwou.dev - Technical positioning portfolio",
 
-        descriptionFr: "Pas un CV en ligne : une plateforme produit qui prouve, mesure et déploie l'expertise Full Stack & DevOps — case studies, blog, services, CV PDF, analytics et CD DevSecOps jusqu'à la prod OVH.",
-        descriptionEn: "Not an online résumé: a product platform that proves, measures and ships Full Stack & DevOps expertise — case studies, blog, services, PDF CV, analytics and DevSecOps CD to OVH production.",
+        descriptionFr: "Pas un CV en ligne : une plateforme produit qui prouve, mesure et déploie l'expertise Full Stack & DevOps - case studies, blog, services, CV PDF, analytics et CD DevSecOps jusqu'à la prod OVH.",
+        descriptionEn: "Not an online résumé: a product platform that proves, measures and ships Full Stack & DevOps expertise - case studies, blog, services, PDF CV, analytics and DevSecOps CD to OVH production.",
 
-        fullDescriptionFr: `barthez-kenwou.dev n'est pas un CV avec une URL. C'est mon système de preuves — le produit que je vends quand on me demande ce que je sais faire. Dans un marché où générer du code est devenu trivial, la différenciation a changé de place : ce qui compte, c'est la capacité à transformer une intention en système fiable, mesurable, sécurisé et livré en production. Ce site est exactement ça, exposé.
+        fullDescriptionFr: `barthez-kenwou.dev n'est pas un CV avec une URL. C'est mon système de preuves - le produit que je vends quand on me demande ce que je sais faire. Dans un marché où générer du code est devenu trivial, la différenciation a changé de place : ce qui compte, c'est la capacité à transformer une intention en système fiable, mesurable, sécurisé et livré en production. Ce site est exactement ça, exposé.
 
-Le parcours est conçu pour une audience technique exigeante. Un recruteur ou un client ne « lit » pas une brochure : il audite. Accueil (positionnement + craft), À propos (bio + timeline), Compétences (atlas filtrable Cloud/DevOps/Frontend…), Projets (case studies à ~20 sections optionnelles : problème, solution, stack, galerie, Mermaid, ADR, sécu/infra, avant/après, leçons), Services tarifés, Blog long format, Contact WhatsApp, CV PDF. Chaque surface a un job unique — prouver une facette de l'exécution, pas décorer.
+Le parcours est conçu pour une audience technique exigeante. Un recruteur ou un client ne « lit » pas une brochure : il audite. Accueil (positionnement + craft), À propos (bio + timeline), Compétences (atlas filtrable Cloud/DevOps/Frontend…), Projets (case studies à ~20 sections optionnelles : problème, solution, stack, galerie, Mermaid, ADR, sécu/infra, avant/après, leçons), Services tarifés, Blog long format, Contact WhatsApp, CV PDF. Chaque surface a un job unique - prouver une facette de l'exécution, pas décorer.
 
 Sous le capot : SPA Feature-Sliced Design (React / TypeScript / Vite), API REST, i18n FR/EN, thème dark/light, PWA, SEO/JSON-LD, état Zustand, médias case studies sur SeaweedFS S3. La livraison fait partie du pitch commercial : GitHub Actions (CI + Cypress + Lighthouse), Gitleaks → SonarQube → Trivy → image GHCR privée → SSH/Watchtower sur VPS OVH, Nginx Alpine durci (CSP/HSTS), Cloudflare en edge, Plausible self-hosted pour mesurer l'engagement réel (~314 visiteurs / 28j, 4.64 pages/visite, ~4 min, bounce 31% ; PageSpeed A11y 96 / BP 100 / SEO 100).
 
-Je conçois, code, sécurise, déploie et itère seul. Le résultat live n'illustre pas des compétences — il les incarne. Ouvrir barthez-kenwou.dev, c'est déjà commencer l'entretien technique.`,
-        fullDescriptionEn: `barthez-kenwou.dev is not a résumé with a URL. It is my proof system — the product I sell when someone asks what I can do. In a market where generating code has become trivial, differentiation moved: what matters is the ability to turn intent into a reliable, measurable, secured system shipped to production. This site is exactly that, exposed.
+Je conçois, code, sécurise, déploie et itère seul. Le résultat live n'illustre pas des compétences - il les incarne. Ouvrir barthez-kenwou.dev, c'est déjà commencer l'entretien technique.`,
+        fullDescriptionEn: `barthez-kenwou.dev is not a résumé with a URL. It is my proof system - the product I sell when someone asks what I can do. In a market where generating code has become trivial, differentiation moved: what matters is the ability to turn intent into a reliable, measurable, secured system shipped to production. This site is exactly that, exposed.
 
-The journey is built for a demanding technical audience. A recruiter or client does not "read" a brochure — they audit. Home (positioning + craft), About (bio + timeline), Skills (filterable Cloud/DevOps/Frontend atlas…), Projects (case studies with ~20 optional sections: problem, solution, stack, gallery, Mermaid, ADRs, security/infra, before/after, lessons), priced Services, long-form Blog, WhatsApp Contact, PDF CV. Each surface has one job — prove a facet of execution, not decorate.
+The journey is built for a demanding technical audience. A recruiter or client does not "read" a brochure - they audit. Home (positioning + craft), About (bio + timeline), Skills (filterable Cloud/DevOps/Frontend atlas…), Projects (case studies with ~20 optional sections: problem, solution, stack, gallery, Mermaid, ADRs, security/infra, before/after, lessons), priced Services, long-form Blog, WhatsApp Contact, PDF CV. Each surface has one job - prove a facet of execution, not decorate.
 
 Under the hood: Feature-Sliced Design SPA (React / TypeScript / Vite), REST API, FR/EN i18n, dark/light theme, PWA, SEO/JSON-LD, Zustand state, case-study media on SeaweedFS S3. Delivery is part of the commercial pitch: GitHub Actions (CI + Cypress + Lighthouse), Gitleaks → SonarQube → Trivy → private GHCR image → SSH/Watchtower on OVH VPS, hardened Nginx Alpine (CSP/HSTS), Cloudflare at the edge, self-hosted Plausible for real engagement (~314 visitors / 28d, 4.64 pages/visit, ~4 min, 31% bounce; PageSpeed A11y 96 / BP 100 / SEO 100).
 
-I design, code, secure, deploy and iterate alone. The live result does not illustrate skills — it embodies them. Opening barthez-kenwou.dev is already starting the technical interview.`,
+I design, code, secure, deploy and iterate alone. The live result does not illustrate skills - it embodies them. Opening barthez-kenwou.dev is already starting the technical interview.`,
 
-        problemFr: "Un portfolio classique montre des screenshots et des listes de technologies. Il ne démontre ni l'architecture, ni la discipline de livraison, ni la capacité à produire de la confiance mesurable. Recruteurs et clients techniques ont besoin de preuves — pas de slogans.",
-        problemEn: "A classic portfolio shows screenshots and tech lists. It demonstrates neither architecture, nor delivery discipline, nor the ability to produce measurable trust. Recruiters and technical clients need proof — not slogans.",
+        problemFr: "Un portfolio classique montre des screenshots et des listes de technologies. Il ne démontre ni l'architecture, ni la discipline de livraison, ni la capacité à produire de la confiance mesurable. Recruteurs et clients techniques ont besoin de preuves - pas de slogans.",
+        problemEn: "A classic portfolio shows screenshots and tech lists. It demonstrates neither architecture, nor delivery discipline, nor the ability to produce measurable trust. Recruiters and technical clients need proof - not slogans.",
 
         solutionFr: [
             "Plateforme produit complète : Accueil, À propos, Compétences, Projets (case studies), Services, Blog, Contact, CV PDF",
@@ -2285,14 +2285,14 @@ I design, code, secure, deploy and iterate alone. The live result does not illus
         ],
 
         impactFr: [
-            "Positionnement clair Full Stack JS + DevOps + Cloud — prouvé par le runtime lui-même",
+            "Positionnement clair Full Stack JS + DevOps + Cloud - prouvé par le runtime lui-même",
             "Engagement réel : ~314 visiteurs uniques / 28j, 4.64 pages/visite, ~4 min de durée, bounce 31%",
             "Qualité web : PageSpeed A11y 96, Best Practices 100, SEO 100 (desktop)",
             "Canal d'acquisition pour missions, collaborations et recrutement technique",
             "Standard interne de case study réutilisé pour NEXUS, GTA, KAZA et les suivants",
         ],
         impactEn: [
-            "Clear Full Stack JS + DevOps + Cloud positioning — proven by the runtime itself",
+            "Clear Full Stack JS + DevOps + Cloud positioning - proven by the runtime itself",
             "Real engagement: ~314 unique visitors / 28d, 4.64 pages/visit, ~4 min duration, 31% bounce",
             "Web quality: PageSpeed A11y 96, Best Practices 100, SEO 100 (desktop)",
             "Acquisition channel for missions, collaborations and technical hiring",
@@ -2361,8 +2361,8 @@ I design, code, secure, deploy and iterate alone. The live result does not illus
         github: "https://github.com/barthez-kenwou/barthez-kenwou-porfolio",
         demo: "https://barthez-kenwou.dev",
 
-        businessContextFr: "Outil stratégique de positionnement professionnel : convaincre recruteurs, clients et partenaires techniques en leur donnant un produit à évaluer — pas une brochure. Chaque visite est à la fois un pitch et une preuve d'exécution.",
-        businessContextEn: "Strategic professional positioning tool: convince recruiters, clients and technical partners by giving them a product to evaluate — not a brochure. Every visit is both a pitch and proof of execution.",
+        businessContextFr: "Outil stratégique de positionnement professionnel : convaincre recruteurs, clients et partenaires techniques en leur donnant un produit à évaluer - pas une brochure. Chaque visite est à la fois un pitch et une preuve d'exécution.",
+        businessContextEn: "Strategic professional positioning tool: convince recruiters, clients and technical partners by giving them a product to evaluate - not a brochure. Every visit is both a pitch and proof of execution.",
 
         confidential: false,
 
@@ -2386,212 +2386,212 @@ I design, code, secure, deploy and iterate alone. The live result does not illus
         gallery: [
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-home-hero.png",
-                captionFr: "Hero Accueil — positionnement Full Stack JS et CTA projets",
-                captionEn: "Home hero — Full Stack JS positioning and projects CTA",
+                captionFr: "Hero Accueil - positionnement Full Stack JS et CTA projets",
+                captionEn: "Home hero - Full Stack JS positioning and projects CTA",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-home-services.png",
-                captionFr: "Home — teaser services Cloud/DevOps avec tarifs",
-                captionEn: "Home — Cloud/DevOps services teaser with pricing",
+                captionFr: "Home - teaser services Cloud/DevOps avec tarifs",
+                captionEn: "Home - Cloud/DevOps services teaser with pricing",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-why-terminal.png",
-                captionFr: "Pourquoi me choisir — storytelling terminal interactif",
-                captionEn: "Why choose me — interactive terminal storytelling",
+                captionFr: "Pourquoi me choisir - storytelling terminal interactif",
+                captionEn: "Why choose me - interactive terminal storytelling",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-linkedin-brand.png",
-                captionFr: "Identité LinkedIn — DevSecOps, automation, lien portfolio",
-                captionEn: "LinkedIn identity — DevSecOps, automation, portfolio link",
+                captionFr: "Identité LinkedIn - DevSecOps, automation, lien portfolio",
+                captionEn: "LinkedIn identity - DevSecOps, automation, portfolio link",
                 kind: "other",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-facebook-brand.png",
-                captionFr: "Identité Facebook — bannière DevSecOps et axes d'expertise",
-                captionEn: "Facebook identity — DevSecOps banner and expertise axes",
+                captionFr: "Identité Facebook - bannière DevSecOps et axes d'expertise",
+                captionEn: "Facebook identity - DevSecOps banner and expertise axes",
                 kind: "other",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-github-profile.png",
-                captionFr: "Profil GitHub — README ingénieur et statut ZENORA",
-                captionEn: "GitHub profile — engineer README and ZENORA status",
+                captionFr: "Profil GitHub - README ingénieur et statut ZENORA",
+                captionEn: "GitHub profile - engineer README and ZENORA status",
                 kind: "other",
             },          
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-testimonials.png",
-                captionFr: "Témoignages clients — preuve sociale technique",
-                captionEn: "Client testimonials — technical social proof",
+                captionFr: "Témoignages clients - preuve sociale technique",
+                captionEn: "Client testimonials - technical social proof",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-home-cta.png",
-                captionFr: "CTA Accueil — contact et WhatsApp",
-                captionEn: "Home CTA — contact and WhatsApp",
+                captionFr: "CTA Accueil - contact et WhatsApp",
+                captionEn: "Home CTA - contact and WhatsApp",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-about-bio.png",
-                captionFr: "À propos — bio Full Stack & DevOps et photo pro",
-                captionEn: "About — Full Stack & DevOps bio and pro portrait",
+                captionFr: "À propos - bio Full Stack & DevOps et photo pro",
+                captionEn: "About - Full Stack & DevOps bio and pro portrait",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-about-timeline.png",
-                captionFr: "À propos — timeline ZENORA et parcours formateur",
-                captionEn: "About — ZENORA timeline and trainer path",
+                captionFr: "À propos - timeline ZENORA et parcours formateur",
+                captionEn: "About - ZENORA timeline and trainer path",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-skills-atlas.png",
-                captionFr: "Compétences — atlas 3D et filtres par domaine",
-                captionEn: "Skills — 3D atlas and domain filters",
+                captionFr: "Compétences - atlas 3D et filtres par domaine",
+                captionEn: "Skills - 3D atlas and domain filters",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-skills-devops.png",
-                captionFr: "Compétences DevOps — Docker à OpenTelemetry",
-                captionEn: "DevOps skills — Docker through OpenTelemetry",
+                captionFr: "Compétences DevOps - Docker à OpenTelemetry",
+                captionEn: "DevOps skills - Docker through OpenTelemetry",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-skills-frontend.png",
-                captionFr: "Compétences Frontend — React, RN, Tailwind, PWA",
-                captionEn: "Frontend skills — React, RN, Tailwind, PWA",
+                captionFr: "Compétences Frontend - React, RN, Tailwind, PWA",
+                captionEn: "Frontend skills - React, RN, Tailwind, PWA",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-skills-certs.png",
-                captionFr: "Certifications & métriques — CKA, AWS, Docker, stats",
-                captionEn: "Certifications & metrics — CKA, AWS, Docker, stats",
+                captionFr: "Certifications & métriques - CKA, AWS, Docker, stats",
+                captionEn: "Certifications & metrics - CKA, AWS, Docker, stats",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-projects-grid.png",
-                captionFr: "Projets — grille NEXUS, GTA, KAZA avec filtres",
-                captionEn: "Projects — NEXUS, GTA, KAZA grid with filters",
+                captionFr: "Projets - grille NEXUS, GTA, KAZA avec filtres",
+                captionEn: "Projects - NEXUS, GTA, KAZA grid with filters",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-gallery-filter.png",
-                captionFr: "Case study — galerie filtrable (UI / infra / process)",
-                captionEn: "Case study — filterable gallery (UI / infra / process)",
+                captionFr: "Case study - galerie filtrable (UI / infra / process)",
+                captionEn: "Case study - filterable gallery (UI / infra / process)",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-diagrams.png",
-                captionFr: "Case study — diagrammes Mermaid live (vue système)",
-                captionEn: "Case study — live Mermaid diagrams (system view)",
+                captionFr: "Case study - diagrammes Mermaid live (vue système)",
+                captionEn: "Case study - live Mermaid diagrams (system view)",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-services.png",
-                captionFr: "Services — offres AWS, DevOps, Full Stack, audit",
-                captionEn: "Services — AWS, DevOps, Full Stack, audit offers",
+                captionFr: "Services - offres AWS, DevOps, Full Stack, audit",
+                captionEn: "Services - AWS, DevOps, Full Stack, audit offers",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-process.png",
-                captionFr: "Processus de travail — découverte, design, agile",
-                captionEn: "Work process — discovery, design, agile",
+                captionFr: "Processus de travail - découverte, design, agile",
+                captionEn: "Work process - discovery, design, agile",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-blog-grid.png",
-                captionFr: "Blog — articles AWS, DevOps, microservices",
-                captionEn: "Blog — AWS, DevOps, microservices articles",
+                captionFr: "Blog - articles AWS, DevOps, microservices",
+                captionEn: "Blog - AWS, DevOps, microservices articles",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-blog-article.png",
-                captionFr: "Article long format — Node.js performance + sommaire",
-                captionEn: "Long-form article — Node.js performance + TOC",
+                captionFr: "Article long format - Node.js performance + sommaire",
+                captionEn: "Long-form article - Node.js performance + TOC",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-contact.png",
-                captionFr: "Contact — formulaire, email, localisation Yaoundé",
-                captionEn: "Contact — form, email, Yaoundé location",
+                captionFr: "Contact - formulaire, email, localisation Yaoundé",
+                captionEn: "Contact - form, email, Yaoundé location",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-contact-whatsapp.png",
-                captionFr: "Contact — contribution GitHub et CTA WhatsApp",
-                captionEn: "Contact — GitHub contribution graph and WhatsApp CTA",
+                captionFr: "Contact - contribution GitHub et CTA WhatsApp",
+                captionEn: "Contact - GitHub contribution graph and WhatsApp CTA",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-cv.png",
-                captionFr: "CV digital — aperçu PDF téléchargeable",
-                captionEn: "Digital CV — downloadable PDF preview",
+                captionFr: "CV digital - aperçu PDF téléchargeable",
+                captionEn: "Digital CV - downloadable PDF preview",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-pagespeed-desktop.png",
-                captionFr: "PageSpeed desktop — Perf 87, A11y 96, BP 100, SEO 100",
-                captionEn: "PageSpeed desktop — Perf 87, A11y 96, BP 100, SEO 100",
+                captionFr: "PageSpeed desktop - Perf 87, A11y 96, BP 100, SEO 100",
+                captionEn: "PageSpeed desktop - Perf 87, A11y 96, BP 100, SEO 100",
                 kind: "metric",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-plausible-overview.png",
-                captionFr: "Plausible 28j — 314 visiteurs, 4.64 pages/visite, 3m57",
-                captionEn: "Plausible 28d — 314 visitors, 4.64 pages/visit, 3m57",
+                captionFr: "Plausible 28j - 314 visiteurs, 4.64 pages/visite, 3m57",
+                captionEn: "Plausible 28d - 314 visitors, 4.64 pages/visit, 3m57",
                 kind: "metric",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-plausible-top-pages.png",
-                captionFr: "Plausible — top pages, bounce et profondeur de scroll",
-                captionEn: "Plausible — top pages, bounce and scroll depth",
+                captionFr: "Plausible - top pages, bounce et profondeur de scroll",
+                captionEn: "Plausible - top pages, bounce and scroll depth",
                 kind: "metric",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-cloudflare-analytics.png",
-                captionFr: "Cloudflare — trafic edge, cache et requêtes",
-                captionEn: "Cloudflare — edge traffic, cache and requests",
+                captionFr: "Cloudflare - trafic edge, cache et requêtes",
+                captionEn: "Cloudflare - edge traffic, cache and requests",
                 kind: "metric",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-seaweedfs-assets.png",
-                captionFr: "SeaweedFS — bucket S3 assets portfolio (média case studies)",
-                captionEn: "SeaweedFS — S3 portfolio assets bucket (case-study media)",
+                captionFr: "SeaweedFS - bucket S3 assets portfolio (média case studies)",
+                captionEn: "SeaweedFS - S3 portfolio assets bucket (case-study media)",
                 kind: "infra",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-cloudflare-dns.png",
-                captionFr: "Cloudflare DNS — proxy, SSL, SPF/DKIM, Google verify",
-                captionEn: "Cloudflare DNS — proxy, SSL, SPF/DKIM, Google verify",
+                captionFr: "Cloudflare DNS - proxy, SSL, SPF/DKIM, Google verify",
+                captionEn: "Cloudflare DNS - proxy, SSL, SPF/DKIM, Google verify",
                 kind: "infra",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ghcr-packages.png",
-                captionFr: "GHCR — image privée barthez-kenwou-porfolio",
-                captionEn: "GHCR — private barthez-kenwou-porfolio image",
+                captionFr: "GHCR - image privée barthez-kenwou-porfolio",
+                captionEn: "GHCR - private barthez-kenwou-porfolio image",
                 kind: "infra",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-github-repo.png",
-                captionFr: "Repo public — FSD, infra/, Cypress, Husky, docs",
-                captionEn: "Public repo — FSD, infra/, Cypress, Husky, docs",
+                captionFr: "Repo public - FSD, infra/, Cypress, Husky, docs",
+                captionEn: "Public repo - FSD, infra/, Cypress, Husky, docs",
                 kind: "process",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-actions-workflows.png",
-                captionFr: "GitHub Actions — CI, Deploy VPS, QA Lighthouse/E2E",
-                captionEn: "GitHub Actions — CI, Deploy VPS, QA Lighthouse/E2E",
+                captionFr: "GitHub Actions - CI, Deploy VPS, QA Lighthouse/E2E",
+                captionEn: "GitHub Actions - CI, Deploy VPS, QA Lighthouse/E2E",
                 kind: "process",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-actions-deploy-vps.png",
-                captionFr: "Pipeline Deploy VPS — Gitleaks → Sonar → Trivy → GHCR → OVH",
-                captionEn: "Deploy VPS pipeline — Gitleaks → Sonar → Trivy → GHCR → OVH",
+                captionFr: "Pipeline Deploy VPS - Gitleaks → Sonar → Trivy → GHCR → OVH",
+                captionEn: "Deploy VPS pipeline - Gitleaks → Sonar → Trivy → GHCR → OVH",
                 kind: "process",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-sonarqube-overview.png",
-                captionFr: "SonarQube — SAST intégré au cycle de livraison",
-                captionEn: "SonarQube — SAST integrated into the delivery cycle",
+                captionFr: "SonarQube - SAST intégré au cycle de livraison",
+                captionEn: "SonarQube - SAST integrated into the delivery cycle",
                 kind: "process",
             },
         ],
@@ -2599,8 +2599,8 @@ I design, code, secure, deploy and iterate alone. The live result does not illus
         diagrams: [
             {
                 id: "pf-fsd",
-                titleFr: "Architecture FSD — couches applicatives",
-                titleEn: "FSD architecture — application layers",
+                titleFr: "Architecture FSD - couches applicatives",
+                titleEn: "FSD architecture - application layers",
                 mermaid: `flowchart TB
   subgraph app [app]
     ROUTES[Routes lazy]
@@ -2631,8 +2631,8 @@ I design, code, secure, deploy and iterate alone. The live result does not illus
             },
             {
                 id: "pf-casestudy",
-                titleFr: "Moteur case study — sections optionnelles",
-                titleEn: "Case-study engine — optional sections",
+                titleFr: "Moteur case study - sections optionnelles",
+                titleEn: "Case-study engine - optional sections",
                 mermaid: `flowchart LR
   DATA[IProject data] --> HERO[Hero]
   DATA --> OVER[Overview]
@@ -2679,8 +2679,8 @@ I design, code, secure, deploy and iterate alone. The live result does not illus
             },
             {
                 id: "pf-runtime",
-                titleFr: "Runtime production — edge to origin",
-                titleEn: "Production runtime — edge to origin",
+                titleFr: "Runtime production - edge to origin",
+                titleEn: "Production runtime - edge to origin",
                 mermaid: `flowchart TB
   V[Visiteur] --> CF[Cloudflare DNS CDN]
   CF --> NPM[Nginx Proxy Manager]
@@ -2719,8 +2719,8 @@ I design, code, secure, deploy and iterate alone. The live result does not illus
             },
             {
                 id: "pf-journey",
-                titleFr: "Séquence — recruteur vers preuve",
-                titleEn: "Sequence — recruiter to proof",
+                titleFr: "Séquence - recruteur vers preuve",
+                titleEn: "Sequence - recruiter to proof",
                 mermaid: `sequenceDiagram
   actor R as Recruteur
   participant WEB as SPA
@@ -2926,8 +2926,8 @@ I design, code, secure, deploy and iterate alone. The live result does not illus
         ],
 
         testimonial: {
-            quoteFr: "Ce n'est pas une landing comme dans +98% des sites de présentation et portfolios que j'ai parcourus — c'est bien au-delà. Une preuve d'expertise et de maîtrise. Je recommande vivement Barthez Kenwou.",
-            quoteEn: "This is not a landing page like 98%+ of the presentation sites and portfolios I've reviewed — it goes far beyond. Proof of expertise and mastery. I strongly recommend Barthez Kenwou.",
+            quoteFr: "Ce n'est pas une landing comme dans +98% des sites de présentation et portfolios que j'ai parcourus - c'est bien au-delà. Une preuve d'expertise et de maîtrise. Je recommande vivement Barthez Kenwou.",
+            quoteEn: "This is not a landing page like 98%+ of the presentation sites and portfolios I've reviewed - it goes far beyond. Proof of expertise and mastery. I strongly recommend Barthez Kenwou.",
             author: "Ateba Ghislain",
             roleFr: "Ingénieur logiciel & Formateur Tech",
             roleEn: "Software engineer & Tech trainer",
@@ -2936,14 +2936,14 @@ I design, code, secure, deploy and iterate alone. The live result does not illus
 
         lessonsFr: [
             "Quand le code se génère facilement, la différenciation se déplace vers le système : architecture, preuves, livraison, mesure.",
-            "Un portfolio DevOps qui ne montre pas son pipeline se ment à lui-même — le CD fait partie du pitch.",
+            "Un portfolio DevOps qui ne montre pas son pipeline se ment à lui-même - le CD fait partie du pitch.",
             "Les sections optionnelles transforment un modèle de données en éditeur de crédibilité : dense pour les flagships, léger pour le reste.",
             "La décoration (WebGL, motion) n'a de valeur que si elle se dégrade proprement ; sinon elle sabote la confiance.",
             "Mesurer l'engagement (pages/visite, durée, bounce) force à écrire pour des humains techniques, pas pour des bots de vanity metrics.",
         ],
         lessonsEn: [
             "When code is easy to generate, differentiation moves to the system: architecture, proof, delivery, measurement.",
-            "A DevOps portfolio that hides its pipeline is lying to itself — CD is part of the pitch.",
+            "A DevOps portfolio that hides its pipeline is lying to itself - CD is part of the pitch.",
             "Optional sections turn a data model into a credibility editor: dense for flagships, light elsewhere.",
             "Decoration (WebGL, motion) only has value if it degrades cleanly; otherwise it sabotages trust.",
             "Measuring engagement (pages/visit, duration, bounce) forces writing for technical humans, not vanity bots.",
@@ -4934,8 +4934,8 @@ I design, code, secure, deploy and iterate alone. The live result does not illus
             },
             {
                 src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-00-01.png",
-                captionFr: "Page À propos — organigramme et structure d’équipe",
-                captionEn: "About page — org chart and team structure",
+                captionFr: "Page À propos - organigramme et structure d’équipe",
+                captionEn: "About page - org chart and team structure",
                 kind: "ui",
             },
             {
@@ -4952,44 +4952,44 @@ I design, code, secure, deploy and iterate alone. The live result does not illus
             },
             {
                 src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-03-42.png",
-                captionFr: "Page Services — trois pôles, une obsession de résultat",
-                captionEn: "Services page — three pillars, one performance obsession",
+                captionFr: "Page Services - trois pôles, une obsession de résultat",
+                captionEn: "Services page - three pillars, one performance obsession",
                 kind: "ui",
             },
             {
                 src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-03-54.png",
-                captionFr: "Pôle 01 — Production audiovisuelle",
-                captionEn: "Pillar 01 — Audiovisual production",
+                captionFr: "Pôle 01 - Production audiovisuelle",
+                captionEn: "Pillar 01 - Audiovisual production",
                 kind: "ui",
             },
             {
                 src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-04-00.png",
-                captionFr: "Pôle 02 — Diffusion & annonce publicitaire",
-                captionEn: "Pillar 02 — Advertising & broadcasting",
+                captionFr: "Pôle 02 - Diffusion & annonce publicitaire",
+                captionEn: "Pillar 02 - Advertising & broadcasting",
                 kind: "ui",
             },
             {
                 src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-04-10.png",
-                captionFr: "Réalisations — campagnes Frutas et Intelek BTP",
-                captionEn: "Work — Frutas campaign and Intelek BTP",
+                captionFr: "Réalisations - campagnes Frutas et Intelek BTP",
+                captionEn: "Work - Frutas campaign and Intelek BTP",
                 kind: "ui",
             },
             {
                 src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-04-25.png",
-                captionFr: "Réalisations — voix off studio et pilotage projet",
-                captionEn: "Work — studio voice-over and project coordination",
+                captionFr: "Réalisations - voix off studio et pilotage projet",
+                captionEn: "Work - studio voice-over and project coordination",
                 kind: "ui",
             },
             {
                 src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-04-31.png",
-                captionFr: "Réalisations — animation événementielle et reportage",
-                captionEn: "Work — event hosting and seminar coverage",
+                captionFr: "Réalisations - animation événementielle et reportage",
+                captionEn: "Work - event hosting and seminar coverage",
                 kind: "ui",
             },
             {
                 src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-04-51.png",
-                captionFr: "Page Contact — promesse de réponse sous 24 h",
-                captionEn: "Contact page — 24h response promise",
+                captionFr: "Page Contact - promesse de réponse sous 24 h",
+                captionEn: "Contact page - 24h response promise",
                 kind: "ui",
             },
             {
@@ -5000,14 +5000,14 @@ I design, code, secure, deploy and iterate alone. The live result does not illus
             },
             {
                 src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-05-04.png",
-                captionFr: "Résultats agrégés — KPIs de crédibilité",
-                captionEn: "Aggregated results — credibility KPIs",
+                captionFr: "Résultats agrégés - KPIs de crédibilité",
+                captionEn: "Aggregated results - credibility KPIs",
                 kind: "ui",
             },
             {
                 src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-05-18.png",
-                captionFr: "Section Pourquoi nous — proposition de valeur",
-                captionEn: "Why us section — value proposition",
+                captionFr: "Section Pourquoi nous - proposition de valeur",
+                captionEn: "Why us section - value proposition",
                 kind: "ui",
             },
             {
@@ -5018,32 +5018,32 @@ I design, code, secure, deploy and iterate alone. The live result does not illus
             },
             {
                 src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-05-47.png",
-                captionFr: "Arborescence racine — Vite, Docker, Nginx, CI",
-                captionEn: "Root tree — Vite, Docker, Nginx, CI",
+                captionFr: "Arborescence racine - Vite, Docker, Nginx, CI",
+                captionEn: "Root tree - Vite, Docker, Nginx, CI",
                 kind: "ui",
             },
             {
                 src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-06-39.png",
-                captionFr: "Structure src/ — pages, composants, data, hooks",
-                captionEn: "src/ structure — pages, components, data, hooks",
+                captionFr: "Structure src/ - pages, composants, data, hooks",
+                captionEn: "src/ structure - pages, components, data, hooks",
                 kind: "ui",
             },
             {
                 src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-16-56.png",
-                captionFr: "Pages du site — Accueil, Services, Réalisations, Contact",
-                captionEn: "Site pages — Home, Services, Work, Contact",
+                captionFr: "Pages du site - Accueil, Services, Réalisations, Contact",
+                captionEn: "Site pages - Home, Services, Work, Contact",
                 kind: "infra",
             },
             {
                 src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-17-27.png",
-                captionFr: "Pipeline Deploy — Cosign, production, notification",
-                captionEn: "Deploy pipeline — Cosign, production, notification",
+                captionFr: "Pipeline Deploy - Cosign, production, notification",
+                captionEn: "Deploy pipeline - Cosign, production, notification",
                 kind: "process",
             },
             {
                 src: "https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-17-52.png",
-                captionFr: "Pipeline CI — quality gate, SonarQube, secret scan",
-                captionEn: "CI pipeline — quality gate, SonarQube, secret scan",
+                captionFr: "Pipeline CI - quality gate, SonarQube, secret scan",
+                captionEn: "CI pipeline - quality gate, SonarQube, secret scan",
                 kind: "process",
             },
             {

@@ -17,7 +17,7 @@ export const ContactPage = () => {
       <SEO
         path="/contact"
         title="Contact"
-        description="Contactez Barthez Kenwou — discutons de votre prochain projet web, cloud ou DevOps. Réponse rapide et solutions sur mesure."
+        description="Contactez Barthez Kenwou - discutons de votre prochain projet web, cloud ou DevOps. Réponse rapide et solutions sur mesure."
       />
 
       <div className="min-h-screen overflow-x-clip py-10 md:py-16 lg:py-20">

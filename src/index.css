@@ -105,7 +105,7 @@
   }
 }
 
-/* ─── Light: Pearl & Amethyst — soft pearl surfaces, ink-violet type, deep violet CTAs ─── */
+/* ─── Light: Pearl & Amethyst - soft pearl surfaces, ink-violet type, deep violet CTAs ─── */
 :root {
   --radius: 0.625rem;
 
@@ -160,7 +160,7 @@
   --glow-primary: 0 10px 32px -10px hsla(268, 58%, 40%, 0.28);
   --glow-accent: 0 6px 20px -10px hsla(270, 20%, 20%, 0.12);
 
-  /* Hero spectrum CTA colors — high-contrast stops for readable rim */
+  /* Hero spectrum CTA colors - high-contrast stops for readable rim */
   --spectrum-1: #7c3aed;
   --spectrum-2: #22d3ee;
   --spectrum-3: #e879f9;
@@ -168,7 +168,7 @@
   --spectrum-5: #818cf8;
 }
 
-/* ─── Dark: Brilliant Obscure — deeper violet-black, luminous violet accents ─── */
+/* ─── Dark: Brilliant Obscure - deeper violet-black, luminous violet accents ─── */
 .dark {
   --background: 270 22% 3%;
   --foreground: 0 0% 97%;
@@ -465,7 +465,7 @@
 }
 
 /* ─── Global branded scrollbar (viewport) ───
-   Narrow rail + violet gradient thumb — clip X without breaking sticky */
+   Narrow rail + violet gradient thumb - clip X without breaking sticky */
 html {
   overflow-x: clip;
   scrollbar-width: thin;
@@ -554,7 +554,7 @@ html::-webkit-scrollbar-corner {
   background: transparent;
 }
 
-/* Alias — keep existing class working */
+/* Alias - keep existing class working */
 .custom-scrollbar {
   scrollbar-width: thin;
   scrollbar-color: hsl(var(--primary) / 0.5) transparent;
@@ -594,7 +594,7 @@ html::-webkit-scrollbar-corner {
   scrollbar-width: none;
 }
 
-/* Light page transition — opacity only (no transform: keeps sticky/fixed working) */
+/* Light page transition - opacity only (no transform: keeps sticky/fixed working) */
 .page-enter {
   animation: page-enter 280ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }

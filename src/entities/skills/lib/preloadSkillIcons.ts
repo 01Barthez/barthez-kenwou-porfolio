@@ -1,6 +1,6 @@
 /**
  * Warm the browser HTTP cache for skill logo URLs.
- * Failures are tolerated — UI must not block forever on a single CDN miss.
+ * Failures are tolerated - UI must not block forever on a single CDN miss.
  */
 export async function preloadSkillIcons(
   urls: string[],

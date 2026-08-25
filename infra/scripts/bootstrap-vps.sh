@@ -25,11 +25,11 @@ if [ ! -f "$APP_DIR/.env" ]; then
   cp "$DOCKER_DIR/.env.example" "$APP_DIR/.env"
   sed -i "s|^GHCR_IMAGE=.*|GHCR_IMAGE=$GHCR_IMAGE|" "$APP_DIR/.env"
   sed -i "s|^IMAGE_TAG=.*|IMAGE_TAG=$IMAGE_TAG|" "$APP_DIR/.env"
-  echo "Wrote $APP_DIR/.env — review image name"
+  echo "Wrote $APP_DIR/.env - review image name"
 fi
 
 cd "$APP_DIR"
-echo "==> GHCR login required (private package — PAT read:packages):"
+echo "==> GHCR login required (private package - PAT read:packages):"
 echo "    echo \$GHCR_TOKEN | docker login ghcr.io -u barthez-kenwou --password-stdin"
 
 docker compose pull web
@@ -44,4 +44,4 @@ echo "Done. In Nginx Proxy Manager add a Proxy Host:"
 echo "  Domain: barthez-kenwou.dev"
 echo "  Forward hostname: barthez-portfolio-web"
 echo "  Forward port: 8080"
-echo "  (container must be on network web-proxy — already configured)"
+echo "  (container must be on network web-proxy - already configured)"

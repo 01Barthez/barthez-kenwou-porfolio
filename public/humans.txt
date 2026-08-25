@@ -8,11 +8,11 @@ LinkedIn: https://linkedin.com/in/barthez-kenwou
 Site: https://barthez-kenwou.dev/
 
 /* THANKS */
-Nginx Proxy Manager — TLS & reverse proxy on production VPS
-OVHcloud — VPS hosting
-GitHub Actions + GHCR — CI/CD & container registry
-Aqua Trivy — dependency & image scanning
-SonarQube — static analysis
+Nginx Proxy Manager - TLS & reverse proxy on production VPS
+OVHcloud - VPS hosting
+GitHub Actions + GHCR - CI/CD & container registry
+Aqua Trivy - dependency & image scanning
+SonarQube - static analysis
 
 /* SITE */
 Last update: 2026-07-28

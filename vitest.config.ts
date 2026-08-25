@@ -11,7 +11,7 @@ export default defineConfig({
       '**/node_modules/**',
       '**/dist/**',
       '**/cypress/**',
-      // Broken under current Vitest/Vite SSR interop — re-enable after Image test rewrite
+      // Broken under current Vitest/Vite SSR interop - re-enable after Image test rewrite
       '**/Image/Image.test.tsx',
     ],
     passWithNoTests: true,

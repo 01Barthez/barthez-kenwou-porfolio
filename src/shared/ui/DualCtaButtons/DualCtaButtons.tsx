@@ -80,7 +80,7 @@ function LinkedAction({
 }
 
 /**
- * Shared dual CTA — Spectrum (primary) + Shimmer (secondary).
+ * Shared dual CTA - Spectrum (primary) + Shimmer (secondary).
  * Reuse across CTA sections; only labels / destinations change.
  */
 export const DualCtaButtons: React.FC<DualCtaButtonsProps> = ({

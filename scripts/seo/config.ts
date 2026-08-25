@@ -1,12 +1,12 @@
-/** Shared SEO generation constants — keep in sync with src/shared/config/site.ts */
+/** Shared SEO generation constants - keep in sync with src/shared/config/site.ts */
 
 export const SITE_URL = 'https://barthez-kenwou.dev';
 export const SITE_NAME = 'Barthez Kenwou';
-export const SITE_NAME_FULL = 'Barthez Kenwou — Portfolio';
+export const SITE_NAME_FULL = 'Barthez Kenwou - Portfolio';
 export const DEFAULT_TITLE =
   'Barthez Kenwou | Développeur Full Stack & Ingénieur DevOps';
 export const DEFAULT_DESCRIPTION =
-  'Portfolio de Barthez Kenwou — Développeur Full Stack JS & Ingénieur DevOps spécialiste AWS Cloud. Applications web modernes, CI/CD, Kubernetes et architectures cloud performantes.';
+  'Portfolio de Barthez Kenwou - Développeur Full Stack JS & Ingénieur DevOps spécialiste AWS Cloud. Applications web modernes, CI/CD, Kubernetes et architectures cloud performantes.';
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/og-share.jpg`;
 export const AUTHOR_EMAIL = 'kenwoubarthez@gmail.com';
 export const AUTHOR_PHONE = '+237 655 646 688';
@@ -72,9 +72,9 @@ export const STATIC_PAGES: StaticPage[] = [
     titleFr: 'À propos | Barthez Kenwou',
     titleEn: 'About | Barthez Kenwou',
     descriptionFr:
-      'Parcours, vision et expertise de Barthez Kenwou — Full Stack, DevOps et cloud AWS.',
+      'Parcours, vision et expertise de Barthez Kenwou - Full Stack, DevOps et cloud AWS.',
     descriptionEn:
-      'Background, vision and expertise of Barthez Kenwou — Full Stack, DevOps and AWS cloud.',
+      'Background, vision and expertise of Barthez Kenwou - Full Stack, DevOps and AWS cloud.',
     priority: 0.9,
     changefreq: 'monthly',
     bodyFr: `<h1>À propos de Barthez Kenwou</h1>
@@ -124,10 +124,10 @@ export const STATIC_PAGES: StaticPage[] = [
     priority: 0.9,
     changefreq: 'weekly',
     bodyFr: `<h1>Projets</h1>
-<p>Sélection de réalisations Full Stack &amp; DevOps — ERP SaaS, PWA, plateformes cloud, sécurité et observabilité.</p>
+<p>Sélection de réalisations Full Stack &amp; DevOps - ERP SaaS, PWA, plateformes cloud, sécurité et observabilité.</p>
 <p><a href="${SITE_URL}/">Retour à l’accueil</a></p>`,
     bodyEn: `<h1>Projects</h1>
-<p>Selected Full Stack &amp; DevOps work — SaaS ERP, PWAs, cloud platforms, security and observability.</p>
+<p>Selected Full Stack &amp; DevOps work - SaaS ERP, PWAs, cloud platforms, security and observability.</p>
 <p><a href="${SITE_URL}/">Back home</a></p>`,
   },
   {
@@ -167,9 +167,9 @@ export const STATIC_PAGES: StaticPage[] = [
     titleFr: 'CV | Barthez Kenwou',
     titleEn: 'Resume | Barthez Kenwou',
     descriptionFr:
-      'Curriculum vitae de Barthez Kenwou — expériences, formations et compétences Full Stack &amp; DevOps.',
+      'Curriculum vitae de Barthez Kenwou - expériences, formations et compétences Full Stack &amp; DevOps.',
     descriptionEn:
-      'Resume of Barthez Kenwou — experience, education and Full Stack &amp; DevOps skills.',
+      'Resume of Barthez Kenwou - experience, education and Full Stack &amp; DevOps skills.',
     priority: 0.8,
     changefreq: 'monthly',
     bodyFr: `<h1>Curriculum vitae</h1>

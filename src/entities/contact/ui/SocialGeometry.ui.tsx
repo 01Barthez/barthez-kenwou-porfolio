@@ -29,7 +29,7 @@ const networks = [
 ];
 
 /**
- * Geometric social cluster — one shared handle, three shaped icons.
+ * Geometric social cluster - one shared handle, three shaped icons.
  */
 export function SocialGeometry() {
   const { language } = useLanguageStore();
@@ -79,7 +79,7 @@ export function SocialGeometry() {
           ))}
         </div>
 
-        {/* Shared handle — geometric capsule under the triad */}
+        {/* Shared handle - geometric capsule under the triad */}
         <div className="relative w-full max-w-[220px]">
           <div
             aria-hidden

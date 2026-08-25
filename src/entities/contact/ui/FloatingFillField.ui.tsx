@@ -51,7 +51,7 @@ export const FloatingFillField = React.forwardRef<
 
   return (
     <div className={cn('relative pt-2.5', className)}>
-      {/* Rising fill — grows from the bottom rail */}
+      {/* Rising fill - grows from the bottom rail */}
       <span
         aria-hidden
         className={cn(

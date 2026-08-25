@@ -1,6 +1,6 @@
 name: CI
 
-# PRs + develop — production push is covered by deploy-vps.yml
+# PRs + develop - production push is covered by deploy-vps.yml
 on:
   push:
     branches: [development, develop]

@@ -8,7 +8,7 @@ if command -v bun >/dev/null 2>&1; then
 elif command -v node >/dev/null 2>&1; then
   node ./scripts/check-env.js || exit 1
 else
-  echo "[scripts] warning: neither bun nor node found — skipping env check"
+  echo "[scripts] warning: neither bun nor node found - skipping env check"
 fi
 
 echo "[scripts] dev: starting dev server"

@@ -27,7 +27,7 @@ export type SEOProps = {
   title?: string;
   description?: string;
   canonical?: string;
-  /** Path only (e.g. /about) — builds absolute canonical + og:url when canonical omitted */
+  /** Path only (e.g. /about) - builds absolute canonical + og:url when canonical omitted */
   path?: string;
   lang?: string;
   openGraph?: OpenGraph;

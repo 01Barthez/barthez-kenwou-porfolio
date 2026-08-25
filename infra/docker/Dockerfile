@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 # =============================================================================
-# Barthez Kenwou Portfolio — Production image (multi-stage)
+# Barthez Kenwou Portfolio - Production image (multi-stage)
 #
 # Prefer CI + Dockerfile.runtime when the registry is flaky inside BuildKit.
 # This file remains for full in-image builds:
@@ -48,7 +48,7 @@ ARG VERSION=latest
 
 LABEL org.opencontainers.image.created="${BUILD_DATE}" \
       org.opencontainers.image.title="Barthez Kenwou Portfolio" \
-      org.opencontainers.image.description="Portfolio DevOps & Full-Stack JS — barthez-kenwou.dev" \
+      org.opencontainers.image.description="Portfolio DevOps & Full-Stack JS - barthez-kenwou.dev" \
       org.opencontainers.image.url="https://barthez-kenwou.dev" \
       org.opencontainers.image.source="https://github.com/barthez-kenwou/barthez-kenwou-porfolio" \
       org.opencontainers.image.revision="${VCS_REF}" \

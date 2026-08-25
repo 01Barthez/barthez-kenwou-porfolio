@@ -67,7 +67,7 @@ function toSitemapDate(raw: string | undefined, fallback = TODAY): string {
   const day = Number(match[3]);
   if (month < 1 || month > 12 || day < 1) return fallback;
 
-  // Invalid days (e.g. 2026-02-30) roll in UTC — detect and clamp to month end.
+  // Invalid days (e.g. 2026-02-30) roll in UTC - detect and clamp to month end.
   const parsed = new Date(Date.UTC(year, month - 1, day));
   const valid =
     parsed.getUTCFullYear() === year &&
@@ -138,7 +138,7 @@ function generateRobots() {
   const content = `User-agent: *
 Allow: /
 
-# Public portfolio — index pages and content
+# Public portfolio - index pages and content
 Allow: /about
 Allow: /services
 Allow: /projects
@@ -172,11 +172,11 @@ LinkedIn: ${SOCIAL.linkedin}
 Site: ${SITE_URL}/
 
 /* THANKS */
-Nginx Proxy Manager — TLS & reverse proxy on production VPS
-OVHcloud — VPS hosting
-GitHub Actions + GHCR — CI/CD & container registry
-Aqua Trivy — dependency & image scanning
-SonarQube — static analysis
+Nginx Proxy Manager - TLS & reverse proxy on production VPS
+OVHcloud - VPS hosting
+GitHub Actions + GHCR - CI/CD & container registry
+Aqua Trivy - dependency & image scanning
+SonarQube - static analysis
 
 /* SITE */
 Last update: ${TODAY}
@@ -248,7 +248,7 @@ function generateSitemaps() {
     })),
   ];
 
-  // Image sitemap (Google image extension) — only real page URLs
+  // Image sitemap (Google image extension) - only real page URLs
   const imageUrls: string[] = [];
   imageUrls.push(`  <url>
     <loc>${escapeXml(absoluteUrl('/'))}</loc>
@@ -318,7 +318,7 @@ ${imageUrls.join('\n')}
   const videosXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-${videoBlocks.length ? videoBlocks.join('\n') : `  <!-- No hosted video demos yet — update when videoDemo URLs are added -->`}
+${videoBlocks.length ? videoBlocks.join('\n') : `  <!-- No hosted video demos yet - update when videoDemo URLs are added -->`}
 </urlset>
 `;
 
@@ -439,7 +439,7 @@ ${categoryNotes}
 - [LinkedIn](${SOCIAL.linkedin}): Profil professionnel
 `;
 
-  // Full companion file — dense context for agents
+  // Full companion file - dense context for agents
   const projectFull = projectsData
     .map((p) => {
       const tech = flattenTech(p).join(', ');
@@ -484,7 +484,7 @@ ${body}
     })
     .join('\n');
 
-  const llmsFull = `# ${SITE_NAME_FULL} — Full context for LLMs
+  const llmsFull = `# ${SITE_NAME_FULL} - Full context for LLMs
 
 > ${DEFAULT_DESCRIPTION}
 
@@ -507,7 +507,7 @@ Ce portfolio documente des études de cas réelles (SaaS, PWA, ERP Odoo, hardeni
 
 ## Primary pages
 
-${STATIC_PAGES.map((p) => `- ${p.titleFr}: ${absoluteUrl(p.path)} — ${p.descriptionFr}`).join('\n')}
+${STATIC_PAGES.map((p) => `- ${p.titleFr}: ${absoluteUrl(p.path)} - ${p.descriptionFr}`).join('\n')}
 
 ## Projects detail
 
@@ -562,7 +562,7 @@ function injectRoot(html: string, bodyInner: string): string {
     <main id="seo-prerender" data-seo-prerender="true" style="max-width:72rem;margin:0 auto;padding:1.5rem;font-family:system-ui,sans-serif;line-height:1.6;color:#111;background:#fff">
       ${bodyInner}
       <hr />
-      <p style="font-size:.875rem;opacity:.8">Site de <strong>${escapeHtml(SITE_NAME)}</strong> — <a href="${SITE_URL}/">${SITE_URL}</a></p>
+      <p style="font-size:.875rem;opacity:.8">Site de <strong>${escapeHtml(SITE_NAME)}</strong> - <a href="${SITE_URL}/">${SITE_URL}</a></p>
     </main>
   </div>`;
   return html.replace(/<div id="root"><\/div>/i, block);
@@ -588,7 +588,7 @@ function buildPrerenderPages(): PrerenderPage[] {
       const list = projectsData
         .map(
           (proj) =>
-            `<li><a href="${absoluteUrl(`/projects/${getProjectPathSlug(proj)}`)}"><strong>${escapeHtml(proj.titleFr)}</strong></a> — ${escapeHtml(truncate(proj.descriptionFr, 160))}</li>`,
+            `<li><a href="${absoluteUrl(`/projects/${getProjectPathSlug(proj)}`)}"><strong>${escapeHtml(proj.titleFr)}</strong></a> - ${escapeHtml(truncate(proj.descriptionFr, 160))}</li>`,
         )
         .join('\n');
       body += `<ul>\n${list}\n</ul>`;
@@ -597,7 +597,7 @@ function buildPrerenderPages(): PrerenderPage[] {
       const list = blogPostsData
         .map(
           (post) =>
-            `<li><a href="${absoluteUrl(`/blog/${getBlogPathSlug(post)}`)}"><strong>${escapeHtml(blogTitle(post))}</strong></a> — ${escapeHtml(truncate(blogExcerpt(post), 140))} <em>(${escapeHtml(post.category)})</em></li>`,
+            `<li><a href="${absoluteUrl(`/blog/${getBlogPathSlug(post)}`)}"><strong>${escapeHtml(blogTitle(post))}</strong></a> - ${escapeHtml(truncate(blogExcerpt(post), 140))} <em>(${escapeHtml(post.category)})</em></li>`,
         )
         .join('\n');
       body += `<ul>\n${list}\n</ul>`;
@@ -689,12 +689,12 @@ function buildPrerenderPages(): PrerenderPage[] {
 
 function prerender() {
   if (!existsSync(DIST_DIR)) {
-    console.warn('[seo] dist/ missing — skip HTML prerender (run vite build first)');
+    console.warn('[seo] dist/ missing - skip HTML prerender (run vite build first)');
     return 0;
   }
   const indexPath = join(DIST_DIR, 'index.html');
   if (!existsSync(indexPath)) {
-    console.warn('[seo] dist/index.html missing — skip prerender');
+    console.warn('[seo] dist/index.html missing - skip prerender');
     return 0;
   }
 
@@ -731,7 +731,7 @@ function prerender() {
     }
 
     html = injectRoot(html, page.bodyHtml);
-    // Page-specific crawlable body lives in #root — drop the home-only noscript shell
+    // Page-specific crawlable body lives in #root - drop the home-only noscript shell
     html = html.replace(/<noscript>[\s\S]*?<\/noscript>/i, '');
 
     const outFile =
@@ -757,7 +757,7 @@ function main() {
   generateLlms();
   const prerendered = prerender();
   console.log(
-    `[seo] done — ${STATIC_PAGES.length} pages, ${projectsData.length} projects, ${blogPostsData.length} posts, ${prerendered} HTML shells`,
+    `[seo] done - ${STATIC_PAGES.length} pages, ${projectsData.length} projects, ${blogPostsData.length} posts, ${prerendered} HTML shells`,
   );
 }
 

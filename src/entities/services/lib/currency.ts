@@ -1,5 +1,5 @@
 /**
- * Fixed EUR → XAF (FCFA) peg — BCEAO / BEAC since 1999.
+ * Fixed EUR → XAF (FCFA) peg - BCEAO / BEAC since 1999.
  * 1 EUR = 655.957 XAF (exact legal rate).
  */
 export const EUR_TO_XAF = 655.957;

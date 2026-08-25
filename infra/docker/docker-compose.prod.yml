@@ -1,5 +1,5 @@
 # =============================================================================
-# Production VPS — pull-only (Nginx Proxy Manager + GHCR + Watchtower)
+# Production VPS - pull-only (Nginx Proxy Manager + GHCR + Watchtower)
 # Copy this file to the server as docker-compose.yml
 #
 # NPM proxy host:
@@ -16,7 +16,7 @@ services:
     image: ${GHCR_IMAGE:-ghcr.io/barthez-kenwou/barthez-kenwou-porfolio}:${IMAGE_TAG:-latest}
     container_name: barthez-portfolio-web
     restart: unless-stopped
-    # Reachable only on Docker networks — NPM terminates TLS on web-proxy
+    # Reachable only on Docker networks - NPM terminates TLS on web-proxy
     expose:
       - "8080"
     healthcheck:

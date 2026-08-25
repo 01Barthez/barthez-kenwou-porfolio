@@ -14,7 +14,7 @@ export interface ShimmerButtonProps extends ComponentPropsWithoutRef<'button'> {
 }
 
 /**
- * Secondary CTA — light travels on the border only (mask-composite ring).
+ * Secondary CTA - light travels on the border only (mask-composite ring).
  * The button face stays opaque; the beam never washes over the surface.
  */
 export const ShimmerButton = React.forwardRef<HTMLButtonElement, ShimmerButtonProps>(
@@ -49,7 +49,7 @@ export const ShimmerButton = React.forwardRef<HTMLButtonElement, ShimmerButtonPr
       '--speed': shimmerDuration,
       '--bw': `${borderWidth}px`,
       borderRadius,
-      // Fully opaque face — prevents any beam bleed-through
+      // Fully opaque face - prevents any beam bleed-through
       background: face,
     } as CSSProperties;
 
@@ -62,7 +62,7 @@ export const ShimmerButton = React.forwardRef<HTMLButtonElement, ShimmerButtonPr
       <>
         {/*
           Mask ring: only the padding band is paintable.
-          Spinner lives inside — face of the button never receives light.
+          Spinner lives inside - face of the button never receives light.
         */}
         <span
           aria-hidden

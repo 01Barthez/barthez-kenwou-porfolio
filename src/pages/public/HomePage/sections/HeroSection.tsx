@@ -76,7 +76,7 @@ export const HeroSection: React.FC = () => {
       showRadialGradient
       className="bg-gradient-to-b from-transparent via-transparent to-background overflow-x-clip"
     >
-      {/* Grid — opposite corner from the flare, lightly softened */}
+      {/* Grid - opposite corner from the flare, lightly softened */}
       <GridPattern
         width={30}
         height={30}
@@ -117,7 +117,7 @@ export const HeroSection: React.FC = () => {
       </div>
 
       <section className="relative z-30 w-full px-4 md:px-10 lg:px-14 pt-24 md:pt-28 pb-20 md:pb-24 flex flex-col items-center text-center">
-        {/* Greeting — script, discreet */}
+        {/* Greeting - script, discreet */}
         <motion.p
           custom={0}
           variants={fadeUp}
@@ -128,7 +128,7 @@ export const HeroSection: React.FC = () => {
           {t('hero.greeting')}
         </motion.p>
 
-        {/* Name — blurIn replays on each re-appearance */}
+        {/* Name - blurIn replays on each re-appearance */}
         <motion.h1
           ref={nameWrapRef}
           custom={1}
@@ -162,7 +162,7 @@ export const HeroSection: React.FC = () => {
           </TextAnimate>
         </motion.h1>
 
-        {/* Role — hand writing cursor (height reserved by TypingAnimation sizer) */}
+        {/* Role - hand writing cursor (height reserved by TypingAnimation sizer) */}
         <motion.div
           custom={2}
           variants={fadeUp}
@@ -184,7 +184,7 @@ export const HeroSection: React.FC = () => {
           </p>
         </motion.div>
 
-        {/* Pitch — tighter type */}
+        {/* Pitch - tighter type */}
         <motion.p
           custom={3}
           variants={fadeUp}
@@ -195,7 +195,7 @@ export const HeroSection: React.FC = () => {
           {t('hero.description')}
         </motion.p>
 
-        {/* CTAs — spectrum primary + shimmer secondary */}
+        {/* CTAs - spectrum primary + shimmer secondary */}
         <motion.div
           custom={4}
           variants={fadeUp}

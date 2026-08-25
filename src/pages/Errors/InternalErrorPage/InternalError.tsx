@@ -11,8 +11,8 @@ export interface InternalErrorPageProps {
   error?: Error;
   errorId?: string;
   /**
-   * `content` — sits inside the public shell (navbar / aside / footer stay).
-   * `fullscreen` — last-resort when the shell itself crashed.
+   * `content` - sits inside the public shell (navbar / aside / footer stay).
+   * `fullscreen` - last-resort when the shell itself crashed.
    */
   variant?: 'content' | 'fullscreen';
 }

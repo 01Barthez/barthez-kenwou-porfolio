@@ -16,7 +16,7 @@ export default tseslint.config(
     'tailwind.config.ts',
     'velite.config.ts',
     '.velite/**',
-    // Large generated / WebGL widgets — lint noise; covered by typecheck + manual review
+    // Large generated / WebGL widgets - lint noise; covered by typecheck + manual review
     'src/shared/ui/splash-cursor.tsx',
     'src/shared/ui/text-animate.tsx',
     'src/shared/ui/retro-grid.tsx',

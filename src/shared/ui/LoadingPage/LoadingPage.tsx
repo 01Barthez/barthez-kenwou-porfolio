@@ -19,7 +19,7 @@ export const LoadingPage: React.FC = () => {
       showRadialGradient
       className="fixed inset-0 z-50 !min-h-svh h-svh w-full justify-center"
     >
-      {/* Same ambient flare as error / 404 — under the loader chrome */}
+      {/* Same ambient flare as error / 404 - under the loader chrome */}
       <AmbientFlareBackdrop intensity="soft" vignette className="z-[1]" />
 
       <div className="relative z-10 flex h-full w-full flex-col items-center justify-center gap-10 px-4">
