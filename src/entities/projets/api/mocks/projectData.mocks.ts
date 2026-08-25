@@ -1674,226 +1674,557 @@ I originated the overall architecture and designed/implemented nearly all platfo
 
     {
         id: 3,
-        titleFr: 'Kaza – Plateforme Immobilière Intelligente & Écosystème Conciergerie',
-        titleEn: 'Kaza – Smart Real Estate Platform & Concierge Ecosystem',
+        titleFr: "KAZA — Marketplace immobiliere de confiance (Afrique)",
+        titleEn: "KAZA — Trust-first real-estate marketplace (Africa)",
 
-        descriptionFr: "Plateforme digitale immobilière 'end-to-end' combinant marketplace, IA anti-fraude, conciergerie et mise en relation directe, avec un écosystème complet web & mobile.",
-        descriptionEn: "End-to-end real estate digital platform combining marketplace, AI-powered fraud detection, concierge services, and direct connection system, with a full web & mobile ecosystem.",
+        descriptionFr: "Plateforme web & mobile pour trouver et publier un logement en Afrique : recherche gratuite pour les locataires, credits bailleurs, IA anti-fraude et contact direct WhatsApp.",
+        descriptionEn: "Web & mobile platform to find and publish housing in Africa: free search for seekers, landlord credits, AI anti-fraud and direct WhatsApp contact.",
 
-        fullDescriptionFr: "Conception et développement en cours d’une plateforme immobilière nouvelle génération pour le marché africain (Cameroun), visant à résoudre les problématiques de fraude, de manque de transparence et d’inefficacité dans la recherche de logement. Le projet inclut un écosystème complet composé d’une application mobile pour les utilisateurs (locataires/bailleurs), d’un panel admin web & mobile avancé, ainsi qu’une infrastructure cloud scalable avec des pratiques DevOps modernes. La plateforme intègre un système de crédits, une IA de modération anti-fraude, un moteur de recherche avancé, un système de notation et une intégration native avec WhatsApp pour la conversion directe. L’objectif est de créer un standard de confiance et de performance sur le marché immobilier local.",
-        fullDescriptionEn: "Currently designing and developing a next-generation real estate platform for the African market (Cameroon), aiming to solve fraud, lack of transparency, and inefficiencies in housing search. The project includes a full ecosystem with a mobile app for users (tenants/landlords), advanced admin panels (web & mobile), and a scalable cloud infrastructure using modern DevOps practices. The platform integrates a credit-based system, AI-powered fraud detection, advanced search engine, rating system, and native WhatsApp integration for direct conversion. The goal is to establish a new standard of trust and performance in the local real estate market.",
+        fullDescriptionFr: "KAZA (ex-CamerLog) est la plateforme immobiliere de confiance concue pour le marche camerounais et extensible a l'Afrique subsaharienne. Le projet repond a un probleme quotidien : trouver un logement rapidement, sans arnaque aux frais de visite, sans opacite de prix, et sans intermedaires opaques. Depuis mai 2026, une equipe de cinq personnes (deux developpeurs dont moi en lead architecture / fullstack, produit, marketing et operations) structure et developpe un ecosysteme complet : application mobile React Native, plateforme web, API Fastify, montee de credits Mobile Money (Orange / MTN), certification bailleur, moteur de recherche multi-filtres, et pipeline IA anti-fraude (doublons media, prix aberrants, patterns de faux bailleurs). Locataires et diaspora cherchent gratuitement ; les bailleurs, agents et hotels consomment des credits pour publier. L'objectif : devenir le standard de confiance type Airbnb adapte aux realites africaines, en demarrant sur Douala et Yaounde.",
+        fullDescriptionEn: "KAZA (formerly CamerLog) is the trust-first real-estate platform designed for the Cameroonian market and expandable across Sub-Saharan Africa. It tackles a daily problem: find housing fast, without visit-fee scams, price opacity, or opaque middlemen. Since May 2026, a five-person team (two developers including me as lead architect / fullstack, plus product, marketing and operations) has been structuring and building a full ecosystem: React Native mobile app, web platform, Fastify API, Mobile Money credit top-ups (Orange / MTN), landlord certification, multi-filter search, and an AI anti-fraud pipeline (media duplicates, outlier prices, fake-landlord patterns). Seekers and diaspora search for free; landlords, agents and hotels spend credits to publish. The goal: become the Airbnb-class trust standard adapted to African realities, starting in Douala and Yaounde.",
 
-        problemFr: "Le marché immobilier local est fortement impacté par la fraude, le manque de transparence et l’absence de plateformes fiables, rendant la recherche de logement risquée et inefficace.",
-        problemEn: "The local real estate market is heavily affected by fraud, lack of transparency, and absence of reliable platforms, making housing search risky and inefficient.",
+        problemFr: "Chaque mois, des milliers de personnes cherchent chambres, studios, maisons, boutiques ou sejours courts via WhatsApp et Facebook — un marche bruyant ou se melent vraies annonces, plaques de rue et arnaques (frais de visite sans visite, faux logements, doublons). Les locataires peinent a filtrer et a contacter en confiance ; les bailleurs peinent a etre trouves rapidement. Il n'existe pas de plateforme dominante de confiance au Cameroun.",
+        problemEn: "Every month, thousands look for rooms, studios, houses, shops or short stays via WhatsApp and Facebook — a noisy market mixing real listings, street signs and scams (visit fees with no visit, fake housing, duplicates). Seekers struggle to filter and contact with trust; landlords struggle to be found quickly. No dominant trust platform exists in Cameroon.",
 
         solutionFr: [
-            "Développement d’une plateforme immobilière complète (web + mobile)",
-            "Mise en place d’un système de crédits pour réguler la qualité des annonces",
-            "Intégration d’une IA de détection de fraude (images, prix, comportement utilisateur)",
-            "Création d’un moteur de recherche avancé avec filtres multi-dimensionnels",
-            "Intégration native WhatsApp pour conversion directe",
-            "Déploiement d’une architecture cloud scalable avec CI/CD et monitoring",
+            "Marketplace dual-sided : recherche 100% gratuite pour le locataire / acheteur ; publication montee par credits cote bailleur",
+            "Fiches biens riches : photos/videos, commodites, frais (loyer, caution, visite), badges certifie / verifie, map et reviews",
+            "Mise en relation directe WhatsApp (et messagerie in-app) sans commission cachee",
+            "Economie de credits + packs Mobile Money (Orange Money / MTN MoMo) + option bailleur certifie",
+            "Pipeline IA anti-fraude : hashing media, detection doublons, coherence prix/quartier, scoring TrustScore",
+            "Stack moderne : React Native + web, API Fastify, PostgreSQL/Redis, cloud scalable Douala/Yaounde → CEMAC",
         ],
         solutionEn: [
-            "Developing a full real estate platform (web + mobile)",
-            "Implementing a credit-based system to regulate listing quality",
-            "Integrating AI fraud detection (images, pricing, user behavior)",
-            "Building an advanced multi-filter search engine",
-            "Native WhatsApp integration for direct conversion",
-            "Deploying scalable cloud architecture with CI/CD and monitoring",
+            "Dual-sided marketplace: 100% free search for seekers/buyers; credit-funded publishing for landlords",
+            "Rich listings: photos/videos, amenities, fees (rent, deposit, visit), certified/verified badges, map and reviews",
+            "Direct WhatsApp matching (and in-app messaging) with no hidden commission",
+            "Credit economy + Mobile Money packs (Orange Money / MTN MoMo) + certified-landlord option",
+            "AI anti-fraud pipeline: media hashing, duplicate detection, price/neighborhood coherence, TrustScore",
+            "Modern stack: React Native + web, Fastify API, PostgreSQL/Redis, scalable cloud Douala/Yaounde → CEMAC",
         ],
 
         challengesFr: [
-            "Conception d’une architecture scalable pour un système multi-acteurs complexe",
-            "Implémentation d’une IA fiable pour la détection de fraude en temps réel",
-            "Optimisation des performances sur mobile avec forte volumétrie de données",
-            "Sécurisation des transactions et des données utilisateurs",
-            "Orchestration complète DevOps (CI/CD, monitoring, infra cloud)",
+            "Modeliser un marche informal + formal (locatif, vente, short stay, boutique) sans complexifier l'UX",
+            "Concevoir une anti-fraude utile des le MVP sans fake-security theatre",
+            "Integrer Mobile Money de facon fiable (webhooks, idempotence, reprise) pour les credits",
+            "Servir 4G africaine : perf mobile, images, offline partiel, WhatsApp-first conversion",
+            "Scaler l'architecture (Fastify modulaire) de 2 villes pilotes vers une ambition pan-africaine",
+            "Aligner produit, marketing et ops autour d'une promesse unique : la confiance",
         ],
         challengesEn: [
-            "Designing a scalable architecture for a complex multi-actor system",
-            "Implementing reliable real-time AI fraud detection",
-            "Optimizing mobile performance with high data volume",
-            "Securing transactions and user data",
-            "Full DevOps orchestration (CI/CD, monitoring, cloud infra)",
+            "Model informal + formal markets (rent, sale, short stay, shop) without cluttering UX",
+            "Design anti-fraud that is useful from MVP without security theatre",
+            "Integrate Mobile Money reliably (webhooks, idempotency, recovery) for credits",
+            "Serve African 4G realities: mobile perf, images, partial offline, WhatsApp-first conversion",
+            "Scale architecture (modular Fastify) from 2 pilot cities toward a pan-African ambition",
+            "Align product, marketing and ops around one promise: trust",
         ],
 
         impactFr: [
-            "Réduction massive des fraudes immobilières",
-            "Amélioration de la transparence du marché",
-            "Optimisation de la mise en relation locataire-bailleur",
-            "Création d’un écosystème digital fiable pour l’immobilier local",
+            "Parcours chercheur gratuit : trouver, comparer, contacter sans payer",
+            "Reduction ciblee de la fraude (doublons, faux bailleurs, prix aberrants) via IA + certification",
+            "Visibilite 24/7 pour bailleurs, agents et hotels sans plaques de rue",
+            "Canal diaspora : logements verifies pour la famille a distance",
+            "Socle produit pret a s'etendre ville par ville puis pays par pays",
         ],
         impactEn: [
-            "Massive reduction in real estate fraud",
-            "Improved market transparency",
-            "Optimized tenant-landlord matching",
-            "Creation of a reliable digital real estate ecosystem",
+            "Free seeker journey: find, compare, contact without paying",
+            "Targeted fraud reduction (duplicates, fake landlords, outlier prices) via AI + certification",
+            "24/7 visibility for landlords, agents and hotels without street signs",
+            "Diaspora channel: verified housing for family at a distance",
+            "Product foundation ready to expand city-by-city then country-by-country",
         ],
 
         metrics: {
-            "IA réduction fraude": "-70% coûts de modération",
-            "architecture": "Cloud scalable",
-            "système": "Multi-app (web + mobile + admin)",
-            "status": "En développement actif",
+            "Marche cible": "4M+ menages urbains (CMR)",
+            "Lancement": "Douala + Yaounde",
+            "Modele": "Credits bailleur + certif",
+            "Paiements": "Orange Money / MTN MoMo",
+            "Surfaces": "Mobile RN + Web + Admin",
+            "Equipe": "5 (2 dev)",
+            "Statut": "En developpement actif",
+            "Depuis": "Mai 2026",
         },
 
         techStack: {
-            frontend: ["React", "Next.js", "React Native", "Tailwind CSS"],
-            backend: ["Node.js", "Express", "GraphQL", "Rest API"],
-            database: ["PostgreSQL", "Redis"],
-            devops: ["Docker", "Kubernetes", "AWS", "CI/CD", "Prometheus", "Loki", "Grafana"],
+            frontend: ["React Native", "React", "TypeScript", "Tailwind CSS", "Zustand", "React Query", "Maps SDK"],
+            backend: ["Node.js", "Fastify", "REST API", "BullMQ", "Zod", "JWT / RBAC"],
+            database: ["PostgreSQL", "Redis", "Object Storage"],
+            devops: ["Docker", "GitHub Actions", "Nginx", "AWS", "Prometheus", "Grafana"],
         },
 
         architecture: [
-            "Architecture microservices",
-            "Frontend web + mobile apps",
-            "Backend API centralisé (GraphQL/REST)",
-            "IA services (fraude & scoring)",
-            "Infrastructure cloud scalable (AWS/Kubernetes)",
-            "CI/CD pipeline + monitoring temps réel",
+            "Clients : app React Native (iOS/Android) + plateforme web + backoffice admin",
+            "API Fastify modulaire (listings, credits, auth, media, fraud, messaging) avec extraction progressive des domaines chauds",
+            "PostgreSQL pour le metier ; Redis pour cache, files et rate-limit ; object storage pour media",
+            "Paiements credits via agregateurs Mobile Money (webhooks signes, idempotence)",
+            "Service anti-fraude : hashing media, regles prix/quartier, queue de review admin",
+            "Conversion : deep-link WhatsApp + messagerie in-app ; notifications push",
+            "CI/CD Docker + observabilite (logs structures, metriques, alertes)",
         ],
 
         testing: [
-            "Tests unitaires backend & frontend",
-            "Tests E2E mobile & web",
-            "Tests de sécurité automatisés",
+            "Tests unitaires domaines critiques (credits, auth, fraude)",
+            "Tests contrat API Fastify + validation Zod",
+            "Tests E2E parcours chercheur et publication bailleur",
+            "Scenarios paiement sandbox Mobile Money (webhooks / retries)",
         ],
 
         images: [
-            "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2023-05-39.png",
-            "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2012-02-41.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-home-feed.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-map-explorer.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-property-details.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-landlord-credits.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-figma-flows-01.png",
         ],
-
-        preview: "",
+        preview: "https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-home-feed.png",
         videoDemo: "",
 
-        category: "Fullstack • DevOps • AI • Mobile",
+        category: "Fullstack • Mobile • AI • Marketplace",
         status: "En cours",
-        complexity: "Expert",
-        role: "Fullstack Developer • DevOps Engineer",
-        teamSize: 1,
+        complexity: "Avancé",
+        role: "Lead Architect • Fullstack",
+        teamSize: 5,
 
-        duration: "Projet long terme",
-        date: "2026",
+        duration: "En cours depuis Mai 2026",
+        date: "Mai 2026 – présent",
 
         github: "",
         demo: "",
 
-        businessContextFr: "Projet ambitieux visant à digitaliser et sécuriser le marché immobilier camerounais en introduisant une plateforme de confiance basée sur l’IA et des pratiques cloud modernes.",
-        businessContextEn: "Ambitious project aiming to digitize and secure the Cameroonian real estate market by introducing a trust-based platform powered by AI and modern cloud practices.",
+        businessContextFr: "Projet strategique pour digitaliser l'acces au logement au Cameroun (puis CEMAC / Afrique de l'Ouest) en creant une marketplace de confiance : chercheur gratuit, bailleur payeur via credits, IA anti-fraude et contact WhatsApp natif — la ou Facebook/OLX et les agents traditionnels ne resolvent pas la fraude.",
+        businessContextEn: "Strategic project to digitize housing access in Cameroon (then CEMAC / West Africa) by building a trust marketplace: free seekers, credit-paying landlords, AI anti-fraud and native WhatsApp contact — where Facebook/OLX and traditional agents fail on fraud.",
 
         confidential: false,
 
         responsibilitiesFr: [
-            "Architecture microservices et API GraphQL/REST",
-            "Conception mobile (React Native) + web Next.js",
-            "Pipeline CI/CD AWS et observabilité",
-            "Anti-fraude IA et conversion WhatsApp",
+            "Lead architecture plateforme (mobile, web, API Fastify, data, paiements)",
+            "Modelisation domaines : listings, credits, certification, fraude, messaging",
+            "Conception technique anti-fraude et TrustScore",
+            "Specs UX/UI haute fidelite et coherence design system KAZA",
+            "Encadrement technique du binome developpeur + alignement produit/ops",
+            "Strategie de scalabilite Douala/Yaounde → national → regional",
         ],
         responsibilitiesEn: [
-            "Microservices architecture and GraphQL/REST APIs",
-            "Mobile (React Native) + web Next.js delivery",
-            "AWS CI/CD pipeline and observability",
-            "AI anti-fraud and WhatsApp conversion",
+            "Lead platform architecture (mobile, web, Fastify API, data, payments)",
+            "Domain modeling: listings, credits, certification, fraud, messaging",
+            "Anti-fraud and TrustScore technical design",
+            "High-fidelity UX/UI specs and KAZA design-system consistency",
+            "Technical mentoring of the second developer + product/ops alignment",
+            "Scalability strategy Douala/Yaounde → national → regional",
         ],
 
         gallery: [
-            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2023-05-39.png", captionFr: "Recherche de biens", captionEn: "Property search", kind: "ui" },
-            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2012-02-41.png", captionFr: "Marketplace / listing", captionEn: "Marketplace / listing", kind: "ui" },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-preview.webp",
+                captionFr: "Direction produit KAZA — apercu plateforme immobiliere de confiance",
+                captionEn: "KAZA product direction — trust-first real-estate platform preview",
+                kind: "other",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-figma-flows-01.png",
+                captionFr: "Design system mobile — parcours complet (auth, feed, detail, chat)",
+                captionEn: "Mobile design system — full journeys (auth, feed, detail, chat)",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-figma-flows-02.png",
+                captionFr: "Cartographie UX — discovery, carte, filtres et profils",
+                captionEn: "UX map — discovery, map, filters and profiles",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-figma-flows-03.png",
+                captionFr: "Parcours premium — onboarding, fiches biens et contact bailleur",
+                captionEn: "Premium journeys — onboarding, listings and landlord contact",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-home-feed.png",
+                captionFr: "Feed Accueil — categories, badges certifies et listings FCFA",
+                captionEn: "Home feed — categories, certified badges and FCFA listings",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-explore-neighborhoods.png",
+                captionFr: "Explorer — quartiers populaires (Bastos, Bonapriso) et categories",
+                captionEn: "Explore — popular neighborhoods (Bastos, Bonapriso) and categories",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-map-explorer.png",
+                captionFr: "Carte interactive — pins prix et preview villa (Yaounde)",
+                captionEn: "Interactive map — price pins and villa preview (Yaounde)",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-property-details.png",
+                captionFr: "Fiche bien — galerie, badges confiance, details financiers, CTA WhatsApp",
+                captionEn: "Listing detail — gallery, trust badges, financials, WhatsApp CTA",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-reviews-whatsapp.png",
+                captionFr: "Detail bas de page — disponibilite, map Douala, reviews, discussion bailleur",
+                captionEn: "Detail footer — availability, Douala map, reviews, landlord chat",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-landlord-credits.png",
+                captionFr: "Espace bailleur — credits, publication multi-etapes, boutique MoMo, certification",
+                captionEn: "Landlord space — credits, multi-step publish, MoMo shop, certification",
+                kind: "ui",
+            },
         ],
 
         diagrams: [
             {
                 id: "kaza-arch",
-                titleFr: "Écosystème Kaza",
-                titleEn: "Kaza ecosystem",
+                titleFr: "Architecture plateforme KAZA",
+                titleEn: "KAZA platform architecture",
                 mermaid: `flowchart TB
-  Mobile[React Native] --> API[API Gateway]
-  Web[Next.js] --> API
-  API --> Listings[Listings]
-  API --> Credits[Credits]
-  API --> Fraud[Fraud AI]
-  API --> Concierge[Concierge]
-  Listings --> PG[(PostgreSQL)]
-  Credits --> PG
-  Fraud --> Redis[(Redis)]
-  Concierge --> WA[WhatsApp]`,
+  subgraph clients [Clients]
+    RN[React Native]
+    WEB[Web App]
+    ADM[Admin Backoffice]
+  end
+  subgraph api [API Fastify]
+    GW[Gateway Auth RBAC]
+    LIST[Listings]
+    CRED[Credits Billing]
+    FRD[Fraud Engine]
+    MSG[Messaging]
+    MED[Media]
+  end
+  subgraph data [Data]
+    PG[(PostgreSQL)]
+    RD[(Redis)]
+    S3[(Object Storage)]
+  end
+  subgraph ext [Externes]
+    MOMO[Orange MTN MoMo]
+    WA[WhatsApp]
+  end
+  RN --> GW
+  WEB --> GW
+  ADM --> GW
+  GW --> LIST
+  GW --> CRED
+  GW --> FRD
+  GW --> MSG
+  GW --> MED
+  LIST --> PG
+  CRED --> PG
+  CRED --> MOMO
+  FRD --> RD
+  MED --> S3
+  MSG --> WA`,
+            },
+            {
+                id: "kaza-use-cases",
+                titleFr: "Cas d'utilisation",
+                titleEn: "Use cases",
+                mermaid: `flowchart TB
+  subgraph system [KAZA]
+    UC1[Rechercher un logement]
+    UC2[Filtrer carte et quartiers]
+    UC3[Contacter bailleur WhatsApp]
+    UC4[Acheter credits MoMo]
+    UC5[Publier une annonce]
+    UC6[Se certifier bailleur]
+    UC7[Moderer fraude]
+  end
+  S((Chercheur))
+  L((Bailleur))
+  A((Agent hotel))
+  D((Diaspora))
+  M((Admin))
+  S --- UC1
+  S --- UC2
+  S --- UC3
+  D --- UC1
+  D --- UC3
+  L --- UC4
+  L --- UC5
+  L --- UC6
+  A --- UC4
+  A --- UC5
+  M --- UC7`,
+            },
+            {
+                id: "kaza-credits",
+                titleFr: "Modele economique — credits",
+                titleEn: "Business model — credits",
+                mermaid: `flowchart LR
+  BUY[Achat pack credits MoMo] --> WALLET[Wallet bailleur]
+  BONUS[Credits offerts signup] --> WALLET
+  WALLET --> PUB{Publication}
+  PUB -->|chambre| C1[Consomme N credits / mois]
+  PUB -->|studio| C2[Consomme M credits / mois]
+  PUB -->|villa boutique| C3[Consomme P credits / mois]
+  CERT[Certification premium] --> BADGE[Badge bailleur certifie]
+  BOOST[Boost annonce] --> VIS[Visibilite feed / carte]`,
+            },
+            {
+                id: "kaza-seeker-sequence",
+                titleFr: "Sequence — chercheur vers contact",
+                titleEn: "Sequence — seeker to contact",
+                mermaid: `sequenceDiagram
+  actor U as Chercheur
+  participant APP as App KAZA
+  participant API as Fastify API
+  participant DB as PostgreSQL
+  participant WA as WhatsApp
+  U->>APP: Ouvre feed / carte
+  APP->>API: GET listings filtres
+  API->>DB: Query index quartier prix
+  API-->>APP: Resultats + badges
+  U->>APP: Ouvre fiche bien
+  APP->>API: GET listing detail
+  API-->>APP: Media frais reviews
+  U->>APP: Discuter avec le bailleur
+  APP->>WA: Deep link WhatsApp
+  WA-->>U: Conversation directe`,
+            },
+            {
+                id: "kaza-publish-sequence",
+                titleFr: "Sequence — publication bailleur",
+                titleEn: "Sequence — landlord publish",
+                mermaid: `sequenceDiagram
+  actor L as Bailleur
+  participant APP as App KAZA
+  participant API as Fastify API
+  participant FRD as Fraud Engine
+  participant DB as PostgreSQL
+  participant Q as BullMQ
+  L->>APP: Wizard type localisation media
+  APP->>API: POST listing draft
+  API->>FRD: Analyse media + prix
+  FRD-->>API: Score + flags
+  alt Score OK et credits suffisants
+    API->>DB: Publish + debit credits
+    API-->>APP: Boom live
+  else Flags fraude
+    API->>Q: Queue review admin
+    API-->>APP: En revue
+  end`,
+            },
+            {
+                id: "kaza-fraud",
+                titleFr: "Pipeline IA anti-fraude",
+                titleEn: "AI anti-fraud pipeline",
+                mermaid: `flowchart TB
+  IN[Nouvelle annonce / profil] --> H[Hash media perceptual]
+  H --> DUP{Doublon connu?}
+  DUP -->|oui| BLOCK[Blocage / review]
+  DUP -->|non| PRICE[Coherence prix quartier]
+  PRICE --> BEH[Signaux comportement]
+  BEH --> SCORE[TrustScore]
+  SCORE --> OK{Seuil}
+  OK -->|pass| LIVE[Publication]
+  OK -->|fail| ADMIN[File admin prioritaire]`,
+            },
+            {
+                id: "kaza-payments",
+                titleFr: "Sequence — achat credits Mobile Money",
+                titleEn: "Sequence — Mobile Money credit purchase",
+                mermaid: `sequenceDiagram
+  actor L as Bailleur
+  participant APP as App
+  participant API as Fastify
+  participant PSP as Orange MTN
+  participant DB as PostgreSQL
+  L->>APP: Choisit pack credits
+  APP->>API: POST checkout credits
+  API->>PSP: Init paiement
+  PSP-->>L: Push USSD / app MoMo
+  PSP->>API: Webhook signe
+  API->>DB: Credit wallet idempotent
+  API-->>APP: Solde mis a jour`,
+            },
+            {
+                id: "kaza-scale",
+                titleFr: "Roadmap geographique",
+                titleEn: "Geographic roadmap",
+                mermaid: `flowchart LR
+  P0[Phase 0 Design Architecture] --> P1[Phase 1 Douala Yaounde]
+  P1 --> P2[Phase 2 Villes secondaires CMR]
+  P2 --> P3[Phase 3 CEMAC]
+  P3 --> P4[Phase 4 Afrique de l Ouest]
+  P1 --- F1[MVP confance credits WhatsApp]
+  P2 --- F2[Reseau agences + boost]
+  P3 --- F3[Multi-devise multi-pays]`,
             },
         ],
 
-        resources: [
-            { labelFr: "Vision produit", labelEn: "Product vision", url: "https://barthez-kenwou.dev/", type: "case-study" },
-        ],
+        resources: [],
 
         milestones: [
-            { labelFr: "Cadrage domaines", labelEn: "Domain framing", date: "2025 Q4", descriptionFr: "Fraude, crédits, conciergerie, marketplace.", descriptionEn: "Fraud, credits, concierge, marketplace." },
-            { labelFr: "MVP listings", labelEn: "Listings MVP", date: "2026 Q1", descriptionFr: "Parcours mobile/web de découverte.", descriptionEn: "Mobile/web discovery journeys." },
-            { labelFr: "Anti-fraude & WhatsApp", labelEn: "Anti-fraud & WhatsApp", date: "2026 Q2", descriptionFr: "Modération IA et conversion directe.", descriptionEn: "AI moderation and direct conversion." },
+            {
+                labelFr: "Vision produit & rebranding KAZA",
+                labelEn: "Product vision & KAZA rebrand",
+                date: "Mai 2026",
+                descriptionFr: "Probleme, personas, modele credits, positionnement confiance.",
+                descriptionEn: "Problem, personas, credits model, trust positioning.",
+            },
+            {
+                labelFr: "Architecture Fastify + domaines",
+                labelEn: "Fastify architecture + domains",
+                date: "Mai–Juin 2026",
+                descriptionFr: "Auth, listings, credits, fraude, media, messaging.",
+                descriptionEn: "Auth, listings, credits, fraud, media, messaging.",
+            },
+            {
+                labelFr: "Design system & UX haute fidelite",
+                labelEn: "Design system & high-fidelity UX",
+                date: "Juin–Juillet 2026",
+                descriptionFr: "Parcours chercheur, bailleur, carte, certification, MoMo.",
+                descriptionEn: "Seeker, landlord, map, certification, MoMo journeys.",
+            },
+            {
+                labelFr: "Build mobile / web / API (en cours)",
+                labelEn: "Mobile / web / API build (ongoing)",
+                date: "Aout 2026 – présent",
+                descriptionFr: "Implementation React Native, web, Fastify, paiements sandbox.",
+                descriptionEn: "React Native, web, Fastify implementation, payments sandbox.",
+            },
         ],
 
-        scopeFr: ["Marketplace web + mobile", "Crédits & notation", "Anti-fraude IA", "Conciergerie WhatsApp", "Cloud + CI/CD"],
-        scopeEn: ["Web + mobile marketplace", "Credits & ratings", "AI anti-fraud", "WhatsApp concierge", "Cloud + CI/CD"],
-        nonGoalsFr: ["Escrow financier complet (phase 2)", "Agence physique intégrée"],
-        nonGoalsEn: ["Full financial escrow (phase 2)", "Integrated physical agency"],
+        scopeFr: [
+            "Apps mobile React Native + plateforme web + admin",
+            "Recherche gratuite multi-filtres + carte",
+            "Publication annonces montee par credits",
+            "Paiements Mobile Money (packs credits + certification)",
+            "WhatsApp Direct + messagerie",
+            "IA anti-fraude et TrustScore",
+            "Lancement Douala / Yaounde puis extension",
+        ],
+        scopeEn: [
+            "React Native mobile apps + web platform + admin",
+            "Free multi-filter search + map",
+            "Credit-funded listing publication",
+            "Mobile Money payments (credit packs + certification)",
+            "WhatsApp Direct + messaging",
+            "AI anti-fraud and TrustScore",
+            "Douala / Yaounde launch then expansion",
+        ],
+        nonGoalsFr: [
+            "Escrow / paiement du loyer complet (phase ulterieure)",
+            "Agence physique integree",
+            "Marketplace de travaux / demenagement au MVP",
+        ],
+        nonGoalsEn: [
+            "Full rent escrow / payment (later phase)",
+            "Integrated physical agency",
+            "Moving / works marketplace at MVP",
+        ],
 
         decisions: [
             {
-                titleFr: "Microservices ciblés",
-                titleEn: "Targeted microservices",
-                decisionFr: "Isoler fraude, crédits et listings.",
-                decisionEn: "Isolate fraud, credits, and listings.",
-                rationaleFr: "Domaines à scalabilité et risques différents.",
-                rationaleEn: "Domains with different scaling and risk profiles.",
+                titleFr: "Chercheur gratuit / bailleur payeur",
+                titleEn: "Free seeker / paying landlord",
+                decisionFr: "Zero friction cote demande ; montee via credits cote offre.",
+                decisionEn: "Zero friction on demand side; credit monetization on supply side.",
+                rationaleFr: "Adoption massive des locataires ; ARPU clair cote bailleurs/agents/hotels.",
+                rationaleEn: "Massive seeker adoption; clear ARPU on landlords/agents/hotels.",
             },
             {
-                titleFr: "WhatsApp natif",
-                titleEn: "Native WhatsApp",
-                decisionFr: "Canal de conversion local plutôt qu'un chat custom.",
-                decisionEn: "Local conversion channel over a custom chat.",
-                rationaleFr: "Adoption massive et friction minimale.",
-                rationaleEn: "Massive adoption and minimal friction.",
+                titleFr: "WhatsApp Direct comme conversion",
+                titleEn: "WhatsApp Direct as conversion",
+                decisionFr: "Deep-link WhatsApp prioritaire, chat in-app en complement.",
+                decisionEn: "WhatsApp deep-link first, in-app chat as complement.",
+                rationaleFr: "Canal deja natif au Cameroun ; friction minimale pour closer.",
+                rationaleEn: "Already-native channel in Cameroon; minimal friction to close.",
+            },
+            {
+                titleFr: "Fastify modulaire plutot que microservices day-one",
+                titleEn: "Modular Fastify over day-one microservices",
+                decisionFr: "Monolithe modulaire extractible (fraude, credits, listings).",
+                decisionEn: "Extractable modular monolith (fraud, credits, listings).",
+                rationaleFr: "Velocite equipe de 2 devs ; isolation des domaines chauds sans ops prematuree.",
+                rationaleEn: "Velocity for a 2-dev team; isolate hot domains without premature ops.",
+            },
+            {
+                titleFr: "IA anti-fraude des la conception",
+                titleEn: "Anti-fraud AI from design time",
+                decisionFr: "Pipeline hashing + regles + queue admin des le modele de donnees.",
+                decisionEn: "Hashing + rules + admin queue from the data model onward.",
+                rationaleFr: "La confiance est la feature ; la corriger apres coup est trop cher.",
+                rationaleEn: "Trust is the feature; bolting it on later is too expensive.",
+            },
+            {
+                titleFr: "Mobile Money natif",
+                titleEn: "Native Mobile Money",
+                decisionFr: "Orange Money / MTN MoMo pour packs credits et certification.",
+                decisionEn: "Orange Money / MTN MoMo for credit packs and certification.",
+                rationaleFr: "12M+ utilisateurs MoMo : le rail de paiement est deja la.",
+                rationaleEn: "12M+ MoMo users: the payment rail already exists.",
             },
         ],
 
-        securityFr: ["Scoring anti-fraude", "JWT/RBAC multi-rôles", "Secrets cloud hors repo", "Alertes comportements anormaux"],
-        securityEn: ["Fraud scoring", "Multi-role JWT/RBAC", "Cloud secrets out of repo", "Abnormal-behavior alerts"],
-        infraFr: ["Docker + Kubernetes", "AWS CI/CD", "PostgreSQL + Redis", "Prometheus / Loki / Grafana"],
-        infraEn: ["Docker + Kubernetes", "AWS CI/CD", "PostgreSQL + Redis", "Prometheus / Loki / Grafana"],
+        securityFr: [
+            "Auth JWT + RBAC multi-roles (chercheur, bailleur, agent, admin)",
+            "Webhooks Mobile Money signes + idempotence wallet",
+            "Pipeline anti-fraude media/prix/comportement + revue admin",
+            "Validation Zod stricte sur publications et paiements",
+            "Secrets hors code ; chiffrement transit TLS ; media scopes",
+            "Rate limiting, audit logs et soft-moderation",
+        ],
+        securityEn: [
+            "JWT auth + multi-role RBAC (seeker, landlord, agent, admin)",
+            "Signed Mobile Money webhooks + wallet idempotency",
+            "Media/price/behavior anti-fraud pipeline + admin queue",
+            "Strict Zod validation on listings and payments",
+            "Secrets out of code; TLS in transit; scoped media",
+            "Rate limiting, audit logs and soft moderation",
+        ],
 
-        externalLinks: [{ labelFr: "Portfolio", labelEn: "Portfolio", url: "https://barthez-kenwou.dev" }],
+        infraFr: [
+            "API Fastify conteneurisee + reverse proxy Nginx",
+            "PostgreSQL + Redis + object storage media",
+            "CI/CD GitHub Actions (lint, tests, build, deploy)",
+            "Observabilite Prometheus / Grafana + logs structures",
+            "Environnements sandbox MoMo puis production",
+            "Cible cloud AWS avec passage progressif multi-region",
+        ],
+        infraEn: [
+            "Containerized Fastify API + Nginx reverse proxy",
+            "PostgreSQL + Redis + media object storage",
+            "GitHub Actions CI/CD (lint, tests, build, deploy)",
+            "Prometheus / Grafana observability + structured logs",
+            "MoMo sandbox then production environments",
+            "AWS cloud target with progressive multi-region path",
+        ],
 
-        testimonial: {
-            quoteFr: "La confiance est traitée comme une feature produit, pas un afterthought.",
-            quoteEn: "Trust is treated as a product feature, not an afterthought.",
-            author: "Product Advisor",
-            roleFr: "Conseiller marché",
-            roleEn: "Market advisor",
-            company: "Kaza Pilot Circle",
-        },
+        externalLinks: [],
 
         lessonsFr: [
-            "Mesurer la confiance (signaux fraude) dès le MVP.",
-            "WhatsApp bat un chat custom là où il est déjà le standard.",
-            "Isoler seulement les domaines chauds - pas tout microserviciser trop tôt.",
+            "Sur un marche gangrene par la fraude, la confiance doit etre un domaine produit (badges, IA, certification) — pas un paragraphe legal.",
+            "Le modele chercheur-gratuit / bailleur-credits aligne l'incitation : la demande scale ; l'offre finance la qualite.",
+            "WhatsApp n'est pas un raccourci paresseux : c'est le canal de conversion local ; l'app doit y mener proprement.",
+            "Un Fastify modulaire protege la velocite d'une petite equipe tout en isolant fraude et paiements pour une extraction future.",
+            "Designer toute la surface UX avant de coder les modules critiques reduit les allers-retours produit/dev sur un marketplace multi-acteurs.",
         ],
         lessonsEn: [
-            "Measure trust (fraud signals) from day one.",
-            "WhatsApp beats custom chat where it is already the standard.",
-            "Isolate only hot domains - don't microservice everything too early.",
+            "On a fraud-heavy market, trust must be a product domain (badges, AI, certification) — not a legal paragraph.",
+            "Free-seeker / landlord-credits aligns incentives: demand scales; supply funds quality.",
+            "WhatsApp is not a lazy shortcut: it is the local conversion channel; the app must lead there cleanly.",
+            "Modular Fastify protects a small team's velocity while isolating fraud and payments for later extraction.",
+            "Designing the full UX surface before coding critical modules cuts product/dev thrash on a multi-actor marketplace.",
         ],
 
         beforeAfter: [
             {
-                beforeSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2012-02-41.png",
-                afterSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2023-05-39.png",
-                captionFr: "De l'opacité du marché à un parcours digital structuré.",
-                captionEn: "From market opacity to a structured digital journey.",
+                beforeSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                afterSrc: "https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-home-feed.png",
+                captionFr: "Du marche opaque WhatsApp/Facebook a un parcours KAZA structure et certifie.",
+                captionEn: "From an opaque WhatsApp/Facebook market to a structured, certified KAZA journey.",
             },
         ],
 
         isFeatured: true,
     },
+
 
     {
         id: 4,
