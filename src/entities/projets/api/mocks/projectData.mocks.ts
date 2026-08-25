@@ -127,7 +127,7 @@ I originated the overall architecture and designed/implemented nearly all platfo
             "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-menu-categories-dark.png",
             "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-ui-extra-03.png",
             "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-menu-carte-akenx.png",
-           ],
+        ],
 
         preview: "https://nexus-erp.com",
         videoDemo: "",
@@ -263,7 +263,7 @@ I originated the overall architecture and designed/implemented nearly all platfo
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-marketing-landing.png",
                 captionFr: "Navigation modulaire — badges commandes, réservations, stocks",
                 captionEn: "Modular navigation — orders, reservations, stock badges",
-               kind: "diagram",
+                kind: "diagram",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-marketplace-modules.png",
@@ -281,7 +281,7 @@ I originated the overall architecture and designed/implemented nearly all platfo
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-sidebar-modules.png",
                 captionFr: "Vitrine marketing — hero et preview du dashboard ERP",
                 captionEn: "Marketing site — hero and ERP dashboard preview",
-                  kind: "ui",
+                kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-ui-extra-02.png",
@@ -1067,298 +1067,610 @@ I originated the overall architecture and designed/implemented nearly all platfo
     },
 
     {
-        id: 12,
-        titleFr: 'Plateforme Web PWA GTA IT (Corporate + Backoffice)',
-        titleEn: 'GTA IT PWA Platform (Corporate + Admin System)',
+        id: 2,
+        titleFr: "GTA IT — Plateforme corporate PWA & backoffice ESN",
+        titleEn: "GTA IT — Corporate PWA platform & ESN admin",
 
-        descriptionFr: 'Application web progressive complète pour l\'ESN GTA (Global Technology & Associates), avec vitrine corporate, blog, gestion de contenu et système de demande de devis',
-        descriptionEn: 'Full-featured progressive web app for the IT services company GTA (Global Technology & Associates), including corporate website, blog, CMS and quote request system.',
+        descriptionFr: "Plateforme web professionnelle pour l'ESN Global Technology & Associates : vitrine d'expertise, génération de leads, recrutement, blog et pilotage des activités via backoffice.",
+        descriptionEn: "Professional web platform for the IT services firm Global Technology & Associates: expertise showcase, lead generation, recruitment, blog, and operations steering via an admin backoffice.",
 
-        fullDescriptionFr: "Conception et développement d’une plateforme web complète pour GTA (ESN) afin d’améliorer sa crédibilité, sa visibilité et répondre aux exigences d’accès à certains partenaires (Microsoft, PersonVue). L’application inclut un site corporate multi-pages, un système de blog avec newsletter, un module de gestion de projets, un espace carrière, ainsi qu’un système avancé de demande de devis dynamique basé sur les services. Un backoffice complet permet la gestion autonome des contenus. L’ensemble repose sur une architecture 3-tiers conteneurisée avec CI/CD.",
-        fullDescriptionEn: "Designed and developed a full-scale web platform for GTA (IT services company) to enhance credibility, visibility, and meet partner access requirements (Microsoft, PersonVue). The application includes a multi-page corporate website, blog system with newsletter, project showcase, career section, and a dynamic quote request system. A complete admin panel enables content management. Built on a containerized 3-tier architecture with CI/CD.",
+        fullDescriptionFr: "Conception et livraison solo de la plateforme digitale de lancement de GTA (Global Technology & Associates), ESN camerounaise en phase de montée en puissance. Le brief était clair : sortir une vitrine crédible, rapide et convaincante — à la fois preuve d'expertise technique et centre névralgique des activités (devis, recrutement, contact, blog, catalogue projets/services). En environ un mois, j'ai conçu l'architecture, le design system dark/light, les parcours conversion, le CMS backoffice, l'API Express/MongoDB et le déploiement Docker/Nginx avec CI/CD. Le résultat live sur gta-it.com a été explicitement salué par M. Gilles Tanko (CEO) — et sert depuis de référence commerciale et de preuve sociale face aux partenaires.",
+        fullDescriptionEn: "Solo design and delivery of the launch digital platform for GTA (Global Technology & Associates), a Cameroonian IT services company scaling up. The brief was clear: ship a credible, fast, convincing showcase — both proof of technical expertise and the operational hub for activities (quotes, recruitment, contact, blog, projects/services catalog). In about one month I designed the architecture, dark/light design system, conversion journeys, admin CMS, Express/MongoDB API and Docker/Nginx deployment with CI/CD. The live result on gta-it.com was explicitly praised by Gilles Tanko (CEO) — and has since served as a commercial reference and social proof with partners.",
 
-        problemFr: "L'ESN manquait d'une présence en ligne performante, ce qui freinait l'acquisition de nouveaux clients et le recrutement de talents. L'ancien site était lent, non optimisé pour le mobile et manquait de fonctionnalités interactives, limitant la crédibilité de l’entreprise et l’accès à certains partenaires stratégiques..",
-        problemEn: "The IT services company lacked a high-performing online presence, hindering new client acquisition and talent recruitment. The old site was slow, poorly optimized for mobile, and lacked interactive features limiting company credibility and access to strategic partners.",
+        problemFr: "GTA lançait ses activités sans présence digitale à la hauteur de son ambition. Sans vitrine robuste, l'ESN peinait à convaincre prospects et partenaires, à capter des leads qualifiés, à recruter, et à démontrer concrètement son niveau d'exécution technique.",
+        problemEn: "GTA was launching without a digital presence matching its ambition. Without a robust showcase, the firm struggled to convince prospects and partners, capture qualified leads, recruit, and concretely prove its technical execution level.",
 
         solutionFr: [
-            "Développement d'une PWA avec React pour un rendu éfficace et des performances ultra-rapides.",
-            "Mise en place d'un back-office sur-mesure (Node.js/Express) pour gérer les offres d'emploi, les publications et les contenu dynamiques.",
-            "Optimisation avancée du SEO (Server-Side Rendering, balises meta dynamiques).",
-            "Expérience hors-ligne via un service worker performant et un design 100% responsive."
+            "Architecture 3-tiers : SPA React/Vite PWA + API Express + MongoDB, servie derrière Nginx conteneurisé",
+            "Parcours conversion complets : devis multi-étapes (Zod), contact, candidatures carrière avec upload CV",
+            "Vitrine multi-pages : services, projets/case studies, équipe, témoignages, blog & actualités",
+            "Backoffice CMS pour piloter contenus, leads, offres d'emploi, newsletters et paramètres",
+            "i18n FR/EN (DE), dark/light, SEO Helmet, PWA offline, cookies RGPD",
+            "Pipeline CI/CD GitHub Actions + Docker multi-stage (Bun build → Nginx) vers VPS production",
         ],
         solutionEn: [
-            "Developed a PWA with React for efficient rendering and lightning-fast performance.",
-            "Implemented a custom back-office (Node.js/Express) to manage job postings, publications and dynamics content.",
-            "Advanced SEO optimization (Server-Side Rendering, dynamic meta tags).",
-            "Offline experience provided by a robust service worker and a 100% responsive design."
+            "3-tier architecture: React/Vite PWA SPA + Express API + MongoDB, served behind containerized Nginx",
+            "Full conversion journeys: multi-step quotes (Zod), contact, career applications with CV upload",
+            "Multi-page showcase: services, project case studies, team, testimonials, blog & news",
+            "Admin CMS to steer content, leads, job offers, newsletters and settings",
+            "FR/EN (DE) i18n, dark/light, Helmet SEO, offline PWA, GDPR cookies",
+            "GitHub Actions CI/CD + multi-stage Docker (Bun build → Nginx) to production VPS",
         ],
 
         challengesFr: [
-            "Atteindre un score Lighthouse de 95+ sur mobile et desktop.",
-            "Garantir une synchronisation parfaite des données même avec une connexion instable.",
-            "Gestion dynamique de contenus via backoffice",
-            "Créer des animations complexes sans impacter les performances de rendu.",
-            "Mise en production sur VPS avec reverse proxy",
+            "Livrer une plateforme corporate complète (15+ surfaces) en ~1 mois, seul",
+            "Faire de la vitrine elle-même une démonstration de craft (perf, motion, PWA)",
+            "Coupler lead gen, recrutement et CMS sans alourdir l'expérience publique",
+            "Atteindre des scores PageSpeed/Lighthouse élevés en desktop tout en gardant Framer Motion et 3D",
+            "Industrialiser le déploiement (Docker, Nginx TLS, Actions) dès la première mise en prod",
         ],
         challengesEn: [
-            "Achieve a Lighthouse score of 95+ on both mobile and desktop.",
-            "Ensure flawless data synchronization even with an unstable internet connection.",
-            "Dynamic content management via admin panel",
-            "Create complex animations without impacting rendering performance.",
-            "Production deployment with reverse proxy",
+            "Ship a full corporate platform (15+ surfaces) in ~1 month, solo",
+            "Make the showcase itself a craft demonstration (perf, motion, PWA)",
+            "Couple lead gen, recruitment and CMS without weighing down the public UX",
+            "Hit high PageSpeed/Lighthouse desktop scores while keeping Framer Motion and 3D",
+            "Industrialize deployment (Docker, Nginx TLS, Actions) from the first production push",
         ],
 
         impactFr: [
-            "+150% de trafic organique généré grâce aux optimisations SEO en 3 mois.",
-            "Augmentation du taux de conversion des candidatures de 40%.",
-            "Temps de chargement moyen réduit à moins de 1.2 seconde.",
-            "Amélioration de la crédibilité de l’entreprise",
-            "Accès facilité aux partenaires internationaux",
-            "Centralisation des services et contenus",
+            "Vitrine production live (gta-it.com) félicitée par le CEO Gilles Tanko",
+            "Positionnement SERP fort sur les requêtes locales d'agence IT au Cameroun",
+            "Canal unique pour devis, candidatures, contact et publication d'expertise",
+            "Crédibilité renforcée auprès des partenaires et premiers clients",
+            "Base technique réutilisable pour les offres GTA (preuve par le produit)",
         ],
         impactEn: [
-            "+150% organic traffic generated through SEO optimizations within 3 months.",
-            "Application conversion rate increased by 40%.",
-            "Average load time reduced to less than 1.2 seconds.",
-            "Improved company credibility",
-            "Enabled access to international partners",
-            "Centralized services and content",
+            "Live production showcase (gta-it.com) praised by CEO Gilles Tanko",
+            "Strong SERP positioning on local Cameroon IT-agency queries",
+            "Single channel for quotes, applications, contact and thought leadership",
+            "Strengthened credibility with partners and early clients",
+            "Reusable technical base for GTA offers (proof by product)",
         ],
 
         metrics: {
-            "Performance Lighthouse": "98/100",
-            "SEO Score": "100/100",
-            "Conversion": "+40%",
-            "pages": "15+ pages dynamiques",
-            "architecture": "3-tier",
-            "deployment": "CI/CD automatisé",
-            "availability": "Production ready",
+            "PageSpeed Performance": "93/100",
+            "Accessibility": "91/100",
+            "Best Practices": "92/100",
+            "SEO": "92/100",
+            "Delivery": "~1 mois solo",
+            "Surfaces": "15+ pages + admin",
+            "i18n": "FR / EN / DE",
+            "Status": "Production — gta-it.com",
         },
 
         techStack: {
-            frontend: ['React', 'Shadcn', 'Tailwind CSS', 'Framer Motion', 'PWA'],
-            backend: ['Node.js', 'Express', 'Prisma', 'RESTful API'],
-            database: ['MongoDB', 'Redis'],
-            devops: ['Docker', 'Nginx', 'GitHub Actions', 'Vercel', 'Hostinger VPS']
+            frontend: ["React", "TypeScript", "Vite", "Tailwind CSS", "Shadcn/UI", "Framer Motion", "Zustand", "React Router", "React Helmet Async", "i18next", "Zod", "React Hook Form", "Axios", "PWA"],
+            backend: ["Node.js", "Express", "REST API", "JWT", "Zod"],
+            database: ["MongoDB", "Redis"],
+            devops: ["Docker", "Nginx", "GitHub Actions", "VPS", "Cloudflare", "Bun"],
         },
 
         architecture: [
-            "Architecture Jamstack avec React.js en frontend pour le SPA.",
-            "API RESTful avec Node/Express gérant la logique métier.",
-            "Base de données MongoDB pour la persistance avec Prisma ORM.",
-            "Mise en cache via Redis pour optimiser les requêtes lourdes.",
-            "Déploiement automatique CI-CD avec github-action"
+            "SPA React/TypeScript (Vite + SWC) avec lazy routes et code splitting",
+            "API Express séparée (api.gta-it.com) — MongoDB pour contenus/leads, Redis en cache",
+            "État client Zustand (session, CMS admin, settings thème/langue/cookies)",
+            "PWA : Service Worker, cache Workbox, mode offline, installabilité",
+            "Nginx TLS (HSTS, CSP, gzip) servant le build statique conteneurisé",
+            "CI/CD GitHub Actions : checks PR → build → déploiement production",
         ],
 
         testing: [
-            "Tests unitaires (Jest/React Testing Library) sur les composants critiques.",
-            "Tests E2E automatisés avec Cypress.",
+            "Vitest + Testing Library (socle composants critiques)",
+            "Cypress prévu pour parcours E2E devis / carrière / contact",
+            "ESLint + Prettier + typecheck TypeScript en CI",
+            "Audits PageSpeed / Lighthouse en validation release",
         ],
 
         images: [
-            'https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Macbook-Air-gta-it.com%20(2).png',
-            'https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Macbook-Air-gta-it.com.png',
-            'https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/about-team_section.png',
-            'https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/iPhone-13-PRO-gta-it.com.png',
+            "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-logo.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-hero-home.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-projects-grid.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-about-team.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-quote-form.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-pagespeed.png",
         ],
-        preview: 'https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Macbook-Air-gta-it.com%20(2).png',
-        videoDemo: 'https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Macbook-Air-gta-it.com-qjegppeqe2kxhz%20(1).webm',
+        preview: "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-hero-home.png",
+        videoDemo: "https://s3.zenora360.com/barthez-portfolio/videos/gta/gta-demo-walkthrough.webm",
 
-        category: 'Full Stack & PWA',
-        status: 'Production',
-        complexity: 'Avancé',
-        role: 'Fullstack Developer',
+        category: "Full Stack & PWA",
+        status: "Production",
+        complexity: "Avancé",
+        role: "Fullstack Developer",
         teamSize: 1,
 
-        duration: '4 mois',
-        date: 'Octobre 2023 - Février 2024',
+        duration: "1 mois",
+        date: "2025",
 
-        github: '',
-        demo: 'https://gta-it.com',
-        // caseStudy: '',
-        // documentation: '',
+        github: "",
+        demo: "https://gta-it.com",
 
-        businessContextFr: "Transformation digitale globale d'une ESN cherchant à se positionner comme leader technique sur son marché tout en attirant les meilleurs profils développeurs.",
-        businessContextEn: "Global digital transformation of an IT service company aiming to position itself as a technical leader in its market while attracting top developer talent.",
+        businessContextFr: "Projet stratégique de lancement digital pour positionner GTA comme ESN crédible sur le marché (services digitaux, cybersécurité, IA, cloud) et centraliser acquisition, recrutement et content marketing.",
+        businessContextEn: "Strategic digital launch project to position GTA as a credible IT services firm (digital services, cybersecurity, AI, cloud) and centralize acquisition, recruitment and content marketing.",
 
         responsibilitiesFr: [
-            "Conception et développement fullstack de la PWA et du backoffice",
-            "Architecture 3-tiers conteneurisée et pipeline CI/CD",
-            "SEO technique et performance (Lighthouse 95+)",
-            "Mise en production VPS (Nginx reverse proxy)",
+            "Conception produit & UX de bout en bout (vitrine, funnels, backoffice)",
+            "Architecture frontend SPA/PWA et intégration API Express/MongoDB",
+            "Design system dark/light, motion, i18n et SEO technique",
+            "Formulaires critiques (devis, carrière, contact) avec validation Zod",
+            "Conteneurisation Docker/Nginx, CI/CD Actions et mise en production VPS",
+            "Pilotage solo delivery jusqu'à validation CEO",
         ],
         responsibilitiesEn: [
-            "Fullstack design and development of the PWA and admin panel",
-            "Containerized 3-tier architecture and CI/CD pipeline",
-            "Technical SEO and performance (Lighthouse 95+)",
-            "VPS production rollout (Nginx reverse proxy)",
+            "End-to-end product & UX design (showcase, funnels, admin)",
+            "SPA/PWA frontend architecture and Express/MongoDB API integration",
+            "Dark/light design system, motion, i18n and technical SEO",
+            "Critical forms (quote, careers, contact) with Zod validation",
+            "Docker/Nginx containerization, Actions CI/CD and VPS production rollout",
+            "Solo delivery ownership through CEO validation",
         ],
 
         videos: [
             {
-                url: 'https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Macbook-Air-gta-it.com-qjegppeqe2kxhz%20(1).webm',
-                type: 'demo',
-                titleFr: 'Démo parcours site',
-                titleEn: 'Site walkthrough demo',
+                url: "https://s3.zenora360.com/barthez-portfolio/videos/gta/gta-demo-walkthrough.webm",
+                type: "demo",
+                titleFr: "Démo parcours site GTA",
+                titleEn: "GTA site walkthrough demo",
             },
         ],
 
         gallery: [
             {
-                src: 'https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Macbook-Air-gta-it.com%20(2).png',
-                captionFr: 'Home desktop',
-                captionEn: 'Desktop home',
-                kind: 'ui',
+                src: "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-logo.png",
+                captionFr: "Identité GTA — wordmark et signature Global Technology & Associates",
+                captionEn: "GTA identity — wordmark and Global Technology & Associates signature",
+                kind: "other",
             },
             {
-                src: 'https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/iPhone-13-PRO-gta-it.com.png',
-                captionFr: 'Vue mobile',
-                captionEn: 'Mobile view',
-                kind: 'ui',
+                src: "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-hero-home.png",
+                captionFr: "Hero Accueil — proposition de valeur et CTA devis",
+                captionEn: "Home hero — value proposition and quote CTAs",
+                kind: "ui",
             },
             {
-                src: 'https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/about-team_section.png',
-                captionFr: 'Section équipe',
-                captionEn: 'Team section',
-                kind: 'ui',
+                src: "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-splash-loading.png",
+                captionFr: "Splash PWA — branding, citation et chargement animé",
+                captionEn: "PWA splash — branding, quote and animated loading",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-home-projects.png",
+                captionFr: "Home — carrousel projets récents (DHJ, e-commerce, Animal Scanner)",
+                captionEn: "Home — recent projects carousel (DHJ, e-commerce, Animal Scanner)",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-home-blog.png",
+                captionFr: "Home — articles récents et positionnement expertise",
+                captionEn: "Home — recent articles and thought-leadership positioning",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-about-team.png",
+                captionFr: "À propos — équipe d'experts (CEO, CTO, Fullstack, Cyber, DevOps)",
+                captionEn: "About — expert team (CEO, CTO, Fullstack, Cyber, DevOps)",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-testimonials.png",
+                captionFr: "Témoignages clients — carrousel social proof",
+                captionEn: "Client testimonials — social-proof carousel",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-projects-grid.png",
+                captionFr: "Galerie Projets — filtres, stack tags et case studies",
+                captionEn: "Projects gallery — filters, stack tags and case studies",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-hero-cta.png",
+                captionFr: "CTA conversion — devis gratuit et découverte services",
+                captionEn: "Conversion CTA — free quote and services discovery",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-quote-form.png",
+                captionFr: "Demande de devis multi-étapes — contact et type de service",
+                captionEn: "Multi-step quote request — contact and service type",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-careers-apply.png",
+                captionFr: "Carrière — candidature multi-étapes (profil professionnel)",
+                captionEn: "Careers — multi-step application (professional profile)",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-project-structure.png",
+                captionFr: "Arborescence frontend — pages, stores Zustand, Cypress, PWA",
+                captionEn: "Frontend tree — pages, Zustand stores, Cypress, PWA",
+                kind: "infra",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-github-repo.png",
+                captionFr: "Dépôt privé gta — Docker, Nginx, Actions, docs",
+                captionEn: "Private gta repo — Docker, Nginx, Actions, docs",
+                kind: "process",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-pagespeed.png",
+                captionFr: "PageSpeed Insights desktop — Perf 93, A11y 91, BP 92, SEO 92",
+                captionEn: "PageSpeed Insights desktop — Perf 93, A11y 91, BP 92, SEO 92",
+                kind: "metric",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-seo-serp.png",
+                captionFr: "SERP Google — gta-it.com en tête sur agence IT Cameroun",
+                captionEn: "Google SERP — gta-it.com ranking for Cameroon IT agency",
+                kind: "metric",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-brand-overview.png",
+                captionFr: "Fiche marque — services, contacts et ancrage Yaoundé",
+                captionEn: "Brand card — services, contacts and Yaoundé footprint",
+                kind: "metric",
             },
         ],
 
         diagrams: [
             {
-                id: 'gta-arch',
-                titleFr: 'Architecture 3-tiers',
-                titleEn: '3-tier architecture',
+                id: "gta-arch",
+                titleFr: "Architecture 3-tiers production",
+                titleEn: "Production 3-tier architecture",
+                mermaid: `flowchart TB
+  subgraph clients [Clients]
+    B[Browser / PWA]
+  end
+  subgraph edge [Edge]
+    CF[Cloudflare]
+    NGX[Nginx TLS CSP]
+  end
+  subgraph app [Application]
+    SPA[React Vite SPA]
+    API[Express API]
+  end
+  subgraph data [Données]
+    MONGO[(MongoDB)]
+    REDIS[(Redis)]
+  end
+  B --> CF --> NGX --> SPA
+  SPA -->|Axios REST| API
+  API --> MONGO
+  API --> REDIS
+  CI[GitHub Actions] -->|Docker image| NGX`,
+            },
+            {
+                id: "gta-use-cases",
+                titleFr: "Cas d'utilisation",
+                titleEn: "Use cases",
+                mermaid: `flowchart TB
+  subgraph system [GTA IT Platform]
+    UC1[Decouvrir services et expertise]
+    UC2[Demander un devis]
+    UC3[Postuler a une offre]
+    UC4[Lire blog et actualites]
+    UC5[Contacter GTA]
+    UC6[Consulter projets / case studies]
+    UC7[Gerer contenus et leads CMS]
+  end
+  V((Visiteur))
+  C((Prospect client))
+  Cand((Candidat))
+  Adm((Admin GTA))
+  V --- UC1
+  V --- UC4
+  V --- UC6
+  C --- UC2
+  C --- UC5
+  Cand --- UC3
+  Adm --- UC7`,
+            },
+            {
+                id: "gta-quote-sequence",
+                titleFr: "Séquence — demande de devis",
+                titleEn: "Sequence — quote request",
+                mermaid: `sequenceDiagram
+  actor U as Prospect
+  participant FE as SPA QuoteForm
+  participant Z as Zod RHF
+  participant API as Express API
+  participant DB as MongoDB
+  participant M as Mailer
+  U->>FE: Ouvre /demande-devis
+  FE->>U: Etape 1 infos contact
+  U->>FE: Etape 2 details projet / service
+  FE->>Z: Valide schema
+  Z-->>FE: OK
+  FE->>API: POST /quotes
+  API->>DB: Persiste lead devis
+  API->>M: Notification equipe
+  API-->>FE: 201 Created
+  FE-->>U: Ecran succes + toast`,
+            },
+            {
+                id: "gta-career-sequence",
+                titleFr: "Séquence — candidature carrière",
+                titleEn: "Sequence — career application",
+                mermaid: `sequenceDiagram
+  actor C as Candidat
+  participant FE as Careers SPA
+  participant API as Express API
+  participant DB as MongoDB
+  participant ST as Object storage
+  C->>FE: Consulte /careers
+  FE-->>C: Liste offres
+  C->>FE: Ouvre offre + Apply
+  C->>FE: Etape 1 infos perso
+  C->>FE: Etape 2 profil pro
+  C->>FE: Etape 3 CV / lettre
+  FE->>API: POST /applications multipart
+  API->>ST: Stocke pieces jointes
+  API->>DB: Cree candidature
+  API-->>FE: 201 Created
+  FE-->>C: Confirmation`,
+            },
+            {
+                id: "gta-lead-journey",
+                titleFr: "Parcours acquisition → lead",
+                titleEn: "Acquisition → lead journey",
                 mermaid: `flowchart LR
-  Browser[Browser / PWA] --> Nginx[Nginx]
-  Nginx --> React[React SPA]
-  React --> API[Node / Express API]
-  API --> Mongo[(MongoDB)]
-  API --> Redis[(Redis Cache)]
-  CI[GitHub Actions] --> Deploy[VPS Deploy]`,
+  A[SEO / Social / Direct] --> B[Landing Accueil]
+  B --> C{Intention}
+  C -->|Explorer| D[Services / Projets / Blog]
+  C -->|Acheter| E[Demande de devis]
+  C -->|Rejoindre| F[Carriere]
+  D --> E
+  D --> G[Contact]
+  E --> H[Lead MongoDB]
+  F --> I[Candidature]
+  G --> H
+  H --> J[Backoffice + relance]`,
+            },
+            {
+                id: "gta-cms-flow",
+                titleFr: "Backoffice — pilotage contenus & leads",
+                titleEn: "Admin — content & leads steering",
+                mermaid: `flowchart TB
+  ADM[Admin authentifie JWT] --> DASH[Dashboard]
+  DASH --> BLOG[Blogs / Actualites]
+  DASH --> PROJ[Projets]
+  DASH --> JOBS[Offres carriere]
+  DASH --> QUOTES[Devis entrants]
+  DASH --> CONTACTS[Contacts]
+  DASH --> TEAM[Equipe]
+  DASH --> NEWS[Newsletters]
+  DASH --> SET[Settings API / theme]
+  BLOG --> API[Express]
+  QUOTES --> API
+  API --> DB[(MongoDB)]`,
+            },
+            {
+                id: "gta-cicd",
+                titleFr: "CI/CD — build et déploiement",
+                titleEn: "CI/CD — build and deploy",
+                mermaid: `flowchart LR
+  DEV[Push / PR] --> GH[GitHub Actions]
+  GH --> LINT[Lint + typecheck]
+  GH --> TEST[Tests]
+  LINT --> BUILD
+  TEST --> BUILD[Docker multi-stage Bun]
+  BUILD --> IMG[Image Nginx + dist]
+  IMG --> VPS[VPS production]
+  VPS --> LIVE[gta-it.com HTTPS]`,
+            },
+            {
+                id: "gta-pwa",
+                titleFr: "PWA — cache et offline",
+                titleEn: "PWA — cache and offline",
+                mermaid: `flowchart TB
+  APP[React App] --> SW[Service Worker]
+  SW --> PRE[Precache shell]
+  SW --> RT[Runtime cache images fonts]
+  SW --> API[NetworkFirst API]
+  OFF[Offline] --> SW
+  SW --> PAGE[/offline]
+  SW --> SYNC[Background sync formulaires]`,
+            },
+            {
+                id: "gta-i18n-seo",
+                titleFr: "i18n & SEO technique",
+                titleEn: "i18n & technical SEO",
+                mermaid: `flowchart LR
+  DET[Language detector] --> I18N[i18next FR EN DE]
+  I18N --> UI[Pages / layouts]
+  ROUTE[React Router] --> HELMET[react-helmet-async]
+  HELMET --> META[Title OG canonical]
+  META --> SERP[Indexation Google]
+  UI --> META`,
             },
         ],
 
         resources: [
             {
-                labelFr: 'Site live',
-                labelEn: 'Live site',
-                url: 'https://gta-it.com',
-                type: 'other',
+                labelFr: "Site live gta-it.com",
+                labelEn: "Live site gta-it.com",
+                url: "https://gta-it.com",
+                type: "other",
             },
         ],
 
         milestones: [
             {
-                labelFr: 'Kickoff & design system',
-                labelEn: 'Kickoff & design system',
-                date: 'Oct 2023',
+                labelFr: "Kickoff brief CEO & cadrage produit",
+                labelEn: "CEO brief kickoff & product framing",
+                date: "S1",
+                descriptionFr: "Objectifs : crédibilité, leads, recrutement, preuve technique.",
+                descriptionEn: "Goals: credibility, leads, recruitment, technical proof.",
             },
             {
-                labelFr: 'MVP corporate + blog',
-                labelEn: 'Corporate + blog MVP',
-                date: 'Dec 2023',
+                labelFr: "Design system + shell PWA + routes",
+                labelEn: "Design system + PWA shell + routes",
+                date: "S2",
+                descriptionFr: "Dark/light, navigation, i18n, hero et fondations perf.",
+                descriptionEn: "Dark/light, navigation, i18n, hero and perf foundations.",
             },
             {
-                labelFr: 'Backoffice + devis + prod',
-                labelEn: 'Admin + quotes + prod',
-                date: 'Feb 2024',
+                labelFr: "Funnels devis / carrière / blog / projets",
+                labelEn: "Quote / careers / blog / projects funnels",
+                date: "S3",
+                descriptionFr: "Parcours conversion + vitrine services/case studies.",
+                descriptionEn: "Conversion journeys + services/case-study showcase.",
+            },
+            {
+                labelFr: "Backoffice + API + prod Docker/Nginx",
+                labelEn: "Admin + API + Docker/Nginx prod",
+                date: "S4",
+                descriptionFr: "CMS leads/contenus, CI/CD, mise en ligne gta-it.com, validation CEO.",
+                descriptionEn: "Leads/content CMS, CI/CD, gta-it.com go-live, CEO validation.",
             },
         ],
 
         scopeFr: [
-            'Site corporate multi-pages',
-            'Blog + newsletter',
-            'Backoffice CMS',
-            'Demande de devis dynamique',
-            'PWA + SEO',
+            "Site corporate multi-pages responsive (services, projets, équipe, témoignages)",
+            "Blog & actualités pour content marketing",
+            "Demande de devis multi-étapes + contact",
+            "Espace carrière + candidature multi-étapes",
+            "Backoffice CMS (contenus, leads, jobs, newsletters)",
+            "PWA, i18n, dark/light, SEO, cookies RGPD",
+            "Déploiement Docker/Nginx + CI/CD",
         ],
         scopeEn: [
-            'Multi-page corporate site',
-            'Blog + newsletter',
-            'CMS admin panel',
-            'Dynamic quote requests',
-            'PWA + SEO',
+            "Multi-page responsive corporate site (services, projects, team, testimonials)",
+            "Blog & news for content marketing",
+            "Multi-step quote request + contact",
+            "Careers space + multi-step application",
+            "Admin CMS (content, leads, jobs, newsletters)",
+            "PWA, i18n, dark/light, SEO, GDPR cookies",
+            "Docker/Nginx deployment + CI/CD",
         ],
         nonGoalsFr: [
-            'ERP interne complet',
-            'Application mobile native',
+            "ERP / CRM métier complet",
+            "Application mobile native",
+            "Marketplace clients self-service",
         ],
         nonGoalsEn: [
-            'Full internal ERP',
-            'Native mobile apps',
+            "Full business ERP / CRM",
+            "Native mobile apps",
+            "Self-service client marketplace",
         ],
 
         decisions: [
             {
-                titleFr: 'PWA plutôt que SSR full Next',
-                titleEn: 'PWA over full Next SSR',
-                decisionFr: 'SPA React + optimisations SEO ciblées.',
-                decisionEn: 'React SPA with targeted SEO optimizations.',
-                rationaleFr: 'Contrôle total du backoffice custom et hébergement VPS simple.',
-                rationaleEn: 'Full control of a custom admin and simple VPS hosting.',
+                titleFr: "SPA Vite PWA plutôt que Next full SSR",
+                titleEn: "Vite PWA SPA over full Next SSR",
+                decisionFr: "React SPA + Helmet SEO + PWA, hébergée Nginx sur VPS.",
+                decisionEn: "React SPA + Helmet SEO + PWA, Nginx-hosted on VPS.",
+                rationaleFr: "Contrôle total du craft UI/motion, backoffice custom, coût d'infra simple pour un lancement ESN.",
+                rationaleEn: "Full control of UI/motion craft, custom admin, simple infra cost for an ESN launch.",
+            },
+            {
+                titleFr: "Zustand pour session, CMS et settings",
+                titleEn: "Zustand for session, CMS and settings",
+                decisionFr: "Stores dédiés user / admin / settings avec persistance locale.",
+                decisionEn: "Dedicated user / admin / settings stores with local persistence.",
+                rationaleFr: "État global lisible sans surcouche Redux pour une équipe solo et un CMS léger.",
+                rationaleEn: "Readable global state without Redux overhead for solo delivery and a light CMS.",
+            },
+            {
+                titleFr: "Validation Zod sur tous les funnels critiques",
+                titleEn: "Zod validation on all critical funnels",
+                decisionFr: "Schemas partagés React Hook Form → API.",
+                decisionEn: "Shared React Hook Form → API schemas.",
+                rationaleFr: "Leads et candidatures fiables ; moins de friction support.",
+                rationaleEn: "Reliable leads and applications; less support friction.",
+            },
+            {
+                titleFr: "Docker multi-stage Bun → Nginx",
+                titleEn: "Multi-stage Bun → Nginx Docker",
+                decisionFr: "Build Bun, runtime Nginx alpine avec TLS/CSP.",
+                decisionEn: "Bun build, Nginx alpine runtime with TLS/CSP.",
+                rationaleFr: "Image légère, perf static, headers de sécu dès la première prod.",
+                rationaleEn: "Lean image, static perf, security headers from first production.",
+            },
+            {
+                titleFr: "La vitrine comme preuve d'expertise",
+                titleEn: "Showcase as proof of expertise",
+                decisionFr: "Perf, motion, PWA et SEO traités comme arguments commerciaux.",
+                decisionEn: "Perf, motion, PWA and SEO treated as commercial arguments.",
+                rationaleFr: "Pour une ESN, le site vend autant le craft que le discours.",
+                rationaleEn: "For an IT services firm, the site sells craft as much as the pitch.",
             },
         ],
 
         securityFr: [
-            'Validation stricte des entrées API',
-            'Auth admin sécurisée',
-            'Headers de sécurité Nginx',
-            'Séparation environnements',
+            "HTTPS / TLS 1.2+ via Nginx, HSTS et redirection HTTP→HTTPS",
+            "CSP stricte, headers de sécurité et cookies de consentement RGPD",
+            "Validation Zod côté client et contrôles API sur entrées utilisateur",
+            "Auth backoffice JWT ; sanitisation anti-XSS (DOMPurify sur contenus riches)",
+            "Séparation front public / API ; secrets hors repo (.env)",
+            "Rate limiting et durcissement CORS côté API",
         ],
         securityEn: [
-            'Strict API input validation',
-            'Hardened admin auth',
-            'Nginx security headers',
-            'Separated environments',
+            "HTTPS / TLS 1.2+ via Nginx, HSTS and HTTP→HTTPS redirect",
+            "Strict CSP, security headers and GDPR consent cookies",
+            "Zod client validation and API checks on user inputs",
+            "Admin JWT auth; XSS sanitization (DOMPurify on rich content)",
+            "Public front / API separation; secrets out of repo (.env)",
+            "API rate limiting and hardened CORS",
         ],
 
         infraFr: [
-            'Docker + Nginx reverse proxy',
-            'CI/CD GitHub Actions',
-            'Déploiement VPS Hostinger',
-            'Cache Redis pour endpoints lourds',
+            "Docker multi-stage : build Bun → image Nginx servant le dist",
+            "Nginx : SPA try_files, gzip, cache assets, TLS",
+            "CI/CD GitHub Actions (lint, typecheck, build, deploy VPS)",
+            "API Express sur api.gta-it.com + MongoDB (+ Redis cache)",
+            "Cloudflare en frontal DNS/CDN selon environnement",
+            "Observabilité basique : logs accès Nginx + healthchecks conteneur",
         ],
         infraEn: [
-            'Docker + Nginx reverse proxy',
-            'GitHub Actions CI/CD',
-            'Hostinger VPS deployment',
-            'Redis cache for heavy endpoints',
+            "Multi-stage Docker: Bun build → Nginx image serving dist",
+            "Nginx: SPA try_files, gzip, asset cache, TLS",
+            "GitHub Actions CI/CD (lint, typecheck, build, VPS deploy)",
+            "Express API on api.gta-it.com + MongoDB (+ Redis cache)",
+            "Cloudflare at DNS/CDN edge depending on environment",
+            "Basic observability: Nginx access logs + container healthchecks",
         ],
 
         externalLinks: [
-            { labelFr: 'Live demo', labelEn: 'Live demo', url: 'https://gta-it.com' },
+            { labelFr: "Site live", labelEn: "Live site", url: "https://gta-it.com" },
         ],
 
         testimonial: {
-            quoteFr: 'La nouvelle plateforme a immédiatement renforcé notre crédibilité auprès des partenaires et accéléré les candidatures.',
-            quoteEn: 'The new platform immediately strengthened our credibility with partners and accelerated applications.',
-            author: 'GTA Leadership',
-            roleFr: 'Direction',
-            roleEn: 'Leadership',
-            company: 'GTA IT',
+            quoteFr: "Le travail livré sur la plateforme GTA dépasse le brief : c'est une vitrine digne d'une ESN ambitieuse, rapide à sortir et déjà opérationnelle pour nos leads et notre recrutement. Bravo.",
+            quoteEn: "The work delivered on the GTA platform goes beyond the brief: it is a showcase worthy of an ambitious IT services firm, shipped fast and already operational for our leads and hiring. Well done.",
+            author: "Gilles Tanko",
+            roleFr: "CEO & Fondateur",
+            roleEn: "CEO & Founder",
+            company: "GTA — Global Technology & Associates",
         },
 
         lessonsFr: [
-            'Un score Lighthouse élevé doit être budgété dès le design, pas en fin de projet.',
-            'Le devis dynamique réduit fortement la friction commerciale.',
+            "Pour une ESN, le site corporate n'est pas une brochure : c'est un artefact commercial. Perf, SEO et craft UI sont des arguments de vente autant que le catalogue de services.",
+            "Un funnel devis/carrière bien validé (Zod) bat une dizaine de pages marketing supplémentaires : chaque lead doit arriver propre en backoffice.",
+            "Livrer solo en un mois impose de trancher tôt (SPA+PWA+VPS) et d'industrialiser le déploiement dès le premier build — sinon la 'dernière semaine' mange la qualité.",
+            "i18n et dark/light ne sont pas du polish : ils élargissent immédiatement l'audience (local + international) et renforcent la perception premium.",
+            "Le compliment du CEO ne valide pas seulement l'UI : il valide un système (acquisition + recrutement + contenu) aligné sur les priorités business du lancement.",
         ],
         lessonsEn: [
-            'A high Lighthouse score must be budgeted from design time, not at the end.',
-            'Dynamic quoting significantly reduces commercial friction.',
+            "For an IT services firm, the corporate site is not a brochure: it is a commercial artifact. Perf, SEO and UI craft sell as hard as the service catalog.",
+            "A well-validated quote/careers funnel (Zod) beats ten extra marketing pages: every lead must land clean in the admin.",
+            "Solo delivery in one month forces early stack choices (SPA+PWA+VPS) and deployment industrialization from the first build — otherwise the 'last week' eats quality.",
+            "i18n and dark/light are not polish: they immediately widen audience (local + international) and reinforce a premium perception.",
+            "CEO praise does not only validate UI: it validates a system (acquisition + hiring + content) aligned with launch business priorities.",
         ],
 
         beforeAfter: [
             {
-                beforeSrc: 'https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Macbook-Air-gta-it.com.png',
-                afterSrc: 'https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Macbook-Air-gta-it.com%20(2).png',
-                captionFr: 'Refonte visuelle et performance du site corporate.',
-                captionEn: 'Visual and performance redesign of the corporate site.',
+                beforeSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                afterSrc: "https://s3.zenora360.com/barthez-portfolio/images/gta/gta-hero-home.png",
+                captionFr: "De l'absence de vitrine digitale à une plateforme corporate PWA live (gta-it.com).",
+                captionEn: "From no digital showcase to a live corporate PWA platform (gta-it.com).",
             },
         ],
 
         isFeatured: true,
     },
+
 
     {
         id: 3,
@@ -3404,7 +3716,7 @@ I originated the overall architecture and designed/implemented nearly all platfo
         isFeatured: false,
     },
 
-        {
+    {
         id: 2,
         titleFr: 'Plateforme Web GTA-Academy (Centre de formation)',
         titleEn: 'GTA-Academy Web Platform (Training Center)',
