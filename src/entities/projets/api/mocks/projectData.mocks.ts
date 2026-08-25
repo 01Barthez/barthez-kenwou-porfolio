@@ -1671,28 +1671,27 @@ I originated the overall architecture and designed/implemented nearly all platfo
         isFeatured: true,
     },
 
-
     {
         id: 3,
-        titleFr: "KAZA — Marketplace immobiliere de confiance (Afrique)",
+        titleFr: "KAZA — Marketplace immobilière de confiance (Afrique)",
         titleEn: "KAZA — Trust-first real-estate marketplace (Africa)",
 
-        descriptionFr: "Plateforme web & mobile pour trouver et publier un logement en Afrique : recherche gratuite pour les locataires, credits bailleurs, IA anti-fraude et contact direct WhatsApp.",
+        descriptionFr: "Plateforme web & mobile pour trouver et publier un logement en Afrique : recherche gratuite pour les locataires, crédits bailleurs, IA anti-fraude et contact direct WhatsApp.",
         descriptionEn: "Web & mobile platform to find and publish housing in Africa: free search for seekers, landlord credits, AI anti-fraud and direct WhatsApp contact.",
 
-        fullDescriptionFr: "KAZA (ex-CamerLog) est la plateforme immobiliere de confiance concue pour le marche camerounais et extensible a l'Afrique subsaharienne. Le projet repond a un probleme quotidien : trouver un logement rapidement, sans arnaque aux frais de visite, sans opacite de prix, et sans intermedaires opaques. Depuis mai 2026, une equipe de cinq personnes (deux developpeurs dont moi en lead architecture / fullstack, produit, marketing et operations) structure et developpe un ecosysteme complet : application mobile React Native, plateforme web, API Fastify, montee de credits Mobile Money (Orange / MTN), certification bailleur, moteur de recherche multi-filtres, et pipeline IA anti-fraude (doublons media, prix aberrants, patterns de faux bailleurs). Locataires et diaspora cherchent gratuitement ; les bailleurs, agents et hotels consomment des credits pour publier. L'objectif : devenir le standard de confiance type Airbnb adapte aux realites africaines, en demarrant sur Douala et Yaounde.",
+        fullDescriptionFr: "KAZA (ex-CamerLog) est la plateforme immobilière de confiance conçue pour le marché camerounais et extensible à l'Afrique subsaharienne. Le projet répond à un problème quotidien : trouver un logement rapidement, sans arnaque aux frais de visite, sans opacité de prix, et sans intermédiaires opaques. Depuis mai 2026, une équipe de cinq personnes (deux développeurs dont moi en lead architecture / fullstack, produit, marketing et opérations) structure et développe un écosystème complet : application mobile React Native, plateforme web, API Fastify, montée de crédits Mobile Money (Orange / MTN), certification bailleur, moteur de recherche multi-filtres, et pipeline IA anti-fraude (doublons médias, prix aberrants, patterns de faux bailleurs). Locataires et diaspora cherchent gratuitement ; les bailleurs, agents et hôtels consomment des crédits pour publier. L'objectif : devenir le standard de confiance type Airbnb adapté aux réalités africaines, en démarrant sur Douala et Yaoundé.",
         fullDescriptionEn: "KAZA (formerly CamerLog) is the trust-first real-estate platform designed for the Cameroonian market and expandable across Sub-Saharan Africa. It tackles a daily problem: find housing fast, without visit-fee scams, price opacity, or opaque middlemen. Since May 2026, a five-person team (two developers including me as lead architect / fullstack, plus product, marketing and operations) has been structuring and building a full ecosystem: React Native mobile app, web platform, Fastify API, Mobile Money credit top-ups (Orange / MTN), landlord certification, multi-filter search, and an AI anti-fraud pipeline (media duplicates, outlier prices, fake-landlord patterns). Seekers and diaspora search for free; landlords, agents and hotels spend credits to publish. The goal: become the Airbnb-class trust standard adapted to African realities, starting in Douala and Yaounde.",
 
-        problemFr: "Chaque mois, des milliers de personnes cherchent chambres, studios, maisons, boutiques ou sejours courts via WhatsApp et Facebook — un marche bruyant ou se melent vraies annonces, plaques de rue et arnaques (frais de visite sans visite, faux logements, doublons). Les locataires peinent a filtrer et a contacter en confiance ; les bailleurs peinent a etre trouves rapidement. Il n'existe pas de plateforme dominante de confiance au Cameroun.",
+        problemFr: "Chaque mois, des milliers de personnes cherchent chambres, studios, maisons, boutiques ou séjours courts via WhatsApp et Facebook — un marché bruyant où se mêlent vraies annonces, plaques de rue et arnaques (frais de visite sans visite, faux logements, doublons). Les locataires peinent à filtrer et à contacter en confiance ; les bailleurs peinent à être trouvés rapidement. Il n'existe pas de plateforme dominante de confiance au Cameroun.",
         problemEn: "Every month, thousands look for rooms, studios, houses, shops or short stays via WhatsApp and Facebook — a noisy market mixing real listings, street signs and scams (visit fees with no visit, fake housing, duplicates). Seekers struggle to filter and contact with trust; landlords struggle to be found quickly. No dominant trust platform exists in Cameroon.",
 
         solutionFr: [
-            "Marketplace dual-sided : recherche 100% gratuite pour le locataire / acheteur ; publication montee par credits cote bailleur",
-            "Fiches biens riches : photos/videos, commodites, frais (loyer, caution, visite), badges certifie / verifie, map et reviews",
-            "Mise en relation directe WhatsApp (et messagerie in-app) sans commission cachee",
-            "Economie de credits + packs Mobile Money (Orange Money / MTN MoMo) + option bailleur certifie",
-            "Pipeline IA anti-fraude : hashing media, detection doublons, coherence prix/quartier, scoring TrustScore",
-            "Stack moderne : React Native + web, API Fastify, PostgreSQL/Redis, cloud scalable Douala/Yaounde → CEMAC",
+            "Marketplace dual-sided : recherche 100% gratuite pour le locataire / acheteur ; publication montée par crédits côté bailleur",
+            "Fiches biens riches : photos/vidéos, commodités, frais (loyer, caution, visite), badges certifié / vérifié, map et reviews",
+            "Mise en relation directe WhatsApp (et messagerie in-app) sans commission cachée",
+            "Économie de crédits + packs Mobile Money (Orange Money / MTN MoMo) + option bailleur certifié",
+            "Pipeline IA anti-fraude : hashing médias, détection doublons, cohérence prix/quartier, scoring TrustScore",
+            "Stack moderne : React Native + web, API Fastify, PostgreSQL/Redis, cloud scalable Douala/Yaoundé → CEMAC",
         ],
         solutionEn: [
             "Dual-sided marketplace: 100% free search for seekers/buyers; credit-funded publishing for landlords",
@@ -1786,7 +1785,7 @@ I originated the overall architecture and designed/implemented nearly all platfo
         role: "Lead Architect • Fullstack",
         teamSize: 5,
 
-        duration: "En cours depuis Mai 2026",
+        duration: "Mai 2026 – en cours",
         date: "Mai 2026 – présent",
 
         github: "",
@@ -1817,9 +1816,15 @@ I originated the overall architecture and designed/implemented nearly all platfo
         gallery: [
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-preview.webp",
-                captionFr: "Direction produit KAZA — apercu plateforme immobiliere de confiance",
+                captionFr: "Direction produit KAZA — aperçu plateforme immobilière de confiance",
                 captionEn: "KAZA product direction — trust-first real-estate platform preview",
-                kind: "other",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-home-feed.png",
+                captionFr: "Feed Accueil — catégories, badges certifiés et listings FCFA",
+                captionEn: "Home feed — categories, certified badges and FCFA listings",
+                kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-figma-flows-01.png",
@@ -1840,12 +1845,6 @@ I originated the overall architecture and designed/implemented nearly all platfo
                 kind: "ui",
             },
             {
-                src: "https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-home-feed.png",
-                captionFr: "Feed Accueil — categories, badges certifies et listings FCFA",
-                captionEn: "Home feed — categories, certified badges and FCFA listings",
-                kind: "ui",
-            },
-            {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-explore-neighborhoods.png",
                 captionFr: "Explorer — quartiers populaires (Bastos, Bonapriso) et categories",
                 captionEn: "Explore — popular neighborhoods (Bastos, Bonapriso) and categories",
@@ -1853,25 +1852,25 @@ I originated the overall architecture and designed/implemented nearly all platfo
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-map-explorer.png",
-                captionFr: "Carte interactive — pins prix et preview villa (Yaounde)",
+                captionFr: "Carte interactive — pins prix et preview villa (Yaoundé)",
                 captionEn: "Interactive map — price pins and villa preview (Yaounde)",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-property-details.png",
-                captionFr: "Fiche bien — galerie, badges confiance, details financiers, CTA WhatsApp",
+                captionFr: "Fiche bien — galerie, badges confiance, détails financiers, CTA WhatsApp",
                 captionEn: "Listing detail — gallery, trust badges, financials, WhatsApp CTA",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-reviews-whatsapp.png",
-                captionFr: "Detail bas de page — disponibilite, map Douala, reviews, discussion bailleur",
+                captionFr: "Détail bas de page — disponibilité, map Douala, reviews, discussion bailleur",
                 captionEn: "Detail footer — availability, Douala map, reviews, landlord chat",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-landlord-credits.png",
-                captionFr: "Espace bailleur — credits, publication multi-etapes, boutique MoMo, certification",
+                captionFr: "Espace bailleur — crédits, publication multi-étapes, boutique MoMo, certification",
                 captionEn: "Landlord space — credits, multi-step publish, MoMo shop, certification",
                 kind: "ui",
             },
@@ -2225,225 +2224,743 @@ I originated the overall architecture and designed/implemented nearly all platfo
         isFeatured: true,
     },
 
-
     {
         id: 4,
-        titleFr: 'Portfolio Fullstack & DevOps (Personnel) – Plateforme de Positionnement Technique',
-        titleEn: 'Fullstack & DevOps Portfolio (Personal) – Technical Positioning Platform',
+        titleFr: "barthez-kenwou.dev — Portfolio de positionnement technique",
+        titleEn: "barthez-kenwou.dev — Technical positioning portfolio",
 
-        descriptionFr: "Portfolio professionnel fullstack conçu comme une plateforme complète de présentation, intégrant performance, SEO, backoffice et bonnes pratiques DevOps pour maximiser la crédibilité technique.",
-        descriptionEn: "Professional fullstack portfolio built as a complete platform, integrating performance, SEO, admin system, and DevOps best practices to maximize technical credibility.",
+        descriptionFr: "Pas un CV en ligne : une plateforme produit qui prouve, mesure et déploie l'expertise Full Stack & DevOps — case studies, blog, services, CV PDF, analytics et CD DevSecOps jusqu'à la prod OVH.",
+        descriptionEn: "Not an online résumé: a product platform that proves, measures and ships Full Stack & DevOps expertise — case studies, blog, services, PDF CV, analytics and DevSecOps CD to OVH production.",
 
-        fullDescriptionFr: "Conception et développement d’un portfolio personnel avancé, pensé non comme un simple site vitrine, mais comme une véritable plateforme technique démontrant un haut niveau d’expertise en développement fullstack et DevOps. L’application intègre un frontend moderne en React avec animations fluides et UX optimisée, un backend robuste en Node.js/Express structuré selon des principes DDD et partiellement SOLID, ainsi qu’un système de gestion de contenu (backoffice) permettant l’administration dynamique des blogs et des projets. Le système est optimisé pour le SEO, les performances et le caching (Redis + NodeCache), et déployé sur une infrastructure sécurisée (VPS OVH) avec Docker, Nginx et CI/CD automatisé via GitHub Actions. L’objectif principal est de créer un outil stratégique de positionnement professionnel capable de convaincre recruteurs, clients et partenaires techniques.",
-        fullDescriptionEn: "Designed and developed an advanced personal portfolio, not as a simple showcase but as a full technical platform demonstrating strong expertise in fullstack development and DevOps. The application features a modern React frontend with smooth animations and optimized UX, a robust Node.js/Express backend structured with DDD and partially SOLID principles, and a content management system (admin panel) for dynamic blog and project management. The system is optimized for SEO, performance, and caching (Redis + NodeCache), and deployed on a secured infrastructure (OVH VPS) using Docker, Nginx, and automated CI/CD with GitHub Actions. The main goal is to build a strategic positioning tool capable of convincing recruiters, clients, and technical partners.",
+        fullDescriptionFr: `barthez-kenwou.dev n'est pas un CV avec une URL. C'est mon système de preuves — le produit que je vends quand on me demande ce que je sais faire. Dans un marché où générer du code est devenu trivial, la différenciation a changé de place : ce qui compte, c'est la capacité à transformer une intention en système fiable, mesurable, sécurisé et livré en production. Ce site est exactement ça, exposé.
 
-        problemFr: "Les portfolios classiques sont souvent limités à une simple vitrine statique, ne permettant pas de démontrer réellement le niveau technique, les compétences en architecture ou les pratiques DevOps avancées.",
-        problemEn: "Traditional portfolios are often limited to static showcases, failing to truly demonstrate technical depth, architectural skills, or advanced DevOps practices.",
+Le parcours est conçu pour une audience technique exigeante. Un recruteur ou un client ne « lit » pas une brochure : il audite. Accueil (positionnement + craft), À propos (bio + timeline), Compétences (atlas filtrable Cloud/DevOps/Frontend…), Projets (case studies à ~20 sections optionnelles : problème, solution, stack, galerie, Mermaid, ADR, sécu/infra, avant/après, leçons), Services tarifés, Blog long format, Contact WhatsApp, CV PDF. Chaque surface a un job unique — prouver une facette de l'exécution, pas décorer.
+
+Sous le capot : SPA Feature-Sliced Design (React / TypeScript / Vite), API REST, i18n FR/EN, thème dark/light, PWA, SEO/JSON-LD, état Zustand, médias case studies sur SeaweedFS S3. La livraison fait partie du pitch commercial : GitHub Actions (CI + Cypress + Lighthouse), Gitleaks → SonarQube → Trivy → image GHCR privée → SSH/Watchtower sur VPS OVH, Nginx Alpine durci (CSP/HSTS), Cloudflare en edge, Plausible self-hosted pour mesurer l'engagement réel (~314 visiteurs / 28j, 4.64 pages/visite, ~4 min, bounce 31% ; PageSpeed A11y 96 / BP 100 / SEO 100).
+
+Je conçois, code, sécurise, déploie et itère seul. Le résultat live n'illustre pas des compétences — il les incarne. Ouvrir barthez-kenwou.dev, c'est déjà commencer l'entretien technique.`,
+        fullDescriptionEn: `barthez-kenwou.dev is not a résumé with a URL. It is my proof system — the product I sell when someone asks what I can do. In a market where generating code has become trivial, differentiation moved: what matters is the ability to turn intent into a reliable, measurable, secured system shipped to production. This site is exactly that, exposed.
+
+The journey is built for a demanding technical audience. A recruiter or client does not "read" a brochure — they audit. Home (positioning + craft), About (bio + timeline), Skills (filterable Cloud/DevOps/Frontend atlas…), Projects (case studies with ~20 optional sections: problem, solution, stack, gallery, Mermaid, ADRs, security/infra, before/after, lessons), priced Services, long-form Blog, WhatsApp Contact, PDF CV. Each surface has one job — prove a facet of execution, not decorate.
+
+Under the hood: Feature-Sliced Design SPA (React / TypeScript / Vite), REST API, FR/EN i18n, dark/light theme, PWA, SEO/JSON-LD, Zustand state, case-study media on SeaweedFS S3. Delivery is part of the commercial pitch: GitHub Actions (CI + Cypress + Lighthouse), Gitleaks → SonarQube → Trivy → private GHCR image → SSH/Watchtower on OVH VPS, hardened Nginx Alpine (CSP/HSTS), Cloudflare at the edge, self-hosted Plausible for real engagement (~314 visitors / 28d, 4.64 pages/visit, ~4 min, 31% bounce; PageSpeed A11y 96 / BP 100 / SEO 100).
+
+I design, code, secure, deploy and iterate alone. The live result does not illustrate skills — it embodies them. Opening barthez-kenwou.dev is already starting the technical interview.`,
+
+        problemFr: "Un portfolio classique montre des screenshots et des listes de technologies. Il ne démontre ni l'architecture, ni la discipline de livraison, ni la capacité à produire de la confiance mesurable. Recruteurs et clients techniques ont besoin de preuves — pas de slogans.",
+        problemEn: "A classic portfolio shows screenshots and tech lists. It demonstrates neither architecture, nor delivery discipline, nor the ability to produce measurable trust. Recruiters and technical clients need proof — not slogans.",
 
         solutionFr: [
-            "Développement d’une plateforme fullstack complète avec frontend, backend et backoffice",
-            "Application des principes DDD et partiellement SOLID pour une architecture propre et scalable",
-            "Mise en place d’un système de caching avancé (Redis + NodeCache)",
-            "Optimisation SEO avancée pour maximiser la visibilité",
-            "Implémentation d’animations et UX modernes (Framer Motion)",
-            "Déploiement sécurisé sur VPS avec Docker, Nginx et CI/CD automatisé",
+            "Plateforme produit complète : Accueil, À propos, Compétences, Projets (case studies), Services, Blog, Contact, CV PDF",
+            "Case studies structurés (20 sections optionnelles) : problème/solution, vidéos, stack, galerie, Mermaid, ADR, sécu/infra, avant/après, leçons",
+            "Architecture FSD React/TS + API REST + état Zustand + i18n + SEO/JSON-LD",
+            "Chaîne DevSecOps : CI → Gitleaks → Sonar → Trivy → GHCR → SSH OVH + Watchtower",
+            "Runtime production : Docker Nginx Alpine, CSP stricte, Cloudflare DNS/CDN, SeaweedFS pour médias",
+            "Preuve d'impact : PageSpeed, Plausible (engagement), Cloudflare (edge), contributions GitHub",
         ],
         solutionEn: [
-            "Built a fullstack platform including frontend, backend, and admin system",
-            "Applied DDD and partial SOLID principles for clean and scalable architecture",
-            "Implemented advanced caching system (Redis + NodeCache)",
-            "Optimized SEO for maximum visibility",
-            "Integrated modern animations and UX (Framer Motion)",
-            "Deployed securely on VPS with Docker, Nginx, and automated CI/CD",
+            "Full product platform: Home, About, Skills, Projects (case studies), Services, Blog, Contact, PDF CV",
+            "Structured case studies (20 optional sections): problem/solution, videos, stack, gallery, Mermaid, ADRs, security/infra, before/after, lessons",
+            "FSD React/TS architecture + REST API + Zustand state + i18n + SEO/JSON-LD",
+            "DevSecOps chain: CI → Gitleaks → Sonar → Trivy → GHCR → SSH OVH + Watchtower",
+            "Production runtime: Docker Nginx Alpine, strict CSP, Cloudflare DNS/CDN, SeaweedFS for media",
+            "Impact proof: PageSpeed, Plausible (engagement), Cloudflare (edge), GitHub contributions",
         ],
 
         challengesFr: [
-            "Concevoir un portfolio réellement différenciant techniquement",
-            "Maintenir des performances élevées malgré les animations et le contenu dynamique",
-            "Implémenter une architecture propre et évolutive",
-            "Gérer le déploiement sécurisé sur VPS avec CI/CD complet",
-            "Optimiser le SEO sur une application dynamique",
+            "Faire d'un portfolio un produit crédible pour une audience technique exigeante",
+            "Concilier motion/WebGL premium et accessibilité / reduced-motion / perf",
+            "Rendre les case studies exhaustifs sans noyer les petits projets (sections optionnelles)",
+            "Industrialiser un CD DevSecOps privé (GHCR) sur VPS sans lock-in PaaS",
+            "Mesurer vraiment l'engagement (Plausible) plutôt que vanité analytics",
+            "Maintenir FR/EN, SEO et qualité de code en livraison continue solo",
         ],
         challengesEn: [
-            "Designing a technically differentiated portfolio",
-            "Maintaining high performance despite animations and dynamic content",
-            "Implementing a clean and scalable architecture",
-            "Managing secure VPS deployment with full CI/CD",
-            "Optimizing SEO on a dynamic application",
+            "Turn a portfolio into a credible product for a demanding technical audience",
+            "Reconcile premium motion/WebGL with accessibility / reduced-motion / perf",
+            "Make case studies exhaustive without drowning small projects (optional sections)",
+            "Industrialize private DevSecOps CD (GHCR) on a VPS without PaaS lock-in",
+            "Actually measure engagement (Plausible) instead of vanity analytics",
+            "Maintain FR/EN, SEO and code quality under continuous solo delivery",
         ],
 
         impactFr: [
-            "Amélioration significative du positionnement professionnel",
-            "Démonstration concrète des compétences fullstack & DevOps",
-            "Augmentation de la crédibilité auprès des recruteurs et clients",
-            "Centralisation des projets, contenus et expertise technique",
+            "Positionnement clair Full Stack JS + DevOps + Cloud — prouvé par le runtime lui-même",
+            "Engagement réel : ~314 visiteurs uniques / 28j, 4.64 pages/visite, ~4 min de durée, bounce 31%",
+            "Qualité web : PageSpeed A11y 96, Best Practices 100, SEO 100 (desktop)",
+            "Canal d'acquisition pour missions, collaborations et recrutement technique",
+            "Standard interne de case study réutilisé pour NEXUS, GTA, KAZA et les suivants",
         ],
         impactEn: [
-            "Significant improvement in professional positioning",
-            "Concrete demonstration of fullstack & DevOps skills",
-            "Increased credibility with recruiters and clients",
-            "Centralized projects, content, and technical expertise",
+            "Clear Full Stack JS + DevOps + Cloud positioning — proven by the runtime itself",
+            "Real engagement: ~314 unique visitors / 28d, 4.64 pages/visit, ~4 min duration, 31% bounce",
+            "Web quality: PageSpeed A11y 96, Best Practices 100, SEO 100 (desktop)",
+            "Acquisition channel for missions, collaborations and technical hiring",
+            "Internal case-study standard reused for NEXUS, GTA, KAZA and beyond",
         ],
 
         metrics: {
-            "architecture": "DDD + SOLID (partiel)",
-            "performance": "Optimisé (caching Redis + NodeCache)",
-            "deployment": "CI/CD automatisé",
-            "infrastructure": "VPS sécurisé (OVH)",
+            "PageSpeed Perf": "87/100",
+            "Accessibility": "96/100",
+            "Best Practices": "100/100",
+            "SEO": "100/100",
+            "Visiteurs 28j": "314",
+            "Pages / visite": "4.64",
+            "Durée moyenne": "3m 57s",
+            "Bounce": "31%",
+            "CD": "GHCR → OVH VPS",
+            "Version": "1.4.0",
         },
 
         techStack: {
-            frontend: ["React", "TypeScript", "Tailwind CSS", "Shadcn", "Framer Motion", "Zustand"],
-            backend: ["Node.js", "Express", "Prisma", "REST API"],
-            database: ["MongoDB", "Redis"],
-            devops: ["Docker", "Nginx", "GitHub Actions", "OVH VPS"],
+            frontend: ["React", "TypeScript", "Vite", "Tailwind CSS", "Framer Motion", "Zustand", "i18next", "Mermaid", "React PDF", "PWA"],
+            backend: ["Node.js", "Express", "REST API", "Zod", "JWT"],
+            database: ["MongoDB", "Redis", "SeaweedFS S3"],
+            devops: ["Docker", "Nginx", "GitHub Actions", "GHCR", "OVH VPS", "Cloudflare", "Gitleaks", "SonarQube", "Trivy", "Watchtower", "Plausible"],
         },
 
         architecture: [
-            "Architecture fullstack découplée (frontend/backend)",
-            "Backend structuré en DDD",
-            "API REST pour communication frontend/backend",
-            "Système de caching multi-niveaux (Redis + NodeCache)",
-            "Reverse proxy Nginx",
-            "Pipeline CI/CD automatisé",
+            "SPA Feature-Sliced Design : app / pages / widgets / features / entities / shared",
+            "API REST découplée (projets, blog, services, contact) derrière VITE_API_BASE_URL",
+            "Case study engine : 20 sections optionnelles rendues seulement si données présentes",
+            "Médias case studies sur SeaweedFS S3 ; edge Cloudflare (DNS, proxy, cache)",
+            "Runtime prod : image Nginx Alpine (port 8080) derrière Nginx Proxy Manager",
+            "CD : Actions → scans sécu → GHCR privé → SSH/Watchtower sur VPS OVH",
+            "Observabilité produit : Plausible CE + Cloudflare analytics + Lighthouse CI",
         ],
 
         testing: [
-            "Tests manuels fonctionnels",
-            "Validation des performances (Lighthouse)",
+            "Vitest + Testing Library (unit / composants)",
+            "Cypress E2E (+ axe a11y) dans le workflow QA",
+            "Lighthouse CI (lhci) sur preview",
+            "ESLint, Prettier, typecheck, commitlint, Husky hooks",
+            "SAST SonarQube + Trivy FS/image + Gitleaks secrets",
         ],
 
         images: [
-            "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2022-55-14.png",
-            "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2022-56-32.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/portfolio/logo-mark.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-home-hero.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-projects-grid.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-diagrams.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-actions-deploy-vps.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-pagespeed-desktop.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-plausible-overview.png",
         ],
-
-        preview: "https://barthez-kenwou.dev",
+        preview: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-home-hero.png",
         videoDemo: "",
 
-        category: "Fullstack • DevOps",
+        category: "Fullstack • DevOps • Platform",
         status: "Production",
         complexity: "Avancé",
         role: "Fullstack Developer • DevOps Engineer",
         teamSize: 1,
 
-        duration: "Projet continu",
+        duration: "Mars 2026 - en cours",
         date: "2026",
 
-        github: "",
+        github: "https://github.com/barthez-kenwou/barthez-kenwou-porfolio",
         demo: "https://barthez-kenwou.dev",
 
-        businessContextFr: "Projet personnel stratégique visant à se positionner comme expert fullstack & DevOps sur le marché et à générer des opportunités professionnelles (missions, collaborations, recrutements).",
-        businessContextEn: "Strategic personal project aimed at positioning as a fullstack & DevOps expert and generating professional opportunities (freelance, collaborations, recruitment).",
+        businessContextFr: "Outil stratégique de positionnement professionnel : convaincre recruteurs, clients et partenaires techniques en leur donnant un produit à évaluer — pas une brochure. Chaque visite est à la fois un pitch et une preuve d'exécution.",
+        businessContextEn: "Strategic professional positioning tool: convince recruiters, clients and technical partners by giving them a product to evaluate — not a brochure. Every visit is both a pitch and proof of execution.",
 
         confidential: false,
 
         responsibilitiesFr: [
-            "Architecture FSD + API Express/Prisma",
-            "CI/CD Gitleaks/Sonar/Trivy/GHCR vers VPS OVH",
-            "SEO, PWA, i18n FR/EN et case studies",
-            "Durcissement Nginx/CSP et healthchecks",
+            "Conception produit & UX de la plateforme de positionnement",
+            "Architecture FSD frontend + contrat API REST + modèle case study",
+            "Implémentation des surfaces (projets, blog, services, CV PDF, i18n, SEO)",
+            "Pipeline DevSecOps (Actions, GHCR, Trivy, Sonar, Gitleaks) et runtime Nginx",
+            "Infra edge Cloudflare + stockage médias SeaweedFS + analytics Plausible",
+            "Itération continue du contenu et des preuves (métriques, case studies)",
         ],
         responsibilitiesEn: [
-            "FSD architecture + Express/Prisma API",
-            "CI/CD Gitleaks/Sonar/Trivy/GHCR to OVH VPS",
-            "SEO, PWA, FR/EN i18n and case studies",
-            "Nginx/CSP hardening and healthchecks",
+            "Product & UX design of the positioning platform",
+            "FSD frontend architecture + REST API contract + case-study model",
+            "Implementation of surfaces (projects, blog, services, PDF CV, i18n, SEO)",
+            "DevSecOps pipeline (Actions, GHCR, Trivy, Sonar, Gitleaks) and Nginx runtime",
+            "Cloudflare edge + SeaweedFS media storage + Plausible analytics",
+            "Continuous iteration of content and proof (metrics, case studies)",
         ],
 
         gallery: [
-            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2022-55-14.png", captionFr: "Homepage", captionEn: "Homepage", kind: "ui" },
-            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2022-56-32.png", captionFr: "Projets / preuves", captionEn: "Projects / evidence", kind: "ui" },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-home-hero.png",
+                captionFr: "Hero Accueil — positionnement Full Stack JS et CTA projets",
+                captionEn: "Home hero — Full Stack JS positioning and projects CTA",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-home-services.png",
+                captionFr: "Home — teaser services Cloud/DevOps avec tarifs",
+                captionEn: "Home — Cloud/DevOps services teaser with pricing",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-why-terminal.png",
+                captionFr: "Pourquoi me choisir — storytelling terminal interactif",
+                captionEn: "Why choose me — interactive terminal storytelling",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-linkedin-brand.png",
+                captionFr: "Identité LinkedIn — DevSecOps, automation, lien portfolio",
+                captionEn: "LinkedIn identity — DevSecOps, automation, portfolio link",
+                kind: "other",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-facebook-brand.png",
+                captionFr: "Identité Facebook — bannière DevSecOps et axes d'expertise",
+                captionEn: "Facebook identity — DevSecOps banner and expertise axes",
+                kind: "other",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-github-profile.png",
+                captionFr: "Profil GitHub — README ingénieur et statut ZENORA",
+                captionEn: "GitHub profile — engineer README and ZENORA status",
+                kind: "other",
+            },          
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-testimonials.png",
+                captionFr: "Témoignages clients — preuve sociale technique",
+                captionEn: "Client testimonials — technical social proof",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-home-cta.png",
+                captionFr: "CTA Accueil — contact et WhatsApp",
+                captionEn: "Home CTA — contact and WhatsApp",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-about-bio.png",
+                captionFr: "À propos — bio Full Stack & DevOps et photo pro",
+                captionEn: "About — Full Stack & DevOps bio and pro portrait",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-about-timeline.png",
+                captionFr: "À propos — timeline ZENORA et parcours formateur",
+                captionEn: "About — ZENORA timeline and trainer path",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-skills-atlas.png",
+                captionFr: "Compétences — atlas 3D et filtres par domaine",
+                captionEn: "Skills — 3D atlas and domain filters",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-skills-devops.png",
+                captionFr: "Compétences DevOps — Docker à OpenTelemetry",
+                captionEn: "DevOps skills — Docker through OpenTelemetry",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-skills-frontend.png",
+                captionFr: "Compétences Frontend — React, RN, Tailwind, PWA",
+                captionEn: "Frontend skills — React, RN, Tailwind, PWA",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-skills-certs.png",
+                captionFr: "Certifications & métriques — CKA, AWS, Docker, stats",
+                captionEn: "Certifications & metrics — CKA, AWS, Docker, stats",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-projects-grid.png",
+                captionFr: "Projets — grille NEXUS, GTA, KAZA avec filtres",
+                captionEn: "Projects — NEXUS, GTA, KAZA grid with filters",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-gallery-filter.png",
+                captionFr: "Case study — galerie filtrable (UI / infra / process)",
+                captionEn: "Case study — filterable gallery (UI / infra / process)",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-diagrams.png",
+                captionFr: "Case study — diagrammes Mermaid live (vue système)",
+                captionEn: "Case study — live Mermaid diagrams (system view)",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-services.png",
+                captionFr: "Services — offres AWS, DevOps, Full Stack, audit",
+                captionEn: "Services — AWS, DevOps, Full Stack, audit offers",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-process.png",
+                captionFr: "Processus de travail — découverte, design, agile",
+                captionEn: "Work process — discovery, design, agile",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-blog-grid.png",
+                captionFr: "Blog — articles AWS, DevOps, microservices",
+                captionEn: "Blog — AWS, DevOps, microservices articles",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-blog-article.png",
+                captionFr: "Article long format — Node.js performance + sommaire",
+                captionEn: "Long-form article — Node.js performance + TOC",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-contact.png",
+                captionFr: "Contact — formulaire, email, localisation Yaoundé",
+                captionEn: "Contact — form, email, Yaoundé location",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-contact-whatsapp.png",
+                captionFr: "Contact — contribution GitHub et CTA WhatsApp",
+                captionEn: "Contact — GitHub contribution graph and WhatsApp CTA",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-cv.png",
+                captionFr: "CV digital — aperçu PDF téléchargeable",
+                captionEn: "Digital CV — downloadable PDF preview",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-pagespeed-desktop.png",
+                captionFr: "PageSpeed desktop — Perf 87, A11y 96, BP 100, SEO 100",
+                captionEn: "PageSpeed desktop — Perf 87, A11y 96, BP 100, SEO 100",
+                kind: "metric",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-plausible-overview.png",
+                captionFr: "Plausible 28j — 314 visiteurs, 4.64 pages/visite, 3m57",
+                captionEn: "Plausible 28d — 314 visitors, 4.64 pages/visit, 3m57",
+                kind: "metric",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-plausible-top-pages.png",
+                captionFr: "Plausible — top pages, bounce et profondeur de scroll",
+                captionEn: "Plausible — top pages, bounce and scroll depth",
+                kind: "metric",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-cloudflare-analytics.png",
+                captionFr: "Cloudflare — trafic edge, cache et requêtes",
+                captionEn: "Cloudflare — edge traffic, cache and requests",
+                kind: "metric",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-seaweedfs-assets.png",
+                captionFr: "SeaweedFS — bucket S3 assets portfolio (média case studies)",
+                captionEn: "SeaweedFS — S3 portfolio assets bucket (case-study media)",
+                kind: "infra",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-cloudflare-dns.png",
+                captionFr: "Cloudflare DNS — proxy, SSL, SPF/DKIM, Google verify",
+                captionEn: "Cloudflare DNS — proxy, SSL, SPF/DKIM, Google verify",
+                kind: "infra",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ghcr-packages.png",
+                captionFr: "GHCR — image privée barthez-kenwou-porfolio",
+                captionEn: "GHCR — private barthez-kenwou-porfolio image",
+                kind: "infra",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-github-repo.png",
+                captionFr: "Repo public — FSD, infra/, Cypress, Husky, docs",
+                captionEn: "Public repo — FSD, infra/, Cypress, Husky, docs",
+                kind: "process",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-actions-workflows.png",
+                captionFr: "GitHub Actions — CI, Deploy VPS, QA Lighthouse/E2E",
+                captionEn: "GitHub Actions — CI, Deploy VPS, QA Lighthouse/E2E",
+                kind: "process",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-actions-deploy-vps.png",
+                captionFr: "Pipeline Deploy VPS — Gitleaks → Sonar → Trivy → GHCR → OVH",
+                captionEn: "Deploy VPS pipeline — Gitleaks → Sonar → Trivy → GHCR → OVH",
+                kind: "process",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-sonarqube-overview.png",
+                captionFr: "SonarQube — SAST intégré au cycle de livraison",
+                captionEn: "SonarQube — SAST integrated into the delivery cycle",
+                kind: "process",
+            },
         ],
 
         diagrams: [
             {
-                id: "portfolio-cd",
-                titleFr: "Pipeline CD",
-                titleEn: "CD pipeline",
+                id: "pf-fsd",
+                titleFr: "Architecture FSD — couches applicatives",
+                titleEn: "FSD architecture — application layers",
+                mermaid: `flowchart TB
+  subgraph app [app]
+    ROUTES[Routes lazy]
+    PROV[Providers Theme i18n SEO]
+  end
+  subgraph pages [pages]
+    HOME[Home]
+    PROJ[Projects Detail]
+    BLOG[Blog]
+    CV[CV PDF]
+  end
+  subgraph entities [entities]
+    EP[projets]
+    EB[blogs]
+    ES[services]
+    ESK[skills]
+  end
+  subgraph shared [shared]
+    UI[UI Motion]
+    API[apiClient Axios]
+    ST[Zustand stores]
+  end
+  ROUTES --> pages
+  pages --> entities
+  entities --> API
+  pages --> shared
+  PROV --> pages`,
+            },
+            {
+                id: "pf-casestudy",
+                titleFr: "Moteur case study — sections optionnelles",
+                titleEn: "Case-study engine — optional sections",
                 mermaid: `flowchart LR
-  Push[Push main] --> CI[GitHub Actions]
-  CI --> Sec[Gitleaks / Sonar / Trivy]
-  Sec --> Build[Docker Build]
-  Build --> GHCR[GHCR]
-  GHCR --> Deploy[SSH Deploy]
-  Deploy --> Nginx[Nginx SPA]`,
+  DATA[IProject data] --> HERO[Hero]
+  DATA --> OVER[Overview]
+  DATA --> PS[Problem Solution]
+  DATA --> VID[Videos]
+  DATA --> TECH[Tech]
+  DATA --> GAL[Gallery]
+  DATA --> DIA[Mermaid]
+  DATA --> DEC[Decisions]
+  DATA --> SEC[Security Infra]
+  DATA --> IMP[Impact]
+  DATA --> LES[Lessons]
+  HERO --> PAGE[Project Detail Page]
+  OVER --> PAGE
+  PS --> PAGE
+  VID --> PAGE
+  TECH --> PAGE
+  GAL --> PAGE
+  DIA --> PAGE
+  DEC --> PAGE
+  SEC --> PAGE
+  IMP --> PAGE
+  LES --> PAGE`,
+            },
+            {
+                id: "pf-cd",
+                titleFr: "Pipeline DevSecOps → production",
+                titleEn: "DevSecOps pipeline → production",
+                mermaid: `flowchart LR
+  PUSH[Push main] --> CI[CI format lint typecheck test build]
+  PUSH --> GL[Gitleaks]
+  CI --> SONAR[SonarQube SAST]
+  CI --> TRIVYFS[Trivy FS deps]
+  GL --> BUILD
+  SONAR --> BUILD
+  TRIVYFS --> BUILD[Docker build]
+  BUILD --> GHCR[GHCR private]
+  GHCR --> TRIVYIMG[Trivy image]
+  TRIVYIMG --> SSH[SSH Deploy OVH]
+  SSH --> WT[Watchtower]
+  WT --> NGX[Nginx Alpine :8080]
+  NGX --> CF[Cloudflare edge]
+  CF --> USER[Visiteur]`,
+            },
+            {
+                id: "pf-runtime",
+                titleFr: "Runtime production — edge to origin",
+                titleEn: "Production runtime — edge to origin",
+                mermaid: `flowchart TB
+  V[Visiteur] --> CF[Cloudflare DNS CDN]
+  CF --> NPM[Nginx Proxy Manager]
+  NPM --> WEB[portfolio-web :8080]
+  WEB --> SPA[React SPA]
+  SPA --> API[API REST]
+  API --> DB[(MongoDB)]
+  API --> RD[(Redis)]
+  SPA --> S3[SeaweedFS S3 médias]
+  SPA --> PL[Plausible analytics]`,
+            },
+            {
+                id: "pf-usecases",
+                titleFr: "Cas d'utilisation visiteurs",
+                titleEn: "Visitor use cases",
+                mermaid: `flowchart TB
+  subgraph system [barthez-kenwou.dev]
+    UC1[Decouvrir le positionnement]
+    UC2[Auditer les case studies]
+    UC3[Lire le blog technique]
+    UC4[Comparer les services]
+    UC5[Telecharger le CV PDF]
+    UC6[Contacter WhatsApp email]
+  end
+  R((Recruteur))
+  C((Client technique))
+  P((Pair engineer))
+  R --- UC1
+  R --- UC2
+  R --- UC5
+  C --- UC2
+  C --- UC4
+  C --- UC6
+  P --- UC3
+  P --- UC2`,
+            },
+            {
+                id: "pf-journey",
+                titleFr: "Séquence — recruteur vers preuve",
+                titleEn: "Sequence — recruiter to proof",
+                mermaid: `sequenceDiagram
+  actor R as Recruteur
+  participant WEB as SPA
+  participant API as API
+  participant CD as Actions GHCR
+  R->>WEB: Ouvre Accueil
+  WEB-->>R: Hero + preuve craft
+  R->>WEB: Ouvre /projects/case-study
+  WEB->>API: GET project detail
+  API-->>WEB: Case study complet
+  WEB-->>R: Galerie Mermaid ADR sécu
+  R->>WEB: Consulte PageSpeed / Blog
+  Note over CD: Chaque push main recrée la preuve runtime
+  R->>WEB: Download CV PDF / Contact`,
+            },
+            {
+                id: "pf-security",
+                titleFr: "Couches sécurité & qualité",
+                titleEn: "Security & quality layers",
+                mermaid: `flowchart TB
+  CODE[Code] --> HOOKS[Husky commitlint]
+  HOOKS --> CI[CI lint typecheck tests]
+  CI --> SEC[Gitleaks Sonar Trivy]
+  SEC --> IMG[Image GHCR non-root]
+  IMG --> NGX[Nginx CSP HSTS]
+  NGX --> CF[Cloudflare proxy WAF edge]
+  CF --> APP[SPA + API]`,
+            },
+            {
+                id: "pf-content",
+                titleFr: "Surfaces produit & contenu",
+                titleEn: "Product surfaces & content",
+                mermaid: `flowchart LR
+  HOME[Home] --> ABOUT[About]
+  HOME --> SKILLS[Skills]
+  HOME --> PROJ[Projects]
+  PROJ --> DETAIL[Case Study Detail]
+  HOME --> SVC[Services]
+  HOME --> BLOG[Blog]
+  BLOG --> POST[Article]
+  HOME --> CONTACT[Contact]
+  HOME --> CV[CV PDF]
+  DETAIL --> MEDIA[SeaweedFS]
+  POST --> MEDIA`,
             },
         ],
 
         resources: [
+            {
+                labelFr: "CV Barthez Kenwou (PDF EN)",
+                labelEn: "Barthez Kenwou CV (PDF EN)",
+                url: "https://s3.zenora360.com/barthez-portfolio/docs/CV_Barthez_Kenwou_en.pdf",
+                type: "report",
+            },
             { labelFr: "Site live", labelEn: "Live site", url: "https://barthez-kenwou.dev", type: "other" },
+            { labelFr: "Dépôt GitHub", labelEn: "GitHub repository", url: "https://github.com/barthez-kenwou/barthez-kenwou-porfolio", type: "other" },
             { labelFr: "llms.txt", labelEn: "llms.txt", url: "https://barthez-kenwou.dev/llms.txt", type: "spec" },
         ],
 
         milestones: [
-            { labelFr: "Socle FSD", labelEn: "FSD foundation", date: "2025" },
-            { labelFr: "CI/CD prod + PWA", labelEn: "Prod CI/CD + PWA", date: "2026 Q1" },
-            { labelFr: "Case studies enrichis", labelEn: "Enriched case studies", date: "2026 Q2" },
+            {
+                labelFr: "Socle FSD + design system dark",
+                labelEn: "FSD foundation + dark design system",
+                date: "2025",
+                descriptionFr: "Routing, i18n, thème, surfaces principales.",
+                descriptionEn: "Routing, i18n, theme, core surfaces.",
+            },
+            {
+                labelFr: "CD DevSecOps OVH + GHCR",
+                labelEn: "DevSecOps CD OVH + GHCR",
+                date: "2026 Q1",
+                descriptionFr: "Actions, scans, image privée, Nginx Alpine, Cloudflare.",
+                descriptionEn: "Actions, scans, private image, Nginx Alpine, Cloudflare.",
+            },
+            {
+                labelFr: "Case studies enrichis + Mermaid",
+                labelEn: "Enriched case studies + Mermaid",
+                date: "2026 Q2–Q3",
+                descriptionFr: "20 sections optionnelles, galeries SeaweedFS, preuves métriques.",
+                descriptionEn: "20 optional sections, SeaweedFS galleries, metric proof.",
+            },
+            {
+                labelFr: "Observabilité produit (Plausible + PageSpeed)",
+                labelEn: "Product observability (Plausible + PageSpeed)",
+                date: "2026",
+                descriptionFr: "Mesure d'engagement et qualité web en continu.",
+                descriptionEn: "Continuous engagement and web-quality measurement.",
+            },
         ],
 
-        scopeFr: ["Portfolio public FR/EN", "Blog + projets détaillés", "Docker/Nginx sur VPS", "Gates qualité & sécurité"],
-        scopeEn: ["Public FR/EN portfolio", "Blog + detailed projects", "Docker/Nginx on VPS", "Quality & security gates"],
-        nonGoalsFr: ["CMS multi-auteurs", "Marketplace de services"],
-        nonGoalsEn: ["Multi-author CMS", "Services marketplace"],
+        scopeFr: [
+            "Plateforme publique FR/EN (8+ surfaces)",
+            "Case studies projets avec preuves visuelles et diagrammes",
+            "Blog technique long format",
+            "Services tarifés + processus + témoignages",
+            "CV PDF généré + contact WhatsApp",
+            "CI/CD DevSecOps + runtime Docker/Nginx VPS",
+            "Analytics privacy-friendly + SEO technique",
+        ],
+        scopeEn: [
+            "Public FR/EN platform (8+ surfaces)",
+            "Project case studies with visual proof and diagrams",
+            "Long-form technical blog",
+            "Priced services + process + testimonials",
+            "Generated PDF CV + WhatsApp contact",
+            "DevSecOps CI/CD + Docker/Nginx VPS runtime",
+            "Privacy-friendly analytics + technical SEO",
+        ],
+        nonGoalsFr: [
+            "CMS multi-auteurs grand public",
+            "Marketplace de missions",
+            "Application mobile native",
+        ],
+        nonGoalsEn: [
+            "Public multi-author CMS",
+            "Missions marketplace",
+            "Native mobile app",
+        ],
 
         decisions: [
             {
-                titleFr: "SPA Vite + VPS maîtrisé",
-                titleEn: "Vite SPA + controlled VPS",
-                decisionFr: "SPA + tooling SEO plutôt que full Next SSR.",
-                decisionEn: "SPA + SEO tooling over full Next SSR.",
-                rationaleFr: "Contrôle infra et pipeline DevOps démontrable.",
-                rationaleEn: "Infra control and a demonstrable DevOps pipeline.",
+                titleFr: "Le portfolio comme produit, pas comme brochure",
+                titleEn: "Portfolio as product, not brochure",
+                decisionFr: "Chaque surface doit prouver une compétence runtime (UI, CD, sécu, contenu).",
+                decisionEn: "Every surface must prove a runtime skill (UI, CD, security, content).",
+                rationaleFr: "Dans un marché saturé de templates, seule la preuve différencie.",
+                rationaleEn: "In a market saturated with templates, only proof differentiates.",
             },
             {
-                titleFr: "GHCR + Watchtower",
-                titleEn: "GHCR + Watchtower",
-                decisionFr: "Images privées + sync automatique sur VPS.",
-                decisionEn: "Private images + automatic VPS sync.",
-                rationaleFr: "CD simple sans lock-in PaaS.",
-                rationaleEn: "Simple CD without PaaS lock-in.",
+                titleFr: "SPA Vite + VPS maîtrisé",
+                titleEn: "Vite SPA + controlled VPS",
+                decisionFr: "Contrôle total du pipeline et de l'infra plutôt que full PaaS.",
+                decisionEn: "Full control of pipeline and infra over full PaaS.",
+                rationaleFr: "Le CD DevSecOps devient lui-même un argument commercial.",
+                rationaleEn: "The DevSecOps CD itself becomes a commercial argument.",
+            },
+            {
+                titleFr: "Case studies à sections optionnelles",
+                titleEn: "Optional-section case studies",
+                decisionFr: "Un modèle riche ; l'UI n'affiche que ce qui est renseigné.",
+                decisionEn: "A rich model; UI only renders what is filled.",
+                rationaleFr: "Flagships exhaustifs sans alourdir les petits projets.",
+                rationaleEn: "Exhaustive flagships without bloating small projects.",
+            },
+            {
+                titleFr: "GHCR privé + Watchtower",
+                titleEn: "Private GHCR + Watchtower",
+                decisionFr: "Images versionnées, déploiement pull-based sur VPS.",
+                decisionEn: "Versioned images, pull-based deploy on VPS.",
+                rationaleFr: "CD simple, auditable, sans vendor lock-in excessif.",
+                rationaleEn: "Simple, auditable CD without excessive vendor lock-in.",
+            },
+            {
+                titleFr: "Plausible self-hosted",
+                titleEn: "Self-hosted Plausible",
+                decisionFr: "Analytics privacy-first avec métriques d'engagement réelles.",
+                decisionEn: "Privacy-first analytics with real engagement metrics.",
+                rationaleFr: "Cohérent avec une posture DevOps/éthique et utile pour itérer le produit.",
+                rationaleEn: "Consistent with a DevOps/ethical posture and useful to iterate the product.",
             },
         ],
 
-        securityFr: ["CSP + headers Nginx", "Scans Gitleaks/Trivy/Sonar", "GHCR privé", "ErrorBoundary & dégradation WebGL"],
-        securityEn: ["CSP + Nginx headers", "Gitleaks/Trivy/Sonar scans", "Private GHCR", "ErrorBoundary & WebGL degradation"],
-        infraFr: ["Docker multi-stage / Nginx Alpine", "Actions → GHCR → SSH", "Nginx Proxy Manager", "/health"],
-        infraEn: ["Docker multi-stage / Nginx Alpine", "Actions → GHCR → SSH", "Nginx Proxy Manager", "/health"],
+        securityFr: [
+            "CSP + headers Nginx (HSTS, nosniff, frame-deny, Permissions-Policy)",
+            "Chaîne DevSecOps : Gitleaks, SonarQube SAST, Trivy FS + image",
+            "Image GHCR privée, conteneur non-root, read_only / no-new-privileges",
+            "Cloudflare proxy (TLS edge) + DNS durci (SPF/DKIM)",
+            "Validation Zod / RHF sur formulaires ; ErrorBoundary global",
+            "Dégradation WebGL (reduced-motion / no-WebGL) pour ne jamais casser l'accès",
+        ],
+        securityEn: [
+            "CSP + Nginx headers (HSTS, nosniff, frame-deny, Permissions-Policy)",
+            "DevSecOps chain: Gitleaks, SonarQube SAST, Trivy FS + image",
+            "Private GHCR image, non-root container, read_only / no-new-privileges",
+            "Cloudflare proxy (edge TLS) + hardened DNS (SPF/DKIM)",
+            "Zod / RHF validation on forms; global ErrorBoundary",
+            "WebGL degradation (reduced-motion / no-WebGL) so access never breaks",
+        ],
 
-        externalLinks: [{ labelFr: "Live", labelEn: "Live", url: "https://barthez-kenwou.dev" }],
+        infraFr: [
+            "Docker multi-stage / runtime Nginx Alpine :8080",
+            "GitHub Actions : CI, QA (Cypress + LHCI), Deploy VPS",
+            "GHCR → SSH OVH + Watchtower + Nginx Proxy Manager",
+            "Cloudflare DNS/CDN devant l'origine",
+            "SeaweedFS S3 pour médias de case studies",
+            "Plausible Community Edition pour l'analytics produit",
+            "Healthchecks /health /healthz + limites mémoire conteneur",
+        ],
+        infraEn: [
+            "Docker multi-stage / Nginx Alpine runtime :8080",
+            "GitHub Actions: CI, QA (Cypress + LHCI), Deploy VPS",
+            "GHCR → SSH OVH + Watchtower + Nginx Proxy Manager",
+            "Cloudflare DNS/CDN in front of origin",
+            "SeaweedFS S3 for case-study media",
+            "Plausible Community Edition for product analytics",
+            "Healthchecks /health /healthz + container memory limits",
+        ],
+
+        externalLinks: [
+            { labelFr: "Live", labelEn: "Live", url: "https://barthez-kenwou.dev" },
+            { labelFr: "GitHub", labelEn: "GitHub", url: "https://github.com/barthez-kenwou/barthez-kenwou-porfolio" },
+            { labelFr: "LinkedIn", labelEn: "LinkedIn", url: "https://www.linkedin.com/in/barthez-kenwou" },
+        ],
 
         testimonial: {
-            quoteFr: "Ce n'est pas une landing - c'est une preuve d'exécution de bout en bout.",
-            quoteEn: "This isn't a landing page - it's end-to-end proof of execution.",
-            author: "Peer Reviewer",
-            roleFr: "Ingénieur logiciel",
-            roleEn: "Software engineer",
-            company: "Open network",
+            quoteFr: "Ce n'est pas une landing comme dans +98% des sites de présentation et portfolios que j'ai parcourus — c'est bien au-delà. Une preuve d'expertise et de maîtrise. Je recommande vivement Barthez Kenwou.",
+            quoteEn: "This is not a landing page like 98%+ of the presentation sites and portfolios I've reviewed — it goes far beyond. Proof of expertise and mastery. I strongly recommend Barthez Kenwou.",
+            author: "Ateba Ghislain",
+            roleFr: "Ingénieur logiciel & Formateur Tech",
+            roleEn: "Software engineer & Tech trainer",
+            company: "Worketyamo",
         },
 
         lessonsFr: [
-            "Un portfolio DevOps doit montrer le pipeline, pas seulement le UI.",
-            "Sections optionnelles = case study riche sans alourdir les petits projets.",
-            "La perf décorative ne doit jamais casser l'accès au contenu.",
+            "Quand le code se génère facilement, la différenciation se déplace vers le système : architecture, preuves, livraison, mesure.",
+            "Un portfolio DevOps qui ne montre pas son pipeline se ment à lui-même — le CD fait partie du pitch.",
+            "Les sections optionnelles transforment un modèle de données en éditeur de crédibilité : dense pour les flagships, léger pour le reste.",
+            "La décoration (WebGL, motion) n'a de valeur que si elle se dégrade proprement ; sinon elle sabote la confiance.",
+            "Mesurer l'engagement (pages/visite, durée, bounce) force à écrire pour des humains techniques, pas pour des bots de vanity metrics.",
         ],
         lessonsEn: [
-            "A DevOps portfolio must show the pipeline, not only the UI.",
-            "Optional sections keep rich case studies without bloating small projects.",
-            "Decorative performance must never break content access.",
+            "When code is easy to generate, differentiation moves to the system: architecture, proof, delivery, measurement.",
+            "A DevOps portfolio that hides its pipeline is lying to itself — CD is part of the pitch.",
+            "Optional sections turn a data model into a credibility editor: dense for flagships, light elsewhere.",
+            "Decoration (WebGL, motion) only has value if it degrades cleanly; otherwise it sabotages trust.",
+            "Measuring engagement (pages/visit, duration, bounce) forces writing for technical humans, not vanity bots.",
         ],
 
         beforeAfter: [
             {
-                beforeSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2022-56-32.png",
-                afterSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2022-55-14.png",
-                captionFr: "D'un showcase statique à une plateforme technique complète.",
-                captionEn: "From a static showcase to a full technical platform.",
+                beforeSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                afterSrc: "https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-home-hero.png",
+                captionFr: "D'une page 'à propos de moi' générique à une plateforme de preuves en production.",
+                captionEn: "From a generic 'about me' page to a production proof platform.",
             },
         ],
 
         isFeatured: true,
     },
+
 
     {
         id: 5,
