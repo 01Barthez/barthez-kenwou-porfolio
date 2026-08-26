@@ -10928,373 +10928,468 @@ Delivery validated by leadership: Denise Magloire, DHJ CEO, congratulated the wo
 
     {
         id: 26,
-        titleFr: "AgriClim — Backend Node/Supabase pour plateforme agri-climat (ReAtech)",
-        titleEn: "AgriClim — Node/Supabase Backend for Agri-Climate Platform (ReAtech)",
+        titleFr: "AgriClim — Smart Agriculture × Climat (ReATech) — Backend",
+        titleEn: "AgriClim — Smart Agriculture × Climate (ReATech) — Backend",
 
-        descriptionFr: "Backend Developer dans une équipe de 5 chez ReAtech : API Node/Express/TypeScript + Supabase pour AgriClim (météo, culture, communauté temps réel, auth, mail queue) — livré sous pression pour un événement innovation tech.",
-        descriptionEn: "Backend Developer in a 5-person ReAtech team: Node/Express/TypeScript + Supabase API for AgriClim (weather, crops, realtime community, auth, mail queue) — shipped under pressure for a tech innovation event.",
+        descriptionFr: "Solution digitale inclusive ReATech face au changement climatique : météo localisée, recommandations IA, carte cultures, communauté agriculteurs. Backend Developer dans une équipe de 5 — Supabase, auth, intégrations météo/IA — pitch innovation tech.",
+        descriptionEn: "Inclusive ReATech digital solution for climate-smart farming: localized weather, AI recommendations, crop map, farmer community. Backend Developer in a team of 5 — Supabase, auth, weather/AI integrations — tech innovation pitch.",
 
-        fullDescriptionFr: `AgriClim — « Connecter l'agriculture d'aujourd'hui aux solutions intelligentes de demain » — est la plateforme web que la startup ReAtech voulait présenter à un événement innovation tech. Vert, agriculture, climat, communauté : un produit ambitieux (Home, Météo, Culture/carte IA, Communauté temps réel, chatbot flottant) avec un calendrier compressé.
+        fullDescriptionFr: `AgriClim naît d'un sujet brûlant : l'agriculture intelligente face au changement climatique. Variabilité climatique qui frappe les rendements, accès limité à une météo fiable et actionnable pour les agriculteurs — surtout au Cameroun et en Afrique. Notre réponse, sous la bannière ReATech (Reactivate African Technology) : une plateforme complète et inclusive pour accompagner le quotidien agricole.
 
-Dans l'équipe de 5, j'étais le développeur backend. Mon terrain : API Node.js + Express + TypeScript, intégration Supabase (données/auth selon besoins), JWT + bcrypt + cookies, Nodemailer + Redis pour la file mail, Socket.IO pour le fil communautaire live, hooks OpenWeather et endpoints pour le chatbot IA, documentation Swagger, base dockerisable. Le frontend (React/Vite/Tailwind/maps) et le design étaient portés par le reste de l'équipe ; moi je garantissais que l'auth, la communauté, la météo contextualisée et les flux async tenaient la route pour la démo événementielle.
+Slogan : « Connecter l'agriculture d'aujourd'hui aux solutions intelligentes de demain ». Produit livré pour un événement innovation tech, en attendant investisseurs et appuis externes — et ce n'est que le début (alertes SMS/WhatsApp et marketplace locale annoncés en roadmap).
 
-Contrainte dominante : vitesse sans casser le professionnalisme backend (contrats API clairs, auth correcte, realtime stable, queues mail). AgriClim m'a forcé à prioriser le socle qui fait vivre les pages Culture/Communauté/Météo — pas à peindre l'UI.`,
-        fullDescriptionEn: `AgriClim — “Connecting today’s agriculture to tomorrow’s intelligent solutions” — is the web platform startup ReAtech wanted to present at a tech innovation event. Green, agriculture, climate, community: an ambitious product (Home, Weather, Culture/AI map, realtime Community, floating chatbot) on a compressed calendar.
+Équipe ReATech (5) :
+• Barthez Kenwou — Backend Developer (moi)
+• Najela Melvis — React Developer
+• El Sonk Jimmy — Frontend Developer
+• Freddy Choudja — Marketing Manager & Product Manager
+• Samuel Yedidya Tchuenche Kamdem — Product Owner & Copywriter
 
-In the team of 5, I was the backend developer. My ground: Node.js + Express + TypeScript API, Supabase integration (data/auth as needed), JWT + bcrypt + cookies, Nodemailer + Redis for the mail queue, Socket.IO for the live community feed, OpenWeather hooks and endpoints for the AI chatbot, Swagger docs, dockerizable base. Frontend (React/Vite/Tailwind/maps) and design were owned by the rest of the team; I made sure auth, community, contextual weather and async flows held for the event demo.
+Côté produit visible : Accueil (hero Cameroun/Afrique, preuve sociale, CTA communauté), Météo Agricole (Yaoundé, Bamenda, hubs africains — humidité/vent/prévisions 5 jours + onglet conseils), Culture (recherche région, carte, cultures adaptées, calendrier semis/récolte, onglets Climat/Sols/Conseils), Communauté (auth email + GitHub/LinkedIn/Google, signup/login soignés), Assistant AgriClim flottant (ex. manioc/igname Ouest Cameroun selon conditions).
 
-Dominant constraint: speed without breaking backend professionalism (clear API contracts, correct auth, stable realtime, mail queues). AgriClim forced me to prioritize the foundation that powers Culture/Community/Weather pages — not to paint the UI.`,
+Mon rôle backend : faire tenir tout ça. Repo agri-clim-connect (ReATtech) — React/Vite/Tailwind/shadcn, Bun, dossier supabase (config + types générés : profiles avec farm_type, region, avatar…). J'ai porté l'auth, le modèle données Supabase typé, les intégrations météo et le bridge assistant IA, la cohérence des contrats pour que le front puisse paralléliser. Pas de vanity « j'ai tout fait » : j'ai verrouillé le socle sans lequel la démo scène s'écroule.`,
+        fullDescriptionEn: `AgriClim comes from a burning topic: smart agriculture in the face of climate change. Climate variability hitting yields, limited access to reliable and actionable weather for farmers — especially in Cameroon and Africa. Our answer under ReATech (Reactivate African Technology): a complete, inclusive platform for day-to-day farming support.
 
-        problemFr: "ReAtech devait démontrer vite une plateforme agri-climat crédible. Sans backend solide (auth, realtime, météo, mail), le frontend événementiel s'écroule en démo.",
-        problemEn: "ReAtech had to quickly demo a credible agri-climate platform. Without a solid backend (auth, realtime, weather, mail), the event frontend collapses on stage.",
+Slogan: “Connecting today’s agriculture to tomorrow’s intelligent solutions.” Shipped for a tech innovation event while seeking investors and external support — and this is only the beginning (SMS/WhatsApp alerts and a local marketplace are on the roadmap).
+
+ReATech team (5):
+• Barthez Kenwou — Backend Developer (me)
+• Najela Melvis — React Developer
+• El Sonk Jimmy — Frontend Developer
+• Freddy Choudja — Marketing Manager & Product Manager
+• Samuel Yedidya Tchuenche Kamdem — Product Owner & Copywriter
+
+Visible product: Home (Cameroon/Africa hero, social proof, community CTA), Agricultural Weather (Yaoundé, Bamenda, African hubs — humidity/wind/5-day forecast + advice tab), Culture (region search, map, adapted crops, sowing/harvest calendar, Climate/Soils/Advice tabs), Community (email auth + GitHub/LinkedIn/Google, polished signup/login), floating AgriClim Assistant (e.g. cassava/yam for Western Cameroon under current conditions).
+
+My backend role: make it hold. Repo agri-clim-connect (ReATtech) — React/Vite/Tailwind/shadcn, Bun, supabase folder (config + generated types: profiles with farm_type, region, avatar…). I owned auth, the typed Supabase data model, weather integrations and the AI assistant bridge, and contract consistency so frontend could parallelize. No vanity “I did everything”: I locked the foundation without which the stage demo collapses.`,
+
+        problemFr: "Variabilité climatique + météo peu actionnable pour les agriculteurs : rendements fragilisés, décisions à l'aveugle, peu d'espaces d'entraide numériques adaptés au contexte africain.",
+        problemEn: "Climate variability + weather that is not actionable for farmers: fragile yields, blind decisions, few digital mutual-aid spaces adapted to the African context.",
 
         solutionFr: [
-            "API Express/TS documentée Swagger",
-            "Auth JWT + cookies + bcrypt (signup/signin/reset)",
-            "Intégration Supabase pour persistance / services cloud",
-            "Socket.IO : posts, likes, commentaires, présence communauté",
-            "OpenWeather : contextualisation météo pour conseils",
-            "Endpoints chatbot (proxy vers modèle IA)",
-            "Nodemailer + Redis queue mails",
-            "Dockerfile / structure monorepo front+back reprise facile",
+            "Météo fiable intégrée par zone/localité (prévisions + conseils agricoles)",
+            "Recommandations personnalisées via IA (cultures, climat, conseils contextualisés)",
+            "Carte / régions : cultures, climat, sols, calendrier cultural, tips",
+            "Communauté intégrée — réseau social agriculteurs (entraide mondiale)",
+            "Auth email + OAuth (GitHub, LinkedIn, Google) pour entrer en communauté",
+            "Assistant flottant AgriClim sur Accueil / Météo / Culture",
+            "Socle Supabase typé (profiles: farm_type, region, avatar…)",
+            "Roadmap : alertes SMS/WhatsApp + marketplace produits locaux",
         ],
         solutionEn: [
-            "Express/TS API with Swagger docs",
-            "JWT + cookies + bcrypt auth (signup/signin/reset)",
-            "Supabase integration for persistence / cloud services",
-            "Socket.IO: posts, likes, comments, community presence",
-            "OpenWeather: weather context for advice",
-            "Chatbot endpoints (proxy to AI model)",
-            "Nodemailer + Redis mail queue",
-            "Dockerfile / front+back structure easy to resume",
+            "Reliable weather by zone/locality (forecasts + farm advice)",
+            "Personalized AI recommendations (crops, climate, contextual advice)",
+            "Map / regions: crops, climate, soils, crop calendar, tips",
+            "Integrated community — farmers’ social network (global mutual aid)",
+            "Email auth + OAuth (GitHub, LinkedIn, Google) to enter community",
+            "Floating AgriClim Assistant on Home / Weather / Culture",
+            "Typed Supabase foundation (profiles: farm_type, region, avatar…)",
+            "Roadmap: SMS/WhatsApp alerts + local produce marketplace",
         ],
 
         challengesFr: [
-            "Deadline événement : prioriser le socle démo-critique",
-            "Realtime communautaire stable sous multi-users",
-            "Auth + OAuth social dans le temps imparti",
-            "Contrats API clairs pour débloquer le frontend",
-            "Ne pas promettre un backend infini hors scope event",
+            "Pitch event : livrer un produit démontrable, pas un slide",
+            "Cinq rôles (backend, 2 front, PM/marketing, PO/copy) à synchroniser",
+            "Météo réelle + conseils IA cohérents (pas de hallucinations gratuites)",
+            "Auth/communauté crédibles sous deadline",
+            "Modèle Supabase assez riche (farm_type, region) sans bloquer le front",
+            "Rester honnête sur mon scope backend vs UI React",
         ],
         challengesEn: [
-            "Event deadline: prioritize demo-critical foundation",
-            "Stable community realtime under multi-user load",
-            "Auth + social OAuth within the timebox",
-            "Clear API contracts to unblock frontend",
-            "Not promising infinite backend outside event scope",
+            "Event pitch: ship a demonstrable product, not a slide",
+            "Sync five roles (backend, 2 front, PM/marketing, PO/copy)",
+            "Real weather + coherent AI advice (no free hallucinations)",
+            "Credible auth/community under deadline",
+            "Supabase model rich enough (farm_type, region) without blocking frontend",
+            "Stay honest about backend scope vs React UI",
         ],
 
         impactFr: [
-            "Backend prêt pour démo innovation tech",
-            "Communauté et auth opérationnelles côté API",
-            "Météo + hooks IA consommables par le front",
-            "Expérience backend intense en équipe startup",
-            "Base documentée pour reprise post-événement",
+            "Plateforme pitchable : météo, culture, communauté, assistant IA",
+            "Équipe ReATech alignée produit + technique + narration",
+            "Socle données/auth prêt pour alertes & marketplace",
+            "Preuve terrain : captures UI + repo + moments d'équipe event/lab",
+            "Positionnement clair : smart agriculture Afrique / Cameroun",
         ],
         impactEn: [
-            "Backend ready for the tech innovation demo",
-            "Community and auth operational on the API side",
-            "Weather + AI hooks consumable by the frontend",
-            "Intense backend experience in a startup team",
-            "Documented base for post-event continuity",
+            "Pitchable platform: weather, crops, community, AI assistant",
+            "ReATech team aligned on product + engineering + narrative",
+            "Data/auth foundation ready for alerts & marketplace",
+            "Field proof: UI captures + repo + team event/lab moments",
+            "Clear positioning: smart agriculture Africa / Cameroon",
         ],
 
         metrics: {
-            "Role": "Backend Developer",
-            "Team": "5 @ ReAtech",
-            "Driver": "innovation event",
-            "API": "Express + TypeScript",
-            "Data": "Supabase (+ Prisma/Mongo options)",
-            "Realtime": "Socket.IO",
-            "Mail": "Nodemailer + Redis",
-            "Docs": "Swagger UI",
+            "Team": "ReATech × 5",
+            "My role": "Backend Developer",
+            "Org": "Reactivate African Technology",
+            "Pillars": "Weather + AI + Map + Community",
+            "Stack core": "React/Vite + Supabase",
+            "Repo": "agri-clim-connect",
+            "Locale focus": "Cameroun / Afrique",
+            "Roadmap": "SMS/WhatsApp + marketplace",
         },
 
         techStack: {
             frontend: [
-                "React / Vite (équipe front)",
+                "React",
+                "Vite",
+                "TypeScript",
+                "Tailwind CSS",
+                "shadcn/ui",
+                "Bun",
             ],
             backend: [
-                "Node.js",
-                "Express",
-                "TypeScript",
-                "Socket.IO",
-                "JWT",
-                "Swagger",
+                "Supabase Auth & DB",
+                "Typed client (generated types)",
+                "Weather API integration",
+                "AI assistant bridge",
             ],
             database: [
-                "Supabase",
-                "MongoDB/Prisma (selon modules)",
-                "Redis",
+                "Supabase PostgreSQL",
+                "profiles (farm_type, region, avatar)",
             ],
             devops: [
-                "Docker",
-                "Nginx",
-                "GitHub",
-                "OpenWeather API",
-                "IA API",
+                "GitHub (ReATtech/agri-clim-connect)",
+                "Supabase config.toml",
+                "ESLint",
             ],
         },
 
         architecture: [
-            "Monorepo-style front/ + back/",
-            "REST API + Socket.IO gateway",
-            "Auth JWT/cookies ; optional OAuth providers",
-            "Weather & chatbot services behind API",
-            "Mail queue Redis → Nodemailer workers",
-            "Swagger as contract for the frontend team",
+            "SPA React (pages Accueil, Météo, Culture, Communauté/auth)",
+            "Supabase : auth + tables typées (integrations/supabase)",
+            "Météo : recherche localité → conditions + prévisions 5j + conseils",
+            "Culture : régions populaires + carte + onglets Cultures/Climat/Sols/Conseils",
+            "Assistant IA flottant (Z-index) branché sur contexte agri/climat",
+            "Communauté : login/signup + OAuth providers",
         ],
 
         testing: [
-            "Tests auth (signup/login/reset)",
-            "Smoke Socket.IO rooms/events",
-            "Validation OpenWeather responses",
-            "Vérif Swagger vs routes réelles",
-            "Démo rehearsal pre-event",
+            "Parcours auth signup/login (email + providers)",
+            "Smoke météo multi-villes (Yaoundé, Bamenda, hubs)",
+            "Recherche région Culture + onglets données",
+            "Dialogue assistant (ex. cultures Ouest Cameroun)",
+            "Revues équipe avant pitch event",
         ],
 
         images: [
-            "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/agriclim/01-hero-accueil.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/agriclim/05-meteo-bamenda-forecast.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/agriclim/07-cultures-calendrier.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/agriclim/08-login.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/agriclim/12-team-event.png",
         ],
-        preview: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+        preview: "https://s3.zenora360.com/barthez-portfolio/images/agriclim/01-hero-accueil.png",
         videoDemo: "",
 
-        category: "Backend • AgriTech",
+        category: "AgriTech • Full team • Backend focus",
         status: "MVP",
         complexity: "Avancé",
         role: "Backend Developer",
         teamSize: 5,
 
-        duration: "Sprint événement (ReAtech)",
+        duration: "Sprint innovation / pitch ReATech",
         date: "2025",
 
-        github: "https://github.com/barthez-kenwou/AgriClim",
+        github: "https://github.com/ReATtech/agri-clim-connect",
         demo: "",
 
-        businessContextFr: "Startup ReAtech : prouver AgriClim sur scène innovation — agriculture × climat × communauté — avec un backend capable de porter la démo.",
-        businessContextEn: "ReAtech startup: prove AgriClim on an innovation stage — agriculture × climate × community — with a backend able to carry the demo.",
+        businessContextFr: "ReATech (Reactivate African Technology) construit AgriClim pour répondre à la variabilité climatique et au manque de données météo actionnables — plateforme inclusive, pitch investisseurs, roadmap alertes & marketplace.",
+        businessContextEn: "ReATech (Reactivate African Technology) builds AgriClim to answer climate variability and the lack of actionable weather data — inclusive platform, investor pitch, alerts & marketplace roadmap.",
 
         confidential: false,
 
         responsibilitiesFr: [
-            "Design et implémentation API Express/TS",
-            "Auth et sessions sécurisées",
-            "Realtime communauté Socket.IO",
-            "Intégrations Supabase / météo / IA",
-            "Mail queue Redis + Swagger",
-            "Coordination contrats avec l'équipe front",
+            "Backend / données : modèle Supabase (profiles, farm_type, region…)",
+            "Auth communauté (email, reset, OAuth providers côté intégration)",
+            "Contrats & types générés pour débloquer React (Najela / Jimmy)",
+            "Intégrations météo + bridge Assistant AgriClim",
+            "Fiabilité démo event avec PO/PM (Samuel / Freddy)",
+            "Documentation technique repo agri-clim-connect",
         ],
         responsibilitiesEn: [
-            "Express/TS API design and implementation",
-            "Secure auth and sessions",
-            "Socket.IO community realtime",
-            "Supabase / weather / AI integrations",
-            "Redis mail queue + Swagger",
-            "Contract coordination with the frontend team",
+            "Backend / data: Supabase model (profiles, farm_type, region…)",
+            "Community auth (email, reset, OAuth provider integration)",
+            "Contracts & generated types to unblock React (Najela / Jimmy)",
+            "Weather integrations + AgriClim Assistant bridge",
+            "Event-demo reliability with PO/PM (Samuel / Freddy)",
+            "Technical documentation on agri-clim-connect",
         ],
 
         gallery: [
             {
-                src: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
-                captionFr: "Captures API/Swagger / communauté à brancher",
-                captionEn: "API/Swagger / community screenshots to wire", kind: "wip",
+                src: "https://s3.zenora360.com/barthez-portfolio/images/agriclim/01-hero-accueil.png",
+                captionFr: "Accueil — agriculture intelligente Cameroun & Afrique",
+                captionEn: "Home — smart agriculture Cameroon & Africa", kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/agriclim/02-assistant-ia.png",
+                captionFr: "Assistant AgriClim — conseils cultures contextualisés",
+                captionEn: "AgriClim Assistant — contextual crop advice", kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/agriclim/03-cta-footer.png",
+                captionFr: "CTA communauté + footer mission ReATech",
+                captionEn: "Community CTA + ReATech mission footer", kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/agriclim/04-meteo-yaounde.png",
+                captionFr: "Météo Agricole — Yaoundé (recherche multi-villes Afrique)",
+                captionEn: "Farm weather — Yaoundé (multi-city Africa search)", kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/agriclim/05-meteo-bamenda-forecast.png",
+                captionFr: "Bamenda — conditions + prévisions 5 jours",
+                captionEn: "Bamenda — conditions + 5-day forecast", kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/agriclim/06-culture-map-search.png",
+                captionFr: "Culture — recherche région & carte (ex. Lombardie)",
+                captionEn: "Crops — region search & map (e.g. Lombardy)", kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/agriclim/07-cultures-calendrier.png",
+                captionFr: "Cultures adaptées + calendrier semis/récolte",
+                captionEn: "Adapted crops + sowing/harvest calendar", kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/agriclim/08-login.png",
+                captionFr: "Connexion communauté — email + OAuth",
+                captionEn: "Community login — email + OAuth", kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/agriclim/09-signup.png",
+                captionFr: "Création de compte — entrée réseau agriculteurs",
+                captionEn: "Sign up — enter the farmers network", kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/agriclim/11-supabase-types.png",
+                captionFr: "Types Supabase — farm_type, region, profils",
+                captionEn: "Supabase types — farm_type, region, profiles", kind: "other",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/agriclim/10-github-repo.png",
+                captionFr: "Repo ReATtech/agri-clim-connect",
+                captionEn: "ReATtech/agri-clim-connect repo", kind: "process",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/agriclim/12-team-event.png",
+                captionFr: "Équipe ReATech — moment event / pitch",
+                captionEn: "ReATech team — event / pitch moment", kind: "process",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/agriclim/13-team-lab.png",
+                captionFr: "ReATech en lab — construction de la solution",
+                captionEn: "ReATech in the lab — building the solution", kind: "process",
             },
         ],
 
         diagrams: [
             {
-                id: "ag-backend",
-                titleFr: "Socle backend AgriClim",
-                titleEn: "AgriClim backend foundation",
-                mermaid: `flowchart TB
-  FE[React clients] --> API[Express API]
-  FE --> SIO[Socket.IO]
-  API --> AUTH[JWT / cookies]
-  API --> SB[(Supabase)]
-  API --> OW[OpenWeather]
-  API --> AI[Chatbot provider]
-  API --> Q[Redis mail queue]
-  Q --> MAIL[Nodemailer]`,
-            },
-            {
-                id: "ag-pages",
-                titleFr: "Pages produit ↔ capacités API",
-                titleEn: "Product pages ↔ API capabilities",
+                id: "ag-problem",
+                titleFr: "Problème → AgriClim",
+                titleEn: "Problem → AgriClim",
                 mermaid: `flowchart LR
-  HOME[Home] --> PUB[Public content]
-  MET[Meteo] --> OW[Weather API]
-  CUL[Culture map] --> AI[AI + geo data]
-  COM[Communauté] --> SIO[Socket.IO + auth]`,
+  C[Climate variability] --> Y[Yields at risk]
+  W[Unreliable weather access] --> D[Blind decisions]
+  Y --> A[AgriClim]
+  D --> A
+  A --> S[Weather + AI + Map + Community]`,
             },
             {
                 id: "ag-team",
-                titleFr: "Rôle dans l'équipe ReAtech",
-                titleEn: "Role in the ReAtech team",
+                titleFr: "Équipe ReATech",
+                titleEn: "ReATech team",
                 mermaid: `flowchart TB
-  T[Team of 5] --> BE[Backend: moi]
-  T --> FE[Frontend / UI]
-  T --> DES[Design / produit]
-  BE --> DEMO[Event-ready API]`,
+  RE[ReATech] --> BK[Barthez - Backend]
+  RE --> NM[Najela - React]
+  RE --> EJ[Jimmy - Frontend]
+  RE --> FC[Freddy - Marketing/PM]
+  RE --> SY[Samuel - PO/Copy]
+  BK --> API[Supabase + integrations]
+  NM --> UI[React UI]
+  EJ --> UI`,
+            },
+            {
+                id: "ag-product",
+                titleFr: "Parcours produit",
+                titleEn: "Product journey",
+                mermaid: `flowchart LR
+  H[Accueil] --> M[Météo]
+  H --> C[Culture map]
+  H --> COM[Communauté]
+  M --> BOT[Assistant IA]
+  C --> BOT
+  COM --> AUTH[Login / Signup / OAuth]`,
+            },
+            {
+                id: "ag-data",
+                titleFr: "Socle données backend",
+                titleEn: "Backend data foundation",
+                mermaid: `flowchart TB
+  APP[React app] --> SB[Supabase]
+  SB --> P[profiles]
+  P --> FT[farm_type]
+  P --> RG[region]
+  APP --> WX[Weather API]
+  APP --> AI[AI assistant]`,
             },
         ],
 
         resources: [
             {
-                labelFr: "Repo GitHub AgriClim",
-                labelEn: "AgriClim GitHub repo",
-                url: "https://github.com/barthez-kenwou/AgriClim",
-                type: "other",
-            },
-            {
-                labelFr: "Portfolio",
-                labelEn: "Portfolio",
-                url: "https://barthez-kenwou.dev/",
+                labelFr: "Repo ReATtech/agri-clim-connect",
+                labelEn: "ReATtech/agri-clim-connect repo",
+                url: "https://github.com/ReATtech/agri-clim-connect",
                 type: "other",
             },
         ],
 
         milestones: [
             {
-                labelFr: "Cadrage API event-critical",
-                labelEn: "Event-critical API framing",
-                date: "Jours 1–2",
-                descriptionFr: "Auth, météo, communauté.",
-                descriptionEn: "Auth, weather, community.",
+                labelFr: "Cadrage défi climat × agriculture",
+                labelEn: "Frame climate × agriculture challenge",
+                date: "Kickoff",
+                descriptionFr: "Pitch ReATech + personas agriculteurs.",
+                descriptionEn: "ReATech pitch + farmer personas.",
             },
             {
-                labelFr: "Realtime + Supabase",
-                labelEn: "Realtime + Supabase",
-                date: "Mi-sprint",
-                descriptionFr: "Socket.IO + persistance.",
-                descriptionEn: "Socket.IO + persistence.",
+                labelFr: "Socle Supabase + auth",
+                labelEn: "Supabase + auth foundation",
+                date: "Build",
+                descriptionFr: "Profiles typés, login/signup/OAuth.",
+                descriptionEn: "Typed profiles, login/signup/OAuth.",
             },
             {
-                labelFr: "Swagger + démo event",
-                labelEn: "Swagger + event demo",
-                date: "Jour J",
-                descriptionFr: "Contrats stables pour le front.",
-                descriptionEn: "Stable contracts for frontend.",
+                labelFr: "Météo + Culture + Assistant",
+                labelEn: "Weather + Culture + Assistant",
+                date: "Build",
+                descriptionFr: "Pages démo-critiques event.",
+                descriptionEn: "Event-critical demo pages.",
+            },
+            {
+                labelFr: "Pitch innovation + roadmap",
+                labelEn: "Innovation pitch + roadmap",
+                date: "Event",
+                descriptionFr: "Alertes & marketplace annoncés.",
+                descriptionEn: "Alerts & marketplace announced.",
             },
         ],
 
         scopeFr: [
-            "Backend AgriClim",
-            "Auth + communauté live",
-            "Météo + chatbot hooks",
-            "Swagger + Docker",
+            "MVP AgriClim event",
+            "Météo + Culture + Communauté + IA",
+            "Backend Supabase/auth/intégrations",
+            "Narration ReATech",
         ],
         scopeEn: [
-            "AgriClim backend",
-            "Auth + live community",
-            "Weather + chatbot hooks",
-            "Swagger + Docker",
+            "AgriClim event MVP",
+            "Weather + Culture + Community + AI",
+            "Supabase/auth/integrations backend",
+            "ReATech narrative",
         ],
         nonGoalsFr: [
-            "Ownership UI design system",
-            "Mapbox front complet",
-            "Fine-tune modèle IA from scratch",
+            "Marketplace live jour J",
+            "Alertes SMS/WhatsApp déjà en prod",
+            "App mobile native",
         ],
         nonGoalsEn: [
-            "Owning the UI design system",
-            "Full Mapbox frontend",
-            "Fine-tuning an AI model from scratch",
+            "Live marketplace on day one",
+            "SMS/WhatsApp alerts already in prod",
+            "Native mobile app",
         ],
 
         decisions: [
             {
-                titleFr: "Backend event-first",
-                titleEn: "Event-first backend",
-                decisionFr: "Prioriser auth, Socket.IO, météo, mail queue.",
-                decisionEn: "Prioritize auth, Socket.IO, weather, mail queue.",
-                rationaleFr: "Ce qui casse en démo tue le pitch.",
-                rationaleEn: "What breaks on stage kills the pitch.",
+                titleFr: "Supabase pour accélérer sous deadline",
+                titleEn: "Supabase to accelerate under deadline",
+                decisionFr: "Auth + Postgres typé plutôt qu'un backend from scratch total.",
+                decisionEn: "Auth + typed Postgres rather than a full from-scratch backend.",
+                rationaleFr: "Time-to-demo event sans sacrifier un modèle données réel.",
+                rationaleEn: "Event time-to-demo without sacrificing a real data model.",
             },
             {
-                titleFr: "Swagger comme contrat équipe",
-                titleEn: "Swagger as team contract",
-                decisionFr: "Documenter pour débloquer le front en parallèle.",
-                decisionEn: "Document to unblock frontend in parallel.",
-                rationaleFr: "5 personnes = parallélisme ou chaos.",
-                rationaleEn: "5 people = parallelism or chaos.",
+                titleFr: "Quatre piliers produit, pas dix",
+                titleEn: "Four product pillars, not ten",
+                decisionFr: "Météo, IA, carte, communauté — marketplace/alertes en coming soon.",
+                decisionEn: "Weather, AI, map, community — marketplace/alerts as coming soon.",
+                rationaleFr: "Un pitch crédible montre ce qui marche et ce qui suit.",
+                rationaleEn: "A credible pitch shows what works and what follows.",
             },
             {
-                titleFr: "Supabase pragmatique",
-                titleEn: "Pragmatic Supabase",
-                decisionFr: "Accélérer auth/data cloud sous deadline.",
-                decisionEn: "Accelerate cloud auth/data under deadline.",
-                rationaleFr: "Time-to-demo > purisme infra.",
-                rationaleEn: "Time-to-demo > infra purity.",
+                titleFr: "Rôle backend assumé",
+                titleEn: "Owned backend role",
+                decisionFr: "Ne pas diluer la valeur en s'attribuant toute l'UI.",
+                decisionEn: "Do not dilute value by claiming the whole UI.",
+                rationaleFr: "En entretien, la clarté de responsabilité gagne.",
+                rationaleEn: "In interviews, clarity of ownership wins.",
             },
         ],
 
         securityFr: [
-            "JWT + httpOnly cookies",
-            "bcrypt passwords",
-            "Validation inputs",
+            "Auth Supabase / sessions",
+            "OAuth providers cadrés",
+            "Types stricts côté client générés",
             "Secrets hors repo",
-            "Rate-limit basique endpoints publics",
+            "Validation formulaires auth",
         ],
         securityEn: [
-            "JWT + httpOnly cookies",
-            "bcrypt passwords",
-            "Input validation",
+            "Supabase auth / sessions",
+            "Scoped OAuth providers",
+            "Strict generated client types",
             "Secrets out of repo",
-            "Basic rate-limit on public endpoints",
+            "Auth form validation",
         ],
         infraFr: [
-            "Docker-ready API",
-            "Redis queue",
-            "Nginx cible",
-            "Swagger UI",
-            "GitHub collaboration",
+            "GitHub ReATtech",
+            "Supabase project",
+            "Vite/Bun toolchain",
+            "Types générés Database",
         ],
         infraEn: [
-            "Docker-ready API",
-            "Redis queue",
-            "Nginx target",
-            "Swagger UI",
-            "GitHub collaboration",
+            "GitHub ReATtech",
+            "Supabase project",
+            "Vite/Bun toolchain",
+            "Generated Database types",
         ],
 
         externalLinks: [
             {
-                labelFr: "GitHub",
-                labelEn: "GitHub",
-                url: "https://github.com/barthez-kenwou/AgriClim",
-            },
-            {
-                labelFr: "Portfolio",
-                labelEn: "Portfolio",
-                url: "https://barthez-kenwou.dev",
+                labelFr: "GitHub agri-clim-connect",
+                labelEn: "agri-clim-connect GitHub",
+                url: "https://github.com/ReATtech/agri-clim-connect",
             },
         ],
 
         testimonial: {
-            quoteFr: "Sans le backend auth/realtime/météo, la démo AgriClim n'aurait pas tenu la scène.",
-            quoteEn: "Without the auth/realtime/weather backend, the AgriClim demo would not have held the stage.",
-            author: "ReAtech teammate",
+            quoteFr: "AgriClim, ce n'est pas un slide agriculture : c'est météo, carte, communauté et assistant — prêts pour le pitch.",
+            quoteEn: "AgriClim is not an agriculture slide: it is weather, map, community and assistant — ready for the pitch.",
+            author: "ReATech team",
             roleFr: "Équipe produit",
             roleEn: "Product team",
-            company: "ReAtech",
+            company: "ReATech — Reactivate African Technology",
         },
 
         lessonsFr: [
-            "Sous deadline event, le backend est un produit de contrats.",
-            "Socket.IO mal cadré devient un hotspot de bugs live.",
-            "Clarifier son rôle (backend) évite de diluer la valeur en entretien.",
+            "Un bon AgriTech pitch couple problème climat + features touchables.",
+            "Supabase bien typé accélère une équipe front/back sous event.",
+            "Nommer l'équipe entière crédibilise autant que le code.",
+            "Coming soon (alertes, marketplace) doit rester honnête et daté roadmap.",
         ],
         lessonsEn: [
-            "Under an event deadline, backend is a contracts product.",
-            "Poorly scoped Socket.IO becomes a live bug hotspot.",
-            "Clarifying your role (backend) avoids diluting interview value.",
+            "A strong AgriTech pitch couples the climate problem with touchable features.",
+            "Well-typed Supabase accelerates a front/back team under event pressure.",
+            "Naming the full team builds as much credibility as the code.",
+            "Coming soon (alerts, marketplace) must stay honest and roadmap-dated.",
         ],
 
         beforeAfter: [
             {
                 beforeSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
-                afterSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
-                captionFr: "D'un brief agri-climat ambitieux à une API event-ready pour ReAtech.",
-                captionEn: "From an ambitious agri-climate brief to an event-ready API for ReAtech.",
+                afterSrc: "https://s3.zenora360.com/barthez-portfolio/images/agriclim/01-hero-accueil.png",
+                captionFr: "Du défi climat × agriculture à une plateforme AgriClim pitchable (ReATech).",
+                captionEn: "From the climate × agriculture challenge to a pitchable AgriClim platform (ReATech).",
             },
         ],
 
