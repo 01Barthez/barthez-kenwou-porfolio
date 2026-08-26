@@ -2961,473 +2961,1096 @@ I design, code, secure, deploy and iterate alone. The live result does not illus
         isFeatured: true,
     },
 
-
     {
         id: 5,
-        titleFr: "Plateforme Web ONG ESOPA – WordPress & Infrastructure DevOps",
-        titleEn: "ESOPA NGO Web Platform – WordPress & DevOps Infrastructure",
+        titleFr: "ESOPA — Présence digitale ONG (CAFCA × ZENORA)",
+        titleEn: "ESOPA — NGO digital presence (CAFCA × ZENORA)",
 
-        descriptionFr: "Plateforme web vitrine pour l’ONG ESOPA, accompagnée d’une infrastructure DevOps complète (multi-environnements, sécurité, CI/CD, sauvegardes et optimisation SEO).",
-        descriptionEn: "Showcase web platform for ESOPA NGO, backed by a full DevOps infrastructure (multi-environment setup, security, CI/CD, backups, and SEO optimization).",
+        descriptionFr: "En 2 semaines : site WordPress institutionnel FR/EN, staging + prod, sécurité, SEO et écosystème digital complet (Google Business, réseaux, guide de livraison) pour Étoile Solidarité Panafricaine.",
+        descriptionEn: "In 2 weeks: institutional WordPress site FR/EN, staging + prod, security, SEO and full digital ecosystem (Google Business, socials, delivery guide) for Pan-African Solidarity Star.",
 
-        fullDescriptionFr: "Accompagnement complet de l’ONG ESOPA dans sa transformation digitale, allant de l’acquisition du nom de domaine jusqu’au déploiement d’une plateforme web professionnelle et sécurisée. Le projet inclut la mise en place d’une infrastructure DevOps avancée avec Docker, comprenant un environnement de staging et un environnement de production, permettant des déploiements maîtrisés et sans interruption. Le site, développé sous WordPress, a été optimisé pour la performance, la sécurité et le référencement (SEO). Des mécanismes avancés ont été implémentés : sauvegardes automatiques via scripts, sécurisation renforcée (Wordfence, rate limiting, protection admin, monitoring), optimisation des performances et stratégie SEO. Le résultat est une plateforme fiable, rapide et bien référencée, générant une visibilité significative dès les premiers mois.",
-        fullDescriptionEn: "End-to-end digital transformation support for ESOPA NGO, from domain acquisition to deployment of a professional and secure web platform. The project includes setting up an advanced DevOps infrastructure using Docker, with both staging and production environments to ensure safe and controlled deployments. The site, built with WordPress, was optimized for performance, security, and SEO. Advanced mechanisms were implemented: automated backups via scripts, enhanced security (Wordfence, rate limiting, admin protection, monitoring), performance tuning, and SEO strategy. The result is a reliable, fast, and well-indexed platform generating significant visibility within the first months.",
+        fullDescriptionFr: `ESOPA (Étoile Solidarité Panafricaine) est une organisation humanitaire basée en Suisse avec une antenne opérationnelle à Yaoundé. Elle accompagne personnes âgées, handicapées, orphelins, veuves, démunis et prisonniers. Sans présence digitale crédible, l'ONG peinait à convaincre partenaires, donateurs et bénévoles — alors que transparence et visibilité sont des conditions d'existence pour ce type de structure.
 
-        problemFr: "L’ONG ne disposait pas d’une plateforme web professionnelle ni d’une infrastructure fiable, limitant sa visibilité, sa crédibilité et sa capacité à communiquer efficacement.",
-        problemEn: "The NGO lacked a professional web platform and reliable infrastructure, limiting its visibility, credibility, and communication capabilities.",
+Pour le compte de CAFCA × ZENORA, j'ai conçu et livré en deux semaines (février 2026) le pilier digital de l'organisation : un site WordPress institutionnel bilingue (FR/EN) sur esopa.org, pensé comme un outil de confiance — pas une brochure décorative. Lead conception & design dans une équipe de deux, j'ai porté l'identité visuelle, l'architecture de contenu (~18 pages), les parcours d'engagement (bénévolat, partenariat, contact) et la qualité de livraison jusqu'à la mise en production.
+
+Le périmètre dépasse le « site vitrine ». Environnements staging et production séparés, stack WordPress/Elementor/Blocksy durcie (Wordfence, Limit Login Attempts, UpdraftPlus, LiteSpeed Cache, Asset CleanUp, Rank Math, Plausible, WP Mail SMTP), HTTPS, sauvegardes quotidiennes, pages Transparence / Mentions / Confidentialité. Autour du site : fiche Google My Business, réseaux sociaux configurés, lignes éditoriales 1 mois, et un document de livraison officielle (guide de prise en main + preuves performance/sécurité/SEO). Résultat mesurable : PageSpeed desktop 91/90/92/92, « esopa » en 1ère position Google, audience internationale dès le lancement (Cameroun, Suisse, Canada, USA…), Wordfence bloquant des centaines d'attaques mensuelles. Livraison officielle avril 2026.`,
+        fullDescriptionEn: `ESOPA (Pan-African Solidarity Star) is a humanitarian organization based in Switzerland with an operational branch in Yaoundé. It supports the elderly, people with disabilities, orphans, widows, the destitute and prisoners. Without a credible digital presence, the NGO struggled to convince partners, donors and volunteers — while transparency and visibility are existential requirements for this kind of structure.
+
+On behalf of CAFCA × ZENORA, I designed and delivered in two weeks (February 2026) the organization's digital pillar: a bilingual (FR/EN) institutional WordPress site on esopa.org, built as a trust tool — not a decorative brochure. Lead design & product conception in a two-person team, I owned visual identity, content architecture (~18 pages), engagement journeys (volunteering, partnership, contact) and delivery quality through production go-live.
+
+Scope goes beyond a "showcase site". Separated staging and production environments, hardened WordPress/Elementor/Blocksy stack (Wordfence, Limit Login Attempts, UpdraftPlus, LiteSpeed Cache, Asset CleanUp, Rank Math, Plausible, WP Mail SMTP), HTTPS, daily backups, Transparency / Legal / Privacy pages. Around the site: Google Business Profile, configured social networks, 1-month editorial lines, and an official delivery document (handover guide + performance/security/SEO evidence). Measurable outcome: PageSpeed desktop 91/90/92/92, "esopa" ranking #1 on Google, international audience from launch (Cameroon, Switzerland, Canada, USA…), Wordfence blocking hundreds of monthly attacks. Official delivery April 2026.`,
+
+        problemFr: "ESOPA n'avait pas de plateforme web crédible ni d'écosystème digital cohérent. Sans site professionnel, sans SEO local, sans canaux d'engagement structurés, l'organisation limitait sa capacité à mobiliser donateurs, partenaires et bénévoles — en Suisse comme au Cameroun.",
+        problemEn: "ESOPA had no credible web platform and no coherent digital ecosystem. Without a professional site, local SEO, or structured engagement channels, the organization limited its ability to mobilize donors, partners and volunteers — in Switzerland and Cameroon alike.",
 
         solutionFr: [
-            "Acquisition et configuration du domaine via Cloudflare",
-            "Mise en place d’une infrastructure Docker avec environnements staging et production",
-            "Déploiement WordPress optimisé pour performance et SEO",
-            "Implémentation de scripts de sauvegarde automatique",
-            "Sécurisation avancée (Wordfence, protection admin, rate limiting, monitoring)",
-            "Optimisation SEO et performance (Lighthouse, caching, bonnes pratiques)",
+            "Site WordPress institutionnel bilingue FR/EN (esopa.org) — ~18 pages Elementor",
+            "Architecture de contenu : Accueil, À propos, Actions, Projets, Impact, S'impliquer, Actualités, Contact",
+            "Parcours conversion : formulaires bénévole / partenariat / contact + WP Mail SMTP",
+            "Environnements staging + production séparés pour livrer sans casser le live",
+            "Sécurité multi-couches : Wordfence, Limit Login Attempts, SSL, durcissement admin",
+            "Performance & SEO : LiteSpeed, Asset CleanUp, Rank Math, PageSpeed 91/90/92/92",
+            "Écosystème autour du site : Google My Business, réseaux sociaux, lignes éditoriales",
+            "Livraison officielle documentée (PDF) : guides, preuves, maintenance, évolutions",
         ],
         solutionEn: [
-            "Domain acquisition and configuration via Cloudflare",
-            "Docker infrastructure with staging and production environments",
-            "Optimized WordPress deployment for performance and SEO",
-            "Automated backup scripts implementation",
-            "Advanced security setup (Wordfence, admin protection, rate limiting, monitoring)",
-            "SEO and performance optimization (Lighthouse, caching, best practices)",
+            "Bilingual FR/EN institutional WordPress site (esopa.org) — ~18 Elementor pages",
+            "Content architecture: Home, About, Actions, Projects, Impact, Get involved, News, Contact",
+            "Conversion journeys: volunteer / partnership / contact forms + WP Mail SMTP",
+            "Separated staging + production environments to ship without breaking live",
+            "Multi-layer security: Wordfence, Limit Login Attempts, SSL, admin hardening",
+            "Performance & SEO: LiteSpeed, Asset CleanUp, Rank Math, PageSpeed 91/90/92/92",
+            "Ecosystem around the site: Google Business, social networks, editorial lines",
+            "Documented official delivery (PDF): guides, evidence, maintenance, roadmap",
         ],
 
         challengesFr: [
-            "Mettre en place une infrastructure DevOps complète pour un CMS (WordPress)",
-            "Assurer une sécurité maximale contre les attaques courantes",
-            "Gérer la séparation staging/production avec migration propre",
-            "Optimiser les performances tout en conservant flexibilité WordPress",
-            "Garantir un bon référencement dès le lancement",
+            "Transformer une mission humanitaire en parcours digital clair (donateurs, bénévoles, partenaires)",
+            "Livrer un standard production (staging/prod, sécu, SEO, perf) en seulement 2 semaines",
+            "Équilibre design émotionnel ONG vs crédibilité institutionnelle / transparence",
+            "Durcir WordPress sans sacrifier l'éditabilité pour l'équipe cliente",
+            "Couvrir site + GMB + socials + documentation de livraison dans le même sprint",
+            "Accessibilité et multilingue FR/EN pour une audience Suisse–Cameroun–diaspora",
         ],
         challengesEn: [
-            "Setting up a full DevOps infrastructure for a CMS (WordPress)",
-            "Ensuring strong security against common attacks",
-            "Managing staging/production separation with clean migration",
-            "Optimizing performance while maintaining WordPress flexibility",
-            "Ensuring strong SEO from launch",
+            "Turn a humanitarian mission into a clear digital journey (donors, volunteers, partners)",
+            "Ship a production standard (staging/prod, security, SEO, perf) in only 2 weeks",
+            "Balance emotional NGO design vs institutional credibility / transparency",
+            "Harden WordPress without killing editability for the client team",
+            "Cover site + GMB + socials + delivery documentation in the same sprint",
+            "Accessibility and FR/EN bilingual for a Switzerland–Cameroon–diaspora audience",
         ],
 
         impactFr: [
-            "Lancement réussi de la présence digitale de l’ONG",
-            "Plus de 400 visites en 2 mois",
-            "Amélioration significative de la crédibilité",
-            "Excellentes performances et référencement",
+            "Présence digitale professionnelle live sur esopa.org (pilier de confiance ONG)",
+            "« esopa » en 1ère position Google + aperçu IA sur le nom complet",
+            "PageSpeed desktop : Performance 91 · Accessibilité 90 · Best Practices 92 · SEO 92",
+            "Audience internationale dès le lancement (CM, CH, CA, US, BE…)",
+            "Wordfence : ~255 attaques complexes bloquées / mois en production",
+            "Canaux d'engagement opérationnels : bénévolat, partenariat, contact, GMB",
+            "Livraison officielle CAFCA × ZENORA avec guide de prise en main client",
         ],
         impactEn: [
-            "Successful launch of NGO digital presence",
-            "400+ visits within first 2 months",
-            "Significant improvement in credibility",
-            "Strong performance and SEO ranking",
+            "Professional digital presence live on esopa.org (NGO trust pillar)",
+            '"esopa" ranking #1 on Google + AI Overview on the full organization name',
+            "PageSpeed desktop: Performance 91 · Accessibility 90 · Best Practices 92 · SEO 92",
+            "International audience from launch (CM, CH, CA, US, BE…)",
+            "Wordfence: ~255 complex attacks blocked / month in production",
+            "Operational engagement channels: volunteering, partnership, contact, GMB",
+            "Official CAFCA × ZENORA delivery with client handover guide",
         ],
 
         metrics: {
-            "Performance": "90%",
-            "Accessibilité": "90%",
-            "Bonnes pratiques": "95%",
-            "SEO": "95%",
-            "visites": "400+ (2 mois)",
+            "PageSpeed Perf": "91/100",
+            "Accessibility": "90/100",
+            "Best Practices": "92/100",
+            "SEO": "92/100",
+            "Pages WP": "18",
+            "Sprint": "2 semaines",
+            "Équipe": "2",
+            "Wordfence / mois": "255 attaques bloquées",
+            "Plausible 30j": "79 visiteurs · 130 vues",
+            "SEO Google": "#1 « esopa »",
         },
 
         techStack: {
-            frontend: ["WordPress", "Elementor"],
-            backend: ["PHP", "WordPress Core"],
+            frontend: ["WordPress", "Elementor", "Blocksy", "Essential Addons", "Essential Blocks", "HTML5", "CSS3", "JavaScript"],
+            backend: ["PHP", "WordPress Core", "WPForms", "WP Mail SMTP"],
             database: ["MySQL"],
-            devops: ["Docker", "Nginx", "Cloudflare", "VPS", "CI/CD", "Backup Scripts"],
+            devops: ["Docker", "Staging + Production", "Nginx", "Cloudflare", "LiteSpeed Cache", "Asset CleanUp", "UpdraftPlus", "Wordfence", "Limit Login Attempts", "Rank Math SEO", "Plausible", "Google Site Kit", "Let's Encrypt"],
         },
 
         architecture: [
-            "WordPress conteneurisé avec Docker",
-            "Environnement staging + production",
-            "Reverse proxy Nginx",
-            "Sauvegardes automatisées via scripts",
-            "Sécurisation réseau + applicative",
-            "CDN et DNS via Cloudflare",
+            "WordPress institutionnel bilingue FR/EN — architecture de pages mission-driven",
+            "Environnements staging et production séparés (validation avant go-live)",
+            "Reverse proxy / hébergement durci + Cloudflare DNS/CDN + HTTPS Let's Encrypt",
+            "Couche perf : LiteSpeed Cache + Asset CleanUp (scripts/styles par page)",
+            "Couche sécu : Wordfence WAF + Limit Login Attempts + backups UpdraftPlus",
+            "Couche acquisition : Rank Math SEO + Google Business + analytics (Plausible / Site Kit)",
+            "Écosystème digital autour du site : socials + lignes éditoriales + doc de livraison",
         ],
 
         testing: [
-            "Tests de performance (Lighthouse)",
-            "Tests de sécurité (plugins + configuration)",
-            "Validation manuelle UX/UI",
+            "Google PageSpeed / Lighthouse (perf, a11y, best practices, SEO)",
+            "Scan sécurité automatisé (38 tests — risque global LOW, 0 critique/haute/moyenne)",
+            "Validation manuelle UX/UI responsive (desktop, tablette, mobile)",
+            "Vérification formulaires (contact, bénévole) + notifications SMTP",
+            "Contrôle SEO on-page Rank Math + indexation Google (« esopa » #1)",
         ],
 
         images: [
-            "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2023-24-13.png",
-            "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2023-23-15.png",
-            "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2023-33-25.png",
-            "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2023-34-56.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-logo.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-ui-home-hero.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-ui-who-we-are.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-ui-values.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-metric-pagespeed.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-process-wordfence.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-logo.png",
+        ],
+        preview: "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-ui-home-hero.png",
+        videoDemo: "https://s3.zenora360.com/barthez-portfolio/videos/esopa/esopa-demo-walkthrough.webm",
+
+        videos: [
+            {
+                url: "https://s3.zenora360.com/barthez-portfolio/videos/esopa/esopa-demo-walkthrough.webm",
+                type: "walkthrough",
+                titleFr: "Démo walkthrough — esopa.org",
+                titleEn: "Demo walkthrough — esopa.org",
+            },
         ],
 
-        preview: "https://esopa.org",
-        videoDemo: "",
-
-        category: "DevOps • Web",
+        category: "WordPress • Design • Delivery",
         status: "Production",
-        complexity: "Avancé",
-        role: "Fullstack Developer • DevOps Engineer",
-        teamSize: 1,
+        complexity: "Intermédiaire",
+        role: "Lead Designer • Concepteur produit",
+        teamSize: 2,
 
-        duration: "1 mois",
-        date: "2025",
+        duration: "2 semaines",
+        date: "Février 2026",
 
         github: "https://github.com/ZENORA-360/projet-client-esopa",
         demo: "https://esopa.org",
 
-        businessContextFr: "Projet de digitalisation visant à offrir à l’ONG une présence web professionnelle, sécurisée et performante pour renforcer son impact et sa visibilité.",
-        businessContextEn: "Digital transformation project aimed at providing the NGO with a secure, high-performance web presence to enhance its impact and visibility.",
+        businessContextFr: "Mission CAFCA × ZENORA : structurer la présence digitale d'ESOPA pour renforcer crédibilité, transparence et capacité de mobilisation (bénévoles, partenaires, donateurs) entre la Suisse et le Cameroun.",
+        businessContextEn: "CAFCA × ZENORA mission: structure ESOPA's digital presence to strengthen credibility, transparency and mobilization capacity (volunteers, partners, donors) between Switzerland and Cameroon.",
 
         confidential: false,
 
         responsibilitiesFr: [
-            "DNS Cloudflare et reverse proxy Nginx",
-            "Stack Docker staging + production",
-            "WordPress sécurisé, backups et SEO",
-            "Automatisation CI/CD et runbooks",
+            "Lead conception produit & design (identité, UX, hiérarchie de contenu)",
+            "Architecture des ~18 pages et parcours d'engagement (bénévolat, partenariat, contact)",
+            "Implémentation WordPress/Elementor/Blocksy et polish UI responsive",
+            "Mise en place staging + production et hardening (sécu, perf, backups)",
+            "SEO technique (Rank Math) + Google My Business + analytics",
+            "Documentation de livraison officielle et transfert client",
         ],
         responsibilitiesEn: [
-            "Cloudflare DNS and Nginx reverse proxy",
-            "Docker staging + production stack",
-            "Hardened WordPress, backups and SEO",
-            "CI/CD automation and runbooks",
+            "Lead product conception & design (identity, UX, content hierarchy)",
+            "Architecture of ~18 pages and engagement journeys (volunteering, partnership, contact)",
+            "WordPress/Elementor/Blocksy implementation and responsive UI polish",
+            "Staging + production setup and hardening (security, perf, backups)",
+            "Technical SEO (Rank Math) + Google Business + analytics",
+            "Official delivery documentation and client handover",
         ],
 
         gallery: [
-            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2023-24-13.png", captionFr: "Homepage ESOPA", captionEn: "ESOPA homepage", kind: "ui" },
-            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2023-23-15.png", captionFr: "Mission / contenu", captionEn: "Mission / content", kind: "ui" },
-            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2023-33-25.png", captionFr: "Programmes", captionEn: "Programs", kind: "ui" },
-            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2023-34-56.png", captionFr: "Contact / engagement", captionEn: "Contact / engagement", kind: "ui" },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-logo.png",
+                captionFr: "Identité ESOPA — Étoile Solidarité Panafricaine / PASOS",
+                captionEn: "ESOPA identity — Pan-African Solidarity Star / PASOS",
+                kind: "other",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-ui-home-hero.png",
+                captionFr: "Hero Accueil — « L'amour qui construit l'avenir » + CTAs",
+                captionEn: "Home hero — « Love that builds the future » + CTAs",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-ui-who-we-are.png",
+                captionFr: "Qui sommes-nous — stats (06+ projets, 10+ bénévoles, 02 pays)",
+                captionEn: "Who we are — stats (06+ projects, 10+ volunteers, 02 countries)",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-ui-identity.png",
+                captionFr: "Notre identité — Suisse / Cameroun, publics vulnérables",
+                captionEn: "Our identity — Switzerland / Cameroon, vulnerable audiences",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-ui-values.png",
+                captionFr: "Nos valeurs — amour, solidarité, dignité, inclusion, transparence",
+                captionEn: "Our values — love, solidarity, dignity, inclusion, transparency",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-ui-roadmap.png",
+                captionFr: "Feuille de route — objectifs stratégiques court / moyen / long terme",
+                captionEn: "Roadmap — short / medium / long-term strategic objectives",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-ui-volunteer-form.png",
+                captionFr: "Formulaire bénévole — inscription + avantages d'engagement",
+                captionEn: "Volunteer form — signup + engagement benefits",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-ui-footer.png",
+                captionFr: "Footer — CTA solidarité, contact CH/CM, mentions légales",
+                captionEn: "Footer — solidarity CTA, CH/CM contact, legal pages",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-metric-pagespeed.png",
+                captionFr: "PageSpeed desktop — Perf 91, A11y 90, BP 92, SEO 92",
+                captionEn: "PageSpeed desktop — Perf 91, A11y 90, BP 92, SEO 92",
+                kind: "metric",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-metric-plausible.png",
+                captionFr: "Plausible 30j — 130 vues, 79 visiteurs (+69% vues)",
+                captionEn: "Plausible 30d — 130 views, 79 visitors (+69% views)",
+                kind: "metric",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-metric-sitekit.png",
+                captionFr: "Google Site Kit — trafic 28j, Direct 41% / Organic 41%",
+                captionEn: "Google Site Kit — 28d traffic, Direct 41% / Organic 41%",
+                kind: "metric",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-process-pages-seo.png",
+                captionFr: "WP Admin — 18 pages Elementor + Rank Math SEO",
+                captionEn: "WP Admin — 18 Elementor pages + Rank Math SEO",
+                kind: "process",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-process-wordfence.png",
+                captionFr: "Wordfence — 255 attaques complexes bloquées / mois",
+                captionEn: "Wordfence — 255 complex attacks blocked / month",
+                kind: "process",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-process-llar.png",
+                captionFr: "Limit Login Attempts — protection brute-force admin",
+                captionEn: "Limit Login Attempts — admin brute-force protection",
+                kind: "process",
+            },
         ],
 
         diagrams: [
             {
-                id: "esopa-infra",
-                titleFr: "Infra staging / prod",
-                titleEn: "Staging / prod infra",
+                id: "esopa-ecosystem",
+                titleFr: "Écosystème digital livré",
+                titleEn: "Delivered digital ecosystem",
+                mermaid: `flowchart TB
+  subgraph core [Pilier central]
+    SITE[esopa.org WordPress FR/EN]
+  end
+  subgraph acquire [Acquisition]
+    GMB[Google My Business]
+    SEO[Rank Math SEO]
+    SOC[Facebook Instagram LinkedIn WhatsApp]
+  end
+  subgraph ops [Exploitation]
+    STG[Staging]
+    PROD[Production]
+    BK[Backups UpdraftPlus]
+    AN[Plausible + Site Kit]
+  end
+  SITE --> GMB
+  SITE --> SEO
+  SITE --> SOC
+  STG --> PROD
+  PROD --> SITE
+  BK --> PROD
+  AN --> SITE`,
+            },
+            {
+                id: "esopa-envs",
+                titleFr: "Staging → Production",
+                titleEn: "Staging → Production",
                 mermaid: `flowchart LR
-  Users --> CF[Cloudflare]
-  CF --> Nginx[Nginx]
-  Nginx --> WP[WordPress]
+  DEV[Conception Design] --> STG[Staging]
+  STG --> QA[QA contenu UX sécu]
+  QA --> PROD[Production esopa.org]
+  PROD --> CF[Cloudflare CDN SSL]
+  CF --> USER[Visiteurs partenaires bénévoles]`,
+            },
+            {
+                id: "esopa-ia",
+                titleFr: "Architecture informationnelle",
+                titleEn: "Information architecture",
+                mermaid: `flowchart TB
+  HOME[Accueil]
+  HOME --> ABOUT[À propos]
+  ABOUT --> MV[Mission Vision]
+  ABOUT --> GOV[Gouvernance]
+  HOME --> ACT[Nos actions]
+  ACT --> PH[Personnes handicapées]
+  ACT --> PA[Personnes âgées]
+  ACT --> PD[Personnes démunies]
+  HOME --> PROJ[Projets]
+  HOME --> IMP[Impact]
+  HOME --> INV[S'impliquer]
+  INV --> BEN[Devenir bénévole]
+  INV --> PART[Partenariat]
+  HOME --> NEWS[Actualités]
+  HOME --> CONTACT[Contact]
+  HOME --> LEGAL[Transparence Mentions Privacy]`,
+            },
+            {
+                id: "esopa-security",
+                titleFr: "Couches sécurité WordPress",
+                titleEn: "WordPress security layers",
+                mermaid: `flowchart TB
+  EDGE[Cloudflare + HTTPS] --> NGX[Hébergement / reverse proxy]
+  NGX --> WF[Wordfence WAF]
+  WF --> LLAR[Limit Login Attempts]
+  LLAR --> WP[WordPress Admin + Front]
   WP --> DB[(MySQL)]
-  Backup[Backups] --> DB
-  CI[CI/CD] --> Staging
-  CI --> Prod`,
+  BK[UpdraftPlus backups] --> DB
+  SMTP[WP Mail SMTP] --> WP`,
+            },
+            {
+                id: "esopa-journey",
+                titleFr: "Parcours — visiteur vers engagement",
+                titleEn: "Journey — visitor to engagement",
+                mermaid: `sequenceDiagram
+  actor V as Visiteur
+  participant WEB as esopa.org
+  participant SEO as Google
+  participant FORM as WPForms SMTP
+  SEO->>V: Résultat #1 esopa / GMB
+  V->>WEB: Accueil + mission
+  WEB-->>V: Preuves Impact Projets Valeurs
+  V->>WEB: S'impliquer / Contact
+  WEB->>FORM: Soumission bénévole ou partenaire
+  FORM-->>V: Confirmation email
+  Note over WEB: Transparence Mentions Privacy toujours accessibles`,
+            },
+            {
+                id: "esopa-delivery",
+                titleFr: "Sprint 2 semaines — flux de livraison",
+                titleEn: "2-week sprint — delivery flow",
+                mermaid: `flowchart LR
+  W1[Semaine 1 identité IA design staging] --> W2[Semaine 2 pages sécu SEO socials]
+  W2 --> GO[Go-live production]
+  GO --> DOC[PDF livraison officielle Avril]
+  DOC --> CLIENT[ESOPA CAFCA handover]`,
             },
         ],
 
         resources: [
-            { labelFr: "Site live", labelEn: "Live site", url: "https://esopa.org", type: "other" },
-            { labelFr: "Dépôt GitHub", labelEn: "GitHub repo", url: "https://github.com/ZENORA-360/projet-client-esopa", type: "other" },
+            {
+                labelFr: "Livraison officielle projet digital (PDF)",
+                labelEn: "Official digital project delivery (PDF)",
+                url: "https://s3.zenora360.com/barthez-portfolio/docs/ESOPA_Livraison_Projet_Digital_CAFCA_ZENORA_2026.pdf",
+                type: "report",
+            },
+            { labelFr: "Site live esopa.org", labelEn: "Live site esopa.org", url: "https://esopa.org", type: "other" },
+            { labelFr: "Google My Business", labelEn: "Google Business Profile", url: "https://share.google/qKdLhrGSv1JRceBR5", type: "other" },
+            { labelFr: "Dépôt GitHub", labelEn: "GitHub repository", url: "https://github.com/ZENORA-360/projet-client-esopa", type: "other" },
         ],
 
         milestones: [
-            { labelFr: "DNS + Cloudflare", labelEn: "DNS + Cloudflare", date: "Semaine 1" },
-            { labelFr: "Stack Docker WP", labelEn: "Docker WP stack", date: "Semaine 2" },
-            { labelFr: "Contenu + SEO + prod", labelEn: "Content + SEO + prod", date: "Semaine 3–4" },
-        ],
-
-        scopeFr: ["Site WordPress institutionnel", "Staging + production", "Backups & sécurité de base", "Nginx + Cloudflare"],
-        scopeEn: ["Institutional WordPress site", "Staging + production", "Backups & baseline security", "Nginx + Cloudflare"],
-        nonGoalsFr: ["App métier custom", "Design system from scratch"],
-        nonGoalsEn: ["Custom business app", "Design system from scratch"],
-
-        decisions: [
             {
-                titleFr: "WordPress conteneurisé",
-                titleEn: "Containerized WordPress",
-                decisionFr: "Docker plutôt qu'un mutualisé nu.",
-                decisionEn: "Docker instead of bare shared hosting.",
-                rationaleFr: "Staging/prod reproductibles et backups contrôlés.",
-                rationaleEn: "Reproducible staging/prod and controlled backups.",
+                labelFr: "Cadrage + identité + staging",
+                labelEn: "Scoping + identity + staging",
+                date: "Semaine 1 — Fév. 2026",
+                descriptionFr: "Brief, charte, architecture de contenu, environnement staging.",
+                descriptionEn: "Brief, brand, content architecture, staging environment.",
+            },
+            {
+                labelFr: "Build pages + hardening + SEO",
+                labelEn: "Page build + hardening + SEO",
+                date: "Semaine 2 — Fév. 2026",
+                descriptionFr: "18 pages Elementor, sécu, perf, Rank Math, formulaires.",
+                descriptionEn: "18 Elementor pages, security, perf, Rank Math, forms.",
+            },
+            {
+                labelFr: "Go-live + écosystème digital",
+                labelEn: "Go-live + digital ecosystem",
+                date: "Fév. 2026",
+                descriptionFr: "Production esopa.org, GMB, socials, analytics.",
+                descriptionEn: "Production esopa.org, GMB, socials, analytics.",
+            },
+            {
+                labelFr: "Livraison officielle documentée",
+                labelEn: "Documented official delivery",
+                date: "Avril 2026",
+                descriptionFr: "PDF CAFCA × ZENORA : preuves, guides, maintenance, évolutions.",
+                descriptionEn: "CAFCA × ZENORA PDF: evidence, guides, maintenance, roadmap.",
             },
         ],
 
-        securityFr: ["Cloudflare en frontal", "Updates WP maîtrisés", "Backups automatisés", "Séparation staging/prod"],
-        securityEn: ["Cloudflare in front", "Controlled WP updates", "Automated backups", "Separated staging/prod"],
-        infraFr: ["Docker Compose VPS", "Nginx reverse proxy", "Cloudflare DNS/CDN", "Scripts backup MySQL"],
-        infraEn: ["Docker Compose VPS", "Nginx reverse proxy", "Cloudflare DNS/CDN", "MySQL backup scripts"],
+        scopeFr: [
+            "Site WordPress institutionnel bilingue FR/EN",
+            "Staging + production",
+            "Sécurité, backups, performance, SEO",
+            "Formulaires d'engagement (bénévole, partenariat, contact)",
+            "Google My Business + réseaux sociaux + lignes éditoriales",
+            "Documentation de livraison et transfert client",
+        ],
+        scopeEn: [
+            "Bilingual FR/EN institutional WordPress site",
+            "Staging + production",
+            "Security, backups, performance, SEO",
+            "Engagement forms (volunteer, partnership, contact)",
+            "Google Business + social networks + editorial lines",
+            "Delivery documentation and client handover",
+        ],
+        nonGoalsFr: [
+            "Application métier custom / CRM donateurs avancé",
+            "Plateforme de paiement en ligne (dons) — hors sprint initial",
+            "App mobile native",
+        ],
+        nonGoalsEn: [
+            "Custom business app / advanced donor CRM",
+            "Online donation payment platform — outside initial sprint",
+            "Native mobile app",
+        ],
+
+        decisions: [
+            {
+                titleFr: "WordPress + Elementor pour autonomie cliente",
+                titleEn: "WordPress + Elementor for client autonomy",
+                decisionFr: "CMS éditable par l'équipe ESOPA plutôt qu'un site figé code-only.",
+                decisionEn: "CMS editable by the ESOPA team rather than a code-only frozen site.",
+                rationaleFr: "Une ONG doit pouvoir publier actualités et projets sans dépendre d'un développeur à chaque fois.",
+                rationaleEn: "An NGO must publish news and projects without depending on a developer every time.",
+            },
+            {
+                titleFr: "Staging et production séparés dès le jour 1",
+                titleEn: "Separated staging and production from day 1",
+                decisionFr: "Valider contenu et plugins hors live avant promotion.",
+                decisionEn: "Validate content and plugins off-live before promotion.",
+                rationaleFr: "Évite les régressions publiques sur un site de confiance institutionnelle.",
+                rationaleEn: "Avoids public regressions on an institutional trust site.",
+            },
+            {
+                titleFr: "Sécurité multi-plugins dès la livraison",
+                titleEn: "Multi-plugin security from delivery",
+                decisionFr: "Wordfence + Limit Login Attempts + backups automatiques inclus dans le sprint.",
+                decisionEn: "Wordfence + Limit Login Attempts + automated backups included in the sprint.",
+                rationaleFr: "WordPress exposé = cible permanente ; la sécu ne peut pas être un afterthought ONG.",
+                rationaleEn: "Exposed WordPress = permanent target; security cannot be an NGO afterthought.",
+            },
+            {
+                titleFr: "Livrer un écosystème, pas seulement un site",
+                titleEn: "Deliver an ecosystem, not just a site",
+                decisionFr: "GMB + socials + lignes éditoriales + PDF de livraison dans le même mandat.",
+                decisionEn: "GMB + socials + editorial lines + delivery PDF in the same mandate.",
+                rationaleFr: "La crédibilité ONG se joue aussi hors du domaine — Maps, réseaux, process.",
+                rationaleEn: "NGO credibility also plays outside the domain — Maps, socials, process.",
+            },
+            {
+                titleFr: "Transparence comme surface produit",
+                titleEn: "Transparency as a product surface",
+                decisionFr: "Pages Transparence, Mentions légales et Confidentialité dès le go-live.",
+                decisionEn: "Transparency, Legal and Privacy pages from go-live.",
+                rationaleFr: "Donateurs et partenaires techniques jugent la gouvernance autant que le design.",
+                rationaleEn: "Donors and technical partners judge governance as much as design.",
+            },
+        ],
+
+        securityFr: [
+            "HTTPS Let's Encrypt + Cloudflare en frontal",
+            "Wordfence WAF — ~255 attaques complexes bloquées / mois",
+            "Limit Login Attempts Reloaded (anti brute-force admin)",
+            "Scan sécurité livraison : risque LOW, 0 vulnérabilité critique/haute/moyenne",
+            "Backups automatiques UpdraftPlus",
+            "Séparation staging / production pour limiter le blast radius",
+        ],
+        securityEn: [
+            "HTTPS Let's Encrypt + Cloudflare in front",
+            "Wordfence WAF — ~255 complex attacks blocked / month",
+            "Limit Login Attempts Reloaded (admin brute-force protection)",
+            "Delivery security scan: LOW risk, 0 critical/high/medium vulnerabilities",
+            "Automated UpdraftPlus backups",
+            "Staging / production separation to limit blast radius",
+        ],
+
+        infraFr: [
+            "WordPress conteneurisé / hébergement pro avec staging + production",
+            "Cloudflare DNS/CDN + certificat SSL",
+            "LiteSpeed Cache + Asset CleanUp pour la performance",
+            "UpdraftPlus (sauvegardes quotidiennes)",
+            "WP Mail SMTP pour la délivrabilité des formulaires",
+            "Observabilité : Plausible + Google Site Kit",
+        ],
+        infraEn: [
+            "Containerized WordPress / pro hosting with staging + production",
+            "Cloudflare DNS/CDN + SSL certificate",
+            "LiteSpeed Cache + Asset CleanUp for performance",
+            "UpdraftPlus (daily backups)",
+            "WP Mail SMTP for form deliverability",
+            "Observability: Plausible + Google Site Kit",
+        ],
 
         externalLinks: [
             { labelFr: "esopa.org", labelEn: "esopa.org", url: "https://esopa.org" },
+            { labelFr: "Google Business", labelEn: "Google Business", url: "https://share.google/qKdLhrGSv1JRceBR5" },
             { labelFr: "GitHub", labelEn: "GitHub", url: "https://github.com/ZENORA-360/projet-client-esopa" },
+            { labelFr: "ZENORA", labelEn: "ZENORA", url: "https://zenora360.com" },
         ],
-
-        testimonial: {
-            quoteFr: "Une vitrine stable, rapide, et une infra que l'équipe peut faire évoluer sans stress.",
-            quoteEn: "A stable, fast presence and an infra the team can evolve without stress.",
-            author: "ESOPA Coordination",
-            roleFr: "Coordination",
-            roleEn: "Coordination",
-            company: "ESOPA",
-        },
 
         lessonsFr: [
-            "Pour une ONG, fiabilité et backups > stack exotique.",
-            "Un vrai staging évite les régressions de contenu en prod.",
+            "Pour une ONG, le site est un outil de confiance : transparence et parcours d'engagement valent plus qu'une landing décorative.",
+            "Deux semaines suffisent si le scope est tranché — staging/prod, sécu et SEO inclus dès le sprint, pas « plus tard ».",
+            "WordPress reste pertinent quand l'autonomie éditoriale du client est un critère métier réel.",
+            "Livrer GMB + socials + doc transforme une prestation web en dispositif digital défendable face aux partenaires.",
+            "Les métriques (PageSpeed, attaques bloquées, position Google) doivent figurer dans la livraison — elles vendent la suite.",
         ],
         lessonsEn: [
-            "For an NGO, reliability and backups beat exotic stacks.",
-            "Real staging prevents content regressions in production.",
+            "For an NGO, the site is a trust tool: transparency and engagement journeys beat a decorative landing.",
+            "Two weeks are enough if scope is sharp — staging/prod, security and SEO included in the sprint, not later.",
+            "WordPress remains relevant when client editorial autonomy is a real business requirement.",
+            "Shipping GMB + socials + docs turns a web job into a digital system partners can defend.",
+            "Metrics (PageSpeed, blocked attacks, Google rank) must be in the delivery — they sell the next phase.",
         ],
 
         beforeAfter: [
             {
-                beforeSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2023-23-15.png",
-                afterSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2023-24-13.png",
-                captionFr: "D'une absence digitale à une présence professionnelle.",
-                captionEn: "From no digital presence to a professional site.",
+                beforeSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                afterSrc: "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-ui-home-hero.png",
+                captionFr: "D'une absence digitale à une présence institutionnelle live — esopa.org.",
+                captionEn: "From no digital presence to a live institutional presence — esopa.org.",
             },
         ],
 
         isFeatured: false,
     },
 
+
     {
         id: 6,
-        titleFr: "Secure Software Supply Chain Platform – DevSecOps Industriel",
-        titleEn: "Secure Software Supply Chain Platform – Industrial DevSecOps",
+        titleFr: "Supply Chain Pipeline — Kit DevSecOps fail-closed",
+        titleEn: "Supply Chain Pipeline — Fail-closed DevSecOps kit",
 
-        descriptionFr: "Conception d’une plateforme DevSecOps sécurisant la supply chain pour applications Node.js/Java (microservices & monolithes), avec conformité SLSA, réduction mesurée des vulnérabilités et pipeline CI/CD industriel.",
-        descriptionEn: "Designed a DevSecOps platform securing the software supply chain for Node.js/Java apps (microservices & monoliths), with SLSA alignment, measurable vulnerability reduction, and industrial-grade CI/CD.",
+        descriptionFr: "Colonne vertébrale CI/CD réutilisable : qualité → sécurité → image Trivy → Harbor → Cosign/SBOM → deploy par digest. Née du lab anti-Megalodon, en prod sur zenora360.com et ketc-services.com.",
+        descriptionEn: "Reusable CI/CD backbone: quality → security → Trivy image → Harbor → Cosign/SBOM → digest deploy. Born from the anti-Megalodon lab, live on zenora360.com and ketc-services.com.",
 
-        fullDescriptionFr: "Conception et implémentation d’une plateforme DevSecOps complète destinée à sécuriser la supply chain logicielle dans un contexte applicatif réel (Node.js / Java). Le système prend en charge plusieurs services déployés sur VPS via Docker/Docker Compose, avec pipelines CI/CD multi-environnements (dev, staging, production), contrôles de sécurité stricts et stratégies de déploiement fiables. Le pipeline intègre une approche sécurité globale : threat modeling (dependency poisoning, image tampering, secrets leakage), policy enforcement (fail build si CVSS > 7, interdiction des images non signées), et traçabilité des artefacts (SBOM + signature + provenance). La solution inclut également monitoring, alerting et métriques DevOps (DORA) pour piloter la performance des déploiements. Utilisé pour déployer et sécuriser plusieurs applications réelles avec des gains mesurables en qualité et sécurité.",
-        fullDescriptionEn: "Designed and implemented a full DevSecOps platform to secure the software supply chain in real-world applications (Node.js / Java). The system handles multiple services deployed on VPS using Docker/Docker Compose, with multi-environment CI/CD pipelines (dev, staging, production), strict security controls, and reliable deployment strategies. The pipeline integrates a holistic security approach: threat modeling (dependency poisoning, image tampering, secrets leakage), policy enforcement (fail builds if CVSS > 7, block unsigned images), and artifact traceability (SBOM + signing + provenance). The solution also includes monitoring, alerting, and DevOps metrics (DORA) to drive deployment performance. Used to deploy and secure multiple applications with measurable improvements in quality and security.",
+        fullDescriptionFr: `En mai 2026, la campagne Megalodon a infecté plus de 5 500 dépôts GitHub. La même année, des empoisonnements de dépendances ont frappé des paquets TanStack (impact OpenAI, Grafana), le client HTTP Axios sur npm, Trivy lui-même (groupe Team PCP), puis le crate Rust arrayref en août 2026. Le constat est brutal : un seul package compromis peut contaminer des milliers de logiciels en aval — et un pipeline CI classique (build vert → push latest → hope) ne protège de rien.
 
-        problemFr: "Les pipelines CI/CD classiques ne prennent pas en compte les attaques modernes de supply chain, exposant les systèmes à des dépendances compromises, des images altérées et des fuites de secrets.",
-        problemEn: "Traditional CI/CD pipelines do not address modern supply chain attacks, exposing systems to compromised dependencies, tampered images, and secret leaks.",
+J'ai d'abord traité le sujet comme un lab : comprendre les vecteurs (dependency poisoning, image tampering, secrets leakage, provenance absente), puis transformer la défense en produit. Le résultat est supply-chain-pipeline — un kit DevSecOps prêt à brancher, documenté, fail-closed là où ça compte. Démo live sur supply-chain-demo.barthez-kenwou.dev : une UI guide (résumé, pipeline, intégration, architectures, décisions, retours terrain) qui prouve la chaîne tout en servant d'artefact déployé par cette même chaîne.
+
+Sous le capot : GitHub Actions (CI, Security, Release Image, Deploy) + workflows réutilisables. CI = quality/health, Gitleaks, Hadolint, SonarQube QG bloquant, dependency-review, résumé fail-closed. Security = Trivy fs+config (HIGH/CRITICAL), CodeQL security-extended (YAML Actions), ZAP baseline planifié. Release = build local → gate Trivy image avant tout push Harbor → Cosign keyless + SBOM SPDX + provenance → metadata. Deploy = refuse latest, Cosign verify avant SSH, pull par digest, health + rollback, smoke sur réseau Docker proxy (Nginx Proxy Manager), Slack sur Deploy. Actions pinnées SHA. Harbor zenora-public héberge supply-chain-web, zenora-web et kc-services-web.
+
+Cette colonne vertébrale déploie déjà zenora360.com et ketc-services.com, et restera le standard de livraison ZENORA. Runtime actuel : Docker Compose sur VPS. Une variante Kubernetes pour les charges haute disponibilité est prévue — même discipline supply chain, autre orchestrateur.`,
+        fullDescriptionEn: `In May 2026, the Megalodon campaign infected more than 5,500 GitHub repositories. The same year, dependency poisonings hit TanStack packages (impacting OpenAI, Grafana), the Axios HTTP client on npm, Trivy itself (Team PCP), then the Rust crate arrayref in August 2026. The lesson is brutal: one compromised package can contaminate thousands of downstream systems — and a classic CI pipeline (green build → push latest → hope) protects nothing.
+
+I first treated it as a lab: map the vectors (dependency poisoning, image tampering, secrets leakage, missing provenance), then turn defense into a product. The result is supply-chain-pipeline — a plug-and-play DevSecOps kit, documented, fail-closed where it matters. Live demo at supply-chain-demo.barthez-kenwou.dev: a guided UI (summary, pipeline, integration, architectures, decisions, field notes) that proves the chain while being an artifact deployed by that same chain.
+
+Under the hood: GitHub Actions (CI, Security, Release Image, Deploy) + reusable workflows. CI = quality/health, Gitleaks, Hadolint, blocking SonarQube QG, dependency-review, fail-closed summary. Security = Trivy fs+config (HIGH/CRITICAL), CodeQL security-extended (Actions YAML), scheduled ZAP baseline. Release = local build → Trivy image gate before any Harbor push → Cosign keyless + SPDX SBOM + provenance → metadata. Deploy = refuse latest, Cosign verify before SSH, pull by digest, health + rollback, smoke on Docker proxy network (Nginx Proxy Manager), Slack on Deploy. Actions pinned by SHA. Harbor zenora-public hosts supply-chain-web, zenora-web and kc-services-web.
+
+This backbone already ships zenora360.com and ketc-services.com, and remains ZENORA delivery standard. Current runtime: Docker Compose on VPS. A Kubernetes variant for high-availability workloads is planned — same supply-chain discipline, different orchestrator.`,
+
+        problemFr: "Les pipelines CI/CD classiques valident le code puis poussent une image mutable (souvent latest) sans preuve cryptographique ni gate image. Face à Megalodon, à l'empoisonnement npm/crates et au tampering d'images, ce modèle laisse entrer en production ce qu'un attaquant a injecté en amont.",
+        problemEn: "Classic CI/CD pipelines validate code then push a mutable image (often latest) without cryptographic proof or an image gate. Against Megalodon, npm/crates poisoning and image tampering, that model lets into production whatever an attacker injected upstream.",
 
         solutionFr: [
-            "Pipeline CI/CD multi-environnements (dev, staging, production) avec GitHub Actions",
-            "Implémentation de release gates avec validations manuelles avant production",
-            "Stratégie de versioning (SemVer + tagging automatique)",
-            "Rollback automatisé et déploiement zero-downtime",
-            "SBOM généré avec Syft + scan avec Grype",
-            "Analyse SAST (SonarQube), SCA et scans Trivy (filesystem + images)",
-            "Signature et vérification des artefacts avec Cosign/Sigstore",
-            "Policy enforcement (blocage si CVSS > 7, images non signées interdites)",
-            "Pipeline réutilisable (composite actions), caching avancé et parallélisation",
-            "Monitoring et alerting (logs, métriques pipeline, alertes sécurité)",
+            "Kit reutilisable (.github/ + deploy/) : copier, renommer IMAGE_NAME, brancher les secrets, livrer",
+            "CI fail-closed : Quality, Gitleaks, Hadolint, Sonar QG, dependency-review, CI summary",
+            "Security : Trivy fs/config HIGH-CRITICAL, CodeQL security-extended, ZAP baseline cron",
+            "Release : build local → Trivy image gate → Harbor sha-* → Cosign + SBOM + provenance",
+            "Deploy : refuse latest, Cosign verify avant SSH, pull digest, health/rollback, smoke proxy",
+            "Runtime VPS : Compose + Nginx Proxy Manager + Cloudflare, sans bind hote :80",
+            "Dependabot + actions pinnees SHA + secrets Harbor/SSH/Sonar/Slack hors repo",
+            "Demo UI pedagogique deployee par la chaine elle-meme (dogfooding)",
         ],
         solutionEn: [
-            "Multi-environment CI/CD pipelines (dev, staging, production) using GitHub Actions",
-            "Release gates with manual approvals before production",
-            "Versioning strategy (SemVer + automated tagging)",
-            "Automated rollback and zero-downtime deployment",
-            "SBOM generation with Syft + scanning with Grype",
-            "SAST (SonarQube), SCA, and Trivy scans (filesystem + images)",
-            "Artifact signing and verification with Cosign/Sigstore",
-            "Policy enforcement (fail if CVSS > 7, block unsigned images)",
-            "Reusable pipelines (composite actions), advanced caching and parallelization",
-            "Monitoring and alerting (logs, pipeline metrics, security alerts)",
+            "Reusable kit (.github/ + deploy/): copy, rename IMAGE_NAME, wire secrets, ship",
+            "Fail-closed CI: Quality, Gitleaks, Hadolint, Sonar QG, dependency-review, CI summary",
+            "Security: Trivy fs/config HIGH-CRITICAL, CodeQL security-extended, ZAP baseline cron",
+            "Release: local build → Trivy image gate → Harbor sha-* → Cosign + SBOM + provenance",
+            "Deploy: refuse latest, Cosign verify before SSH, digest pull, health/rollback, proxy smoke",
+            "VPS runtime: Compose + Nginx Proxy Manager + Cloudflare, no host :80 bind",
+            "Dependabot + SHA-pinned actions + Harbor/SSH/Sonar/Slack secrets out of repo",
+            "Pedagogical demo UI deployed by the chain itself (dogfooding)",
         ],
 
         challengesFr: [
-            "Intégration cohérente de multiples outils DevSecOps",
-            "Maintenir la performance malgré la charge des scans sécurité",
-            "Garantir la traçabilité complète des artefacts",
-            "Implémenter des politiques de sécurité strictes sans bloquer la productivité",
-            "Industrialiser le pipeline pour un usage réel et continu",
+            "Transformer un lab threat-model en kit production reutilisable (pas une demo jetable)",
+            "Fail-closed sans tuer la productivite : skips explicites (Sonar absent) vs gates dures",
+            "Harbor Cosign policy HTTP 412 sur pull VPS — workaround artifact release-image + verify",
+            "SSH Deploy sous UFW limit : session unique ControlMaster, known_hosts pines",
+            "Smoke HTTPS public vs Bot Fight Cloudflare — smoke reseau Docker prioritaire",
+            "CodeQL sur YAML Actions (demo nginx sans sources JS) tout en restant pertinent",
+            "Industrialiser pour plusieurs produits ZENORA sans forker la discipline a chaque repo",
         ],
         challengesEn: [
-            "Integrating multiple DevSecOps tools coherently",
-            "Maintaining performance despite heavy security scanning",
-            "Ensuring full artifact traceability",
-            "Enforcing strict security policies without blocking productivity",
-            "Industrializing the pipeline for real-world continuous usage",
+            "Turn a threat-model lab into a reusable production kit (not a throwaway demo)",
+            "Fail-closed without killing velocity: explicit skips (Sonar absent) vs hard gates",
+            "Harbor Cosign policy HTTP 412 on VPS pull — release-image artifact + verify workaround",
+            "SSH Deploy under UFW limit: single ControlMaster session, pinned known_hosts",
+            "Public HTTPS smoke vs Cloudflare Bot Fight — Docker-network smoke first",
+            "CodeQL on Actions YAML (nginx demo without JS sources) while staying meaningful",
+            "Industrialize for multiple ZENORA products without forking discipline per repo",
         ],
 
         impactFr: [
-            "Réduction estimée de ~60–70% des vulnérabilités critiques en production",
-            "Blocage automatique des dépendances et images compromises",
-            "Amélioration significative de la sécurité de la supply chain",
-            "Déploiements plus fiables et reproductibles",
+            "Colonne vertebrale unique pour supply-chain-demo, zenora360.com et ketc-services.com",
+            "Aucune image Harbor sans gate Trivy image HIGH/CRITICAL verte",
+            "Aucun deploy production sur latest — digest immuable + Cosign verify avant SSH",
+            "SonarQube Quality Gate Passed (0 new issues, Security Hotspots A) sur le demo kit",
+            "68+ runs Actions documentes : CI, Security schedule, Release, Deploy, Dependabot",
+            "Slack #prod-alerts : visibilite temps reel des deploys production",
+            "Standard interne ZENORA pret pour une variante Kubernetes HA",
         ],
         impactEn: [
-            "Estimated ~60–70% reduction in critical production vulnerabilities",
-            "Automatic blocking of compromised dependencies and images",
-            "Significant improvement in supply chain security",
-            "More reliable and reproducible deployments",
+            "Single backbone for supply-chain-demo, zenora360.com and ketc-services.com",
+            "No Harbor image without a green Trivy image HIGH/CRITICAL gate",
+            "No production deploy on latest — immutable digest + Cosign verify before SSH",
+            "SonarQube Quality Gate Passed (0 new issues, Security Hotspots A) on the demo kit",
+            "68+ documented Actions runs: CI, Security schedule, Release, Deploy, Dependabot",
+            "Slack #prod-alerts: real-time visibility into production deploys",
+            "Internal ZENORA standard ready for a Kubernetes HA variant",
         ],
 
         metrics: {
-            "services": "3–5 applications déployées",
-            "builds": "10–20 builds/jour",
-            "vulnerabilities_blocked": "~65%",
-            "MTTR": "< 1h",
-            "lead_time": "Quelques heures",
-            "deployment_frequency": "Quotidienne",
-            "change_failure_rate": "< 10%",
+            "Quality Gate": "Passed",
+            "Security Hotspots": "A",
+            "New Issues": "0",
+            "Actions runs": "68+",
+            "Harbor artifacts (demo)": "28",
+            "Deploy model": "digest + Cosign",
+            "Prod clients": "zenora360 + ketc",
+            "Trivy gate": "HIGH/CRITICAL block",
+            "Runtime": "Compose VPS",
+            "Next": "Kubernetes HA",
         },
 
         techStack: {
-            frontend: [],
-            backend: ["Node.js", "Java"],
+            frontend: ["HTML", "CSS", "JavaScript", "Nginx static demo"],
+            backend: [],
             database: [],
             devops: [
                 "GitHub Actions",
+                "reusable workflows",
+                "Gitleaks",
+                "Hadolint",
                 "SonarQube",
                 "Trivy",
-                "Syft",
-                "Grype",
-                "Cosign",
-                "Sigstore",
-                "Harbor",
+                "CodeQL",
+                "OWASP ZAP",
+                "Dependabot",
                 "Docker",
                 "Docker Compose",
-                "Prometheus",
-                "Grafana",
+                "Harbor",
+                "Cosign / Sigstore",
+                "SBOM SPDX",
+                "attestations",
+                "Nginx Proxy Manager",
+                "Cloudflare",
+                "OVH VPS",
                 "Slack",
             ],
         },
 
         architecture: [
-            "Pipeline CI/CD multi-stage (dev → staging → production)",
-            "Scanning sécurité (SAST, SCA, DAST)",
-            "SBOM + signature + vérification de provenance",
-            "Registry sécurisé (Harbor)",
-            "Déploiement VPS avec rollback et zero downtime",
-            "Monitoring (Prometheus) + visualisation (Grafana)",
-            "Alerting automatique (Slack)",
+            "Quatre workflows : CI | Security | Release Image | Deploy (+ reusable quality/notify)",
+            "Fail-closed summaries (CI summary, Security summary) comme checks de branche",
+            "Release : buildx load local → Trivy image → push Harbor sha-* → Cosign → SBOM → metadata",
+            "Deploy : workflow_run apres Release OK → resolve digest → Cosign verify → SSH mux → Compose",
+            "Runtime : conteneur :8080 sur reseau Docker partage avec Nginx Proxy Manager, edge Cloudflare",
+            "Registry Harbor zenora-public multi-repos (supply-chain-web, zenora-web, kc-services-web)",
+            "Kit greffable : meme discipline sur d autres produits en changeant IMAGE_NAME + secrets",
         ],
 
         testing: [
-            "SAST (SonarQube)",
-            "Scans dépendances et images",
-            "Tests DAST en staging",
+            "Quality reusable : asset checks, image build, /health",
+            "Gitleaks secrets scan + Hadolint Dockerfile",
+            "SonarQube qualitygate.wait bloquant quand SONAR_* present",
+            "Trivy filesystem + config + image (HIGH/CRITICAL, exit 1)",
+            "CodeQL security-extended (language actions)",
+            "ZAP baseline schedule / workflow_dispatch + artefactes",
+            "Deploy smoke : conteneur + reseau proxy + digest ; rollback si health KO",
         ],
 
         images: [
-            "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/devsecops.webp",
+            "https://s3.zenora360.com/barthez-portfolio/images/supply-chain/sc-ci-pipeline.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/supply-chain/sc-security-pipeline.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/supply-chain/sc-deploy-cosign.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/supply-chain/sc-harbor-registry.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/supply-chain/sc-sonar-qg.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/supply-chain/sc-github-repo.png",
         ],
-
-        preview: "",
+        preview: "https://s3.zenora360.com/barthez-portfolio/images/supply-chain/sc-ci-pipeline.png",
         videoDemo: "",
 
-        category: "DevSecOps",
-        status: "Actif",
+        category: "DevSecOps • Supply Chain",
+        status: "Production",
         complexity: "Expert",
-        role: "DevOps Engineer",
+        role: "DevSecOps Engineer • Platform",
         teamSize: 1,
 
-        duration: "Projet continu",
+        duration: "Lab → kit prod (2026)",
         date: "2026",
 
-        github: "https://github.com/ZENORA-360/zenora360/tree/main/.github",
-        demo: "",
+        github: "https://github.com/barthez-kenwou/supply-chain-pipeline",
+        demo: "https://supply-chain-demo.barthez-kenwou.dev/",
 
-        businessContextFr: "Projet d’ingénierie DevSecOps visant à sécuriser la supply chain logicielle face aux menaces modernes et à implémenter des standards industriels dans les pipelines CI/CD.",
-        businessContextEn: "DevSecOps engineering project aimed at securing the software supply chain against modern threats and implementing industry-grade CI/CD standards.",
+        businessContextFr: "Réponse ingénierie aux attaques supply chain 2026 (Megalodon, npm/crates poisoning) : industrialiser une chaîne de livraison ZENORA où rien n'entre en prod sans scan image, signature et deploy par digest — et la rendre réutilisable projet après projet.",
+        businessContextEn: "Engineering response to 2026 supply-chain attacks (Megalodon, npm/crates poisoning): industrialize a ZENORA delivery chain where nothing reaches prod without image scan, signature and digest deploy — and make it reusable across projects.",
 
         confidential: false,
 
         responsibilitiesFr: [
-            "Conception de pipelines multi-environnements GitHub Actions",
-            "Intégration SAST/SCA/DAST et gates de release",
-            "SBOM (Syft/Grype) + signature Cosign/Sigstore",
-            "Politiques Harbor et alerting Slack",
+            "Threat modeling supply chain (poisoning, tampering, secrets, provenance)",
+            "Conception et implementation des workflows CI / Security / Release / Deploy",
+            "Gates fail-closed (Trivy, Sonar, Cosign verify, refuse latest)",
+            "Integration Harbor, SSH VPS, NPM proxy, Cloudflare, Slack",
+            "Kit documente + UI demo pedagogique dogfoodée",
+            "Deploiement / adoption sur produits ZENORA (zenora360, ketc-services)",
         ],
         responsibilitiesEn: [
-            "Multi-environment GitHub Actions pipeline design",
-            "SAST/SCA/DAST integration and release gates",
-            "SBOM (Syft/Grype) + Cosign/Sigstore signing",
-            "Harbor policies and Slack alerting",
+            "Supply-chain threat modeling (poisoning, tampering, secrets, provenance)",
+            "Design and implementation of CI / Security / Release / Deploy workflows",
+            "Fail-closed gates (Trivy, Sonar, Cosign verify, refuse latest)",
+            "Harbor, SSH VPS, NPM proxy, Cloudflare, Slack integration",
+            "Documented kit + dogfooded pedagogical demo UI",
+            "Rollout / adoption on ZENORA products (zenora360, ketc-services)",
         ],
 
         gallery: [
-            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/devsecops.webp", captionFr: "Chaîne DevSecOps", captionEn: "DevSecOps chain", kind: "process" },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/supply-chain/sc-github-repo.png",
+                captionFr: "Repo public — kit plug-and-play qualite, securite, Cosign, deploy digest",
+                captionEn: "Public repo — plug-and-play kit quality, security, Cosign, digest deploy",
+                kind: "process",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/supply-chain/sc-actions-list.png",
+                captionFr: "GitHub Actions — CI, Security, Release, Deploy, Dependabot, attestations",
+                captionEn: "GitHub Actions — CI, Security, Release, Deploy, Dependabot, attestations",
+                kind: "process",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/supply-chain/sc-ci-pipeline.png",
+                captionFr: "CI #28 — Quality, Gitleaks, Hadolint, SonarQube, CI summary fail-closed",
+                captionEn: "CI #28 — Quality, Gitleaks, Hadolint, SonarQube, fail-closed CI summary",
+                kind: "process",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/supply-chain/sc-security-pipeline.png",
+                captionFr: "Security #32 — Trivy fs/config, CodeQL actions, ZAP baseline, summary",
+                captionEn: "Security #32 — Trivy fs/config, CodeQL actions, ZAP baseline, summary",
+                kind: "process",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/supply-chain/sc-deploy-cosign.png",
+                captionFr: "Deploy #17 — resolve tag/digest, Cosign verify, prod SSH, notify",
+                captionEn: "Deploy #17 — resolve tag/digest, Cosign verify, prod SSH, notify",
+                kind: "process",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/supply-chain/sc-sonar-qg.png",
+                captionFr: "SonarQube — Quality Gate Passed, 0 new issues, Security Hotspots A",
+                captionEn: "SonarQube — Quality Gate Passed, 0 new issues, Security Hotspots A",
+                kind: "metric",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/supply-chain/sc-harbor-registry.png",
+                captionFr: "Harbor zenora-public — supply-chain-web, zenora-web, kc-services-web",
+                captionEn: "Harbor zenora-public — supply-chain-web, zenora-web, kc-services-web",
+                kind: "infra",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/supply-chain/sc-github-secrets.png",
+                captionFr: "Secrets Actions — Harbor, SSH deploy, Sonar, Slack (zero secret in repo)",
+                captionEn: "Actions secrets — Harbor, SSH deploy, Sonar, Slack (zero secrets in repo)",
+                kind: "infra",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/supply-chain/sc-slack-alerts.png",
+                captionFr: "Slack #prod-alerts — notifications Deploy production (discipline partagee)",
+                captionEn: "Slack #prod-alerts — production Deploy notifications (shared discipline)",
+                kind: "other",
+            },
         ],
 
         diagrams: [
             {
-                id: "devsecops-pipeline",
-                titleFr: "Pipeline supply chain",
-                titleEn: "Supply-chain pipeline",
+                id: "sc-workflows",
+                titleFr: "Carte des workflows GitHub Actions",
+                titleEn: "GitHub Actions workflow map",
+                mermaid: `flowchart TB
+  PR[PR / push] --> CI[CI]
+  PR --> SEC[Security]
+  MAIN[merge main] --> REL[Release Image]
+  REL -->|workflow_run + metadata| DEP[Deploy]
+  DEP --> HOST[VPS Compose reverse proxy]
+  CRON[schedule lundi] --> ZAP[ZAP baseline]
+  ZAP --> SEC`,
+            },
+            {
+                id: "sc-release-seq",
+                titleFr: "Sequence Release vers production",
+                titleEn: "Release to production sequence",
+                mermaid: `sequenceDiagram
+  participant Dev as Dev
+  participant CI as CI Security
+  participant Rel as Release
+  participant Har as Harbor
+  participant Dep as Deploy
+  participant VPS as VPS
+  Dev->>CI: push / PR
+  CI-->>Dev: CI + Security summary
+  Dev->>Rel: merge main
+  Rel->>Rel: quality + build local
+  Rel->>Rel: Trivy image gate
+  Note over Rel: Echec = aucun push Harbor
+  Rel->>Har: push sha-xxxxxxx
+  Rel->>Har: Cosign sign + SBOM
+  Rel-->>Dep: workflow_run success
+  Dep->>Har: Cosign verify digest
+  Dep->>VPS: SSH pull digest + health
+  alt health KO
+    VPS->>VPS: rollback
+  end`,
+            },
+            {
+                id: "sc-runtime",
+                titleFr: "Runtime VPS — edge to conteneur",
+                titleEn: "VPS runtime — edge to container",
                 mermaid: `flowchart LR
-  Commit --> GHA[GitHub Actions]
-  GHA --> SAST[Sonar / Semgrep]
-  GHA --> SCA[Trivy / Grype]
-  GHA --> SBOM[Syft SBOM]
-  SBOM --> Sign[Cosign Sign]
-  Sign --> Harbor[Harbor Registry]
-  Harbor --> Gate{Policy Gate}
-  Gate -->|pass| Deploy[Deploy]
-  Gate -->|fail| Block[Block Release]`,
+  U[Clients] --> CF[Cloudflare]
+  CF --> NPM[Nginx Proxy Manager]
+  NPM --> NET[docker network web-proxy]
+  NET --> WEB[app container :8080]
+  HAR[Harbor digest] -.->|deploy pull| WEB`,
+            },
+            {
+                id: "sc-ci-jobs",
+                titleFr: "CI — jobs et gate resume",
+                titleEn: "CI — jobs and summary gate",
+                mermaid: `flowchart LR
+  Q[reusable-quality] --> SQ[Sonar QG]
+  GL[Gitleaks]
+  HD[Hadolint]
+  DR[dependency-review]
+  Q --> CIS{CI summary}
+  GL --> CIS
+  HD --> CIS
+  DR --> CIS
+  SQ --> CIS
+  CIS -->|fail| RED[bloque]
+  CIS -->|ok| GREEN[vert]`,
+            },
+            {
+                id: "sc-threats",
+                titleFr: "Menaces 2026 → controles pipeline",
+                titleEn: "2026 threats → pipeline controls",
+                mermaid: `flowchart TB
+  M[Megalodon / repo malware] --> GL[Gitleaks + CodeQL Actions]
+  D[Dependency poisoning npm crates] --> TR[Trivy fs + Dependabot]
+  I[Image tampering] --> TI[Trivy image + Cosign]
+  L[latest mutable deploy] --> DG[digest only + refuse latest]
+  S[Secrets leakage] --> SEC[repo secrets + redact]
+  P[Missing provenance] --> SB[SBOM SPDX + attestations]`,
+            },
+            {
+                id: "sc-failclosed",
+                titleFr: "Principes fail-closed non negociables",
+                titleEn: "Non-negotiable fail-closed principles",
+                mermaid: `flowchart TB
+  A[Pas d image Harbor sans Trivy OK] --> B[Pas de SSH sans Cosign verify]
+  B --> C[Pas de prod sur latest]
+  C --> D[Rollback avec preuve health]
+  D --> E[Actions critiques pinnees SHA]`,
+            },
+            {
+                id: "sc-reuse",
+                titleFr: "Adoption multi-produits ZENORA",
+                titleEn: "Multi-product ZENORA adoption",
+                mermaid: `flowchart LR
+  KIT[supply-chain-pipeline kit] --> DEMO[supply-chain-demo]
+  KIT --> Z[zenora360.com]
+  KIT --> K[ketc-services.com]
+  KIT --> NEXT[futurs services ZENORA]
+  NEXT --> K8S[variante Kubernetes HA]`,
             },
         ],
 
         resources: [
-            { labelFr: "Workflows GitHub", labelEn: "GitHub workflows", url: "https://github.com/ZENORA-360/zenora360/tree/main/.github", type: "other" },
+            { labelFr: "Repo GitHub supply-chain-pipeline", labelEn: "GitHub repo supply-chain-pipeline", url: "https://github.com/barthez-kenwou/supply-chain-pipeline", type: "other" },
+            { labelFr: "Demo live", labelEn: "Live demo", url: "https://supply-chain-demo.barthez-kenwou.dev/", type: "other" },
+            { labelFr: "Doc workflows (.github/README)", labelEn: "Workflows docs (.github/README)", url: "https://github.com/barthez-kenwou/supply-chain-pipeline/tree/main/.github", type: "spec" },
+            { labelFr: "zenora360.com (prod)", labelEn: "zenora360.com (prod)", url: "https://zenora360.com/", type: "other" },
+            { labelFr: "ketc-services.com (prod)", labelEn: "ketc-services.com (prod)", url: "https://ketc-services.com/", type: "other" },
         ],
 
         milestones: [
-            { labelFr: "Baseline CI + secrets scan", labelEn: "CI baseline + secrets scan", date: "Phase 1" },
-            { labelFr: "SBOM + signature images", labelEn: "SBOM + image signing", date: "Phase 2" },
-            { labelFr: "Policy gates Harbor", labelEn: "Harbor policy gates", date: "Phase 3" },
+            {
+                labelFr: "Lab threat model Megalodon / poisoning",
+                labelEn: "Megalodon / poisoning threat-model lab",
+                date: "2026",
+                descriptionFr: "Cartographie des vecteurs et premieres gates CI/Security.",
+                descriptionEn: "Vector mapping and first CI/Security gates.",
+            },
+            {
+                labelFr: "Kit Release + Cosign + Harbor",
+                labelEn: "Release + Cosign + Harbor kit",
+                date: "2026",
+                descriptionFr: "Trivy-before-push, signature keyless, SBOM, metadata.",
+                descriptionEn: "Trivy-before-push, keyless signing, SBOM, metadata.",
+            },
+            {
+                labelFr: "Deploy digest + smoke proxy + Slack",
+                labelEn: "Digest deploy + proxy smoke + Slack",
+                date: "2026",
+                descriptionFr: "SSH mux, refuse latest, rollback health, alertes prod.",
+                descriptionEn: "SSH mux, refuse latest, health rollback, prod alerts.",
+            },
+            {
+                labelFr: "Adoption zenora360 + ketc-services",
+                labelEn: "zenora360 + ketc-services adoption",
+                date: "2026",
+                descriptionFr: "Meme discipline sur produits reels Harbor zenora-public.",
+                descriptionEn: "Same discipline on real products in Harbor zenora-public.",
+            },
+            {
+                labelFr: "Variante Kubernetes HA (roadmap)",
+                labelEn: "Kubernetes HA variant (roadmap)",
+                date: "Prochaine",
+                descriptionFr: "Meme supply chain, orchestrateur pour charges exigeantes.",
+                descriptionEn: "Same supply chain, orchestrator for demanding workloads.",
+            },
         ],
 
-        scopeFr: ["Pipelines multi-env", "Scans SAST/SCA/DAST", "SBOM + provenance", "Signature & politiques registry"],
-        scopeEn: ["Multi-env pipelines", "SAST/SCA/DAST scans", "SBOM + provenance", "Signing & registry policies"],
-        nonGoalsFr: ["Remplacement complet de l'outillage métier", "SOC 24/7 managé"],
-        nonGoalsEn: ["Full replacement of business tooling", "Managed 24/7 SOC"],
+        scopeFr: [
+            "Kit CI/CD DevSecOps reutilisable (workflows + deploy + compose)",
+            "Gates qualite / secrets / SAST / SCA / DAST baseline",
+            "Registry Harbor + Cosign + SBOM + provenance",
+            "Deploy VPS Compose par digest avec rollback",
+            "Demo UI + documentation d integration",
+            "Adoption multi-produits ZENORA",
+        ],
+        scopeEn: [
+            "Reusable DevSecOps CI/CD kit (workflows + deploy + compose)",
+            "Quality / secrets / SAST / SCA / DAST baseline gates",
+            "Harbor registry + Cosign + SBOM + provenance",
+            "VPS Compose digest deploy with rollback",
+            "Demo UI + integration documentation",
+            "Multi-product ZENORA adoption",
+        ],
+        nonGoalsFr: [
+            "Remplacer un SOC 24/7 managé",
+            "Orchestration Kubernetes (roadmap, hors runtime actuel)",
+            "DAST ZAP bloquant sur chaque push (reserve schedule/manuel)",
+        ],
+        nonGoalsEn: [
+            "Replacing a managed 24/7 SOC",
+            "Kubernetes orchestration (roadmap, outside current runtime)",
+            "Blocking ZAP DAST on every push (schedule/manual only)",
+        ],
 
         decisions: [
             {
-                titleFr: "Fail closed sur CVSS élevé",
-                titleEn: "Fail closed on high CVSS",
-                decisionFr: "Bloquer les releases si CVSS > 7 ou image non signée.",
-                decisionEn: "Block releases if CVSS > 7 or image is unsigned.",
-                rationaleFr: "La sécurité supply chain ne peut pas être best-effort.",
-                rationaleEn: "Supply-chain security cannot be best-effort.",
+                titleFr: "Fail-closed avant tout push registry",
+                titleEn: "Fail-closed before any registry push",
+                decisionFr: "Build local + Trivy image ; echec = aucun artefact Harbor.",
+                decisionEn: "Local build + Trivy image; failure = no Harbor artifact.",
+                rationaleFr: "Une image compromise dans le registry est deja trop tard.",
+                rationaleEn: "A compromised image in the registry is already too late.",
             },
             {
-                titleFr: "Cosign / Sigstore",
-                titleEn: "Cosign / Sigstore",
-                decisionFr: "Signature d'images standard ouverte.",
-                decisionEn: "Open-standard image signing.",
-                rationaleFr: "Interopérabilité et auditabilité.",
-                rationaleEn: "Interoperability and auditability.",
+                titleFr: "Deploy par digest, jamais latest",
+                titleEn: "Deploy by digest, never latest",
+                decisionFr: "Prod exige sha-* + sha256 ; latest refuse explicitement.",
+                decisionEn: "Prod requires sha-* + sha256; latest explicitly refused.",
+                rationaleFr: "latest est mutable — incompatible avec une preuve supply chain.",
+                rationaleEn: "latest is mutable — incompatible with supply-chain proof.",
+            },
+            {
+                titleFr: "Cosign verify avant SSH",
+                titleEn: "Cosign verify before SSH",
+                decisionFr: "La signature est verifiee cote Actions avant toute session deploy.",
+                decisionEn: "Signature is verified on Actions before any deploy session.",
+                rationaleFr: "Signer sans verifier au deploy est du theatre securite.",
+                rationaleEn: "Signing without verify at deploy is security theatre.",
+            },
+            {
+                titleFr: "Cosign keyless OIDC GitHub",
+                titleEn: "Cosign keyless GitHub OIDC",
+                decisionFr: "Pas de cle longue duree a rotater dans les secrets.",
+                decisionEn: "No long-lived signing key to rotate in secrets.",
+                rationaleFr: "Identite de build = workflow GitHub ; auditabilite Sigstore.",
+                rationaleEn: "Build identity = GitHub workflow; Sigstore auditability.",
+            },
+            {
+                titleFr: "Kit greffable plutot que pipeline mono-repo",
+                titleEn: "Graftable kit over mono-repo-only pipeline",
+                decisionFr: "Copier .github/ + deploy/ et personnaliser IMAGE_NAME.",
+                decisionEn: "Copy .github/ + deploy/ and customize IMAGE_NAME.",
+                rationaleFr: "ZENORA a plusieurs produits — la discipline doit voyager.",
+                rationaleEn: "ZENORA has multiple products — discipline must travel.",
+            },
+            {
+                titleFr: "Compose maintenant, Kubernetes ensuite",
+                titleEn: "Compose now, Kubernetes next",
+                decisionFr: "Runtime VPS Compose pour le standard actuel ; K8s pour la HA.",
+                decisionEn: "Compose VPS runtime for current standard; K8s for HA.",
+                rationaleFr: "La supply chain est orthogonale a l orchestrateur — on solidifie d abord les gates.",
+                rationaleEn: "Supply chain is orthogonal to the orchestrator — harden gates first.",
             },
         ],
 
-        securityFr: ["Gitleaks / secret scanning", "SAST + SCA bloquants", "SBOM + attestation", "Images signées + policy Harbor"],
-        securityEn: ["Gitleaks / secret scanning", "Blocking SAST + SCA", "SBOM + attestation", "Signed images + Harbor policy"],
-        infraFr: ["GitHub Actions", "Harbor registry", "Docker / Compose", "Prometheus / Grafana / Slack"],
-        infraEn: ["GitHub Actions", "Harbor registry", "Docker / Compose", "Prometheus / Grafana / Slack"],
+        securityFr: [
+            "Gitleaks + secrets GitHub Actions (Harbor, SSH, Sonar, Slack) hors code",
+            "Trivy fs/config/image bloquant HIGH/CRITICAL (ignore-unfixed)",
+            "SonarQube qualitygate.wait + Security Hotspots A",
+            "CodeQL security-extended sur workflows Actions",
+            "Cosign sign + verify ; SBOM SPDX ; attestations / provenance",
+            "Refuse deploy latest ; known_hosts pines ; SSH ControlMaster",
+            "Dependabot + actions pinnees SHA ; paths-ignore docs pour bruit CI",
+        ],
+        securityEn: [
+            "Gitleaks + GitHub Actions secrets (Harbor, SSH, Sonar, Slack) out of code",
+            "Blocking Trivy fs/config/image HIGH/CRITICAL (ignore-unfixed)",
+            "SonarQube qualitygate.wait + Security Hotspots A",
+            "CodeQL security-extended on Actions workflows",
+            "Cosign sign + verify; SPDX SBOM; attestations / provenance",
+            "Refuse latest deploy; pinned known_hosts; SSH ControlMaster",
+            "Dependabot + SHA-pinned actions; docs paths-ignore to cut CI noise",
+        ],
+
+        infraFr: [
+            "GitHub Actions (CI, Security, Release, Deploy, reusable)",
+            "Harbor OCI (projet zenora-public) + Cosign",
+            "Docker Compose prod sur reseau proxy externe (NPM)",
+            "VPS OVH + Cloudflare edge",
+            "Slack webhooks Deploy / Release echec",
+            "SonarQube Community (projet supply-chain-demo)",
+        ],
+        infraEn: [
+            "GitHub Actions (CI, Security, Release, Deploy, reusable)",
+            "Harbor OCI (zenora-public project) + Cosign",
+            "Prod Docker Compose on external proxy network (NPM)",
+            "OVH VPS + Cloudflare edge",
+            "Slack webhooks for Deploy / failed Release",
+            "SonarQube Community (supply-chain-demo project)",
+        ],
 
         externalLinks: [
-            { labelFr: ".github workflows", labelEn: ".github workflows", url: "https://github.com/ZENORA-360/zenora360/tree/main/.github" },
+            { labelFr: "GitHub", labelEn: "GitHub", url: "https://github.com/barthez-kenwou/supply-chain-pipeline" },
+            { labelFr: "Demo", labelEn: "Demo", url: "https://supply-chain-demo.barthez-kenwou.dev/" },
+            { labelFr: "zenora360.com", labelEn: "zenora360.com", url: "https://zenora360.com/" },
+            { labelFr: "ketc-services.com", labelEn: "ketc-services.com", url: "https://ketc-services.com/" },
         ],
-
-        testimonial: {
-            quoteFr: "On a transformé la sécurité CI/CD d'une checklist tardive en garde-fou automatique.",
-            quoteEn: "We turned late CI/CD security checklists into automatic guardrails.",
-            author: "Platform Engineer",
-            roleFr: "Ingénieur plateforme",
-            roleEn: "Platform engineer",
-            company: "ZENORA 360",
-        },
 
         lessonsFr: [
-            "Les gates trop stricts sans UX développeur créent des contournements - documenter les exceptions.",
-            "SBOM inutile sans politique de fail claire.",
-            "Signer les images n'a de valeur que si le deploy vérifie la signature.",
+            "Megalodon et le poisoning npm/crates ont change la donne : un CI vert sans gate image ni provenance est une illusion de securite.",
+            "Signer une image n a de valeur que si le Deploy verifie la signature avant SSH.",
+            "latest en production est un anti-pattern supply chain — le digest est la seule verite.",
+            "Un lab devient un actif entreprise quand il est greffable : meme discipline, autres IMAGE_NAME.",
+            "Les retours terrain (Harbor 412, UFW SSH, CF 403) valent autant que le schema Mermaid — ils evitent de reconstruire les pieges.",
+            "Compose vs Kubernetes n est pas le combat : les gates fail-closed le sont.",
         ],
         lessonsEn: [
-            "Over-strict gates without developer UX create bypasses - document exceptions.",
-            "SBOMs are useless without a clear fail policy.",
-            "Signing images only matters if deploy verifies signatures.",
+            "Megalodon and npm/crates poisoning changed the game: green CI without an image gate or provenance is security theatre.",
+            "Signing an image only matters if Deploy verifies the signature before SSH.",
+            "latest in production is a supply-chain anti-pattern — the digest is the only truth.",
+            "A lab becomes a company asset when it is graftable: same discipline, different IMAGE_NAME.",
+            "Field notes (Harbor 412, UFW SSH, CF 403) matter as much as the Mermaid diagram — they prevent rebuilding the traps.",
+            "Compose vs Kubernetes is not the fight: fail-closed gates are.",
         ],
 
         beforeAfter: [
             {
-                beforeSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/devsecops.webp",
-                afterSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/devsecops.webp",
-                captionFr: "D'un CI 'build & ship' à une supply chain contrôlée.",
-                captionEn: "From build-and-ship CI to a controlled supply chain.",
+                beforeSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                afterSrc: "https://s3.zenora360.com/barthez-portfolio/images/supply-chain/sc-deploy-cosign.png",
+                captionFr: "D un CI build and ship a une supply chain verifiee : Trivy → Harbor → Cosign → digest deploy.",
+                captionEn: "From build-and-ship CI to a verified supply chain: Trivy → Harbor → Cosign → digest deploy.",
             },
         ],
 
-        isFeatured: false,
+        isFeatured: true,
     },
+
 
     {
         id: 7,
