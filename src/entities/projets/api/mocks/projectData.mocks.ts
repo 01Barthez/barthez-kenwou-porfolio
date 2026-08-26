@@ -3504,7 +3504,6 @@ Scope goes beyond a "showcase site". Separated staging and production environmen
         isFeatured: false,
     },
 
-
     {
         id: 6,
         titleFr: "Supply Chain Pipeline — Kit DevSecOps fail-closed",
@@ -4051,330 +4050,1177 @@ This backbone already ships zenora360.com and ketc-services.com, and remains ZEN
         isFeatured: true,
     },
 
-
     {
         id: 7,
-        titleFr: "Plateforme ERP Odoo – Infrastructure Cloud & DevOps (INTELEK BTP)",
-        titleEn: "Odoo ERP Platform – Cloud & DevOps Infrastructure (INTELEK Construction)",
+        titleFr: "Odoo Docker Infra — Lab DevSecOps multi-environnements",
+        titleEn: "Odoo Docker Infra — Multi-environment DevSecOps lab",
 
-        descriptionFr: "Déploiement et personnalisation d’un ERP Odoo pour une entreprise BTP, avec infrastructure cloud sécurisée, orchestration Kubernetes et sauvegardes externalisées.",
-        descriptionEn: "Deployment and customization of an Odoo ERP for a construction company, with secure cloud infrastructure, Kubernetes orchestration, and externalized backups.",
+        descriptionFr: "Lab enterprise-ready : plateforme de déploiement Odoo 100% déclarative (Docker Compose + Terraform + Infisical + CI/CD DevSecOps), staging/prod isolés, secrets rotatifs, supply chain d'images et observabilité — conçue pour être greffée sur de vrais besoins métier.",
+        descriptionEn: "Enterprise-ready lab: fully declarative Odoo deployment platform (Docker Compose + Terraform + Infisical + DevSecOps CI/CD), isolated staging/prod, rotating secrets, image supply chain and observability — built to be grafted onto real business needs.",
 
-        fullDescriptionFr: "Conception et déploiement d’une plateforme ERP complète basée sur Odoo pour INTELEK, une entreprise du secteur BTP comptant une quinzaine d’employés et gérant plusieurs projets simultanément. L’objectif était de centraliser la gestion des opérations (projets, finances, ressources humaines, ventes, achats) dans un système unique, fiable et évolutif. L’infrastructure a été conçue avec une approche DevOps avancée : déploiement conteneurisé, orchestration via Kubernetes (kubectl), sécurisation du serveur, et mise en place de sauvegardes externalisées sur MinIO. Plusieurs modules Odoo (issus du core et de l’OCA) ont été intégrés et adaptés pour répondre aux besoins métier spécifiques du BTP. Le système permet aujourd’hui une meilleure organisation interne, une traçabilité complète des opérations et une amélioration significative de la productivité.",
-        fullDescriptionEn: "Designed and deployed a full ERP platform based on Odoo for INTELEK, a construction company with around 15 employees managing multiple projects simultaneously. The goal was to centralize operations (projects, finance, HR, sales, procurement) into a single, reliable, and scalable system. The infrastructure was built using an advanced DevOps approach: containerized deployment, Kubernetes orchestration (kubectl), server hardening, and external backups with MinIO. Multiple Odoo modules (core and OCA) were integrated and customized to meet construction-specific business needs. The system now enables better internal organization, full operational traceability, and significant productivity improvement.",
+        fullDescriptionFr: `Ce projet n'est pas « un Odoo client » déguisé. C'est un lab d'ingénierie plateforme que j'ai construit pour transformer des concepts théoriques (IaC, secrets, DevSecOps, HA opérationnelle, DR) en infrastructure réutilisable — sur un besoin réel et pertinent : déployer Odoo comme on le ferait pour une entreprise.
 
-        problemFr: "L’entreprise gérait ses projets et opérations de manière fragmentée, sans système centralisé, ce qui entraînait un manque de visibilité, des erreurs de gestion et une perte de productivité.",
-        problemEn: "The company managed its projects and operations in a fragmented way, without a centralized system, leading to lack of visibility, management errors, and productivity loss.",
+Je connaissais déjà Odoo (usage, configuration, déploiements antérieurs). Ici l'objectif primaire était l'infra : Docker, réseaux segmentés, multi-environnements, Terraform, Infisical self-hosted, pipelines fail-closed, registry, observabilité, backups/restore testés. J'ai consolidé ça via des labs (Killercoda, AWS Skill Builder, Certland), des cours (Udemy, DataCamp, YouTube) et une lecture minutieuse des docs Docker/Terraform/Odoo — puis j'ai couronné par une plateforme documentée, greffable, enterprise-ready.
+
+Architecture 3-tiers : reverse proxy → Odoo → PostgreSQL. Séparation stricte dev / staging / production (réseaux Docker public/privé/database, volumes, bases, domaines, TLS et secrets séparés — aucun secret prod dans staging). Infrastructure entièrement déclarative : Terraform (modules, remote state, locking, tfvars, validate/fmt/plan, TFLint, Checkov, Trivy IaC). Images Odoo/PostgreSQL pinnées (jamais latest), non-root quand possible, healthchecks, resource limits, no-new-privileges, scan Trivy, SBOM, Cosign. Secrets hors Git via Infisical (rotation Postgres/SMTP, audit). CI/CD GitHub Actions : SAST/SCA/secrets/IaC/container, Harbor, gates bloquantes, promotion d'artifact unique staging→prod, smoke + rollback. Observabilité Prometheus/Grafana/Loki/Tempo + alerting. Backups PostgreSQL + filestore (stratégie 3-2-1), RPO/RTO et runbooks DR. Preview fonctionnelle : erp-dev.zenora360.com.
+
+Résultat : quand un besoin Odoo revient, on ne repart plus de zéro — on récupère odoo-docker-infra, on personnalise, on livre. Et quand un projet non-Odoo demande la même discipline (Compose multi-env, secrets, supply chain, DR), les concepts sont déjà maîtrisés.`,
+        fullDescriptionEn: `This project is not a disguised “client Odoo”. It is a platform-engineering lab I built to turn theoretical concepts (IaC, secrets, DevSecOps, operational HA, DR) into reusable infrastructure — on a real, relevant need: deploy Odoo the way you would for a company.
+
+I already knew Odoo (usage, configuration, prior deployments). Here the primary goal was infra: Docker, segmented networks, multi-environment, Terraform, self-hosted Infisical, fail-closed pipelines, registry, observability, tested backups/restores. I consolidated that through labs (Killercoda, AWS Skill Builder, Certland), courses (Udemy, DataCamp, YouTube) and careful reading of Docker/Terraform/Odoo docs — then crowned it with a documented, graftable, enterprise-ready platform.
+
+3-tier architecture: reverse proxy → Odoo → PostgreSQL. Strict separation of dev / staging / production (Docker public/private/database networks, volumes, databases, domains, TLS and secrets separated — no prod secrets in staging). Fully declarative infrastructure: Terraform (modules, remote state, locking, tfvars, validate/fmt/plan, TFLint, Checkov, Trivy IaC). Pinned Odoo/PostgreSQL images (never latest), non-root when possible, healthchecks, resource limits, no-new-privileges, Trivy scan, SBOM, Cosign. Secrets out of Git via Infisical (Postgres/SMTP rotation, audit). GitHub Actions CI/CD: SAST/SCA/secrets/IaC/container, Harbor, blocking gates, single-artifact promotion staging→prod, smoke + rollback. Observability Prometheus/Grafana/Loki/Tempo + alerting. PostgreSQL + filestore backups (3-2-1), RPO/RTO and DR runbooks. Functional preview: erp-dev.zenora360.com.
+
+Outcome: when an Odoo need returns, we no longer start from scratch — we take odoo-docker-infra, customize, ship. And when a non-Odoo project needs the same discipline (multi-env Compose, secrets, supply chain, DR), the concepts are already mastered.`,
+
+        problemFr: "Savoir « lancer Odoo » n'équivaut pas à maîtriser une plateforme enterprise-ready : multi-env isolés, secrets rotatifs, supply chain d'images, IaC, observabilité et DR testés. Sans ce socle, chaque nouveau déploiement Odoo (ou stack similaire) redevient un bricolage risqué.",
+        problemEn: "Knowing how to “start Odoo” is not the same as mastering an enterprise-ready platform: isolated multi-env, rotating secrets, image supply chain, IaC, observability and tested DR. Without that foundation, every new Odoo (or similar) deployment becomes risky improvisation again.",
 
         solutionFr: [
-            "Déploiement d’un ERP Odoo complet sur infrastructure cloud sécurisée",
-            "Orchestration via Kubernetes (kubectl) pour scalabilité et résilience",
-            "Intégration de modules Odoo core et OCA adaptés au BTP",
-            "Configuration de sauvegardes automatiques externalisées (MinIO)",
-            "Sécurisation du serveur (hardening, accès contrôlés)",
-            "Optimisation des workflows métiers (gestion de projets, ventes, RH, finance)",
+            "Plateforme Docker Compose multi-env (dev/staging/prod) 3-tiers, réseaux segmentés",
+            "Terraform IaC : modules, remote state, locking, policy-as-code (TFLint/Checkov/Trivy)",
+            "Infisical self-hosted : secrets hors Git, rotation, séparation staging/prod",
+            "Images pinnées + hardening conteneur + Trivy/SBOM/Cosign + Harbor",
+            "CI/CD fail-closed : qualité → sécu → release → promotion staging→prod",
+            "Observabilité (Prometheus/Grafana/Loki/Tempo) + alerting + runbooks",
+            "Backups PostgreSQL + filestore, restore testé, RPO/RTO documentés",
+            "Kit greffable documenté (ADR, diagrammes, runbooks) réutilisable hors Odoo",
         ],
         solutionEn: [
-            "Deployed full Odoo ERP on secure cloud infrastructure",
-            "Orchestrated with Kubernetes (kubectl) for scalability and resilience",
-            "Integrated core and OCA modules tailored for construction workflows",
-            "Configured automated external backups (MinIO)",
-            "Secured server (hardening, controlled access)",
-            "Optimized business workflows (projects, sales, HR, finance)",
+            "Multi-env Docker Compose platform (dev/staging/prod) 3-tier, segmented networks",
+            "Terraform IaC: modules, remote state, locking, policy-as-code (TFLint/Checkov/Trivy)",
+            "Self-hosted Infisical: secrets out of Git, rotation, staging/prod separation",
+            "Pinned images + container hardening + Trivy/SBOM/Cosign + Harbor",
+            "Fail-closed CI/CD: quality → security → release → staging→prod promotion",
+            "Observability (Prometheus/Grafana/Loki/Tempo) + alerting + runbooks",
+            "PostgreSQL + filestore backups, tested restore, documented RPO/RTO",
+            "Documented graftable kit (ADRs, diagrams, runbooks) reusable beyond Odoo",
         ],
 
         challengesFr: [
-            "Adapter Odoo aux besoins spécifiques du secteur BTP",
-            "Mettre en place une infrastructure Kubernetes stable",
-            "Garantir la sécurité des données sensibles",
-            "Gérer la persistance et les sauvegardes dans un environnement conteneurisé",
-            "Assurer la montée en charge et la disponibilité du système",
+            "Transformer un lab pédagogique en socle enterprise-ready sans perdre la clarté d'apprentissage",
+            "Isoler strictement staging/prod (réseaux, secrets, données) tout en gardant la reproductibilité",
+            "Durcir Odoo + Postgres sous Compose (non-root, limits, capabilities) sans casser longpolling",
+            "Brancher Infisical self-hosted et rotation sans fuites dans compose/Dockerfile",
+            "Industrialiser CI DevSecOps (gates bloquantes) sans rendre le lab inutilisable",
+            "Prouver DR : backup/restore PostgreSQL + filestore, pas seulement un dump théorique",
         ],
         challengesEn: [
-            "Adapting Odoo to construction-specific business needs",
-            "Setting up a stable Kubernetes infrastructure",
-            "Ensuring security of sensitive data",
-            "Managing persistence and backups in a containerized environment",
-            "Ensuring scalability and system availability",
+            "Turn a learning lab into an enterprise-ready foundation without losing learning clarity",
+            "Strictly isolate staging/prod (networks, secrets, data) while keeping reproducibility",
+            "Harden Odoo + Postgres under Compose (non-root, limits, capabilities) without breaking longpolling",
+            "Wire self-hosted Infisical and rotation without leaks in compose/Dockerfile",
+            "Industrialize DevSecOps CI (blocking gates) without making the lab unusable",
+            "Prove DR: PostgreSQL + filestore backup/restore, not just a theoretical dump",
         ],
 
         impactFr: [
-            "Centralisation complète des opérations de l’entreprise",
-            "Amélioration significative de la productivité interne",
-            "Meilleure gestion des projets et ressources",
-            "Réduction des erreurs opérationnelles",
+            "Socle Docker Odoo réutilisable pour futurs clients / besoins internes ZENORA",
+            "Maîtrise opérationnelle multi-env, secrets, IaC et supply chain conteneur",
+            "Preview live erp-dev.zenora360.com comme preuve runtime",
+            "Transfert de compétences vers stacks non-Odoo de même forme (Compose + proxy + DB)",
+            "Base de comparaison claire avant la variante Kubernetes HA (lab jumeau)",
         ],
         impactEn: [
-            "Full centralization of company operations",
-            "Significant improvement in internal productivity",
-            "Better project and resource management",
-            "Reduction of operational errors",
+            "Reusable Docker Odoo foundation for future clients / internal ZENORA needs",
+            "Operational mastery of multi-env, secrets, IaC and container supply chain",
+            "Live preview erp-dev.zenora360.com as runtime proof",
+            "Skill transfer to non-Odoo stacks of the same shape (Compose + proxy + DB)",
+            "Clear baseline before the Kubernetes HA twin lab",
         ],
 
         metrics: {
-            "utilisateurs": "~15 employés",
-            "modules": "10+ modules intégrés",
-            "infrastructure": "Kubernetes",
-            "backups": "Automatisés (MinIO)",
-            "availability": "Production ready",
+            "Envs": "dev / staging / prod",
+            "Architecture": "3-tiers",
+            "Secrets": "Infisical self-hosted",
+            "IaC": "Terraform + policy scan",
+            "Images": "pinned + Cosign",
+            "Preview": "erp-dev.zenora360.com",
+            "Backup": "PG + filestore testés",
+            "Kit": "greffable",
         },
 
         techStack: {
             frontend: ["Odoo Web"],
-            backend: ["Odoo (Python)"],
-            database: ["PostgreSQL"],
-            devops: ["Kubernetes", "Docker", "kubectl", "MinIO", "VPS", "Nginx"],
-        },
-
-        architecture: [
-            "Odoo conteneurisé",
-            "Orchestration Kubernetes (pods/services)",
-            "Base de données PostgreSQL persistante",
-            "Stockage objet MinIO pour backups",
-            "Reverse proxy Nginx",
-            "Infrastructure sécurisée sur VPS",
-        ],
-
-        testing: [
-            "Tests fonctionnels Odoo",
-            "Validation des modules intégrés",
-            "Tests de sauvegarde et restauration",
-        ],
-
-        images: [
-            "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2011-20-48.png",
-            "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2011-24-11.png",
-        ],
-
-        preview: "https://erp-dev.zenora360.com/",
-        videoDemo: "",
-
-        category: "DevOps • ERP",
-        status: "Production",
-        complexity: "Expert",
-        role: "DevOps Engineer",
-        teamSize: 2,
-
-        duration: "2–3 mois",
-        date: "2026",
-
-        github: "",
-        demo: "https://erp-dev.zenora360.com/",
-
-        businessContextFr: "Projet de transformation digitale pour une entreprise BTP visant à structurer et optimiser la gestion de ses opérations à travers un ERP centralisé et scalable.",
-        businessContextEn: "Digital transformation project for a construction company aiming to structure and optimize operations through a centralized and scalable ERP.",
-
-        confidential: true,
-
-        responsibilitiesFr: [
-            "Déploiement Odoo conteneurisé sur Kubernetes",
-            "Persistance PostgreSQL et volumes",
-            "Backups MinIO et reverse proxy Nginx",
-            "Paramétrage modules BTP et accompagnement ops",
-        ],
-        responsibilitiesEn: [
-            "Containerized Odoo deployment on Kubernetes",
-            "PostgreSQL persistence and volumes",
-            "MinIO backups and Nginx reverse proxy",
-            "BTP module setup and ops enablement",
-        ],
-
-        gallery: [
-            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2011-20-48.png", captionFr: "ERP Odoo - vue métier", captionEn: "Odoo ERP - business view", kind: "ui" },
-            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2011-24-11.png", captionFr: "Modules / opérations", captionEn: "Modules / operations", kind: "ui" },
-        ],
-
-        diagrams: [
-            {
-                id: "odoo-k8s",
-                titleFr: "Architecture Kubernetes",
-                titleEn: "Kubernetes architecture",
-                mermaid: `flowchart TB
-  Users --> Nginx[Nginx Ingress]
-  Nginx --> Odoo[Odoo Pods]
-  Odoo --> PG[(PostgreSQL)]
-  Odoo --> MinIO[MinIO Backups]
-  CI[CI/CD] --> K8s[Kubernetes Cluster]`,
-            },
-        ],
-
-        resources: [
-            { labelFr: "Environnement ERP (dev)", labelEn: "ERP environment (dev)", url: "https://erp-dev.zenora360.com/", type: "other" },
-        ],
-
-        milestones: [
-            { labelFr: "Socle K8s + Postgres", labelEn: "K8s + Postgres foundation", date: "Mois 1" },
-            { labelFr: "Odoo + modules BTP", labelEn: "Odoo + BTP modules", date: "Mois 2" },
-            { labelFr: "Backups MinIO + prod", labelEn: "MinIO backups + prod", date: "Mois 2–3" },
-        ],
-
-        scopeFr: ["ERP Odoo cloud", "Orchestration Kubernetes", "Backups MinIO", "Modules orientés BTP"],
-        scopeEn: ["Cloud Odoo ERP", "Kubernetes orchestration", "MinIO backups", "Construction-oriented modules"],
-        nonGoalsFr: ["Refonte complète des processus métier hors Odoo", "Migration legacy batch massive"],
-        nonGoalsEn: ["Full process redesign outside Odoo", "Massive legacy batch migration"],
-
-        decisions: [
-            {
-                titleFr: "Kubernetes pour Odoo",
-                titleEn: "Kubernetes for Odoo",
-                decisionFr: "Orchestration K8s plutôt qu'un VPS mono-conteneur.",
-                decisionEn: "K8s orchestration over a single-container VPS.",
-                rationaleFr: "Résilience, scaling et standardisation ops.",
-                rationaleEn: "Resilience, scaling, and ops standardization.",
-            },
-            {
-                titleFr: "Backups objet MinIO",
-                titleEn: "MinIO object backups",
-                decisionFr: "Stockage backups découplé du nœud applicatif.",
-                decisionEn: "Backup storage decoupled from the app node.",
-                rationaleFr: "Récupération indépendante en cas d'incident nœud.",
-                rationaleEn: "Independent recovery if a node fails.",
-            },
-        ],
-
-        securityFr: ["Accès admin restreint", "TLS via reverse proxy", "Backups chiffrés / isolés", "Séparation environnements"],
-        securityEn: ["Restricted admin access", "TLS via reverse proxy", "Isolated/encrypted backups", "Environment separation"],
-        infraFr: ["Kubernetes pods/services", "PostgreSQL persistant", "MinIO", "Nginx ingress"],
-        infraEn: ["Kubernetes pods/services", "Persistent PostgreSQL", "MinIO", "Nginx ingress"],
-
-        externalLinks: [
-            { labelFr: "ERP dev", labelEn: "ERP dev", url: "https://erp-dev.zenora360.com/" },
-        ],
-
-        testimonial: {
-            quoteFr: "On a centralisé des opérations dispersées dans un ERP stable, sans perdre la main sur l'infra.",
-            quoteEn: "We centralized scattered operations into a stable ERP without losing control of the infra.",
-            author: "Ops Lead",
-            roleFr: "Responsable opérations",
-            roleEn: "Operations lead",
-            company: "INTELEK BTP",
-        },
-
-        lessonsFr: [
-            "L'ERP n'est utile que si les backups et la restauration sont testés.",
-            "Kubernetes apporte de la discipline ops - à condition de documenter les runbooks.",
-            "Anonymiser les écrans clients reste critique sur les études de cas.",
-        ],
-        lessonsEn: [
-            "An ERP is only useful if backups and restores are tested.",
-            "Kubernetes brings ops discipline - if runbooks are documented.",
-            "Anonymizing client screens remains critical in case studies.",
-        ],
-
-        beforeAfter: [
-            {
-                beforeSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2011-24-11.png",
-                afterSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2011-20-48.png",
-                captionFr: "D'outils fragmentés à un ERP centralisé.",
-                captionEn: "From fragmented tools to a centralized ERP.",
-            },
-        ],
-
-        isFeatured: false,
-    },
-
-    {
-        id: 8,
-        titleFr: "Plateforme d’Observabilité Full Stack – Monitoring, Logs & Traces Corrélés",
-        titleEn: "Full Stack Observability Platform – Metrics, Logs & Traces Correlation",
-
-        descriptionFr: "Système complet d’observabilité pour VPS de production, intégrant métriques, logs et traces distribuées avec alerting avancé et dashboards SLO/SLI.",
-        descriptionEn: "Complete observability system for production VPS, integrating metrics, logs, and distributed tracing with advanced alerting and SLO/SLI dashboards.",
-
-        fullDescriptionFr: "Conception et déploiement d’une stack complète d’observabilité open-source pour superviser un environnement VPS de production. L’objectif était d’obtenir une visibilité totale sur le système en corrélant métriques, logs et traces distribuées. La solution repose sur Prometheus (collecte de métriques), Grafana (visualisation), Loki (logs), Tempo (traces) et OpenTelemetry pour l’instrumentation des applications. Des dashboards avancés SLO/SLI ont été mis en place pour piloter la fiabilité, ainsi que des règles d’alerting Prometheus couplées à des runbooks opérationnels. Le système intègre également des notifications en temps réel (Slack/PagerDuty) et permet une détection proactive des incidents. Cette plateforme apporte une vision claire et exploitable de la santé du système, réduisant significativement le temps de détection et de résolution des incidents.",
-        fullDescriptionEn: "Designed and deployed a full open-source observability stack to monitor a production VPS environment. The goal was to achieve complete system visibility by correlating metrics, logs, and distributed traces. The solution is built with Prometheus (metrics collection), Grafana (visualization), Loki (logs), Tempo (traces), and OpenTelemetry for instrumentation. Advanced SLO/SLI dashboards were implemented to track reliability, along with Prometheus alerting rules and operational runbooks. The system also integrates real-time notifications (Slack/PagerDuty) and enables proactive incident detection. This platform provides a clear and actionable view of system health, significantly reducing incident detection and resolution time.",
-
-        problemFr: "Absence de visibilité complète sur l’état du système en production, rendant difficile la détection rapide des incidents et l’analyse des performances.",
-        problemEn: "Lack of full visibility into production system health, making it difficult to quickly detect incidents and analyze performance.",
-
-        solutionFr: [
-            "Mise en place d’une stack complète d’observabilité (metrics, logs, traces)",
-            "Instrumentation des applications avec OpenTelemetry",
-            "Collecte des métriques via Prometheus",
-            "Centralisation des logs avec Loki",
-            "Traces distribuées avec Tempo",
-            "Dashboards avancés Grafana (SLO/SLI, performance, erreurs)",
-            "Alerting Prometheus avec runbooks associés",
-            "Notifications temps réel via Slack et PagerDuty",
-        ],
-        solutionEn: [
-            "Implemented full observability stack (metrics, logs, traces)",
-            "Instrumented applications using OpenTelemetry",
-            "Collected metrics with Prometheus",
-            "Centralized logs with Loki",
-            "Distributed tracing with Tempo",
-            "Advanced Grafana dashboards (SLO/SLI, performance, errors)",
-            "Prometheus alerting with runbooks",
-            "Real-time notifications via Slack and PagerDuty",
-        ],
-
-        challengesFr: [
-            "Corréler efficacement métriques, logs et traces",
-            "Gérer le volume de données généré par la supervision",
-            "Définir des SLO/SLI pertinents",
-            "Configurer des alertes utiles sans bruit excessif",
-            "Instrumenter correctement les services",
-        ],
-        challengesEn: [
-            "Effectively correlating metrics, logs, and traces",
-            "Handling large volumes of monitoring data",
-            "Defining meaningful SLO/SLI",
-            "Configuring useful alerts without noise",
-            "Properly instrumenting services",
-        ],
-
-        impactFr: [
-            "Réduction significative du MTTR (temps de résolution des incidents)",
-            "Détection proactive des anomalies",
-            "Amélioration de la fiabilité du système",
-            "Meilleure compréhension des performances applicatives",
-        ],
-        impactEn: [
-            "Significant reduction in MTTR (incident resolution time)",
-            "Proactive anomaly detection",
-            "Improved system reliability",
-            "Better understanding of application performance",
-        ],
-
-        metrics: {
-            "MTTR": "-50%",
-            "alerting": "Temps réel",
-            "observability": "Metrics + Logs + Traces",
-            "dashboards": "SLO/SLI",
-            "coverage": "Système complet",
-        },
-
-        techStack: {
-            frontend: [],
-            backend: [],
-            database: [],
+            backend: ["Odoo", "Python"],
+            database: ["PostgreSQL", "PgBouncer"],
             devops: [
+                "Docker",
+                "Docker Compose",
+                "Terraform",
+                "TFLint",
+                "Checkov",
+                "Infisical",
+                "Nginx / Traefik",
+                "GitHub Actions",
+                "Harbor",
+                "Trivy",
+                "Gitleaks",
+                "Syft",
+                "Grype",
+                "Cosign",
                 "Prometheus",
                 "Grafana",
                 "Loki",
                 "Tempo",
                 "OpenTelemetry",
-                "Alertmanager",
-                "PagerDuty",
-                "Slack",
-                "Docker",
+                "Cloudflare",
             ],
         },
 
         architecture: [
-            "Collecte métriques (Prometheus)",
-            "Logs centralisés (Loki)",
-            "Traces distribuées (Tempo)",
-            "Instrumentation (OpenTelemetry)",
-            "Visualisation (Grafana)",
-            "Alerting (Prometheus + Alertmanager)",
-            "Notifications externes (Slack/PagerDuty)",
+            "3-tiers : reverse proxy TLS → Odoo (workers + longpolling) → PostgreSQL dédié",
+            "Réseaux Docker segmentés public / privé / database — aucun service interne exposé",
+            "Environnements isolés : compose + tfvars + secrets Infisical + domaines/TLS séparés",
+            "Filestore persistant + cohérence backup avec PostgreSQL",
+            "CI build unique → scan → sign → Harbor → promotion staging→prod",
+            "Observabilité metrics/logs/traces + alerting + runbooks incident/DR",
         ],
 
         testing: [
-            "Tests de charge monitoring",
-            "Validation alerting",
-            "Simulation d’incidents",
+            "terraform validate / plan + TFLint + Checkov + Trivy IaC",
+            "Gitleaks / SAST / SCA / container scan gates CI",
+            "Smoke post-deploy + healthchecks Odoo/Postgres/proxy",
+            "Tests restore backup PostgreSQL + filestore",
+            "DAST baseline (ZAP) sur staging",
+            "Simulations : secret en commit bloqué, CVE image bloquée, rollback deploy",
+        ],
+
+        images: [
+            "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-live-login.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-live-home.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-ui-modules.png",
+        ],
+        preview: "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-live-login.png",
+        videoDemo: "",
+
+        category: "DevSecOps • Docker • Lab",
+        status: "Actif",
+        complexity: "Expert",
+        role: "DevSecOps Engineer • Platform",
+        teamSize: 1,
+
+        duration: "Lab multi-phases (2026)",
+        date: "2026",
+
+        github: "https://github.com/barthez-kenwou/odoo-docker-infra",
+        demo: "https://erp-dev.zenora360.com/",
+
+        businessContextFr: "Investissement plateforme : industrialiser le déploiement Odoo (et toute stack 3-tiers similaire) pour ZENORA et futurs mandats — apprendre en profondeur, documenter, rendre greffable.",
+        businessContextEn: "Platform investment: industrialize Odoo deployment (and any similar 3-tier stack) for ZENORA and future mandates — learn in depth, document, make it graftable.",
+
+        confidential: false,
+
+        responsibilitiesFr: [
+            "Conception architecture multi-env Docker et menace model associée",
+            "IaC Terraform + durcissement Compose/Odoo/Postgres",
+            "Infisical : secrets, rotation, séparation environnements",
+            "Pipeline DevSecOps + Harbor + signature Cosign",
+            "Observabilité, backups/restore, runbooks DR",
+            "Documentation ADR + kit de réutilisation",
+        ],
+        responsibilitiesEn: [
+            "Multi-env Docker architecture design and related threat model",
+            "Terraform IaC + Compose/Odoo/Postgres hardening",
+            "Infisical: secrets, rotation, environment separation",
+            "DevSecOps pipeline + Harbor + Cosign signing",
+            "Observability, backup/restore, DR runbooks",
+            "ADR documentation + reuse kit",
+        ],
+
+        gallery: [
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-live-login.png",
+                captionFr: "Odoo login — erp-dev.zenora360.com (environnement de validation)",
+                captionEn: "Odoo login — erp-dev.zenora360.com (validation environment)",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-live-home.png",
+                captionFr: "Surface Odoo live — preuve runtime de la stack",
+                captionEn: "Live Odoo surface — runtime proof of the stack",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-ui-login-or-home.png",
+                captionFr: "Espace applicatif Odoo — modules et navigation métier",
+                captionEn: "Odoo app space — modules and business navigation",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-ui-modules.png",
+                captionFr: "Apps Odoo — catalogue de modules activés",
+                captionEn: "Odoo apps — enabled module catalog",
+                kind: "ui",
+            },
+        ],
+
+        diagrams: [
+            {
+                id: "odoo-docker-3tier",
+                titleFr: "Architecture 3-tiers multi-env",
+                titleEn: "Multi-env 3-tier architecture",
+                mermaid: `flowchart TB
+  U[Users] --> CF[Cloudflare]
+  CF --> RP[Reverse proxy TLS]
+  subgraph staging [Staging]
+    OS[Odoo staging]
+    PS[(Postgres staging)]
+  end
+  subgraph prod [Production]
+    OP[Odoo prod]
+    PP[(Postgres prod)]
+  end
+  RP --> OS
+  RP --> OP
+  OS --> PS
+  OP --> PP
+  INF[Infisical] -.-> OS
+  INF -.-> OP`,
+            },
+            {
+                id: "odoo-docker-network",
+                titleFr: "Segmentation réseau Docker",
+                titleEn: "Docker network segmentation",
+                mermaid: `flowchart LR
+  PUB[network public] --> RP[Proxy]
+  RP --> PRIV[network private]
+  PRIV --> ODOO[Odoo]
+  ODOO --> DBN[network database]
+  DBN --> PG[(PostgreSQL)]`,
+            },
+            {
+                id: "odoo-docker-cicd",
+                titleFr: "CI/CD DevSecOps → promotion",
+                titleEn: "DevSecOps CI/CD → promotion",
+                mermaid: `flowchart LR
+  PR[PR] --> CI[Lint SAST secrets IaC]
+  CI --> BL[Build image pinned]
+  BL --> SC[Trivy SBOM Cosign]
+  SC --> HAR[Harbor]
+  HAR --> STG[Deploy staging]
+  STG --> VAL[Smoke DAST]
+  VAL --> PROD[Promote digest prod]`,
+            },
+            {
+                id: "odoo-docker-secrets",
+                titleFr: "Secrets Infisical hors Git",
+                titleEn: "Infisical secrets out of Git",
+                mermaid: `flowchart TB
+  GIT[Git no secrets] --> CI[CI/CD]
+  INF[Infisical] --> CI
+  CI --> STG[Staging secrets]
+  CI --> PROD[Prod secrets]
+  STG --> APP1[Odoo staging]
+  PROD --> APP2[Odoo prod]`,
+            },
+            {
+                id: "odoo-docker-dr",
+                titleFr: "Backup / restore PostgreSQL + filestore",
+                titleEn: "PostgreSQL + filestore backup / restore",
+                mermaid: `flowchart LR
+  PG[(PostgreSQL)] --> B1[Backup DB]
+  FS[Filestore] --> B2[Backup files]
+  B1 --> OBJ[Object storage]
+  B2 --> OBJ
+  OBJ --> RST[Restore testé]
+  RST --> DR[Runbook DR]`,
+            },
+        ],
+
+        resources: [
+            { labelFr: "Repo odoo-docker-infra", labelEn: "odoo-docker-infra repo", url: "https://github.com/barthez-kenwou/odoo-docker-infra", type: "other" },
+            { labelFr: "Preview ERP", labelEn: "ERP preview", url: "https://erp-dev.zenora360.com/", type: "other" },
+        ],
+
+        milestones: [
+            { labelFr: "Socle Compose 3-tiers + réseaux", labelEn: "Compose 3-tier + networks foundation", date: "Phase 1", descriptionFr: "Proxy, Odoo, Postgres, isolation réseaux.", descriptionEn: "Proxy, Odoo, Postgres, network isolation." },
+            { labelFr: "Terraform + Infisical + TLS", labelEn: "Terraform + Infisical + TLS", date: "Phase 2", descriptionFr: "IaC, secrets rotatifs, domaines séparés.", descriptionEn: "IaC, rotating secrets, separated domains." },
+            { labelFr: "DevSecOps CI + Harbor + Cosign", labelEn: "DevSecOps CI + Harbor + Cosign", date: "Phase 3", descriptionFr: "Gates, SBOM, promotion staging→prod.", descriptionEn: "Gates, SBOM, staging→prod promotion." },
+            { labelFr: "Observabilité + DR testé", labelEn: "Observability + tested DR", date: "Phase 4", descriptionFr: "Metrics/logs/traces, backup/restore, runbooks.", descriptionEn: "Metrics/logs/traces, backup/restore, runbooks." },
+        ],
+
+        scopeFr: ["Lab plateforme Odoo Docker multi-env", "IaC Terraform + Infisical", "CI/CD DevSecOps + registry", "Observabilité + backups/DR", "Kit documenté greffable"],
+        scopeEn: ["Odoo Docker multi-env platform lab", "Terraform IaC + Infisical", "DevSecOps CI/CD + registry", "Observability + backups/DR", "Documented graftable kit"],
+        nonGoalsFr: ["Personnalisation métier Odoo pour un client précis (voir projet ZENORA ERP)", "Orchestration Kubernetes HA (lab jumeau dédié)", "SOC 24/7 managé"],
+        nonGoalsEn: ["Business Odoo customization for a specific client (see ZENORA ERP project)", "Kubernetes HA orchestration (dedicated twin lab)", "Managed 24/7 SOC"],
+
+        decisions: [
+            { titleFr: "Lab sur besoin Odoo réel, pas toy app", titleEn: "Lab on a real Odoo need, not a toy app", decisionFr: "Odoo comme charge utile pour forcer Postgres, filestore, longpolling, proxy.", decisionEn: "Odoo as workload to force Postgres, filestore, longpolling, proxy.", rationaleFr: "Les concepts collent immédiatement aux futurs mandats ERP.", rationaleEn: "Concepts map immediately to future ERP mandates." },
+            { titleFr: "Infisical self-hosted", titleEn: "Self-hosted Infisical", decisionFr: "Secret manager déployé et opéré, pas des .env commitées.", decisionEn: "Deployed and operated secret manager, not committed .env files.", rationaleFr: "Prouve rotation, audit et séparation staging/prod.", rationaleEn: "Proves rotation, audit and staging/prod separation." },
+            { titleFr: "Jamais latest", titleEn: "Never latest", decisionFr: "Versions Odoo/Postgres/images pinnées + promotion par digest.", decisionEn: "Pinned Odoo/Postgres/image versions + digest promotion.", rationaleFr: "Reproductibilité et supply chain contrôlée.", rationaleEn: "Reproducibility and controlled supply chain." },
+            { titleFr: "Compose d abord, Kubernetes ensuite", titleEn: "Compose first, Kubernetes next", decisionFr: "Maîtriser la plateforme Docker avant la variante HA K8s.", decisionEn: "Master the Docker platform before the HA K8s variant.", rationaleFr: "Les gates et le modèle 3-tiers restent valables ; l orchestrateur change.", rationaleEn: "Gates and 3-tier model remain valid; the orchestrator changes." },
+        ],
+
+        securityFr: [
+            "Aucun secret dans Git / Dockerfile / compose",
+            "Infisical + rotation credentials Postgres/SMTP",
+            "Réseaux segmentés, DB non exposée",
+            "Conteneurs durcis (non-root, caps drop, no-new-privileges, limits)",
+            "Trivy + Gitleaks + IaC scan + Cosign + Harbor",
+            "TLS 1.2/1.3, HSTS, headers, rate limiting proxy",
+        ],
+        securityEn: [
+            "No secrets in Git / Dockerfile / compose",
+            "Infisical + Postgres/SMTP credential rotation",
+            "Segmented networks, DB not exposed",
+            "Hardened containers (non-root, caps drop, no-new-privileges, limits)",
+            "Trivy + Gitleaks + IaC scan + Cosign + Harbor",
+            "TLS 1.2/1.3, HSTS, headers, proxy rate limiting",
+        ],
+        infraFr: [
+            "Docker Compose multi-env déclaratif",
+            "Terraform modules + remote state",
+            "Infisical self-hosted",
+            "Harbor registry privé",
+            "Prometheus / Grafana / Loki / Tempo",
+            "Backups objet distants + restore drills",
+        ],
+        infraEn: [
+            "Declarative multi-env Docker Compose",
+            "Terraform modules + remote state",
+            "Self-hosted Infisical",
+            "Private Harbor registry",
+            "Prometheus / Grafana / Loki / Tempo",
+            "Remote object backups + restore drills",
+        ],
+
+        externalLinks: [
+            { labelFr: "GitHub", labelEn: "GitHub", url: "https://github.com/barthez-kenwou/odoo-docker-infra" },
+            { labelFr: "Preview", labelEn: "Preview", url: "https://erp-dev.zenora360.com/" },
+        ],
+
+        lessonsFr: [
+            "Un lab ne vaut que s il est greffable : documentation, conventions, secrets et CI inclus.",
+            "Séparer staging et prod au niveau réseaux/secrets/données — pas seulement via un nom de fichier compose.",
+            "Odoo force les vrais sujets : filestore, longpolling, migrations, cohérence backup.",
+            "La supply chain d images (pin, scan, sign, promote) est le même combat que sur les autres produits ZENORA.",
+            "Maîtriser Compose avant K8s évite de masquer les bases derrière un Helm chart magique.",
+        ],
+        lessonsEn: [
+            "A lab only matters if it is graftable: docs, conventions, secrets and CI included.",
+            "Separate staging and prod at network/secret/data level — not just via a compose filename.",
+            "Odoo forces the real topics: filestore, longpolling, migrations, backup coherence.",
+            "Image supply chain (pin, scan, sign, promote) is the same fight as on other ZENORA products.",
+            "Mastering Compose before K8s avoids hiding fundamentals behind a magic Helm chart.",
+        ],
+
+        beforeAfter: [
+            {
+                beforeSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                afterSrc: "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-live-login.png",
+                captionFr: "D un Odoo lancé à la main à une plateforme Docker multi-env DevSecOps greffable.",
+                captionEn: "From a hand-started Odoo to a graftable multi-env DevSecOps Docker platform.",
+            },
+        ],
+
+        isFeatured: true,
+    },
+
+    {
+        id: 14,
+        titleFr: "Odoo Kubernetes Infra — Lab HA & orchestration",
+        titleEn: "Odoo Kubernetes Infra — HA & orchestration lab",
+
+        descriptionFr: "Lab jumeau haute disponibilité : redéploiement d'Odoo sur Kubernetes pour maîtriser namespaces, workloads, stockage, réseau, GitOps, admission policies et DR — sans raccourci Helm magique, avec la même philosophie enterprise-ready que le lab Docker.",
+        descriptionEn: "High-availability twin lab: redeploying Odoo on Kubernetes to master namespaces, workloads, storage, networking, GitOps, admission policies and DR — no magic Helm shortcut, with the same enterprise-ready philosophy as the Docker lab.",
+
+        fullDescriptionFr: `Après le lab Docker, j'ai repris le même besoin Odoo avec un challenge différent : haute disponibilité et maîtrise profonde de Kubernetes. Pas pour « voir Odoo tourner sur K8s » rapidement — pour assimiler namespaces, pods, services, ingress, volumes, ConfigMaps/Secrets, NetworkPolicies, probes, HPA, PDB, anti-affinity, puis GitOps, admission control et DR.
+
+Je n'ai pas pris un Helm chart prêt à l'emploi comme raccourci pédagogique. L'objectif était de comprendre chaque ressource, chaque contrainte, chaque failure domain — quitte à suer — pour pouvoir ré-exploiter ces notions sur des projets exigeants, même éloignés d'Odoo. Labs Killercoda / cloud, cours et docs officielles Kubernetes ont nourri la pratique ; le crowning est odoo-kubctl-infra : une plateforme documentée, multi-env (odoo-dev / odoo-staging / odoo-production + monitoring/logging/security/argocd), architecture Ingress → Odoo → PostgreSQL HA (opérateur type CloudNativePG), zero trust réseau, External Secrets / Infisical-Vault, cert-manager, Harbor + Cosign + Kyverno (refuse root/latest/unsigned), Argo CD, Velero, Prometheus/Grafana/Loki/Tempo, Falco, Trivy Operator, et scénarios chaos/DR.
+
+Même philosophie que le lab Docker : greffable, fail-closed, démontrable (secret bloqué, CVE bloquée, policy qui refuse un Pod, failover Postgres, HPA sous charge, rollback canary). La cible métier Odoo reste validée ; l'orchestrateur change pour les charges qui exigent HA et automatisation d'orchestration.`,
+        fullDescriptionEn: `After the Docker lab, I revisited the same Odoo need with a different challenge: high availability and deep Kubernetes mastery. Not to “see Odoo run on K8s” quickly — to internalize namespaces, pods, services, ingress, volumes, ConfigMaps/Secrets, NetworkPolicies, probes, HPA, PDB, anti-affinity, then GitOps, admission control and DR.
+
+I did not take a ready-made Helm chart as a learning shortcut. The goal was to understand every resource, every constraint, every failure domain — even if it meant sweating — to reuse these notions on demanding projects, even far from Odoo. Killercoda / cloud labs, courses and official Kubernetes docs fed the practice; the crowning is odoo-kubctl-infra: a documented multi-env platform (odoo-dev / odoo-staging / odoo-production + monitoring/logging/security/argocd), Ingress → Odoo → HA PostgreSQL (CloudNativePG-style operator), network zero trust, External Secrets / Infisical-Vault, cert-manager, Harbor + Cosign + Kyverno (reject root/latest/unsigned), Argo CD, Velero, Prometheus/Grafana/Loki/Tempo, Falco, Trivy Operator, and chaos/DR scenarios.
+
+Same philosophy as the Docker lab: graftable, fail-closed, demonstrable (blocked secret, blocked CVE, policy rejecting a Pod, Postgres failover, HPA under load, canary rollback). The Odoo business target stays validated; the orchestrator changes for workloads that require HA and orchestration automation.`,
+
+        problemFr: "Compose suffit jusqu'à un point. Au-delà, il faut maîtriser l'orchestration : isolation par namespace, résilience multi-nœuds, stockage dynamique, politiques d'admission, GitOps et recovery cluster — sinon la HA reste un slogan.",
+        problemEn: "Compose is enough up to a point. Beyond that you must master orchestration: namespace isolation, multi-node resilience, dynamic storage, admission policies, GitOps and cluster recovery — otherwise HA stays a slogan.",
+
+        solutionFr: [
+            "Cluster multi-env : namespaces isolés + ResourceQuota/LimitRange/NetworkPolicy",
+            "Workloads Odoo durcis (SecurityContext, probes, HPA, PDB, anti-affinity)",
+            "PostgreSQL HA via opérateur (failover, WAL, backups, restore)",
+            "Ingress TLS (cert-manager) + longpolling/WebSocket correctement routés",
+            "GitOps Argo CD + promotion d'image immutable staging→prod",
+            "Admission Kyverno/OPA : refuse root, latest, privileged, unsigned",
+            "Observabilité + Falco + Trivy Operator + Velero DR",
+            "Chaos / failure drills documentés (node, pod, postgres, rollback)",
+        ],
+        solutionEn: [
+            "Multi-env cluster: isolated namespaces + ResourceQuota/LimitRange/NetworkPolicy",
+            "Hardened Odoo workloads (SecurityContext, probes, HPA, PDB, anti-affinity)",
+            "HA PostgreSQL via operator (failover, WAL, backups, restore)",
+            "TLS Ingress (cert-manager) + correctly routed longpolling/WebSocket",
+            "Argo CD GitOps + immutable image promotion staging→prod",
+            "Kyverno/OPA admission: reject root, latest, privileged, unsigned",
+            "Observability + Falco + Trivy Operator + Velero DR",
+            "Documented chaos / failure drills (node, pod, postgres, rollback)",
+        ],
+
+        challengesFr: [
+            "Apprendre K8s en profondeur sans se cacher derrière un chart opaque",
+            "HA PostgreSQL réelle (opérateur, failover, PITR) pas un StatefulSet naïf",
+            "NetworkPolicies deny-by-default sans casser Odoo ↔ Postgres ↔ Ingress",
+            "External Secrets + rotation tout en gardant Git clean",
+            "Admission policies strictes compatibles avec un flux de livraison fluide",
+            "Démontrer la résilience (chaos, HPA, rollback) avec preuves observables",
+        ],
+        challengesEn: [
+            "Learn K8s in depth without hiding behind an opaque chart",
+            "Real HA PostgreSQL (operator, failover, PITR) not a naive StatefulSet",
+            "Deny-by-default NetworkPolicies without breaking Odoo ↔ Postgres ↔ Ingress",
+            "External Secrets + rotation while keeping Git clean",
+            "Strict admission policies compatible with a smooth delivery flow",
+            "Demonstrate resilience (chaos, HPA, rollback) with observable proof",
+        ],
+
+        impactFr: [
+            "Deuxième colonne vertébrale Odoo : orchestration HA pour besoins exigeants",
+            "Maîtrise opérationnelle K8s transférable hors Odoo",
+            "Politiques d'admission et GitOps alignées sur la discipline supply chain ZENORA",
+            "Scénarios DR/chaos prêts pour démonstration client / audit interne",
+            "Complément direct du lab Docker — même cible métier, autre failure domain",
+        ],
+        impactEn: [
+            "Second Odoo backbone: HA orchestration for demanding needs",
+            "Operational K8s mastery transferable beyond Odoo",
+            "Admission policies and GitOps aligned with ZENORA supply-chain discipline",
+            "DR/chaos scenarios ready for client demos / internal audit",
+            "Direct complement to the Docker lab — same business target, different failure domain",
+        ],
+
+        metrics: {
+            "Namespaces": "app + platform",
+            "Postgres": "HA operator",
+            "Delivery": "Argo CD GitOps",
+            "Admission": "Kyverno policies",
+            "Scale": "HPA + PDB",
+            "DR": "Velero + restore drills",
+            "Security": "Falco + Trivy Operator",
+            "Twin lab": "Docker Compose",
+        },
+
+        techStack: {
+            frontend: ["Odoo Web"],
+            backend: ["Odoo", "Python"],
+            database: ["PostgreSQL HA", "PgBouncer"],
+            devops: [
+                "Kubernetes",
+                "kubectl",
+                "Helm",
+                "Kustomize",
+                "Terraform",
+                "Argo CD",
+                "Argo Rollouts",
+                "cert-manager",
+                "ExternalDNS",
+                "External Secrets",
+                "Infisical / Vault",
+                "CloudNativePG",
+                "Harbor",
+                "Cosign",
+                "Kyverno",
+                "Cilium",
+                "Velero",
+                "Prometheus",
+                "Grafana",
+                "Loki",
+                "Tempo",
+                "Falco",
+                "Trivy Operator",
+                "k6",
+                "Chaos Mesh",
+            ],
+        },
+
+        architecture: [
+            "Namespaces isolés app/platform avec quotas et NetworkPolicies",
+            "Ingress Controller + cert-manager → Odoo Deployment → PostgreSQL HA opérateur",
+            "GitOps Argo CD : manifests versionnés, drift detection, sync waves",
+            "Admission : Pod Security restricted + Kyverno (registry/sign/root/latest)",
+            "Observabilité kube-state + apps + Falco runtime",
+            "Velero backups cluster/PVC + drills de reconstruction",
+        ],
+
+        testing: [
+            "kube-bench / Kubescape / policy tests Kyverno",
+            "CI image scan + signature verify avant sync prod",
+            "E2E staging + smoke post-sync",
+            "Failover PostgreSQL et restore Velero testés",
+            "HPA sous charge k6",
+            "Chaos : kill pod/node, network partition, rollback canary",
+        ],
+
+        images: [
+            "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-live-home.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-ui-modules.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-live-login.png",
+        ],
+        preview: "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-live-home.png",
+        videoDemo: "",
+
+        category: "DevSecOps • Kubernetes • Lab",
+        status: "Actif",
+        complexity: "Expert",
+        role: "DevSecOps Engineer • Platform",
+        teamSize: 1,
+
+        duration: "Lab multi-phases (2026)",
+        date: "2026",
+
+        github: "https://github.com/barthez-kenwou/odoo-kubctl-infra",
+        demo: "https://erp-dev.zenora360.com/",
+
+        businessContextFr: "Préparer ZENORA aux déploiements Odoo (et assimilés) qui exigent HA, scalabilité et GitOps — en maîtrisant Kubernetes pour de vrai, pas en copiant un chart.",
+        businessContextEn: "Prepare ZENORA for Odoo (and similar) deployments that require HA, scalability and GitOps — by mastering Kubernetes for real, not by copying a chart.",
+
+        confidential: false,
+
+        responsibilitiesFr: [
+            "Design cluster multi-env et modèle HA Odoo/Postgres",
+            "Workloads, stockage, réseau zero-trust, ingress TLS",
+            "GitOps Argo CD + policies d'admission",
+            "Secrets externalisés et supply chain images",
+            "Observabilité, Falco, Velero, chaos/DR drills",
+            "Documentation et démonstrations de résilience",
+        ],
+        responsibilitiesEn: [
+            "Multi-env cluster design and Odoo/Postgres HA model",
+            "Workloads, storage, zero-trust networking, TLS ingress",
+            "Argo CD GitOps + admission policies",
+            "Externalized secrets and image supply chain",
+            "Observability, Falco, Velero, chaos/DR drills",
+            "Documentation and resilience demonstrations",
+        ],
+
+        gallery: [
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-live-home.png",
+                captionFr: "Surface Odoo live — preuve runtime de la stack",
+                captionEn: "Live Odoo surface — runtime proof of the stack",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-ui-modules.png",
+                captionFr: "Apps Odoo — catalogue de modules activés",
+                captionEn: "Odoo apps — enabled module catalog",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-live-login.png",
+                captionFr: "Odoo login — erp-dev.zenora360.com (environnement de validation)",
+                captionEn: "Odoo login — erp-dev.zenora360.com (validation environment)",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-ui-login-or-home.png",
+                captionFr: "Espace applicatif Odoo — modules et navigation métier",
+                captionEn: "Odoo app space — modules and business navigation",
+                kind: "ui",
+            },
+        ],
+
+        diagrams: [
+            {
+                id: "odoo-k8s-ns",
+                titleFr: "Namespaces multi-env",
+                titleEn: "Multi-env namespaces",
+                mermaid: `flowchart TB
+  subgraph apps [Application]
+    D[odoo-dev]
+    S[odoo-staging]
+    P[odoo-production]
+  end
+  subgraph plat [Platform]
+    M[monitoring]
+    L[logging]
+    A[argocd]
+    I[ingress]
+    C[cert-manager]
+    SEC[security]
+  end
+  A --> D
+  A --> S
+  A --> P`,
+            },
+            {
+                id: "odoo-k8s-path",
+                titleFr: "Chemin Ingress → Odoo → Postgres HA",
+                titleEn: "Path Ingress → Odoo → Postgres HA",
+                mermaid: `flowchart LR
+  U[Users] --> ING[Ingress TLS]
+  ING --> SVC[Service Odoo]
+  SVC --> POD[Odoo pods]
+  POD --> PG[CloudNativePG]
+  PG --> PRI[(Primary)]
+  PG --> REP[(Replica)]`,
+            },
+            {
+                id: "odoo-k8s-gitops",
+                titleFr: "GitOps Argo CD promotion",
+                titleEn: "Argo CD GitOps promotion",
+                mermaid: `flowchart LR
+  GIT[Git manifests] --> ARGO[Argo CD]
+  ARGO --> STG[Sync staging]
+  STG --> TEST[E2E smoke]
+  TEST --> APR[Approval]
+  APR --> PROD[Sync production]
+  PROD --> HEALTH[Health checks]`,
+            },
+            {
+                id: "odoo-k8s-admit",
+                titleFr: "Admission policies fail-closed",
+                titleEn: "Fail-closed admission policies",
+                mermaid: `flowchart TB
+  REQ[Admission request] --> KY[Kyverno / PSA]
+  KY -->|root / latest / unsigned / privileged| DENY[Deny]
+  KY -->|compliant| ALLOW[Allow schedule]`,
+            },
+            {
+                id: "odoo-k8s-ha",
+                titleFr: "Résilience HA et autoscaling",
+                titleEn: "HA resilience and autoscaling",
+                mermaid: `flowchart TB
+  HPA[HPA] --> ODOO[Odoo replicas]
+  PDB[PDB] --> ODOO
+  AA[Anti-affinity] --> ODOO
+  PGHA[Postgres failover] --> DB[(Primary/Replica)]
+  CHAOS[Chaos drills] --> ODOO
+  CHAOS --> DB`,
+            },
+        ],
+
+        resources: [
+            { labelFr: "Repo odoo-kubctl-infra", labelEn: "odoo-kubctl-infra repo", url: "https://github.com/barthez-kenwou/odoo-kubctl-infra", type: "other" },
+            { labelFr: "Preview ERP (cible métier)", labelEn: "ERP preview (business target)", url: "https://erp-dev.zenora360.com/", type: "other" },
+        ],
+
+        milestones: [
+            { labelFr: "Cluster + namespaces + réseau", labelEn: "Cluster + namespaces + networking", date: "Phase 1" },
+            { labelFr: "Odoo workloads + Postgres HA", labelEn: "Odoo workloads + Postgres HA", date: "Phase 2" },
+            { labelFr: "GitOps + admission + secrets", labelEn: "GitOps + admission + secrets", date: "Phase 3" },
+            { labelFr: "Observabilité + Velero + chaos", labelEn: "Observability + Velero + chaos", date: "Phase 4" },
+        ],
+
+        scopeFr: ["Lab Kubernetes HA Odoo", "GitOps + policies + secrets", "Postgres HA opérateur", "Observabilité + DR/chaos", "Kit documenté greffable"],
+        scopeEn: ["Odoo Kubernetes HA lab", "GitOps + policies + secrets", "Operator Postgres HA", "Observability + DR/chaos", "Documented graftable kit"],
+        nonGoalsFr: ["Remplacer le lab Docker pour les cas simples", "Configuration métier modules Odoo client (projet ZENORA ERP)", "Cluster managé cloud exclusif sans compréhension du contrôle plane"],
+        nonGoalsEn: ["Replacing the Docker lab for simple cases", "Client Odoo module business configuration (ZENORA ERP project)", "Exclusive managed cloud cluster without control-plane understanding"],
+
+        decisions: [
+            { titleFr: "Pas de Helm magique comme raccourci d apprentissage", titleEn: "No magic Helm as a learning shortcut", decisionFr: "Écrire et comprendre les ressources avant d industrialiser le packaging.", decisionEn: "Write and understand resources before industrializing packaging.", rationaleFr: "Sinon on déploie sans maîtriser failure domains et policies.", rationaleEn: "Otherwise you deploy without mastering failure domains and policies." },
+            { titleFr: "PostgreSQL via opérateur HA", titleEn: "PostgreSQL via HA operator", decisionFr: "Failover/WAL/backup natifs plutôt qu un Postgres single-pod.", decisionEn: "Native failover/WAL/backup over a single-pod Postgres.", rationaleFr: "La HA DB est le vrai enjeu ERP, pas seulement des replicas Odoo.", rationaleEn: "DB HA is the real ERP stake, not only Odoo replicas." },
+            { titleFr: "GitOps pour la vérité désirée", titleEn: "GitOps for desired truth", decisionFr: "Argo CD sync + drift detection, approvals prod.", decisionEn: "Argo CD sync + drift detection, prod approvals.", rationaleFr: "Audit trail et rollback Git alignés enterprise.", rationaleEn: "Audit trail and Git rollback aligned with enterprise practice." },
+            { titleFr: "Admission fail-closed", titleEn: "Fail-closed admission", decisionFr: "Kyverno/PSA refusent root, latest, privileged, unsigned.", decisionEn: "Kyverno/PSA reject root, latest, privileged, unsigned.", rationaleFr: "La policy cluster complète la CI — défense en profondeur.", rationaleEn: "Cluster policy completes CI — defense in depth." },
+        ],
+
+        securityFr: [
+            "NetworkPolicies deny-by-default + isolation namespaces",
+            "Pod Security restricted + Kyverno",
+            "External Secrets / Vault-Infisical, encryption at rest",
+            "Cosign verify + Harbor privé",
+            "Falco runtime + audit logs API",
+            "RBAC least privilege, pas de cluster-admin inutile",
+        ],
+        securityEn: [
+            "Deny-by-default NetworkPolicies + namespace isolation",
+            "Restricted Pod Security + Kyverno",
+            "External Secrets / Vault-Infisical, encryption at rest",
+            "Cosign verify + private Harbor",
+            "Falco runtime + API audit logs",
+            "Least-privilege RBAC, no unnecessary cluster-admin",
+        ],
+        infraFr: [
+            "Kubernetes multi-node + ingress + cert-manager",
+            "CloudNativePG (ou équivalent) HA",
+            "Argo CD / Rollouts",
+            "Velero DR",
+            "Prometheus stack + Loki + Tempo",
+            "Cilium/Hubble (observabilité réseau)",
+        ],
+        infraEn: [
+            "Multi-node Kubernetes + ingress + cert-manager",
+            "CloudNativePG (or equivalent) HA",
+            "Argo CD / Rollouts",
+            "Velero DR",
+            "Prometheus stack + Loki + Tempo",
+            "Cilium/Hubble (network observability)",
+        ],
+
+        externalLinks: [
+            { labelFr: "GitHub", labelEn: "GitHub", url: "https://github.com/barthez-kenwou/odoo-kubctl-infra" },
+            { labelFr: "Preview", labelEn: "Preview", url: "https://erp-dev.zenora360.com/" },
+        ],
+
+        lessonsFr: [
+            "Kubernetes s apprend en construisant les ressources — un chart opaque n enseigne pas les failure domains.",
+            "La HA Odoo sans HA PostgreSQL est une illusion.",
+            "Admission policies + GitOps + Cosign forment la vraie barrière prod.",
+            "Chaos et restore drills valent plus qu un diagramme HA sur un slide.",
+            "Docker lab + K8s lab = même discipline, deux runtimes — c est ça le transfert de compétences.",
+        ],
+        lessonsEn: [
+            "Kubernetes is learned by building resources — an opaque chart does not teach failure domains.",
+            "Odoo HA without PostgreSQL HA is an illusion.",
+            "Admission policies + GitOps + Cosign form the real prod barrier.",
+            "Chaos and restore drills beat an HA diagram on a slide.",
+            "Docker lab + K8s lab = same discipline, two runtimes — that is skill transfer.",
+        ],
+
+        beforeAfter: [
+            {
+                beforeSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                afterSrc: "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-live-home.png",
+                captionFr: "D une maîtrise Compose à une plateforme Kubernetes HA GitOps-ready pour Odoo.",
+                captionEn: "From Compose mastery to a GitOps-ready Kubernetes HA platform for Odoo.",
+            },
+        ],
+
+        isFeatured: true,
+    },
+
+    {
+        id: 15,
+        titleFr: "ERP Odoo ZENORA — Configuration & customisation ESN",
+        titleEn: "ZENORA Odoo ERP — IT services firm setup & customization",
+
+        descriptionFr: "Déploiement Docker et configuration poussée d'Odoo pour l'ESN ZENORA : modules OCA + addons custom, processus métier (projets, RH, finance, CRM, delivery), toujours en production au quotidien.",
+        descriptionEn: "Docker deployment and deep Odoo configuration for the ZENORA IT services firm: OCA modules + custom addons, business processes (projects, HR, finance, CRM, delivery), still in daily production use.",
+
+        fullDescriptionFr: `Au-delà des labs plateforme, j'ai déployé et configuré Odoo pour ZENORA — notre ESN — sur la stack Docker (pas Kubernetes : le profil de charge et le contexte ops appelaient Compose maîtrisé). L'enjeu n'était plus seulement « faire tourner l'infra », mais faire d'Odoo le système nerveux de l'entreprise : projets clients, temps, facturation, RH, CRM, support, achats — avec une UX et des règles alignées sur notre façon de livrer.
+
+Nous avons combiné des modules Odoo Community Association ([OCA](https://github.com/OCA)) éprouvés (project, sale-workflow, account, HR, helpdesk, timesheet…) et des customisations maison : addons ZENORA versionnés, reviewés, testés, avec stratégie de migration/rollback. Paramétrage minutieux : rôles/ACL/record rules, sociétés et multi-company si besoin, séquences documentaires, tableaux de bord, emails, et durcissement applicatif (MFA admin, politiques mots de passe, limitation des droits root métier).
+
+Le runtime s'appuie sur les patterns du lab Docker (environnements, secrets, proxy TLS, backups PG + filestore). Preview : erp-dev.zenora360.com. Aujourd'hui ZENORA s'en sert pour piloter son activité au quotidien — et ce socle configuré devient un argument commercial pour proposer la même transformation à d'autres structures.`,
+        fullDescriptionEn: `Beyond the platform labs, I deployed and configured Odoo for ZENORA — our IT services firm — on the Docker stack (not Kubernetes: load profile and ops context called for mastered Compose). The stake was no longer only “make infra run”, but make Odoo the company nervous system: client projects, time, billing, HR, CRM, support, purchasing — with UX and rules aligned to how we deliver.
+
+We combined proven Odoo Community Association ([OCA](https://github.com/OCA)) modules (project, sale-workflow, account, HR, helpdesk, timesheet…) and in-house customizations: versioned, reviewed, tested ZENORA addons with migration/rollback strategy. Careful setup: roles/ACL/record rules, companies and multi-company when needed, document sequences, dashboards, email, and application hardening (admin MFA, password policies, limited business root rights).
+
+Runtime builds on Docker-lab patterns (environments, secrets, TLS proxy, PG + filestore backups). Preview: erp-dev.zenora360.com. Today ZENORA uses it to steer daily operations — and this configured foundation becomes a commercial argument to offer the same transformation to other organizations.`,
+
+        problemFr: "ZENORA gérait une ESN en croissance avec des outils fragmentés (tableurs, threads, outils disparates). Manque de traçabilité projet/temps/facturation, friction RH et CRM, difficulté à industrialiser le delivery.",
+        problemEn: "ZENORA ran a growing IT services firm with fragmented tools (spreadsheets, threads, disparate apps). Weak project/time/billing traceability, HR and CRM friction, hard to industrialize delivery.",
+
+        solutionFr: [
+            "Déploiement Odoo Docker (patterns lab) pour ZENORA",
+            "Activation / réglage modules OCA adaptés ESN (project, HR, account, CRM, helpdesk…)",
+            "Addons custom ZENORA (processus delivery & reporting)",
+            "RBAC Odoo : rôles, ACL, record rules, moindre privilège",
+            "Intégration emails, séquences, tableaux de bord ops",
+            "Backups PG + filestore et runbooks d exploitation",
+            "Accompagnement utilisateurs et itérations de paramétrage",
+        ],
+        solutionEn: [
+            "Docker Odoo deployment (lab patterns) for ZENORA",
+            "Enable/tune OCA modules fit for an IT services firm (project, HR, account, CRM, helpdesk…)",
+            "Custom ZENORA addons (delivery processes & reporting)",
+            "Odoo RBAC: roles, ACL, record rules, least privilege",
+            "Email integration, sequences, ops dashboards",
+            "PG + filestore backups and operations runbooks",
+            "User enablement and configuration iterations",
+        ],
+
+        challengesFr: [
+            "Traduire le fonctionnement réel d une ESN en modules et automatismes Odoo",
+            "Choisir OCA vs custom sans sur-ingénierie",
+            "Préserver upgradeability malgré addons maison",
+            "Former les équipes sans bloquer le delivery client",
+            "Garder la discipline infra (secrets, backups) pendant la config métier intensive",
+        ],
+        challengesEn: [
+            "Translate real IT-services operations into Odoo modules and automations",
+            "Choose OCA vs custom without over-engineering",
+            "Preserve upgradeability despite in-house addons",
+            "Train teams without blocking client delivery",
+            "Keep infra discipline (secrets, backups) during intensive business configuration",
+        ],
+
+        impactFr: [
+            "ERP central unique pour le pilotage ZENORA au quotidien",
+            "Traçabilité projets / temps / facturation améliorée",
+            "Socle reproductible pour proposer Odoo à d autres entreprises",
+            "Preuve concrète que les labs Docker se transforment en valeur métier",
+            "Environnement de validation accessible : erp-dev.zenora360.com",
+        ],
+        impactEn: [
+            "Single central ERP for daily ZENORA steering",
+            "Improved project / time / billing traceability",
+            "Reproducible foundation to offer Odoo to other companies",
+            "Concrete proof that Docker labs turn into business value",
+            "Validation environment available: erp-dev.zenora360.com",
+        ],
+
+        metrics: {
+            "Client": "ZENORA ESN",
+            "Runtime": "Docker",
+            "Modules": "OCA + custom",
+            "Status": "Production quotidienne",
+            "Preview": "erp-dev.zenora360.com",
+            "Backups": "PG + filestore",
+        },
+
+        techStack: {
+            frontend: ["Odoo Web"],
+            backend: ["Odoo", "Python", "OCA addons", "Custom ZENORA addons"],
+            database: ["PostgreSQL"],
+            devops: ["Docker", "Docker Compose", "Nginx", "Infisical", "Backups", "Cloudflare"],
+        },
+
+        architecture: [
+            "Odoo Docker 3-tiers pour ZENORA (proxy → app → Postgres)",
+            "Addons core Odoo + modules OCA + addons custom ZENORA",
+            "Séparation config métier / secrets infra",
+            "Filestore persistant + backups cohérents",
+            "Droits métier RBAC/ACL/record rules",
+        ],
+
+        testing: [
+            "Validation fonctionnelle par processus (projet, timesheet, facture, RH)",
+            "Revue sécurité droits Odoo (ACL / record rules)",
+            "Tests addons custom + compatibilité versions",
+            "Restore backup sur environnement de validation",
+            "Recette utilisateurs ZENORA",
+        ],
+
+        images: [
+            "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-live-home.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-ui-modules.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-live-login.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-ui-login-or-home.png",
+        ],
+        preview: "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-live-home.png",
+        videoDemo: "",
+
+        category: "ERP • Odoo • Business",
+        status: "Production",
+        complexity: "Avancé",
+        role: "Odoo Consultant • DevOps",
+        teamSize: 2,
+
+        duration: "Déploiement + itérations continues",
+        date: "2026",
+
+        github: "https://github.com/barthez-kenwou/odoo-docker-infra",
+        demo: "https://erp-dev.zenora360.com/",
+
+        businessContextFr: "Équiper ZENORA d un ERP crédible pour industrialiser le delivery ESN, puis industrialiser l offre « Odoo configuré » auprès d autres organisations.",
+        businessContextEn: "Equip ZENORA with a credible ERP to industrialize IT-services delivery, then industrialize the “configured Odoo” offer for other organizations.",
+
+        confidential: false,
+
+        responsibilitiesFr: [
+            "Déploiement Docker Odoo pour ZENORA",
+            "Sélection et configuration modules OCA",
+            "Conception/développement addons custom ZENORA",
+            "RBAC, processus métier, dashboards, emails",
+            "Backups, exploitation, accompagnement utilisateurs",
+        ],
+        responsibilitiesEn: [
+            "Docker Odoo deployment for ZENORA",
+            "OCA module selection and configuration",
+            "Design/development of custom ZENORA addons",
+            "RBAC, business processes, dashboards, email",
+            "Backups, operations, user enablement",
+        ],
+
+        gallery: [
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-live-home.png",
+                captionFr: "Surface Odoo live — preuve runtime de la stack",
+                captionEn: "Live Odoo surface — runtime proof of the stack",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-ui-modules.png",
+                captionFr: "Apps Odoo — catalogue de modules activés",
+                captionEn: "Odoo apps — enabled module catalog",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-live-login.png",
+                captionFr: "Odoo login — erp-dev.zenora360.com (environnement de validation)",
+                captionEn: "Odoo login — erp-dev.zenora360.com (validation environment)",
+                kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-ui-login-or-home.png",
+                captionFr: "Espace applicatif Odoo — modules et navigation métier",
+                captionEn: "Odoo app space — modules and business navigation",
+                kind: "ui",
+            },
+        ],
+
+        diagrams: [
+            {
+                id: "zenora-odoo-stack",
+                titleFr: "Stack ERP ZENORA",
+                titleEn: "ZENORA ERP stack",
+                mermaid: `flowchart TB
+  U[Équipes ZENORA] --> RP[Proxy TLS]
+  RP --> OD[Odoo Docker]
+  OD --> PG[(PostgreSQL)]
+  OD --> FS[Filestore]
+  OD --> OCA[Modules OCA]
+  OD --> CUST[Addons custom ZENORA]`,
+            },
+            {
+                id: "zenora-odoo-modules",
+                titleFr: "Cartographie modules ESN",
+                titleEn: "IT services module map",
+                mermaid: `flowchart LR
+  CRM[CRM] --> PRJ[Project]
+  PRJ --> TS[Timesheet]
+  TS --> SAL[Sales]
+  SAL --> ACC[Accounting]
+  HR[HR] --> PRJ
+  HD[Helpdesk] --> PRJ`,
+            },
+            {
+                id: "zenora-odoo-rbac",
+                titleFr: "Modèle d accès métier",
+                titleEn: "Business access model",
+                mermaid: `flowchart TB
+  ADM[Admin technique] --> CONF[Configuration]
+  PM[Project managers] --> PRJ[Projets / tasks]
+  DEV[Consultants] --> TS[Timesheets]
+  FIN[Finance] --> INV[Facturation]
+  HR[HR] --> EMP[Employés]`,
+            },
+        ],
+
+        resources: [
+            { labelFr: "Preview ERP ZENORA", labelEn: "ZENORA ERP preview", url: "https://erp-dev.zenora360.com/", type: "other" },
+            { labelFr: "Odoo Community Association", labelEn: "Odoo Community Association", url: "https://github.com/OCA", type: "other" },
+            { labelFr: "Socle infra Docker", labelEn: "Docker infra foundation", url: "https://github.com/barthez-kenwou/odoo-docker-infra", type: "other" },
+        ],
+
+        milestones: [
+            { labelFr: "Déploiement Docker + socle sécurisé", labelEn: "Docker deploy + secured foundation", date: "Phase 1" },
+            { labelFr: "Modules OCA ESN + droits", labelEn: "ESN OCA modules + rights", date: "Phase 2" },
+            { labelFr: "Addons custom ZENORA", labelEn: "Custom ZENORA addons", date: "Phase 3" },
+            { labelFr: "Adoption prod quotidienne", labelEn: "Daily production adoption", date: "Phase 4" },
+        ],
+
+        scopeFr: ["ERP Odoo production ZENORA", "Modules OCA + custom", "RBAC et processus ESN", "Exploitation Docker + backups"],
+        scopeEn: ["ZENORA production Odoo ERP", "OCA + custom modules", "RBAC and IT-services processes", "Docker operations + backups"],
+        nonGoalsFr: ["Migration Kubernetes HA (lab dédié, hors besoin actuel ZENORA)", "Refonte totale des process hors Odoo", "Marketplace publique d addons"],
+        nonGoalsEn: ["Kubernetes HA migration (dedicated lab, outside current ZENORA need)", "Full process redesign outside Odoo", "Public addons marketplace"],
+
+        decisions: [
+            { titleFr: "Docker pour ZENORA, K8s pour le lab HA", titleEn: "Docker for ZENORA, K8s for the HA lab", decisionFr: "Prod ESN sur Compose maîtrisé ; Kubernetes réservé au lab / futurs cas HA.", decisionEn: "IT-services prod on mastered Compose; Kubernetes reserved for lab / future HA cases.", rationaleFr: "Adéquation charge/ops — sans surcoût orchestration inutile.", rationaleEn: "Fit load/ops — without unnecessary orchestration cost." },
+            { titleFr: "OCA d abord, custom ensuite", titleEn: "OCA first, custom second", decisionFr: "Réutiliser OCA quand le process ESN matche ; custom seulement pour le différenciant ZENORA.", decisionEn: "Reuse OCA when the IT-services process matches; custom only for ZENORA differentiators.", rationaleFr: "Upgradeability et vitesse de livraison.", rationaleEn: "Upgradeability and delivery speed." },
+            { titleFr: "RBAC strict dès le début", titleEn: "Strict RBAC from day one", decisionFr: "Record rules et rôles avant l expansion des utilisateurs.", decisionEn: "Record rules and roles before user expansion.", rationaleFr: "Évite le chaos droits une fois l ERP adopté.", rationaleEn: "Avoids rights chaos once the ERP is adopted." },
+        ],
+
+        securityFr: [
+            "RBAC / ACL / record rules Odoo",
+            "Comptes admin limités + MFA",
+            "Secrets infra hors Git (Infisical)",
+            "TLS reverse proxy",
+            "Backups chiffrés / isolés PG + filestore",
+            "Revue sécurité addons tiers OCA",
+        ],
+        securityEn: [
+            "Odoo RBAC / ACL / record rules",
+            "Limited admin accounts + MFA",
+            "Infra secrets out of Git (Infisical)",
+            "TLS reverse proxy",
+            "Isolated/encrypted PG + filestore backups",
+            "Security review of third-party OCA addons",
+        ],
+        infraFr: [
+            "Docker Compose (patterns odoo-docker-infra)",
+            "PostgreSQL + filestore persistants",
+            "Nginx TLS + Cloudflare",
+            "Backups planifiés + restore validation",
+        ],
+        infraEn: [
+            "Docker Compose (odoo-docker-infra patterns)",
+            "Persistent PostgreSQL + filestore",
+            "Nginx TLS + Cloudflare",
+            "Scheduled backups + restore validation",
+        ],
+
+        externalLinks: [
+            { labelFr: "ERP preview", labelEn: "ERP preview", url: "https://erp-dev.zenora360.com/" },
+            { labelFr: "OCA", labelEn: "OCA", url: "https://github.com/OCA" },
+            { labelFr: "zenora360.com", labelEn: "zenora360.com", url: "https://zenora360.com/" },
+        ],
+
+        lessonsFr: [
+            "Les labs plateforme n ont de sens que s ils servent un ERP réel adopté au quotidien.",
+            "OCA accélère — le custom doit rester le différenciant, pas le défaut.",
+            "Un ERP ESN se vend ensuite : le run ZENORA est la meilleure preuve commerciale.",
+            "Upgradeability se décide au premier addon custom.",
+        ],
+        lessonsEn: [
+            "Platform labs only matter if they serve a real ERP adopted daily.",
+            "OCA accelerates — custom must stay the differentiator, not the default.",
+            "An IT-services ERP can then be sold: ZENORA production is the best commercial proof.",
+            "Upgradeability is decided at the first custom addon.",
+        ],
+
+        beforeAfter: [
+            {
+                beforeSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                afterSrc: "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-ui-modules.png",
+                captionFr: "D outils fragmentés ESN à un ERP Odoo ZENORA centralisé (OCA + custom).",
+                captionEn: "From fragmented IT-services tools to a centralized ZENORA Odoo ERP (OCA + custom).",
+            },
+        ],
+
+        isFeatured: true,
+    },
+
+    {
+        id: 8,
+        titleFr: "Enterprise Observability Platform — Metrics, Logs, Traces & SLO",
+        titleEn: "Enterprise Observability Platform — Metrics, Logs, Traces & SLO",
+
+        descriptionFr: "Plateforme d'observabilité réutilisable (produit Platform/SRE) : OpenTelemetry → Prometheus/Loki/Tempo/Pyroscope → Grafana/Alertmanager, corrélation bout-en-bout, SLO/error budgets — forkable pour n'importe quel service.",
+        descriptionEn: "Reusable observability platform (Platform/SRE product): OpenTelemetry → Prometheus/Loki/Tempo/Pyroscope → Grafana/Alertmanager, end-to-end correlation, SLO/error budgets — forkable for any service.",
+
+        fullDescriptionFr: `Je n'ai pas « installé Grafana ». J'ai construit une plateforme d'observabilité interne — un produit Platform Engineering / SRE — capable de superviser une infrastructure moderne de bout en bout : monoliths, microservices, APIs, workers, frontend, PostgreSQL, Redis, Ingress, Kubernetes.
+
+Le parcours a d'abord été un lab d'apprentissage intensif : outils isolés, labs Killercoda / cloud, cours (Udemy, DataCamp, Coursera, YouTube) et lecture de docs — puis tests locaux Docker outil par outil. La plateforme arrive en conclusion : quand chaque brique est maîtrisée, on industrialise un produit forkable.
+
+Architecture : Instrumentation (OTel SDK) → Collection (Collector Agent/Gateway) → Processing → Storage (Prometheus/Mimir-Thanos, Loki, Tempo, Pyroscope, object storage) → Query → Visualization (Grafana as-code) → Alerting → Incident → Feedback. Les applications ne parlent pas directement à chaque backend : OpenTelemetry est la couche d'abstraction. Métadonnées normalisées (service.name, version, environment, namespace, tenant…). Corrélation phare : requête → latence Prometheus → exemplar → trace Tempo → span Postgres → logs Loki (Trace ID) → profil Pyroscope → postmortem.
+
+Une application e-commerce fictive (frontend, gateway, auth, product, order, payment, worker, PG, Redis, broker) sert de terrain d'incidents : requête lente, memory leak, mauvaise release/canary, API externe down, détection Falco. Objectif final : un développeur fork le dépôt, déclare un service, obtient metrics + logs + traces + dashboards + alertes + SLO + runbook — sans devenir expert observability.
+
+Message recruteur : je sais construire une plateforme d'observabilité distribuée et industrialiser la fiabilité — pas seulement déployer une stack Grafana.`,
+        fullDescriptionEn: `I did not “install Grafana”. I built an internal observability platform — a Platform Engineering / SRE product — able to supervise a modern infrastructure end to end: monoliths, microservices, APIs, workers, frontend, PostgreSQL, Redis, Ingress, Kubernetes.
+
+The journey started as an intensive learning lab: isolated tools, Killercoda / cloud labs, courses (Udemy, DataCamp, Coursera, YouTube) and docs — then local Docker tests tool by tool. The platform comes last: once every brick is mastered, industrialize a forkable product.
+
+Architecture: Instrumentation (OTel SDK) → Collection (Collector Agent/Gateway) → Processing → Storage (Prometheus/Mimir-Thanos, Loki, Tempo, Pyroscope, object storage) → Query → Visualization (Grafana as-code) → Alerting → Incident → Feedback. Applications do not talk directly to every backend: OpenTelemetry is the abstraction layer. Normalized metadata (service.name, version, environment, namespace, tenant…). Flagship correlation: request → Prometheus latency → exemplar → Tempo trace → Postgres span → Loki logs (Trace ID) → Pyroscope profile → postmortem.
+
+A fictional e-commerce application (frontend, gateway, auth, product, order, payment, worker, PG, Redis, broker) is the incident playground: slow query, memory leak, bad release/canary, external API down, Falco detection. End goal: a developer forks the repository, declares a service, and gets metrics + logs + traces + dashboards + alerts + SLO + runbook — without becoming an observability expert.
+
+Recruiter message: I know how to build a distributed observability platform and industrialize reliability — not just deploy a Grafana stack.`,
+
+        problemFr: "Sans plateforme, chaque équipe bricole son monitoring : dashboards orphelins, alertes bruyantes, zéro corrélation, MTTR élevé. Installer des outils n'équivaut pas à industrialiser l'observabilité multi-équipes.",
+        problemEn: "Without a platform, every team hacks its monitoring: orphan dashboards, noisy alerts, zero correlation, high MTTR. Installing tools is not industrializing multi-team observability.",
+
+        solutionFr: [
+            "OpenTelemetry first : abstraction vendor-neutral metrics/logs/traces/profiles",
+            "Pipelines Collector (receivers/processors/exporters) + sampling intelligent (erreurs/lents 100%)",
+            "Storage scalable : Prometheus + Mimir/Thanos, Loki, Tempo, Pyroscope, object storage",
+            "Grafana as-code : datasources, folders, RBAC, drill-down corrélés",
+            "SRE : SLI/SLO/error budgets, burn-rate alerts, runbooks",
+            "Synthetics (Blackbox) + RUM optionnel + network (Cilium/Hubble) + Falco",
+            "DX : templates services, auto-provision dashboards/alertes/SLO, score observability",
+            "Compose local + Kubernetes : même modèle, GitOps staging/prod",
+        ],
+        solutionEn: [
+            "OpenTelemetry first: vendor-neutral metrics/logs/traces/profiles abstraction",
+            "Collector pipelines (receivers/processors/exporters) + smart sampling (errors/slow 100%)",
+            "Scalable storage: Prometheus + Mimir/Thanos, Loki, Tempo, Pyroscope, object storage",
+            "Grafana as-code: datasources, folders, RBAC, correlated drill-downs",
+            "SRE: SLI/SLO/error budgets, burn-rate alerts, runbooks",
+            "Synthetics (Blackbox) + optional RUM + network (Cilium/Hubble) + Falco",
+            "DX: service templates, auto-provision dashboards/alerts/SLO, observability score",
+            "Local Compose + Kubernetes: same model, GitOps staging/prod",
+        ],
+
+        challengesFr: [
+            "Corréler vraiment metrics ↔ logs ↔ traces ↔ profiles (pas quatre silos)",
+            "Maîtriser cardinalité, rétention et coût (FinOps télémétrie)",
+            "Alertes actionnables basées symptômes/SLO — zéro bruit",
+            "Tail sampling et backpressure collectors sans perdre les incidents",
+            "Industrialiser l'onboarding service (golden path observabilité)",
+            "Démontrer des incidents bout-en-bout recruteur-ready",
+        ],
+        challengesEn: [
+            "Truly correlate metrics ↔ logs ↔ traces ↔ profiles (not four silos)",
+            "Master cardinality, retention and cost (telemetry FinOps)",
+            "Actionable symptom/SLO-based alerts — zero noise",
+            "Tail sampling and collector backpressure without losing incidents",
+            "Industrialize service onboarding (observability golden path)",
+            "Demonstrate end-to-end recruiter-ready incidents",
+        ],
+
+        impactFr: [
+            "Plateforme forkable : declare service → télémétrie + dashboards + alertes + SLO",
+            "Investigation d'incident reconstruisible de bout en bout",
+            "Réduction MTTR via corrélation et runbooks",
+            "Culture SRE (error budgets) intégrée au delivery",
+            "Socle réutilisable pour toute la suite Enterprise Platform Labs",
+        ],
+        impactEn: [
+            "Forkable platform: declare service → telemetry + dashboards + alerts + SLO",
+            "End-to-end reconstructible incident investigation",
+            "Lower MTTR via correlation and runbooks",
+            "SRE culture (error budgets) baked into delivery",
+            "Reusable foundation for the full Enterprise Platform Labs suite",
+        ],
+
+        metrics: {
+            "Pillars": "Metrics + Logs + Traces + Profiles",
+            "Abstraction": "OpenTelemetry",
+            "SRE": "SLI / SLO / error budget",
+            "Correlation": "exemplars + Trace ID",
+            "Runtime": "Compose + Kubernetes",
+            "DX": "auto-provision per service",
+            "Incidents": "5 scenarios",
+            "Product": "forkable platform",
+        },
+
+        techStack: {
+            frontend: [
+                "RUM / Core Web Vitals (optional)",
+            ],
+            backend: [
+                "OpenTelemetry SDK (Node / Python / Go / Java)",
+            ],
+            database: [
+                "PostgreSQL exporter",
+                "Redis exporter",
+            ],
+            devops: [
+                "OpenTelemetry Collector",
+                "Prometheus",
+                "Mimir / Thanos",
+                "Grafana",
+                "Loki",
+                "Tempo",
+                "Pyroscope",
+                "Alertmanager",
+                "Blackbox Exporter",
+                "kube-state-metrics",
+                "cAdvisor",
+                "Cilium / Hubble",
+                "Falco",
+                "Kubernetes",
+                "Helm",
+                "Terraform",
+                "Argo CD",
+                "Docker Compose",
+                "MinIO / S3",
+                "k6",
+                "Chaos Mesh",
+            ],
+        },
+
+        architecture: [
+            "Apps → OTel SDK → Collector Agent/Gateway → specialized backends",
+            "Metrics Prometheus (+ long-term Mimir/Thanos) · Logs Loki · Traces Tempo · Profiles Pyroscope",
+            "Unified Grafana + Alertmanager + correlation links",
+            "Normalized metadata and labels multi-tenant / multi-env",
+            "Object storage for long retention · cost-aware sampling",
+            "Distributed e-commerce demo for incident drills",
+        ],
+
+        testing: [
+            "OTel instrumentation + Trace Context propagation tests",
+            "promtool / recording & alert rule validation",
+            "Log↔trace correlation and exemplar↔trace tests",
+            "k6 load + chaos (collector/PG/network failures)",
+            "Incident drills 1–5 + postmortems",
+            "Telemetry DR (Prometheus/Loki/Tempo/Grafana loss)",
         ],
 
         images: [
@@ -4382,135 +5228,1873 @@ This backbone already ships zenora360.com and ketc-services.com, and remains ZEN
             "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/images%20(3).jpeg",
             "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/image-7.png",
         ],
-
-        preview: "",
+        preview: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/000000083082.png",
         videoDemo: "",
 
-        category: "DevOps • Observability",
-        status: "MVP",
+        category: "SRE • Observability • Platform",
+        status: "Actif",
         complexity: "Expert",
-        role: "DevOps Engineer",
+        role: "SRE • Platform Engineer",
         teamSize: 1,
 
-        duration: "Projet continu",
+        duration: "Lab → plateforme (2026)",
         date: "2026",
 
-        github: "",
+        github: "https://github.com/barthez-kenwou/Enterprise-Observability-Platform",
         demo: "",
 
-        businessContextFr: "Projet visant à améliorer la supervision et la fiabilité d’un système en production grâce à une observabilité complète et centralisée.",
-        businessContextEn: "Project aimed at improving monitoring and reliability of a production system through full and centralized observability.",
+        businessContextFr: "Pièce maîtresse de la Enterprise Platform Lab Suite : industrialiser l'observabilité comme produit consommable par les équipes — pas comme un stack installé une fois.",
+        businessContextEn: "Centerpiece of the Enterprise Platform Lab Suite: industrialize observability as a product teams consume — not as a one-off installed stack.",
 
         confidential: false,
 
         responsibilitiesFr: [
-            "Stack métriques/logs/traces (Prometheus, Loki, Tempo)",
-            "Instrumentation OpenTelemetry",
-            "Dashboards Grafana + SLO/SLI",
-            "Alerting Alertmanager / Slack / PagerDuty",
+            "Threat/capacity model télémétrie et design multi-env",
+            "Pipelines OTel Collector + conventions de métadonnées",
+            "Stack Prometheus/Loki/Tempo/Pyroscope/Grafana as-code",
+            "SLO, alerting qualité, runbooks, incident lifecycle",
+            "App demo distribuée + scénarios d'incident",
+            "DX onboarding service + documentation forkable",
         ],
         responsibilitiesEn: [
-            "Metrics/logs/traces stack (Prometheus, Loki, Tempo)",
-            "OpenTelemetry instrumentation",
-            "Grafana dashboards + SLO/SLI",
-            "Alerting Alertmanager / Slack / PagerDuty",
+            "Telemetry threat/capacity model and multi-env design",
+            "OTel Collector pipelines + metadata conventions",
+            "Prometheus/Loki/Tempo/Pyroscope/Grafana as-code stack",
+            "SLO, alert quality, runbooks, incident lifecycle",
+            "Distributed demo app + incident scenarios",
+            "Service onboarding DX + forkable documentation",
         ],
 
         gallery: [
-            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/000000083082.png", captionFr: "Dashboard Grafana", captionEn: "Grafana dashboard", kind: "metric" },
-            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/images%20(3).jpeg", captionFr: "Corrélation logs / traces", captionEn: "Logs / traces correlation", kind: "infra" },
-            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/image-7.png", captionFr: "Vue monitoring", captionEn: "Monitoring view", kind: "metric" },
+            {
+                src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/000000083082.png",
+                captionFr: "Dashboard Grafana — santé plateforme et signaux RED",
+                captionEn: "Grafana dashboard — platform health and RED signals", kind: "metric",
+            },
+            {
+                src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/images%20(3).jpeg",
+                captionFr: "Corrélation logs / traces — investigation bout-en-bout",
+                captionEn: "Logs / traces correlation — end-to-end investigation", kind: "infra",
+            },
+            {
+                src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/image-7.png",
+                captionFr: "Vue monitoring — latence, erreurs, saturation",
+                captionEn: "Monitoring view — latency, errors, saturation", kind: "metric",
+            },
         ],
 
         diagrams: [
             {
-                id: "obs-stack",
-                titleFr: "Stack d'observabilité",
-                titleEn: "Observability stack",
+                id: "eop-pipeline",
+                titleFr: "Pipeline télémétrie unifié",
+                titleEn: "Unified telemetry pipeline",
+                mermaid: `flowchart TB
+  APP[Applications OTel SDK] --> COL[OTel Collector]
+  COL --> M[Prometheus / Mimir]
+  COL --> L[Loki]
+  COL --> T[Tempo]
+  COL --> P[Pyroscope]
+  M --> G[Grafana]
+  L --> G
+  T --> G
+  P --> G
+  M --> AM[Alertmanager]
+  AM --> INC[Incident / Slack]`,
+            },
+            {
+                id: "eop-correlate",
+                titleFr: "Corrélation incident phare",
+                titleEn: "Flagship incident correlation",
+                mermaid: `sequenceDiagram
+  participant U as User
+  participant API as Services
+  participant Prom as Prometheus
+  participant Graf as Grafana
+  participant Tempo as Tempo
+  participant Loki as Loki
+  U->>API: Request
+  API->>Prom: Latency up
+  Prom-->>Graf: SLO burn alert
+  Graf->>Tempo: Exemplar to trace
+  Tempo->>Loki: Trace ID to logs
+  Tempo-->>Graf: Slow Postgres span`,
+            },
+            {
+                id: "eop-red",
+                titleFr: "RED par service + SLO",
+                titleEn: "Per-service RED + SLO",
                 mermaid: `flowchart LR
-  App[Instrumented Apps] --> OTel[OpenTelemetry]
-  OTel --> Prom[Prometheus]
-  OTel --> Loki[Loki]
-  OTel --> Tempo[Tempo]
-  Prom --> Graf[Grafana]
-  Loki --> Graf
-  Tempo --> Graf
-  Prom --> AM[Alertmanager]
-  AM --> Slack[Slack / PagerDuty]`,
+  SVC[Service] --> R[Rate]
+  SVC --> E[Errors]
+  SVC --> D[Duration P95/P99]
+  R --> SLO[SLO / error budget]
+  E --> SLO
+  D --> SLO
+  SLO --> AL[Burn-rate alerts]`,
+            },
+            {
+                id: "eop-demo",
+                titleFr: "App demo distribuée",
+                titleEn: "Distributed demo app",
+                mermaid: `flowchart TB
+  FE[Frontend] --> GW[API Gateway]
+  GW --> AUTH[Auth]
+  GW --> PROD[Product]
+  GW --> ORD[Order]
+  ORD --> PAY[Payment]
+  ORD --> Q[Broker]
+  Q --> WRK[Worker]
+  PROD --> RD[(Redis)]
+  AUTH --> PG[(PostgreSQL)]
+  ORD --> PG`,
+            },
+            {
+                id: "eop-sre",
+                titleFr: "Boucle SRE incident",
+                titleEn: "SRE incident loop",
+                mermaid: `flowchart LR
+  DET[Detection] --> TRI[Triage]
+  TRI --> INV[Investigation]
+  INV --> MIT[Mitigation]
+  MIT --> REC[Recovery]
+  REC --> PM[Postmortem]
+  PM --> IMP[Improve SLO / alerts]`,
             },
         ],
 
         resources: [
-            { labelFr: "Référence observabilité", labelEn: "Observability reference", url: "https://barthez-kenwou.dev/", type: "case-study" },
+            {
+                labelFr: "Repo Enterprise Observability Platform",
+                labelEn: "Enterprise Observability Platform repo",
+                url: "https://github.com/barthez-kenwou/Enterprise-Observability-Platform",
+                type: "other",
+            },
         ],
 
         milestones: [
-            { labelFr: "Métriques Prometheus", labelEn: "Prometheus metrics", date: "Phase 1" },
-            { labelFr: "Logs Loki + traces Tempo", labelEn: "Loki logs + Tempo traces", date: "Phase 2" },
-            { labelFr: "SLO + alerting", labelEn: "SLO + alerting", date: "Phase 3" },
+            {
+                labelFr: "Lab outils + OTel local",
+                labelEn: "Tooling lab + local OTel",
+                date: "Phase 1",
+                descriptionFr: "Maîtrise Prometheus/Loki/Tempo/Collector.",
+                descriptionEn: "Master Prometheus/Loki/Tempo/Collector.",
+            },
+            {
+                labelFr: "Corrélation + SLO + alerting",
+                labelEn: "Correlation + SLO + alerting",
+                date: "Phase 2",
+                descriptionFr: "Exemplars, Trace ID, burn-rate, runbooks.",
+                descriptionEn: "Exemplars, Trace ID, burn-rate, runbooks.",
+            },
+            {
+                labelFr: "Demo distribuée + incidents",
+                labelEn: "Distributed demo + incidents",
+                date: "Phase 3",
+                descriptionFr: "5 scénarios + postmortems.",
+                descriptionEn: "5 scenarios + postmortems.",
+            },
+            {
+                labelFr: "Produit forkable multi-env K8s",
+                labelEn: "Forkable multi-env K8s product",
+                date: "Phase 4",
+                descriptionFr: "GitOps, auto-provision, docs Quick Start.",
+                descriptionEn: "GitOps, auto-provision, Quick Start docs.",
+            },
         ],
 
-        scopeFr: ["Métriques, logs, traces corrélés", "OTel instrumentation", "Dashboards & SLO", "Alerting multi-canal"],
-        scopeEn: ["Correlated metrics, logs, traces", "OTel instrumentation", "Dashboards & SLO", "Multi-channel alerting"],
-        nonGoalsFr: ["APM commercial propriétaire", "Remplacement total des logs applicatifs custom"],
-        nonGoalsEn: ["Proprietary commercial APM", "Full replacement of custom app logs"],
+        scopeFr: [
+            "Plateforme observability produit",
+            "OTel + 4 piliers + SLO",
+            "Corrélation et DX onboarding",
+            "Compose + Kubernetes",
+            "Incidents démontrables",
+        ],
+        scopeEn: [
+            "Observability platform product",
+            "OTel + 4 pillars + SLO",
+            "Correlation and onboarding DX",
+            "Compose + Kubernetes",
+            "Demonstrable incidents",
+        ],
+        nonGoalsFr: [
+            "APM SaaS propriétaire comme cœur",
+            "Remplacer un SIEM entreprise",
+            "SOC 24/7 managé",
+        ],
+        nonGoalsEn: [
+            "Proprietary SaaS APM as the core",
+            "Replacing an enterprise SIEM",
+            "Managed 24/7 SOC",
+        ],
 
         decisions: [
             {
-                titleFr: "OpenTelemetry first",
-                titleEn: "OpenTelemetry first",
-                decisionFr: "Instrumentation vendor-neutral.",
-                decisionEn: "Vendor-neutral instrumentation.",
-                rationaleFr: "Évite le lock-in et unifie traces/metrics/logs.",
-                rationaleEn: "Avoids lock-in and unifies traces/metrics/logs.",
+                titleFr: "OpenTelemetry comme contrat plateforme",
+                titleEn: "OpenTelemetry as the platform contract",
+                decisionFr: "Les apps émettent OTLP ; les backends restent interchangeables.",
+                decisionEn: "Apps emit OTLP; backends remain swappable.",
+                rationaleFr: "Évite le lock-in et standardise l'onboarding.",
+                rationaleEn: "Avoids lock-in and standardizes onboarding.",
             },
             {
-                titleFr: "SLO avant vanity metrics",
-                titleEn: "SLO before vanity metrics",
-                decisionFr: "Prioriser SLI/SLO métier.",
-                decisionEn: "Prioritize business SLI/SLO.",
-                rationaleFr: "Les dashboards sans objectif créent du bruit.",
-                rationaleEn: "Dashboards without goals create noise.",
+                titleFr: "Corrélation avant vanity dashboards",
+                titleEn: "Correlation before vanity dashboards",
+                decisionFr: "Chaque signal doit ouvrir le suivant (metric→trace→log→profile).",
+                decisionEn: "Each signal must open the next (metric→trace→log→profile).",
+                rationaleFr: "C'est ce qui réduit réellement le MTTR.",
+                rationaleEn: "That is what actually reduces MTTR.",
+            },
+            {
+                titleFr: "SLO et alertes symptômes",
+                titleEn: "SLO and symptom alerts",
+                decisionFr: "Burn-rate et erreurs utilisateur avant CPU bruyant.",
+                decisionEn: "Burn-rate and user errors before noisy CPU.",
+                rationaleFr: "Alert quality > alert quantity.",
+                rationaleEn: "Alert quality > alert quantity.",
+            },
+            {
+                titleFr: "Lab d'abord, plateforme ensuite",
+                titleEn: "Lab first, platform second",
+                decisionFr: "Maîtriser chaque outil isolément avant le produit unifié.",
+                decisionEn: "Master each tool in isolation before the unified product.",
+                rationaleFr: "Sinon on assemble sans comprendre failure modes et coûts.",
+                rationaleEn: "Otherwise you assemble without understanding failure modes and costs.",
             },
         ],
 
-        securityFr: ["Accès Grafana RBAC", "Secrets d'alerting hors repo", "Rétention logs maîtrisée", "Réseau monitoring isolé"],
-        securityEn: ["Grafana RBAC access", "Alerting secrets out of repo", "Controlled log retention", "Isolated monitoring network"],
-        infraFr: ["Prometheus + Alertmanager", "Loki + Tempo", "Grafana", "Dockerized collectors"],
-        infraEn: ["Prometheus + Alertmanager", "Loki + Tempo", "Grafana", "Dockerized collectors"],
+        securityFr: [
+            "Redaction secrets/PII dans logs",
+            "RBAC Grafana + TLS + NetworkPolicies collectors",
+            "Secrets alerting hors Git",
+            "Falco / audit events corrélés",
+            "Rétention et isolation tenants",
+        ],
+        securityEn: [
+            "Secret/PII redaction in logs",
+            "Grafana RBAC + TLS + collector NetworkPolicies",
+            "Alerting secrets out of Git",
+            "Correlated Falco / audit events",
+            "Retention and tenant isolation",
+        ],
+        infraFr: [
+            "Docker Compose lab + Kubernetes prod-like",
+            "Object storage MinIO/S3",
+            "GitOps Argo CD pour dashboards/rules",
+            "Terraform/Helm packaging",
+            "Capacity & FinOps télémétrie",
+        ],
+        infraEn: [
+            "Docker Compose lab + Kubernetes prod-like",
+            "MinIO/S3 object storage",
+            "Argo CD GitOps for dashboards/rules",
+            "Terraform/Helm packaging",
+            "Telemetry capacity & FinOps",
+        ],
 
-        externalLinks: [{ labelFr: "Portfolio", labelEn: "Portfolio", url: "https://barthez-kenwou.dev" }],
+        externalLinks: [
+            {
+                labelFr: "GitHub",
+                labelEn: "GitHub",
+                url: "https://github.com/barthez-kenwou/Enterprise-Observability-Platform",
+            },
+        ],
 
         testimonial: {
-            quoteFr: "On détecte plus tôt, on corrèle plus vite, et les alertes ont enfin un sens métier.",
-            quoteEn: "We detect earlier, correlate faster, and alerts finally have business meaning.",
-            author: "SRE Peer",
+            quoteFr: "On ne regarde plus quatre outils séparés : on suit une requête jusqu'à la root cause.",
+            quoteEn: "We no longer stare at four separate tools: we follow a request to the root cause.",
+            author: "Platform peer",
             roleFr: "SRE",
             roleEn: "SRE",
-            company: "Platform practice",
+            company: "Enterprise Platform Labs",
         },
 
         lessonsFr: [
-            "Trop d'alertes = zéro alerte - calibrer le bruit.",
-            "Sans corrélation traces/logs, le MTTD reste élevé.",
-            "Les SLO doivent être négociés avec le métier.",
+            "Installer Grafana n'est pas construire une plateforme d'observabilité.",
+            "Sans corrélation, chaque signal reste un silo ; avec corrélation, c'est un système de preuve.",
+            "Les SLO transforment le monitoring en contrat de fiabilité.",
+            "La DX (fork → service observé) est le vrai critère produit.",
+            "On apprend outil par outil ; on livre une plateforme.",
         ],
         lessonsEn: [
-            "Too many alerts = no alerts - calibrate noise.",
-            "Without traces/logs correlation, MTTD stays high.",
-            "SLOs must be negotiated with the business.",
+            "Installing Grafana is not building an observability platform.",
+            "Without correlation each signal is a silo; with correlation it is a proof system.",
+            "SLOs turn monitoring into a reliability contract.",
+            "DX (fork → observed service) is the real product criterion.",
+            "Learn tool by tool; ship a platform.",
         ],
 
         beforeAfter: [
             {
-                beforeSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/images%20(3).jpeg",
+                beforeSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
                 afterSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/000000083082.png",
-                captionFr: "Du monitoring fragmenté à une observabilité corrélée.",
-                captionEn: "From fragmented monitoring to correlated observability.",
+                captionFr: "Du monitoring fragmenté à une plateforme SRE corrélée et forkable.",
+                captionEn: "From fragmented monitoring to a correlated, forkable SRE platform.",
             },
         ],
 
-        isFeatured: false,
+        isFeatured: true,
+    },
+
+    {
+        id: 16,
+        titleFr: "Enterprise Internal Developer Platform — Golden Paths & Self-Service",
+        titleEn: "Enterprise Internal Developer Platform — Golden Paths & Self-Service",
+
+        descriptionFr: "IDP Platform Engineering : Backstage + Golden Paths + GitOps. Un développeur crée un service en self-service — repo, CI, Helm, secrets, observabilité, SLO — sans devenir expert Kubernetes.",
+        descriptionEn: "Platform Engineering IDP: Backstage + Golden Paths + GitOps. A developer creates a service self-service — repo, CI, Helm, secrets, observability, SLO — without becoming a Kubernetes expert.",
+
+        fullDescriptionFr: `Je n'administre pas Kubernetes pour les autres : je construis le produit qui leur permet de consommer l'infrastructure. Enterprise Internal Developer Platform est une Internal Developer Platform (IDP) — Backstage comme portail, Golden Paths comme chemins pavés, GitOps comme moteur de vérité.
+
+Le parcours a d'abord été un lab d'apprentissage intensif : outils isolés, labs Killercoda / cloud, cours (Udemy, DataCamp, Coursera, YouTube) et lecture de docs — puis tests locaux Docker outil par outil. La plateforme arrive en conclusion : quand chaque brique est maîtrisée, on industrialise un produit forkable.
+
+Objectif final : ouvrir le portail → Create Service → Node.js / Python / Go → PostgreSQL + Redis → staging → Create. En quelques minutes : repository, CI/CD, Dockerfile, Helm, Application Argo CD, secrets, DNS/TLS, OpenTelemetry, dashboard, alertes, SLO, runbook, entrée catalogue Backstage, déploiement staging.
+
+Piliers : Developer Experience, Self-Service, Golden Paths, Automation, Governance (Kyverno, quotas, naming), Security (non-root, Trivy, Cosign, NetworkPolicy), Observability automatique, Cost (Kubecost), Reliability. Les templates couvrent API Node/Python/Go/Java, worker, frontend, CronJob. Scénarios : nouveau microservice, violation policy image latest, promotion production canary, panne control-plane Argo CD (apps continuent, Git reste SoT).
+
+Message recruteur : je sais construire une plateforme qui permet à d'autres développeurs de consommer l'infrastructure comme un produit.`,
+        fullDescriptionEn: `I do not administer Kubernetes for others: I build the product that lets them consume infrastructure. Enterprise Internal Developer Platform is an Internal Developer Platform (IDP) — Backstage as the portal, Golden Paths as paved roads, GitOps as the source of truth.
+
+The journey started as an intensive learning lab: isolated tools, Killercoda / cloud labs, courses (Udemy, DataCamp, Coursera, YouTube) and docs — then local Docker tests tool by tool. The platform comes last: once every brick is mastered, industrialize a forkable product.
+
+End goal: open the portal → Create Service → Node.js / Python / Go → PostgreSQL + Redis → staging → Create. Within minutes: repository, CI/CD, Dockerfile, Helm, Argo CD Application, secrets, DNS/TLS, OpenTelemetry, dashboard, alerts, SLO, runbook, Backstage catalog entry, staging deploy.
+
+Pillars: Developer Experience, Self-Service, Golden Paths, Automation, Governance (Kyverno, quotas, naming), Security (non-root, Trivy, Cosign, NetworkPolicy), automatic Observability, Cost (Kubecost), Reliability. Templates cover Node/Python/Go/Java APIs, worker, frontend, CronJob. Scenarios: new microservice, latest-image policy violation, production canary promotion, Argo CD control-plane outage (apps keep running, Git remains SoT).
+
+Recruiter message: I know how to build a platform that lets other developers consume infrastructure as a product.`,
+
+        problemFr: "Sans IDP, chaque équipe réinvente Dockerfiles, charts, pipelines et sécurité — lenteur, dette, drift. Kubernetes nu n'est pas un produit développeur.",
+        problemEn: "Without an IDP, every team reinvents Dockerfiles, charts, pipelines and security — slowdowns, debt, drift. Raw Kubernetes is not a developer product.",
+
+        solutionFr: [
+            "Backstage : catalog, ownership, docs, liens dashboards/logs/SLO",
+            "Golden Paths templates (API, worker, frontend, CronJob) multi-langages",
+            "Scaffold : repo + CI + Dockerfile + Helm + Argo CD + secrets + DNS/TLS",
+            "Observabilité et sécurité activées par défaut (OTel, scans, Cosign, Kyverno)",
+            "Self-service : DB, Redis, domain, cert, scale, rollback via portail/API",
+            "Governance : Policy-as-Code, quotas, approvals production",
+            "Cost visibility Kubecost par équipe/service",
+            "Platform API + CLI pour automatiser hors UI",
+        ],
+        solutionEn: [
+            "Backstage: catalog, ownership, docs, dashboard/logs/SLO links",
+            "Golden Path templates (API, worker, frontend, CronJob) multi-language",
+            "Scaffold: repo + CI + Dockerfile + Helm + Argo CD + secrets + DNS/TLS",
+            "Observability and security on by default (OTel, scans, Cosign, Kyverno)",
+            "Self-service: DB, Redis, domain, cert, scale, rollback via portal/API",
+            "Governance: Policy-as-Code, quotas, production approvals",
+            "Kubecost cost visibility per team/service",
+            "Platform API + CLI to automate beyond the UI",
+        ],
+
+        challengesFr: [
+            "Masquer Kubernetes sans cacher les failure modes utiles",
+            "Templates assez stricts pour la sécurité, assez souples pour le métier",
+            "Orchestrer Git + Terraform + secrets + GitOps de façon idempotente",
+            "Mesurer le time-to-first-deploy réel (pas un slide marketing)",
+            "Rester platform product : score DX, ownership, documentation auto",
+        ],
+        challengesEn: [
+            "Hide Kubernetes without hiding useful failure modes",
+            "Templates strict enough for security, flexible enough for business",
+            "Orchestrate Git + Terraform + secrets + GitOps idempotently",
+            "Measure real time-to-first-deploy (not a marketing slide)",
+            "Stay a platform product: DX score, ownership, auto documentation",
+        ],
+
+        impactFr: [
+            "Time-to-service mesurable : Create → staging déployé",
+            "Standards sécurité/observabilité appliqués sans ticket ops",
+            "Catalog Backstage = source de vérité ownership",
+            "Réduction du toil Platform / SRE sur les demandes répétitives",
+            "Produit greffable sur tout cluster GitOps ZENORA / client",
+        ],
+        impactEn: [
+            "Measurable time-to-service: Create → staging deployed",
+            "Security/observability standards applied without ops tickets",
+            "Backstage catalog = ownership source of truth",
+            "Lower Platform / SRE toil on repetitive requests",
+            "Graftable product on any ZENORA / client GitOps cluster",
+        ],
+
+        metrics: {
+            "Portal": "Backstage",
+            "Paths": "Golden Paths multi-lang",
+            "Delivery": "GitOps Argo CD",
+            "Defaults": "OTel + security on",
+            "Governance": "Kyverno + quotas",
+            "Cost": "Kubecost",
+            "DX": "self-service Create Service",
+            "Product": "forkable IDP",
+        },
+
+        techStack: {
+            frontend: [
+                "Backstage UI",
+            ],
+            backend: [
+                "Platform API",
+                "scaffolder / templates",
+            ],
+            database: [
+                "PostgreSQL (Backstage + app templates)",
+                "Redis templates",
+            ],
+            devops: [
+                "Backstage",
+                "Argo CD",
+                "Terraform",
+                "Helm",
+                "Kubernetes",
+                "External Secrets",
+                "cert-manager",
+                "ExternalDNS",
+                "Vault / Infisical",
+                "Harbor",
+                "Kyverno",
+                "Trivy",
+                "Cosign",
+                "Prometheus",
+                "Grafana",
+                "Kubecost",
+                "GitHub Actions",
+                "Docker",
+            ],
+        },
+
+        architecture: [
+            "Developer → Backstage → Platform API → Git / Terraform / Secrets",
+            "GitOps Argo CD → Kubernetes → App + DB + Observability",
+            "Policies Kyverno gate images, labels, security context",
+            "Catalog ownership + liens dashboards/SLO/runbooks",
+            "Identical local kind/Compose path for platform control plane labs",
+        ],
+
+        testing: [
+            "Template / scaffolder tests",
+            "Helm + Kubernetes validation",
+            "Policy tests Kyverno",
+            "Golden Path E2E developer journey",
+            "Security baseline on generated services",
+            "Control-plane failure: Argo CD down, apps stay up",
+        ],
+
+        images: [
+            "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+        ],
+        preview: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+        videoDemo: "",
+
+        category: "Platform Engineering • DX",
+        status: "Actif",
+        complexity: "Expert",
+        role: "Platform Engineer",
+        teamSize: 1,
+
+        duration: "Lab → plateforme (2026)",
+        date: "2026",
+
+        github: "https://github.com/barthez-kenwou/Enterprise-Internal-Developer-Platform",
+        demo: "",
+
+        businessContextFr: "Deuxième pilier de la Enterprise Platform Lab Suite : transformer Kubernetes en produit self-service pour accélérer le delivery sans sacrifier standards ni sécurité.",
+        businessContextEn: "Second pillar of the Enterprise Platform Lab Suite: turn Kubernetes into a self-service product to accelerate delivery without sacrificing standards or security.",
+
+        confidential: false,
+
+        responsibilitiesFr: [
+            "Design IDP et contrats Golden Path",
+            "Backstage catalog + scaffolder templates",
+            "Chaîne Git → CI → GitOps → runtime",
+            "Baseline sécurité et observabilité par défaut",
+            "Gouvernance Policy-as-Code et cost visibility",
+            "Docs Quick Start + scénarios DX",
+        ],
+        responsibilitiesEn: [
+            "IDP design and Golden Path contracts",
+            "Backstage catalog + scaffolder templates",
+            "Git → CI → GitOps → runtime chain",
+            "Default security and observability baseline",
+            "Policy-as-Code governance and cost visibility",
+            "Quick Start docs + DX scenarios",
+        ],
+
+        gallery: [
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                captionFr: "Captures Backstage / Golden Path à venir",
+                captionEn: "Backstage / Golden Path screenshots coming soon", kind: "wip",
+            },
+        ],
+
+        diagrams: [
+            {
+                id: "idp-flow",
+                titleFr: "Parcours Create Service",
+                titleEn: "Create Service journey",
+                mermaid: `flowchart TB
+  DEV[Developer] --> BS[Backstage]
+  BS --> API[Platform API]
+  API --> GIT[Git Provider]
+  API --> TF[Terraform]
+  API --> SEC[Secrets Vault]
+  GIT --> AC[Argo CD]
+  AC --> K8S[Kubernetes]
+  K8S --> APP[App + DB + Obs]`,
+            },
+            {
+                id: "idp-golden",
+                titleFr: "Contenu d'un Golden Path",
+                titleEn: "Golden Path contents",
+                mermaid: `flowchart LR
+  T[Template] --> R[Repo + README]
+  T --> C[CI/CD]
+  T --> H[Helm + Argo]
+  T --> O[OTel + Dashboard]
+  T --> S[SLO + Runbook]
+  T --> SEC[Security baseline]`,
+            },
+            {
+                id: "idp-gov",
+                titleFr: "Gouvernance automatique",
+                titleEn: "Automatic governance",
+                mermaid: `flowchart TB
+  PR[Pull Request] --> CI[CI scans]
+  CI --> AC[Argo sync]
+  AC --> KY[Kyverno admit]
+  KY -->|deny latest| NO[Blocked]
+  KY -->|signed + limits| OK[Deployed]`,
+            },
+        ],
+
+        resources: [
+            {
+                labelFr: "Repo Enterprise Internal Developer Platform",
+                labelEn: "Enterprise Internal Developer Platform repo",
+                url: "https://github.com/barthez-kenwou/Enterprise-Internal-Developer-Platform",
+                type: "other",
+            },
+        ],
+
+        milestones: [
+            {
+                labelFr: "Lab K8s/GitOps/Backstage",
+                labelEn: "K8s/GitOps/Backstage lab",
+                date: "Phase 1",
+                descriptionFr: "Maîtrise isolée des briques.",
+                descriptionEn: "Isolated mastery of building blocks.",
+            },
+            {
+                labelFr: "Templates Golden Paths",
+                labelEn: "Golden Path templates",
+                date: "Phase 2",
+                descriptionFr: "Scaffold multi-langages.",
+                descriptionEn: "Multi-language scaffold.",
+            },
+            {
+                labelFr: "Self-service + policies",
+                labelEn: "Self-service + policies",
+                date: "Phase 3",
+                descriptionFr: "Portal + Kyverno + secrets.",
+                descriptionEn: "Portal + Kyverno + secrets.",
+            },
+            {
+                labelFr: "Produit IDP forkable",
+                labelEn: "Forkable IDP product",
+                date: "Phase 4",
+                descriptionFr: "E2E Create Service documenté.",
+                descriptionEn: "Documented E2E Create Service.",
+            },
+        ],
+
+        scopeFr: [
+            "IDP Backstage",
+            "Golden Paths",
+            "GitOps self-service",
+            "Security/obs defaults",
+            "Cost & governance",
+        ],
+        scopeEn: [
+            "Backstage IDP",
+            "Golden Paths",
+            "GitOps self-service",
+            "Security/obs defaults",
+            "Cost & governance",
+        ],
+        nonGoalsFr: [
+            "Remplacer le cloud public IAM",
+            "PaaS multi-cloud commercial",
+            "IDE cloud complet",
+        ],
+        nonGoalsEn: [
+            "Replacing public-cloud IAM",
+            "Commercial multi-cloud PaaS",
+            "Full cloud IDE",
+        ],
+
+        decisions: [
+            {
+                titleFr: "Backstage comme façade produit",
+                titleEn: "Backstage as the product façade",
+                decisionFr: "Le portail orchestre ; Git reste la source de vérité.",
+                decisionEn: "The portal orchestrates; Git remains source of truth.",
+                rationaleFr: "Auditabilité et reprise après panne control-plane.",
+                rationaleEn: "Auditability and recovery after control-plane failure.",
+            },
+            {
+                titleFr: "Defaults sécurisés non négociables",
+                titleEn: "Non-negotiable secure defaults",
+                decisionFr: "OTel, NetworkPolicy, non-root, scans activés dans chaque template.",
+                decisionEn: "OTel, NetworkPolicy, non-root, scans enabled in every template.",
+                rationaleFr: "La plateforme encode les standards ; le ticket ops disparaît.",
+                rationaleEn: "The platform encodes standards; the ops ticket disappears.",
+            },
+            {
+                titleFr: "Lab first",
+                titleEn: "Lab first",
+                decisionFr: "Maîtriser Helm/Argo/Kyverno seuls avant le produit unifié.",
+                decisionEn: "Master Helm/Argo/Kyverno alone before the unified product.",
+                rationaleFr: "Un IDP fragile vient d'outils mal compris.",
+                rationaleEn: "A fragile IDP comes from poorly understood tools.",
+            },
+        ],
+
+        securityFr: [
+            "Images signées + admission Kyverno",
+            "Secrets externalisés",
+            "PSS / non-root / NetworkPolicy",
+            "RBAC least privilege",
+            "Security score par service",
+        ],
+        securityEn: [
+            "Signed images + Kyverno admission",
+            "Externalized secrets",
+            "PSS / non-root / NetworkPolicy",
+            "Least-privilege RBAC",
+            "Per-service security score",
+        ],
+        infraFr: [
+            "Kubernetes + Argo CD",
+            "Terraform modules",
+            "Harbor registry",
+            "Vault/Infisical + ESO",
+            "cert-manager / ExternalDNS",
+        ],
+        infraEn: [
+            "Kubernetes + Argo CD",
+            "Terraform modules",
+            "Harbor registry",
+            "Vault/Infisical + ESO",
+            "cert-manager / ExternalDNS",
+        ],
+
+        externalLinks: [
+            {
+                labelFr: "GitHub",
+                labelEn: "GitHub",
+                url: "https://github.com/barthez-kenwou/Enterprise-Internal-Developer-Platform",
+            },
+        ],
+
+        testimonial: {
+            quoteFr: "Je n'ai plus besoin d'un ticket pour un microservice standard : le Golden Path fait le travail.",
+            quoteEn: "I no longer need a ticket for a standard microservice: the Golden Path does the work.",
+            author: "Application developer",
+            roleFr: "Backend",
+            roleEn: "Backend",
+            company: "Platform consumers",
+        },
+
+        lessonsFr: [
+            "Kubernetes nu n'est pas une plateforme développeur.",
+            "Un Golden Path vaut mieux que mille runbooks d'onboarding.",
+            "Si Git n'est pas SoT, l'IDP devient un SPOF.",
+            "La DX se mesure en minutes jusqu'au premier deploy.",
+        ],
+        lessonsEn: [
+            "Raw Kubernetes is not a developer platform.",
+            "One Golden Path beats a thousand onboarding runbooks.",
+            "If Git is not SoT, the IDP becomes a SPOF.",
+            "DX is measured in minutes to first deploy.",
+        ],
+
+        beforeAfter: [
+            {
+                beforeSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                afterSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                captionFr: "Du ticket ops Kubernetes au Create Service self-service.",
+                captionEn: "From Kubernetes ops tickets to self-service Create Service.",
+            },
+        ],
+
+        isFeatured: true,
+    },
+
+    {
+        id: 17,
+        titleFr: "Enterprise Cloud Security Platform — CloudSec, K8s & Runtime",
+        titleEn: "Enterprise Cloud Security Platform — CloudSec, K8s & Runtime",
+
+        descriptionFr: "Plateforme DevSecOps/CloudSec : CSPM/KSPM, supply chain (Trivy/SBOM/Cosign), admission Kyverno, réseau Cilium, runtime Falco, score de risque unifié — défense en profondeur code → runtime.",
+        descriptionEn: "DevSecOps/CloudSec platform: CSPM/KSPM, supply chain (Trivy/SBOM/Cosign), Kyverno admission, Cilium network, Falco runtime, unified risk score — defense in depth from code to runtime.",
+
+        fullDescriptionFr: `Je ne fais pas « du scanning dans le pipeline ». Je construis une chaîne de défense qui couvre le code, l'artifact, l'infrastructure, Kubernetes, le réseau et le runtime — une Enterprise Cloud Security Platform.
+
+Le parcours a d'abord été un lab d'apprentissage intensif : outils isolés, labs Killercoda / cloud, cours (Udemy, DataCamp, Coursera, YouTube) et lecture de docs — puis tests locaux Docker outil par outil. La plateforme arrive en conclusion : quand chaque brique est maîtrisée, on industrialise un produit forkable.
+
+Architecture : Git → CI (SAST/SCA/secrets) → build → Trivy/Syft/Grype/SBOM → Cosign → Harbor → Kubernetes (Kyverno + Cilium + Falco) → Security Platform → Risk Dashboard. Piliers : Identity, Kubernetes Security, Container, Supply Chain, Network, Runtime, Secrets, Vulnerability Management, Compliance, Detection & Response.
+
+Scénarios : secret dans Git (Gitleaks bloque), image CVE critique (gate Trivy), image non signée (Kyverno refuse), attaque runtime simulée (Falco + Hubble + audit → isolation). Score de posture par cluster/namespace/workload/team. Compliance CIS/OWASP concepts. Objectif : pipeline détecte, cluster empêche, runtime détecte, réseau limite, secrets protégés, artifacts vérifiés, incidents corrélés.
+
+Message recruteur : je construis une chaîne de défense complète — pas uniquement du DevSecOps pipeline.`,
+        fullDescriptionEn: `I do not “scan in the pipeline”. I build a defense chain covering code, artifact, infrastructure, Kubernetes, network and runtime — an Enterprise Cloud Security Platform.
+
+The journey started as an intensive learning lab: isolated tools, Killercoda / cloud labs, courses (Udemy, DataCamp, Coursera, YouTube) and docs — then local Docker tests tool by tool. The platform comes last: once every brick is mastered, industrialize a forkable product.
+
+Architecture: Git → CI (SAST/SCA/secrets) → build → Trivy/Syft/Grype/SBOM → Cosign → Harbor → Kubernetes (Kyverno + Cilium + Falco) → Security Platform → Risk Dashboard. Pillars: Identity, Kubernetes Security, Container, Supply Chain, Network, Runtime, Secrets, Vulnerability Management, Compliance, Detection & Response.
+
+Scenarios: secret in Git (Gitleaks blocks), critical CVE image (Trivy gate), unsigned image (Kyverno denies), simulated runtime attack (Falco + Hubble + audit → isolation). Posture score per cluster/namespace/workload/team. CIS/OWASP-oriented compliance. Goal: pipeline detects, cluster prevents, runtime detects, network limits, secrets protected, artifacts verified, incidents correlated.
+
+Recruiter message: I build a full defense chain — not pipeline-only DevSecOps.`,
+
+        problemFr: "La sécurité fragmentée (un scan CI ici, une NetworkPolicy là) laisse des trous entre artifact, admission et runtime. Sans plateforme, pas de posture unifiée ni de réponse corrélée.",
+        problemEn: "Fragmented security (a CI scan here, a NetworkPolicy there) leaves gaps between artifact, admission and runtime. Without a platform, no unified posture or correlated response.",
+
+        solutionFr: [
+            "Supply chain : SAST/SCA/secrets + Trivy + SBOM + Cosign + Harbor",
+            "Admission Kyverno : signatures, PSS, no latest, securityContext",
+            "Network Cilium default-deny + Hubble visibility",
+            "Runtime Falco : shell, privilege escalation, connexions anormales",
+            "Secrets Vault/ESO + détection Gitleaks",
+            "Security Posture Dashboard + risk scoring",
+            "Compliance checks CIS Kubernetes / OWASP concepts",
+            "Incident workflows et runbooks sécurité",
+        ],
+        solutionEn: [
+            "Supply chain: SAST/SCA/secrets + Trivy + SBOM + Cosign + Harbor",
+            "Kyverno admission: signatures, PSS, no latest, securityContext",
+            "Cilium default-deny network + Hubble visibility",
+            "Falco runtime: shell, privilege escalation, abnormal connections",
+            "Vault/ESO secrets + Gitleaks detection",
+            "Security Posture Dashboard + risk scoring",
+            "CIS Kubernetes / OWASP-oriented compliance checks",
+            "Security incident workflows and runbooks",
+        ],
+
+        challengesFr: [
+            "Corréler signaux CI, admission, réseau et runtime en une timeline",
+            "Fail-closed sans bloquer tout le delivery (gates graduées)",
+            "Risk scoring actionnable (pas un vanity score)",
+            "Attaques simulées sûres (labs) sans contamination hors lab",
+            "Alignement avec le kit Supply Chain déjà en production (id:6)",
+        ],
+        challengesEn: [
+            "Correlate CI, admission, network and runtime into one timeline",
+            "Fail-closed without freezing delivery (graduated gates)",
+            "Actionable risk scoring (not a vanity score)",
+            "Safe simulated attacks (labs) without contaminating outside the lab",
+            "Alignment with the Supply Chain kit already in production (id:6)",
+        ],
+
+        impactFr: [
+            "Défense en profondeur démontrable code → runtime",
+            "Aucun déploiement non signé / latest en environnement contrôlé",
+            "Détection runtime avec isolation et postmortem",
+            "Dashboard de posture pour prioriser le remediation",
+            "Complète le Supply Chain Pipeline (id:6) côté plateforme cluster",
+        ],
+        impactEn: [
+            "Demonstrable defense in depth code → runtime",
+            "No unsigned / latest deploy in controlled environments",
+            "Runtime detection with isolation and postmortem",
+            "Posture dashboard to prioritize remediation",
+            "Complements Supply Chain Pipeline (id:6) on the cluster platform side",
+        ],
+
+        metrics: {
+            "Depth": "code → runtime",
+            "Admission": "Kyverno + Cosign",
+            "Network": "Cilium / Hubble",
+            "Runtime": "Falco",
+            "Supply chain": "Trivy + SBOM",
+            "Posture": "risk score",
+            "Scenarios": "4 attack drills",
+            "Product": "forkable CloudSec",
+        },
+
+        techStack: {
+            frontend: [
+                "Security Risk Dashboard",
+            ],
+            backend: [
+                "Security aggregation API (optional)",
+            ],
+            database: [],
+            devops: [
+                "Trivy",
+                "Syft",
+                "Grype",
+                "Gitleaks",
+                "Semgrep",
+                "SonarQube",
+                "Cosign / Sigstore",
+                "Harbor",
+                "Kyverno",
+                "Cilium",
+                "Hubble",
+                "Falco",
+                "Vault / Infisical",
+                "External Secrets",
+                "Kubernetes",
+                "Terraform",
+                "GitHub Actions",
+                "Prometheus",
+                "Grafana",
+            ],
+        },
+
+        architecture: [
+            "Git → CI scanners → build → SBOM/sign → Harbor",
+            "Kubernetes admit (Kyverno) → runtime (Falco) → network (Cilium)",
+            "Events → Security Platform → Risk Dashboard + alerts",
+            "Secrets never in Git; rotation and audit",
+            "Attack-scenario labs with containment",
+        ],
+
+        testing: [
+            "Secret detection / SCA / container scan tests",
+            "Policy admission tests (unsigned, privileged, latest)",
+            "NetworkPolicy / Cilium path tests",
+            "Falco detection drills",
+            "Controlled penetration / chaos-security scenarios",
+            "Compliance checklist regression",
+        ],
+
+        images: [
+            "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+        ],
+        preview: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+        videoDemo: "",
+
+        category: "DevSecOps • CloudSec",
+        status: "Actif",
+        complexity: "Expert",
+        role: "DevSecOps • Security Engineer",
+        teamSize: 1,
+
+        duration: "Lab → plateforme (2026)",
+        date: "2026",
+
+        github: "https://github.com/barthez-kenwou/Enterprise-Cloud-Security-Platform",
+        demo: "",
+
+        businessContextFr: "Troisième pilier de la suite : sécuriser Cloud/Kubernetes comme produit — complémentaire du Supply Chain Pipeline déjà en production.",
+        businessContextEn: "Third pillar of the suite: secure Cloud/Kubernetes as a product — complementary to the Supply Chain Pipeline already in production.",
+
+        confidential: false,
+
+        responsibilitiesFr: [
+            "Threat model CloudSec / KSPM",
+            "Chaîne supply chain + admission + runtime",
+            "Policies Kyverno et NetworkPolicies Cilium",
+            "Règles Falco et corrélation incidents",
+            "Risk dashboard et compliance views",
+            "Attack scenarios + runbooks",
+        ],
+        responsibilitiesEn: [
+            "CloudSec / KSPM threat model",
+            "Supply chain + admission + runtime chain",
+            "Kyverno policies and Cilium NetworkPolicies",
+            "Falco rules and incident correlation",
+            "Risk dashboard and compliance views",
+            "Attack scenarios + runbooks",
+        ],
+
+        gallery: [
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                captionFr: "Captures Security Dashboard / Falco à venir",
+                captionEn: "Security Dashboard / Falco screenshots coming soon", kind: "wip",
+            },
+        ],
+
+        diagrams: [
+            {
+                id: "sec-chain",
+                titleFr: "Chaîne de défense",
+                titleEn: "Defense chain",
+                mermaid: `flowchart TB
+  GIT[Git] --> CI[CI SAST SCA Secrets]
+  CI --> BLD[Build]
+  BLD --> SCAN[Trivy SBOM]
+  SCAN --> SIGN[Cosign]
+  SIGN --> REG[Harbor]
+  REG --> K8S[Kubernetes]
+  K8S --> KY[Kyverno]
+  K8S --> CIL[Cilium]
+  K8S --> FAL[Falco]
+  KY --> DASH[Risk Dashboard]
+  CIL --> DASH
+  FAL --> DASH`,
+            },
+            {
+                id: "sec-runtime",
+                titleFr: "Incident runtime simulé",
+                titleEn: "Simulated runtime incident",
+                mermaid: `sequenceDiagram
+  participant Att as Compromised pod
+  participant Fal as Falco
+  participant Hub as Hubble
+  participant Ops as Responder
+  Att->>Fal: Shell exec
+  Fal->>Ops: Alert
+  Hub->>Ops: Network flows
+  Ops->>Att: Isolate / revoke
+  Ops->>Ops: Postmortem`,
+            },
+            {
+                id: "sec-score",
+                titleFr: "Posture multi-dimensions",
+                titleEn: "Multi-dimension posture",
+                mermaid: `flowchart LR
+  ID[Identity] --> SCORE[Security score]
+  NET[Network] --> SCORE
+  CTR[Container] --> SCORE
+  SC[Supply chain] --> SCORE
+  RT[Runtime] --> SCORE
+  CMP[Compliance] --> SCORE`,
+            },
+        ],
+
+        resources: [
+            {
+                labelFr: "Repo Enterprise Cloud Security Platform",
+                labelEn: "Enterprise Cloud Security Platform repo",
+                url: "https://github.com/barthez-kenwou/Enterprise-Cloud-Security-Platform",
+                type: "other",
+            },
+        ],
+
+        milestones: [
+            {
+                labelFr: "Lab scanners + Cosign + Harbor",
+                labelEn: "Scanners + Cosign + Harbor lab",
+                date: "Phase 1",
+                descriptionFr: "Maîtrise supply chain.",
+                descriptionEn: "Supply chain mastery.",
+            },
+            {
+                labelFr: "Kyverno + Cilium + Falco",
+                labelEn: "Kyverno + Cilium + Falco",
+                date: "Phase 2",
+                descriptionFr: "Admission, réseau, runtime.",
+                descriptionEn: "Admission, network, runtime.",
+            },
+            {
+                labelFr: "Risk dashboard + drills",
+                labelEn: "Risk dashboard + drills",
+                date: "Phase 3",
+                descriptionFr: "4 scénarios d'attaque.",
+                descriptionEn: "4 attack scenarios.",
+            },
+            {
+                labelFr: "Produit CloudSec forkable",
+                labelEn: "Forkable CloudSec product",
+                date: "Phase 4",
+                descriptionFr: "Docs + GitOps policies.",
+                descriptionEn: "Docs + GitOps policies.",
+            },
+        ],
+
+        scopeFr: [
+            "CloudSec plateforme",
+            "Supply chain → runtime",
+            "KSPM + posture score",
+            "Attack scenarios",
+            "Compliance views",
+        ],
+        scopeEn: [
+            "CloudSec platform",
+            "Supply chain → runtime",
+            "KSPM + posture score",
+            "Attack scenarios",
+            "Compliance views",
+        ],
+        nonGoalsFr: [
+            "SOC managé 24/7",
+            "Remplacer un SIEM entreprise complet",
+            "Pentest offensif hors lab",
+        ],
+        nonGoalsEn: [
+            "Managed 24/7 SOC",
+            "Replacing a full enterprise SIEM",
+            "Offensive pentest outside the lab",
+        ],
+
+        decisions: [
+            {
+                titleFr: "Défense en profondeur, pas un outil unique",
+                titleEn: "Defense in depth, not a single tool",
+                decisionFr: "Chaque couche échoue indépendamment ; la suivante contient.",
+                decisionEn: "Each layer fails independently; the next contains.",
+                rationaleFr: "Un seul scanner CI ne couvre pas le runtime.",
+                rationaleEn: "A single CI scanner does not cover runtime.",
+            },
+            {
+                titleFr: "Fail-closed sur l'admission critique",
+                titleEn: "Fail-closed on critical admission",
+                decisionFr: "Unsigned / privileged / latest bloqués en environnements contrôlés.",
+                decisionEn: "Unsigned / privileged / latest blocked in controlled environments.",
+                rationaleFr: "Prévention > détection seule.",
+                rationaleEn: "Prevention > detection alone.",
+            },
+            {
+                titleFr: "Complément du kit Supply Chain",
+                titleEn: "Complement to the Supply Chain kit",
+                decisionFr: "Réutiliser la discipline CI déjà en prod ; étendre au cluster.",
+                decisionEn: "Reuse CI discipline already in prod; extend to the cluster.",
+                rationaleFr: "Cohérence suite Enterprise Labs.",
+                rationaleEn: "Enterprise Labs suite coherence.",
+            },
+        ],
+
+        securityFr: [
+            "RBAC least privilege",
+            "mTLS / TLS partout pertinent",
+            "Secrets dynamiques",
+            "Audit trail",
+            "Image signing + verify",
+        ],
+        securityEn: [
+            "Least-privilege RBAC",
+            "mTLS / TLS where relevant",
+            "Dynamic secrets",
+            "Audit trail",
+            "Image signing + verify",
+        ],
+        infraFr: [
+            "Kubernetes sécurisé",
+            "Harbor + Cosign",
+            "Cilium CNI",
+            "Vault/Infisical",
+            "GitOps policies",
+        ],
+        infraEn: [
+            "Hardened Kubernetes",
+            "Harbor + Cosign",
+            "Cilium CNI",
+            "Vault/Infisical",
+            "GitOps policies",
+        ],
+
+        externalLinks: [
+            {
+                labelFr: "GitHub",
+                labelEn: "GitHub",
+                url: "https://github.com/barthez-kenwou/Enterprise-Cloud-Security-Platform",
+            },
+        ],
+
+        testimonial: {
+            quoteFr: "Le pipeline bloque, le cluster refuse, le runtime alerte : enfin une chaîne cohérente.",
+            quoteEn: "The pipeline blocks, the cluster denies, the runtime alerts: finally a coherent chain.",
+            author: "Security peer",
+            roleFr: "DevSecOps",
+            roleEn: "DevSecOps",
+            company: "Enterprise Platform Labs",
+        },
+
+        lessonsFr: [
+            "Scanner CI ≠ plateforme CloudSec.",
+            "Sans admission, les artifacts signés peuvent quand même arriver mal configurés.",
+            "Le runtime est la dernière ligne — elle doit être audible et corrélée.",
+            "Le score de risque doit pousser une action, pas décorer un dashboard.",
+        ],
+        lessonsEn: [
+            "CI scanning ≠ a CloudSec platform.",
+            "Without admission, signed artifacts can still land misconfigured.",
+            "Runtime is the last line — it must be audible and correlated.",
+            "Risk score must drive action, not decorate a dashboard.",
+        ],
+
+        beforeAfter: [
+            {
+                beforeSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                afterSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                captionFr: "Du scan isolé à une chaîne de défense code → runtime.",
+                captionEn: "From isolated scanning to a code → runtime defense chain.",
+            },
+        ],
+
+        isFeatured: true,
+    },
+
+    {
+        id: 18,
+        titleFr: "Enterprise Disaster Recovery & Resilience Platform",
+        titleEn: "Enterprise Disaster Recovery & Resilience Platform",
+
+        descriptionFr: "Plateforme SRE de résilience : backups 3-2-1, Velero, PostgreSQL PITR, failover, chaos/game days, RPO/RTO mesurés — prouver qu'on reconstruit, pas seulement qu'on sauvegarde.",
+        descriptionEn: "SRE resilience platform: 3-2-1 backups, Velero, PostgreSQL PITR, failover, chaos/game days, measured RPO/RTO — prove you rebuild, not only that you back up.",
+
+        fullDescriptionFr: `Je n'ai pas « configuré Velero ». J'ai construit une plateforme capable de survivre à des pannes graves et de le prouver : backup, restore, failover, chaos, RPO/RTO mesurés, reconstruction depuis Git.
+
+Le parcours a d'abord été un lab d'apprentissage intensif : outils isolés, labs Killercoda / cloud, cours (Udemy, DataCamp, Coursera, YouTube) et lecture de docs — puis tests locaux Docker outil par outil. La plateforme arrive en conclusion : quand chaque brique est maîtrisée, on industrialise un produit forkable.
+
+Positionnement : Business Continuity + Resilience Engineering. Stratégie 3-2-1, backups immuables chiffrés, vérification d'intégrité, Velero (namespaces/PV/cluster), PostgreSQL HA + WAL + PITR, object storage multi-site, Terraform + Argo CD pour reconstruire l'infra et les workloads. CLI drctl : backup, verify, restore, failover, status, test, report.
+
+Game days : pod kill, node failure, PG disaster, full cluster destroy, ransomware simulation contrôlée. Recovery Score : fraîcheur backup, intégrité, succès restore, durée, perte de données, automatisation vs intervention humaine. Critère ultime : détruire → détecter → isoler → restaurer → vérifier → mesurer → documenter — sans dépendre exclusivement de connaissances manuelles.
+
+Message recruteur : je conçois des systèmes capables de continuer et de se reconstruire après défaillance.`,
+        fullDescriptionEn: `I did not “configure Velero”. I built a platform that survives severe failures and proves it: backup, restore, failover, chaos, measured RPO/RTO, rebuild from Git.
+
+The journey started as an intensive learning lab: isolated tools, Killercoda / cloud labs, courses (Udemy, DataCamp, Coursera, YouTube) and docs — then local Docker tests tool by tool. The platform comes last: once every brick is mastered, industrialize a forkable product.
+
+Positioning: Business Continuity + Resilience Engineering. 3-2-1 strategy, encrypted immutable backups, integrity verification, Velero (namespaces/PV/cluster), PostgreSQL HA + WAL + PITR, multi-site object storage, Terraform + Argo CD to rebuild infra and workloads. CLI drctl: backup, verify, restore, failover, status, test, report.
+
+Game days: pod kill, node failure, PG disaster, full cluster destroy, controlled ransomware simulation. Recovery Score: backup freshness, integrity, restore success, duration, data loss, automation vs human intervention. Ultimate criterion: destroy → detect → isolate → restore → verify → measure → document — without relying exclusively on tribal knowledge.
+
+Recruiter message: I design systems that keep running and rebuild after failure.`,
+
+        problemFr: "Avoir des backups non testés, c'est avoir une illusion de sécurité. Sans drills, RPO/RTO sont des slides — pas des preuves.",
+        problemEn: "Untested backups are an illusion of safety. Without drills, RPO/RTO are slides — not proof.",
+
+        solutionFr: [
+            "Backup 3-2-1 chiffré + immuable + vérification",
+            "Velero Kubernetes + restore cross-cluster",
+            "PostgreSQL HA, WAL archiving, PITR automatisé",
+            "Reconstruction infra Terraform + workloads GitOps",
+            "Chaos engineering + Game Days documentés",
+            "RPO/RTO définis ET mesurés à chaque drill",
+            "CLI drctl + DR dashboard + Recovery Score",
+            "Runbooks et rapports automatiques post-drill",
+        ],
+        solutionEn: [
+            "Encrypted 3-2-1 backup + immutable + verification",
+            "Kubernetes Velero + cross-cluster restore",
+            "PostgreSQL HA, WAL archiving, automated PITR",
+            "Terraform infra rebuild + GitOps workloads",
+            "Chaos engineering + documented Game Days",
+            "RPO/RTO defined AND measured every drill",
+            "drctl CLI + DR dashboard + Recovery Score",
+            "Runbooks and automatic post-drill reports",
+        ],
+
+        challengesFr: [
+            "Mesurer RPO/RTO réels (horodatage, data loss, disponibilité)",
+            "Restore PostgreSQL cohérent avec état applicatif",
+            "Full cluster disaster sans perdre la SoT Git",
+            "Backups immuables vs opérations de restore fréquentes en lab",
+            "Automatiser sans cacher les décisions humaines critiques",
+        ],
+        challengesEn: [
+            "Measure real RPO/RTO (timestamps, data loss, availability)",
+            "Consistent PostgreSQL restore with application state",
+            "Full cluster disaster without losing Git SoT",
+            "Immutable backups vs frequent lab restores",
+            "Automate without hiding critical human decisions",
+        ],
+
+        impactFr: [
+            "Preuves de recovery (rapports game days) plutôt que promesses",
+            "RPO/RTO cibles ex. 15 min / 30 min — validés en drill",
+            "Reconstruction cluster depuis Git + Velero + PG",
+            "Culture resilience engineering industrialisée",
+            "Produit greffable sur stacks Compose/K8s existantes",
+        ],
+        impactEn: [
+            "Recovery evidence (game-day reports) instead of promises",
+            "Target RPO/RTO e.g. 15 min / 30 min — validated in drills",
+            "Cluster rebuild from Git + Velero + PG",
+            "Industrialized resilience-engineering culture",
+            "Graftable product onto existing Compose/K8s stacks",
+        ],
+
+        metrics: {
+            "Strategy": "3-2-1 + immutable",
+            "K8s backup": "Velero",
+            "Database": "PG HA + PITR",
+            "Targets": "RPO/RTO measured",
+            "Drills": "Game Days",
+            "Score": "Recovery Score",
+            "CLI": "drctl",
+            "Product": "forkable DR platform",
+        },
+
+        techStack: {
+            frontend: [
+                "DR Dashboard",
+            ],
+            backend: [
+                "drctl CLI",
+            ],
+            database: [
+                "PostgreSQL HA",
+                "WAL archiving",
+                "PITR",
+            ],
+            devops: [
+                "Velero",
+                "Terraform",
+                "Argo CD",
+                "Kubernetes",
+                "MinIO / S3",
+                "Chaos Mesh",
+                "Prometheus",
+                "Grafana",
+                "Object storage lifecycle",
+                "Backup encryption",
+            ],
+        },
+
+        architecture: [
+            "Production → Velero + PG Operator → Object Storage",
+            "Backup region + DR region / recovery cluster",
+            "Git + Terraform reconstruct control plane and data plane",
+            "Chaos injectors + observability during drills",
+            "Recovery Score feeds dashboard and reports",
+        ],
+
+        testing: [
+            "Backup / restore / integrity tests",
+            "PostgreSQL failover + PITR validation",
+            "Node / pod / network / storage chaos",
+            "Full cluster disaster simulation",
+            "Ransomware-controlled restore drill",
+            "Automated DR drill + RPO/RTO report",
+        ],
+
+        images: [
+            "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+        ],
+        preview: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+        videoDemo: "",
+
+        category: "SRE • Resilience • DR",
+        status: "Actif",
+        complexity: "Expert",
+        role: "SRE • Infrastructure Engineer",
+        teamSize: 1,
+
+        duration: "Lab → plateforme (2026)",
+        date: "2026",
+
+        github: "https://github.com/barthez-kenwou/Enterprise-Disaster-Recovery-Resilience-Platform",
+        demo: "",
+
+        businessContextFr: "Quatrième pilier : prouver la continuité d'activité — indispensable pour ERP Odoo, plateformes clients et tout runtime critique ZENORA.",
+        businessContextEn: "Fourth pillar: prove business continuity — essential for Odoo ERP, client platforms and any critical ZENORA runtime.",
+
+        confidential: false,
+
+        responsibilitiesFr: [
+            "Design RPO/RTO et criticité métier",
+            "Pipelines backup Velero + PostgreSQL",
+            "Automatisation restore / failover / verify",
+            "Game days et chaos scenarios",
+            "DR dashboard + Recovery Score",
+            "Documentation et rapports de preuve",
+        ],
+        responsibilitiesEn: [
+            "RPO/RTO design and business criticality",
+            "Velero + PostgreSQL backup pipelines",
+            "Restore / failover / verify automation",
+            "Game days and chaos scenarios",
+            "DR dashboard + Recovery Score",
+            "Documentation and evidence reports",
+        ],
+
+        gallery: [
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                captionFr: "Captures DR dashboard / game days à venir",
+                captionEn: "DR dashboard / game-day screenshots coming soon", kind: "wip",
+            },
+        ],
+
+        diagrams: [
+            {
+                id: "dr-arch",
+                titleFr: "Architecture backup / DR",
+                titleEn: "Backup / DR architecture",
+                mermaid: `flowchart TB
+  PROD[Production K8s + PG] --> VEL[Velero]
+  PROD --> PGB[PG WAL / PITR]
+  VEL --> OBJ[(Object Storage)]
+  PGB --> OBJ
+  OBJ --> BR[Backup Region]
+  OBJ --> DR[DR Region / Cluster]
+  GIT[Git SoT] --> TF[Terraform rebuild]
+  TF --> DR`,
+            },
+            {
+                id: "dr-gameday",
+                titleFr: "Game Day cluster destroy",
+                titleEn: "Cluster destroy game day",
+                mermaid: `flowchart LR
+  X[Destroy cluster] --> TF[Terraform bootstrap]
+  TF --> AC[Argo CD sync]
+  AC --> VEL[Velero restore]
+  VEL --> PG[PG PITR]
+  PG --> VAL[Validate RPO/RTO]
+  VAL --> REP[Report]`,
+            },
+            {
+                id: "dr-score",
+                titleFr: "Recovery Score",
+                titleEn: "Recovery Score",
+                mermaid: `flowchart TB
+  F[Freshness] --> S[Recovery Score]
+  I[Integrity] --> S
+  R[Restore success] --> S
+  D[Duration vs RTO] --> S
+  L[Data loss vs RPO] --> S
+  A[Automation ratio] --> S`,
+            },
+        ],
+
+        resources: [
+            {
+                labelFr: "Repo Disaster Recovery & Resilience Platform",
+                labelEn: "Disaster Recovery & Resilience Platform repo",
+                url: "https://github.com/barthez-kenwou/Enterprise-Disaster-Recovery-Resilience-Platform",
+                type: "other",
+            },
+        ],
+
+        milestones: [
+            {
+                labelFr: "Lab Velero + PG backup",
+                labelEn: "Velero + PG backup lab",
+                date: "Phase 1",
+                descriptionFr: "Backup/restore unitaires.",
+                descriptionEn: "Unit backup/restore.",
+            },
+            {
+                labelFr: "HA + PITR + verify",
+                labelEn: "HA + PITR + verify",
+                date: "Phase 2",
+                descriptionFr: "Intégrité et failover.",
+                descriptionEn: "Integrity and failover.",
+            },
+            {
+                labelFr: "Game Days + chaos",
+                labelEn: "Game Days + chaos",
+                date: "Phase 3",
+                descriptionFr: "Drills documentés.",
+                descriptionEn: "Documented drills.",
+            },
+            {
+                labelFr: "Produit DR + drctl",
+                labelEn: "DR product + drctl",
+                date: "Phase 4",
+                descriptionFr: "CLI, score, GitOps rebuild.",
+                descriptionEn: "CLI, score, GitOps rebuild.",
+            },
+        ],
+
+        scopeFr: [
+            "Backup/restore plateforme",
+            "PG PITR",
+            "Chaos + game days",
+            "RPO/RTO mesurés",
+            "Rebuild GitOps",
+        ],
+        scopeEn: [
+            "Backup/restore platform",
+            "PG PITR",
+            "Chaos + game days",
+            "Measured RPO/RTO",
+            "GitOps rebuild",
+        ],
+        nonGoalsFr: [
+            "Assurance cyber commerciale",
+            "Multi-cloud actif-actif jour 1",
+            "Remplacer un contrat DR vendor",
+        ],
+        nonGoalsEn: [
+            "Commercial cyber insurance",
+            "Active-active multi-cloud on day 1",
+            "Replacing a vendor DR contract",
+        ],
+
+        decisions: [
+            {
+                titleFr: "Preuve avant promesse",
+                titleEn: "Evidence before promises",
+                decisionFr: "Chaque cible RPO/RTO a un drill et un rapport.",
+                decisionEn: "Every RPO/RTO target has a drill and a report.",
+                rationaleFr: "Les slides ne restaurent pas les données.",
+                rationaleEn: "Slides do not restore data.",
+            },
+            {
+                titleFr: "Git comme colonne vertébrale",
+                titleEn: "Git as the backbone",
+                decisionFr: "Infra et workloads déclaratifs ; backups pour l'état et les données.",
+                decisionEn: "Declarative infra and workloads; backups for state and data.",
+                rationaleFr: "Reconstruction rapide et auditable.",
+                rationaleEn: "Fast, auditable reconstruction.",
+            },
+            {
+                titleFr: "Chaos régulier",
+                titleEn: "Regular chaos",
+                decisionFr: "Game Days planifiés, pas ponctuels.",
+                decisionEn: "Scheduled Game Days, not one-offs.",
+                rationaleFr: "La résilience pourrit sans exercice.",
+                rationaleEn: "Resilience rots without practice.",
+            },
+        ],
+
+        securityFr: [
+            "Backup encryption",
+            "Immutable retention",
+            "Accès restore least privilege",
+            "Secrets restaurés hors clair Git",
+            "Isolation ransomware lab",
+        ],
+        securityEn: [
+            "Backup encryption",
+            "Immutable retention",
+            "Least-privilege restore access",
+            "Secrets restored outside clear Git",
+            "Ransomware lab isolation",
+        ],
+        infraFr: [
+            "Velero + object storage",
+            "PostgreSQL HA",
+            "Terraform + Argo CD",
+            "Chaos Mesh",
+            "Multi-region capable design",
+        ],
+        infraEn: [
+            "Velero + object storage",
+            "PostgreSQL HA",
+            "Terraform + Argo CD",
+            "Chaos Mesh",
+            "Multi-region capable design",
+        ],
+
+        externalLinks: [
+            {
+                labelFr: "GitHub",
+                labelEn: "GitHub",
+                url: "https://github.com/barthez-kenwou/Enterprise-Disaster-Recovery-Resilience-Platform",
+            },
+        ],
+
+        testimonial: {
+            quoteFr: "On a détruit le cluster en game day — et on a une preuve chiffrée du RTO, pas une anecdote.",
+            quoteEn: "We destroyed the cluster on game day — and we have measured RTO evidence, not an anecdote.",
+            author: "SRE peer",
+            roleFr: "SRE",
+            roleEn: "SRE",
+            company: "Enterprise Platform Labs",
+        },
+
+        lessonsFr: [
+            "Un backup non restauré n'existe pas.",
+            "RPO/RTO sans mesure sont du théâtre.",
+            "Git reconstruit le désir ; Velero/PG restaurent la réalité.",
+            "Les game days révèlent les runbooks morts.",
+        ],
+        lessonsEn: [
+            "An unrestored backup does not exist.",
+            "Unmeasured RPO/RTO is theater.",
+            "Git rebuilds desired state; Velero/PG restore reality.",
+            "Game days expose dead runbooks.",
+        ],
+
+        beforeAfter: [
+            {
+                beforeSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                afterSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                captionFr: "Des backups non testés à une plateforme de preuve de recovery.",
+                captionEn: "From untested backups to a recovery-evidence platform.",
+            },
+        ],
+
+        isFeatured: true,
+    },
+
+    {
+        id: 19,
+        titleFr: "Enterprise Event-Driven Platform — Kafka, Saga & Resilience",
+        titleEn: "Enterprise Event-Driven Platform — Kafka, Saga & Resilience",
+
+        descriptionFr: "Plateforme event-driven (Redpanda/Kafka) : producers/consumers, outbox, saga, DLQ, idempotence, backpressure, OTel corrélé — lab systèmes distribués transformé en produit forkable.",
+        descriptionEn: "Event-driven platform (Redpanda/Kafka): producers/consumers, outbox, saga, DLQ, idempotency, backpressure, correlated OTel — distributed-systems lab turned forkable product.",
+
+        fullDescriptionFr: `Je n'ai pas « démarré Kafka ». J'ai construit une plateforme événementielle moderne pour démontrer — et réutiliser — les patterns des systèmes distribués : partitioning, replication, consumer groups, DLQ, retry, idempotence, outbox, saga, replay, versioning, backpressure, circuit breakers.
+
+Le parcours a d'abord été un lab d'apprentissage intensif : outils isolés, labs Killercoda / cloud, cours (Udemy, DataCamp, Coursera, YouTube) et lecture de docs — puis tests locaux Docker outil par outil. La plateforme arrive en conclusion : quand chaque brique est maîtrisée, on industrialise un produit forkable.
+
+Stack : Redpanda ou Kafka + Schema Registry, microservices producers/consumers, PostgreSQL outbox, OpenTelemetry (traces à travers le broker), Prometheus/Grafana/Loki, chaos et load testing. Architecture multi-services avec parcours métier (order → payment → notification) et échecs injectés (timeout, poison message, partition lag, broker blip).
+
+Objectif portfolio : prouver que je comprends réellement les sémantiques de livraison, la résilience asynchrone et le troubleshooting distribué — pas seulement un docker-compose Kafka. Produit forkable : templates consumer/producer, conventions de topics, observabilité et runbooks inclus.
+
+Message recruteur : je maîtrise les systèmes distribués événementiels et je les industrialise en plateforme.`,
+        fullDescriptionEn: `I did not “start Kafka”. I built a modern event-driven platform to demonstrate — and reuse — distributed-systems patterns: partitioning, replication, consumer groups, DLQ, retry, idempotency, outbox, saga, replay, versioning, backpressure, circuit breakers.
+
+The journey started as an intensive learning lab: isolated tools, Killercoda / cloud labs, courses (Udemy, DataCamp, Coursera, YouTube) and docs — then local Docker tests tool by tool. The platform comes last: once every brick is mastered, industrialize a forkable product.
+
+Stack: Redpanda or Kafka + Schema Registry, producer/consumer microservices, PostgreSQL outbox, OpenTelemetry (traces across the broker), Prometheus/Grafana/Loki, chaos and load testing. Multi-service architecture with a business journey (order → payment → notification) and injected failures (timeout, poison message, partition lag, broker blip).
+
+Portfolio goal: prove I truly understand delivery semantics, async resilience and distributed troubleshooting — not just a Kafka docker-compose. Forkable product: consumer/producer templates, topic conventions, observability and runbooks included.
+
+Recruiter message: I master event-driven distributed systems and industrialize them as a platform.`,
+
+        problemFr: "Les démos Kafka s'arrêtent au hello-world. En production, ce qui compte ce sont outbox, idempotence, DLQ, saga et la capacité à diagnostiquer un lag sous charge.",
+        problemEn: "Kafka demos stop at hello-world. In production what matters is outbox, idempotency, DLQ, saga and diagnosing lag under load.",
+
+        solutionFr: [
+            "Broker Redpanda/Kafka + Schema Registry",
+            "Patterns : outbox, saga, DLQ, retry, idempotence, replay",
+            "Conventions topics / headers / correlation IDs",
+            "OpenTelemetry end-to-end à travers le bus",
+            "Metrics consumer lag, throughput, error rate",
+            "Chaos : poison messages, broker failure, lag injection",
+            "Load tests et backpressure contrôlée",
+            "Templates services + docs Quick Start forkables",
+        ],
+        solutionEn: [
+            "Redpanda/Kafka broker + Schema Registry",
+            "Patterns: outbox, saga, DLQ, retry, idempotency, replay",
+            "Topic / header / correlation ID conventions",
+            "End-to-end OpenTelemetry across the bus",
+            "Metrics: consumer lag, throughput, error rate",
+            "Chaos: poison messages, broker failure, lag injection",
+            "Load tests and controlled backpressure",
+            "Forkable service templates + Quick Start docs",
+        ],
+
+        challengesFr: [
+            "Exactly-once / at-least-once : être honnête sur les garanties",
+            "Outbox transactionnel sans dual-write naïf",
+            "Saga compensations testables",
+            "Corrélation traces via messaging asynchrone",
+            "Éviter la plateforme-usine : rester greffable et claire",
+        ],
+        challengesEn: [
+            "Exactly-once / at-least-once: be honest about guarantees",
+            "Transactional outbox without naive dual-write",
+            "Testable saga compensations",
+            "Trace correlation through async messaging",
+            "Avoid platform-bloat: stay graftable and clear",
+        ],
+
+        impactFr: [
+            "Lab distribué recruteur-ready avec incidents démontrables",
+            "Patterns réutilisables sur NEXUS / futurs microservices ZENORA",
+            "Observabilité event-driven alignée sur la plateforme Observability (id:8)",
+            "Compréhension opérationnelle du lag et des DLQ",
+            "Produit forkable pour bootstraper un bus d'événements",
+        ],
+        impactEn: [
+            "Recruiter-ready distributed lab with demonstrable incidents",
+            "Reusable patterns for NEXUS / future ZENORA microservices",
+            "Event-driven observability aligned with Observability platform (id:8)",
+            "Operational understanding of lag and DLQs",
+            "Forkable product to bootstrap an event bus",
+        ],
+
+        metrics: {
+            "Broker": "Redpanda / Kafka",
+            "Patterns": "outbox + saga + DLQ",
+            "Semantics": "at-least-once + idempotency",
+            "Observability": "OTel across bus",
+            "Resilience": "chaos + load",
+            "Schema": "Schema Registry",
+            "DX": "producer/consumer templates",
+            "Product": "forkable EDA platform",
+        },
+
+        techStack: {
+            frontend: [],
+            backend: [
+                "Producers / Consumers (Node / Go / Java)",
+            ],
+            database: [
+                "PostgreSQL outbox",
+            ],
+            devops: [
+                "Redpanda / Kafka",
+                "Schema Registry",
+                "OpenTelemetry",
+                "Prometheus",
+                "Grafana",
+                "Loki",
+                "Tempo",
+                "Docker Compose",
+                "Kubernetes",
+                "k6",
+                "Chaos Mesh",
+            ],
+        },
+
+        architecture: [
+            "Services → outbox → broker → consumer groups",
+            "Schema Registry governs event evolution",
+            "DLQ + retry policies per consumer",
+            "Saga orchestration/choreography for multi-step flows",
+            "OTel context propagation across async boundaries",
+        ],
+
+        testing: [
+            "Contract / schema compatibility tests",
+            "Idempotency and duplicate delivery tests",
+            "Saga compensation tests",
+            "Lag and backpressure load tests",
+            "Broker failure / partition chaos",
+            "Trace propagation across messaging tests",
+        ],
+
+        images: [
+            "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+        ],
+        preview: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+        videoDemo: "",
+
+        category: "Distributed Systems • EDA",
+        status: "Actif",
+        complexity: "Expert",
+        role: "Distributed Systems • Platform Engineer",
+        teamSize: 1,
+
+        duration: "Lab → plateforme (2026)",
+        date: "2026",
+
+        github: "https://github.com/barthez-kenwou/Enterprise-Event-Driven-Platform",
+        demo: "",
+
+        businessContextFr: "Cinquième pilier de la suite (aux côtés du Supply Chain Pipeline id:6) : maîtriser l'asynchrone distribué pour les architectures microservices modernes.",
+        businessContextEn: "Fifth pillar of the suite (alongside Supply Chain Pipeline id:6): master distributed async for modern microservice architectures.",
+
+        confidential: false,
+
+        responsibilitiesFr: [
+            "Design EDA et conventions d'événements",
+            "Implémentation outbox / saga / DLQ",
+            "Instrumentation OTel messaging",
+            "Chaos et load scenarios",
+            "Templates et documentation forkable",
+            "Alignement avec Observability Platform",
+        ],
+        responsibilitiesEn: [
+            "EDA design and event conventions",
+            "Outbox / saga / DLQ implementation",
+            "OTel messaging instrumentation",
+            "Chaos and load scenarios",
+            "Forkable templates and documentation",
+            "Alignment with Observability Platform",
+        ],
+
+        gallery: [
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                captionFr: "Captures topics / lag / traces à venir",
+                captionEn: "Topics / lag / traces screenshots coming soon", kind: "wip",
+            },
+        ],
+
+        diagrams: [
+            {
+                id: "eda-flow",
+                titleFr: "Flux order → payment → notify",
+                titleEn: "Order → payment → notify flow",
+                mermaid: `flowchart LR
+  ORD[Order Service] -->|outbox| BUS[(Kafka / Redpanda)]
+  BUS --> PAY[Payment Consumer]
+  PAY -->|events| BUS
+  BUS --> NOTIF[Notification Worker]
+  PAY -->|DLQ| DLQ[Dead Letter Queue]`,
+            },
+            {
+                id: "eda-outbox",
+                titleFr: "Transactional outbox",
+                titleEn: "Transactional outbox",
+                mermaid: `sequenceDiagram
+  participant API as Order API
+  participant DB as PostgreSQL
+  participant REL as Relay
+  participant K as Broker
+  API->>DB: TX order + outbox row
+  REL->>DB: Poll outbox
+  REL->>K: Publish event
+  REL->>DB: Mark published`,
+            },
+            {
+                id: "eda-obs",
+                titleFr: "Observabilité event-driven",
+                titleEn: "Event-driven observability",
+                mermaid: `flowchart TB
+  P[Producer span] --> B[Broker]
+  B --> C[Consumer span]
+  C --> M[Lag metrics]
+  C --> L[Structured logs]
+  C --> T[Trace continuum]`,
+            },
+        ],
+
+        resources: [
+            {
+                labelFr: "Repo Enterprise Event-Driven Platform",
+                labelEn: "Enterprise Event-Driven Platform repo",
+                url: "https://github.com/barthez-kenwou/Enterprise-Event-Driven-Platform",
+                type: "other",
+            },
+        ],
+
+        milestones: [
+            {
+                labelFr: "Lab broker + consumers",
+                labelEn: "Broker + consumers lab",
+                date: "Phase 1",
+                descriptionFr: "Basics partitioning/groups.",
+                descriptionEn: "Partitioning/groups basics.",
+            },
+            {
+                labelFr: "Outbox + saga + DLQ",
+                labelEn: "Outbox + saga + DLQ",
+                date: "Phase 2",
+                descriptionFr: "Patterns résilience.",
+                descriptionEn: "Resilience patterns.",
+            },
+            {
+                labelFr: "OTel + chaos + load",
+                labelEn: "OTel + chaos + load",
+                date: "Phase 3",
+                descriptionFr: "Troubleshooting distribué.",
+                descriptionEn: "Distributed troubleshooting.",
+            },
+            {
+                labelFr: "Produit EDA forkable",
+                labelEn: "Forkable EDA product",
+                date: "Phase 4",
+                descriptionFr: "Templates + Quick Start.",
+                descriptionEn: "Templates + Quick Start.",
+            },
+        ],
+
+        scopeFr: [
+            "Plateforme EDA",
+            "Patterns distribués",
+            "Observabilité async",
+            "Chaos/load",
+            "Templates forkables",
+        ],
+        scopeEn: [
+            "EDA platform",
+            "Distributed patterns",
+            "Async observability",
+            "Chaos/load",
+            "Forkable templates",
+        ],
+        nonGoalsFr: [
+            "Remplacer un iPaaS entreprise",
+            "Event mesh multi-cloud jour 1",
+            "Streaming analytics temps réel BI",
+        ],
+        nonGoalsEn: [
+            "Replacing an enterprise iPaaS",
+            "Multi-cloud event mesh on day 1",
+            "Real-time BI streaming analytics",
+        ],
+
+        decisions: [
+            {
+                titleFr: "Honnêteté sur les garanties",
+                titleEn: "Honesty about guarantees",
+                decisionFr: "At-least-once + idempotence applicative plutôt que magie exactly-once.",
+                decisionEn: "At-least-once + application idempotency rather than exactly-once magic.",
+                rationaleFr: "Évite les fausses assurances en entretien et en prod.",
+                rationaleEn: "Avoids false assurances in interviews and in prod.",
+            },
+            {
+                titleFr: "Outbox obligatoire pour écritures critiques",
+                titleEn: "Outbox mandatory for critical writes",
+                decisionFr: "Pas de dual-write naïf DB + publish.",
+                decisionEn: "No naive DB + publish dual-write.",
+                rationaleFr: "Cohérence sous crash process.",
+                rationaleEn: "Consistency under process crash.",
+            },
+            {
+                titleFr: "OTel à travers le bus",
+                titleEn: "OTel across the bus",
+                decisionFr: "Propagation de contexte dans headers d'événements.",
+                decisionEn: "Context propagation in event headers.",
+                rationaleFr: "Sinon le troubleshooting async est aveugle.",
+                rationaleEn: "Otherwise async troubleshooting is blind.",
+            },
+        ],
+
+        securityFr: [
+            "ACLs topics",
+            "TLS broker",
+            "Schemas validés",
+            "Pas de PII brute dans events",
+            "Audit consumer identities",
+        ],
+        securityEn: [
+            "Topic ACLs",
+            "Broker TLS",
+            "Validated schemas",
+            "No raw PII in events",
+            "Consumer identity audit",
+        ],
+        infraFr: [
+            "Compose lab + K8s path",
+            "Schema Registry",
+            "DLQ topics",
+            "Dashboards lag",
+            "GitOps optional",
+        ],
+        infraEn: [
+            "Compose lab + K8s path",
+            "Schema Registry",
+            "DLQ topics",
+            "Lag dashboards",
+            "Optional GitOps",
+        ],
+
+        externalLinks: [
+            {
+                labelFr: "GitHub",
+                labelEn: "GitHub",
+                url: "https://github.com/barthez-kenwou/Enterprise-Event-Driven-Platform",
+            },
+        ],
+
+        testimonial: {
+            quoteFr: "Enfin une démo Kafka qui montre outbox, DLQ et traces — pas juste un producer console.",
+            quoteEn: "Finally a Kafka demo that shows outbox, DLQ and traces — not just a console producer.",
+            author: "Backend peer",
+            roleFr: "Software Engineer",
+            roleEn: "Software Engineer",
+            company: "Enterprise Platform Labs",
+        },
+
+        lessonsFr: [
+            "Kafka sans patterns de résilience n'est qu'un pipe.",
+            "Le lag est un signal produit, pas une métrique cosmétique.",
+            "L'outbox sauve des nuits ; le dual-write les détruit.",
+            "Sans traces async, le debugger devient de la divination.",
+        ],
+        lessonsEn: [
+            "Kafka without resilience patterns is just a pipe.",
+            "Lag is a product signal, not a cosmetic metric.",
+            "Outbox saves nights; dual-write destroys them.",
+            "Without async traces, debugging becomes fortune-telling.",
+        ],
+
+        beforeAfter: [
+            {
+                beforeSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                afterSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                captionFr: "Du hello-world Kafka à une plateforme EDA résiliente et observée.",
+                captionEn: "From Kafka hello-world to a resilient, observed EDA platform.",
+            },
+        ],
+
+        isFeatured: true,
     },
 
     {
