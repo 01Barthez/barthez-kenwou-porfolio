@@ -7099,89 +7099,152 @@ Recruiter message: I master event-driven distributed systems and industrialize t
 
     {
         id: 9,
-        titleFr: "Plateforme Blog Backend-Driven – SEO, RBAC & Performance",
-        titleEn: "Backend-Driven Blog Platform – SEO, RBAC & Performance",
+        titleFr: "backend-init — Template Backend Enterprise (Auth, Sécurité, Obs, Queues)",
+        titleEn: "backend-init — Enterprise Backend Template (Auth, Security, Obs, Queues)",
 
-        descriptionFr: "Système de gestion de blog avancé orienté backend, avec RBAC, optimisation des performances, sécurité renforcée et stratégie SEO pour acquisition d’audience.",
-        descriptionEn: "Advanced backend-driven blog platform with RBAC, performance optimization, enhanced security, and SEO strategy for audience acquisition.",
+        descriptionFr: "Template backend Express/TypeScript production-grade : JWT/OAuth, RBAC, Prisma/Mongo, Redis, MinIO, ClamAV, queues, OpenAPI, Prometheus/Loki/Grafana — base du blog, du portfolio et des backends ZENORA.",
+        descriptionEn: "Production-grade Express/TypeScript backend template: JWT/OAuth, RBAC, Prisma/Mongo, Redis, MinIO, ClamAV, queues, OpenAPI, Prometheus/Loki/Grafana — foundation for the blog, portfolio and ZENORA backends.",
 
-        fullDescriptionFr: "Conception et développement d’une plateforme de blog avancée centrée sur le backend, pensée comme un levier stratégique de positionnement technique et d’acquisition d’audience. Le système inclut une API robuste avec gestion des rôles (RBAC), authentification sécurisée, gestion des contenus (articles, commentaires), et optimisation des performances via caching multi-niveaux. L’architecture a été conçue pour supporter du trafic SEO avec des contenus indexables, tout en garantissant sécurité et scalabilité. Le projet sert à la fois de démonstration technique (DevOps & Fullstack), de canal d’acquisition client, et de plateforme de contenu pour renforcer la présence digitale (LinkedIn, YouTube, SEO).",
-        fullDescriptionEn: "Designed and developed an advanced backend-driven blog platform as a strategic tool for technical positioning and audience acquisition. The system includes a robust API with role-based access control (RBAC), secure authentication, content management (articles, comments), and performance optimization through multi-level caching. The architecture is designed to support SEO-driven traffic while ensuring security and scalability. The project serves as both a technical showcase (DevOps & Fullstack), a client acquisition channel, and a content platform to strengthen digital presence (LinkedIn, YouTube, SEO).",
+        fullDescriptionFr: `Ce n'est pas « un CRUD blog ». C'est le laboratoire où j'ai systématisé tout ce qu'un backend moderne doit maîtriser — puis le template public (backend-init) dont je réutilise le squelette pour le blog, le backend du portfolio, le site ZENORA et les prochains produits.
 
-        problemFr: "Absence d’un canal structuré pour publier du contenu technique, attirer une audience qualifiée et démontrer concrètement les compétences backend et DevOps.",
-        problemEn: "Lack of a structured platform to publish technical content, attract qualified audience, and concretely demonstrate backend and DevOps skills.",
+Le parcours commence toujours par des labs intensifs : services AWS isolés, documentation officielle, ateliers et formations — puis mise en application sur un produit concret. La plateforme (ou l'architecture) arrive en conclusion de la maîtrise, pas en remplacement de l'apprentissage.
+
+Sous le capot : Express + TypeScript (Bun en dev), Prisma sur MongoDB, Redis (sessions, cache blogs/users, rate limiting), MinIO pour les médias, ClamAV pour le scan antivirus des uploads, files d'attente (Bull Board), mail EJS/Nodemailer, OTP, auth JWT (access + refresh, clés asymétriques) et OAuth (providers + Telegram), CSRF, Helmet, CSP, compression, validation stricte, OpenAPI/Swagger versionné, Winston → Loki, Prometheus (prom-client), stack monitoring Compose (Prometheus, Grafana, Loki, Alertmanager), Nginx, Docker multi-stage, Husky/commitlint/lint-staged, workflows GitHub (PR checks + security scan).
+
+Le module blog n'est que la surface métier pour exercer ces fondations : posts, commentaires, cache multi-niveaux, upload sécurisé, health/ready. L'ambition réelle : un Golden Path backend — forkable, documenté, sécurisé par défaut — que je greffe et étends au lieu de réécrire Auth, obs et durcissement à chaque projet.
+
+Message recruteur : je ne livre pas une API de démo ; je livre un socle backend d'entreprise que d'autres projets consomment.`,
+        fullDescriptionEn: `This is not “a blog CRUD”. It is the lab where I systematized everything a modern backend must master — then the public template (backend-init) whose skeleton I reuse for the blog, the portfolio backend, the ZENORA site and future products.
+
+The journey always starts with intensive labs: isolated AWS services, official docs, workshops and courses — then applied to a concrete product. The platform (or architecture) comes as the conclusion of mastery, not as a substitute for learning.
+
+Under the hood: Express + TypeScript (Bun in dev), Prisma on MongoDB, Redis (sessions, blog/user cache, rate limiting), MinIO for media, ClamAV for upload antivirus scanning, job queues (Bull Board), EJS/Nodemailer mail, OTP, JWT auth (access + refresh, asymmetric keys) and OAuth (providers + Telegram), CSRF, Helmet, CSP, compression, strict validation, versioned OpenAPI/Swagger, Winston → Loki, Prometheus (prom-client), Compose monitoring stack (Prometheus, Grafana, Loki, Alertmanager), Nginx, multi-stage Docker, Husky/commitlint/lint-staged, GitHub workflows (PR checks + security scan).
+
+The blog module is only the business surface to exercise those foundations: posts, comments, multi-level cache, secure upload, health/ready. Real ambition: a backend Golden Path — forkable, documented, secure by default — that I graft and extend instead of rewriting Auth, obs and hardening on every project.
+
+Recruiter message: I do not ship a demo API; I ship an enterprise backend foundation that other projects consume.`,
+
+        problemFr: "Sans template discipliné, chaque backend réinvente auth, sécurité, logging, cache et CI — dette, failles et délais. Un blog « simple » ne prouve rien si le socle est improvisé.",
+        problemEn: "Without a disciplined template, every backend reinvents auth, security, logging, cache and CI — debt, holes and delay. A “simple” blog proves nothing if the foundation is improvised.",
 
         solutionFr: [
-            "Développement d’une API backend robuste pour gestion des blogs et commentaires",
-            "Implémentation d’un système RBAC (admin, éditeur, utilisateur)",
-            "Authentification sécurisée (JWT, gestion des sessions)",
-            "Optimisation des performances (Redis, caching applicatif)",
-            "Architecture orientée SEO pour génération de trafic organique",
-            "Système de commentaires et interaction utilisateur",
+            "Template GitHub public : fork → config env → Compose up → API prête",
+            "Auth complète : signup/login/OTP/reset, JWT asymétrique, OAuth multi-providers",
+            "Sécurité applicative : Helmet, CSRF, CSP, rate-limit, validation, ClamAV uploads",
+            "Données : Prisma/Mongo + Redis cache/session + MinIO médias",
+            "Observabilité : Winston/Loki, Prometheus metrics, Grafana, Alertmanager",
+            "OpenAPI/Swagger comme contrat API, health/ready pour orchestration",
+            "Docker + Nginx + scripts d'ops + CI qualité/sécurité",
+            "Réutilisation réelle : blog, portfolio API, backends ZENORA / futurs produits",
         ],
         solutionEn: [
-            "Built a robust backend API for blog and comment management",
-            "Implemented RBAC system (admin, editor, user)",
-            "Secure authentication (JWT, session management)",
-            "Performance optimization (Redis, application caching)",
-            "SEO-oriented architecture for organic traffic generation",
-            "User interaction system with comments",
+            "Public GitHub template: fork → env config → Compose up → API ready",
+            "Full auth: signup/login/OTP/reset, asymmetric JWT, multi-provider OAuth",
+            "App security: Helmet, CSRF, CSP, rate-limit, validation, ClamAV uploads",
+            "Data: Prisma/Mongo + Redis cache/session + MinIO media",
+            "Observability: Winston/Loki, Prometheus metrics, Grafana, Alertmanager",
+            "OpenAPI/Swagger as API contract, health/ready for orchestration",
+            "Docker + Nginx + ops scripts + quality/security CI",
+            "Real reuse: blog, portfolio API, ZENORA backends / future products",
         ],
 
         challengesFr: [
-            "Maintenir de hautes performances sous trafic SEO",
-            "Sécuriser les endpoints sensibles (auth, commentaires)",
-            "Structurer un système RBAC flexible et évolutif",
-            "Optimiser le caching sans compromettre la cohérence des données",
-            "Aligner architecture technique et objectifs marketing (SEO, audience)",
+            "Transformer un lab d'apprentissage en template réutilisable (pas un monolithe jetable)",
+            "Auth JWT + OAuth + OTP cohérents sans failles de session",
+            "Cache Redis multi-niveaux avec invalidation explicite (blogs/users)",
+            "Uploads sûrs : MinIO + scan ClamAV + politiques MIME",
+            "Monitoring local fidèle à une prod (Prometheus/Loki/Grafana)",
+            "Maintenir le template vivant pendant qu'il sert plusieurs produits",
         ],
         challengesEn: [
-            "Maintaining high performance under SEO traffic",
-            "Securing sensitive endpoints (auth, comments)",
-            "Designing flexible and scalable RBAC system",
-            "Optimizing caching without compromising data consistency",
-            "Aligning technical architecture with marketing goals (SEO, audience)",
+            "Turn a learning lab into a reusable template (not a throwaway monolith)",
+            "Coherent JWT + OAuth + OTP without session holes",
+            "Multi-level Redis cache with explicit invalidation (blogs/users)",
+            "Safe uploads: MinIO + ClamAV scan + MIME policies",
+            "Local monitoring faithful to prod (Prometheus/Loki/Grafana)",
+            "Keep the template alive while it powers multiple products",
         ],
 
         impactFr: [
-            "Création d’un canal d’acquisition client basé sur le contenu",
-            "Renforcement du positionnement expert DevOps & Fullstack",
-            "Génération de trafic SEO vers le portfolio",
-            "Augmentation de la visibilité sur LinkedIn et YouTube",
+            "Golden Path backend : time-to-API drastiquement réduit sur nouveaux projets",
+            "Standards sécurité/obs appliqués par défaut, pas en option",
+            "Socle du blog technique et canal d'acquisition contenu",
+            "Base réutilisée pour portfolio et backends ZENORA",
+            "Point de départ de la migration AWS HA (même application, autre runtime)",
         ],
         impactEn: [
-            "Created a content-driven client acquisition channel",
-            "Strengthened DevOps & Fullstack expert positioning",
-            "Generated SEO traffic toward portfolio",
-            "Increased visibility on LinkedIn and YouTube",
+            "Backend Golden Path: drastically lower time-to-API on new projects",
+            "Security/obs standards applied by default, not optional",
+            "Foundation for the technical blog and content acquisition channel",
+            "Reused base for portfolio and ZENORA backends",
+            "Starting point for the AWS HA migration (same app, different runtime)",
         ],
 
         metrics: {
-            "roles": "RBAC complet (3+ rôles)",
-            "performance": "Optimisé (Redis caching)",
-            "SEO": "Indexation optimisée",
-            "architecture": "Backend-first",
+            "Forme": "GitHub Template",
+            "Auth": "JWT + OAuth + OTP",
+            "Data": "Prisma/Mongo + Redis + MinIO",
+            "Security": "Helmet/CSRF/ClamAV/RL",
+            "Obs": "Prom + Loki + Grafana",
+            "API contract": "OpenAPI",
+            "Reuse": "blog + portfolio + ZENORA",
+            "Runtime": "Docker Compose / VPS",
         },
 
         techStack: {
-            frontend: ["React", "Tailwind CSS"],
-            backend: ["Node.js", "Express", "TypeScript"],
-            database: ["MongoDB", "Redis"],
-            devops: ["Docker", "Nginx", "CI/CD", "VPS"],
+            frontend: [
+                "Swagger UI",
+            ],
+            backend: [
+                "Node.js",
+                "Express",
+                "TypeScript",
+                "Bun (dev)",
+                "Prisma",
+                "JWT",
+                "OAuth2",
+                "Bull Board",
+                "Winston",
+                "prom-client",
+            ],
+            database: [
+                "MongoDB",
+                "Redis",
+                "MinIO",
+            ],
+            devops: [
+                "Docker",
+                "Docker Compose",
+                "Nginx",
+                "Prometheus",
+                "Grafana",
+                "Loki",
+                "Alertmanager",
+                "ClamAV",
+                "Husky",
+                "ESLint",
+                "Prettier",
+                "Vitest",
+                "GitHub Actions",
+                "commitlint",
+            ],
         },
 
         architecture: [
-            "API REST backend-first",
-            "RBAC (Role-Based Access Control)",
-            "Caching multi-niveaux (Redis)",
-            "Frontend découplé",
-            "Déploiement conteneurisé",
+            "API Express modulaire (controllers / middlewares / services / config)",
+            "Auth JWT asymétrique + OAuth + OTP + cookies CSRF",
+            "Prisma Mongo + Redis cache/session + MinIO object storage",
+            "Observabilité Compose : metrics, logs, dashboards, alertes",
+            "OpenAPI comme source de vérité des contrats",
+            "Template forkable → greffe métier (blog, portfolio, ZENORA)",
         ],
 
         testing: [
-            "Tests API with Postman",
-            "Validation sécurité endpoints",
-            "Tests de performance",
+            "Lint / type-check / OpenAPI validate",
+            "Vitest unit/integration sur domaines critiques",
+            "Validation sécurité endpoints auth et uploads",
+            "Health/ready pour smoke post-deploy",
+            "PR checks + security-scan GitHub Actions",
         ],
 
         images: [
@@ -7189,205 +7252,1878 @@ Recruiter message: I master event-driven distributed systems and industrialize t
             "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2015-44-46.png",
             "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2015-45-15.png",
         ],
-
-        preview: "",
+        preview: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2015-43-00.png",
         videoDemo: "",
 
-        category: "Backend • Fullstack",
+        category: "Backend • Template • Platform",
         status: "Production",
-        complexity: "Avancé",
-        role: "Backend Developer • DevOps",
+        complexity: "Expert",
+        role: "Backend Architect • Platform",
         teamSize: 1,
 
-        duration: "Projet continu",
+        duration: "Lab → template vivant (2025–2026)",
+        date: "2026",
+
+        github: "https://github.com/barthez-kenwou/backend-init",
+        demo: "",
+
+        businessContextFr: "Socle backend personnel et ZENORA : industrialiser auth, sécurité, obs et DX pour ne plus reconstruire les fondations à chaque produit — y compris le blog SEO et l'API portfolio.",
+        businessContextEn: "Personal and ZENORA backend foundation: industrialize auth, security, obs and DX so foundations are not rebuilt on every product — including the SEO blog and portfolio API.",
+
+        confidential: false,
+
+        responsibilitiesFr: [
+            "Design du template et conventions de modules",
+            "Auth JWT/OAuth/OTP et modèle RBAC",
+            "Sécurité applicative et scan uploads",
+            "Cache Redis et médias MinIO",
+            "Stack monitoring locale + OpenAPI",
+            "CI qualité/sécurité et docs de greffe",
+        ],
+        responsibilitiesEn: [
+            "Template design and module conventions",
+            "JWT/OAuth/OTP auth and RBAC model",
+            "Application security and upload scanning",
+            "Redis cache and MinIO media",
+            "Local monitoring stack + OpenAPI",
+            "Quality/security CI and grafting docs",
+        ],
+
+        gallery: [
+            {
+                src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2015-43-00.png",
+                captionFr: "Surface blog — liste d'articles (métier sur le template)",
+                captionEn: "Blog surface — article list (business on the template)", kind: "ui",
+            },
+            {
+                src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2015-44-46.png",
+                captionFr: "Détail article — API backend-first",
+                captionEn: "Article detail — backend-first API", kind: "ui",
+            },
+            {
+                src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2015-45-15.png",
+                captionFr: "Backoffice / édition — rôles et contenus",
+                captionEn: "Admin / editing — roles and content", kind: "ui",
+            },
+        ],
+
+        diagrams: [
+            {
+                id: "bi-stack",
+                titleFr: "Socle backend-init",
+                titleEn: "backend-init foundation",
+                mermaid: `flowchart TB
+  CLI[Client / Front] --> NGX[Nginx]
+  NGX --> API[Express TypeScript]
+  API --> AUTH[JWT / OAuth / OTP]
+  API --> PRISMA[Prisma Mongo]
+  API --> REDIS[(Redis)]
+  API --> MINIO[(MinIO)]
+  API --> CLAM[ClamAV]
+  API --> Q[Queues / Mail]
+  API --> PROM[Prometheus]
+  API --> LOKI[Loki]`,
+            },
+            {
+                id: "bi-reuse",
+                titleFr: "Réutilisation multi-produits",
+                titleEn: "Multi-product reuse",
+                mermaid: `flowchart LR
+  T[backend-init template] --> B[Blog API]
+  T --> P[Portfolio API]
+  T --> Z[ZENORA backends]
+  T --> AWS[AWS HA migration base]`,
+            },
+            {
+                id: "bi-sec",
+                titleFr: "Couches sécurité",
+                titleEn: "Security layers",
+                mermaid: `flowchart TB
+  R[Request] --> RL[Rate limit]
+  RL --> HEL[Helmet / CSP]
+  HEL --> CSRF[CSRF]
+  CSRF --> VAL[Validation]
+  VAL --> AUTH[AuthZ / RBAC]
+  AUTH --> UP[Upload + ClamAV]
+  UP --> BIZ[Business logic]`,
+            },
+        ],
+
+        resources: [
+            {
+                labelFr: "Repo backend-init (template)",
+                labelEn: "backend-init repo (template)",
+                url: "https://github.com/barthez-kenwou/backend-init",
+                type: "other",
+            },
+            {
+                labelFr: "Guide OAuth",
+                labelEn: "OAuth guide",
+                url: "https://github.com/barthez-kenwou/backend-init/blob/main/OAUTH_README.md",
+                type: "other",
+            },
+        ],
+
+        milestones: [
+            {
+                labelFr: "Lab notions backend",
+                labelEn: "Backend concepts lab",
+                date: "Phase 1",
+                descriptionFr: "Auth, validation, patterns, tests.",
+                descriptionEn: "Auth, validation, patterns, tests.",
+            },
+            {
+                labelFr: "Sécurité + médias + queues",
+                labelEn: "Security + media + queues",
+                date: "Phase 2",
+                descriptionFr: "Helmet/CSRF/ClamAV/MinIO/Bull.",
+                descriptionEn: "Helmet/CSRF/ClamAV/MinIO/Bull.",
+            },
+            {
+                labelFr: "Observabilité Compose",
+                labelEn: "Compose observability",
+                date: "Phase 3",
+                descriptionFr: "Prom/Loki/Grafana/Alertmanager.",
+                descriptionEn: "Prom/Loki/Grafana/Alertmanager.",
+            },
+            {
+                labelFr: "Template public + greffes",
+                labelEn: "Public template + grafts",
+                date: "Phase 4",
+                descriptionFr: "Blog, portfolio, ZENORA, base AWS.",
+                descriptionEn: "Blog, portfolio, ZENORA, AWS base.",
+            },
+        ],
+
+        scopeFr: [
+            "Template backend enterprise",
+            "Auth/sécurité/obs",
+            "Blog comme surface métier",
+            "Fork & greffe multi-produits",
+        ],
+        scopeEn: [
+            "Enterprise backend template",
+            "Auth/security/obs",
+            "Blog as business surface",
+            "Fork & multi-product graft",
+        ],
+        nonGoalsFr: [
+            "CMS headless SaaS multi-tenant",
+            "Remplacer un BaaS commercial",
+            "Frontend marketing complet",
+        ],
+        nonGoalsEn: [
+            "Multi-tenant headless CMS SaaS",
+            "Replacing a commercial BaaS",
+            "Full marketing frontend",
+        ],
+
+        decisions: [
+            {
+                titleFr: "Template avant features marketing",
+                titleEn: "Template before marketing features",
+                decisionFr: "Industrialiser le socle ; le blog prouve le socle.",
+                decisionEn: "Industrialize the foundation; the blog proves the foundation.",
+                rationaleFr: "Le ROI est sur N projets greffés, pas sur un seul CRUD.",
+                rationaleEn: "ROI is on N grafted projects, not one CRUD.",
+            },
+            {
+                titleFr: "Sécurité par défaut",
+                titleEn: "Secure by default",
+                decisionFr: "CSRF, Helmet, rate-limit, ClamAV et secrets hors Git dès le template.",
+                decisionEn: "CSRF, Helmet, rate-limit, ClamAV and secrets out of Git from the template.",
+                rationaleFr: "Ce qu'on oublie au jour 1 devient une faille au jour 100.",
+                rationaleEn: "What you forget on day 1 becomes a hole on day 100.",
+            },
+            {
+                titleFr: "Obs locale fidèle",
+                titleEn: "Faithful local obs",
+                decisionFr: "Même famille d'outils (Prom/Loki/Grafana) qu'en plateforme obs.",
+                decisionEn: "Same tool family (Prom/Loki/Grafana) as the obs platform.",
+                rationaleFr: "Apprendre les signaux avant le cloud.",
+                rationaleEn: "Learn the signals before the cloud.",
+            },
+            {
+                titleFr: "Mongo + Prisma pour le lab initial",
+                titleEn: "Mongo + Prisma for the initial lab",
+                decisionFr: "Document model flexible pour itérer vite sur auth/blog.",
+                decisionEn: "Flexible document model to iterate fast on auth/blog.",
+                rationaleFr: "La migration AWS HA pourra cibler Aurora selon les besoins produit.",
+                rationaleEn: "The AWS HA migration can target Aurora based on product needs.",
+            },
+        ],
+
+        securityFr: [
+            "JWT asymétrique + refresh",
+            "OAuth secure callbacks",
+            "Helmet/CSP/CSRF",
+            "Rate limiting",
+            "ClamAV uploads",
+            "Secrets via env-safe",
+            "Security scan CI",
+        ],
+        securityEn: [
+            "Asymmetric JWT + refresh",
+            "Secure OAuth callbacks",
+            "Helmet/CSP/CSRF",
+            "Rate limiting",
+            "ClamAV uploads",
+            "Secrets via env-safe",
+            "Security scan CI",
+        ],
+        infraFr: [
+            "Docker Compose app + monitoring",
+            "Nginx reverse proxy",
+            "Mongo + Redis + MinIO",
+            "Scripts full_start/status",
+            "GitHub Actions PR + security",
+        ],
+        infraEn: [
+            "Docker Compose app + monitoring",
+            "Nginx reverse proxy",
+            "Mongo + Redis + MinIO",
+            "full_start/status scripts",
+            "GitHub Actions PR + security",
+        ],
+
+        externalLinks: [
+            {
+                labelFr: "GitHub template",
+                labelEn: "GitHub template",
+                url: "https://github.com/barthez-kenwou/backend-init",
+            },
+            {
+                labelFr: "Blog portfolio",
+                labelEn: "Portfolio blog",
+                url: "https://barthez-kenwou.dev/blog",
+            },
+        ],
+
+        testimonial: {
+            quoteFr: "Ce n'est plus un projet blog : c'est le kit de démarrage backend qu'on greffe sans reconstruire Auth et obs.",
+            quoteEn: "This is no longer a blog project: it is the backend starter kit you graft without rebuilding Auth and obs.",
+            author: "Future self / ZENORA",
+            roleFr: "Platform",
+            roleEn: "Platform",
+            company: "backend-init consumers",
+        },
+
+        lessonsFr: [
+            "Un blog sans socle enterprise n'est qu'un tutoriel déguisé.",
+            "Le vrai livrable, c'est le template que les prochains repos héritent.",
+            "Sécurité et obs retardées ne se rattrapent jamais gratuitement.",
+            "Humilité dans le README ≠ absence de profondeur dans le code.",
+        ],
+        lessonsEn: [
+            "A blog without an enterprise foundation is a disguised tutorial.",
+            "The real deliverable is the template future repos inherit.",
+            "Deferred security and obs are never free to catch up later.",
+            "Humility in the README ≠ lack of depth in the code.",
+        ],
+
+        beforeAfter: [
+            {
+                beforeSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                afterSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2015-43-00.png",
+                captionFr: "D'un CRUD pédagogique à un Golden Path backend multi-produits.",
+                captionEn: "From a teaching CRUD to a multi-product backend Golden Path.",
+            },
+        ],
+
+        isFeatured: true,
+    },
+
+    {
+        id: 20,
+        titleFr: "AWS Highly Available Blog Backend — Enterprise Edition",
+        titleEn: "AWS Highly Available Blog Backend — Enterprise Edition",
+
+        descriptionFr: "Migration du backend Express (backend-init) vers AWS multi-AZ : ECS Fargate, Aurora, ElastiCache, S3/CloudFront, WAF, Terraform, OIDC CI/CD, chaos et FinOps — plateforme Cloud production-ready.",
+        descriptionEn: "Migration of the Express backend (backend-init) to multi-AZ AWS: ECS Fargate, Aurora, ElastiCache, S3/CloudFront, WAF, Terraform, OIDC CI/CD, chaos and FinOps — production-ready Cloud platform.",
+
+        fullDescriptionFr: `Après des labs AWS (services isolés, docs, ateliers), j'ai mis la maîtrise en application : migrer le backend concret issu de backend-init du VPS vers une architecture AWS hautement disponible.
+
+Le parcours commence toujours par des labs intensifs : services AWS isolés, documentation officielle, ateliers et formations — puis mise en application sur un produit concret. La plateforme (ou l'architecture) arrive en conclusion de la maîtrise, pas en remplacement de l'apprentissage.
+
+Objectif : ne pas « lancer Express sur EC2 », mais transformer une API classique en plateforme AWS scalable, sécurisée, observable et résiliente. Edge Route 53 → CloudFront → WAF/Shield → ALB → ECS Fargate multi-AZ → Aurora PostgreSQL Multi-AZ + ElastiCache Redis + S3 (presigned URLs). VPC enterprise (public / private app / private DB), IAM least privilege, Secrets Manager + KMS, GitHub Actions OIDC (zéro clé longue durée), Terraform modules multi-environnements, CloudWatch + OpenTelemetry, Auto Scaling, chaos (task/AZ/DB/Redis), DR (PITR, RPO/RTO mesurés), FinOps (tags, budgets, coût par service).
+
+Scénarios phares : explosion de trafic (scale 2→8), failover Aurora, image CVE bloquée en CI, rollback production sur error rate. Message recruteur : voici mon backend Express de départ — le voici en architecture AWS multi-AZ, IaC, sécurisée, observable, avec pannes volontairement provoquées et mesurées.`,
+        fullDescriptionEn: `After AWS labs (isolated services, docs, workshops), I applied mastery: migrate the concrete backend from backend-init off the VPS onto a highly available AWS architecture.
+
+The journey always starts with intensive labs: isolated AWS services, official docs, workshops and courses — then applied to a concrete product. The platform (or architecture) comes as the conclusion of mastery, not as a substitute for learning.
+
+Goal: not “run Express on EC2”, but turn a classic API into a scalable, secure, observable, resilient AWS platform. Edge Route 53 → CloudFront → WAF/Shield → ALB → multi-AZ ECS Fargate → Aurora PostgreSQL Multi-AZ + ElastiCache Redis + S3 (presigned URLs). Enterprise VPC (public / private app / private DB), least-privilege IAM, Secrets Manager + KMS, GitHub Actions OIDC (no long-lived keys), multi-environment Terraform modules, CloudWatch + OpenTelemetry, Auto Scaling, chaos (task/AZ/DB/Redis), DR (PITR, measured RPO/RTO), FinOps (tags, budgets, cost per service).
+
+Flagship scenarios: traffic spike (scale 2→8), Aurora failover, CVE image blocked in CI, production rollback on error rate. Recruiter message: here is my starting Express backend — here it is as multi-AZ AWS, IaC, secured, observable, with deliberately induced and measured failures.`,
+
+        problemFr: "Un backend VPS prouve le métier ; il ne prouve pas HA multi-AZ, IAM, IaC cloud, scaling géré ni recovery chronométré. Sans migration disciplinée, les labs AWS restent théoriques.",
+        problemEn: "A VPS backend proves the business; it does not prove multi-AZ HA, IAM, cloud IaC, managed scaling or timed recovery. Without a disciplined migration, AWS labs stay theoretical.",
+
+        solutionFr: [
+            "ECS Fargate multi-AZ derrière ALB + Auto Scaling + rolling deploy",
+            "Aurora PostgreSQL Multi-AZ (writer/reader, PITR) + ElastiCache Redis HA",
+            "S3 privé + CloudFront + presigned URLs pour médias",
+            "VPC segments + SG/NACL + endpoints + Flow Logs",
+            "WAF managed rules + rate-based + TLS ACM",
+            "Secrets Manager / KMS + IAM roles + GitHub OIDC",
+            "Terraform modules staging/prod + pipeline fail-closed",
+            "Obs CloudWatch/OTel + chaos + DR + FinOps documentés",
+        ],
+        solutionEn: [
+            "Multi-AZ ECS Fargate behind ALB + Auto Scaling + rolling deploy",
+            "Aurora PostgreSQL Multi-AZ (writer/reader, PITR) + ElastiCache Redis HA",
+            "Private S3 + CloudFront + presigned URLs for media",
+            "Segmented VPC + SG/NACL + endpoints + Flow Logs",
+            "WAF managed rules + rate-based + ACM TLS",
+            "Secrets Manager / KMS + IAM roles + GitHub OIDC",
+            "Terraform modules staging/prod + fail-closed pipeline",
+            "CloudWatch/OTel obs + documented chaos + DR + FinOps",
+        ],
+
+        challengesFr: [
+            "Migrer sans casser le contrat API du template backend-init",
+            "Networking privé correct (pas d'ECS exposé nativement)",
+            "Secrets et OIDC sans credentials dans Git",
+            "Mesurer vraiment Auto Scaling, failover Aurora et RTO/RPO",
+            "FinOps : expliquer le coût NAT/ECS/Aurora et le réduire",
+        ],
+        challengesEn: [
+            "Migrate without breaking the backend-init API contract",
+            "Correct private networking (no natively exposed ECS)",
+            "Secrets and OIDC with no credentials in Git",
+            "Actually measure Auto Scaling, Aurora failover and RTO/RPO",
+            "FinOps: explain NAT/ECS/Aurora cost and reduce it",
+        ],
+
+        impactFr: [
+            "Preuve Cloud : même produit métier, runtime AWS enterprise",
+            "HA multi-AZ démontrable (tasks, DB, cache)",
+            "Chaîne CI/CD sécurisée OIDC + scans images",
+            "Incidents et recovery chronométrés (game days)",
+            "Pont naturel vers Multi-Region / Serverless / Streaming labs",
+        ],
+        impactEn: [
+            "Cloud proof: same business product, enterprise AWS runtime",
+            "Demonstrable multi-AZ HA (tasks, DB, cache)",
+            "Secure OIDC CI/CD + image scans",
+            "Timed incidents and recovery (game days)",
+            "Natural bridge to Multi-Region / Serverless / Streaming labs",
+        ],
+
+        metrics: {
+            "Compute": "ECS Fargate multi-AZ",
+            "Database": "Aurora Multi-AZ",
+            "Cache": "ElastiCache",
+            "Edge": "CloudFront + WAF",
+            "IaC": "Terraform",
+            "AuthN CI": "GitHub OIDC",
+            "DR": "PITR + measured RTO",
+            "Origin": "backend-init",
+        },
+
+        techStack: {
+            frontend: [],
+            backend: [
+                "Express",
+                "TypeScript",
+                "OpenTelemetry",
+            ],
+            database: [
+                "Aurora PostgreSQL",
+                "ElastiCache Redis",
+                "S3",
+            ],
+            devops: [
+                "AWS ECS Fargate",
+                "ECR",
+                "ALB",
+                "CloudFront",
+                "Route 53",
+                "WAF",
+                "VPC",
+                "Secrets Manager",
+                "KMS",
+                "CloudWatch",
+                "X-Ray",
+                "Terraform",
+                "GitHub Actions OIDC",
+                "k6",
+                "Trivy",
+            ],
+        },
+
+        architecture: [
+            "Internet → R53 → CloudFront → WAF → ALB → ECS (2+ AZ)",
+            "Private data plane : Aurora + Redis + S3",
+            "IaC Terraform modules / staging / production",
+            "CI : lint → tests → SAST/SCA → build → ECR → deploy",
+            "Scaling policies + chaos + DR runbooks",
+        ],
+
+        testing: [
+            "Unit/integration/E2E sur API migrée",
+            "Load/spike/soak k6 + analyse bottlenecks",
+            "Chaos : task kill, Aurora failover, Redis blip",
+            "Security : Trivy gate, WAF rules, IAM review",
+            "DR drill PITR + mesure RPO/RTO",
+        ],
+
+        images: [
+            "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+        ],
+        preview: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+        videoDemo: "",
+
+        category: "AWS • Cloud Architecture • SRE",
+        status: "Actif",
+        complexity: "Expert",
+        role: "Cloud Architect • DevOps",
+        teamSize: 1,
+
+        duration: "Labs AWS → migration (2026)",
         date: "2026",
 
         github: "",
         demo: "",
 
-        businessContextFr: "Projet personnel stratégique visant à attirer des clients, construire une audience technique et renforcer une image d’expertise dans le développement backend et DevOps.",
-        businessContextEn: "Strategic personal project aimed at attracting clients, building a technical audience, and reinforcing expertise in backend development and DevOps.",
+        businessContextFr: "Premier pilier de la suite AWS Cloud Engineering : prouver qu'un backend réel (pas un hello-world) tient en production multi-AZ, sécurisée et mesurable.",
+        businessContextEn: "First pillar of the AWS Cloud Engineering suite: prove a real backend (not a hello-world) holds in measurable, secured multi-AZ production.",
 
         confidential: false,
 
         responsibilitiesFr: [
-            "API blog/commentaires Node/Express TypeScript",
-            "RBAC admin/editor/user + JWT",
-            "Cache Redis multi-niveaux et SEO",
-            "Déploiement Docker/Nginx/CI/CD sur VPS",
+            "Design VPC / ECS / Aurora / edge",
+            "Migration applicative depuis backend-init",
+            "Terraform multi-env + OIDC CI/CD",
+            "Sécurité WAF/IAM/Secrets",
+            "Obs, scaling, chaos, DR, FinOps",
+            "ADRs et runbooks opérationnels",
         ],
         responsibilitiesEn: [
-            "Blog/comments API with Node/Express TypeScript",
-            "Admin/editor/user RBAC + JWT",
-            "Multi-level Redis caching and SEO",
-            "Docker/Nginx/CI/CD deployment on VPS",
+            "VPC / ECS / Aurora / edge design",
+            "Application migration from backend-init",
+            "Multi-env Terraform + OIDC CI/CD",
+            "WAF/IAM/Secrets security",
+            "Obs, scaling, chaos, DR, FinOps",
+            "ADRs and operational runbooks",
         ],
 
         gallery: [
-            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2015-43-00.png", captionFr: "Liste d'articles", captionEn: "Article list", kind: "ui" },
-            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2015-44-46.png", captionFr: "Détail article", captionEn: "Article detail", kind: "ui" },
-            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2015-45-15.png", captionFr: "Backoffice / édition", captionEn: "Admin / editing", kind: "ui" },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                captionFr: "Architecture / consoles AWS à documenter",
+                captionEn: "AWS architecture / consoles to document", kind: "wip",
+            },
         ],
 
         diagrams: [
             {
-                id: "blog-api",
-                titleFr: "Architecture backend-first",
-                titleEn: "Backend-first architecture",
+                id: "aws-ha-edge",
+                titleFr: "Chemin de requête multi-AZ",
+                titleEn: "Multi-AZ request path",
+                mermaid: `flowchart TB
+  U[Internet] --> R53[Route 53]
+  R53 --> CF[CloudFront]
+  CF --> WAF[WAF]
+  WAF --> ALB[ALB]
+  ALB --> A[ECS AZ-A]
+  ALB --> B[ECS AZ-B]
+  A --> AU[(Aurora)]
+  B --> AU
+  A --> RD[(Redis)]
+  B --> RD
+  A --> S3[(S3)]
+  B --> S3`,
+            },
+            {
+                id: "aws-ha-vpc",
+                titleFr: "VPC segments",
+                titleEn: "VPC segments",
+                mermaid: `flowchart TB
+  VPC[Custom VPC]
+  VPC --> PUB[Public: ALB + NAT]
+  VPC --> APP[Private App: ECS]
+  VPC --> DB[Private DB: Aurora + Redis]`,
+            },
+            {
+                id: "aws-ha-scale",
+                titleFr: "Auto Scaling sous charge",
+                titleEn: "Auto Scaling under load",
                 mermaid: `flowchart LR
-  FE[React Frontend] --> API[Express API]
-  API --> RBAC[RBAC Middleware]
-  API --> Cache[Redis Cache]
-  API --> Mongo[(MongoDB)]
-  CI[CI/CD] --> VPS[Docker + Nginx VPS]`,
+  T[Traffic] --> ALB
+  ALB --> ECS[ECS tasks]
+  ECS --> M[CPU / latency metrics]
+  M --> AS[Auto Scaling]
+  AS --> ECS`,
+            },
+            {
+                id: "aws-ha-cicd",
+                titleFr: "CI/CD OIDC",
+                titleEn: "OIDC CI/CD",
+                mermaid: `flowchart LR
+  G[GitHub Actions] --> OIDC[OIDC]
+  OIDC --> ROLE[IAM Role]
+  ROLE --> ECR[ECR]
+  ROLE --> ECS[ECS Deploy]
+  G --> SCAN[Trivy / SAST]`,
             },
         ],
 
         resources: [
-            { labelFr: "Articles techniques", labelEn: "Technical articles", url: "https://barthez-kenwou.dev/blog", type: "other" },
+            {
+                labelFr: "Application source (backend-init)",
+                labelEn: "Source application (backend-init)",
+                url: "https://github.com/barthez-kenwou/backend-init",
+                type: "other",
+            },
         ],
 
         milestones: [
-            { labelFr: "API + modèles", labelEn: "API + models", date: "Phase 1" },
-            { labelFr: "RBAC + JWT", labelEn: "RBAC + JWT", date: "Phase 2" },
-            { labelFr: "Cache Redis + SEO", labelEn: "Redis cache + SEO", date: "Phase 3" },
+            {
+                labelFr: "Labs AWS services",
+                labelEn: "AWS services labs",
+                date: "Phase 1",
+                descriptionFr: "VPC, ECS, Aurora, IAM isolés.",
+                descriptionEn: "Isolated VPC, ECS, Aurora, IAM.",
+            },
+            {
+                labelFr: "Landing zone Terraform",
+                labelEn: "Terraform landing zone",
+                date: "Phase 2",
+                descriptionFr: "Modules + staging.",
+                descriptionEn: "Modules + staging.",
+            },
+            {
+                labelFr: "Migration API + data plane",
+                labelEn: "API + data plane migration",
+                date: "Phase 3",
+                descriptionFr: "ECS + Aurora + Redis + S3.",
+                descriptionEn: "ECS + Aurora + Redis + S3.",
+            },
+            {
+                labelFr: "Chaos / DR / FinOps",
+                labelEn: "Chaos / DR / FinOps",
+                date: "Phase 4",
+                descriptionFr: "Preuves mesurées.",
+                descriptionEn: "Measured evidence.",
+            },
         ],
 
-        scopeFr: ["API articles/commentaires", "RBAC", "Cache Redis", "SEO + déploiement VPS"],
-        scopeEn: ["Articles/comments API", "RBAC", "Redis cache", "SEO + VPS deployment"],
-        nonGoalsFr: ["CMS headless multi-tenant SaaS", "Éditeur collaboratif temps réel"],
-        nonGoalsEn: ["Multi-tenant headless CMS SaaS", "Realtime collaborative editor"],
+        scopeFr: [
+            "Migration AWS HA",
+            "ECS/Aurora/Redis/S3",
+            "IaC + OIDC CI/CD",
+            "Chaos/DR/FinOps",
+        ],
+        scopeEn: [
+            "AWS HA migration",
+            "ECS/Aurora/Redis/S3",
+            "IaC + OIDC CI/CD",
+            "Chaos/DR/FinOps",
+        ],
+        nonGoalsFr: [
+            "Multi-region actif jour 1",
+            "Serverless total rewrite",
+            "EKS comme runtime primaire",
+        ],
+        nonGoalsEn: [
+            "Active multi-region on day 1",
+            "Full serverless rewrite",
+            "EKS as primary runtime",
+        ],
 
         decisions: [
             {
-                titleFr: "Backend-first",
-                titleEn: "Backend-first",
-                decisionFr: "API robuste avant polish UI.",
-                decisionEn: "Robust API before UI polish.",
-                rationaleFr: "Démontre la profondeur backend/DevOps du positionnement.",
-                rationaleEn: "Demonstrates backend/DevOps depth in positioning.",
+                titleFr: "Fargate plutôt qu'EC2 Docker",
+                titleEn: "Fargate over EC2 Docker",
+                decisionFr: "Gérer des tasks, pas des instances.",
+                decisionEn: "Manage tasks, not instances.",
+                rationaleFr: "Moins de toil OS, focus applicatif et scaling.",
+                rationaleEn: "Less OS toil, focus on app and scaling.",
             },
             {
-                titleFr: "Cache multi-niveaux Redis",
-                titleEn: "Multi-level Redis cache",
-                decisionFr: "Cache listes + détails + sessions.",
-                decisionEn: "Cache lists + details + sessions.",
-                rationaleFr: "Latence et charge DB maîtrisées sous trafic lecture.",
-                rationaleEn: "Controlled latency and DB load under read traffic.",
+                titleFr: "Aurora Multi-AZ",
+                titleEn: "Aurora Multi-AZ",
+                decisionFr: "Failover géré + PITR pour la data plane critique.",
+                decisionEn: "Managed failover + PITR for the critical data plane.",
+                rationaleFr: "HA DB est non négociable pour une API de contenu.",
+                rationaleEn: "DB HA is non-negotiable for a content API.",
+            },
+            {
+                titleFr: "OIDC, zéro clé longue",
+                titleEn: "OIDC, no long-lived keys",
+                decisionFr: "GitHub → rôle IAM temporaire.",
+                decisionEn: "GitHub → temporary IAM role.",
+                rationaleFr: "Élimine la classe d'incident credentials leaked.",
+                rationaleEn: "Eliminates the leaked-credentials incident class.",
+            },
+            {
+                titleFr: "Produit réel, pas hello-world",
+                titleEn: "Real product, not hello-world",
+                decisionFr: "Migrer backend-init, pas une API toy.",
+                decisionEn: "Migrate backend-init, not a toy API.",
+                rationaleFr: "Les contraintes de prod apparaissent seulement sur un vrai système.",
+                rationaleEn: "Prod constraints only appear on a real system.",
             },
         ],
 
-        securityFr: ["JWT + refresh", "RBAC strict", "Validation Zod/inputs", "Rate limiting"],
-        securityEn: ["JWT + refresh", "Strict RBAC", "Zod/input validation", "Rate limiting"],
-        infraFr: ["Docker + Nginx", "MongoDB + Redis", "CI/CD VPS", "Logs applicatifs"],
-        infraEn: ["Docker + Nginx", "MongoDB + Redis", "CI/CD VPS", "Application logs"],
+        securityFr: [
+            "WAF + TLS ACM",
+            "IAM least privilege",
+            "Secrets Manager + KMS",
+            "Private subnets",
+            "Image scan Trivy",
+            "CloudTrail audit",
+        ],
+        securityEn: [
+            "WAF + ACM TLS",
+            "Least-privilege IAM",
+            "Secrets Manager + KMS",
+            "Private subnets",
+            "Trivy image scan",
+            "CloudTrail audit",
+        ],
+        infraFr: [
+            "Terraform multi-env",
+            "ECS/ECR/ALB",
+            "Aurora + ElastiCache",
+            "S3 + CloudFront",
+            "CloudWatch alarms",
+        ],
+        infraEn: [
+            "Multi-env Terraform",
+            "ECS/ECR/ALB",
+            "Aurora + ElastiCache",
+            "S3 + CloudFront",
+            "CloudWatch alarms",
+        ],
 
         externalLinks: [
-            { labelFr: "Blog portfolio", labelEn: "Portfolio blog", url: "https://barthez-kenwou.dev/blog" },
+            {
+                labelFr: "backend-init (origine)",
+                labelEn: "backend-init (origin)",
+                url: "https://github.com/barthez-kenwou/backend-init",
+            },
         ],
 
         testimonial: {
-            quoteFr: "Un blog qui prouve autant le backend que le contenu - rare et crédible.",
-            quoteEn: "A blog that proves backend skill as much as content - rare and credible.",
-            author: "Technical Reader",
-            roleFr: "Développeur",
-            roleEn: "Developer",
-            company: "Community",
+            quoteFr: "Le même backend, mais maintenant on parle AZ, failover et budgets — pas seulement Docker sur un VPS.",
+            quoteEn: "Same backend, but now we talk AZs, failover and budgets — not just Docker on a VPS.",
+            author: "Cloud peer",
+            roleFr: "Solutions Architect",
+            roleEn: "Solutions Architect",
+            company: "AWS practice",
         },
 
         lessonsFr: [
-            "Le SEO sans perf API reste cosmétique.",
-            "RBAC clair dès le départ évite les dettes d'auth.",
-            "Le cache doit avoir une stratégie d'invalidation explicite.",
+            "Migrer un vrai backend révèle les dettes qu'un lab hello-world cache.",
+            "Multi-AZ sans mesures de failover reste du marketing.",
+            "OIDC + Secrets Manager changent le niveau de maturité CI/CD.",
+            "FinOps doit expliquer le coût, pas seulement l'afficher.",
         ],
         lessonsEn: [
-            "SEO without API performance stays cosmetic.",
-            "Clear RBAC early avoids auth debt.",
-            "Cache needs an explicit invalidation strategy.",
+            "Migrating a real backend reveals debt a hello-world lab hides.",
+            "Multi-AZ without measured failover remains marketing.",
+            "OIDC + Secrets Manager change CI/CD maturity.",
+            "FinOps must explain cost, not only display it.",
         ],
 
         beforeAfter: [
             {
-                beforeSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2015-44-46.png",
-                afterSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2015-43-00.png",
-                captionFr: "D'une absence de canal éditorial à une plateforme backend-driven.",
-                captionEn: "From no editorial channel to a backend-driven platform.",
+                beforeSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                afterSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                captionFr: "Du VPS Docker Compose à une plateforme AWS multi-AZ IaC.",
+                captionEn: "From VPS Docker Compose to a multi-AZ IaC AWS platform.",
             },
         ],
 
-        isFeatured: false,
+        isFeatured: true,
+    },
+
+    {
+        id: 21,
+        titleFr: "AWS Serverless E-Commerce — Event-Driven, Secure & Resilient",
+        titleEn: "AWS Serverless E-Commerce — Event-Driven, Secure & Resilient",
+
+        descriptionFr: "Backend e-commerce serverless distribué : API Gateway + Lambda + Cognito + DynamoDB, EventBridge/SQS/SNS, Step Functions (saga paiement), Terraform, chaos DLQ/replay — pas une « API Express sur Lambda ».",
+        descriptionEn: "Distributed serverless e-commerce backend: API Gateway + Lambda + Cognito + DynamoDB, EventBridge/SQS/SNS, Step Functions (payment saga), Terraform, DLQ/replay chaos — not “Express on Lambda”.",
+
+        fullDescriptionFr: `Je n'ai pas « mis Express dans Lambda ». J'ai conçu un backend e-commerce serverless event-driven : bounded contexts (auth, products, cart, orders, inventory, payments, notifications), DynamoDB access-pattern first, Cognito, API Gateway, EventBridge pour découpler OrderCreated → payment / inventory / notification, SQS+DLQ, SNS fan-out, Step Functions pour la saga paiement avec compensations.
+
+Le parcours commence toujours par des labs intensifs : services AWS isolés, documentation officielle, ateliers et formations — puis mise en application sur un produit concret. La plateforme (ou l'architecture) arrive en conclusion de la maîtrise, pas en remplacement de l'apprentissage.
+
+Tout en Terraform multi-env, CI fail-closed, WAF, IAM least privilege, KMS/Secrets, CloudWatch/X-Ray, correlation IDs bout-en-bout. Chaos : throttling Lambda/DynamoDB, consumer down, payment fail, duplicate events. Critère : composants évolutifs indépendamment, workflows orchestrés, erreurs récupérables, infra reproductible.
+
+Message recruteur : je choisis les services AWS selon les propriétés du système — découplage, résilience et coût — pas selon un tutoriel unique.`,
+        fullDescriptionEn: `I did not “put Express in Lambda”. I designed an event-driven serverless e-commerce backend: bounded contexts (auth, products, cart, orders, inventory, payments, notifications), access-pattern-first DynamoDB, Cognito, API Gateway, EventBridge decoupling OrderCreated → payment / inventory / notification, SQS+DLQ, SNS fan-out, Step Functions for the payment saga with compensations.
+
+The journey always starts with intensive labs: isolated AWS services, official docs, workshops and courses — then applied to a concrete product. The platform (or architecture) comes as the conclusion of mastery, not as a substitute for learning.
+
+All in multi-env Terraform, fail-closed CI, WAF, least-privilege IAM, KMS/Secrets, CloudWatch/X-Ray, end-to-end correlation IDs. Chaos: Lambda/DynamoDB throttling, consumer down, payment fail, duplicate events. Criterion: independently evolving components, orchestrated workflows, recoverable errors, reproducible infra.
+
+Recruiter message: I choose AWS services based on system properties — decoupling, resilience and cost — not based on a single tutorial.`,
+
+        problemFr: "Une API monolithique serverless concentre les risques et cache les patterns distribués (idempotence, DLQ, saga). L'e-commerce exige découplage et récupération.",
+        problemEn: "A monolithic serverless API concentrates risk and hides distributed patterns (idempotency, DLQ, saga). E-commerce needs decoupling and recovery.",
+
+        solutionFr: [
+            "API Gateway + Cognito JWT + Lambdas par bounded context",
+            "DynamoDB single-table / access-pattern design + Streams",
+            "EventBridge bus + contrats d'événements versionnés",
+            "SQS + DLQ + idempotency pour consumers",
+            "Step Functions saga paiement + compensations",
+            "SNS notifications fan-out",
+            "S3 images/factures + CloudFront",
+            "Terraform + CI/CD + chaos/recovery drills",
+        ],
+        solutionEn: [
+            "API Gateway + Cognito JWT + Lambdas per bounded context",
+            "DynamoDB single-table / access-pattern design + Streams",
+            "EventBridge bus + versioned event contracts",
+            "SQS + DLQ + idempotency for consumers",
+            "Step Functions payment saga + compensations",
+            "SNS notification fan-out",
+            "S3 images/invoices + CloudFront",
+            "Terraform + CI/CD + chaos/recovery drills",
+        ],
+
+        challengesFr: [
+            "Modèle DynamoDB orienté accès, pas tables SQL clonées",
+            "Idempotence et exactly-once applicatif sous at-least-once",
+            "Saga Step Functions avec compensations testables",
+            "Cold starts / concurrency / throttling sous charge",
+            "Observabilité d'un parcours Order bout-en-bout",
+        ],
+        challengesEn: [
+            "Access-oriented DynamoDB model, not cloned SQL tables",
+            "Idempotency and app-level exactly-once under at-least-once",
+            "Step Functions saga with testable compensations",
+            "Cold starts / concurrency / throttling under load",
+            "Observability of an end-to-end Order journey",
+        ],
+
+        impactFr: [
+            "Architecture event-driven démontrable sur parcours checkout",
+            "Résilience consumers (retry/DLQ/replay) prouvée",
+            "IaC reproductible staging/prod",
+            "Compétences serverless + distributed systems crédibles en entretien",
+            "Complète le pilier HA (conteneurs) par le pilier serverless",
+        ],
+        impactEn: [
+            "Demonstrable event-driven architecture on checkout journey",
+            "Proven consumer resilience (retry/DLQ/replay)",
+            "Reproducible staging/prod IaC",
+            "Credible serverless + distributed systems interview depth",
+            "Complements the HA (containers) pillar with the serverless pillar",
+        ],
+
+        metrics: {
+            "Style": "Serverless EDA",
+            "API": "API Gateway + Cognito",
+            "Data": "DynamoDB access patterns",
+            "Orchestration": "Step Functions saga",
+            "Bus": "EventBridge + SQS/SNS",
+            "IaC": "Terraform",
+            "Resilience": "DLQ + replay",
+            "Obs": "CW + X-Ray / OTel",
+        },
+
+        techStack: {
+            frontend: [],
+            backend: [
+                "AWS Lambda",
+                "API Gateway",
+                "Cognito",
+                "Step Functions",
+            ],
+            database: [
+                "DynamoDB",
+                "S3",
+            ],
+            devops: [
+                "EventBridge",
+                "SQS",
+                "SNS",
+                "CloudFront",
+                "WAF",
+                "IAM",
+                "KMS",
+                "Secrets Manager",
+                "CloudWatch",
+                "X-Ray",
+                "Terraform",
+                "GitHub Actions",
+            ],
+        },
+
+        architecture: [
+            "CloudFront → API Gateway → Lambdas bounded contexts",
+            "DynamoDB + Streams ; S3 media",
+            "OrderCreated → EventBridge → Payment / Inventory / Notification",
+            "SQS/DLQ per consumer ; SNS fan-out",
+            "Step Functions payment workflow with compensation",
+        ],
+
+        testing: [
+            "Unit + contract events + API integration",
+            "E2E checkout happy path",
+            "Failure: payment fail, DLQ, duplicate event",
+            "Load on critical paths",
+            "IAM/policy and Terraform validate",
+        ],
+
+        images: [
+            "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+        ],
+        preview: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+        videoDemo: "",
+
+        category: "AWS • Serverless • EDA",
+        status: "Actif",
+        complexity: "Expert",
+        role: "Cloud Architect • Backend",
+        teamSize: 1,
+
+        duration: "Labs → plateforme (2026)",
+        date: "2026",
+
+        github: "",
+        demo: "",
+
+        businessContextFr: "Deuxième pilier AWS : maîtriser le serverless event-driven pour des domaines métier découplés et résilients.",
+        businessContextEn: "Second AWS pillar: master event-driven serverless for decoupled, resilient business domains.",
+
+        confidential: false,
+
+        responsibilitiesFr: [
+            "Domain model e-commerce + access patterns DynamoDB",
+            "Design EventBridge/SQS/Step Functions",
+            "Sécurité Cognito/WAF/IAM",
+            "IaC Terraform + CI/CD",
+            "Chaos consumers et runbooks",
+            "Docs ADR serverless",
+        ],
+        responsibilitiesEn: [
+            "E-commerce domain model + DynamoDB access patterns",
+            "EventBridge/SQS/Step Functions design",
+            "Cognito/WAF/IAM security",
+            "Terraform IaC + CI/CD",
+            "Consumer chaos and runbooks",
+            "Serverless ADR docs",
+        ],
+
+        gallery: [
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                captionFr: "Parcours checkout / Step Functions à documenter",
+                captionEn: "Checkout / Step Functions journey to document", kind: "wip",
+            },
+        ],
+
+        diagrams: [
+            {
+                id: "sls-order",
+                titleFr: "OrderCreated fan-out",
+                titleEn: "OrderCreated fan-out",
+                mermaid: `flowchart TB
+  API[Orders Lambda] --> DDB[(DynamoDB)]
+  API --> EB[EventBridge]
+  EB --> PAY[Payment SF]
+  EB --> INV[Inventory SQS]
+  EB --> NOTIF[Notification SNS]`,
+            },
+            {
+                id: "sls-saga",
+                titleFr: "Saga paiement",
+                titleEn: "Payment saga",
+                mermaid: `flowchart LR
+  V[Validate] --> R[Reserve stock]
+  R --> P[Process payment]
+  P --> C[Confirm]
+  C --> N[Notify]
+  P -->|fail| X[Release + Cancel]`,
+            },
+            {
+                id: "sls-dlq",
+                titleFr: "Retry + DLQ",
+                titleEn: "Retry + DLQ",
+                mermaid: `flowchart LR
+  EB[EventBridge] --> Q[SQS]
+  Q --> L[Lambda]
+  L -->|ok| OK[Success]
+  L -->|fail| DLQ[DLQ]
+  DLQ --> OPS[Alert + replay]`,
+            },
+        ],
+
+        resources: [],
+
+        milestones: [
+            {
+                labelFr: "Labs Lambda/API GW/DynamoDB",
+                labelEn: "Lambda/API GW/DynamoDB labs",
+                date: "Phase 1",
+                descriptionFr: "Bases serverless.",
+                descriptionEn: "Serverless basics.",
+            },
+            {
+                labelFr: "EDA + Step Functions",
+                labelEn: "EDA + Step Functions",
+                date: "Phase 2",
+                descriptionFr: "Bus + saga.",
+                descriptionEn: "Bus + saga.",
+            },
+            {
+                labelFr: "Sécurité + IaC",
+                labelEn: "Security + IaC",
+                date: "Phase 3",
+                descriptionFr: "Cognito/WAF/Terraform.",
+                descriptionEn: "Cognito/WAF/Terraform.",
+            },
+            {
+                labelFr: "Chaos + preuves",
+                labelEn: "Chaos + evidence",
+                date: "Phase 4",
+                descriptionFr: "DLQ/replay/load.",
+                descriptionEn: "DLQ/replay/load.",
+            },
+        ],
+
+        scopeFr: [
+            "E-commerce serverless",
+            "EDA + saga",
+            "DynamoDB design",
+            "IaC + chaos",
+        ],
+        scopeEn: [
+            "Serverless e-commerce",
+            "EDA + saga",
+            "DynamoDB design",
+            "IaC + chaos",
+        ],
+        nonGoalsFr: [
+            "Frontend store complète",
+            "PSP paiement réel production",
+            "OMS multi-entrepôts",
+        ],
+        nonGoalsEn: [
+            "Full storefront frontend",
+            "Real production payment PSP",
+            "Multi-warehouse OMS",
+        ],
+
+        decisions: [
+            {
+                titleFr: "Bounded context Lambdas",
+                titleEn: "Bounded-context Lambdas",
+                decisionFr: "Pas de mega-Lambda e-commerce.js.",
+                decisionEn: "No mega-Lambda ecommerce.js.",
+                rationaleFr: "IAM minimal et évolutivité indépendante.",
+                rationaleEn: "Minimal IAM and independent evolution.",
+            },
+            {
+                titleFr: "DynamoDB access-first",
+                titleEn: "Access-first DynamoDB",
+                decisionFr: "Clés selon GetOrder/ListProducts…",
+                decisionEn: "Keys driven by GetOrder/ListProducts…",
+                rationaleFr: "NoSQL mal modélisé = prod douloureuse.",
+                rationaleEn: "Badly modeled NoSQL = painful prod.",
+            },
+            {
+                titleFr: "Saga pour paiement",
+                titleEn: "Saga for payment",
+                decisionFr: "Step Functions + compensations explicites.",
+                decisionEn: "Step Functions + explicit compensations.",
+                rationaleFr: "Transactions distribuées visibles et testables.",
+                rationaleEn: "Visible, testable distributed transactions.",
+            },
+        ],
+
+        securityFr: [
+            "Cognito + JWT authorizers",
+            "WAF",
+            "IAM per function",
+            "KMS/Secrets",
+            "Input validation",
+            "SAST/SCA CI",
+        ],
+        securityEn: [
+            "Cognito + JWT authorizers",
+            "WAF",
+            "Per-function IAM",
+            "KMS/Secrets",
+            "Input validation",
+            "SAST/SCA CI",
+        ],
+        infraFr: [
+            "Terraform modules",
+            "Staging/prod isolation",
+            "CloudWatch dashboards métier",
+            "DLQ alarms",
+        ],
+        infraEn: [
+            "Terraform modules",
+            "Staging/prod isolation",
+            "Business CloudWatch dashboards",
+            "DLQ alarms",
+        ],
+
+        externalLinks: [],
+
+        testimonial: {
+            quoteFr: "On suit une commande de l'API jusqu'à la DLQ — ça, c'est du serverless mature.",
+            quoteEn: "You can follow an order from the API to the DLQ — that is mature serverless.",
+            author: "Backend peer",
+            roleFr: "Engineer",
+            roleEn: "Engineer",
+            company: "Cloud practice",
+        },
+
+        lessonsFr: [
+            "Serverless sans événements reste un monolithe déguisé.",
+            "La DLQ n'est utile que si on a un runbook de replay.",
+            "DynamoDB se conçoit par accès, pas par tables relationnelles.",
+        ],
+        lessonsEn: [
+            "Serverless without events remains a disguised monolith.",
+            "A DLQ is useful only with a replay runbook.",
+            "DynamoDB is designed by access, not by relational tables.",
+        ],
+
+        beforeAfter: [
+            {
+                beforeSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                afterSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                captionFr: "D'une API unique à un backend e-commerce event-driven.",
+                captionEn: "From a single API to an event-driven e-commerce backend.",
+            },
+        ],
+
+        isFeatured: true,
+    },
+
+    {
+        id: 22,
+        titleFr: "AWS Multi-Region SaaS — Global Availability, Failover & Resilience",
+        titleEn: "AWS Multi-Region SaaS — Global Availability, Failover & Resilience",
+
+        descriptionFr: "SaaS B2B ProjectHub multi-région Active/Passive : ECS bi-région, Aurora Global Database, S3 CRR, Route 53/ARC, game day régional avec RPO/RTO mesurés — résilience globale, pas un second VPC cosmétique.",
+        descriptionEn: "Multi-region Active/Passive B2B SaaS ProjectHub: dual-region ECS, Aurora Global Database, S3 CRR, Route 53/ARC, regional game day with measured RPO/RTO — global resilience, not a cosmetic second VPC.",
+
+        fullDescriptionFr: `Ici on monte d'un niveau : disponibilité globale, failover régional, réplication, anti-split-brain. ProjectHub (orgs, users, projects, tasks, files, billing, audit) tourne en Active/Passive (warm standby) — V2 Active/Active documentée comme évolution.
+
+Le parcours commence toujours par des labs intensifs : services AWS isolés, documentation officielle, ateliers et formations — puis mise en application sur un produit concret. La plateforme (ou l'architecture) arrive en conclusion de la maîtrise, pas en remplacement de l'apprentissage.
+
+Primary us-east-1 / Secondary eu-west-1 : VPC par région, ECS Fargate, Aurora Global Database (writer unique, readers secondaires, switchover/failover contrôlés), ElastiCache reconstructible, S3 CRR, CloudFront, Route 53 health checks (+ ARC readiness), secrets/KMS multi-région, Organizations/SCP vision multi-account, CI déploiement régional canary, chaos région complète. On chronomètre detection → failover → promote DB → traffic → healthy, avec RPO/RTO réels (pas des slides).
+
+Message recruteur : je sais déployer, répliquer, basculer, récupérer et mesurer.`,
+        fullDescriptionEn: `This is a step up: global availability, regional failover, replication, anti-split-brain. ProjectHub (orgs, users, projects, tasks, files, billing, audit) runs Active/Passive (warm standby) — Active/Active documented as a V2 evolution.
+
+The journey always starts with intensive labs: isolated AWS services, official docs, workshops and courses — then applied to a concrete product. The platform (or architecture) comes as the conclusion of mastery, not as a substitute for learning.
+
+Primary us-east-1 / Secondary eu-west-1: per-region VPC, ECS Fargate, Aurora Global Database (single writer, secondary readers, controlled switchover/failover), reconstructible ElastiCache, S3 CRR, CloudFront, Route 53 health checks (+ ARC readiness), multi-region secrets/KMS, Organizations/SCP multi-account vision, regional canary CI, full-region chaos. We time detection → failover → DB promote → traffic → healthy, with real RPO/RTO (not slides).
+
+Recruiter message: I know how to deploy, replicate, fail over, recover and measure.`,
+
+        problemFr: "HA mono-région ne protège pas d'une panne régionale. Sans tests de failover, RTO/RPO multi-région sont fictifs ; le split-brain est un risque réel.",
+        problemEn: "Single-region HA does not protect against a regional outage. Without failover tests, multi-region RTO/RPO are fiction; split-brain is a real risk.",
+
+        solutionFr: [
+            "Active/Passive bi-région avec warm standby",
+            "Aurora Global Database + writer unique explicite",
+            "ECS/ALB par région + health checks globaux",
+            "S3 Cross-Region Replication versionnée",
+            "Route 53 failover (+ ARC readiness)",
+            "Secrets/KMS et dépendances prévues en secondaire",
+            "Game days région / DB / bad deploy isolé",
+            "Mesure RPO/RTO + postmortems",
+        ],
+        solutionEn: [
+            "Active/Passive dual-region with warm standby",
+            "Aurora Global Database + explicit single writer",
+            "Per-region ECS/ALB + global health checks",
+            "Versioned S3 Cross-Region Replication",
+            "Route 53 failover (+ ARC readiness)",
+            "Secrets/KMS and dependencies planned in secondary",
+            "Region / DB / isolated bad-deploy game days",
+            "Measured RPO/RTO + postmortems",
+        ],
+
+        challengesFr: [
+            "Éviter le split-brain écritures",
+            "DNS TTL vs temps réel de failover",
+            "Réplication async : RPO non nul en failover non planifié",
+            "Déploiements décalés sans casser la compatibilité",
+            "Coût multi-région justifié et suivi FinOps",
+        ],
+        challengesEn: [
+            "Avoid write split-brain",
+            "DNS TTL vs real failover time",
+            "Async replication: non-zero RPO on unplanned failover",
+            "Staggered deploys without breaking compatibility",
+            "Justified multi-region cost with FinOps tracking",
+        ],
+
+        impactFr: [
+            "Preuve de survie à une région DOWN",
+            "RPO/RTO chronométrés sur game days",
+            "Runbooks de promote Aurora + reconfig app",
+            "Positionnement SRE/Cloud senior crédible",
+            "Suite AWS : HA → Multi-Region → Streaming",
+        ],
+        impactEn: [
+            "Proof of survival when a region is DOWN",
+            "RPO/RTO timed on game days",
+            "Aurora promote + app reconfig runbooks",
+            "Credible senior SRE/Cloud positioning",
+            "AWS suite: HA → Multi-Region → Streaming",
+        ],
+
+        metrics: {
+            "Topology": "Active / Passive",
+            "Regions": "us-east-1 + eu-west-1",
+            "Database": "Aurora Global DB",
+            "Storage": "S3 CRR",
+            "Traffic": "R53 / ARC",
+            "Compute": "ECS Fargate",
+            "Proof": "regional game days",
+            "Targets": "RPO/RTO measured",
+        },
+
+        techStack: {
+            frontend: [],
+            backend: [
+                "Express / Node SaaS API",
+            ],
+            database: [
+                "Aurora Global Database",
+                "ElastiCache",
+                "S3 CRR",
+            ],
+            devops: [
+                "ECS Fargate",
+                "ALB",
+                "CloudFront",
+                "Route 53",
+                "ARC",
+                "AWS Organizations",
+                "GuardDuty",
+                "Security Hub",
+                "Terraform",
+                "CloudWatch",
+                "GitHub Actions",
+            ],
+        },
+
+        architecture: [
+            "Users → CloudFront/WAF → region primary or secondary",
+            "ECS per region ; Aurora Global writer in primary",
+            "S3 CRR for documents ; cache non SoT",
+            "Health checks drive failover routing",
+            "Control plane recovery documented (ARC/SSM patterns)",
+        ],
+
+        testing: [
+            "Regional outage drill chronométré",
+            "Aurora promote + consistency checks",
+            "Bad deploy isolé sur région B",
+            "S3 regional issue via CRR fallback",
+            "Chaos tasks/ALB/Redis/DNS",
+        ],
+
+        images: [
+            "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+        ],
+        preview: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+        videoDemo: "",
+
+        category: "AWS • Multi-Region • SRE",
+        status: "Actif",
+        complexity: "Expert",
+        role: "SRE • Cloud Architect",
+        teamSize: 1,
+
+        duration: "Labs → plateforme (2026)",
+        date: "2026",
+
+        github: "",
+        demo: "",
+
+        businessContextFr: "Troisième pilier AWS : business continuity globale pour un SaaS B2B — la résilience au-delà d'une seule région.",
+        businessContextEn: "Third AWS pillar: global business continuity for a B2B SaaS — resilience beyond a single region.",
+
+        confidential: false,
+
+        responsibilitiesFr: [
+            "Design Active/Passive et choix de régions",
+            "Aurora Global + stratégie writer",
+            "Failover DNS/ARC et runbooks",
+            "IaC multi-région Terraform",
+            "Game days + mesure RPO/RTO",
+            "Security multi-account / multi-region",
+        ],
+        responsibilitiesEn: [
+            "Active/Passive design and region choice",
+            "Aurora Global + writer strategy",
+            "DNS/ARC failover and runbooks",
+            "Multi-region Terraform IaC",
+            "Game days + RPO/RTO measurement",
+            "Multi-account / multi-region security",
+        ],
+
+        gallery: [
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                captionFr: "Dashboards globaux / failover à documenter",
+                captionEn: "Global dashboards / failover to document", kind: "wip",
+            },
+        ],
+
+        diagrams: [
+            {
+                id: "mr-topo",
+                titleFr: "Topologie bi-région",
+                titleEn: "Dual-region topology",
+                mermaid: `flowchart TB
+  U[Users] --> CF[CloudFront]
+  CF --> A[us-east-1 PRIMARY]
+  CF --> B[eu-west-1 SECONDARY]
+  A --> AG[(Aurora Writer)]
+  B --> AR[(Aurora Reader)]
+  AG -.replicate.-> AR`,
+            },
+            {
+                id: "mr-fail",
+                titleFr: "Failover régional",
+                titleEn: "Regional failover",
+                mermaid: `flowchart LR
+  X[Region A DOWN] --> HC[Health check]
+  HC --> DNS[R53 / ARC]
+  DNS --> B[Region B]
+  B --> PROMOTE[Promote Aurora]
+  PROMOTE --> OK[Traffic restored]`,
+            },
+            {
+                id: "mr-split",
+                titleFr: "Anti split-brain",
+                titleEn: "Anti split-brain",
+                mermaid: `flowchart TB
+  W[Single writer endpoint] --> P[Primary only]
+  F[Failover] --> NW[New writer]
+  P --> RO[Old primary read-only]`,
+            },
+        ],
+
+        resources: [],
+
+        milestones: [
+            {
+                labelFr: "Labs Aurora Global / R53",
+                labelEn: "Aurora Global / R53 labs",
+                date: "Phase 1",
+                descriptionFr: "Réplication et DNS.",
+                descriptionEn: "Replication and DNS.",
+            },
+            {
+                labelFr: "Dual landing zones",
+                labelEn: "Dual landing zones",
+                date: "Phase 2",
+                descriptionFr: "Terraform bi-région.",
+                descriptionEn: "Dual-region Terraform.",
+            },
+            {
+                labelFr: "App ProjectHub",
+                labelEn: "ProjectHub app",
+                date: "Phase 3",
+                descriptionFr: "SaaS domaine B2B.",
+                descriptionEn: "B2B domain SaaS.",
+            },
+            {
+                labelFr: "Game days mesurés",
+                labelEn: "Measured game days",
+                date: "Phase 4",
+                descriptionFr: "RPO/RTO réels.",
+                descriptionEn: "Real RPO/RTO.",
+            },
+        ],
+
+        scopeFr: [
+            "SaaS multi-région",
+            "Aurora Global",
+            "Failover mesuré",
+            "CRR + ARC",
+        ],
+        scopeEn: [
+            "Multi-region SaaS",
+            "Aurora Global",
+            "Measured failover",
+            "CRR + ARC",
+        ],
+        nonGoalsFr: [
+            "Active/Active jour 1",
+            "EKS obligatoire",
+            "Compliance certifiée SOC2 vendue",
+        ],
+        nonGoalsEn: [
+            "Active/Active on day 1",
+            "Mandatory EKS",
+            "Sold certified SOC2 compliance",
+        ],
+
+        decisions: [
+            {
+                titleFr: "Active/Passive d'abord",
+                titleEn: "Active/Passive first",
+                decisionFr: "Warm standby avant Active/Active.",
+                decisionEn: "Warm standby before Active/Active.",
+                rationaleFr: "Complexité et split-brain maîtrisés progressifs.",
+                rationaleEn: "Progressive mastery of complexity and split-brain.",
+            },
+            {
+                titleFr: "Un seul writer",
+                titleEn: "Single writer",
+                decisionFr: "Écritures uniquement via endpoint primary.",
+                decisionEn: "Writes only via primary endpoint.",
+                rationaleFr: "AWS documente le risque split-brain au failover.",
+                rationaleEn: "AWS documents split-brain risk on failover.",
+            },
+            {
+                titleFr: "Mesurer avant d'afficher RTO",
+                titleEn: "Measure before publishing RTO",
+                decisionFr: "Aucun chiffre sans game day chronométré.",
+                decisionEn: "No figure without a timed game day.",
+                rationaleFr: "Crédibilité SRE = preuves.",
+                rationaleEn: "SRE credibility = evidence.",
+            },
+        ],
+
+        securityFr: [
+            "SCP / multi-account vision",
+            "KMS multi-region",
+            "CloudTrail central",
+            "GuardDuty/Security Hub",
+            "WAF global",
+        ],
+        securityEn: [
+            "SCP / multi-account vision",
+            "Multi-region KMS",
+            "Central CloudTrail",
+            "GuardDuty/Security Hub",
+            "Global WAF",
+        ],
+        infraFr: [
+            "Terraform global + per-region",
+            "Aurora Global",
+            "S3 CRR",
+            "R53 health checks",
+            "Observability globale",
+        ],
+        infraEn: [
+            "Global + per-region Terraform",
+            "Aurora Global",
+            "S3 CRR",
+            "R53 health checks",
+            "Global observability",
+        ],
+
+        externalLinks: [],
+
+        testimonial: {
+            quoteFr: "Ils ont coupé une région et affiché un RTO chronométré — rare et sérieux.",
+            quoteEn: "They cut a region and showed a timed RTO — rare and serious.",
+            author: "SRE interviewer mindset",
+            roleFr: "SRE",
+            roleEn: "SRE",
+            company: "Hiring bar",
+        },
+
+        lessonsFr: [
+            "Multi-région sans game day est du théâtre.",
+            "Le DNS failover n'est pas magique : TTL et health importent.",
+            "Le cache ne doit jamais être source de vérité au failover.",
+        ],
+        lessonsEn: [
+            "Multi-region without game days is theater.",
+            "DNS failover is not magic: TTL and health matter.",
+            "Cache must never be source of truth across failover.",
+        ],
+
+        beforeAfter: [
+            {
+                beforeSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                afterSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                captionFr: "De la HA mono-région à la survie multi-région mesurée.",
+                captionEn: "From single-region HA to measured multi-region survival.",
+            },
+        ],
+
+        isFeatured: true,
+    },
+
+    {
+        id: 23,
+        titleFr: "AWS Real-Time Data & Event Platform — Streaming, Lake & Analytics",
+        titleEn: "AWS Real-Time Data & Event Platform — Streaming, Lake & Analytics",
+
+        descriptionFr: "Plateforme streaming AWS : Kinesis + MSK (comparaison assumée), schemas, Lambda/Glue, data lake bronze/silver/gold, Athena, OpenSearch, replay, lag/backpressure — data engineering distribué, pas un dashboard seul.",
+        descriptionEn: "AWS streaming platform: Kinesis + MSK (explicit comparison), schemas, Lambda/Glue, bronze/silver/gold data lake, Athena, OpenSearch, replay, lag/backpressure — distributed data engineering, not a dashboard alone.",
+
+        fullDescriptionFr: `Le pilier data : ingérer clickstream, orders, payments, logs, télémétrie ; traiter en temps réel ; stocker en data lake ; analyser ; rejouer. Architecture A Kinesis-first vs Architecture B MSK/Kafka-first — compromis coût/ops/portabilité documentés, pas deux outils « parce que ».
+
+Le parcours commence toujours par des labs intensifs : services AWS isolés, documentation officielle, ateliers et formations — puis mise en application sur un produit concret. La plateforme (ou l'architecture) arrive en conclusion de la maîtrise, pas en remplacement de l'apprentissage.
+
+Producers + load generator, contrats d'événements + Schema Registry, validation → lake ou quarantine, Lambda enrich/route, Glue streaming ETL, S3 raw/bronze/silver/gold, Athena, OpenSearch live search, EventBridge pour événements métier, idempotence, ordering, backpressure (consumer down → lag → catch-up mesuré). Chaos et benchmarks throughput/latency/lag/cost. Message : je comprends ingest → process → store → analyze → replay → scale.
+
+Message recruteur : je raisonne en propriétés de systèmes distribués et en trade-offs AWS data — pas en liste de services.`,
+        fullDescriptionEn: `The data pillar: ingest clickstream, orders, payments, logs, telemetry; process in real time; store in a data lake; analyze; replay. Architecture A Kinesis-first vs Architecture B MSK/Kafka-first — documented cost/ops/portability trade-offs, not two tools “because”.
+
+The journey always starts with intensive labs: isolated AWS services, official docs, workshops and courses — then applied to a concrete product. The platform (or architecture) comes as the conclusion of mastery, not as a substitute for learning.
+
+Producers + load generator, event contracts + Schema Registry, validation → lake or quarantine, Lambda enrich/route, Glue streaming ETL, S3 raw/bronze/silver/gold, Athena, OpenSearch live search, EventBridge for business events, idempotency, ordering, backpressure (consumer down → lag → measured catch-up). Chaos and throughput/latency/lag/cost benchmarks. Message: I understand ingest → process → store → analyze → replay → scale.
+
+Recruiter message: I reason in distributed-system properties and AWS data trade-offs — not in a service checklist.`,
+
+        problemFr: "Sans plateforme événements, l'analytics est batch fragile et le troubleshooting temps réel impossible. Empiler Kinesis et MSK sans comparaison est du bruit.",
+        problemEn: "Without an event platform, analytics is fragile batch and real-time troubleshooting is impossible. Stacking Kinesis and MSK without comparison is noise.",
+
+        solutionFr: [
+            "Dual path Kinesis vs MSK avec ADRs de compromis",
+            "Schema governance + quarantine invalid events",
+            "Processing Lambda + Glue Streaming",
+            "Data lake médallion S3 + Glue Catalog + Athena",
+            "OpenSearch pour exploration temps réel",
+            "Idempotence, ordering, replay documentés",
+            "Load generator + benchmarks + FinOps stream",
+            "Chaos consumer-down / throttle / corruption",
+        ],
+        solutionEn: [
+            "Dual Kinesis vs MSK path with trade-off ADRs",
+            "Schema governance + invalid-event quarantine",
+            "Lambda + Glue Streaming processing",
+            "S3 medallion lake + Glue Catalog + Athena",
+            "OpenSearch for real-time exploration",
+            "Documented idempotency, ordering, replay",
+            "Load generator + benchmarks + stream FinOps",
+            "Chaos: consumer-down / throttle / corruption",
+        ],
+
+        challengesFr: [
+            "Garanties d'ordre et clés de partition",
+            "Catch-up après outage consumer",
+            "Qualité des données et PII dans le lac",
+            "Coût Athena/OpenSearch/MSK sous charge",
+            "Comparer honnêtement Kinesis et MSK",
+        ],
+        challengesEn: [
+            "Ordering guarantees and partition keys",
+            "Catch-up after consumer outage",
+            "Data quality and PII in the lake",
+            "Athena/OpenSearch/MSK cost under load",
+            "Honestly compare Kinesis and MSK",
+        ],
+
+        impactFr: [
+            "Plateforme data temps réel démontrable bout-en-bout",
+            "Benchmarks et game days lag/catch-up",
+            "Gouvernance schema + quarantine",
+            "Pont naturel avec Event-Driven Platform (id:19) et Observability",
+            "Profil Data/Platform Engineer AWS différenciant",
+        ],
+        impactEn: [
+            "Demonstrable end-to-end real-time data platform",
+            "Benchmarks and lag/catch-up game days",
+            "Schema governance + quarantine",
+            "Natural bridge with Event-Driven Platform (id:19) and Observability",
+            "Differentiating AWS Data/Platform Engineer profile",
+        ],
+
+        metrics: {
+            "Ingest": "Kinesis + MSK paths",
+            "Lake": "bronze/silver/gold",
+            "Query": "Athena",
+            "Search": "OpenSearch",
+            "ETL": "Glue Streaming",
+            "Governance": "schemas + quarantine",
+            "Proof": "lag catch-up drills",
+            "FinOps": "cost per path",
+        },
+
+        techStack: {
+            frontend: [
+                "Real-time dashboards",
+            ],
+            backend: [
+                "Producers",
+                "Lambda processors",
+                "Consumers",
+            ],
+            database: [
+                "S3 Data Lake",
+                "Glue Catalog",
+                "OpenSearch",
+            ],
+            devops: [
+                "Kinesis Data Streams",
+                "Amazon MSK",
+                "EventBridge",
+                "Firehose",
+                "Glue",
+                "Athena",
+                "Lambda",
+                "IAM",
+                "KMS",
+                "Lake Formation",
+                "Terraform",
+                "CloudWatch",
+                "load generators",
+            ],
+        },
+
+        architecture: [
+            "Producers → Kinesis and/or MSK",
+            "Lambda/Glue validate-enrich-route",
+            "S3 medallion lake → Athena analytics",
+            "OpenSearch for live operational search",
+            "EventBridge for selected business fan-out",
+            "Replay path to rebuild derived state",
+        ],
+
+        testing: [
+            "Schema compatibility + invalid event quarantine",
+            "Idempotency / duplicate / out-of-order tests",
+            "Load 1k→10k→… events/s benchmarks",
+            "Consumer-down catch-up drill",
+            "Chaos broker/OpenSearch/S3/Glue failures",
+        ],
+
+        images: [
+            "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+        ],
+        preview: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+        videoDemo: "",
+
+        category: "AWS • Data Engineering • Streaming",
+        status: "Actif",
+        complexity: "Expert",
+        role: "Data Platform • Cloud Engineer",
+        teamSize: 1,
+
+        duration: "Labs → plateforme (2026)",
+        date: "2026",
+
+        github: "",
+        demo: "",
+
+        businessContextFr: "Quatrième pilier AWS : data streaming et lakehouse pour analytics temps réel et rejeu — complément des backends HA/serverless/multi-région.",
+        businessContextEn: "Fourth AWS pillar: streaming data and lakehouse for real-time analytics and replay — complement to HA/serverless/multi-region backends.",
+
+        confidential: false,
+
+        responsibilitiesFr: [
+            "Design dual architecture Kinesis/MSK",
+            "Contrats d'événements et gouvernance",
+            "Pipelines lake + Glue + Athena",
+            "OpenSearch indexing path",
+            "Benchmarks, chaos lag, FinOps",
+            "ADRs data et runbooks replay",
+        ],
+        responsibilitiesEn: [
+            "Dual Kinesis/MSK architecture design",
+            "Event contracts and governance",
+            "Lake + Glue + Athena pipelines",
+            "OpenSearch indexing path",
+            "Benchmarks, lag chaos, FinOps",
+            "Data ADRs and replay runbooks",
+        ],
+
+        gallery: [
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                captionFr: "Dashboards lag / lake / Athena à documenter",
+                captionEn: "Lag / lake / Athena dashboards to document", kind: "wip",
+            },
+        ],
+
+        diagrams: [
+            {
+                id: "rt-ingest",
+                titleFr: "Ingestion multi-producers",
+                titleEn: "Multi-producer ingestion",
+                mermaid: `flowchart TB
+  W[Web] --> S[Stream bus]
+  A[API] --> S
+  I[IoT sim] --> S
+  S --> L[Lambda / Glue]
+  L --> LAKE[(S3 Lake)]
+  L --> OS[OpenSearch]`,
+            },
+            {
+                id: "rt-medallion",
+                titleFr: "Data lake médallion",
+                titleEn: "Medallion data lake",
+                mermaid: `flowchart LR
+  RAW[raw] --> BR[bronze]
+  BR --> SL[silver]
+  SL --> GD[gold]
+  INV[invalid] --> Q[quarantine]`,
+            },
+            {
+                id: "rt-lag",
+                titleFr: "Consumer catastrophe → catch-up",
+                titleEn: "Consumer catastrophe → catch-up",
+                mermaid: `flowchart LR
+  P[Producer] --> B[Bus]
+  B --> C[Consumer DOWN]
+  C --> LAG[Lag up]
+  LAG --> R[Recover]
+  R --> Z[Lag to zero]`,
+            },
+            {
+                id: "rt-compare",
+                titleFr: "Kinesis vs MSK",
+                titleEn: "Kinesis vs MSK",
+                mermaid: `flowchart TB
+  REQ[Requirements] --> K[Kinesis path]
+  REQ --> M[MSK path]
+  K --> ADR[Trade-off ADR]
+  M --> ADR`,
+            },
+        ],
+
+        resources: [],
+
+        milestones: [
+            {
+                labelFr: "Labs Kinesis/MSK/Glue",
+                labelEn: "Kinesis/MSK/Glue labs",
+                date: "Phase 1",
+                descriptionFr: "Bases streaming.",
+                descriptionEn: "Streaming basics.",
+            },
+            {
+                labelFr: "Lake + Athena + OS",
+                labelEn: "Lake + Athena + OS",
+                date: "Phase 2",
+                descriptionFr: "Analytics path.",
+                descriptionEn: "Analytics path.",
+            },
+            {
+                labelFr: "Gouvernance + PII",
+                labelEn: "Governance + PII",
+                date: "Phase 3",
+                descriptionFr: "Schemas/quarantine.",
+                descriptionEn: "Schemas/quarantine.",
+            },
+            {
+                labelFr: "Benchmarks + chaos",
+                labelEn: "Benchmarks + chaos",
+                date: "Phase 4",
+                descriptionFr: "Lag/cost/replay.",
+                descriptionEn: "Lag/cost/replay.",
+            },
+        ],
+
+        scopeFr: [
+            "Streaming platform",
+            "Lakehouse S3",
+            "Kinesis vs MSK",
+            "Replay + lag drills",
+        ],
+        scopeEn: [
+            "Streaming platform",
+            "S3 lakehouse",
+            "Kinesis vs MSK",
+            "Replay + lag drills",
+        ],
+        nonGoalsFr: [
+            "Data warehouse Snowflake jour 1",
+            "ML feature store complet",
+            "IoT fleet management",
+        ],
+        nonGoalsEn: [
+            "Snowflake warehouse on day 1",
+            "Full ML feature store",
+            "IoT fleet management",
+        ],
+
+        decisions: [
+            {
+                titleFr: "Deux architectures, un ADR",
+                titleEn: "Two architectures, one ADR",
+                decisionFr: "Comparer Kinesis et MSK explicitement.",
+                decisionEn: "Compare Kinesis and MSK explicitly.",
+                rationaleFr: "Montre le jugement d'architecte, pas la collection d'outils.",
+                rationaleEn: "Shows architect judgment, not tool collecting.",
+            },
+            {
+                titleFr: "Quarantine > silent drop",
+                titleEn: "Quarantine > silent drop",
+                decisionFr: "Events invalides isolés et alertés.",
+                decisionEn: "Invalid events isolated and alerted.",
+                rationaleFr: "Qualité données = fiabilité analytics.",
+                rationaleEn: "Data quality = analytics reliability.",
+            },
+            {
+                titleFr: "Replay comme feature",
+                titleEn: "Replay as a feature",
+                decisionFr: "Rebuild derived state depuis l'historique.",
+                decisionEn: "Rebuild derived state from history.",
+                rationaleFr: "Cœur des systèmes événementiels matures.",
+                rationaleEn: "Core of mature event systems.",
+            },
+        ],
+
+        securityFr: [
+            "KMS encryption",
+            "Lake Formation / IAM",
+            "PII masking",
+            "Private networking",
+            "Schema validation",
+        ],
+        securityEn: [
+            "KMS encryption",
+            "Lake Formation / IAM",
+            "PII masking",
+            "Private networking",
+            "Schema validation",
+        ],
+        infraFr: [
+            "Terraform streaming modules",
+            "S3 lake layout",
+            "Monitoring lag/throughput",
+            "Cost dashboards",
+        ],
+        infraEn: [
+            "Terraform streaming modules",
+            "S3 lake layout",
+            "Lag/throughput monitoring",
+            "Cost dashboards",
+        ],
+
+        externalLinks: [],
+
+        testimonial: {
+            quoteFr: "Ils ont arrêté les consumers, montré le lag, puis le catch-up — c'est ça un vrai lab streaming.",
+            quoteEn: "They stopped consumers, showed lag, then catch-up — that is a real streaming lab.",
+            author: "Data engineer peer",
+            roleFr: "Data Engineer",
+            roleEn: "Data Engineer",
+            company: "Streaming practice",
+        },
+
+        lessonsFr: [
+            "Le lag est un SLO, pas une métrique cosmétique.",
+            "Sans replay, un stream n'est qu'un pipe jetable.",
+            "Kinesis vs MSK se choisit sur des trade-offs, pas sur la mode.",
+        ],
+        lessonsEn: [
+            "Lag is an SLO, not a cosmetic metric.",
+            "Without replay, a stream is just a disposable pipe.",
+            "Kinesis vs MSK is chosen on trade-offs, not fashion.",
+        ],
+
+        beforeAfter: [
+            {
+                beforeSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                afterSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                captionFr: "Du batch fragile à une plateforme streaming avec lake et replay.",
+                captionEn: "From fragile batch to a streaming platform with lake and replay.",
+            },
+        ],
+
+        isFeatured: true,
     },
 
     {
         id: 10,
-        titleFr: "Hardening & Sécurisation Avancée d’un Serveur Linux (Ubuntu)",
-        titleEn: "Advanced Linux Server Hardening & Security (Ubuntu)",
+        titleFr: "Hardening VPS Ubuntu ZENORA — Forteresse Production Multi-Couches",
+        titleEn: "ZENORA Ubuntu VPS Hardening — Multi-Layer Production Fortress",
 
-        descriptionFr: "Sécurisation complète d’un serveur Ubuntu de production avec hardening système, protection réseau multi-couches, monitoring et automatisation des mises à jour.",
-        descriptionEn: "Full security hardening of a production Ubuntu server with multi-layer network protection, monitoring, and automated updates.",
+        descriptionFr: "Mission terrain ZENORA : hardening production Ubuntu 22.04/24.04 en 12 phases (SSH forteresse, UFW/iptables/CSF, Fail2Ban, CrowdSec, Naxsi, Cloudflare, AIDE, supervision) — runbook anti lock-out, preuve de terrain, base du script linux-server-hardening.",
+        descriptionEn: "ZENORA field mission: production Ubuntu 22.04/24.04 hardening in 12 phases (SSH fortress, UFW/iptables/CSF, Fail2Ban, CrowdSec, Naxsi, Cloudflare, AIDE, supervision) — anti lock-out runbook, field proof, origin of the linux-server-hardening script.",
 
-        fullDescriptionFr: "Mise en place d’une stratégie complète de sécurisation (hardening) d’un serveur Linux Ubuntu destiné à la production. Le projet couvre la sécurisation des accès (désactivation root, SSH sécurisé), la protection réseau multi-couches (UFW, iptables, CrowdSec, Fail2Ban, CSF), ainsi que l’intégration de protections externes via Cloudflare (CDN + WAF). Le système a été renforcé au niveau kernel (sysctl), avec gestion stricte des permissions, journalisation centralisée et surveillance continue. Des mécanismes d’alerting et de reporting ont été configurés pour assurer une supervision proactive, accompagnés de mises à jour automatiques de sécurité. L’environnement a également été préparé pour accueillir des applications conteneurisées (Docker) dans un contexte sécurisé. L’objectif global était de réduire drastiquement la surface d’attaque et d’assurer un niveau de sécurité proche des standards production.",
-        fullDescriptionEn: "Implemented a complete hardening strategy for a production Ubuntu Linux server. The project covers secure access configuration (root disabling, hardened SSH), multi-layer network protection (UFW, iptables, CrowdSec, Fail2Ban, CSF), and external protection via Cloudflare (CDN + WAF). The system was hardened at kernel level (sysctl), with strict permissions, centralized logging, and continuous monitoring. Alerting and reporting mechanisms were configured for proactive supervision, along with automated security updates. The environment was also prepared to host containerized applications (Docker) in a secure setup. The overall goal was to drastically reduce the attack surface and achieve production-grade security standards.",
+        fullDescriptionFr: `Je ne parle pas d'un lab théorique. Je parle d'un VPS Ubuntu de production ZENORA — 22.04 puis 24.04 — que j'ai transformé en forteresse multi-couches parce que le site, les API et la réputation de la marque ne tolèrent pas une SSH ouverte au monde.
 
-        problemFr: "Les serveurs exposés sur Internet sont fortement vulnérables aux attaques (brute force, scans, exploits), nécessitant une sécurisation avancée pour garantir la stabilité et la confidentialité des données.",
-        problemEn: "Internet-exposed servers are highly vulnerable to attacks (brute force, scans, exploits), requiring advanced hardening to ensure stability and data confidentiality.",
+Le brief était clair : réduire la surface d'attaque, industrialiser la supervision, et documenter un runbook réutilisable. Cloudflare en façade, oui — mais Cloudflare ne remplace jamais un pare-feu local. J'ai donc construit douze phases ordonnées, chacune testée avant de passer à la suivante, avec une obsession : ne jamais se faire lock-out du serveur.
+
+Phase 1 — forteresse SSH : clés Ed25519, root interdit, passwords coupés, port custom, AllowUsers strict. Je valide toujours une seconde session avant de couper l'ancienne. Phase 2 — unattended-upgrades pour les patchs de sécurité sans improvisation. Phase 3 — audit et intégrité : Lynis, rkhunter, chkrootkit, AIDE, avec rapport mail vers contact@zenora360.com. Phase 4 — Docker optionnel, durci si présent. Phase 5 — NTP fiable. Phase 6 — sysctl 99-security.conf (réseau, syn flood, redirects, etc.). Phase 7 — UFW + règles iptables cohérentes. Phase 8 — Fail2Ban. Phase 9 — Nginx durci (headers, rate-limit, Naxsi WAF). Phase 10 — CSF. Phase 11 — CrowdSec + bouncers. Phase 12 — Cloudflare, logrotate, monitoring, PAM, script de supervision quotidienne.
+
+Ce que je vends ici, ce n'est pas une checklist copiée-collée. C'est une preuve de terrain pour ZENORA, un guide de 12 phases que je peux rejouer, et la matière première du script interactif linux-server-hardening né de cette mission. Si vous me confiez un VPS critique, je ne commence pas par installer dix outils : je commence par un accès SSH testé, des couches qui ne se marchent pas dessus, et une supervision qui prévient avant d'alarmer trop tard.`,
+        fullDescriptionEn: `This is not a theoretical lab. This is a ZENORA production Ubuntu VPS — 22.04 then 24.04 — that I turned into a multi-layer fortress because the site, the APIs and the brand reputation cannot tolerate an SSH open to the world.
+
+The brief was clear: shrink the attack surface, industrialize supervision, and document a reusable runbook. Cloudflare at the edge, yes — but Cloudflare never replaces a local firewall. So I built twelve ordered phases, each validated before the next, with one obsession: never lock myself out of the server.
+
+Phase 1 — SSH fortress: Ed25519 keys, root disabled, passwords off, custom port, strict AllowUsers. I always validate a second session before closing the old one. Phase 2 — unattended-upgrades for security patches without improvisation. Phase 3 — audit and integrity: Lynis, rkhunter, chkrootkit, AIDE, with mail reports to contact@zenora360.com. Phase 4 — optional Docker, hardened when present. Phase 5 — reliable NTP. Phase 6 — sysctl 99-security.conf (network, syn flood, redirects, and more). Phase 7 — UFW plus coherent iptables rules. Phase 8 — Fail2Ban. Phase 9 — hardened Nginx (headers, rate-limit, Naxsi WAF). Phase 10 — CSF. Phase 11 — CrowdSec plus bouncers. Phase 12 — Cloudflare, logrotate, monitoring, PAM, daily supervision script.
+
+What I sell here is not a copy-pasted checklist. It is field proof for ZENORA, a 12-phase guide I can replay, and the raw material for the interactive linux-server-hardening script born from this mission. If you trust me with a critical VPS, I do not start by installing ten tools: I start with tested SSH access, layers that do not fight each other, and supervision that warns before it is too late.`,
+
+        problemFr: "Un VPS Ubuntu exposé pour ZENORA sans hardening discipliné : SSH trop permissif, patchs irréguliers, pas d'intégrité fichier, pare-feu local faible ou absent, et une fausse sécurité si on s'appuie uniquement sur Cloudflare.",
+        problemEn: "An exposed Ubuntu VPS for ZENORA without disciplined hardening: overly permissive SSH, irregular patches, no file integrity, weak or missing local firewall, and false security if you rely on Cloudflare alone.",
 
         solutionFr: [
-            "Désactivation de l’accès root et sécurisation SSH (clé, port personnalisé, restrictions)",
-            "Configuration de Fail2Ban et CrowdSec pour bloquer les attaques automatisées",
-            "Mise en place de pare-feux (UFW, iptables, CSF)",
-            "Intégration Cloudflare (CDN + WAF) pour protection externe",
-            "Renforcement du kernel via sysctl (réseau, sécurité)",
-            "Centralisation des logs et mise en place de monitoring",
-            "Configuration des mises à jour automatiques de sécurité",
-            "Installation et sécurisation de Docker",
-            "Mise en place d’alertes et rapports journaliers",
+            "Runbook 12 phases : SSH Ed25519 / no root / no password / port custom / AllowUsers",
+            "unattended-upgrades pour les correctifs de sécurité",
+            "Audit & intégrité : Lynis, rkhunter, chkrootkit, AIDE (mail contact@zenora360.com)",
+            "Docker optionnel durci ; NTP ; sysctl 99-security.conf",
+            "Pare-feu local : UFW + iptables + CSF — Cloudflare en complément, pas en remplacement",
+            "Fail2Ban + CrowdSec + bouncers",
+            "Nginx : headers, rate-limit, Naxsi WAF",
+            "logrotate, monitoring, PAM, script de supervision quotidienne",
+            "Tests anti lock-out SSH à chaque changement critique",
+            "Preuve terrain ZENORA → industrialisation via linux-server-hardening",
         ],
         solutionEn: [
-            "Disabled root access and secured SSH (keys, custom port, restrictions)",
-            "Configured Fail2Ban and CrowdSec for automated attack blocking",
-            "Implemented firewalls (UFW, iptables, CSF)",
-            "Integrated Cloudflare (CDN + WAF) for external protection",
-            "Hardened kernel via sysctl (network, security)",
-            "Centralized logs and monitoring setup",
-            "Configured automatic security updates",
-            "Installed and secured Docker",
-            "Set up alerts and daily reporting",
+            "12-phase runbook: SSH Ed25519 / no root / no password / custom port / AllowUsers",
+            "unattended-upgrades for security patches",
+            "Audit & integrity: Lynis, rkhunter, chkrootkit, AIDE (mail contact@zenora360.com)",
+            "Optional hardened Docker; NTP; sysctl 99-security.conf",
+            "Local firewall: UFW + iptables + CSF — Cloudflare as complement, not replacement",
+            "Fail2Ban + CrowdSec + bouncers",
+            "Nginx: headers, rate-limit, Naxsi WAF",
+            "logrotate, monitoring, PAM, daily supervision script",
+            "Anti lock-out SSH tests on every critical change",
+            "ZENORA field proof → industrialization via linux-server-hardening",
         ],
 
         challengesFr: [
-            "Coordination de multiples couches de sécurité sans conflit",
-            "Maintenir accessibilité tout en renforçant la sécurité",
-            "Optimiser les règles firewall pour éviter les faux positifs",
-            "Mettre en place une surveillance efficace et exploitable",
-            "Sécuriser Docker dans un environnement exposé",
+            "Orchestrer UFW, iptables, CSF et CrowdSec sans règles conflictuelles",
+            "Durcir SSH sans se lock-out (session secondaire, rollback)",
+            "Faire cohabiter Naxsi / rate-limit / Cloudflare sans casser le trafic légitime",
+            "AIDE et scanners : bruit vs signal, reporting mail actionnable",
+            "Documenter un guide rejouable pour 22.04 et 24.04",
         ],
         challengesEn: [
-            "Coordinating multiple security layers without conflicts",
-            "Maintaining accessibility while strengthening security",
-            "Optimizing firewall rules to avoid false positives",
-            "Setting up effective and actionable monitoring",
-            "Securing Docker in an exposed environment",
+            "Orchestrate UFW, iptables, CSF and CrowdSec without conflicting rules",
+            "Harden SSH without lock-out (secondary session, rollback)",
+            "Make Naxsi / rate-limit / Cloudflare coexist without breaking legitimate traffic",
+            "AIDE and scanners: noise vs signal, actionable mail reporting",
+            "Document a replayable guide for 22.04 and 24.04",
         ],
 
         impactFr: [
-            "Réduction drastique de la surface d’attaque",
-            "Blocage automatique des attaques brute force et scans",
-            "Amélioration significative de la stabilité du serveur",
-            "Surveillance proactive avec alertes en temps réel",
+            "VPS ZENORA production durci selon un guide 12 phases rejouable",
+            "Surface d'attaque SSH et réseau fortement réduite",
+            "Supervision quotidienne + alertes AIDE vers contact@zenora360.com",
+            "Runbook anti lock-out validé sur le terrain",
+            "Savoir-faire transformé en script interactif linux-server-hardening",
         ],
         impactEn: [
-            "Drastically reduced attack surface",
-            "Automatic blocking of brute force and scan attacks",
-            "Improved server stability",
-            "Proactive monitoring with real-time alerts",
+            "ZENORA production VPS hardened with a replayable 12-phase guide",
+            "SSH and network attack surface sharply reduced",
+            "Daily supervision + AIDE alerts to contact@zenora360.com",
+            "Anti lock-out runbook validated in the field",
+            "Know-how turned into the interactive linux-server-hardening script",
         ],
 
         metrics: {
-            "attaques_bloquées": "100+ tentatives/jour",
-            "uptime": "99.9%",
-            "monitoring": "Temps réel",
-            "updates": "Automatisées",
+            "Phases": "12 (guide complet)",
+            "OS": "Ubuntu 22.04 / 24.04",
+            "Contexte": "VPS production ZENORA",
+            "SSH": "Ed25519, no root, no password, AllowUsers",
+            "Couches FW": "UFW + iptables + CSF + CrowdSec",
+            "WAF": "Naxsi + Cloudflare (complément)",
+            "Intégrité": "AIDE → contact@zenora360.com",
+            "Suite": "linux-server-hardening (script)",
         },
 
         techStack: {
@@ -7395,261 +9131,908 @@ Recruiter message: I master event-driven distributed systems and industrialize t
             backend: [],
             database: [],
             devops: [
-                "Linux Ubuntu",
+                "Ubuntu 22.04/24.04",
+                "OpenSSH (Ed25519)",
+                "unattended-upgrades",
+                "Lynis",
+                "rkhunter",
+                "chkrootkit",
+                "AIDE",
+                "Docker (optionnel)",
+                "NTP",
+                "sysctl",
                 "UFW",
                 "iptables",
                 "Fail2Ban",
-                "CrowdSec",
+                "Nginx",
+                "Naxsi",
                 "CSF",
+                "CrowdSec",
                 "Cloudflare",
-                "Docker",
-                "sysctl",
-                "NTP",
-                "Monitoring Tools",
+                "logrotate",
+                "PAM",
+                "Bash (supervision)",
             ],
         },
 
         architecture: [
-            "Sécurité multi-couches (réseau + applicatif)",
-            "Pare-feu UFW + iptables + CSF",
-            "Protection anti-intrusion (Fail2Ban, CrowdSec)",
-            "CDN/WAF (Cloudflare)",
-            "Hardening système (sysctl)",
-            "Monitoring et logs centralisés",
+            "Edge Cloudflare (CDN/WAF) → Nginx (+ Naxsi) → apps / Docker optionnel",
+            "SSH forteresse : Ed25519, AllowUsers, port custom, root/password off",
+            "Pare-feu local empilé : UFW + iptables + CSF",
+            "Anti-abus : Fail2Ban + CrowdSec bouncers",
+            "Intégrité & audit : AIDE + Lynis/rkhunter/chkrootkit",
+            "Kernel : 99-security.conf ; patchs : unattended-upgrades",
+            "Ops : logrotate, monitoring, PAM, script supervision journalière",
         ],
 
         testing: [
-            "Tests de pénétration basiques",
-            "Simulation d’attaques brute force",
-            "Validation des règles firewall",
+            "Validation SSH : 2e session avant cutover (anti lock-out)",
+            "Scan ports / ban Fail2Ban et CrowdSec sur tentatives simulées",
+            "Vérification UFW/iptables/CSF : ports attendus uniquement",
+            "Contrôle headers Nginx, rate-limit et règles Naxsi",
+            "Run AIDE / Lynis et lecture des rapports mail",
+            "Rejeu du guide sur Ubuntu 22.04 et 24.04",
         ],
 
         images: [
             "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/images%20(2).jpeg",
         ],
-
         preview: "",
         videoDemo: "",
 
-        category: "Security • DevOps",
-        status: "Actif",
-        complexity: "Avancé",
-        role: "DevOps Engineer",
+        category: "Security • DevOps • Production Hardening",
+        status: "Production",
+        complexity: "Expert",
+        role: "DevSecOps / Sysadmin — mission ZENORA",
         teamSize: 1,
 
-        duration: "Projet continu",
-        date: "2026",
+        duration: "Mission + runbook continu",
+        date: "2025–2026",
 
-        github: "",
-        demo: "",
+        github: "https://github.com/barthez-kenwou/linux-server-hardening",
+        demo: "https://zenora360.com",
 
-        businessContextFr: "Projet de sécurisation d’infrastructure visant à protéger des serveurs exposés en production contre les menaces courantes et avancées.",
-        businessContextEn: "Infrastructure security project aimed at protecting production servers from common and advanced threats.",
+        businessContextFr: "ZENORA (zenora360.com) a besoin d'un VPS Ubuntu fiable et durci pour servir production. Cette mission livre la forteresse terrain et le guide 12 phases ; le dépôt linux-server-hardening industrialise ensuite ce savoir-faire.",
+        businessContextEn: "ZENORA (zenora360.com) needs a reliable, hardened Ubuntu VPS for production. This mission delivers the field fortress and 12-phase guide; the linux-server-hardening repo then industrializes that know-how.",
 
         confidential: false,
 
         responsibilitiesFr: [
-            "Hardening SSH (clés, no root, port custom)",
-            "Firewall UFW/iptables/CSF + Fail2Ban/CrowdSec",
-            "Sysctl, updates automatiques, monitoring basique",
-            "Cloudflare CDN/WAF en frontal",
+            "Audit initial du VPS et plan de durcissement ordonné",
+            "Exécution des 12 phases avec tests anti lock-out",
+            "Configuration SSH, FW, WAF, CrowdSec, AIDE, monitoring",
+            "Rédaction du runbook réutilisable 22.04/24.04",
+            "Liaison avec le produit script linux-server-hardening",
         ],
         responsibilitiesEn: [
-            "SSH hardening (keys, no root, custom port)",
-            "UFW/iptables/CSF firewall + Fail2Ban/CrowdSec",
-            "Sysctl, automatic updates, baseline monitoring",
-            "Cloudflare CDN/WAF in front",
+            "Initial VPS audit and ordered hardening plan",
+            "Execution of the 12 phases with anti lock-out tests",
+            "SSH, FW, WAF, CrowdSec, AIDE, monitoring configuration",
+            "Reusable 22.04/24.04 runbook authorship",
+            "Handoff into the linux-server-hardening script product",
         ],
 
         gallery: [
-            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/images%20(2).jpeg", captionFr: "Couches de hardening Linux", captionEn: "Linux hardening layers", kind: "infra" },
+            {
+                src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/images%20(2).jpeg",
+                captionFr: "Contexte hardening VPS Ubuntu ZENORA — forteresse multi-couches.",
+                captionEn: "ZENORA Ubuntu VPS hardening context — multi-layer fortress.", kind: "infra",
+            },
         ],
 
         diagrams: [
             {
-                id: "linux-hardening",
-                titleFr: "Couches de défense",
-                titleEn: "Defense layers",
+                id: "zenora-hardening-layers",
+                titleFr: "Couches de défense ZENORA",
+                titleEn: "ZENORA defense layers",
                 mermaid: `flowchart TB
-  Internet --> CF[Cloudflare WAF/CDN]
-  CF --> UFW[UFW / iptables / CSF]
-  UFW --> SSH[Hardened SSH]
-  UFW --> Services[App Services]
-  F2B[Fail2Ban / CrowdSec] --> UFW
-  Monitor[Monitoring] --> Services`,
+  Internet([Internet])
+  CF[Cloudflare CDN + WAF]
+  CSF[CSF]
+  UFW[UFW + iptables]
+  Nginx[Nginx + Naxsi + headers + rate-limit]
+  Apps[Apps / Docker optionnel]
+  SSH[SSH Ed25519 AllowUsers]
+  Crowd[CrowdSec + Fail2Ban]
+  Aide[AIDE + Lynis + rkhunter]
+  Internet --> CF
+  CF --> CSF
+  CSF --> UFW
+  UFW --> Nginx
+  Nginx --> Apps
+  Internet -.-> SSH
+  Crowd -.-> UFW
+  Aide -.-> Apps`,
+            },
+            {
+                id: "zenora-12-phases",
+                titleFr: "Pipeline des 12 phases",
+                titleEn: "12-phase pipeline",
+                mermaid: `flowchart LR
+  P1[1 SSH forteresse]
+  P2[2 unattended-upgrades]
+  P3[3 Lynis/rkhunter/AIDE]
+  P4[4 Docker optionnel]
+  P5[5 NTP]
+  P6[6 sysctl]
+  P7[7 UFW/iptables]
+  P8[8 Fail2Ban]
+  P9[9 Nginx/Naxsi]
+  P10[10 CSF]
+  P11[11 CrowdSec]
+  P12[12 Cloudflare + ops]
+  P1 --> P2 --> P3 --> P4 --> P5 --> P6
+  P6 --> P7 --> P8 --> P9 --> P10 --> P11 --> P12`,
+            },
+            {
+                id: "zenora-ssh-anti-lockout",
+                titleFr: "Protocole anti lock-out SSH",
+                titleEn: "SSH anti lock-out protocol",
+                mermaid: `sequenceDiagram
+  participant Op as Opérateur
+  participant S1 as Session SSH actuelle
+  participant S2 as Session SSH de test
+  participant Cfg as sshd_config
+  Op->>S1: Ouvre session A (filet de sécurité)
+  Op->>Cfg: Applique Ed25519 / port / AllowUsers
+  Op->>S2: Ouvre session B (validation)
+  S2-->>Op: OK authentifié
+  Op->>Cfg: Reload sshd
+  Op->>S1: Ferme session A seulement après OK
+  Note over Op,Cfg: Jamais couper A avant preuve B`,
+            },
+            {
+                id: "zenora-to-script",
+                titleFr: "De la mission ZENORA au script",
+                titleEn: "From ZENORA mission to script",
+                mermaid: `flowchart LR
+  Mission[Mission VPS ZENORA]
+  Guide[Guide 12 phases]
+  Script[linux-server-hardening]
+  Labs[Labs + VPS amis]
+  Next[Prochaines missions]
+  Mission --> Guide
+  Guide --> Script
+  Script --> Labs
+  Labs --> Next`,
             },
         ],
 
         resources: [
-            { labelFr: "Guide hardening (blog)", labelEn: "Hardening guide (blog)", url: "https://barthez-kenwou.dev/blog", type: "case-study" },
+            {
+                labelFr: "Site ZENORA (cible production)",
+                labelEn: "ZENORA site (production target)",
+                url: "https://zenora360.com",
+                type: "other",
+            },
+            {
+                labelFr: "linux-server-hardening — né de cette mission",
+                labelEn: "linux-server-hardening — born from this mission",
+                url: "https://github.com/barthez-kenwou/linux-server-hardening",
+                type: "other",
+            },
         ],
 
         milestones: [
-            { labelFr: "SSH & accès", labelEn: "SSH & access", date: "Phase 1" },
-            { labelFr: "Firewall & intrusion", labelEn: "Firewall & intrusion", date: "Phase 2" },
-            { labelFr: "Cloudflare + monitoring", labelEn: "Cloudflare + monitoring", date: "Phase 3" },
+            {
+                labelFr: "Audit VPS + plan 12 phases",
+                labelEn: "VPS audit + 12-phase plan",
+                date: "2025",
+                descriptionFr: "Cartographie exposition, inventaire services, ordre de durcissement.",
+                descriptionEn: "Exposure mapping, service inventory, hardening order.",
+            },
+            {
+                labelFr: "SSH forteresse + patchs + intégrité",
+                labelEn: "SSH fortress + patches + integrity",
+                date: "2025",
+                descriptionFr: "Ed25519, unattended-upgrades, Lynis/rkhunter/AIDE + mail.",
+                descriptionEn: "Ed25519, unattended-upgrades, Lynis/rkhunter/AIDE + mail.",
+            },
+            {
+                labelFr: "FW + CrowdSec + Nginx/Naxsi + Cloudflare",
+                labelEn: "FW + CrowdSec + Nginx/Naxsi + Cloudflare",
+                date: "2025–2026",
+                descriptionFr: "Couches réseau/applicatives empilées sans lock-out.",
+                descriptionEn: "Stacked network/app layers without lock-out.",
+            },
+            {
+                labelFr: "Runbook final + industrialisation script",
+                labelEn: "Final runbook + script industrialization",
+                date: "2026",
+                descriptionFr: "Guide rejouable et naissance de linux-server-hardening.",
+                descriptionEn: "Replayable guide and birth of linux-server-hardening.",
+            },
         ],
 
-        scopeFr: ["Hardening Ubuntu production", "Firewall multi-couches", "Détection intrusion", "CDN/WAF Cloudflare"],
-        scopeEn: ["Ubuntu production hardening", "Multi-layer firewall", "Intrusion detection", "Cloudflare CDN/WAF"],
-        nonGoalsFr: ["SOC managé externe", "Remplacement complet de l'OS"],
-        nonGoalsEn: ["External managed SOC", "Full OS replacement"],
+        scopeFr: [
+            "Hardening Ubuntu 22.04/24.04 sur VPS ZENORA",
+            "12 phases documentées et testées",
+            "SSH, patchs, intégrité, FW, WAF, CrowdSec, Cloudflare, ops",
+            "Runbook anti lock-out et supervision quotidienne",
+        ],
+        scopeEn: [
+            "Ubuntu 22.04/24.04 hardening on ZENORA VPS",
+            "12 documented and tested phases",
+            "SSH, patches, integrity, FW, WAF, CrowdSec, Cloudflare, ops",
+            "Anti lock-out runbook and daily supervision",
+        ],
+        nonGoalsFr: [
+            "Pas de remplacement du WAF Cloudflare par le seul WAF local",
+            "Pas de Kubernetes / mesh dans cette mission",
+            "Pas de métriques vanity inventées (uptime marketing, % magiques)",
+            "Pas d'automatisation totale — celle-ci vit dans le projet script id 24",
+        ],
+        nonGoalsEn: [
+            "Not replacing Cloudflare WAF with local WAF alone",
+            "No Kubernetes / mesh in this mission",
+            "No invented vanity metrics (marketing uptime, magic %)",
+            "Not full automation — that lives in the script project id 24",
+        ],
 
         decisions: [
             {
-                titleFr: "Défense en profondeur",
-                titleEn: "Defense in depth",
-                decisionFr: "Couches réseau + SSH + runtime + CDN.",
-                decisionEn: "Network + SSH + runtime + CDN layers.",
-                rationaleFr: "Aucun contrôle unique n'est suffisant face aux scans automatisés.",
-                rationaleEn: "No single control is enough against automated scans.",
+                titleFr: "Cloudflare en complément, jamais en remplacement",
+                titleEn: "Cloudflare as complement, never as replacement",
+                decisionFr: "Garder UFW/iptables/CSF actifs derrière Cloudflare.",
+                decisionEn: "Keep UFW/iptables/CSF active behind Cloudflare.",
+                rationaleFr: "Si le edge est contourné ou mal configuré, le VPS reste défendu.",
+                rationaleEn: "If the edge is bypassed or misconfigured, the VPS stays defended.",
             },
             {
-                titleFr: "CrowdSec + Fail2Ban",
-                titleEn: "CrowdSec + Fail2Ban",
-                decisionFr: "Protection locale + intelligence collaborative.",
-                decisionEn: "Local protection + collaborative intelligence.",
-                rationaleFr: "Meilleure couverture des botnets et récidives.",
-                rationaleEn: "Better coverage of botnets and repeat offenders.",
+                titleFr: "SSH Ed25519 + AllowUsers avant tout le reste",
+                titleEn: "SSH Ed25519 + AllowUsers before everything else",
+                decisionFr: "Phase 1 verrouille l'accès opérateur avec protocole anti lock-out.",
+                decisionEn: "Phase 1 locks operator access with anti lock-out protocol.",
+                rationaleFr: "Sans accès sûr, aucun durcissement n'est tenable en production.",
+                rationaleEn: "Without safe access, no hardening is sustainable in production.",
+            },
+            {
+                titleFr: "AIDE mail vers contact@zenora360.com",
+                titleEn: "AIDE mail to contact@zenora360.com",
+                decisionFr: "Rapports d'intégrité routés vers la boîte ops ZENORA.",
+                decisionEn: "Integrity reports routed to the ZENORA ops mailbox.",
+                rationaleFr: "L'intégrité fichier ne vaut que si quelqu'un lit et agit.",
+                rationaleEn: "File integrity only matters if someone reads and acts.",
+            },
+            {
+                titleFr: "Industrialiser ensuite via script interactif",
+                titleEn: "Industrialize later via interactive script",
+                decisionFr: "Mission manuelle d'abord, produit script ensuite (id 24).",
+                decisionEn: "Manual mission first, script product next (id 24).",
+                rationaleFr: "Le golden path doit être prouvé sur un vrai VPS avant d'être automatisé.",
+                rationaleEn: "The golden path must be proven on a real VPS before automation.",
             },
         ],
 
-        securityFr: ["SSH keys only / no root", "Default DENY firewall", "Fail2Ban + CrowdSec", "Cloudflare devant l'origine"],
-        securityEn: ["SSH keys only / no root", "Default DENY firewall", "Fail2Ban + CrowdSec", "Cloudflare in front of origin"],
-        infraFr: ["Ubuntu LTS", "UFW/iptables/CSF", "Docker-ready host", "Monitoring basique"],
-        infraEn: ["Ubuntu LTS", "UFW/iptables/CSF", "Docker-ready host", "Baseline monitoring"],
+        securityFr: [
+            "SSH : Ed25519, no root, no password, port custom, AllowUsers",
+            "Patchs automatiques unattended-upgrades",
+            "Lynis / rkhunter / chkrootkit / AIDE",
+            "sysctl 99-security.conf",
+            "UFW + iptables + CSF + Fail2Ban + CrowdSec",
+            "Nginx headers, rate-limit, Naxsi",
+            "Cloudflare edge ; PAM ; logrotate ; supervision quotidienne",
+        ],
+        securityEn: [
+            "SSH: Ed25519, no root, no password, custom port, AllowUsers",
+            "Automatic patches via unattended-upgrades",
+            "Lynis / rkhunter / chkrootkit / AIDE",
+            "sysctl 99-security.conf",
+            "UFW + iptables + CSF + Fail2Ban + CrowdSec",
+            "Nginx headers, rate-limit, Naxsi",
+            "Cloudflare edge; PAM; logrotate; daily supervision",
+        ],
+        infraFr: [
+            "VPS Ubuntu 22.04 / 24.04 ZENORA",
+            "Nginx reverse proxy + apps / Docker optionnel",
+            "NTP, logrotate, monitoring, scripts Bash ops",
+            "Mail AIDE → contact@zenora360.com",
+        ],
+        infraEn: [
+            "ZENORA Ubuntu 22.04 / 24.04 VPS",
+            "Nginx reverse proxy + apps / optional Docker",
+            "NTP, logrotate, monitoring, Bash ops scripts",
+            "AIDE mail → contact@zenora360.com",
+        ],
 
         externalLinks: [
-            { labelFr: "Blog sécurité", labelEn: "Security blog", url: "https://barthez-kenwou.dev/blog" },
+            {
+                labelFr: "ZENORA",
+                labelEn: "ZENORA",
+                url: "https://zenora360.com",
+            },
+            {
+                labelFr: "Script linux-server-hardening (né de cette mission)",
+                labelEn: "linux-server-hardening script (born from this mission)",
+                url: "https://github.com/barthez-kenwou/linux-server-hardening",
+            },
         ],
 
         testimonial: {
-            quoteFr: "Le serveur n'est plus une cible facile - et les procédures restent maintenables.",
-            quoteEn: "The server is no longer an easy target - and procedures stay maintainable.",
-            author: "Infra Peer",
-            roleFr: "Admin système",
-            roleEn: "System admin",
-            company: "Ops circle",
+            quoteFr: "Le VPS ZENORA n'est plus un serveur « installé vite fait » : c'est une forteresse documentée, rejouable, et la base d'un script que je réutilise pour les prochaines missions.",
+            quoteEn: "The ZENORA VPS is no longer a “quick install” server: it is a documented, replayable fortress, and the foundation of a script I reuse for the next missions.",
+            author: "Barthez Kenwou",
+            roleFr: "DevSecOps — mission ZENORA",
+            roleEn: "DevSecOps — ZENORA mission",
+            company: "ZENORA / Portfolio",
         },
 
         lessonsFr: [
-            "Hardening sans runbook = dette opérationnelle.",
-            "Cloudflare ne remplace pas le firewall local.",
-            "Tester la restauration SSH hors bande avant de couper le password login.",
+            "Toujours valider une 2e session SSH avant de recharger sshd",
+            "Cloudflare n'absout pas un pare-feu local négligé",
+            "L'ordre des phases évite les conflits UFW/CSF/CrowdSec",
+            "AIDE sans lecteur humain = bruit ; le mail ops est obligatoire",
+            "Le terrain ZENORA justifie l'automatisation — pas l'inverse",
         ],
         lessonsEn: [
-            "Hardening without a runbook is operational debt.",
-            "Cloudflare does not replace a local firewall.",
-            "Test out-of-band SSH recovery before disabling password login.",
+            "Always validate a 2nd SSH session before reloading sshd",
+            "Cloudflare does not forgive a neglected local firewall",
+            "Phase order prevents UFW/CSF/CrowdSec conflicts",
+            "AIDE without a human reader is noise; ops mail is mandatory",
+            "ZENORA field work justifies automation — not the other way around",
         ],
 
         beforeAfter: [
             {
                 beforeSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/images%20(2).jpeg",
                 afterSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/images%20(2).jpeg",
-                captionFr: "D'un serveur exposé 'par défaut' à une forteresse maintenable.",
-                captionEn: "From a default-exposed server to a maintainable fortress.",
+                captionFr: "Avant : VPS exposé / checklist partielle. Après : forteresse 12 phases + runbook ZENORA.",
+                captionEn: "Before: exposed VPS / partial checklist. After: 12-phase fortress + ZENORA runbook.",
             },
         ],
 
-        isFeatured: false,
+        isFeatured: true,
+    },
+
+    {
+        id: 24,
+        titleFr: "linux-server-hardening — Script Interactif Ubuntu (Golden Path Sécurité)",
+        titleEn: "linux-server-hardening — Interactive Ubuntu Script (Security Golden Path)",
+
+        descriptionFr: "Produit script issu du hardening VPS ZENORA : assistant interactif Ubuntu qui interroge users, Docker, Nginx, CSF, CrowdSec, monitoring — puis automatise le golden path. Validé labs, local, 2 amis sur VPS réels.",
+        descriptionEn: "Script product born from ZENORA VPS hardening: interactive Ubuntu assistant that prompts for users, Docker, Nginx, CSF, CrowdSec, monitoring — then automates the golden path. Validated in labs, locally, and with 2 friends on real VPS.",
+
+        fullDescriptionFr: `Après avoir durci le VPS production ZENORA à la main, j'ai refusé de recommencer à zéro à chaque mission. linux-server-hardening est le produit : un script interactif Ubuntu qui industrialise le même golden path — sans prétendre remplacer le jugement d'un opérateur.
+
+Le flow est volontairement conversationnel. Combien d'utilisateurs SSH ? Quels comptes, quelles clés ? Docker ou non ? Nginx à durcir ? CSF ? CrowdSec et ses bouncers ? Monitoring et supervision quotidienne ? Selon les réponses, le script enchaîne les phases éprouvées : forteresse SSH, unattended-upgrades, scanners et AIDE, sysctl, UFW/iptables, Fail2Ban, couches optionnelles Nginx/CSF/CrowdSec, logrotate et routines ops.
+
+Ce n'est pas un « one-liner magique ». C'est un accélérateur discipliné, né d'une preuve terrain (projet Hardening VPS Ubuntu ZENORA). Je l'ai validé en labs, en local, et avec deux amis sur de vrais VPS — assez pour faire confiance au parcours, assez humble pour garder des prompts et des checkpoints. Le dépôt GitHub porte le produit ; la mission ZENORA reste l'origine et la référence.
+
+Message recruteur : je ne vends pas seulement une checklist PDF. Je vends un golden path que j'ai souffert sur un serveur réel, puis transformé en outil prêt pour les prochaines missions clients.`,
+        fullDescriptionEn: `After hardening the ZENORA production VPS by hand, I refused to start from scratch on every mission. linux-server-hardening is the product: an interactive Ubuntu script that industrializes the same golden path — without pretending to replace an operator's judgment.
+
+The flow is intentionally conversational. How many SSH users? Which accounts, which keys? Docker or not? Harden Nginx? CSF? CrowdSec and bouncers? Monitoring and daily supervision? Based on the answers, the script chains the proven phases: SSH fortress, unattended-upgrades, scanners and AIDE, sysctl, UFW/iptables, Fail2Ban, optional Nginx/CSF/CrowdSec layers, logrotate and ops routines.
+
+This is not a “magic one-liner”. It is a disciplined accelerator, born from field proof (the ZENORA Ubuntu VPS Hardening project). I validated it in labs, locally, and with two friends on real VPS boxes — enough to trust the path, humble enough to keep prompts and checkpoints. The GitHub repo carries the product; the ZENORA mission remains the origin and the reference.
+
+Recruiter message: I do not only sell a PDF checklist. I sell a golden path I earned on a real server, then turned into a tool ready for the next client missions.`,
+
+        problemFr: "Rejouer manuellement le hardening ZENORA à chaque VPS est lent, sujet à oubli d'étapes, et difficile à transmettre. Il fallait un produit interactif qui encode le golden path sans lock-out ni fausse magie.",
+        problemEn: "Replaying ZENORA hardening manually on every VPS is slow, forgetful, and hard to hand off. We needed an interactive product that encodes the golden path without lock-out or fake magic.",
+
+        solutionFr: [
+            "Script bash interactif : prompts users / Docker / Nginx / CSF / CrowdSec / monitoring",
+            "Automatisation ordonnée des phases du guide ZENORA",
+            "Checkpoints SSH et confirmation avant actions destructives",
+            "Couches optionnelles activées seulement si demandées",
+            "Validation : labs, machine locale, 2 amis sur VPS réels",
+            "Lien explicite vers la mission ZENORA comme origine",
+            "Dépôt GitHub prêt pour les prochaines missions",
+        ],
+        solutionEn: [
+            "Interactive bash script: prompts users / Docker / Nginx / CSF / CrowdSec / monitoring",
+            "Ordered automation of ZENORA guide phases",
+            "SSH checkpoints and confirmation before destructive actions",
+            "Optional layers enabled only when requested",
+            "Validation: labs, local machine, 2 friends on real VPS",
+            "Explicit link to the ZENORA mission as origin",
+            "GitHub repo ready for upcoming missions",
+        ],
+
+        challengesFr: [
+            "Garder le script sûr : ne jamais couper SSH sans validation",
+            "Paramétrer Docker/Nginx/CSF/CrowdSec sans tout imposer",
+            "Rester lisible pour un opérateur non expert",
+            "Éviter le piège « tout automatiser » qui casse la prod",
+            "Aligner le produit sur le runbook réel ZENORA (pas l'inverse)",
+        ],
+        challengesEn: [
+            "Keep the script safe: never cut SSH without validation",
+            "Parameterize Docker/Nginx/CSF/CrowdSec without forcing everything",
+            "Stay readable for a non-expert operator",
+            "Avoid the “automate everything” trap that breaks prod",
+            "Align the product on the real ZENORA runbook (not the reverse)",
+        ],
+
+        impactFr: [
+            "Golden path ZENORA rejouable en mode assisté",
+            "Temps de mise en place réduit sur labs et VPS amis",
+            "Moins d'oublis de phases critiques (SSH, FW, AIDE)",
+            "Produit prêt à enchaîner sur les prochaines missions",
+            "Preuve que le savoir-faire terrain devient un actif logiciel",
+        ],
+        impactEn: [
+            "ZENORA golden path replayable in assisted mode",
+            "Setup time reduced on labs and friends' VPS",
+            "Fewer missed critical phases (SSH, FW, AIDE)",
+            "Product ready to chain into upcoming missions",
+            "Proof that field know-how becomes a software asset",
+        ],
+
+        metrics: {
+            "Origine": "Mission hardening VPS ZENORA (id 10)",
+            "OS cible": "Ubuntu 22.04 / 24.04",
+            "Mode": "Script interactif (prompts)",
+            "Validation": "Labs + local + 2 VPS amis",
+            "Couches optionnelles": "Docker, Nginx, CSF, CrowdSec, monitoring",
+            "Statut": "Actif — prêt missions suivantes",
+        },
+
+        techStack: {
+            frontend: [],
+            backend: [],
+            database: [],
+            devops: [
+                "Bash",
+                "Ubuntu 22.04/24.04",
+                "OpenSSH",
+                "unattended-upgrades",
+                "AIDE",
+                "Lynis",
+                "UFW",
+                "iptables",
+                "Fail2Ban",
+                "Nginx (optionnel)",
+                "CSF (optionnel)",
+                "CrowdSec (optionnel)",
+                "Docker (optionnel)",
+                "sysctl",
+                "logrotate",
+            ],
+        },
+
+        architecture: [
+            "CLI interactive → collecte paramètres → exécution phases ordonnées",
+            "Modules optionnels : Docker, Nginx, CSF, CrowdSec, monitoring",
+            "Socle commun : SSH, patchs, sysctl, UFW/iptables, Fail2Ban, AIDE",
+            "Garde-fous : confirmations, tests SSH, logs d'exécution",
+            "Traçabilité produit : GitHub + référence mission ZENORA",
+        ],
+
+        testing: [
+            "Exécution labs (VM Ubuntu propres)",
+            "Tests locaux sur environnement de développement",
+            "Validation par 2 amis sur VPS réels",
+            "Scénarios avec/sans Docker, Nginx, CSF, CrowdSec",
+            "Vérification anti lock-out après phase SSH",
+        ],
+
+        images: [
+            "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+        ],
+        preview: "",
+        videoDemo: "",
+
+        category: "Security • DevOps • Automation",
+        status: "Actif",
+        complexity: "Expert",
+        role: "Auteur produit / DevSecOps",
+        teamSize: 1,
+
+        duration: "Produit vivant",
+        date: "2026",
+
+        github: "https://github.com/barthez-kenwou/linux-server-hardening",
+        demo: "",
+
+        businessContextFr: "Industrialiser le savoir-faire ZENORA pour accélérer les prochaines missions de durcissement Ubuntu, tout en gardant un opérateur dans la boucle via des prompts.",
+        businessContextEn: "Industrialize ZENORA know-how to accelerate upcoming Ubuntu hardening missions, while keeping an operator in the loop via prompts.",
+
+        confidential: false,
+
+        responsibilitiesFr: [
+            "Conception du flow interactif et des modules optionnels",
+            "Encodage du golden path issu de la mission ZENORA",
+            "Garde-fous SSH et confirmations critiques",
+            "Campagne de validation labs / local / 2 VPS amis",
+            "Maintenance du dépôt GitHub pour missions futures",
+        ],
+        responsibilitiesEn: [
+            "Interactive flow and optional module design",
+            "Encoding the golden path from the ZENORA mission",
+            "SSH guardrails and critical confirmations",
+            "Validation campaign: labs / local / 2 friends' VPS",
+            "GitHub repo maintenance for future missions",
+        ],
+
+        gallery: [
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                captionFr: "Placeholder — captures CLI / runs à venir.",
+                captionEn: "Placeholder — CLI / run captures to come.", kind: "wip",
+            },
+        ],
+
+        diagrams: [
+            {
+                id: "lsh-interactive-flow",
+                titleFr: "Flow interactif du script",
+                titleEn: "Script interactive flow",
+                mermaid: `flowchart TD
+  Start([Démarrage script])
+  Users[Prompts utilisateurs SSH]
+  Opt{Options}
+  Docker[Docker?]
+  Nginx[Nginx?]
+  CSF[CSF?]
+  Crowd[CrowdSec?]
+  Mon[Monitoring?]
+  Run[Exécution phases ordonnées]
+  Done([VPS durci])
+  Start --> Users --> Opt
+  Opt --> Docker
+  Opt --> Nginx
+  Opt --> CSF
+  Opt --> Crowd
+  Opt --> Mon
+  Docker --> Run
+  Nginx --> Run
+  CSF --> Run
+  Crowd --> Run
+  Mon --> Run
+  Run --> Done`,
+            },
+            {
+                id: "lsh-origin-zenora",
+                titleFr: "Origine ZENORA → produit script",
+                titleEn: "ZENORA origin → script product",
+                mermaid: `flowchart LR
+  Z[Hardening VPS ZENORA id 10]
+  G[Guide 12 phases]
+  S[linux-server-hardening id 24]
+  V[Labs + local + 2 VPS amis]
+  M[Prochaines missions]
+  Z --> G --> S --> V --> M`,
+            },
+            {
+                id: "lsh-modules",
+                titleFr: "Socle vs modules optionnels",
+                titleEn: "Core vs optional modules",
+                mermaid: `flowchart TB
+  Core[Socle: SSH + patchs + sysctl + UFW + Fail2Ban + AIDE]
+  M1[Module Docker]
+  M2[Module Nginx]
+  M3[Module CSF]
+  M4[Module CrowdSec]
+  M5[Module monitoring]
+  Core --> M1
+  Core --> M2
+  Core --> M3
+  Core --> M4
+  Core --> M5`,
+            },
+            {
+                id: "lsh-validation",
+                titleFr: "Boucle de validation",
+                titleEn: "Validation loop",
+                mermaid: `sequenceDiagram
+  participant Dev as Barthez
+  participant Lab as Labs Ubuntu
+  participant Loc as Local
+  participant F as 2 amis VPS
+  Dev->>Lab: Run script scénarios
+  Lab-->>Dev: Feedback phases
+  Dev->>Loc: Rejeu local
+  Dev->>F: Validation VPS réels
+  F-->>Dev: OK / ajustements
+  Dev->>Dev: Prêt missions suivantes`,
+            },
+        ],
+
+        resources: [
+            {
+                labelFr: "Dépôt linux-server-hardening",
+                labelEn: "linux-server-hardening repository",
+                url: "https://github.com/barthez-kenwou/linux-server-hardening",
+                type: "other",
+            },
+            {
+                labelFr: "Origine — Hardening VPS ZENORA",
+                labelEn: "Origin — ZENORA VPS Hardening",
+                url: "https://zenora360.com",
+                type: "other",
+            },
+        ],
+
+        milestones: [
+            {
+                labelFr: "Extraction du golden path ZENORA",
+                labelEn: "Extract ZENORA golden path",
+                date: "2026",
+                descriptionFr: "Transformer le runbook 12 phases en modules scriptables.",
+                descriptionEn: "Turn the 12-phase runbook into scriptable modules.",
+            },
+            {
+                labelFr: "CLI interactive + options",
+                labelEn: "Interactive CLI + options",
+                date: "2026",
+                descriptionFr: "Prompts users, Docker, Nginx, CSF, CrowdSec, monitoring.",
+                descriptionEn: "Prompts for users, Docker, Nginx, CSF, CrowdSec, monitoring.",
+            },
+            {
+                labelFr: "Validation labs / local / 2 VPS",
+                labelEn: "Labs / local / 2 VPS validation",
+                date: "2026",
+                descriptionFr: "Preuve hors ZENORA avant missions clients.",
+                descriptionEn: "Proof beyond ZENORA before client missions.",
+            },
+            {
+                labelFr: "Prêt prochaines missions",
+                labelEn: "Ready for next missions",
+                date: "2026",
+                descriptionFr: "Produit Actif, featured, réutilisable.",
+                descriptionEn: "Active featured product, reusable.",
+            },
+        ],
+
+        scopeFr: [
+            "Script interactif Ubuntu 22.04/24.04",
+            "Automatisation assistée du golden path ZENORA",
+            "Modules optionnels Docker/Nginx/CSF/CrowdSec/monitoring",
+            "Validation labs, local, 2 VPS amis",
+        ],
+        scopeEn: [
+            "Interactive Ubuntu 22.04/24.04 script",
+            "Assisted automation of the ZENORA golden path",
+            "Optional Docker/Nginx/CSF/CrowdSec/monitoring modules",
+            "Labs, local, 2 friends' VPS validation",
+        ],
+        nonGoalsFr: [
+            "Pas un remplacement du jugement humain sur prod critique",
+            "Pas de couverture Windows / non-Ubuntu",
+            "Pas de métriques vanity inventées",
+            "Pas de dissociation d'avec la mission ZENORA d'origine",
+        ],
+        nonGoalsEn: [
+            "Not a replacement for human judgment on critical prod",
+            "No Windows / non-Ubuntu coverage",
+            "No invented vanity metrics",
+            "No decoupling from the originating ZENORA mission",
+        ],
+
+        decisions: [
+            {
+                titleFr: "Interactif plutôt que full silent",
+                titleEn: "Interactive rather than fully silent",
+                decisionFr: "Prompts obligatoires pour users et couches optionnelles.",
+                decisionEn: "Mandatory prompts for users and optional layers.",
+                rationaleFr: "Un silent install trop agressif lock-out ou sur-durcit hors besoin.",
+                rationaleEn: "An aggressive silent install lock-outs or over-hardens beyond need.",
+            },
+            {
+                titleFr: "Modules optionnels, socle obligatoire",
+                titleEn: "Optional modules, mandatory core",
+                decisionFr: "SSH/patchs/FW de base toujours ; Nginx/CSF/CrowdSec sur demande.",
+                decisionEn: "SSH/patches/base FW always; Nginx/CSF/CrowdSec on demand.",
+                rationaleFr: "Le VPS web ZENORA n'est pas le même profil qu'un bastion minimal.",
+                rationaleEn: "A ZENORA web VPS is not the same profile as a minimal bastion.",
+            },
+            {
+                titleFr: "Validation humaine externe",
+                titleEn: "External human validation",
+                decisionFr: "Labs + local + 2 amis sur VPS réels avant de le vendre en mission.",
+                decisionEn: "Labs + local + 2 friends on real VPS before selling it on missions.",
+                rationaleFr: "Un script non battu hors de ma machine n'est pas un produit.",
+                rationaleEn: "A script untested outside my machine is not a product.",
+            },
+            {
+                titleFr: "Cross-link mission ZENORA",
+                titleEn: "Cross-link ZENORA mission",
+                decisionFr: "Le portfolio pointe id 10 comme origine et id 24 comme industrialisation.",
+                decisionEn: "The portfolio points id 10 as origin and id 24 as industrialization.",
+                rationaleFr: "La crédibilité vient du terrain, pas du README seul.",
+                rationaleEn: "Credibility comes from the field, not from the README alone.",
+            },
+        ],
+
+        securityFr: [
+            "Même socle que la mission ZENORA : SSH durci, patchs, AIDE, FW",
+            "Confirmations avant reload sshd / règles FW agressives",
+            "CrowdSec/CSF/Nginx seulement si explicitement choisis",
+            "Pas d'exécution silencieuse des phases critiques",
+        ],
+        securityEn: [
+            "Same core as ZENORA mission: hardened SSH, patches, AIDE, FW",
+            "Confirmations before sshd reload / aggressive FW rules",
+            "CrowdSec/CSF/Nginx only when explicitly chosen",
+            "No silent execution of critical phases",
+        ],
+        infraFr: [
+            "Cible : VPS / VM Ubuntu 22.04 ou 24.04",
+            "Exécution : shell interactif, droits root/sudo",
+            "Artefacts : logs d'exécution, configs générées selon prompts",
+            "Distribution : dépôt GitHub linux-server-hardening",
+        ],
+        infraEn: [
+            "Target: Ubuntu 22.04 or 24.04 VPS / VM",
+            "Execution: interactive shell, root/sudo",
+            "Artifacts: run logs, configs generated from prompts",
+            "Distribution: linux-server-hardening GitHub repo",
+        ],
+
+        externalLinks: [
+            {
+                labelFr: "GitHub linux-server-hardening",
+                labelEn: "linux-server-hardening GitHub",
+                url: "https://github.com/barthez-kenwou/linux-server-hardening",
+            },
+            {
+                labelFr: "ZENORA — contexte d'origine",
+                labelEn: "ZENORA — origin context",
+                url: "https://zenora360.com",
+            },
+        ],
+
+        testimonial: {
+            quoteFr: "Le script n'existe que parce que le VPS ZENORA a d'abord été durci à la main. Maintenant je peux rejouer le golden path avec des prompts — labs, local, deux VPS amis — et enchaîner les missions.",
+            quoteEn: "The script exists only because the ZENORA VPS was hardened by hand first. Now I can replay the golden path with prompts — labs, local, two friends' VPS — and chain the next missions.",
+            author: "Barthez Kenwou",
+            roleFr: "Auteur — linux-server-hardening",
+            roleEn: "Author — linux-server-hardening",
+            company: "Portfolio",
+        },
+
+        lessonsFr: [
+            "Automatiser après la preuve terrain, pas avant",
+            "Les prompts protègent mieux que les defaults agressifs",
+            "Deux VPS amis valent mieux qu'une démo locale seule",
+            "Le cross-link ZENORA vend la crédibilité du produit",
+        ],
+        lessonsEn: [
+            "Automate after field proof, not before",
+            "Prompts protect better than aggressive defaults",
+            "Two friends' VPS beat a local demo alone",
+            "The ZENORA cross-link sells the product's credibility",
+        ],
+
+        beforeAfter: [
+            {
+                beforeSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                afterSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                captionFr: "Avant : runbook manuel seul. Après : script interactif prêt missions.",
+                captionEn: "Before: manual runbook alone. After: interactive script mission-ready.",
+            },
+        ],
+
+        isFeatured: true,
     },
 
     {
         id: 11,
-        titleFr: "Plateforme de Gestion Intelligente de Files d’Attente",
-        titleEn: "Smart Queue Management Platform",
+        titleFr: "Plateforme Multi-Tenant de Files d’Attente Intelligentes",
+        titleEn: "Multi-Tenant Smart Queue Management Platform",
 
-        descriptionFr: "Application web permettant aux organisations de gérer plusieurs files d’attente avec estimation intelligente du temps d’attente et optimisation du flux utilisateur.",
-        descriptionEn: "Web application enabling organizations to manage multiple queues with intelligent wait-time estimation and optimized user flow.",
+        descriptionFr: "SaaS opérationnel pour organisations accueillant du public : inscription → espace sécurisé → création de files → invitations staff → suivi live et estimation d’attente. React + FastAPI, équipe Scrum de 5.",
+        descriptionEn: "Operational SaaS for public-facing organizations: signup → secure workspace → queue creation → staff invites → live tracking and wait-time estimation. React + FastAPI, Scrum team of 5.",
 
-        fullDescriptionFr: "Conception et développement d’une plateforme de gestion intelligente de files d’attente destinée aux structures accueillant du public (services, administrations, entreprises). Le système permet à chaque organisation de créer et gérer plusieurs files d’attente depuis un espace sécurisé, avec suivi en temps réel des utilisateurs et estimation dynamique du temps d’attente basée sur la durée moyenne de traitement. Le projet a été réalisé en équipe agile (Scrum), avec coordination des sprints, gestion des tâches via Trello et pilotage technique. L’architecture repose sur un frontend React et un backend Python FastAPI performant, permettant une gestion fluide et scalable des requêtes. L’objectif principal était d’optimiser l’expérience utilisateur, réduire les temps d’attente perçus et améliorer l’organisation des services.",
-        fullDescriptionEn: "Designed and developed a smart queue management platform for organizations handling public services (administrations, service centers, companies). The system allows each organization to create and manage multiple queues within a secure workspace, with real-time tracking and dynamic wait-time estimation based on average service duration. The project was built in an Agile (Scrum) environment, including sprint coordination, task management via Trello, and technical leadership. The architecture relies on a React frontend and a high-performance Python FastAPI backend, ensuring smooth and scalable request handling. The main goal was to optimize user experience, reduce perceived waiting times, and improve service organization.",
+        fullDescriptionFr: `Une organisation n'arrive pas « sur une page marketing » : elle entre dans un produit. Elle s'inscrit, ouvre son espace tenant, configure ses services, crée autant de files qu'elle a de guichets ou de parcours, invite son équipe, puis gère le flux du jour — tickets, positions, appels au guichet, estimation d'attente basée sur la durée moyenne réelle, et supervision en direct.
 
-        problemFr: "Les structures gérant des flux de clients souffrent souvent d’une mauvaise organisation des files d’attente, entraînant frustration, perte de temps et inefficacité opérationnelle.",
-        problemEn: "Organizations managing customer flow often face poor queue organization, leading to frustration, wasted time, and operational inefficiency.",
+J'ai piloté ce MVP en double casquette Scrum Master + lead technique dans une équipe de 5 (React / FastAPI / PostgreSQL). Le cœur métier n'est pas un compteur cosmétique : c'est l'isolation multi-tenant, le cycle de vie d'une file (ouvrir, pauser, fermer), l'expérience usager qui voit où il en est, et l'expérience opérateur qui appelle le suivant sans chaos. Estimation dynamique recalculée sur l'historique de traitement, mises à jour temps réel côté client, UI pensée pour le stress du hall d'accueil — pas pour une démo PowerPoint.
+
+Le résultat : un produit crédible pour digitaliser l'attente dans administrations, cliniques, services clients et entreprises — avec une architecture prête à grandir sans devoir tout casser quand le deuxième tenant arrive.`,
+        fullDescriptionEn: `An organization does not land on a brochure page: it enters a product. It signs up, opens its tenant workspace, configures its services, creates as many queues as it has counters or journeys, invites its staff, then runs the day's flow — tickets, positions, counter calls, wait-time estimation based on real average handling time, and live supervision.
+
+I led this MVP as Scrum Master + tech lead in a team of 5 (React / FastAPI / PostgreSQL). The business core is not a cosmetic counter: it is multi-tenant isolation, queue lifecycle (open, pause, close), the visitor experience of knowing where they stand, and the operator experience of calling the next person without chaos. Dynamic estimation recalculated from handling history, realtime client updates, UI designed for lobby stress — not a PowerPoint demo.
+
+The outcome: a credible product to digitize waiting in administrations, clinics, service desks and companies — with an architecture ready to grow without a rewrite when the second tenant arrives.`,
+
+        problemFr: "Sans outil dédié, les files restent orales, papier ou WhatsApp : perte d'équité, stress, zéro visibilité pour le manager, et aucune estimation honnête du temps d'attente.",
+        problemEn: "Without a dedicated tool, queues stay oral, paper or WhatsApp: unfairness, stress, zero manager visibility, and no honest wait-time estimate.",
 
         solutionFr: [
-            "Système multi-tenant permettant à chaque structure de gérer ses propres files",
-            "Création et gestion de multiples files d’attente par service",
-            "Estimation intelligente du temps d’attente basée sur des données réelles",
-            "Suivi en temps réel des utilisateurs dans la file",
-            "Interface utilisateur intuitive pour gestion et supervision",
-            "Architecture scalable basée sur React + FastAPI",
+            "Parcours org : inscription → workspace tenant → onboarding fichiers/services",
+            "CRUD files multi-services avec cycle de vie (ouverte / pause / fermée)",
+            "Invitations staff / rôles opérateurs et superviseurs",
+            "Tickets usagers + position + appel au guichet",
+            "Estimation d'attente dynamique (durée moyenne réelle)",
+            "Suivi live (React) branché API FastAPI",
+            "Isolation multi-tenant PostgreSQL dès le MVP",
+            "Facilitation Scrum : backlog tranché, sprints livrables",
         ],
         solutionEn: [
-            "Multi-tenant system allowing each organization to manage its own queues",
-            "Creation and management of multiple service queues",
-            "Intelligent wait-time estimation based on real data",
-            "Real-time user tracking within queues",
-            "Intuitive UI for management and monitoring",
-            "Scalable architecture based on React + FastAPI",
+            "Org journey: signup → tenant workspace → services onboarding",
+            "Multi-service queue CRUD with lifecycle (open / pause / closed)",
+            "Staff invites / operator and supervisor roles",
+            "Visitor tickets + position + counter call",
+            "Dynamic wait estimation (real average handling time)",
+            "Live tracking (React) wired to FastAPI",
+            "PostgreSQL multi-tenant isolation from MVP",
+            "Scrum facilitation: cut backlog, shippable sprints",
         ],
 
         challengesFr: [
-            "Implémenter une estimation fiable du temps d’attente",
-            "Gérer la synchronisation en temps réel des files",
-            "Concevoir une architecture multi-tenant",
-            "Coordonner une équipe agile en tant que Scrum Master",
-            "Maintenir performance et fluidité sous charge",
+            "Estimation fiable sans données magiques (cold start vs historique)",
+            "Temps réel utilisable sous charge hall d'accueil",
+            "Multi-tenant correct dès v1 (auth, data isolation)",
+            "UX opérateur simple sous pression",
+            "Aligner 5 profils Scrum sans diluer le MVP",
         ],
         challengesEn: [
-            "Implementing reliable wait-time estimation",
-            "Handling real-time queue synchronization",
-            "Designing a multi-tenant architecture",
-            "Coordinating an agile team as Scrum Master",
-            "Maintaining performance and responsiveness under load",
+            "Reliable estimation without magic data (cold start vs history)",
+            "Usable realtime under lobby load",
+            "Correct multi-tenancy from v1 (auth, data isolation)",
+            "Simple operator UX under pressure",
+            "Align 5 Scrum profiles without diluting the MVP",
         ],
 
         impactFr: [
-            "Amélioration de l’organisation des services clients",
-            "Réduction des temps d’attente perçus",
-            "Meilleure expérience utilisateur",
-            "Optimisation des flux opérationnels",
+            "Parcours produit complet org → files → opération quotidienne",
+            "MVP multi-tenant démontrable en conditions réalistes",
+            "Réduction du chaos perçu côté usager et opérateur",
+            "Équipe alignée sur un backlog métier clair",
+            "Base extensible (notifications, analytics, hardware tickets plus tard)",
         ],
         impactEn: [
-            "Improved service organization",
-            "Reduced perceived waiting times",
-            "Enhanced user experience",
-            "Optimized operational workflows",
+            "Full product journey org → queues → daily operations",
+            "Demonstrable multi-tenant MVP in realistic conditions",
+            "Lower perceived chaos for visitors and operators",
+            "Team aligned on a clear business backlog",
+            "Extensible base (notifications, analytics, hardware tickets later)",
         ],
 
         metrics: {
-            "team": "5 personnes",
-            "architecture": "Multi-tenant",
-            "estimation": "Temps d’attente dynamique",
-            "methodology": "Scrum",
+            "Team": "5 (Scrum)",
+            "Tenancy": "multi-tenant",
+            "Stack": "React + FastAPI",
+            "Realtime": "live queue state",
+            "Estimation": "avg handling time",
+            "Status": "MVP",
+            "Focus": "org workspace ops",
+            "Role": "SM + tech lead",
         },
 
         techStack: {
-            frontend: ["React", "Tailwind CSS"],
-            backend: ["Python", "FastAPI"],
-            database: ["PostgreSQL"],
-            devops: ["Docker", "VPS"],
+            frontend: [
+                "React",
+                "Tailwind CSS",
+            ],
+            backend: [
+                "Python",
+                "FastAPI",
+            ],
+            database: [
+                "PostgreSQL",
+            ],
+            devops: [
+                "Docker",
+                "VPS",
+                "Trello / Scrum",
+            ],
         },
 
         architecture: [
-            "Architecture client-serveur",
-            "Backend FastAPI (API REST)",
-            "Frontend React",
-            "Gestion multi-tenant",
-            "Système de calcul dynamique des temps d’attente",
+            "Tenant signup → org workspace → queues & staff",
+            "FastAPI REST + realtime channel to React clients",
+            "Queue service: tickets, positions, call-next, ETA",
+            "PostgreSQL with tenant isolation",
+            "Operator UI + visitor-facing status views",
         ],
 
         testing: [
-            "Tests fonctionnels",
-            "Tests de charge basiques",
-            "Validation UX",
+            "Tests fonctionnels parcours org/opérateur/usager",
+            "Scénarios multi-files concurrentes",
+            "Validation ETA sur jeux de durées",
+            "Revues UX hall d'accueil",
+            "Charge basique API + clients connectés",
         ],
 
         images: [
             "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/images%20(4).jpeg",
         ],
-
-        preview: "",
+        preview: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/images%20(4).jpeg",
         videoDemo: "",
 
-        category: "Fullstack",
+        category: "Fullstack • SaaS Ops",
         status: "MVP",
         complexity: "Avancé",
         role: "Scrum Master • Lead Developer",
@@ -7661,317 +10044,1261 @@ Recruiter message: I master event-driven distributed systems and industrialize t
         github: "",
         demo: "",
 
-        businessContextFr: "Projet visant à digitaliser et optimiser la gestion des files d’attente dans les structures accueillant du public.",
-        businessContextEn: "Project aimed at digitizing and optimizing queue management in customer-facing organizations.",
+        businessContextFr: "Digitaliser l'accueil physique : chaque organisation devient locataire d'un espace où elle pilote ses files comme un produit opérationnel, pas comme un gadget.",
+        businessContextEn: "Digitize physical reception: each organization becomes tenant of a workspace where queues are run as an operational product, not a gadget.",
 
         confidential: false,
 
         responsibilitiesFr: [
-            "Lead technique + facilitation Scrum (équipe de 5)",
-            "API FastAPI multi-tenant",
-            "Frontend React temps réel",
-            "Estimation d'attente et tracking live",
+            "Facilitation Scrum et arbitrage backlog",
+            "Architecture multi-tenant API FastAPI",
+            "Modèle files / tickets / ETA",
+            "Supervision frontend temps réel",
+            "Qualité livrable MVP et démos stakeholders",
         ],
         responsibilitiesEn: [
-            "Tech lead + Scrum facilitation (team of 5)",
-            "Multi-tenant FastAPI API",
-            "Realtime React frontend",
-            "Wait-time estimation and live tracking",
+            "Scrum facilitation and backlog arbitration",
+            "Multi-tenant FastAPI architecture",
+            "Queues / tickets / ETA model",
+            "Realtime frontend supervision",
+            "MVP delivery quality and stakeholder demos",
         ],
 
         gallery: [
-            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/images%20(4).jpeg", captionFr: "Concept file d'attente intelligente", captionEn: "Smart queue concept", kind: "process" },
+            {
+                src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/images%20(4).jpeg",
+                captionFr: "Espace organisation — pilotage des files",
+                captionEn: "Organization workspace — queue operations", kind: "process",
+            },
         ],
 
         diagrams: [
             {
-                id: "queue-arch",
-                titleFr: "Architecture files d'attente",
-                titleEn: "Queue architecture",
+                id: "q-journey",
+                titleFr: "Parcours organisation",
+                titleEn: "Organization journey",
                 mermaid: `flowchart LR
-  Client[React Client] --> API[FastAPI]
-  API --> Auth[Tenant Auth]
-  API --> Queue[Queue Service]
-  Queue --> PG[(PostgreSQL)]
-  Queue --> RT[Realtime Updates]
-  RT --> Client`,
+  REG[Signup org] --> WS[Tenant workspace]
+  WS --> Q[Create queues]
+  WS --> INV[Invite staff]
+  Q --> DAY[Daily ops]
+  INV --> DAY
+  DAY --> ETA[ETA + live status]`,
+            },
+            {
+                id: "q-arch",
+                titleFr: "Architecture technique",
+                titleEn: "Technical architecture",
+                mermaid: `flowchart TB
+  OP[Operator UI] --> API[FastAPI]
+  VIS[Visitor status] --> API
+  API --> AUTH[Tenant auth]
+  API --> QS[Queue service]
+  QS --> PG[(PostgreSQL)]
+  QS --> RT[Realtime updates]`,
+            },
+            {
+                id: "q-lifecycle",
+                titleFr: "Cycle de vie d'une file",
+                titleEn: "Queue lifecycle",
+                mermaid: `stateDiagram-v2
+  [*] --> Open
+  Open --> Paused
+  Paused --> Open
+  Open --> Closed
+  Closed --> [*]`,
             },
         ],
 
         resources: [
-            { labelFr: "Case study résumé", labelEn: "Case study summary", url: "https://barthez-kenwou.dev/", type: "case-study" },
+            {
+                labelFr: "Portfolio",
+                labelEn: "Portfolio",
+                url: "https://barthez-kenwou.dev/",
+                type: "other",
+            },
         ],
 
         milestones: [
-            { labelFr: "Kickoff & backlog", labelEn: "Kickoff & backlog", date: "Sprint 0" },
-            { labelFr: "MVP multi-tenant", labelEn: "Multi-tenant MVP", date: "Mois 1" },
-            { labelFr: "Estimation + realtime", labelEn: "Estimation + realtime", date: "Mois 2–3" },
+            {
+                labelFr: "Kickoff & personas",
+                labelEn: "Kickoff & personas",
+                date: "Sprint 0",
+                descriptionFr: "Org / opérateur / usager.",
+                descriptionEn: "Org / operator / visitor.",
+            },
+            {
+                labelFr: "Workspace multi-tenant",
+                labelEn: "Multi-tenant workspace",
+                date: "Mois 1",
+                descriptionFr: "Auth tenant + CRUD files.",
+                descriptionEn: "Tenant auth + queue CRUD.",
+            },
+            {
+                labelFr: "Ops live + ETA",
+                labelEn: "Live ops + ETA",
+                date: "Mois 2–3",
+                descriptionFr: "Tickets, call-next, estimation.",
+                descriptionEn: "Tickets, call-next, estimation.",
+            },
         ],
 
-        scopeFr: ["Files multi-tenant", "Estimation d'attente", "Suivi temps réel", "API FastAPI + React"],
-        scopeEn: ["Multi-tenant queues", "Wait-time estimation", "Realtime tracking", "FastAPI + React"],
-        nonGoalsFr: ["Hardware tickets physiques", "ERP complet de caisse"],
-        nonGoalsEn: ["Physical ticket hardware", "Full POS/ERP"],
+        scopeFr: [
+            "SaaS files multi-tenant",
+            "Invitations staff",
+            "ETA + live",
+            "Scrum delivery",
+        ],
+        scopeEn: [
+            "Multi-tenant queue SaaS",
+            "Staff invites",
+            "ETA + live",
+            "Scrum delivery",
+        ],
+        nonGoalsFr: [
+            "Hardware tickets jour 1",
+            "ERP caisse complet",
+            "App native stores",
+        ],
+        nonGoalsEn: [
+            "Hardware tickets on day 1",
+            "Full POS ERP",
+            "Native store apps",
+        ],
 
         decisions: [
             {
-                titleFr: "FastAPI pour le temps réel métier",
-                titleEn: "FastAPI for business realtime",
-                decisionFr: "Python FastAPI plutôt que Node pour le cœur API.",
-                decisionEn: "Python FastAPI over Node for the API core.",
-                rationaleFr: "Productivité équipe + typage + perf async suffisante.",
-                rationaleEn: "Team productivity + typing + sufficient async performance.",
+                titleFr: "Produit workspace, pas landing",
+                titleEn: "Workspace product, not landing",
+                decisionFr: "Priorité espace org opérationnel dès le MVP.",
+                decisionEn: "Prioritize operational org workspace from MVP.",
+                rationaleFr: "La valeur est dans la gestion quotidienne.",
+                rationaleEn: "Value lives in daily operations.",
             },
             {
-                titleFr: "Multi-tenant dès le MVP",
-                titleEn: "Multi-tenant from MVP",
-                decisionFr: "Isolation tenant dès la première version.",
-                decisionEn: "Tenant isolation from v1.",
-                rationaleFr: "Évite une refonte douloureuse à l'échelle.",
-                rationaleEn: "Avoids a painful rewrite at scale.",
+                titleFr: "Multi-tenant early",
+                titleEn: "Multi-tenant early",
+                decisionFr: "Isolation tenant v1.",
+                decisionEn: "Tenant isolation in v1.",
+                rationaleFr: "Évite le rewrite douloureux.",
+                rationaleEn: "Avoids a painful rewrite.",
+            },
+            {
+                titleFr: "ETA basée historique",
+                titleEn: "History-based ETA",
+                decisionFr: "Moyenne de traitement réelle, pas chiffre fixe.",
+                decisionEn: "Real handling average, not a fixed number.",
+                rationaleFr: "Crédibilité usager = estimation honnête.",
+                rationaleEn: "Visitor trust = honest estimates.",
             },
         ],
 
-        securityFr: ["Isolation multi-tenant", "Auth par organisation", "Validation stricte des tickets", "Logs d'audit basiques"],
-        securityEn: ["Multi-tenant isolation", "Org-level auth", "Strict ticket validation", "Basic audit logs"],
-        infraFr: ["Docker", "PostgreSQL", "VPS", "CI basique"],
-        infraEn: ["Docker", "PostgreSQL", "VPS", "Basic CI"],
+        securityFr: [
+            "Isolation tenant",
+            "Auth org",
+            "Rôles staff",
+            "Validation tickets",
+            "Audit basique",
+        ],
+        securityEn: [
+            "Tenant isolation",
+            "Org auth",
+            "Staff roles",
+            "Ticket validation",
+            "Basic audit",
+        ],
+        infraFr: [
+            "Docker",
+            "PostgreSQL",
+            "VPS",
+            "CI basique",
+        ],
+        infraEn: [
+            "Docker",
+            "PostgreSQL",
+            "VPS",
+            "Basic CI",
+        ],
 
-        externalLinks: [{ labelFr: "Portfolio", labelEn: "Portfolio", url: "https://barthez-kenwou.dev" }],
+        externalLinks: [
+            {
+                labelFr: "Portfolio",
+                labelEn: "Portfolio",
+                url: "https://barthez-kenwou.dev",
+            },
+        ],
 
         testimonial: {
-            quoteFr: "L'équipe a livré un MVP crédible en gardant le focus produit - rare sur ce type de sujet.",
-            quoteEn: "The team delivered a credible MVP while staying product-focused - rare on this topic.",
-            author: "Product Stakeholder",
-            roleFr: "Sponsor produit",
-            roleEn: "Product sponsor",
-            company: "Queue pilot org",
+            quoteFr: "Enfin une démo où on voit une boîte créer ses files et travailler — pas juste un compteur.",
+            quoteEn: "Finally a demo where a company creates queues and actually works — not just a counter.",
+            author: "Product stakeholder",
+            roleFr: "Sponsor",
+            roleEn: "Sponsor",
+            company: "Queue pilot",
         },
 
         lessonsFr: [
-            "Le temps d'attente perçu compte autant que le temps réel - UX first.",
-            "Scrum utile seulement si le backlog est tranché chaque sprint.",
-            "Le multi-tenant tôt coûte cher, mais le refactor tard coûte plus.",
+            "Le parcours org→ops est le vrai produit.",
+            "L'ETA perçu compte autant que la technique realtime.",
+            "Scrum sans backlog tranché = théatre.",
         ],
         lessonsEn: [
-            "Perceived wait time matters as much as real time - UX first.",
-            "Scrum only helps if the backlog is cut every sprint.",
-            "Early multi-tenancy is costly, but late refactor costs more.",
+            "The org→ops journey is the real product.",
+            "Perceived ETA matters as much as realtime tech.",
+            "Scrum without a cut backlog is theater.",
         ],
 
         beforeAfter: [
             {
-                beforeSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/images%20(4).jpeg",
+                beforeSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
                 afterSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/images%20(4).jpeg",
-                captionFr: "De files chaotiques à un tracking digital multi-tenant.",
-                captionEn: "From chaotic queues to digital multi-tenant tracking.",
+                captionFr: "Du chaos hall d'accueil à un workspace files multi-tenant.",
+                captionEn: "From lobby chaos to a multi-tenant queue workspace.",
             },
         ],
 
-        isFeatured: false,
+        isFeatured: true,
     },
 
     {
-        id: 2,
-        titleFr: 'Plateforme Web GTA-Academy (Centre de formation)',
-        titleEn: 'GTA-Academy Web Platform (Training Center)',
+        id: 12,
+        titleFr: "GTA Academy — Vitrine Centre de Formation Tech & Digital",
+        titleEn: "GTA Academy — Tech & Digital Training Center Showcase",
 
-        descriptionFr: "Plateforme web de lancement pour GTA-Academy, conçue pour assurer visibilité, crédibilité et acquisition d’apprenants via une présentation structurée des formations et événements.",
-        descriptionEn: "Launch web platform for GTA-Academy designed to ensure visibility, credibility, and student acquisition through structured presentation of training programs and events.",
+        descriptionFr: "Plateforme web de lancement pour GTA Academy (Yaoundé) : formations tech/digital, événements, conversion apprenants. Live sur academy.gta-it.com — livrée sous contrainte de time-to-market.",
+        descriptionEn: "Launch web platform for GTA Academy (Yaoundé): tech/digital programs, events, learner conversion. Live at academy.gta-it.com — shipped under hard time-to-market pressure.",
 
-        fullDescriptionFr: "Conception et développement en urgence d’une plateforme web pour GTA-Academy, centre de formation professionnelle. Le site avait pour objectif principal de positionner rapidement la structure sur le marché en offrant une visibilité claire sur les formations (vacances, entreprises, certifiantes, personnalisées) ainsi que sur les événements (webinaires, sessions d’information). L’application inclut des pages dédiées aux programmes, un système de présentation des événements et une architecture optimisée pour la conversion des visiteurs en prospects. Le projet a été déployé rapidement pour accompagner le lancement officiel du centre.",
-        fullDescriptionEn: "Designed and developed under tight deadline a web platform for GTA-Academy, a professional training center. The main goal was to quickly position the institution in the market by providing clear visibility on training programs (holiday, corporate, certified, custom) and events (webinars, info sessions). The application includes dedicated program pages, event presentation system, and a structure optimized for user conversion. The project was rapidly deployed to support the official launch of the academy.",
+        fullDescriptionFr: `GTA Academy — centre de formation professionnelle tech & digital au Cameroun (Nkolfoulou / Yaoundé, lié à GTA-IT) — avait besoin d'une présence digitale digne d'un lancement : crédible, claire sur les offres, capable de transformer un visiteur en prospect.
 
-        problemFr: "Le centre de formation était en phase de lancement sans présence digitale, ce qui limitait fortement sa visibilité, sa crédibilité et sa capacité à recruter rapidement des apprenants.",
-        problemEn: "The training center was in its launch phase with no digital presence, severely limiting its visibility, credibility, and ability to quickly acquire students.",
+J'ai conçu et développé la plateforme sous délai serré (ordre de grandeur : une semaine jusqu'au go-live). Objectif : structurer les formations (développement web, intelligence artificielle, cybersécurité, parcours vacances / entreprise / certifiants / personnalisés), mettre en avant webinaires et sessions d'information, fluidifier contact et inscription, et poser SEO/schema EducationalOrganization pour la découvrabilité. Stack React + Tailwind côté expérience, Node/Express + MongoDB pour les contenus/leads selon besoins, déploiement cloud/VPS avec CI légère.
+
+Le site est en production : https://academy.gta-it.com/. Ce n'est pas un LMS : c'est l'arme d'acquisition et de crédibilité du centre au moment où chaque jour sans vitrine coûtait des apprenants.`,
+        fullDescriptionEn: `GTA Academy — a tech & digital professional training center in Cameroon (Nkolfoulou / Yaoundé, linked to GTA-IT) — needed a digital presence worthy of a launch: credible, clear on offers, able to turn a visitor into a prospect.
+
+I designed and built the platform under a tight deadline (order of magnitude: one week to go-live). Goal: structure programs (web development, artificial intelligence, cybersecurity, holiday / corporate / certified / custom tracks), showcase webinars and info sessions, streamline contact and registration, and set EducationalOrganization SEO/schema for discoverability. React + Tailwind for the experience, Node/Express + MongoDB for content/leads as needed, cloud/VPS deploy with light CI.
+
+The site is in production: https://academy.gta-it.com/. This is not an LMS: it is the center’s acquisition and credibility weapon when every day without a showcase cost learners.`,
+
+        problemFr: "Sans site, GTA Academy lançait à l'aveugle : peu de crédibilité, offres illisibles, acquisition apprenants freinée.",
+        problemEn: "Without a site, GTA Academy was launching blind: weak credibility, unclear offers, slowed learner acquisition.",
 
         solutionFr: [
-            "Conception rapide d’un site web structuré orienté conversion",
-            "Présentation claire des différentes offres de formation (vacances, entreprise, certifiante, personnalisée)",
-            "Intégration d’un système de mise en avant des événements (webinaires, sessions d'information)",
-            "Optimisation UX/UI pour faciliter l’inscription et la prise de contact",
-            "Déploiement rapide pour accompagner le lancement officiel"
+            "Vitrine conversion mobile-first en time-to-market court",
+            "Structuration multi-offres (web, IA, cybersécurité + formats)",
+            "Pages événements / webinaires / sessions info",
+            "Parcours contact / inscription optimisé",
+            "SEO + données structurées centre de formation",
+            "Déploiement production academy.gta-it.com",
         ],
         solutionEn: [
-            "Rapid design of a conversion-oriented structured website",
-            "Clear presentation of multiple training offers (holiday, corporate, certified, custom)",
-            "Integration of event showcasing system (webinars, info sessions)",
-            "UX/UI optimization for easy registration and contact",
-            "Fast deployment to support official launch"
+            "Mobile-first conversion showcase under short TTM",
+            "Multi-offer structure (web, AI, cybersecurity + formats)",
+            "Events / webinars / info-session pages",
+            "Optimized contact / registration journey",
+            "SEO + structured data for a training center",
+            "Production deploy on academy.gta-it.com",
         ],
 
         challengesFr: [
-            "Livrer une plateforme complète en moins d’une semaine",
-            "Structurer efficacement les offres de formation pour maximiser la compréhension",
-            "Créer une crédibilité immédiate pour une structure nouvellement lancée",
-            "Optimiser l’expérience utilisateur dans un délai très court"
+            "Livrer une vitrine crédible en ~1 semaine",
+            "Clarifier une offre formation dense sans noyer le visiteur",
+            "Crédibilité immédiate pour une structure en lancement",
+            "Arbitrer LMS vs conversion (scope)",
         ],
         challengesEn: [
-            "Deliver a complete platform in less than one week",
-            "Efficiently structure training offers for maximum clarity",
-            "Create immediate credibility for a newly launched institution",
-            "Optimize user experience under tight deadlines"
+            "Ship a credible showcase in ~1 week",
+            "Clarify a dense training catalog without drowning visitors",
+            "Immediate credibility for a launching institution",
+            "LMS vs conversion scope arbitration",
         ],
 
         impactFr: [
-            "Lancement réussi de la présence digitale de GTA-Academy",
-            "Amélioration immédiate de la crédibilité du centre",
-            "Facilitation de l’acquisition des premiers apprenants",
-            "Visibilité claire des offres de formation et événements"
+            "Présence digitale live et partageable",
+            "Offres et événements lisibles pour prospects",
+            "Socle d'acquisition pour les premières promotions",
+            "Alignement marque avec gta-it.com / écosystème GTA",
         ],
         impactEn: [
-            "Successful launch of GTA-Academy digital presence",
-            "Immediate improvement in brand credibility",
-            "Facilitated acquisition of first students",
-            "Clear visibility of training offers and events"
+            "Live, shareable digital presence",
+            "Readable offers and events for prospects",
+            "Acquisition base for early cohorts",
+            "Brand alignment with gta-it.com / GTA ecosystem",
         ],
 
         metrics: {
-            "deliveryTime": "1 semaine",
-            "pages": "10+ pages structurées",
-            "goal": "Lancement rapide",
-            "availability": "Production ready"
+            "TTM": "~1 week",
+            "Live": "academy.gta-it.com",
+            "Focus": "conversion + credibility",
+            "Programs": "Web / AI / Cyber+",
+            "Locale": "Yaoundé, CM",
+            "Role": "Fullstack solo",
+            "Type": "showcase (not LMS)",
+            "SEO": "EducationalOrganization schema",
         },
 
         techStack: {
-            frontend: ["React", "Tailwind CSS"],
-            backend: ["Node.js", "Express"],
-            database: ["MongoDB"],
-            devops: ["Vercel", "VPS", "CI/CD"]
+            frontend: [
+                "React",
+                "Tailwind CSS",
+            ],
+            backend: [
+                "Node.js",
+                "Express",
+            ],
+            database: [
+                "MongoDB",
+            ],
+            devops: [
+                "Vercel / VPS",
+                "CI/CD",
+                "Cloudflare",
+            ],
         },
 
         architecture: [
-            "Frontend React pour rendu dynamique",
-            "Backend Node.js pour gestion des contenus",
-            "Structure orientée landing pages pour conversion",
-            "Déploiement rapide cloud/VPS"
+            "Landing + catalog programs + events + contact",
+            "React UI oriented conversion",
+            "Node API for content/leads when needed",
+            "SEO schema EducationalOrganization",
+            "Fast production deploy",
         ],
 
-        testing: [],
+        testing: [
+            "QA parcours mobile/desktop",
+            "Validation formulaires contact",
+            "Checks SEO basiques / meta",
+            "Smoke post-deploy production",
+        ],
 
         images: [
-            "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/iPhone-13-PRO-academy.gta-it.com.png",
             "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Macbook-Air-academy.gta-it.com.png",
+            "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/iPhone-13-PRO-academy.gta-it.com.png",
         ],
-
         preview: "https://academy.gta-it.com/",
         videoDemo: "",
 
-        category: "Full Stack",
+        category: "Fullstack • Education",
         status: "Production",
         complexity: "Intermédiaire",
         role: "Fullstack Developer",
         teamSize: 1,
 
-        duration: "1 semaine",
+        duration: "~1 semaine",
         date: "2025",
 
-        github: "",
+        github: "https://github.com/barthez-kenwou/gta-academy",
         demo: "https://academy.gta-it.com/",
 
-        businessContextFr: "Projet stratégique de lancement visant à positionner rapidement GTA-Academy sur le marché de la formation professionnelle et attirer ses premiers apprenants.",
-        businessContextEn: "Strategic launch project aimed at quickly positioning GTA-Academy in the professional training market and attracting its first students.",
+        businessContextFr: "Lancement stratégique GTA Academy : transformer l'absence digitale en machine à crédibilité et à leads formation tech au Cameroun.",
+        businessContextEn: "Strategic GTA Academy launch: turn digital absence into a credibility and tech-training lead engine in Cameroon.",
 
         confidential: false,
 
         responsibilitiesFr: [
-            "Conception et développement fullstack du site conversion",
-            "Parcours offres / événements / contact",
-            "Déploiement Vercel + VPS / CI/CD",
-            "Optimisation UX mobile-first",
+            "Conception UX conversion + build React",
+            "Structuration contenus formations/événements",
+            "API/leads Node si requis",
+            "SEO technique + go-live",
+            "Itérations post-lancement courtes",
         ],
         responsibilitiesEn: [
-            "Fullstack design and development of the conversion site",
-            "Offers / events / contact journeys",
-            "Vercel + VPS / CI/CD deployment",
-            "Mobile-first UX optimization",
+            "Conversion UX design + React build",
+            "Programs/events content structure",
+            "Node leads/API as required",
+            "Technical SEO + go-live",
+            "Short post-launch iterations",
         ],
 
         gallery: [
-            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Macbook-Air-academy.gta-it.com.png", captionFr: "Homepage desktop", captionEn: "Desktop homepage", kind: "ui" },
-            { src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/iPhone-13-PRO-academy.gta-it.com.png", captionFr: "Parcours mobile", captionEn: "Mobile journey", kind: "ui" },
+            {
+                src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Macbook-Air-academy.gta-it.com.png",
+                captionFr: "Homepage desktop — crédibilité centre de formation",
+                captionEn: "Desktop homepage — training-center credibility", kind: "ui",
+            },
+            {
+                src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/iPhone-13-PRO-academy.gta-it.com.png",
+                captionFr: "Parcours mobile — acquisition locale",
+                captionEn: "Mobile journey — local acquisition", kind: "ui",
+            },
         ],
 
         diagrams: [
             {
-                id: "academy-flow",
-                titleFr: "Parcours conversion",
-                titleEn: "Conversion flow",
+                id: "aca-conv",
+                titleFr: "Entonnoir conversion",
+                titleEn: "Conversion funnel",
                 mermaid: `flowchart LR
-  Visit[Landing] --> Offers[Training Offers]
-  Offers --> Events[Events]
-  Events --> Contact[Contact / Register]
-  Contact --> CRM[Lead Capture]
-  FE[React] --> API[Node API]
-  API --> Mongo[(MongoDB)]`,
+  V[Visit] --> P[Programs]
+  P --> E[Events]
+  E --> C[Contact / Register]
+  C --> L[Lead]`,
+            },
+            {
+                id: "aca-offer",
+                titleFr: "Catalogue formations",
+                titleEn: "Training catalog",
+                mermaid: `flowchart TB
+  ACA[GTA Academy] --> W[Web Dev]
+  ACA --> AI[Intelligence Artificielle]
+  ACA --> CY[Cybersécurité]
+  ACA --> FMT[Vacances / Entreprise / Certifiant / Custom]`,
             },
         ],
 
         resources: [
-            { labelFr: "Site live", labelEn: "Live site", url: "https://academy.gta-it.com/", type: "other" },
-        ],
-
-        milestones: [
-            { labelFr: "Kickoff & wireframes", labelEn: "Kickoff & wireframes", date: "J1–J2" },
-            { labelFr: "Build + contenus", labelEn: "Build + content", date: "J3–J5" },
-            { labelFr: "Go-live", labelEn: "Go-live", date: "J7" },
-        ],
-
-        scopeFr: ["Site conversion centre de formation", "Présentation multi-offres", "Événements + contact", "Déploiement rapide"],
-        scopeEn: ["Training-center conversion site", "Multi-offer presentation", "Events + contact", "Fast deployment"],
-        nonGoalsFr: ["LMS complet", "Paiement en ligne formations"],
-        nonGoalsEn: ["Full LMS", "Online course payments"],
-
-        decisions: [
             {
-                titleFr: "Time-to-market en 1 semaine",
-                titleEn: "One-week time-to-market",
-                decisionFr: "Scope ultra-focalisé conversion.",
-                decisionEn: "Ultra-focused conversion scope.",
-                rationaleFr: "Priorité acquisition des premiers apprenants.",
-                rationaleEn: "Priority: acquire the first learners.",
+                labelFr: "Repo GitHub gta-academy",
+                labelEn: "gta-academy GitHub repo",
+                url: "https://github.com/barthez-kenwou/gta-academy",
+                type: "other",
+            },
+            {
+                labelFr: "Site live GTA Academy",
+                labelEn: "GTA Academy live site",
+                url: "https://academy.gta-it.com/",
+                type: "other",
+            },
+            {
+                labelFr: "GTA-IT",
+                labelEn: "GTA-IT",
+                url: "https://gta-it.com",
+                type: "other",
             },
         ],
 
-        securityFr: ["Validation formulaires", "HTTPS / headers de base", "Séparation env de déploiement"],
-        securityEn: ["Form validation", "HTTPS / baseline headers", "Separated deploy environments"],
-        infraFr: ["React frontend", "Node/Express + MongoDB", "Vercel / VPS", "CI/CD"],
-        infraEn: ["React frontend", "Node/Express + MongoDB", "Vercel / VPS", "CI/CD"],
+        milestones: [
+            {
+                labelFr: "Cadrage offres & wireframes",
+                labelEn: "Offers framing & wireframes",
+                date: "J1–J2",
+                descriptionFr: "Prioriser conversion.",
+                descriptionEn: "Prioritize conversion.",
+            },
+            {
+                labelFr: "Build + contenus",
+                labelEn: "Build + content",
+                date: "J3–J5",
+                descriptionFr: "Pages + formulaires.",
+                descriptionEn: "Pages + forms.",
+            },
+            {
+                labelFr: "Go-live production",
+                labelEn: "Production go-live",
+                date: "J7",
+                descriptionFr: "academy.gta-it.com",
+                descriptionEn: "academy.gta-it.com",
+            },
+        ],
+
+        scopeFr: [
+            "Vitrine conversion",
+            "Catalogue multi-offres",
+            "Événements + contact",
+            "SEO + deploy",
+        ],
+        scopeEn: [
+            "Conversion showcase",
+            "Multi-offer catalog",
+            "Events + contact",
+            "SEO + deploy",
+        ],
+        nonGoalsFr: [
+            "LMS complet",
+            "Paiement cours en ligne",
+            "Espace apprenant pédagogique",
+        ],
+        nonGoalsEn: [
+            "Full LMS",
+            "Online course payments",
+            "Learner pedagogy workspace",
+        ],
+
+        decisions: [
+            {
+                titleFr: "Conversion avant LMS",
+                titleEn: "Conversion before LMS",
+                decisionFr: "Pas de plateforme pédagogique v1.",
+                decisionEn: "No learning platform in v1.",
+                rationaleFr: "Sans apprenants, le LMS est vide.",
+                rationaleEn: "Without learners, an LMS is empty.",
+            },
+            {
+                titleFr: "Time-to-market extrême",
+                titleEn: "Extreme time-to-market",
+                decisionFr: "Scope tranché, mobile-first, go-live rapide.",
+                decisionEn: "Cut scope, mobile-first, fast go-live.",
+                rationaleFr: "Le lancement ne pouvait pas attendre.",
+                rationaleEn: "The launch could not wait.",
+            },
+        ],
+
+        securityFr: [
+            "Validation formulaires",
+            "HTTPS / Cloudflare",
+            "Séparation env",
+        ],
+        securityEn: [
+            "Form validation",
+            "HTTPS / Cloudflare",
+            "Env separation",
+        ],
+        infraFr: [
+            "React",
+            "Node/Express + MongoDB",
+            "Vercel/VPS",
+            "CI légère",
+        ],
+        infraEn: [
+            "React",
+            "Node/Express + MongoDB",
+            "Vercel/VPS",
+            "Light CI",
+        ],
 
         externalLinks: [
-            { labelFr: "academy.gta-it.com", labelEn: "academy.gta-it.com", url: "https://academy.gta-it.com/" },
+            {
+                labelFr: "GitHub",
+                labelEn: "GitHub",
+                url: "https://github.com/barthez-kenwou/gta-academy",
+            },
+            {
+                labelFr: "academy.gta-it.com",
+                labelEn: "academy.gta-it.com",
+                url: "https://academy.gta-it.com/",
+            },
+            {
+                labelFr: "gta-it.com",
+                labelEn: "gta-it.com",
+                url: "https://gta-it.com",
+            },
         ],
 
         testimonial: {
-            quoteFr: "En une semaine, on avait une vitrine crédible pour convertir les premiers leads formation.",
-            quoteEn: "In one week we had a credible presence to convert the first training leads.",
+            quoteFr: "En une semaine, on avait une vitrine crédible pour parler aux premiers apprenants.",
+            quoteEn: "In one week we had a credible presence to talk to the first learners.",
             author: "GTA Academy",
             roleFr: "Direction",
             roleEn: "Leadership",
-            company: "GTA-Academy",
+            company: "GTA Academy",
         },
 
         lessonsFr: [
-            "Un scope court force les arbitrages utiles.",
-            "Mobile-first est non négociable pour l'acquisition locale.",
-            "Mieux vaut un go-live simple qu'un LMS incomplet.",
+            "Un centre de formation vend d'abord la confiance.",
+            "Mieux vaut un go-live simple qu'un LMS fantôme.",
+            "Mobile-first = non négociable pour l'acquisition locale.",
         ],
         lessonsEn: [
-            "A short scope forces useful tradeoffs.",
+            "A training center sells trust first.",
+            "A simple go-live beats a ghost LMS.",
             "Mobile-first is non-negotiable for local acquisition.",
-            "A simple go-live beats an incomplete LMS.",
         ],
 
         beforeAfter: [
             {
-                beforeSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/iPhone-13-PRO-academy.gta-it.com.png",
+                beforeSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
                 afterSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Macbook-Air-academy.gta-it.com.png",
-                captionFr: "D'une absence digitale à un site conversion prêt à convertir.",
-                captionEn: "From no digital presence to a conversion-ready site.",
+                captionFr: "D'une absence digitale à academy.gta-it.com en production.",
+                captionEn: "From digital absence to academy.gta-it.com in production.",
             },
         ],
 
-        isFeatured: false,
+        isFeatured: true,
+    },
+
+    {
+        id: 25,
+        titleFr: "DHJ — Deutsches Haus Yaoundé : Vitrine Centre de Formation Allemand",
+        titleEn: "DHJ — Deutsches Haus Yaoundé: German Training Center Showcase",
+
+        descriptionFr: "Site vitrine React pour Deutsches Haus Yaoundé (dhj237.de) : visibilité, services, pricing, contact. Mission GTA, frontend-only premium — félicitations de Denise Magloire, CEO DHJ.",
+        descriptionEn: "React showcase for Deutsches Haus Yaoundé (dhj237.de): visibility, services, pricing, contact. GTA mission, premium frontend-only — praised by Denise Magloire, DHJ CEO.",
+
+        fullDescriptionFr: `Pendant mon passage chez GTA, on m'a confié la vitrine digitale de Deutsches Haus Yaoundé (DHJ) — centre de formation en allemand au Cameroun. Même philosophie que K&C Services : un frontend soigné, pas de backend inventé pour faire joli, focus sur l'image, la clarté des offres et la prise de contact.
+
+Mission : donner à DHJ une présence moderne (dhj237.de) — présentation de la structure, services de formation, grilles/pricing, et chemin de contact fluide (formulaires + canaux directs). Stack React, UI travaillée, responsive, SEO de base, déploiement production derrière Cloudflare. Peu de matière initiale à structurer : il fallait transformer un brief en site crédible et professionnel.
+
+Livrable validé côté direction : Denise Magloire, CEO de DHJ, a félicité le travail. Preuve simple et forte — la vitrine fait le job pour lequel elle a été commandée : être vue, être comprise, être contactée.`,
+        fullDescriptionEn: `During my time at GTA, I was entrusted with the digital showcase for Deutsches Haus Yaoundé (DHJ) — a German-language training center in Cameroon. Same philosophy as K&C Services: a carefully crafted frontend, no invented backend for show, focus on brand, offer clarity and contact.
+
+Mission: give DHJ a modern presence (dhj237.de) — present the institution, training services, pricing, and a smooth contact path (forms + direct channels). React stack, polished UI, responsive, baseline SEO, production deploy behind Cloudflare. Limited initial material to structure: turn a brief into a credible, professional site.
+
+Delivery validated by leadership: Denise Magloire, DHJ CEO, congratulated the work. Simple, strong proof — the showcase does the job it was ordered for: be seen, understood, and contacted.`,
+
+        problemFr: "DHJ manquait d'une vitrine web à la hauteur de son positionnement formation allemand : visibilité faible, offres peu structurées en ligne, contact frictionné.",
+        problemEn: "DHJ lacked a web showcase matching its German-training positioning: weak visibility, unstructured online offers, frictional contact.",
+
+        solutionFr: [
+            "Vitrine React frontend-only (pas de backend superflu)",
+            "UI soignée : identité, services, pricing, contact",
+            "Parcours conversion local (mobile-first)",
+            "Formulaires / canaux de contact intégrés",
+            "SEO de base + perf perçue",
+            "Mise en production dhj237.de (Cloudflare)",
+        ],
+        solutionEn: [
+            "React frontend-only showcase (no superfluous backend)",
+            "Polished UI: identity, services, pricing, contact",
+            "Local conversion journey (mobile-first)",
+            "Integrated contact forms / channels",
+            "Baseline SEO + perceived performance",
+            "Production on dhj237.de (Cloudflare)",
+        ],
+
+        challengesFr: [
+            "Peu d'assets structurés au départ",
+            "Rendre une école de langues premium sans surcharger",
+            "Livrer vite tout en restant crédible",
+            "Rester frontend-only sans frustrer le besoin contact",
+        ],
+        challengesEn: [
+            "Few structured assets at start",
+            "Make a language school feel premium without clutter",
+            "Ship fast while staying credible",
+            "Stay frontend-only without failing contact needs",
+        ],
+
+        impactFr: [
+            "Site live dhj237.de",
+            "Validation CEO Denise Magloire",
+            "Visibilité et clarté offres/pricing",
+            "Référence frontend vitrine dans le portefeuille GTA",
+        ],
+        impactEn: [
+            "Live site dhj237.de",
+            "CEO validation from Denise Magloire",
+            "Visibility and offer/pricing clarity",
+            "Showcase-frontend reference in the GTA portfolio",
+        ],
+
+        metrics: {
+            "Live": "dhj237.de",
+            "Type": "frontend showcase",
+            "Focus": "visibility + contact",
+            "Context": "Mission GTA",
+            "Validation": "CEO DHJ",
+            "Stack": "React",
+            "Edge": "Cloudflare",
+            "Pattern": "like K&C Services",
+        },
+
+        techStack: {
+            frontend: [
+                "React",
+                "CSS / UI moderne",
+                "Responsive design",
+            ],
+            backend: [],
+            database: [],
+            devops: [
+                "Déploiement production",
+                "Cloudflare",
+                "HTTPS",
+            ],
+        },
+
+        architecture: [
+            "SPA/static React showcase",
+            "Sections: identité, services, pricing, contact",
+            "Contact via forms + direct channels",
+            "CDN/Cloudflare in front",
+            "No unnecessary backend",
+        ],
+
+        testing: [
+            "QA responsive multi-devices",
+            "Vérif parcours contact",
+            "Revues contenu avec stakeholders DHJ/GTA",
+            "Smoke production post-deploy",
+        ],
+
+        images: [
+            "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+        ],
+        preview: "https://dhj237.de/",
+        videoDemo: "",
+
+        category: "Frontend • Education",
+        status: "Production",
+        complexity: "Intermédiaire",
+        role: "Frontend Developer",
+        teamSize: 1,
+
+        duration: "Mission GTA",
+        date: "2024–2025",
+
+        github: "https://github.com/barthez-kenwou/dhj-website",
+        demo: "https://dhj237.de/",
+
+        businessContextFr: "Mission client via GTA : doter Deutsches Haus Yaoundé d'une vitrine formation allemand crédible sur le marché camerounais.",
+        businessContextEn: "Client mission via GTA: give Deutsches Haus Yaoundé a credible German-training showcase on the Cameroonian market.",
+
+        confidential: false,
+
+        responsibilitiesFr: [
+            "Conception UI/UX vitrine",
+            "Développement React complet",
+            "Structuration services & pricing",
+            "Intégration contact",
+            "Déploiement et recette avec CEO",
+        ],
+        responsibilitiesEn: [
+            "Showcase UI/UX design",
+            "Full React development",
+            "Services & pricing structure",
+            "Contact integration",
+            "Deploy and acceptance with CEO",
+        ],
+
+        gallery: [
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                captionFr: "Captures dhj237.de à brancher",
+                captionEn: "dhj237.de screenshots to wire", kind: "wip",
+            },
+        ],
+
+        diagrams: [
+            {
+                id: "dhj-map",
+                titleFr: "Structure vitrine",
+                titleEn: "Showcase structure",
+                mermaid: `flowchart LR
+  H[Home] --> S[Services]
+  S --> P[Pricing]
+  P --> C[Contact]
+  C --> LEAD[Prospect DHJ]`,
+            },
+            {
+                id: "dhj-gta",
+                titleFr: "Contexte mission GTA",
+                titleEn: "GTA mission context",
+                mermaid: `flowchart TB
+  GTA[GTA] --> DHJ[DHJ showcase]
+  DHJ --> LIVE[dhj237.de]
+  LIVE --> CEO[CEO validation]`,
+            },
+        ],
+
+        resources: [
+            {
+                labelFr: "Repo GitHub dhj-website",
+                labelEn: "dhj-website GitHub repo",
+                url: "https://github.com/barthez-kenwou/dhj-website",
+                type: "other",
+            },
+            {
+                labelFr: "Site live DHJ",
+                labelEn: "DHJ live site",
+                url: "https://dhj237.de/",
+                type: "other",
+            },
+        ],
+
+        milestones: [
+            {
+                labelFr: "Brief & direction visuelle",
+                labelEn: "Brief & visual direction",
+                date: "Phase 1",
+                descriptionFr: "Cadrer identité formation allemand.",
+                descriptionEn: "Frame German-training identity.",
+            },
+            {
+                labelFr: "Build React + contenus",
+                labelEn: "React build + content",
+                date: "Phase 2",
+                descriptionFr: "Services, pricing, contact.",
+                descriptionEn: "Services, pricing, contact.",
+            },
+            {
+                labelFr: "Go-live + félicitations CEO",
+                labelEn: "Go-live + CEO praise",
+                date: "Phase 3",
+                descriptionFr: "dhj237.de validé.",
+                descriptionEn: "dhj237.de validated.",
+            },
+        ],
+
+        scopeFr: [
+            "Vitrine React",
+            "Services + pricing",
+            "Contact",
+            "Deploy production",
+        ],
+        scopeEn: [
+            "React showcase",
+            "Services + pricing",
+            "Contact",
+            "Production deploy",
+        ],
+        nonGoalsFr: [
+            "LMS allemand",
+            "Backend métier lourd",
+            "Paiement cours en ligne",
+        ],
+        nonGoalsEn: [
+            "German LMS",
+            "Heavy business backend",
+            "Online course payments",
+        ],
+
+        decisions: [
+            {
+                titleFr: "Frontend-only assumé",
+                titleEn: "Intentional frontend-only",
+                decisionFr: "Comme K&C : pas de backend cosmétique.",
+                decisionEn: "Like K&C: no cosmetic backend.",
+                rationaleFr: "La valeur était la vitrine et le contact.",
+                rationaleEn: "Value was the showcase and contact.",
+            },
+            {
+                titleFr: "Clarté pricing",
+                titleEn: "Pricing clarity",
+                decisionFr: "Afficher les offres de façon lisible.",
+                decisionEn: "Present offers readably.",
+                rationaleFr: "Un prospect formation compare vite.",
+                rationaleEn: "A training prospect compares fast.",
+            },
+        ],
+
+        securityFr: [
+            "HTTPS / Cloudflare",
+            "Validation formulaires contact",
+            "Pas de secrets inutiles côté client",
+        ],
+        securityEn: [
+            "HTTPS / Cloudflare",
+            "Contact form validation",
+            "No unnecessary client-side secrets",
+        ],
+        infraFr: [
+            "React production build",
+            "Cloudflare edge",
+            "Hébergement vitrine",
+        ],
+        infraEn: [
+            "React production build",
+            "Cloudflare edge",
+            "Showcase hosting",
+        ],
+
+        externalLinks: [
+            {
+                labelFr: "GitHub",
+                labelEn: "GitHub",
+                url: "https://github.com/barthez-kenwou/dhj-website",
+            },
+            {
+                labelFr: "dhj237.de",
+                labelEn: "dhj237.de",
+                url: "https://dhj237.de/",
+            },
+        ],
+
+        testimonial: {
+            quoteFr: "Le travail effectué a été félicité — la vitrine reflète enfin DHJ.",
+            quoteEn: "The work was congratulated — the showcase finally reflects DHJ.",
+            author: "Denise Magloire",
+            roleFr: "CEO",
+            roleEn: "CEO",
+            company: "Deutsches Haus Yaoundé (DHJ)",
+        },
+
+        lessonsFr: [
+            "Une vitrine bien faite bat un backend inutile.",
+            "La validation CEO est une métrique produit réelle.",
+            "Même pattern K&C : simplicité opérationnelle + UI premium.",
+        ],
+        lessonsEn: [
+            "A well-made showcase beats a useless backend.",
+            "CEO validation is a real product metric.",
+            "Same K&C pattern: operational simplicity + premium UI.",
+        ],
+
+        beforeAfter: [
+            {
+                beforeSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                afterSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                captionFr: "D'une présence digitale insuffisante à dhj237.de en production.",
+                captionEn: "From weak digital presence to dhj237.de in production.",
+            },
+        ],
+
+        isFeatured: true,
+    },
+
+    {
+        id: 26,
+        titleFr: "AgriClim — Backend Node/Supabase pour plateforme agri-climat (ReAtech)",
+        titleEn: "AgriClim — Node/Supabase Backend for Agri-Climate Platform (ReAtech)",
+
+        descriptionFr: "Backend Developer dans une équipe de 5 chez ReAtech : API Node/Express/TypeScript + Supabase pour AgriClim (météo, culture, communauté temps réel, auth, mail queue) — livré sous pression pour un événement innovation tech.",
+        descriptionEn: "Backend Developer in a 5-person ReAtech team: Node/Express/TypeScript + Supabase API for AgriClim (weather, crops, realtime community, auth, mail queue) — shipped under pressure for a tech innovation event.",
+
+        fullDescriptionFr: `AgriClim — « Connecter l'agriculture d'aujourd'hui aux solutions intelligentes de demain » — est la plateforme web que la startup ReAtech voulait présenter à un événement innovation tech. Vert, agriculture, climat, communauté : un produit ambitieux (Home, Météo, Culture/carte IA, Communauté temps réel, chatbot flottant) avec un calendrier compressé.
+
+Dans l'équipe de 5, j'étais le développeur backend. Mon terrain : API Node.js + Express + TypeScript, intégration Supabase (données/auth selon besoins), JWT + bcrypt + cookies, Nodemailer + Redis pour la file mail, Socket.IO pour le fil communautaire live, hooks OpenWeather et endpoints pour le chatbot IA, documentation Swagger, base dockerisable. Le frontend (React/Vite/Tailwind/maps) et le design étaient portés par le reste de l'équipe ; moi je garantissais que l'auth, la communauté, la météo contextualisée et les flux async tenaient la route pour la démo événementielle.
+
+Contrainte dominante : vitesse sans casser le professionnalisme backend (contrats API clairs, auth correcte, realtime stable, queues mail). AgriClim m'a forcé à prioriser le socle qui fait vivre les pages Culture/Communauté/Météo — pas à peindre l'UI.`,
+        fullDescriptionEn: `AgriClim — “Connecting today’s agriculture to tomorrow’s intelligent solutions” — is the web platform startup ReAtech wanted to present at a tech innovation event. Green, agriculture, climate, community: an ambitious product (Home, Weather, Culture/AI map, realtime Community, floating chatbot) on a compressed calendar.
+
+In the team of 5, I was the backend developer. My ground: Node.js + Express + TypeScript API, Supabase integration (data/auth as needed), JWT + bcrypt + cookies, Nodemailer + Redis for the mail queue, Socket.IO for the live community feed, OpenWeather hooks and endpoints for the AI chatbot, Swagger docs, dockerizable base. Frontend (React/Vite/Tailwind/maps) and design were owned by the rest of the team; I made sure auth, community, contextual weather and async flows held for the event demo.
+
+Dominant constraint: speed without breaking backend professionalism (clear API contracts, correct auth, stable realtime, mail queues). AgriClim forced me to prioritize the foundation that powers Culture/Community/Weather pages — not to paint the UI.`,
+
+        problemFr: "ReAtech devait démontrer vite une plateforme agri-climat crédible. Sans backend solide (auth, realtime, météo, mail), le frontend événementiel s'écroule en démo.",
+        problemEn: "ReAtech had to quickly demo a credible agri-climate platform. Without a solid backend (auth, realtime, weather, mail), the event frontend collapses on stage.",
+
+        solutionFr: [
+            "API Express/TS documentée Swagger",
+            "Auth JWT + cookies + bcrypt (signup/signin/reset)",
+            "Intégration Supabase pour persistance / services cloud",
+            "Socket.IO : posts, likes, commentaires, présence communauté",
+            "OpenWeather : contextualisation météo pour conseils",
+            "Endpoints chatbot (proxy vers modèle IA)",
+            "Nodemailer + Redis queue mails",
+            "Dockerfile / structure monorepo front+back reprise facile",
+        ],
+        solutionEn: [
+            "Express/TS API with Swagger docs",
+            "JWT + cookies + bcrypt auth (signup/signin/reset)",
+            "Supabase integration for persistence / cloud services",
+            "Socket.IO: posts, likes, comments, community presence",
+            "OpenWeather: weather context for advice",
+            "Chatbot endpoints (proxy to AI model)",
+            "Nodemailer + Redis mail queue",
+            "Dockerfile / front+back structure easy to resume",
+        ],
+
+        challengesFr: [
+            "Deadline événement : prioriser le socle démo-critique",
+            "Realtime communautaire stable sous multi-users",
+            "Auth + OAuth social dans le temps imparti",
+            "Contrats API clairs pour débloquer le frontend",
+            "Ne pas promettre un backend infini hors scope event",
+        ],
+        challengesEn: [
+            "Event deadline: prioritize demo-critical foundation",
+            "Stable community realtime under multi-user load",
+            "Auth + social OAuth within the timebox",
+            "Clear API contracts to unblock frontend",
+            "Not promising infinite backend outside event scope",
+        ],
+
+        impactFr: [
+            "Backend prêt pour démo innovation tech",
+            "Communauté et auth opérationnelles côté API",
+            "Météo + hooks IA consommables par le front",
+            "Expérience backend intense en équipe startup",
+            "Base documentée pour reprise post-événement",
+        ],
+        impactEn: [
+            "Backend ready for the tech innovation demo",
+            "Community and auth operational on the API side",
+            "Weather + AI hooks consumable by the frontend",
+            "Intense backend experience in a startup team",
+            "Documented base for post-event continuity",
+        ],
+
+        metrics: {
+            "Role": "Backend Developer",
+            "Team": "5 @ ReAtech",
+            "Driver": "innovation event",
+            "API": "Express + TypeScript",
+            "Data": "Supabase (+ Prisma/Mongo options)",
+            "Realtime": "Socket.IO",
+            "Mail": "Nodemailer + Redis",
+            "Docs": "Swagger UI",
+        },
+
+        techStack: {
+            frontend: [
+                "React / Vite (équipe front)",
+            ],
+            backend: [
+                "Node.js",
+                "Express",
+                "TypeScript",
+                "Socket.IO",
+                "JWT",
+                "Swagger",
+            ],
+            database: [
+                "Supabase",
+                "MongoDB/Prisma (selon modules)",
+                "Redis",
+            ],
+            devops: [
+                "Docker",
+                "Nginx",
+                "GitHub",
+                "OpenWeather API",
+                "IA API",
+            ],
+        },
+
+        architecture: [
+            "Monorepo-style front/ + back/",
+            "REST API + Socket.IO gateway",
+            "Auth JWT/cookies ; optional OAuth providers",
+            "Weather & chatbot services behind API",
+            "Mail queue Redis → Nodemailer workers",
+            "Swagger as contract for the frontend team",
+        ],
+
+        testing: [
+            "Tests auth (signup/login/reset)",
+            "Smoke Socket.IO rooms/events",
+            "Validation OpenWeather responses",
+            "Vérif Swagger vs routes réelles",
+            "Démo rehearsal pre-event",
+        ],
+
+        images: [
+            "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+        ],
+        preview: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+        videoDemo: "",
+
+        category: "Backend • AgriTech",
+        status: "MVP",
+        complexity: "Avancé",
+        role: "Backend Developer",
+        teamSize: 5,
+
+        duration: "Sprint événement (ReAtech)",
+        date: "2025",
+
+        github: "https://github.com/barthez-kenwou/AgriClim",
+        demo: "",
+
+        businessContextFr: "Startup ReAtech : prouver AgriClim sur scène innovation — agriculture × climat × communauté — avec un backend capable de porter la démo.",
+        businessContextEn: "ReAtech startup: prove AgriClim on an innovation stage — agriculture × climate × community — with a backend able to carry the demo.",
+
+        confidential: false,
+
+        responsibilitiesFr: [
+            "Design et implémentation API Express/TS",
+            "Auth et sessions sécurisées",
+            "Realtime communauté Socket.IO",
+            "Intégrations Supabase / météo / IA",
+            "Mail queue Redis + Swagger",
+            "Coordination contrats avec l'équipe front",
+        ],
+        responsibilitiesEn: [
+            "Express/TS API design and implementation",
+            "Secure auth and sessions",
+            "Socket.IO community realtime",
+            "Supabase / weather / AI integrations",
+            "Redis mail queue + Swagger",
+            "Contract coordination with the frontend team",
+        ],
+
+        gallery: [
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                captionFr: "Captures API/Swagger / communauté à brancher",
+                captionEn: "API/Swagger / community screenshots to wire", kind: "wip",
+            },
+        ],
+
+        diagrams: [
+            {
+                id: "ag-backend",
+                titleFr: "Socle backend AgriClim",
+                titleEn: "AgriClim backend foundation",
+                mermaid: `flowchart TB
+  FE[React clients] --> API[Express API]
+  FE --> SIO[Socket.IO]
+  API --> AUTH[JWT / cookies]
+  API --> SB[(Supabase)]
+  API --> OW[OpenWeather]
+  API --> AI[Chatbot provider]
+  API --> Q[Redis mail queue]
+  Q --> MAIL[Nodemailer]`,
+            },
+            {
+                id: "ag-pages",
+                titleFr: "Pages produit ↔ capacités API",
+                titleEn: "Product pages ↔ API capabilities",
+                mermaid: `flowchart LR
+  HOME[Home] --> PUB[Public content]
+  MET[Meteo] --> OW[Weather API]
+  CUL[Culture map] --> AI[AI + geo data]
+  COM[Communauté] --> SIO[Socket.IO + auth]`,
+            },
+            {
+                id: "ag-team",
+                titleFr: "Rôle dans l'équipe ReAtech",
+                titleEn: "Role in the ReAtech team",
+                mermaid: `flowchart TB
+  T[Team of 5] --> BE[Backend: moi]
+  T --> FE[Frontend / UI]
+  T --> DES[Design / produit]
+  BE --> DEMO[Event-ready API]`,
+            },
+        ],
+
+        resources: [
+            {
+                labelFr: "Repo GitHub AgriClim",
+                labelEn: "AgriClim GitHub repo",
+                url: "https://github.com/barthez-kenwou/AgriClim",
+                type: "other",
+            },
+            {
+                labelFr: "Portfolio",
+                labelEn: "Portfolio",
+                url: "https://barthez-kenwou.dev/",
+                type: "other",
+            },
+        ],
+
+        milestones: [
+            {
+                labelFr: "Cadrage API event-critical",
+                labelEn: "Event-critical API framing",
+                date: "Jours 1–2",
+                descriptionFr: "Auth, météo, communauté.",
+                descriptionEn: "Auth, weather, community.",
+            },
+            {
+                labelFr: "Realtime + Supabase",
+                labelEn: "Realtime + Supabase",
+                date: "Mi-sprint",
+                descriptionFr: "Socket.IO + persistance.",
+                descriptionEn: "Socket.IO + persistence.",
+            },
+            {
+                labelFr: "Swagger + démo event",
+                labelEn: "Swagger + event demo",
+                date: "Jour J",
+                descriptionFr: "Contrats stables pour le front.",
+                descriptionEn: "Stable contracts for frontend.",
+            },
+        ],
+
+        scopeFr: [
+            "Backend AgriClim",
+            "Auth + communauté live",
+            "Météo + chatbot hooks",
+            "Swagger + Docker",
+        ],
+        scopeEn: [
+            "AgriClim backend",
+            "Auth + live community",
+            "Weather + chatbot hooks",
+            "Swagger + Docker",
+        ],
+        nonGoalsFr: [
+            "Ownership UI design system",
+            "Mapbox front complet",
+            "Fine-tune modèle IA from scratch",
+        ],
+        nonGoalsEn: [
+            "Owning the UI design system",
+            "Full Mapbox frontend",
+            "Fine-tuning an AI model from scratch",
+        ],
+
+        decisions: [
+            {
+                titleFr: "Backend event-first",
+                titleEn: "Event-first backend",
+                decisionFr: "Prioriser auth, Socket.IO, météo, mail queue.",
+                decisionEn: "Prioritize auth, Socket.IO, weather, mail queue.",
+                rationaleFr: "Ce qui casse en démo tue le pitch.",
+                rationaleEn: "What breaks on stage kills the pitch.",
+            },
+            {
+                titleFr: "Swagger comme contrat équipe",
+                titleEn: "Swagger as team contract",
+                decisionFr: "Documenter pour débloquer le front en parallèle.",
+                decisionEn: "Document to unblock frontend in parallel.",
+                rationaleFr: "5 personnes = parallélisme ou chaos.",
+                rationaleEn: "5 people = parallelism or chaos.",
+            },
+            {
+                titleFr: "Supabase pragmatique",
+                titleEn: "Pragmatic Supabase",
+                decisionFr: "Accélérer auth/data cloud sous deadline.",
+                decisionEn: "Accelerate cloud auth/data under deadline.",
+                rationaleFr: "Time-to-demo > purisme infra.",
+                rationaleEn: "Time-to-demo > infra purity.",
+            },
+        ],
+
+        securityFr: [
+            "JWT + httpOnly cookies",
+            "bcrypt passwords",
+            "Validation inputs",
+            "Secrets hors repo",
+            "Rate-limit basique endpoints publics",
+        ],
+        securityEn: [
+            "JWT + httpOnly cookies",
+            "bcrypt passwords",
+            "Input validation",
+            "Secrets out of repo",
+            "Basic rate-limit on public endpoints",
+        ],
+        infraFr: [
+            "Docker-ready API",
+            "Redis queue",
+            "Nginx cible",
+            "Swagger UI",
+            "GitHub collaboration",
+        ],
+        infraEn: [
+            "Docker-ready API",
+            "Redis queue",
+            "Nginx target",
+            "Swagger UI",
+            "GitHub collaboration",
+        ],
+
+        externalLinks: [
+            {
+                labelFr: "GitHub",
+                labelEn: "GitHub",
+                url: "https://github.com/barthez-kenwou/AgriClim",
+            },
+            {
+                labelFr: "Portfolio",
+                labelEn: "Portfolio",
+                url: "https://barthez-kenwou.dev",
+            },
+        ],
+
+        testimonial: {
+            quoteFr: "Sans le backend auth/realtime/météo, la démo AgriClim n'aurait pas tenu la scène.",
+            quoteEn: "Without the auth/realtime/weather backend, the AgriClim demo would not have held the stage.",
+            author: "ReAtech teammate",
+            roleFr: "Équipe produit",
+            roleEn: "Product team",
+            company: "ReAtech",
+        },
+
+        lessonsFr: [
+            "Sous deadline event, le backend est un produit de contrats.",
+            "Socket.IO mal cadré devient un hotspot de bugs live.",
+            "Clarifier son rôle (backend) évite de diluer la valeur en entretien.",
+        ],
+        lessonsEn: [
+            "Under an event deadline, backend is a contracts product.",
+            "Poorly scoped Socket.IO becomes a live bug hotspot.",
+            "Clarifying your role (backend) avoids diluting interview value.",
+        ],
+
+        beforeAfter: [
+            {
+                beforeSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                afterSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+                captionFr: "D'un brief agri-climat ambitieux à une API event-ready pour ReAtech.",
+                captionEn: "From an ambitious agri-climate brief to an event-ready API for ReAtech.",
+            },
+        ],
+
+        isFeatured: true,
     },
 
     {
