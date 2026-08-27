@@ -23,5 +23,5 @@ Secrets and bootstrap: [docs/deployment/DEPLOY_VPS.md](../../docs/deployment/DEP
 
 ## Notes
 
-- Repo and GHCR package are **private** — VPS needs `docker login ghcr.io` (`GHCR_PULL_TOKEN` recommended for Watchtower).
+- Repo and GHCR package are **private** - VPS needs `docker login ghcr.io` (`GHCR_PULL_TOKEN` recommended for Watchtower).
 - Health endpoint: `GET /health` (must stay a valid single-line HTTP response; CSP is single-line in `infra/docker/nginx.conf`).

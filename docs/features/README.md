@@ -14,13 +14,13 @@ User-facing capabilities. In FSD, a feature is an isolated user scenario that ma
 
 These are implemented as pages + entities rather than dedicated feature docs:
 
-- Blog (Markdown / Velite / Shiki) — [../entities/blog.md](../entities/blog.md)
-- Projects portfolio — [../entities/project.md](../entities/project.md)
-- Skills — [../entities/skill.md](../entities/skill.md)
-- CV / PDF export, services, testimonials — under `src/pages/public/` and `src/entities/`
+- Blog (Markdown / Velite / Shiki) - [../entities/blog.md](../entities/blog.md)
+- Projects portfolio - [../entities/project.md](../entities/project.md)
+- Skills - [../entities/skill.md](../entities/skill.md)
+- CV / PDF export, services, testimonials - under `src/pages/public/` and `src/entities/`
 
 ## Rules
 
-1. **Isolation** — keep feature code self-contained.
-2. **Coupling** — only depend on entities and shared.
-3. **Public API** — export only through the feature `index.ts` / public entry.
+1. **Isolation** - keep feature code self-contained.
+2. **Coupling** - only depend on entities and shared.
+3. **Public API** - export only through the feature `index.ts` / public entry.

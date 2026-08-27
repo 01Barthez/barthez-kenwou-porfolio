@@ -15,7 +15,7 @@ Core domain models. They define data shapes and contracts used across pages, wid
 
 Document as needed when the public API stabilizes:
 
-- `services` — professional offerings
+- `services` - professional offerings
 - `certifications`, `education`, `cv`, `contact`, `testimonies`, `userProfile`, `achievment`
 
 ## Rules

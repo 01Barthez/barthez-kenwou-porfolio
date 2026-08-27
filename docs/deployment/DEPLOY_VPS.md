@@ -1,4 +1,4 @@
-# Déploiement VPS OVH — barthez-kenwou.dev
+# Déploiement VPS OVH - barthez-kenwou.dev
 
 Pipeline CD : **push `main` → CI → Gitleaks → SonarQube → Trivy → build image GHCR → Trivy image → SSH deploy**.  
 Sur le VPS, **Watchtower** repull `latest` automatiquement.  
@@ -7,7 +7,7 @@ TLS / routage : **Nginx Proxy Manager** sur le réseau Docker externe `web-proxy
 | | |
 |--|--|
 | Compte GitHub | `barthez-kenwou` (ex-`01Barthez`) |
-| Repo | **privé** — `github.com/barthez-kenwou/barthez-kenwou-porfolio` |
+| Repo | **privé** - `github.com/barthez-kenwou/barthez-kenwou-porfolio` |
 | Image GHCR | `ghcr.io/barthez-kenwou/barthez-kenwou-porfolio` (**privée**) |
 | Conteneur | `barthez-portfolio-web:8080` sur `web-proxy` |
 
@@ -44,7 +44,7 @@ OVH VPS
 | `OVH_SSH_HOST` / `OVH_SSH_USER` / `OVH_SSH_KEY` | Deploy SSH |
 | `OVH_SSH_PORT` | optionnel (`22`) |
 | `OVH_APP_DIR` | optionnel (`/srv/apps/barthez-kenwou-portfolio`) |
-| `GHCR_PULL_TOKEN` | **recommandé** — PAT `read:packages` (repo privé → package privé) |
+| `GHCR_PULL_TOKEN` | **recommandé** - PAT `read:packages` (repo privé → package privé) |
 | `SONAR_TOKEN` / `SONAR_HOST_URL` | SonarQube |
 | `GITLEAKS_LICENSE` | optionnel |
 
@@ -59,7 +59,7 @@ Le code source reste privé ; l’image GHCR l’est aussi. Le VPS **doit** êtr
 echo "$GHCR_PULL_TOKEN" | docker login ghcr.io -u barthez-kenwou --password-stdin
 ```
 
-Ce login remplit `~/.docker/config.json` — requis aussi pour **Watchtower**.  
+Ce login remplit `~/.docker/config.json` - requis aussi pour **Watchtower**.  
 Sans `GHCR_PULL_TOKEN`, le job deploy peut utiliser le `GITHUB_TOKEN` d’Actions (court), insuffisant pour Watchtower au long cours.
 
 ---

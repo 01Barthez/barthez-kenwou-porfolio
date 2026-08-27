@@ -13,4 +13,4 @@ Also useful:
 - [../guidelines/README.md](../guidelines/README.md)
 - [../architecture/frontend-architecture.md](../architecture/frontend-architecture.md)
 - [../../CONTRIBUTING.md](../../CONTRIBUTING.md)
-- [../deployment/README.md](../deployment/README.md) — only if you touch infra / CD
+- [../deployment/README.md](../deployment/README.md) - only if you touch infra / CD

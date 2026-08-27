@@ -8,8 +8,8 @@ Principles
 
 Examples
 
-- `src/shared/state/useThemeStore.ts` — persistent theme store using `zustand`.
-- `widgets/CartWidget` — uses local store and keeps side effects in model/service files.
+- `src/shared/state/useThemeStore.ts` - persistent theme store using `zustand`.
+- `widgets/CartWidget` - uses local store and keeps side effects in model/service files.
 
 When to introduce more complex solutions
 

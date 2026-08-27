@@ -1,6 +1,6 @@
 # Barthez Kenwou Portfolio
 
-Professional portfolio of **Barthez Kenwou** — Full Stack Developer & DevOps Engineer (AWS).  
+Professional portfolio of **Barthez Kenwou** - Full Stack Developer & DevOps Engineer (AWS).  
 Live site: [https://barthez-kenwou.dev](https://barthez-kenwou.dev)
 
 [![Version](https://img.shields.io/badge/version-1.4.0-blue.svg)](./package.json)
@@ -155,4 +155,4 @@ curl -fsS http://127.0.0.1:18080/health
 
 ## License
 
-`UNLICENSED` — owned and maintained by **Barthez Kenwou**.
+`UNLICENSED` - owned and maintained by **Barthez Kenwou**.

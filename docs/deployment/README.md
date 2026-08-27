@@ -21,8 +21,8 @@ Edge TLS / routing: **Nginx Proxy Manager** on Docker network `web-proxy` → co
 
 ## Related
 
-- [../../infra/README.md](../../infra/README.md) — Dockerfiles, compose, nginx
-- [../../.github/workflows/README.md](../../.github/workflows/README.md) — `deploy-vps.yml`, `ci.yml`, `qa.yml`
+- [../../infra/README.md](../../infra/README.md) - Dockerfiles, compose, nginx
+- [../../.github/workflows/README.md](../../.github/workflows/README.md) - `deploy-vps.yml`, `ci.yml`, `qa.yml`
 
 ## Image & compose (quick refs)
 

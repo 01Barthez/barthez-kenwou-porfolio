@@ -1,4 +1,4 @@
-# 001 — Architecture choice
+# 001 - Architecture choice
 
 Status: accepted
 

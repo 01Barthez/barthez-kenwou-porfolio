@@ -1,4 +1,4 @@
-Husky hooks — Developer onboarding
+Husky hooks - Developer onboarding
 
 This project uses Husky, lint-staged and Commitlint to enforce code quality and Conventional Commits.
 

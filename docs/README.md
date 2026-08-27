@@ -1,6 +1,6 @@
 # Project documentation
 
-Documentation for the **Barthez Kenwou Portfolio** — architecture, domain, workflows, and production deployment.
+Documentation for the **Barthez Kenwou Portfolio** - architecture, domain, workflows, and production deployment.
 
 Live site: [https://barthez-kenwou.dev](https://barthez-kenwou.dev)
 
@@ -22,11 +22,11 @@ Live site: [https://barthez-kenwou.dev](https://barthez-kenwou.dev)
 
 Related (outside `docs/`):
 
-- [../README.md](../README.md) — project entrypoint
-- [../infra/README.md](../infra/README.md) — Docker / nginx
-- [../.github/workflows/README.md](../.github/workflows/README.md) — CI/CD workflows
-- [../CONTRIBUTING.md](../CONTRIBUTING.md) — contribution rules
-- [../scripts/README.md](../scripts/README.md) — build / tooling scripts
+- [../README.md](../README.md) - project entrypoint
+- [../infra/README.md](../infra/README.md) - Docker / nginx
+- [../.github/workflows/README.md](../.github/workflows/README.md) - CI/CD workflows
+- [../CONTRIBUTING.md](../CONTRIBUTING.md) - contribution rules
+- [../scripts/README.md](../scripts/README.md) - build / tooling scripts
 
 ---
 

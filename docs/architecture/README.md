@@ -13,6 +13,6 @@ Frontend architecture for the Barthez Kenwou portfolio (Feature-Sliced Design).
 
 Related:
 
-- [../decisions/README.md](../decisions/README.md) — ADRs
+- [../decisions/README.md](../decisions/README.md) - ADRs
 - [../guidelines/dependency-rules.md](../guidelines/dependency-rules.md)
-- [../deployment/README.md](../deployment/README.md) — runtime / infra (not FSD)
+- [../deployment/README.md](../deployment/README.md) - runtime / infra (not FSD)

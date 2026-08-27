@@ -1,11 +1,11 @@
-State & zustand — conventions
+State & zustand - conventions
 
 This folder provides helpers and conventions for Zustand usage in this project.
 
 Key files
 
-- `createStore.ts` — factory that composes `devtools` and `persist` middlewares in a consistent way.
-- `useThemeStore.ts` — example store using the factory.
+- `createStore.ts` - factory that composes `devtools` and `persist` middlewares in a consistent way.
+- `useThemeStore.ts` - example store using the factory.
 
 Guidelines
 

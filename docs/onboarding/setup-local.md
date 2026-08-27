@@ -4,10 +4,10 @@ Get the **Barthez Kenwou Portfolio** running on your machine.
 
 ## 1. Prerequisites
 
-- **Bun** (>= 1.3) — install, scripts, preferred runtime
-- **Node.js** (>= 18) — CI / some tooling
+- **Bun** (>= 1.3) - install, scripts, preferred runtime
+- **Node.js** (>= 18) - CI / some tooling
 - **Git**
-- Optional: **Docker** — local nginx image smoke tests
+- Optional: **Docker** - local nginx image smoke tests
 
 ## 2. Install
 

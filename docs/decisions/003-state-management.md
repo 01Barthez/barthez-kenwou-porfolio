@@ -1,4 +1,4 @@
-# 003 — State management
+# 003 - State management
 
 Status: accepted
 

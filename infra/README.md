@@ -10,7 +10,7 @@ Docs index: [docs/deployment/README.md](../docs/deployment/README.md)
 | File | Purpose |
 |------|---------|
 | `docker/Dockerfile` | Multi-stage Bun → nginx (optional full in-image build) |
-| `docker/Dockerfile.runtime` | **CI default** — nginx:stable-alpine + prebuilt `dist/` |
+| `docker/Dockerfile.runtime` | **CI default** - nginx:stable-alpine + prebuilt `dist/` |
 | `docker/docker-compose.yml` | Local build + optional Watchtower profile |
 | `docker/docker-compose.prod.yml` | VPS pull-only from GHCR |
 | `docker/nginx.conf` | SPA on `:8080`, `/health`, security headers |

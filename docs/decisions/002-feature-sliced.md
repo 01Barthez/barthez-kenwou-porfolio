@@ -1,4 +1,4 @@
-# 002 — Feature-sliced organization
+# 002 - Feature-sliced organization
 
 Status: accepted
 
