@@ -38,7 +38,7 @@ export const ProjectDetailPage = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [searchId]);
 
-  if (!project) return <ProjectNotFound />;
+  if (!project || project.isPublished === false) return <ProjectNotFound />;
 
   return (
     <>

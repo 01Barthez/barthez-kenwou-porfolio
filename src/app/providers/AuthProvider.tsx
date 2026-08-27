@@ -1,17 +1,19 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-
-interface User {
-  id: string;
-  email: string;
-  role: 'customer' | 'admin';
-}
+import React, { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import {
+  clearSession,
+  loadSession,
+  loginWithCredentials,
+  type AuthSession,
+  type AuthUser,
+} from '@/features/admin-auth';
 
 interface AuthContextType {
-  user: User | null;
+  user: AuthUser | null;
   isAuthenticated: boolean;
   login: (email: string, password: string) => Promise<void>;
   logout: () => void;
   loading: boolean;
+  session: AuthSession | null;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -29,38 +31,35 @@ interface AuthProviderProps {
 }
 
 export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
-  const [user, setUser] = useState<User | null>(null);
+  const [session, setSession] = useState<AuthSession | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // TODO: Vérifier le token existant et restaurer la session
+    setSession(loadSession());
     setLoading(false);
   }, []);
 
-  const login = async (email: string, _password: string) => {
-    // TODO: Implémenter la logique de connexion
-    console.log('Login attempt:', email);
-    void _password;
-    // Simulation d'une connexion réussie
-    setUser({
-      id: '1',
-      email,
-      role: 'customer',
-    });
+  const login = async (email: string, password: string) => {
+    const next = await loginWithCredentials(email, password);
+    setSession(next);
   };
 
   const logout = () => {
-    setUser(null);
-    // TODO: Nettoyer le token
+    clearSession();
+    setSession(null);
   };
 
-  const value: AuthContextType = {
-    user,
-    isAuthenticated: !!user,
-    login,
-    logout,
-    loading,
-  };
+  const value = useMemo<AuthContextType>(
+    () => ({
+      user: session?.user ?? null,
+      isAuthenticated: !!session?.user && session.user.role === 'admin',
+      login,
+      logout,
+      loading,
+      session,
+    }),
+    [session, loading],
+  );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

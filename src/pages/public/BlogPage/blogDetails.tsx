@@ -21,7 +21,7 @@ export const BlogDetailPage = () => {
   const post = findByNumericId(blogPostsData, blogID);
   const { language } = useLanguageStore();
 
-  if (!post) return <NotFoundPost />;
+  if (!post || post.isPublished === false) return <NotFoundPost />;
 
   const content = language === 'fr' ? post.contentFr : post.contentEn;
   const blogPath = `/blog/${getBlogPathSlug(post)}`;

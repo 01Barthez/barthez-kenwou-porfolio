@@ -1,9 +1,235 @@
-import React from 'react';
+import { Link } from 'react-router-dom';
+import {
+  AdminPageHeader,
+  useAdminCmsStore,
+} from '@/features/admin-cms';
+import { useLanguageStore } from '@/shared/state/useLanguageStore';
+import { adminPath } from '@/shared/config/admin';
+import { Badge } from '@/shared/ui/badge';
+import { cn } from '@/shared/lib/utils';
 
-export const AdminDashboardPage: React.FC = () => {
+/** Lightweight stand-in until Plausible CE API is wired. */
+const analyticsMock = {
+  visitors7d: 1284,
+  pageviews7d: 3921,
+  bounce: '41%',
+  top: [
+    { path: '/projects', views: 812 },
+    { path: '/blog', views: 640 },
+    { path: '/', views: 518 },
+    { path: '/services', views: 291 },
+  ],
+  topBlogs: [
+    { slug: 'ci-cd-github-actions-zero-to-expert', views: 418 },
+    { slug: 'nodejs-api-performance-2026', views: 296 },
+    { slug: 'aws-iam-security-deep-dive', views: 241 },
+  ],
+  topProjects: [
+    { id: 1, label: 'NEXUS ERP', views: 512 },
+    { id: 25, label: 'DHJ', views: 187 },
+    { id: 12, label: 'GTA Academy', views: 164 },
+  ],
+};
+
+export function AdminDashboardPage() {
+  const { language } = useLanguageStore();
+  const fr = language === 'fr';
+  const store = useAdminCmsStore();
+
+  const publishedProjects = store.projects.filter((p) => p.isPublished !== false).length;
+  const publishedBlogs = store.blogs.filter((b) => b.isPublished !== false).length;
+  const unread = store.contactResponses.filter((m) => m.status === 'new').length;
+  const pendingTestimonials = store.testimonials.filter((t) => t.status === 'pending').length;
+
+  const pulse = [
+    {
+      label: fr ? 'Projets live' : 'Live projects',
+      value: `${publishedProjects}/${store.projects.length}`,
+      href: adminPath('projects'),
+    },
+    {
+      label: fr ? 'Articles live' : 'Live articles',
+      value: `${publishedBlogs}/${store.blogs.length}`,
+      href: adminPath('blogs'),
+    },
+    {
+      label: fr ? 'Messages' : 'Inbox',
+      value: String(store.contactResponses.length),
+      hint: unread ? `${unread} ${fr ? 'nouveaux' : 'new'}` : undefined,
+      href: adminPath('contact-responses'),
+    },
+    {
+      label: fr ? 'Avis à valider' : 'Pending reviews',
+      value: String(pendingTestimonials),
+      href: adminPath('testimonials'),
+    },
+  ];
+
   return (
-    <div className="min-h-screen max-w-screen mx-auto">
-      <div className="container">Admin Dashboard Page</div>
+    <div className="space-y-10">
+      <AdminPageHeader title={fr ? 'Tableau de bord' : 'Dashboard'} />
+
+      {/* Quiet pulse strip */}
+      <section className="grid gap-px overflow-hidden rounded-xl border border-border/70 bg-border/70 sm:grid-cols-2 lg:grid-cols-4">
+        {pulse.map((item) => (
+          <Link
+            key={item.href}
+            to={item.href}
+            className="bg-card px-5 py-5 transition-colors hover:bg-muted/30"
+          >
+            <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">
+              {item.label}
+            </p>
+            <p className="mt-2 text-2xl font-semibold tracking-tight tabular-nums">{item.value}</p>
+            {item.hint ? (
+              <Badge variant="warning" className="mt-2">
+                {item.hint}
+              </Badge>
+            ) : (
+              <p className="mt-2 text-xs text-muted-foreground/80">→</p>
+            )}
+          </Link>
+        ))}
+      </section>
+
+      {/* Analytics */}
+      <section className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+        <div className="rounded-xl border border-border/70 bg-card/50 p-5 sm:p-6">
+          <div className="flex items-baseline justify-between gap-3">
+            <h2 className="text-sm font-semibold tracking-tight">
+              {fr ? 'Audience · 7 jours' : 'Audience · 7 days'}
+            </h2>
+            <span className="text-[10px] uppercase tracking-[0.14em] text-muted-foreground">
+              Plausible CE
+            </span>
+          </div>
+
+          <div className="mt-6 grid grid-cols-3 gap-4">
+            {[
+              { k: fr ? 'Visiteurs' : 'Visitors', v: analyticsMock.visitors7d },
+              { k: fr ? 'Pages vues' : 'Pageviews', v: analyticsMock.pageviews7d },
+              { k: 'Bounce', v: analyticsMock.bounce },
+            ].map((m) => (
+              <div key={m.k}>
+                <p className="text-[11px] text-muted-foreground">{m.k}</p>
+                <p className="mt-1 text-xl font-semibold tabular-nums tracking-tight">{m.v}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-8 grid gap-6 sm:grid-cols-2">
+            <div>
+              <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-muted-foreground">
+                {fr ? 'Articles' : 'Articles'}
+              </p>
+              <ul className="mt-3 space-y-2.5">
+                {analyticsMock.topBlogs.map((row) => (
+                  <li key={row.slug} className="flex items-center justify-between gap-3 text-sm">
+                    <Link
+                      to={adminPath('blogs')}
+                      className="truncate text-foreground/90 hover:text-primary"
+                    >
+                      {row.slug}
+                    </Link>
+                    <span className="tabular-nums text-muted-foreground">{row.views}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-muted-foreground">
+                {fr ? 'Projets' : 'Projects'}
+              </p>
+              <ul className="mt-3 space-y-2.5">
+                {analyticsMock.topProjects.map((row) => (
+                  <li key={row.id} className="flex items-center justify-between gap-3 text-sm">
+                    <Link
+                      to={adminPath('projects', String(row.id))}
+                      className="truncate text-foreground/90 hover:text-primary"
+                    >
+                      {row.label}
+                    </Link>
+                    <span className="tabular-nums text-muted-foreground">{row.views}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <p className="mt-6 text-[11px] leading-relaxed text-muted-foreground">
+            {fr
+              ? 'Chiffres illustratifs — brancher l’API Plausible CE pour du live.'
+              : 'Illustrative figures — wire Plausible CE API for live data.'}
+          </p>
+        </div>
+
+        <div className="rounded-xl border border-border/70 bg-card/50 p-5 sm:p-6">
+          <h2 className="text-sm font-semibold tracking-tight">
+            {fr ? 'Pages fortes' : 'Top pages'}
+          </h2>
+          <ul className="mt-4 space-y-3">
+            {analyticsMock.top.map((row, i) => (
+              <li key={row.path} className="flex items-center justify-between gap-3 text-sm">
+                <span className="flex min-w-0 items-center gap-2">
+                  <span className="font-mono text-[10px] text-muted-foreground">
+                    {String(i + 1).padStart(2, '0')}
+                  </span>
+                  <span className="truncate">{row.path}</span>
+                </span>
+                <span className="tabular-nums text-muted-foreground">{row.views}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Compact inventory */}
+      <section>
+        <h2 className="mb-3 text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">
+          {fr ? 'Inventaire' : 'Inventory'}
+        </h2>
+        <div className="flex flex-wrap gap-2">
+          {[
+            { href: adminPath('skills'), n: store.skills.length, fr: 'Compétences', en: 'Skills' },
+            {
+              href: adminPath('certifications'),
+              n: store.certifications.length,
+              fr: 'Certifs',
+              en: 'Certs',
+            },
+            {
+              href: adminPath('experiences'),
+              n: store.experiences.length,
+              fr: 'Expériences',
+              en: 'Experience',
+            },
+            {
+              href: adminPath('references'),
+              n: store.references.length,
+              fr: 'Références',
+              en: 'References',
+            },
+            {
+              href: adminPath('testimonials'),
+              n: store.testimonials.length,
+              fr: 'Témoignages',
+              en: 'Testimonials',
+            },
+          ].map((item) => (
+            <Link
+              key={item.href}
+              to={item.href}
+              className={cn(
+                'inline-flex items-center gap-2 rounded-full border border-border/70 bg-card/60 px-3 py-1.5 text-xs',
+                'transition-colors hover:border-primary/35 hover:bg-muted/40',
+              )}
+            >
+              <span className="font-semibold tabular-nums">{item.n}</span>
+              <span className="text-muted-foreground">{fr ? item.fr : item.en}</span>
+            </Link>
+          ))}
+        </div>
+      </section>
     </div>
   );
-};
+}

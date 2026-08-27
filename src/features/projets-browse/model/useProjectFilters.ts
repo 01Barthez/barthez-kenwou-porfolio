@@ -87,6 +87,7 @@ export const useProjectFilters = () => {
   const filteredProjects = useMemo(
     () =>
       projectsData.filter((project) => {
+        if (project.isPublished === false) return false;
         const matchCategory = matchesCategoryFilter(project, filters.category);
         const matchTech =
           filters.techs.length === 0 ||

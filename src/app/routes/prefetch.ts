@@ -47,7 +47,7 @@ export async function prefetchRoute(path: string) {
       return import('@/pages/public/Contact/contact');
     case '/cv':
       return import('@/pages/public/CvPage/cv');
-    case '/admin':
+    case '/barthez-admin':
       return import('@/pages/app/Admin/DashboardPage');
     default:
       return Promise.resolve();

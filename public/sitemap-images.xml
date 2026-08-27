@@ -14,281 +14,643 @@
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/projects/nexus-modular-saas-erp-for-smart-restaurant-management-0001</loc>
+    <loc>https://barthez-kenwou.dev/projects/nexus-modular-saas-erp-for-restaurants-0001</loc>
     <image:image>
-      <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/167ee008-product-pic-tabesto-300x274.webp</image:loc>
-      <image:title>NEXUS – ERP SaaS Modulaire pour la Gestion Intelligente de Restaurants</image:title>
-      <image:caption>ERP SaaS nouvelle génération pour restaurants, basé sur une architecture modulaire activable à la demande, combinant gestion opérationnelle, analytics et expérience client dans une plateforme unifiée.</image:caption>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-logo-full.png</image:loc>
+      <image:title>NEXUS - ERP SaaS modulaire pour la restauration</image:title>
+      <image:caption>ERP SaaS multi-tenant porté par ZENORA : modules activables à la demande, offline-first, paiements locaux, conçu pour toutes tailles de restaurants et tous appareils.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-brand-01.png</image:loc>
+      <image:title>NEXUS - ERP SaaS modulaire pour la restauration</image:title>
+      <image:caption>ERP SaaS multi-tenant porté par ZENORA : modules activables à la demande, offline-first, paiements locaux, conçu pour toutes tailles de restaurants et tous appareils.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-sidebar-modules.png</image:loc>
+      <image:title>NEXUS - ERP SaaS modulaire pour la restauration</image:title>
+      <image:caption>ERP SaaS multi-tenant porté par ZENORA : modules activables à la demande, offline-first, paiements locaux, conçu pour toutes tailles de restaurants et tous appareils.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-ui-extra-02.png</image:loc>
+      <image:title>NEXUS - ERP SaaS modulaire pour la restauration</image:title>
+      <image:caption>ERP SaaS multi-tenant porté par ZENORA : modules activables à la demande, offline-first, paiements locaux, conçu pour toutes tailles de restaurants et tous appareils.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-menu-categories-dark.png</image:loc>
+      <image:title>NEXUS - ERP SaaS modulaire pour la restauration</image:title>
+      <image:caption>ERP SaaS multi-tenant porté par ZENORA : modules activables à la demande, offline-first, paiements locaux, conçu pour toutes tailles de restaurants et tous appareils.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-ui-extra-03.png</image:loc>
+      <image:title>NEXUS - ERP SaaS modulaire pour la restauration</image:title>
+      <image:caption>ERP SaaS multi-tenant porté par ZENORA : modules activables à la demande, offline-first, paiements locaux, conçu pour toutes tailles de restaurants et tous appareils.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/nexus/nexus-menu-carte-akenx.png</image:loc>
+      <image:title>NEXUS - ERP SaaS modulaire pour la restauration</image:title>
+      <image:caption>ERP SaaS multi-tenant porté par ZENORA : modules activables à la demande, offline-first, paiements locaux, conçu pour toutes tailles de restaurants et tous appareils.</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/projects/gta-it-pwa-platform-corporate-admin-system-0012</loc>
+    <loc>https://barthez-kenwou.dev/projects/gta-it-corporate-pwa-platform-esn-admin-0002</loc>
     <image:image>
-      <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Macbook-Air-gta-it.com%20(2).png</image:loc>
-      <image:title>Plateforme Web PWA GTA IT (Corporate + Backoffice)</image:title>
-      <image:caption>Application web progressive complète pour l&apos;ESN GTA (Global Technology &amp; Associates), avec vitrine corporate, blog, gestion de contenu et système de demande de devis</image:caption>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/gta/gta-logo.png</image:loc>
+      <image:title>GTA IT - Plateforme corporate PWA &amp; backoffice ESN</image:title>
+      <image:caption>Plateforme web professionnelle pour l&apos;ESN Global Technology &amp; Associates : vitrine d&apos;expertise, génération de leads, recrutement, blog et pilotage des activités via backoffice.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Macbook-Air-gta-it.com.png</image:loc>
-      <image:title>Plateforme Web PWA GTA IT (Corporate + Backoffice)</image:title>
-      <image:caption>Application web progressive complète pour l&apos;ESN GTA (Global Technology &amp; Associates), avec vitrine corporate, blog, gestion de contenu et système de demande de devis</image:caption>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/gta/gta-hero-home.png</image:loc>
+      <image:title>GTA IT - Plateforme corporate PWA &amp; backoffice ESN</image:title>
+      <image:caption>Plateforme web professionnelle pour l&apos;ESN Global Technology &amp; Associates : vitrine d&apos;expertise, génération de leads, recrutement, blog et pilotage des activités via backoffice.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/about-team_section.png</image:loc>
-      <image:title>Plateforme Web PWA GTA IT (Corporate + Backoffice)</image:title>
-      <image:caption>Application web progressive complète pour l&apos;ESN GTA (Global Technology &amp; Associates), avec vitrine corporate, blog, gestion de contenu et système de demande de devis</image:caption>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/gta/gta-projects-grid.png</image:loc>
+      <image:title>GTA IT - Plateforme corporate PWA &amp; backoffice ESN</image:title>
+      <image:caption>Plateforme web professionnelle pour l&apos;ESN Global Technology &amp; Associates : vitrine d&apos;expertise, génération de leads, recrutement, blog et pilotage des activités via backoffice.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/iPhone-13-PRO-gta-it.com.png</image:loc>
-      <image:title>Plateforme Web PWA GTA IT (Corporate + Backoffice)</image:title>
-      <image:caption>Application web progressive complète pour l&apos;ESN GTA (Global Technology &amp; Associates), avec vitrine corporate, blog, gestion de contenu et système de demande de devis</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://barthez-kenwou.dev/projects/kaza-smart-real-estate-platform-concierge-ecosystem-0003</loc>
-    <image:image>
-      <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2023-05-39.png</image:loc>
-      <image:title>Kaza – Plateforme Immobilière Intelligente &amp; Écosystème Conciergerie</image:title>
-      <image:caption>Plateforme digitale immobilière &apos;end-to-end&apos; combinant marketplace, IA anti-fraude, conciergerie et mise en relation directe, avec un écosystème complet web &amp; mobile.</image:caption>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/gta/gta-about-team.png</image:loc>
+      <image:title>GTA IT - Plateforme corporate PWA &amp; backoffice ESN</image:title>
+      <image:caption>Plateforme web professionnelle pour l&apos;ESN Global Technology &amp; Associates : vitrine d&apos;expertise, génération de leads, recrutement, blog et pilotage des activités via backoffice.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2012-02-41.png</image:loc>
-      <image:title>Kaza – Plateforme Immobilière Intelligente &amp; Écosystème Conciergerie</image:title>
-      <image:caption>Plateforme digitale immobilière &apos;end-to-end&apos; combinant marketplace, IA anti-fraude, conciergerie et mise en relation directe, avec un écosystème complet web &amp; mobile.</image:caption>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/gta/gta-quote-form.png</image:loc>
+      <image:title>GTA IT - Plateforme corporate PWA &amp; backoffice ESN</image:title>
+      <image:caption>Plateforme web professionnelle pour l&apos;ESN Global Technology &amp; Associates : vitrine d&apos;expertise, génération de leads, recrutement, blog et pilotage des activités via backoffice.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/gta/gta-pagespeed.png</image:loc>
+      <image:title>GTA IT - Plateforme corporate PWA &amp; backoffice ESN</image:title>
+      <image:caption>Plateforme web professionnelle pour l&apos;ESN Global Technology &amp; Associates : vitrine d&apos;expertise, génération de leads, recrutement, blog et pilotage des activités via backoffice.</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/projects/fullstack-devops-portfolio-personal-technical-positioning-platform-0004</loc>
+    <loc>https://barthez-kenwou.dev/projects/kaza-trust-first-real-estate-marketplace-africa-0003</loc>
     <image:image>
-      <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2022-55-14.png</image:loc>
-      <image:title>Portfolio Fullstack &amp; DevOps (Personnel) – Plateforme de Positionnement Technique</image:title>
-      <image:caption>Portfolio professionnel fullstack conçu comme une plateforme complète de présentation, intégrant performance, SEO, backoffice et bonnes pratiques DevOps pour maximiser la crédibilité technique.</image:caption>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-home-feed.png</image:loc>
+      <image:title>KAZA - Marketplace immobilière de confiance (Afrique)</image:title>
+      <image:caption>Plateforme web &amp; mobile pour trouver et publier un logement en Afrique : recherche gratuite pour les locataires, crédits bailleurs, IA anti-fraude et contact direct WhatsApp.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2022-56-32.png</image:loc>
-      <image:title>Portfolio Fullstack &amp; DevOps (Personnel) – Plateforme de Positionnement Technique</image:title>
-      <image:caption>Portfolio professionnel fullstack conçu comme une plateforme complète de présentation, intégrant performance, SEO, backoffice et bonnes pratiques DevOps pour maximiser la crédibilité technique.</image:caption>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://barthez-kenwou.dev/projects/esopa-ngo-web-platform-wordpress-devops-infrastructure-0005</loc>
-    <image:image>
-      <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2023-24-13.png</image:loc>
-      <image:title>Plateforme Web ONG ESOPA – WordPress &amp; Infrastructure DevOps</image:title>
-      <image:caption>Plateforme web vitrine pour l’ONG ESOPA, accompagnée d’une infrastructure DevOps complète (multi-environnements, sécurité, CI/CD, sauvegardes et optimisation SEO).</image:caption>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-map-explorer.png</image:loc>
+      <image:title>KAZA - Marketplace immobilière de confiance (Afrique)</image:title>
+      <image:caption>Plateforme web &amp; mobile pour trouver et publier un logement en Afrique : recherche gratuite pour les locataires, crédits bailleurs, IA anti-fraude et contact direct WhatsApp.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2023-23-15.png</image:loc>
-      <image:title>Plateforme Web ONG ESOPA – WordPress &amp; Infrastructure DevOps</image:title>
-      <image:caption>Plateforme web vitrine pour l’ONG ESOPA, accompagnée d’une infrastructure DevOps complète (multi-environnements, sécurité, CI/CD, sauvegardes et optimisation SEO).</image:caption>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-property-details.png</image:loc>
+      <image:title>KAZA - Marketplace immobilière de confiance (Afrique)</image:title>
+      <image:caption>Plateforme web &amp; mobile pour trouver et publier un logement en Afrique : recherche gratuite pour les locataires, crédits bailleurs, IA anti-fraude et contact direct WhatsApp.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2023-33-25.png</image:loc>
-      <image:title>Plateforme Web ONG ESOPA – WordPress &amp; Infrastructure DevOps</image:title>
-      <image:caption>Plateforme web vitrine pour l’ONG ESOPA, accompagnée d’une infrastructure DevOps complète (multi-environnements, sécurité, CI/CD, sauvegardes et optimisation SEO).</image:caption>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-landlord-credits.png</image:loc>
+      <image:title>KAZA - Marketplace immobilière de confiance (Afrique)</image:title>
+      <image:caption>Plateforme web &amp; mobile pour trouver et publier un logement en Afrique : recherche gratuite pour les locataires, crédits bailleurs, IA anti-fraude et contact direct WhatsApp.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-21%2023-34-56.png</image:loc>
-      <image:title>Plateforme Web ONG ESOPA – WordPress &amp; Infrastructure DevOps</image:title>
-      <image:caption>Plateforme web vitrine pour l’ONG ESOPA, accompagnée d’une infrastructure DevOps complète (multi-environnements, sécurité, CI/CD, sauvegardes et optimisation SEO).</image:caption>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/kaza/kaza-figma-flows-01.png</image:loc>
+      <image:title>KAZA - Marketplace immobilière de confiance (Afrique)</image:title>
+      <image:caption>Plateforme web &amp; mobile pour trouver et publier un logement en Afrique : recherche gratuite pour les locataires, crédits bailleurs, IA anti-fraude et contact direct WhatsApp.</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/projects/secure-software-supply-chain-platform-industrial-devsecops-0006</loc>
+    <loc>https://barthez-kenwou.dev/projects/barthez-kenwou-dev-technical-positioning-portfolio-0004</loc>
     <image:image>
-      <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/devsecops.webp</image:loc>
-      <image:title>Secure Software Supply Chain Platform – DevSecOps Industriel</image:title>
-      <image:caption>Conception d’une plateforme DevSecOps sécurisant la supply chain pour applications Node.js/Java (microservices &amp; monolithes), avec conformité SLSA, réduction mesurée des vulnérabilités et pipeline CI…</image:caption>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/portfolio/logo-mark.png</image:loc>
+      <image:title>barthez-kenwou.dev - Portfolio de positionnement technique</image:title>
+      <image:caption>Pas un CV en ligne : une plateforme produit qui prouve, mesure et déploie l&apos;expertise Full Stack &amp; DevOps - case studies, blog, services, CV PDF, analytics et CD DevSecOps jusqu&apos;à la prod OVH.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-home-hero.png</image:loc>
+      <image:title>barthez-kenwou.dev - Portfolio de positionnement technique</image:title>
+      <image:caption>Pas un CV en ligne : une plateforme produit qui prouve, mesure et déploie l&apos;expertise Full Stack &amp; DevOps - case studies, blog, services, CV PDF, analytics et CD DevSecOps jusqu&apos;à la prod OVH.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-projects-grid.png</image:loc>
+      <image:title>barthez-kenwou.dev - Portfolio de positionnement technique</image:title>
+      <image:caption>Pas un CV en ligne : une plateforme produit qui prouve, mesure et déploie l&apos;expertise Full Stack &amp; DevOps - case studies, blog, services, CV PDF, analytics et CD DevSecOps jusqu&apos;à la prod OVH.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-ui-diagrams.png</image:loc>
+      <image:title>barthez-kenwou.dev - Portfolio de positionnement technique</image:title>
+      <image:caption>Pas un CV en ligne : une plateforme produit qui prouve, mesure et déploie l&apos;expertise Full Stack &amp; DevOps - case studies, blog, services, CV PDF, analytics et CD DevSecOps jusqu&apos;à la prod OVH.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-actions-deploy-vps.png</image:loc>
+      <image:title>barthez-kenwou.dev - Portfolio de positionnement technique</image:title>
+      <image:caption>Pas un CV en ligne : une plateforme produit qui prouve, mesure et déploie l&apos;expertise Full Stack &amp; DevOps - case studies, blog, services, CV PDF, analytics et CD DevSecOps jusqu&apos;à la prod OVH.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-pagespeed-desktop.png</image:loc>
+      <image:title>barthez-kenwou.dev - Portfolio de positionnement technique</image:title>
+      <image:caption>Pas un CV en ligne : une plateforme produit qui prouve, mesure et déploie l&apos;expertise Full Stack &amp; DevOps - case studies, blog, services, CV PDF, analytics et CD DevSecOps jusqu&apos;à la prod OVH.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/portfolio/pf-plausible-overview.png</image:loc>
+      <image:title>barthez-kenwou.dev - Portfolio de positionnement technique</image:title>
+      <image:caption>Pas un CV en ligne : une plateforme produit qui prouve, mesure et déploie l&apos;expertise Full Stack &amp; DevOps - case studies, blog, services, CV PDF, analytics et CD DevSecOps jusqu&apos;à la prod OVH.</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/projects/odoo-erp-platform-cloud-devops-infrastructure-intelek-construction-0007</loc>
+    <loc>https://barthez-kenwou.dev/projects/esopa-ngo-digital-presence-cafca-zenora-0005</loc>
     <image:image>
-      <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2011-20-48.png</image:loc>
-      <image:title>Plateforme ERP Odoo – Infrastructure Cloud &amp; DevOps (INTELEK BTP)</image:title>
-      <image:caption>Déploiement et personnalisation d’un ERP Odoo pour une entreprise BTP, avec infrastructure cloud sécurisée, orchestration Kubernetes et sauvegardes externalisées.</image:caption>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-logo.png</image:loc>
+      <image:title>ESOPA - Présence digitale ONG (CAFCA × ZENORA)</image:title>
+      <image:caption>En 2 semaines : site WordPress institutionnel FR/EN, staging + prod, sécurité, SEO et écosystème digital complet (Google Business, réseaux, guide de livraison) pour Étoile Solidarité Panafricaine.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2011-24-11.png</image:loc>
-      <image:title>Plateforme ERP Odoo – Infrastructure Cloud &amp; DevOps (INTELEK BTP)</image:title>
-      <image:caption>Déploiement et personnalisation d’un ERP Odoo pour une entreprise BTP, avec infrastructure cloud sécurisée, orchestration Kubernetes et sauvegardes externalisées.</image:caption>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-ui-home-hero.png</image:loc>
+      <image:title>ESOPA - Présence digitale ONG (CAFCA × ZENORA)</image:title>
+      <image:caption>En 2 semaines : site WordPress institutionnel FR/EN, staging + prod, sécurité, SEO et écosystème digital complet (Google Business, réseaux, guide de livraison) pour Étoile Solidarité Panafricaine.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-ui-who-we-are.png</image:loc>
+      <image:title>ESOPA - Présence digitale ONG (CAFCA × ZENORA)</image:title>
+      <image:caption>En 2 semaines : site WordPress institutionnel FR/EN, staging + prod, sécurité, SEO et écosystème digital complet (Google Business, réseaux, guide de livraison) pour Étoile Solidarité Panafricaine.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-ui-values.png</image:loc>
+      <image:title>ESOPA - Présence digitale ONG (CAFCA × ZENORA)</image:title>
+      <image:caption>En 2 semaines : site WordPress institutionnel FR/EN, staging + prod, sécurité, SEO et écosystème digital complet (Google Business, réseaux, guide de livraison) pour Étoile Solidarité Panafricaine.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-metric-pagespeed.png</image:loc>
+      <image:title>ESOPA - Présence digitale ONG (CAFCA × ZENORA)</image:title>
+      <image:caption>En 2 semaines : site WordPress institutionnel FR/EN, staging + prod, sécurité, SEO et écosystème digital complet (Google Business, réseaux, guide de livraison) pour Étoile Solidarité Panafricaine.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-process-wordfence.png</image:loc>
+      <image:title>ESOPA - Présence digitale ONG (CAFCA × ZENORA)</image:title>
+      <image:caption>En 2 semaines : site WordPress institutionnel FR/EN, staging + prod, sécurité, SEO et écosystème digital complet (Google Business, réseaux, guide de livraison) pour Étoile Solidarité Panafricaine.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-logo.png</image:loc>
+      <image:title>ESOPA - Présence digitale ONG (CAFCA × ZENORA)</image:title>
+      <image:caption>En 2 semaines : site WordPress institutionnel FR/EN, staging + prod, sécurité, SEO et écosystème digital complet (Google Business, réseaux, guide de livraison) pour Étoile Solidarité Panafricaine.</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/projects/full-stack-observability-platform-metrics-logs-traces-correlation-0008</loc>
+    <loc>https://barthez-kenwou.dev/projects/supply-chain-pipeline-fail-closed-devsecops-kit-0006</loc>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/supply-chain/sc-ci-pipeline.png</image:loc>
+      <image:title>Supply Chain Pipeline - Kit DevSecOps fail-closed</image:title>
+      <image:caption>Colonne vertébrale CI/CD réutilisable : qualité → sécurité → image Trivy → Harbor → Cosign/SBOM → deploy par digest. Née du lab anti-Megalodon, en prod sur zenora360.com et ketc-services.com.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/supply-chain/sc-security-pipeline.png</image:loc>
+      <image:title>Supply Chain Pipeline - Kit DevSecOps fail-closed</image:title>
+      <image:caption>Colonne vertébrale CI/CD réutilisable : qualité → sécurité → image Trivy → Harbor → Cosign/SBOM → deploy par digest. Née du lab anti-Megalodon, en prod sur zenora360.com et ketc-services.com.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/supply-chain/sc-deploy-cosign.png</image:loc>
+      <image:title>Supply Chain Pipeline - Kit DevSecOps fail-closed</image:title>
+      <image:caption>Colonne vertébrale CI/CD réutilisable : qualité → sécurité → image Trivy → Harbor → Cosign/SBOM → deploy par digest. Née du lab anti-Megalodon, en prod sur zenora360.com et ketc-services.com.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/supply-chain/sc-harbor-registry.png</image:loc>
+      <image:title>Supply Chain Pipeline - Kit DevSecOps fail-closed</image:title>
+      <image:caption>Colonne vertébrale CI/CD réutilisable : qualité → sécurité → image Trivy → Harbor → Cosign/SBOM → deploy par digest. Née du lab anti-Megalodon, en prod sur zenora360.com et ketc-services.com.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/supply-chain/sc-sonar-qg.png</image:loc>
+      <image:title>Supply Chain Pipeline - Kit DevSecOps fail-closed</image:title>
+      <image:caption>Colonne vertébrale CI/CD réutilisable : qualité → sécurité → image Trivy → Harbor → Cosign/SBOM → deploy par digest. Née du lab anti-Megalodon, en prod sur zenora360.com et ketc-services.com.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/supply-chain/sc-github-repo.png</image:loc>
+      <image:title>Supply Chain Pipeline - Kit DevSecOps fail-closed</image:title>
+      <image:caption>Colonne vertébrale CI/CD réutilisable : qualité → sécurité → image Trivy → Harbor → Cosign/SBOM → deploy par digest. Née du lab anti-Megalodon, en prod sur zenora360.com et ketc-services.com.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://barthez-kenwou.dev/projects/odoo-docker-infra-multi-environment-devsecops-lab-0007</loc>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-live-login.png</image:loc>
+      <image:title>Odoo Docker Infra - Lab DevSecOps multi-environnements</image:title>
+      <image:caption>Lab enterprise-ready : plateforme de déploiement Odoo 100% déclarative (Docker Compose + Terraform + Infisical + CI/CD DevSecOps), staging/prod isolés, secrets rotatifs, supply chain d&apos;images et obse…</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-live-home.png</image:loc>
+      <image:title>Odoo Docker Infra - Lab DevSecOps multi-environnements</image:title>
+      <image:caption>Lab enterprise-ready : plateforme de déploiement Odoo 100% déclarative (Docker Compose + Terraform + Infisical + CI/CD DevSecOps), staging/prod isolés, secrets rotatifs, supply chain d&apos;images et obse…</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-ui-modules.png</image:loc>
+      <image:title>Odoo Docker Infra - Lab DevSecOps multi-environnements</image:title>
+      <image:caption>Lab enterprise-ready : plateforme de déploiement Odoo 100% déclarative (Docker Compose + Terraform + Infisical + CI/CD DevSecOps), staging/prod isolés, secrets rotatifs, supply chain d&apos;images et obse…</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://barthez-kenwou.dev/projects/odoo-kubernetes-infra-ha-orchestration-lab-0014</loc>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-live-home.png</image:loc>
+      <image:title>Odoo Kubernetes Infra - Lab HA &amp; orchestration</image:title>
+      <image:caption>Lab jumeau haute disponibilité : redéploiement d&apos;Odoo sur Kubernetes pour maîtriser namespaces, workloads, stockage, réseau, GitOps, admission policies et DR - sans raccourci Helm magique, avec la mê…</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-ui-modules.png</image:loc>
+      <image:title>Odoo Kubernetes Infra - Lab HA &amp; orchestration</image:title>
+      <image:caption>Lab jumeau haute disponibilité : redéploiement d&apos;Odoo sur Kubernetes pour maîtriser namespaces, workloads, stockage, réseau, GitOps, admission policies et DR - sans raccourci Helm magique, avec la mê…</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-live-login.png</image:loc>
+      <image:title>Odoo Kubernetes Infra - Lab HA &amp; orchestration</image:title>
+      <image:caption>Lab jumeau haute disponibilité : redéploiement d&apos;Odoo sur Kubernetes pour maîtriser namespaces, workloads, stockage, réseau, GitOps, admission policies et DR - sans raccourci Helm magique, avec la mê…</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://barthez-kenwou.dev/projects/zenora-odoo-erp-it-services-firm-setup-customization-0015</loc>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-live-home.png</image:loc>
+      <image:title>ERP Odoo ZENORA - Configuration &amp; customisation ESN</image:title>
+      <image:caption>Déploiement Docker et configuration poussée d&apos;Odoo pour l&apos;ESN ZENORA : modules OCA + addons custom, processus métier (projets, RH, finance, CRM, delivery), toujours en production au quotidien.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-ui-modules.png</image:loc>
+      <image:title>ERP Odoo ZENORA - Configuration &amp; customisation ESN</image:title>
+      <image:caption>Déploiement Docker et configuration poussée d&apos;Odoo pour l&apos;ESN ZENORA : modules OCA + addons custom, processus métier (projets, RH, finance, CRM, delivery), toujours en production au quotidien.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-live-login.png</image:loc>
+      <image:title>ERP Odoo ZENORA - Configuration &amp; customisation ESN</image:title>
+      <image:caption>Déploiement Docker et configuration poussée d&apos;Odoo pour l&apos;ESN ZENORA : modules OCA + addons custom, processus métier (projets, RH, finance, CRM, delivery), toujours en production au quotidien.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-ui-login-or-home.png</image:loc>
+      <image:title>ERP Odoo ZENORA - Configuration &amp; customisation ESN</image:title>
+      <image:caption>Déploiement Docker et configuration poussée d&apos;Odoo pour l&apos;ESN ZENORA : modules OCA + addons custom, processus métier (projets, RH, finance, CRM, delivery), toujours en production au quotidien.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://barthez-kenwou.dev/projects/enterprise-observability-platform-metrics-logs-traces-slo-0008</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/000000083082.png</image:loc>
-      <image:title>Plateforme d’Observabilité Full Stack – Monitoring, Logs &amp; Traces Corrélés</image:title>
-      <image:caption>Système complet d’observabilité pour VPS de production, intégrant métriques, logs et traces distribuées avec alerting avancé et dashboards SLO/SLI.</image:caption>
+      <image:title>Enterprise Observability Platform - Metrics, Logs, Traces &amp; SLO</image:title>
+      <image:caption>Plateforme d&apos;observabilité réutilisable (produit Platform/SRE) : OpenTelemetry → Prometheus/Loki/Tempo/Pyroscope → Grafana/Alertmanager, corrélation bout-en-bout, SLO/error budgets - forkable pour n&apos;…</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/images%20(3).jpeg</image:loc>
-      <image:title>Plateforme d’Observabilité Full Stack – Monitoring, Logs &amp; Traces Corrélés</image:title>
-      <image:caption>Système complet d’observabilité pour VPS de production, intégrant métriques, logs et traces distribuées avec alerting avancé et dashboards SLO/SLI.</image:caption>
+      <image:title>Enterprise Observability Platform - Metrics, Logs, Traces &amp; SLO</image:title>
+      <image:caption>Plateforme d&apos;observabilité réutilisable (produit Platform/SRE) : OpenTelemetry → Prometheus/Loki/Tempo/Pyroscope → Grafana/Alertmanager, corrélation bout-en-bout, SLO/error budgets - forkable pour n&apos;…</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/image-7.png</image:loc>
-      <image:title>Plateforme d’Observabilité Full Stack – Monitoring, Logs &amp; Traces Corrélés</image:title>
-      <image:caption>Système complet d’observabilité pour VPS de production, intégrant métriques, logs et traces distribuées avec alerting avancé et dashboards SLO/SLI.</image:caption>
+      <image:title>Enterprise Observability Platform - Metrics, Logs, Traces &amp; SLO</image:title>
+      <image:caption>Plateforme d&apos;observabilité réutilisable (produit Platform/SRE) : OpenTelemetry → Prometheus/Loki/Tempo/Pyroscope → Grafana/Alertmanager, corrélation bout-en-bout, SLO/error budgets - forkable pour n&apos;…</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/projects/backend-driven-blog-platform-seo-rbac-performance-0009</loc>
+    <loc>https://barthez-kenwou.dev/projects/enterprise-internal-developer-platform-golden-paths-self-service-0016</loc>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png</image:loc>
+      <image:title>Enterprise Internal Developer Platform - Golden Paths &amp; Self-Service</image:title>
+      <image:caption>IDP Platform Engineering : Backstage + Golden Paths + GitOps. Un développeur crée un service en self-service - repo, CI, Helm, secrets, observabilité, SLO - sans devenir expert Kubernetes.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://barthez-kenwou.dev/projects/enterprise-cloud-security-platform-cloudsec-k8s-runtime-0017</loc>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png</image:loc>
+      <image:title>Enterprise Cloud Security Platform - CloudSec, K8s &amp; Runtime</image:title>
+      <image:caption>Plateforme DevSecOps/CloudSec : CSPM/KSPM, supply chain (Trivy/SBOM/Cosign), admission Kyverno, réseau Cilium, runtime Falco, score de risque unifié - défense en profondeur code → runtime.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://barthez-kenwou.dev/projects/enterprise-disaster-recovery-resilience-platform-0018</loc>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png</image:loc>
+      <image:title>Enterprise Disaster Recovery &amp; Resilience Platform</image:title>
+      <image:caption>Plateforme SRE de résilience : backups 3-2-1, Velero, PostgreSQL PITR, failover, chaos/game days, RPO/RTO mesurés - prouver qu&apos;on reconstruit, pas seulement qu&apos;on sauvegarde.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://barthez-kenwou.dev/projects/enterprise-event-driven-platform-kafka-saga-resilience-0019</loc>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png</image:loc>
+      <image:title>Enterprise Event-Driven Platform - Kafka, Saga &amp; Resilience</image:title>
+      <image:caption>Plateforme event-driven (Redpanda/Kafka) : producers/consumers, outbox, saga, DLQ, idempotence, backpressure, OTel corrélé - lab systèmes distribués transformé en produit forkable.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://barthez-kenwou.dev/projects/backend-init-enterprise-backend-template-auth-security-obs-queues-0009</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2015-43-00.png</image:loc>
-      <image:title>Plateforme Blog Backend-Driven – SEO, RBAC &amp; Performance</image:title>
-      <image:caption>Système de gestion de blog avancé orienté backend, avec RBAC, optimisation des performances, sécurité renforcée et stratégie SEO pour acquisition d’audience.</image:caption>
+      <image:title>backend-init - Template Backend Enterprise (Auth, Sécurité, Obs, Queues)</image:title>
+      <image:caption>Template backend Express/TypeScript production-grade : JWT/OAuth, RBAC, Prisma/Mongo, Redis, MinIO, ClamAV, queues, OpenAPI, Prometheus/Loki/Grafana - base du blog, du portfolio et des backends ZENOR…</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2015-44-46.png</image:loc>
-      <image:title>Plateforme Blog Backend-Driven – SEO, RBAC &amp; Performance</image:title>
-      <image:caption>Système de gestion de blog avancé orienté backend, avec RBAC, optimisation des performances, sécurité renforcée et stratégie SEO pour acquisition d’audience.</image:caption>
+      <image:title>backend-init - Template Backend Enterprise (Auth, Sécurité, Obs, Queues)</image:title>
+      <image:caption>Template backend Express/TypeScript production-grade : JWT/OAuth, RBAC, Prisma/Mongo, Redis, MinIO, ClamAV, queues, OpenAPI, Prometheus/Loki/Grafana - base du blog, du portfolio et des backends ZENOR…</image:caption>
     </image:image>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2015-45-15.png</image:loc>
-      <image:title>Plateforme Blog Backend-Driven – SEO, RBAC &amp; Performance</image:title>
-      <image:caption>Système de gestion de blog avancé orienté backend, avec RBAC, optimisation des performances, sécurité renforcée et stratégie SEO pour acquisition d’audience.</image:caption>
+      <image:title>backend-init - Template Backend Enterprise (Auth, Sécurité, Obs, Queues)</image:title>
+      <image:caption>Template backend Express/TypeScript production-grade : JWT/OAuth, RBAC, Prisma/Mongo, Redis, MinIO, ClamAV, queues, OpenAPI, Prometheus/Loki/Grafana - base du blog, du portfolio et des backends ZENOR…</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/projects/advanced-linux-server-hardening-security-ubuntu-0010</loc>
+    <loc>https://barthez-kenwou.dev/projects/aws-highly-available-blog-backend-enterprise-edition-0020</loc>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png</image:loc>
+      <image:title>AWS Highly Available Blog Backend - Enterprise Edition</image:title>
+      <image:caption>Migration du backend Express (backend-init) vers AWS multi-AZ : ECS Fargate, Aurora, ElastiCache, S3/CloudFront, WAF, Terraform, OIDC CI/CD, chaos et FinOps - plateforme Cloud production-ready.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://barthez-kenwou.dev/projects/aws-serverless-e-commerce-event-driven-secure-resilient-0021</loc>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png</image:loc>
+      <image:title>AWS Serverless E-Commerce - Event-Driven, Secure &amp; Resilient</image:title>
+      <image:caption>Backend e-commerce serverless distribué : API Gateway + Lambda + Cognito + DynamoDB, EventBridge/SQS/SNS, Step Functions (saga paiement), Terraform, chaos DLQ/replay - pas une « API Express sur Lambd…</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://barthez-kenwou.dev/projects/aws-multi-region-saas-global-availability-failover-resilience-0022</loc>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png</image:loc>
+      <image:title>AWS Multi-Region SaaS - Global Availability, Failover &amp; Resilience</image:title>
+      <image:caption>SaaS B2B ProjectHub multi-région Active/Passive : ECS bi-région, Aurora Global Database, S3 CRR, Route 53/ARC, game day régional avec RPO/RTO mesurés - résilience globale, pas un second VPC cosmétiqu…</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://barthez-kenwou.dev/projects/aws-real-time-data-event-platform-streaming-lake-analytics-0023</loc>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png</image:loc>
+      <image:title>AWS Real-Time Data &amp; Event Platform - Streaming, Lake &amp; Analytics</image:title>
+      <image:caption>Plateforme streaming AWS : Kinesis + MSK (comparaison assumée), schemas, Lambda/Glue, data lake bronze/silver/gold, Athena, OpenSearch, replay, lag/backpressure - data engineering distribué, pas un d…</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://barthez-kenwou.dev/projects/zenora-ubuntu-vps-hardening-multi-layer-production-fortress-0010</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/images%20(2).jpeg</image:loc>
-      <image:title>Hardening &amp; Sécurisation Avancée d’un Serveur Linux (Ubuntu)</image:title>
-      <image:caption>Sécurisation complète d’un serveur Ubuntu de production avec hardening système, protection réseau multi-couches, monitoring et automatisation des mises à jour.</image:caption>
+      <image:title>Hardening VPS Ubuntu ZENORA - Forteresse Production Multi-Couches</image:title>
+      <image:caption>Mission terrain ZENORA : hardening production Ubuntu 22.04/24.04 en 12 phases (SSH forteresse, UFW/iptables/CSF, Fail2Ban, CrowdSec, Naxsi, Cloudflare, AIDE, supervision) - runbook anti lock-out, pre…</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/projects/smart-queue-management-platform-0011</loc>
+    <loc>https://barthez-kenwou.dev/projects/linux-server-hardening-interactive-ubuntu-script-security-golden-path-0024</loc>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png</image:loc>
+      <image:title>linux-server-hardening - Script Interactif Ubuntu (Golden Path Sécurité)</image:title>
+      <image:caption>Produit script issu du hardening VPS ZENORA : assistant interactif Ubuntu qui interroge users, Docker, Nginx, CSF, CrowdSec, monitoring - puis automatise le golden path. Validé labs, local, 2 amis su…</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://barthez-kenwou.dev/projects/multi-tenant-smart-queue-management-platform-0011</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/images%20(4).jpeg</image:loc>
-      <image:title>Plateforme de Gestion Intelligente de Files d’Attente</image:title>
-      <image:caption>Application web permettant aux organisations de gérer plusieurs files d’attente avec estimation intelligente du temps d’attente et optimisation du flux utilisateur.</image:caption>
+      <image:title>Plateforme Multi-Tenant de Files d’Attente Intelligentes</image:title>
+      <image:caption>SaaS opérationnel pour organisations accueillant du public : inscription → espace sécurisé → création de files → invitations staff → suivi live et estimation d’attente. React + FastAPI, équipe Scrum…</image:caption>
     </image:image>
   </url>
   <url>
-    <loc>https://barthez-kenwou.dev/projects/gta-academy-web-platform-training-center-0002</loc>
+    <loc>https://barthez-kenwou.dev/projects/gta-academy-tech-digital-training-center-showcase-0012</loc>
     <image:image>
-      <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/iPhone-13-PRO-academy.gta-it.com.png</image:loc>
-      <image:title>Plateforme Web GTA-Academy (Centre de formation)</image:title>
-      <image:caption>Plateforme web de lancement pour GTA-Academy, conçue pour assurer visibilité, crédibilité et acquisition d’apprenants via une présentation structurée des formations et événements.</image:caption>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/gta-academy/01-hero-future-tech.png</image:loc>
+      <image:title>GTA Academy - Vitrine Centre de Formation Tech &amp; Digital</image:title>
+      <image:caption>Plateforme vitrine React pour GTA Academy (Soa/Yaoundé) : formations certifiantes, centre Pearson VUE agréé, inscriptions, contact. Live academy.gta-it.com - livré en 3 jours.</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Macbook-Air-academy.gta-it.com.png</image:loc>
-      <image:title>Plateforme Web GTA-Academy (Centre de formation)</image:title>
-      <image:caption>Plateforme web de lancement pour GTA-Academy, conçue pour assurer visibilité, crédibilité et acquisition d’apprenants via une présentation structurée des formations et événements.</image:caption>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/gta-academy/02-hero-inscriptions.png</image:loc>
+      <image:title>GTA Academy - Vitrine Centre de Formation Tech &amp; Digital</image:title>
+      <image:caption>Plateforme vitrine React pour GTA Academy (Soa/Yaoundé) : formations certifiantes, centre Pearson VUE agréé, inscriptions, contact. Live academy.gta-it.com - livré en 3 jours.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/gta-academy/05-pearson-vue-center.png</image:loc>
+      <image:title>GTA Academy - Vitrine Centre de Formation Tech &amp; Digital</image:title>
+      <image:caption>Plateforme vitrine React pour GTA Academy (Soa/Yaoundé) : formations certifiantes, centre Pearson VUE agréé, inscriptions, contact. Live academy.gta-it.com - livré en 3 jours.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/gta-academy/07-trainings-categories.png</image:loc>
+      <image:title>GTA Academy - Vitrine Centre de Formation Tech &amp; Digital</image:title>
+      <image:caption>Plateforme vitrine React pour GTA Academy (Soa/Yaoundé) : formations certifiantes, centre Pearson VUE agréé, inscriptions, contact. Live academy.gta-it.com - livré en 3 jours.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/gta-academy/08-trainings-programs.png</image:loc>
+      <image:title>GTA Academy - Vitrine Centre de Formation Tech &amp; Digital</image:title>
+      <image:caption>Plateforme vitrine React pour GTA Academy (Soa/Yaoundé) : formations certifiantes, centre Pearson VUE agréé, inscriptions, contact. Live academy.gta-it.com - livré en 3 jours.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/gta-academy/12-contact-form-map.png</image:loc>
+      <image:title>GTA Academy - Vitrine Centre de Formation Tech &amp; Digital</image:title>
+      <image:caption>Plateforme vitrine React pour GTA Academy (Soa/Yaoundé) : formations certifiantes, centre Pearson VUE agréé, inscriptions, contact. Live academy.gta-it.com - livré en 3 jours.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://barthez-kenwou.dev/projects/dhj-deutsches-haus-yaounde-german-training-showcase-0025</loc>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/dhj/01-hero-accueil.png</image:loc>
+      <image:title>DHJ - Deutsches Haus Yaoundé : Vitrine Formation Allemande</image:title>
+      <image:caption>Site vitrine React pour Deutsches Haus Yaoundé (dhj237.de) : identité DE, services, tarifs A1–B2, contact. Mission GTA - livré en 1 semaine (avril 2025). Validé et félicité par Denise Magloire, CEO D…</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/dhj/02-services.png</image:loc>
+      <image:title>DHJ - Deutsches Haus Yaoundé : Vitrine Formation Allemande</image:title>
+      <image:caption>Site vitrine React pour Deutsches Haus Yaoundé (dhj237.de) : identité DE, services, tarifs A1–B2, contact. Mission GTA - livré en 1 semaine (avril 2025). Validé et félicité par Denise Magloire, CEO D…</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/dhj/03-pedagogie.png</image:loc>
+      <image:title>DHJ - Deutsches Haus Yaoundé : Vitrine Formation Allemande</image:title>
+      <image:caption>Site vitrine React pour Deutsches Haus Yaoundé (dhj237.de) : identité DE, services, tarifs A1–B2, contact. Mission GTA - livré en 1 semaine (avril 2025). Validé et félicité par Denise Magloire, CEO D…</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/dhj/04-a-propos.png</image:loc>
+      <image:title>DHJ - Deutsches Haus Yaoundé : Vitrine Formation Allemande</image:title>
+      <image:caption>Site vitrine React pour Deutsches Haus Yaoundé (dhj237.de) : identité DE, services, tarifs A1–B2, contact. Mission GTA - livré en 1 semaine (avril 2025). Validé et félicité par Denise Magloire, CEO D…</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/dhj/05-tarifs.png</image:loc>
+      <image:title>DHJ - Deutsches Haus Yaoundé : Vitrine Formation Allemande</image:title>
+      <image:caption>Site vitrine React pour Deutsches Haus Yaoundé (dhj237.de) : identité DE, services, tarifs A1–B2, contact. Mission GTA - livré en 1 semaine (avril 2025). Validé et félicité par Denise Magloire, CEO D…</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/dhj/06-contact.png</image:loc>
+      <image:title>DHJ - Deutsches Haus Yaoundé : Vitrine Formation Allemande</image:title>
+      <image:caption>Site vitrine React pour Deutsches Haus Yaoundé (dhj237.de) : identité DE, services, tarifs A1–B2, contact. Mission GTA - livré en 1 semaine (avril 2025). Validé et félicité par Denise Magloire, CEO D…</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://barthez-kenwou.dev/projects/agriclim-smart-agriculture-climate-reatech-backend-0026</loc>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/agriclim/01-hero-accueil.png</image:loc>
+      <image:title>AgriClim - Smart Agriculture × Climat (ReATech) - Backend</image:title>
+      <image:caption>Solution digitale inclusive ReATech face au changement climatique : météo localisée, recommandations IA, carte cultures, communauté agriculteurs. Backend Developer dans une équipe de 5 - Supabase, au…</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/agriclim/05-meteo-bamenda-forecast.png</image:loc>
+      <image:title>AgriClim - Smart Agriculture × Climat (ReATech) - Backend</image:title>
+      <image:caption>Solution digitale inclusive ReATech face au changement climatique : météo localisée, recommandations IA, carte cultures, communauté agriculteurs. Backend Developer dans une équipe de 5 - Supabase, au…</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/agriclim/07-cultures-calendrier.png</image:loc>
+      <image:title>AgriClim - Smart Agriculture × Climat (ReATech) - Backend</image:title>
+      <image:caption>Solution digitale inclusive ReATech face au changement climatique : météo localisée, recommandations IA, carte cultures, communauté agriculteurs. Backend Developer dans une équipe de 5 - Supabase, au…</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/agriclim/08-login.png</image:loc>
+      <image:title>AgriClim - Smart Agriculture × Climat (ReATech) - Backend</image:title>
+      <image:caption>Solution digitale inclusive ReATech face au changement climatique : météo localisée, recommandations IA, carte cultures, communauté agriculteurs. Backend Developer dans une équipe de 5 - Supabase, au…</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://s3.zenora360.com/barthez-portfolio/images/agriclim/12-team-event.png</image:loc>
+      <image:title>AgriClim - Smart Agriculture × Climat (ReATech) - Backend</image:title>
+      <image:caption>Solution digitale inclusive ReATech face au changement climatique : météo localisée, recommandations IA, carte cultures, communauté agriculteurs. Backend Developer dans une équipe de 5 - Supabase, au…</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://barthez-kenwou.dev/projects/k-c-services-premium-showcase-website-for-a-marketing-audiovisual-agency-0013</loc>
+    <image:image>
+      <image:loc>https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-17%2009-09-27.png</image:loc>
+      <image:title>K&amp;C Services - Site Vitrine Premium pour Agence Marketing &amp; Production Audiovisuelle</image:title>
+      <image:caption>Conception et livraison d’un site vitrine premium pour K&amp;C Services, pensé pour projeter une image haut de gamme, crédible et familière, sans sur-ingénierie inutile côté backend.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-17%2009-10-33.png</image:loc>
+      <image:title>K&amp;C Services - Site Vitrine Premium pour Agence Marketing &amp; Production Audiovisuelle</image:title>
+      <image:caption>Conception et livraison d’un site vitrine premium pour K&amp;C Services, pensé pour projeter une image haut de gamme, crédible et familière, sans sur-ingénierie inutile côté backend.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-17%2009-10-52.png</image:loc>
+      <image:title>K&amp;C Services - Site Vitrine Premium pour Agence Marketing &amp; Production Audiovisuelle</image:title>
+      <image:caption>Conception et livraison d’un site vitrine premium pour K&amp;C Services, pensé pour projeter une image haut de gamme, crédible et familière, sans sur-ingénierie inutile côté backend.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-17%2009-11-07.png</image:loc>
+      <image:title>K&amp;C Services - Site Vitrine Premium pour Agence Marketing &amp; Production Audiovisuelle</image:title>
+      <image:caption>Conception et livraison d’un site vitrine premium pour K&amp;C Services, pensé pour projeter une image haut de gamme, crédible et familière, sans sur-ingénierie inutile côté backend.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-03-15.png</image:loc>
+      <image:title>K&amp;C Services - Site Vitrine Premium pour Agence Marketing &amp; Production Audiovisuelle</image:title>
+      <image:caption>Conception et livraison d’un site vitrine premium pour K&amp;C Services, pensé pour projeter une image haut de gamme, crédible et familière, sans sur-ingénierie inutile côté backend.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-03-42.png</image:loc>
+      <image:title>K&amp;C Services - Site Vitrine Premium pour Agence Marketing &amp; Production Audiovisuelle</image:title>
+      <image:caption>Conception et livraison d’un site vitrine premium pour K&amp;C Services, pensé pour projeter une image haut de gamme, crédible et familière, sans sur-ingénierie inutile côté backend.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-04-10.png</image:loc>
+      <image:title>K&amp;C Services - Site Vitrine Premium pour Agence Marketing &amp; Production Audiovisuelle</image:title>
+      <image:caption>Conception et livraison d’un site vitrine premium pour K&amp;C Services, pensé pour projeter une image haut de gamme, crédible et familière, sans sur-ingénierie inutile côté backend.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://avrsidzgyusyblblcure.supabase.co/storage/v1/object/public/barthez-assets/Screenshot%20from%202026-08-18%2012-04-57.png</image:loc>
+      <image:title>K&amp;C Services - Site Vitrine Premium pour Agence Marketing &amp; Production Audiovisuelle</image:title>
+      <image:caption>Conception et livraison d’un site vitrine premium pour K&amp;C Services, pensé pour projeter une image haut de gamme, crédible et familière, sans sur-ingénierie inutile côté backend.</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://barthez-kenwou.dev/blog/ci-cd-github-actions-zero-to-expert-0001</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/github_actions_ci_cd.png</image:loc>
-      <image:title>CI/CD avec GitHub Actions – De Zéro à Expert</image:title>
-      <image:caption>Maîtrisez GitHub Actions de A à Z : automatisez vos tests, builds, déploiements et bien plus. Guide complet, concret et à jour avec les meilleures pratiques 2026. Même si vous débutez, vous deviendre…</image:caption>
+      <image:title>CI/CD with GitHub Actions – From Zero to Expert</image:title>
+      <image:caption>Master GitHub Actions from A to Z: automate your tests, builds, deployments and more. Fully expanded 2026 edition - 5 complete, detailed pipelines (including my own real production pipeline as a bonu…</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://barthez-kenwou.dev/blog/deploy-react-aws-s3-cloudfront-route-53-0002</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/maxresdefault.jpg</image:loc>
-      <image:title>Guide Complet 2026 : Déployer une Application React sur AWS comme un Pro (S3 + CloudFront + Route 53)</image:title>
-      <image:caption>Apprenez à déployer votre application React en toute sécurité, avec un CDN mondial ultra-rapide, un nom de domaine personnalisé et une architecture moderne (bucket privé + OAC). Zéro serveur, coût mi…</image:caption>
+      <image:title>Complete 2026 Guide: Deploy a React Application on AWS Like a Pro (S3 + CloudFront + Route 53)</image:title>
+      <image:caption>Learn how to deploy your React app securely with a global CDN, custom domain, and modern architecture (private bucket + OAC). Fully expanded 2026 edition - every building block of the architecture ex…</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://barthez-kenwou.dev/blog/optimize-nodejs-performance-pro-0003</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_1poc6wto4rwg5pkx2vvr.webp</image:loc>
-      <image:title>Optimiser les Performances de votre Application Node.js comme un Expert</image:title>
-      <image:caption>Techniques avancées et concrètes que j’utilise au quotidien pour booster mes APIs Node.js : caching hybride (NodeCache + Redis), Prisma optimisé, compression intelligente, profiling, clustering, reve…</image:caption>
+      <image:title>Optimizing Your Node.js Application Performance Like a Pro</image:title>
+      <image:caption>The 2026 reference guide I wish I&apos;d had when I started: from junior to expert, everything you actually need to know to run a production-grade Node.js API. Hybrid caching (NodeCache + Redis), Prisma/P…</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://barthez-kenwou.dev/blog/express-security-management-pro-0004</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/1753583208962.png</image:loc>
-      <image:title>Gestion Complète de la Sécurité de votre Application Express.js comme un Expert</image:title>
-      <image:caption>De zéro à un système ultra-sécurisé : tout ce que j’applique sur mes APIs Express.js + TypeScript en production. Helmet, CORS strict, rate limiting, Zod, JWT sécurisé, OWASP Top 10, scans automatisés…</image:caption>
+      <image:title>Complete Security Management for Your Express.js Application Like a Pro</image:title>
+      <image:caption>From zero to a bulletproof system: everything I apply on my production Express.js + TypeScript APIs. Helmet, strict CORS, distributed rate limiting, Zod, JWT with refresh rotation, Argon2, IDOR and b…</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://barthez-kenwou.dev/blog/deploy-full-stack-serverless-aws-0005</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/Fig5-arch.png</image:loc>
-      <image:title>Déployer une API Serverless Complète avec AWS API Gateway + Lambda + DynamoDB + Cognito + CI/CD (Full Stack React)</image:title>
-      <image:caption>Vous avez une API Express.js + TypeScript sécurisée ? Passez en serverless pur avec AWS : API Gateway, Lambda, DynamoDB, Cognito, et un CI/CD complet. Guide pas-à-pas ultra-détaillé, avec exemple con…</image:caption>
+      <image:title>Deploy a Full-Stack Serverless API with AWS API Gateway + Lambda + DynamoDB + Cognito + CI/CD (React Full Stack)</image:title>
+      <image:caption>You already have a secure Express.js + TypeScript API? Go fully serverless with AWS: API Gateway, Lambda, DynamoDB, Cognito, and a complete CI/CD pipeline. Fully expanded 2026 edition - every buildin…</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://barthez-kenwou.dev/blog/aws-security-iam-best-practices-0006</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/maxresdefault%20(1).jpg</image:loc>
-      <image:title>Sécurité AWS – Les Meilleures Pratiques IAM comme un Expert</image:title>
-      <image:caption>Protégez votre compte AWS comme un pro : root user blindé, IAM Identity Center, least privilege avec Access Analyzer, MFA partout, SCPs, permissions boundaries… Guide complet issu de mes 3 ans  d’expé…</image:caption>
+      <image:title>AWS Security – IAM Best Practices Like an Expert</image:title>
+      <image:caption>Protect your AWS account like a pro: hardened root user, IAM Identity Center, least privilege with Access Analyzer, MFA everywhere, SCPs, permissions boundaries… Fully expanded 2026 edition - the com…</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://barthez-kenwou.dev/blog/microservices-docker-kubernetes-mastery-0007</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/docker-kubernetes.webp</image:loc>
-      <image:title>Architecture Microservices avec Docker et Kubernetes – De Zéro à Expert des Experts</image:title>
-      <image:caption>Vous avez votre API Express sécurisée et votre stack serverless AWS ? Passez maintenant à l’architecture microservices professionnelle avec Docker + Kubernetes. Décomposition DDD, multi-stage builds,…</image:caption>
+      <image:title>Microservices Architecture with Docker and Kubernetes – From Zero to Mastery</image:title>
+      <image:caption>Already have a secured Express API and an AWS serverless stack? Now move to professional microservices architecture with Docker + Kubernetes. DDD decomposition, sync/async communication without falli…</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://barthez-kenwou.dev/blog/aws-multi-environment-architecture-0008</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/851bcb3d-3d1a-41b5-89a4-7d48ecdc89ec.png</image:loc>
-      <image:title>Guide Ultime 2026 – Architecture Multi-Environnements (Dev / Staging / Prod) : La Mise en Place Complète que J’Applique sur Tous Mes Projets Clients</image:title>
-      <image:caption>Passer d’un environnement unique à une architecture Dev / Staging / Prod professionnelle, sécurisée, scalable et reproductible n’est plus une option en 2026. Variables d’environnement, isolation fort…</image:caption>
+      <image:title>Ultimate 2026 Guide – Multi-Environment Architecture (Dev / Staging / Prod): The Complete Professional Setup I Actually Use on Client Projects</image:title>
+      <image:caption>Moving from a single environment to a true professional Dev / Staging / Prod architecture is no longer optional in 2026. Even more expanded 2026 edition - the complete logic of environment parity and…</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://barthez-kenwou.dev/blog/aws-cost-optimization-finops-0009</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/AWS-FinOps2.png</image:loc>
-      <image:title>Stratégies d’Optimisation des Coûts AWS (FinOps) – Cas Réel de Savings que J’Applique Chez Mes Clients</image:title>
-      <image:caption>Votre facture AWS explose ? Découvrez une approche FinOps complète et pratique pour identifier les gaspillages, réduire les coûts de 30 à 50 % et garder le contrôle. Visibilité, quick wins, Savings P…</image:caption>
+      <image:title>AWS Cost Optimization Strategies (FinOps) – Real Savings Case I Apply with My Clients</image:title>
+      <image:caption>AWS bill exploding? Discover a complete and practical FinOps approach to identify waste, cut costs by 30-50%, and stay in control. Fully expanded 2026 edition - the complete anatomy of an AWS bill ex…</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://barthez-kenwou.dev/blog/production-ready-aws-architecture-0010</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/Figure-1.-Launching-cloud-architecture-patterns-as-AWS-Service-Catalog-products-937x630.png</image:loc>
-      <image:title>Designing a Production-Ready AWS Architecture (Real Case) – Ce Que Je Déploie Vraiment Chez Mes Clients</image:title>
-      <image:caption>Comment passer d’une infra qui « marche » à une architecture AWS production-ready, résiliente, sécurisée, scalable et maintenable ? Multi-account, VPC sécurisé, EKS avec GitOps, Terraform IaC, observ…</image:caption>
+      <image:title>Designing a Production-Ready AWS Architecture (Real Case) – What I Actually Deploy for My Clients</image:title>
+      <image:caption>How to move from an infra that &apos;just works&apos; to a true production-ready AWS architecture: resilient, secure, scalable and maintainable? Multi-account, secure VPC, EKS with GitOps, Terraform IaC, full…</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://barthez-kenwou.dev/blog/secure-linux-server-hardening-0011</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/How-to-Secure-a-Linux-Server_-Complete-2025-Guide-1-1.png</image:loc>
-      <image:title>How I Secure a Linux Server (Step-by-Step Hardening Guide) – Ce Que Je Fais Vraiment sur Tous Mes Serveurs</image:title>
-      <image:caption>Un serveur Linux exposé sur internet sans hardening = cible facile pour les bots et les attaques en 2026. SSH faible, ports ouverts, pas de firewall, mises à jour manuelles… Voici exactement la métho…</image:caption>
+      <image:title>How I Secure a Linux Server (Step-by-Step Hardening Guide) – What I Actually Do on Every Server</image:title>
+      <image:caption>A Linux server exposed to the internet without proper hardening is an easy target for bots and attacks in 2026. Weak SSH, open ports, no firewall, manual updates… Here&apos;s exactly the defense-in-depth…</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://barthez-kenwou.dev/blog/production-ready-monitoring-stack-0012</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/1_Dtd4Tjp_3IzMu_B790Umtw.png</image:loc>
-      <image:title>Monitoring Stack Production-Ready – Prometheus + Grafana + Loki + Tempo + Alloy + Alerts (Ce Que Je Déploie Vraiment)</image:title>
-      <image:caption>Plus de black boxes en production. Voici exactement la stack d’observabilité que j’installe sur tous mes environnements en 2026 : Prometheus pour les metrics, Loki pour les logs, Tempo pour les trace…</image:caption>
+      <image:title>Production-Ready Monitoring Stack – Prometheus + Grafana + Loki + Tempo + Alloy + Alerts (What I Actually Deploy)</image:title>
+      <image:caption>No more blind spots in production. Here&apos;s exactly the observability stack I install on all my environments in 2026: Prometheus for metrics, Loki for logs, Tempo for traces, Grafana as the single pane…</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://barthez-kenwou.dev/blog/linux-server-fresh-vps-fortress-0013</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/images.jpeg</image:loc>
-      <image:title>Linux Server – De VPS Vierge à Forteresse Complète</image:title>
-      <image:caption>Un VPS Ubuntu exposé sur internet sans hardening sérieux devient une cible en quelques heures. Voici exactement la méthode complète et chronologique que j’applique sur tous mes serveurs en 2026 : SSH…</image:caption>
+      <image:title>Linux Server – From Fresh VPS to Complete Fortress</image:title>
+      <image:caption>A fresh Ubuntu VPS exposed to the internet without serious hardening becomes a target within hours. Here&apos;s the complete, chronological, phase-by-phase verified runbook I run on every new server in 20…</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://barthez-kenwou.dev/blog/ci-cd-zero-downtime-deployment-0014</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/1_KJrTyv_5Eu9Rx4YBrIzUWQ.jpg</image:loc>
-      <image:title>CI/CD Pipeline for Zero Downtime Deployment (Real Setup) – Ce Que J’Utilise Vraiment sur Mes Projets Clients</image:title>
-      <image:caption>Déployer plusieurs fois par jour sans jamais faire tomber la production ? Voici exactement le pipeline CI/CD que j’implémente sur tous mes environnements en 2026 : GitHub Actions pour le CI (build, t…</image:caption>
+      <image:title>CI/CD Pipeline for Zero Downtime Deployment (Real Setup) – What I Actually Use on My Client Projects</image:title>
+      <image:caption>Deploy multiple times a day without ever taking production down? Here&apos;s exactly the CI/CD pipeline I implement on all my environments in 2026: GitHub Actions for CI (build, test, scan, push), ArgoCD…</image:caption>
     </image:image>
   </url>
   <url>
@@ -296,47 +658,47 @@
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/devsecops_loop.png</image:loc>
       <image:title>DevSecOps in Practice – SAST, DAST, SCA, IaC Scanning &amp; CI/CD Integration (Real Setup)</image:title>
-      <image:caption>La sécurité ne doit plus être un frein à la fin du sprint. Voici exactement comment j’intègre DevSecOps dans tous mes projets clients en 2026 : SAST (Semgrep), SCA + container scanning (Trivy), DAST…</image:caption>
+      <image:caption>Security should never slow down the sprint. Here&apos;s exactly how I integrate DevSecOps into all my client projects in 2026: SAST (Semgrep) with real custom rules, SCA + container scanning (Trivy), secr…</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://barthez-kenwou.dev/blog/scaling-react-app-ssr-performance-0016</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/1_PRSCPASXfR-Kc4sQ_0ZSKw.jpg</image:loc>
-      <image:title>Scaling a React App (SSR, Caching, Performance) – Ce Que Je Fais Vraiment pour Passer à Des Milliers d’Utilisateurs</image:title>
-      <image:caption>Une app React qui rame à 1 000 utilisateurs actifs ? Voici exactement la stratégie de scaling que j’applique sur tous mes projets clients en 2026 : choix intelligent entre SSR/SSG/ISR/Edge Rendering…</image:caption>
+      <image:title>Scaling a React App (SSR, Caching, Performance) – What I Actually Do to Handle Thousands of Users</image:title>
+      <image:caption>A React app that slows down at 1,000 active users? Here&apos;s the most complete scaling guide I&apos;ve written: web rendering fundamentals (TTFB, hydration, Core Web Vitals), per-route rendering strategy (SS…</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://barthez-kenwou.dev/blog/npm-supply-chain-attacks-protection-0017</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_5ewfh3297139a4h7ofof.webp</image:loc>
-      <image:title>Supply Chain Attacks sur npm – L’Affaire Axios et Comment Je Protège Mes Apps en DevSecOps</image:title>
-      <image:caption>Le 31 mars 2026, axios – une des librairies JS les plus utilisées au monde (plus de 100 millions de downloads/semaine) – a été compromise via un compte maintainer piraté. Des versions malveillantes o…</image:caption>
+      <image:title>npm Supply Chain Attacks – The Axios Case and How I Protect My Apps with DevSecOps</image:title>
+      <image:caption>On March 31, 2026, axios – one of the most downloaded JS libraries in the world (over 100 million weekly downloads) – was compromised through a hijacked maintainer account. Here&apos;s the complete techni…</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://barthez-kenwou.dev/blog/odoo-kubernetes-erp-deployment-0018</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/1_Rb6VuLl-T4Jl2aBZipp5vA.jpg</image:loc>
-      <image:title>How I Built and Deployed an ERP with Odoo + Kubernetes – Architecture Complète Production-Ready</image:title>
-      <image:caption>Comment passer d’un Odoo classique sur VM à un ERP scalable, résilient et multi-tenant sur Kubernetes (EKS) ? Voici exactement l’architecture que j’ai conçue et déployée pour plusieurs clients en 202…</image:caption>
+      <image:title>How I Built and Deployed an ERP with Odoo + Kubernetes – Complete Production-Ready Architecture</image:title>
+      <image:caption>How to move from a classic Odoo on VM to a scalable, resilient, multi-tenant ERP on Kubernetes (EKS)? Here&apos;s the complete architecture I design and deploy for clients in 2026: separating HTTP/gevent/…</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://barthez-kenwou.dev/blog/zustand-vs-redux-react-choice-0019</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/images%20(1).jpeg</image:loc>
-      <image:title>Zustand vs Redux – Lequel Je Choisis Vraiment pour Mes Projets React &amp; Next.js</image:title>
-      <image:caption>Redux ou Zustand en 2026 ? Après avoir migré plusieurs apps clients (React/Next.js) de Redux vers Zustand, voici mon analyse honnête : boilerplate, performance (bundle ~1.2kB vs 13-20kB), re-renders,…</image:caption>
+      <image:title>Zustand vs Redux – Which One I Actually Choose for My React &amp; Next.js Projects</image:title>
+      <image:caption>Redux or Zustand in 2026? After migrating several client apps (React/Next.js) from Redux to Zustand, here’s my honest analysis: boilerplate, performance (bundle ~1.2kB vs 13-20kB), re-renders, scalab…</image:caption>
     </image:image>
   </url>
   <url>
     <loc>https://barthez-kenwou.dev/blog/ai-website-builder-seminar-feedback-0020</loc>
     <image:image>
       <image:loc>https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Blogs/seminar.jpeg</image:loc>
-      <image:title>J’ai Piloté un Séminaire Intensif “Créer un Site Web avec l’IA” – Retours, Outils &amp; Méthode Complète</image:title>
-      <image:caption>Le 28 mars 2026, j’ai eu le plaisir d’animer un séminaire intensif d’une journée “Créer un site web avec l’Intelligence Artificielle” à Yaoundé. Au programme : 30 outils IA (No-Code, Low-Code, Code +…</image:caption>
+      <image:title>I Led an Intensive “Build a Website with AI” Seminar – Full Feedback, Tools &amp; Method</image:title>
+      <image:caption>On March 28, 2026, I had the pleasure of leading a full-day intensive seminar “Build a Website with Artificial Intelligence” in Yaoundé. Topics included 30 AI tools (No-Code, Low-Code, Code + AI), ad…</image:caption>
     </image:image>
   </url>
 </urlset>

@@ -1064,6 +1064,7 @@ I originated the overall architecture and designed/implemented nearly all platfo
         ],
 
         isFeatured: true,
+        isPublished: true,
     },
 
     {
@@ -1669,6 +1670,7 @@ I originated the overall architecture and designed/implemented nearly all platfo
         ],
 
         isFeatured: true,
+        isPublished: true,
     },
 
     {
@@ -2222,6 +2224,7 @@ I originated the overall architecture and designed/implemented nearly all platfo
         ],
 
         isFeatured: true,
+        isPublished: true,
     },
 
     {
@@ -2959,6 +2962,7 @@ I design, code, secure, deploy and iterate alone. The live result does not illus
         ],
 
         isFeatured: true,
+        isPublished: true,
     },
 
     {
@@ -3502,6 +3506,7 @@ Scope goes beyond a "showcase site". Separated staging and production environmen
         ],
 
         isFeatured: false,
+        isPublished: true,
     },
 
     {
@@ -4048,6 +4053,7 @@ This backbone already ships zenora360.com and ketc-services.com, and remains ZEN
         ],
 
         isFeatured: true,
+        isPublished: true,
     },
 
     {
@@ -4415,6 +4421,7 @@ Outcome: when an Odoo need returns, we no longer start from scratch - we take od
         ],
 
         isFeatured: true,
+        isPublished: true,
     },
 
     {
@@ -4780,6 +4787,7 @@ Same philosophy as the Docker lab: graftable, fail-closed, demonstrable (blocked
         ],
 
         isFeatured: true,
+        isPublished: true,
     },
 
     {
@@ -5073,6 +5081,7 @@ Runtime builds on Docker-lab patterns (environments, secrets, TLS proxy, PG + fi
         ],
 
         isFeatured: true,
+        isPublished: true,
     },
 
     {
@@ -5533,6 +5542,7 @@ Recruiter message: I know how to build a distributed observability platform and 
         ],
 
         isFeatured: true,
+        isPublished: true,
     },
 
     {
@@ -5927,6 +5937,7 @@ Recruiter message: I know how to build a platform that lets other developers con
         ],
 
         isFeatured: true,
+        isPublished: true,
     },
 
     {
@@ -6326,6 +6337,7 @@ Recruiter message: I build a full defense chain - not pipeline-only DevSecOps.`,
         ],
 
         isFeatured: true,
+        isPublished: true,
     },
 
     {
@@ -6713,6 +6725,7 @@ Recruiter message: I design systems that keep running and rebuild after failure.
         ],
 
         isFeatured: true,
+        isPublished: true,
     },
 
     {
@@ -7095,6 +7108,7 @@ Recruiter message: I master event-driven distributed systems and industrialize t
         ],
 
         isFeatured: true,
+        isPublished: true,
     },
 
     {
@@ -7531,6 +7545,7 @@ Recruiter message: I do not ship a demo API; I ship an enterprise backend founda
         ],
 
         isFeatured: true,
+        isPublished: true,
     },
 
     {
@@ -7938,6 +7953,7 @@ Flagship scenarios: traffic spike (scale 2→8), Aurora failover, CVE image bloc
         ],
 
         isFeatured: true,
+        isPublished: true,
     },
 
     {
@@ -8300,6 +8316,7 @@ Recruiter message: I choose AWS services based on system properties - decoupling
         ],
 
         isFeatured: true,
+        isPublished: true,
     },
 
     {
@@ -8658,6 +8675,7 @@ Recruiter message: I know how to deploy, replicate, fail over, recover and measu
         ],
 
         isFeatured: true,
+        isPublished: true,
     },
 
     {
@@ -9032,6 +9050,7 @@ Recruiter message: I reason in distributed-system properties and AWS data trade-
         ],
 
         isFeatured: true,
+        isPublished: true,
     },
 
     {
@@ -9482,6 +9501,7 @@ What I sell here is not a copy-pasted checklist. It is field proof for ZENORA, a
         ],
 
         isFeatured: true,
+        isPublished: true,
     },
 
     {
@@ -9905,6 +9925,7 @@ Recruiter message: I do not only sell a PDF checklist. I sell a golden path I ea
         ],
 
         isFeatured: true,
+        isPublished: true,
     },
 
     {
@@ -10258,6 +10279,7 @@ The outcome: a credible product to digitize waiting in administrations, clinics,
         ],
 
         isFeatured: true,
+        isPublished: true,
     },
 
     {
@@ -10700,6 +10722,7 @@ This is not a learning platform: it is the center's acquisition weapon when ever
         ],
 
         isFeatured: true,
+        isPublished: true,
     },
 
     {
@@ -11091,6 +11114,7 @@ Denise Magloire, DHJ CEO, congratulated the work. That is not an invented portfo
         ],
 
         isFeatured: true,
+        isPublished: true,
     },
 
     {
@@ -11562,6 +11586,7 @@ My backend role: make it hold. Repo agri-clim-connect (ReATtech) - React/Vite/Ta
         ],
 
         isFeatured: true,
+        isPublished: true,
     },
 
     {
@@ -12042,5 +12067,6 @@ My backend role: make it hold. Repo agri-clim-connect (ReATtech) - React/Vite/Ta
         ],
 
         isFeatured: false,
+        isPublished: true,
     },
 ];     

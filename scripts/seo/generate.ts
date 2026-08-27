@@ -147,8 +147,13 @@ Allow: /blog
 Allow: /cv
 Allow: /contact
 
-# Error / private surfaces
+# Error / private surfaces (must stay out of search indexes)
 Disallow: /server-error
+Disallow: /barthez-admin
+Disallow: /barthez-admin/
+Disallow: /feedback
+Disallow: /feedback/
+# Legacy path — keep blocked if ever probed
 Disallow: /admin
 
 # AI / LLM discovery

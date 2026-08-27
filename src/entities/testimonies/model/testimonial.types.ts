@@ -1,4 +1,6 @@
-import { ID } from '@/shared/types';
+import type { ID } from '@/shared/types';
+
+export type TestimonialStatus = 'pending' | 'approved' | 'rejected';
 
 export interface ITestimonial {
   id: ID;
@@ -9,4 +11,11 @@ export interface ITestimonial {
   nameEn: string;
   roleFr: string;
   roleEn: string;
+  company?: string;
+  email?: string;
+  /** Public visibility on the site (after owner approval). */
+  isPublished?: boolean;
+  status?: TestimonialStatus;
+  createdAt?: string;
+  source?: 'admin' | 'public-form';
 }

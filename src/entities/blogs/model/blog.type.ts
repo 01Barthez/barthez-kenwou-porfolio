@@ -13,4 +13,6 @@ export interface IBlog {
   readTime: string;
   author: string;
   tags: string[];
+  /** When false, hidden from the public blog listing. */
+  isPublished?: boolean;
 }

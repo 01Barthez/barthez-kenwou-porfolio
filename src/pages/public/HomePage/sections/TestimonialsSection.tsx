@@ -1,5 +1,6 @@
 import { TestimonialCard } from '@/entities/testimonies';
-import { testimonials } from '@/entities/testimonies/api/mocks/testimonials.mocks';
+import { isPublicTestimonial } from '@/entities/testimonies/lib/isPublicTestimonial';
+import { useAdminCmsStore } from '@/features/admin-cms';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { useThemeStore } from '@/shared/state/useThemeStore';
 import { Image } from '@/shared/ui/Image';
@@ -15,10 +16,14 @@ export const TestimonialsSection: React.FC = () => {
   const { language } = useLanguageStore();
   const theme = useThemeStore((s) => s.theme);
   const isDark = theme === 'dark';
+  const testimonials = useAdminCmsStore((s) => s.testimonials.filter(isPublicTestimonial));
 
-  const firstRow = testimonials.slice(0, testimonials.length / 2);
-  const secondRow = testimonials.slice(testimonials.length / 2);
-  const thirdRow = testimonials.slice(0, testimonials.length / 2);
+  if (testimonials.length === 0) return null;
+
+  const half = Math.max(1, Math.ceil(testimonials.length / 2));
+  const firstRow = testimonials.slice(0, half);
+  const secondRow = testimonials.slice(half);
+  const thirdRow = firstRow;
 
   return (
     <section className="relative max-w-7xl mx-auto py-12 md:py-16 lg:py-20 px-4 md:px-10 lg:px-14 overflow-x-clip">

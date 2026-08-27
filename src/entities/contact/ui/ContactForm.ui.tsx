@@ -38,6 +38,17 @@ export const ContactForm: React.FC = () => {
   const onSubmit = (values: ContactFormValues) => {
     setIsSubmitted(true);
 
+    // Persist for the owner admin inbox (local CMS → future API)
+    void import('@/features/admin-cms').then(({ useAdminCmsStore }) => {
+      useAdminCmsStore.getState().addContactResponse({
+        name: values.name,
+        email: values.email,
+        subject: values.subject,
+        message: values.message,
+        status: 'new',
+      });
+    });
+
     const formattedMessage = `*Nouveau message de contact (Portfolio)*\n\n*Nom:* ${values.name}\n*Email:* ${values.email}\n*Sujet:* ${values.subject}\n\n*Message:*\n${values.message}`;
     const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(formattedMessage)}`;
 

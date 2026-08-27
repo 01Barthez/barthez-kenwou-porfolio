@@ -14,6 +14,7 @@ export const PostsGrid: React.FC = () => {
   const [searchFocused, setSearchFocused] = useState(false);
 
   const filteredPosts = blogPostsData.filter((post) => {
+    if (post.isPublished === false) return false;
     const matchesCategory = activeCategory === 'All' || post.category === activeCategory;
     const title = language === 'fr' ? post.titleFr : post.titleEn;
     const matchesSearch =

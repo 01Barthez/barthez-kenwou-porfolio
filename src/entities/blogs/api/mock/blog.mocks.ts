@@ -2659,6 +2659,7 @@ Thanks for taking the time to read all the way through. You're a lot stronger no
     "date": "2026-02-12",
     "readTime": "55 min",
     "author": "Barthez Kenwou",
+    "isPublished": true,
     "tags": ["GitHub Actions", "CI/CD", "DevOps", "Automation", "Pipeline", "Deployment", "GitHub", "OIDC"]
   },
 
@@ -3863,6 +3864,7 @@ Got a question? Stuck somewhere? Leave a comment, I'll answer personally.
   "date": "2026-01-29",
   "readTime": "30 min",
   "author": "Barthez Kenwou",
+    "isPublished": true,
   "tags": ["AWS", "React", "CloudFront", "S3", "Route53", "Déploiement", "DevOps", "SPA", "OAC", "CI/CD"]
 },
 
@@ -5077,6 +5079,7 @@ Thanks for reading all the way through. You're now equipped like a true expert. 
   "date": "2025-09-29",
   "readTime": "48 min",
   "author": "Barthez Kenwou",
+    "isPublished": true,
   "tags": ["Node.js", "Performance", "Backend", "Optimization", "ExpressJS", "Prisma", "Redis", "Caching", "PM2", "Nginx", "Cloudflare"]
 },
 
@@ -6183,6 +6186,7 @@ Thanks for reading all the way. Your API is now way safer than it was 30 minutes
   "date": "2026-02-06",
   "readTime": "45 min",
   "author": "Barthez Kenwou",
+    "isPublished": true,
   "tags": ["ExpressJS", "Security", "TypeScript", "Backend", "NodeJS", "Helmet", "Zod", "OWASP", "DevSecOps", "Sécurité"]
 },
 
@@ -7905,6 +7909,7 @@ You've just deployed a **professional full-stack serverless stack**, but more im
     "date": "2026-04-14",
     "readTime": "40 min",
     "author": "Barthez Kenwou",
+    "isPublished": true,
     "tags": [
       "AWS", "Serverless", "APIGateway", "Lambda", "DynamoDB",
       "Cognito", "CodePipeline", "FullStack", "React", "TypeScript", "CI/CD"
@@ -8987,6 +8992,7 @@ Thanks for reading all the way through. Your AWS account is now a lot safer than
   "date": "2026-03-29",
   "readTime": "32 min",
   "author": "Barthez Kenwou",
+    "isPublished": true,
   "tags": ["AWS", "IAM", "Security", "DevSecOps", "LeastPrivilege", "IAMIdentityCenter", "AccessAnalyzer", "SCPs", "CloudSecurity"]
 },
 
@@ -10191,6 +10197,7 @@ Thanks for reading this far. Your architecture is now future-ready. Go deploy yo
   "date": "2025-12-28",
   "readTime": "55 min",
   "author": "Barthez Kenwou",
+    "isPublished": true,
   "tags": ["Microservices", "Docker", "Kubernetes", "K8s", "DevOps", "GitOps", "ArgoCD", "Observability", "ServiceMesh", "CloudNative", "Helm"]
 },
 
@@ -10209,6 +10216,7 @@ Thanks for reading this far. Your architecture is now future-ready. Go deploy yo
     "date": "2026-04-01",
     "readTime": "38 min",
     "author": "Barthez Kenwou",
+    "isPublished": true,
     "tags": ["MultiEnvironment", "DevOps", "GitOps", "Terraform", "Kubernetes", "AWS", "FeatureFlags", "Observability", "CI/CD", "SecretsManagement"]
   },
 
@@ -10227,6 +10235,7 @@ Thanks for reading this far. Your architecture is now future-ready. Go deploy yo
     "date": "2026-04-05",
     "readTime": "28 min",
     "author": "Barthez Kenwou",
+    "isPublished": true,
     "tags": ["FinOps", "AWSCostOptimization", "CostSavings", "SavingsPlans", "SpotInstances", "Graviton", "AWS", "DevOps"]
   },
 
@@ -10245,6 +10254,7 @@ Thanks for reading this far. Your architecture is now future-ready. Go deploy yo
     "date": "2026-03-21",
     "readTime": "50 min",
     "author": "Barthez Kenwou",
+    "isPublished": true,
     "tags": ["ProductionReady","AWSArchitecture","EKS","Terraform","GitOps","MultiAccount","DevOps","Karpenter","Observability"]
   },
 
@@ -10262,6 +10272,7 @@ Thanks for reading this far. Your architecture is now future-ready. Go deploy yo
     "date": "2026-02-28",
     "readTime": "55 min",
     "author": "Barthez Kenwou",
+    "isPublished": true,
     "tags": ["LinuxHardening","ServerSecurity","SSHSecurity","Fail2Ban","CrowdSec","DevOps","LinuxSecurity","AppArmor","UFW"]
   },
 
@@ -10279,6 +10290,7 @@ Thanks for reading this far. Your architecture is now future-ready. Go deploy yo
     "date": "2026-01-06",
     "readTime": "42 min",
     "author": "Barthez Kenwou",
+    "isPublished": true,
     "tags": ["Observability", "Prometheus", "Grafana", "Loki", "Tempo", "Alloy", "LGTM", "Alerting", "Kubernetes", "DevOps"]
   },
 
@@ -10296,6 +10308,7 @@ Thanks for reading this far. Your architecture is now future-ready. Go deploy yo
     "date": "2026-04-12",
     "readTime": "55 min",
     "author": "Barthez Kenwou",
+    "isPublished": true,
     "tags": ["LinuxHardening","ServerSecurity","CrowdSec","Naxsi","CSF","Fail2Ban","Cloudflare","UFW","DevOps","Ubuntu"]
   },
 
@@ -10313,6 +10326,7 @@ Thanks for reading this far. Your architecture is now future-ready. Go deploy yo
     "date": "2026-04-20",
     "readTime": "32 min",
     "author": "Barthez Kenwou",
+    "isPublished": true,
     "tags": ["ZeroDowntime", "CICD", "ArgoCD", "ArgoRollouts", "GitOps", "BlueGreen", "Canary", "FeatureFlags", "Kubernetes", "DevOps"]
   },
 
@@ -10330,6 +10344,7 @@ Thanks for reading this far. Your architecture is now future-ready. Go deploy yo
     "date": "2026-02-13",
     "readTime": "50 min",
     "author": "Barthez Kenwou",
+    "isPublished": true,
     "tags": ["DevSecOps","SAST","DAST","SCA","Trivy","ZAP","GitHubActions","CI/CD","Security","ShiftLeft"]
   },
 
@@ -10347,6 +10362,7 @@ Thanks for reading this far. Your architecture is now future-ready. Go deploy yo
     "date": "2025-10-10",
     "readTime": "48 min",
     "author": "Barthez Kenwou",
+    "isPublished": true,
     "tags": [
         "ReactScaling",
         "NextJS",
@@ -10377,6 +10393,7 @@ Thanks for reading this far. Your architecture is now future-ready. Go deploy yo
     "date": "2026-04-14",
     "readTime": "26 min",
     "author": "Barthez Kenwou",
+    "isPublished": true,
     "tags": [
         "SupplyChainSecurity",
         "DevSecOps",
@@ -10406,6 +10423,7 @@ Thanks for reading this far. Your architecture is now future-ready. Go deploy yo
     "date": "2026-04-20",
     "readTime": "24 min",
     "author": "Barthez Kenwou",
+    "isPublished": true,
     "tags": [
         "Odoo",
         "Kubernetes",
@@ -10436,6 +10454,7 @@ Thanks for reading this far. Your architecture is now future-ready. Go deploy yo
     "date": "2026-04-03",
     "readTime": "23 min",
     "author": "Barthez Kenwou",
+    "isPublished": true,
     "tags": ["Zustand", "Redux", "ReactStateManagement", "NextJS", "Performance", "Boilerplate", "DevExperience"]
   },
 
@@ -10454,6 +10473,7 @@ Thanks for reading this far. Your architecture is now future-ready. Go deploy yo
     "date": "2026-03-28",
     "readTime": "15 min",
     "author": "Barthez Kenwou",
+    "isPublished": true,
     "tags": ["DevWeb", "IntelligenceArtificielle", "PromptEngineering", "Cursor", "v0", "BoltNew", "NextJS", "React", "FormationTech"]
   }
 ]

@@ -13,7 +13,7 @@ export const OtherProjectSection: React.FC<{ currentProjectId: string | number }
   const { language } = useLanguageStore();
 
   const relatedProjects = projectsData
-    .filter((p) => p.id !== currentProjectId)
+    .filter((p) => p.id !== currentProjectId && p.isPublished !== false)
     .slice(0, 6);
 
   if (relatedProjects.length === 0) return null;

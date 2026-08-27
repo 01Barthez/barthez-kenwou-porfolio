@@ -87,6 +87,15 @@ export const publicRoutes: RouteConfig[] = [
   },
 
   {
+    path: '/feedback',
+    component: lazyPage(() => import('@/pages/public/FeedbackPage/feedback'), 'FeedbackPage'),
+    meta: {
+      title: 'Feedback',
+      layout: 'public',
+    },
+  },
+
+  {
     path: '/cv',
     component: lazyPage(() => import('@/pages/public/CvPage/cv'), 'CvPage'),
     meta: {

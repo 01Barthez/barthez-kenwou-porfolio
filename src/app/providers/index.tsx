@@ -4,6 +4,7 @@ import { AuthProvider } from './AuthProvider';
 import { I18nProvider } from './I18nProvider';
 import { ThemeProvider } from './ThemeProvider';
 import { SEOProvider } from '@/shared/ui/SEO/SEO';
+import { Toaster } from '@/shared/ui/sonner';
 import { ErrorBoundary } from '../lib/ErrorBoundary';
 
 interface ProvidersProps {
@@ -18,7 +19,10 @@ export const Providers: React.FC<ProvidersProps> = ({ children }) => {
         <AuthProvider>
           <I18nProvider>
             <ThemeProvider>
-              <SEOProvider>{children}</SEOProvider>
+              <SEOProvider>
+                {children}
+                <Toaster richColors closeButton position="top-right" />
+              </SEOProvider>
             </ThemeProvider>
           </I18nProvider>
         </AuthProvider>

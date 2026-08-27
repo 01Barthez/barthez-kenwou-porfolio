@@ -2,7 +2,7 @@ export interface RouteMeta {
   title?: string;
   requiresAuth?: boolean;
   roles?: string[];
-  layout?: 'public' | 'app' | 'admin';
+  layout?: 'public' | 'app' | 'admin' | 'admin-auth';
 }
 
 export interface RouteConfig {

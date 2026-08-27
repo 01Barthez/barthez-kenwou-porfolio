@@ -1,5 +1,6 @@
 import { useAuth } from '@/app/providers/AuthProvider';
 import React from 'react';
+import { Navigate, useLocation } from 'react-router-dom';
 import { LoadingPage } from '@/shared/ui/LoadingPage/LoadingPage';
 
 interface ProtectedRouteProps {
@@ -9,19 +10,18 @@ interface ProtectedRouteProps {
 
 export const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children, requiredRoles = [] }) => {
   const { isAuthenticated, user, loading } = useAuth();
+  const location = useLocation();
 
   if (loading) {
     return <LoadingPage />;
   }
 
   if (!isAuthenticated) {
-    // TODO: Rediriger vers la page de connexion
-    return <div>Please log in to access this page.</div>;
+    return <Navigate to="/barthez-admin/login" replace state={{ from: location.pathname }} />;
   }
 
   if (requiredRoles.length > 0 && user && !requiredRoles.includes(user.role)) {
-    // TODO: Afficher une page d'accès refusé
-    return <div>Access denied. Insufficient permissions.</div>;
+    return <Navigate to="/barthez-admin/login" replace />;
   }
 
   return <>{children}</>;

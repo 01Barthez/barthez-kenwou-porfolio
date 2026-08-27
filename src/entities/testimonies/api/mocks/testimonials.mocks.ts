@@ -10,6 +10,9 @@ export const testimonials = [
     textEn:
       "On the NEXUS SaaS ERP project, Barthez demonstrated strong software architecture expertise across system design, database architecture, backend, and frontend. His focus on scalability, performance, and security has helped us build a robust platform aligned with high engineering standards.",
     rating: 5,
+    isPublished: true,
+    status: "approved" as const,
+    source: "admin" as const,
   },
   {
     id: 2,
@@ -22,6 +25,9 @@ export const testimonials = [
     textEn:
       "The DevSecOps pipeline designed by Barthez reflects a genuine engineering mindset focused on quality and security. Every stage of the delivery pipeline was carefully designed to ensure reliable deployments while strengthening the security of ZENORA's products.",
     rating: 5,
+    isPublished: true,
+    status: "approved" as const,
+    source: "admin" as const,
   },
   {
     id: 3,
@@ -34,6 +40,9 @@ export const testimonials = [
     textEn:
       "The delivered website exceeded our expectations both technically and visually. The project was completed on schedule with excellent quality. I highly recommend Barthez for his professionalism and ability to deliver outstanding results.",
     rating: 5,
+    isPublished: true,
+    status: "approved" as const,
+    source: "admin" as const,
   },
   {
     id: 4,
@@ -46,6 +55,9 @@ export const testimonials = [
     textEn:
       "The final result perfectly matched our vision. The design is modern, creative, and polished, SEO performance is outstanding, and the project was delivered quickly despite several requested revisions throughout development. A very satisfying collaboration.",
     rating: 5,
+    isPublished: true,
+    status: "approved" as const,
+    source: "admin" as const,
   },
   {
     id: 5,
@@ -58,6 +70,9 @@ export const testimonials = [
     textEn:
       "The website developed for our company went far beyond our expectations. The quality of the work, professionalism, and attention to detail resulted in a product we are truly proud of.",
     rating: 4,
+    isPublished: true,
+    status: "approved" as const,
+    source: "admin" as const,
   },
   {
     id: 6,
@@ -70,6 +85,9 @@ export const testimonials = [
     textEn:
       "The work carried out on securing and monitoring my VPS was outstanding. Every aspect of system hardening was handled thoroughly, giving me complete confidence in the stability and security of my infrastructure.",
     rating: 5,
+    isPublished: true,
+    status: "approved" as const,
+    source: "admin" as const,
   },
   {
     id: 7,
@@ -82,5 +100,8 @@ export const testimonials = [
     textEn:
       "Throughout his training, Barthez demonstrated strong Full Stack development skills together with a solid understanding of DevOps and Cloud practices. His growth, discipline, and learning ability enable him to contribute confidently to ambitious engineering projects.",
     rating: 4,
+    isPublished: true,
+    status: "approved" as const,
+    source: "admin" as const,
   },
 ];

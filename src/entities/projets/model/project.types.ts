@@ -152,6 +152,9 @@ export interface IProject {
   businessContextEn?: string;
   isFeatured?: boolean;
 
+  /** When false, hidden from the public projects listing. */
+  isPublished?: boolean;
+
   /** NDA / anonymized case study */
   confidential?: boolean;
 
