@@ -2963,28 +2963,28 @@ I design, code, secure, deploy and iterate alone. The live result does not illus
 
     {
         id: 5,
-        titleFr: "ESOPA — Présence digitale ONG (CAFCA × ZENORA)",
-        titleEn: "ESOPA — NGO digital presence (CAFCA × ZENORA)",
+        titleFr: "ESOPA - Présence digitale ONG (CAFCA × ZENORA)",
+        titleEn: "ESOPA - NGO digital presence (CAFCA × ZENORA)",
 
         descriptionFr: "En 2 semaines : site WordPress institutionnel FR/EN, staging + prod, sécurité, SEO et écosystème digital complet (Google Business, réseaux, guide de livraison) pour Étoile Solidarité Panafricaine.",
         descriptionEn: "In 2 weeks: institutional WordPress site FR/EN, staging + prod, security, SEO and full digital ecosystem (Google Business, socials, delivery guide) for Pan-African Solidarity Star.",
 
-        fullDescriptionFr: `ESOPA (Étoile Solidarité Panafricaine) est une organisation humanitaire basée en Suisse avec une antenne opérationnelle à Yaoundé. Elle accompagne personnes âgées, handicapées, orphelins, veuves, démunis et prisonniers. Sans présence digitale crédible, l'ONG peinait à convaincre partenaires, donateurs et bénévoles — alors que transparence et visibilité sont des conditions d'existence pour ce type de structure.
+        fullDescriptionFr: `ESOPA (Étoile Solidarité Panafricaine) est une organisation humanitaire basée en Suisse avec une antenne opérationnelle à Yaoundé. Elle accompagne personnes âgées, handicapées, orphelins, veuves, démunis et prisonniers. Sans présence digitale crédible, l'ONG peinait à convaincre partenaires, donateurs et bénévoles - alors que transparence et visibilité sont des conditions d'existence pour ce type de structure.
 
-Pour le compte de CAFCA × ZENORA, j'ai conçu et livré en deux semaines (février 2026) le pilier digital de l'organisation : un site WordPress institutionnel bilingue (FR/EN) sur esopa.org, pensé comme un outil de confiance — pas une brochure décorative. Lead conception & design dans une équipe de deux, j'ai porté l'identité visuelle, l'architecture de contenu (~18 pages), les parcours d'engagement (bénévolat, partenariat, contact) et la qualité de livraison jusqu'à la mise en production.
+Pour le compte de CAFCA × ZENORA, j'ai conçu et livré en deux semaines (février 2026) le pilier digital de l'organisation : un site WordPress institutionnel bilingue (FR/EN) sur esopa.org, pensé comme un outil de confiance - pas une brochure décorative. Lead conception & design dans une équipe de deux, j'ai porté l'identité visuelle, l'architecture de contenu (~18 pages), les parcours d'engagement (bénévolat, partenariat, contact) et la qualité de livraison jusqu'à la mise en production.
 
 Le périmètre dépasse le « site vitrine ». Environnements staging et production séparés, stack WordPress/Elementor/Blocksy durcie (Wordfence, Limit Login Attempts, UpdraftPlus, LiteSpeed Cache, Asset CleanUp, Rank Math, Plausible, WP Mail SMTP), HTTPS, sauvegardes quotidiennes, pages Transparence / Mentions / Confidentialité. Autour du site : fiche Google My Business, réseaux sociaux configurés, lignes éditoriales 1 mois, et un document de livraison officielle (guide de prise en main + preuves performance/sécurité/SEO). Résultat mesurable : PageSpeed desktop 91/90/92/92, « esopa » en 1ère position Google, audience internationale dès le lancement (Cameroun, Suisse, Canada, USA…), Wordfence bloquant des centaines d'attaques mensuelles. Livraison officielle avril 2026.`,
-        fullDescriptionEn: `ESOPA (Pan-African Solidarity Star) is a humanitarian organization based in Switzerland with an operational branch in Yaoundé. It supports the elderly, people with disabilities, orphans, widows, the destitute and prisoners. Without a credible digital presence, the NGO struggled to convince partners, donors and volunteers — while transparency and visibility are existential requirements for this kind of structure.
+        fullDescriptionEn: `ESOPA (Pan-African Solidarity Star) is a humanitarian organization based in Switzerland with an operational branch in Yaoundé. It supports the elderly, people with disabilities, orphans, widows, the destitute and prisoners. Without a credible digital presence, the NGO struggled to convince partners, donors and volunteers - while transparency and visibility are existential requirements for this kind of structure.
 
-On behalf of CAFCA × ZENORA, I designed and delivered in two weeks (February 2026) the organization's digital pillar: a bilingual (FR/EN) institutional WordPress site on esopa.org, built as a trust tool — not a decorative brochure. Lead design & product conception in a two-person team, I owned visual identity, content architecture (~18 pages), engagement journeys (volunteering, partnership, contact) and delivery quality through production go-live.
+On behalf of CAFCA × ZENORA, I designed and delivered in two weeks (February 2026) the organization's digital pillar: a bilingual (FR/EN) institutional WordPress site on esopa.org, built as a trust tool - not a decorative brochure. Lead design & product conception in a two-person team, I owned visual identity, content architecture (~18 pages), engagement journeys (volunteering, partnership, contact) and delivery quality through production go-live.
 
 Scope goes beyond a "showcase site". Separated staging and production environments, hardened WordPress/Elementor/Blocksy stack (Wordfence, Limit Login Attempts, UpdraftPlus, LiteSpeed Cache, Asset CleanUp, Rank Math, Plausible, WP Mail SMTP), HTTPS, daily backups, Transparency / Legal / Privacy pages. Around the site: Google Business Profile, configured social networks, 1-month editorial lines, and an official delivery document (handover guide + performance/security/SEO evidence). Measurable outcome: PageSpeed desktop 91/90/92/92, "esopa" ranking #1 on Google, international audience from launch (Cameroon, Switzerland, Canada, USA…), Wordfence blocking hundreds of monthly attacks. Official delivery April 2026.`,
 
-        problemFr: "ESOPA n'avait pas de plateforme web crédible ni d'écosystème digital cohérent. Sans site professionnel, sans SEO local, sans canaux d'engagement structurés, l'organisation limitait sa capacité à mobiliser donateurs, partenaires et bénévoles — en Suisse comme au Cameroun.",
-        problemEn: "ESOPA had no credible web platform and no coherent digital ecosystem. Without a professional site, local SEO, or structured engagement channels, the organization limited its ability to mobilize donors, partners and volunteers — in Switzerland and Cameroon alike.",
+        problemFr: "ESOPA n'avait pas de plateforme web crédible ni d'écosystème digital cohérent. Sans site professionnel, sans SEO local, sans canaux d'engagement structurés, l'organisation limitait sa capacité à mobiliser donateurs, partenaires et bénévoles - en Suisse comme au Cameroun.",
+        problemEn: "ESOPA had no credible web platform and no coherent digital ecosystem. Without a professional site, local SEO, or structured engagement channels, the organization limited its ability to mobilize donors, partners and volunteers - in Switzerland and Cameroon alike.",
 
         solutionFr: [
-            "Site WordPress institutionnel bilingue FR/EN (esopa.org) — ~18 pages Elementor",
+            "Site WordPress institutionnel bilingue FR/EN (esopa.org) - ~18 pages Elementor",
             "Architecture de contenu : Accueil, À propos, Actions, Projets, Impact, S'impliquer, Actualités, Contact",
             "Parcours conversion : formulaires bénévole / partenariat / contact + WP Mail SMTP",
             "Environnements staging + production séparés pour livrer sans casser le live",
@@ -2994,7 +2994,7 @@ Scope goes beyond a "showcase site". Separated staging and production environmen
             "Livraison officielle documentée (PDF) : guides, preuves, maintenance, évolutions",
         ],
         solutionEn: [
-            "Bilingual FR/EN institutional WordPress site (esopa.org) — ~18 Elementor pages",
+            "Bilingual FR/EN institutional WordPress site (esopa.org) - ~18 Elementor pages",
             "Content architecture: Home, About, Actions, Projects, Impact, Get involved, News, Contact",
             "Conversion journeys: volunteer / partnership / contact forms + WP Mail SMTP",
             "Separated staging + production environments to ship without breaking live",
@@ -3061,7 +3061,7 @@ Scope goes beyond a "showcase site". Separated staging and production environmen
         },
 
         architecture: [
-            "WordPress institutionnel bilingue FR/EN — architecture de pages mission-driven",
+            "WordPress institutionnel bilingue FR/EN - architecture de pages mission-driven",
             "Environnements staging et production séparés (validation avant go-live)",
             "Reverse proxy / hébergement durci + Cloudflare DNS/CDN + HTTPS Let's Encrypt",
             "Couche perf : LiteSpeed Cache + Asset CleanUp (scripts/styles par page)",
@@ -3072,7 +3072,7 @@ Scope goes beyond a "showcase site". Separated staging and production environmen
 
         testing: [
             "Google PageSpeed / Lighthouse (perf, a11y, best practices, SEO)",
-            "Scan sécurité automatisé (38 tests — risque global LOW, 0 critique/haute/moyenne)",
+            "Scan sécurité automatisé (38 tests - risque global LOW, 0 critique/haute/moyenne)",
             "Validation manuelle UX/UI responsive (desktop, tablette, mobile)",
             "Vérification formulaires (contact, bénévole) + notifications SMTP",
             "Contrôle SEO on-page Rank Math + indexation Google (« esopa » #1)",
@@ -3094,8 +3094,8 @@ Scope goes beyond a "showcase site". Separated staging and production environmen
             {
                 url: "https://s3.zenora360.com/barthez-portfolio/videos/esopa/esopa-demo-walkthrough.webm",
                 type: "walkthrough",
-                titleFr: "Démo walkthrough — esopa.org",
-                titleEn: "Demo walkthrough — esopa.org",
+                titleFr: "Démo walkthrough - esopa.org",
+                titleEn: "Demo walkthrough - esopa.org",
             },
         ],
 
@@ -3136,86 +3136,86 @@ Scope goes beyond a "showcase site". Separated staging and production environmen
         gallery: [
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-logo.png",
-                captionFr: "Identité ESOPA — Étoile Solidarité Panafricaine / PASOS",
-                captionEn: "ESOPA identity — Pan-African Solidarity Star / PASOS",
+                captionFr: "Identité ESOPA - Étoile Solidarité Panafricaine / PASOS",
+                captionEn: "ESOPA identity - Pan-African Solidarity Star / PASOS",
                 kind: "other",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-ui-home-hero.png",
-                captionFr: "Hero Accueil — « L'amour qui construit l'avenir » + CTAs",
-                captionEn: "Home hero — « Love that builds the future » + CTAs",
+                captionFr: "Hero Accueil - « L'amour qui construit l'avenir » + CTAs",
+                captionEn: "Home hero - « Love that builds the future » + CTAs",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-ui-who-we-are.png",
-                captionFr: "Qui sommes-nous — stats (06+ projets, 10+ bénévoles, 02 pays)",
-                captionEn: "Who we are — stats (06+ projects, 10+ volunteers, 02 countries)",
+                captionFr: "Qui sommes-nous - stats (06+ projets, 10+ bénévoles, 02 pays)",
+                captionEn: "Who we are - stats (06+ projects, 10+ volunteers, 02 countries)",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-ui-identity.png",
-                captionFr: "Notre identité — Suisse / Cameroun, publics vulnérables",
-                captionEn: "Our identity — Switzerland / Cameroon, vulnerable audiences",
+                captionFr: "Notre identité - Suisse / Cameroun, publics vulnérables",
+                captionEn: "Our identity - Switzerland / Cameroon, vulnerable audiences",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-ui-values.png",
-                captionFr: "Nos valeurs — amour, solidarité, dignité, inclusion, transparence",
-                captionEn: "Our values — love, solidarity, dignity, inclusion, transparency",
+                captionFr: "Nos valeurs - amour, solidarité, dignité, inclusion, transparence",
+                captionEn: "Our values - love, solidarity, dignity, inclusion, transparency",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-ui-roadmap.png",
-                captionFr: "Feuille de route — objectifs stratégiques court / moyen / long terme",
-                captionEn: "Roadmap — short / medium / long-term strategic objectives",
+                captionFr: "Feuille de route - objectifs stratégiques court / moyen / long terme",
+                captionEn: "Roadmap - short / medium / long-term strategic objectives",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-ui-volunteer-form.png",
-                captionFr: "Formulaire bénévole — inscription + avantages d'engagement",
-                captionEn: "Volunteer form — signup + engagement benefits",
+                captionFr: "Formulaire bénévole - inscription + avantages d'engagement",
+                captionEn: "Volunteer form - signup + engagement benefits",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-ui-footer.png",
-                captionFr: "Footer — CTA solidarité, contact CH/CM, mentions légales",
-                captionEn: "Footer — solidarity CTA, CH/CM contact, legal pages",
+                captionFr: "Footer - CTA solidarité, contact CH/CM, mentions légales",
+                captionEn: "Footer - solidarity CTA, CH/CM contact, legal pages",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-metric-pagespeed.png",
-                captionFr: "PageSpeed desktop — Perf 91, A11y 90, BP 92, SEO 92",
-                captionEn: "PageSpeed desktop — Perf 91, A11y 90, BP 92, SEO 92",
+                captionFr: "PageSpeed desktop - Perf 91, A11y 90, BP 92, SEO 92",
+                captionEn: "PageSpeed desktop - Perf 91, A11y 90, BP 92, SEO 92",
                 kind: "metric",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-metric-plausible.png",
-                captionFr: "Plausible 30j — 130 vues, 79 visiteurs (+69% vues)",
-                captionEn: "Plausible 30d — 130 views, 79 visitors (+69% views)",
+                captionFr: "Plausible 30j - 130 vues, 79 visiteurs (+69% vues)",
+                captionEn: "Plausible 30d - 130 views, 79 visitors (+69% views)",
                 kind: "metric",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-metric-sitekit.png",
-                captionFr: "Google Site Kit — trafic 28j, Direct 41% / Organic 41%",
-                captionEn: "Google Site Kit — 28d traffic, Direct 41% / Organic 41%",
+                captionFr: "Google Site Kit - trafic 28j, Direct 41% / Organic 41%",
+                captionEn: "Google Site Kit - 28d traffic, Direct 41% / Organic 41%",
                 kind: "metric",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-process-pages-seo.png",
-                captionFr: "WP Admin — 18 pages Elementor + Rank Math SEO",
-                captionEn: "WP Admin — 18 Elementor pages + Rank Math SEO",
+                captionFr: "WP Admin - 18 pages Elementor + Rank Math SEO",
+                captionEn: "WP Admin - 18 Elementor pages + Rank Math SEO",
                 kind: "process",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-process-wordfence.png",
-                captionFr: "Wordfence — 255 attaques complexes bloquées / mois",
-                captionEn: "Wordfence — 255 complex attacks blocked / month",
+                captionFr: "Wordfence - 255 attaques complexes bloquées / mois",
+                captionEn: "Wordfence - 255 complex attacks blocked / month",
                 kind: "process",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-process-llar.png",
-                captionFr: "Limit Login Attempts — protection brute-force admin",
-                captionEn: "Limit Login Attempts — admin brute-force protection",
+                captionFr: "Limit Login Attempts - protection brute-force admin",
+                captionEn: "Limit Login Attempts - admin brute-force protection",
                 kind: "process",
             },
         ],
@@ -3296,8 +3296,8 @@ Scope goes beyond a "showcase site". Separated staging and production environmen
             },
             {
                 id: "esopa-journey",
-                titleFr: "Parcours — visiteur vers engagement",
-                titleEn: "Journey — visitor to engagement",
+                titleFr: "Parcours - visiteur vers engagement",
+                titleEn: "Journey - visitor to engagement",
                 mermaid: `sequenceDiagram
   actor V as Visiteur
   participant WEB as esopa.org
@@ -3313,8 +3313,8 @@ Scope goes beyond a "showcase site". Separated staging and production environmen
             },
             {
                 id: "esopa-delivery",
-                titleFr: "Sprint 2 semaines — flux de livraison",
-                titleEn: "2-week sprint — delivery flow",
+                titleFr: "Sprint 2 semaines - flux de livraison",
+                titleEn: "2-week sprint - delivery flow",
                 mermaid: `flowchart LR
   W1[Semaine 1 identité IA design staging] --> W2[Semaine 2 pages sécu SEO socials]
   W2 --> GO[Go-live production]
@@ -3339,14 +3339,14 @@ Scope goes beyond a "showcase site". Separated staging and production environmen
             {
                 labelFr: "Cadrage + identité + staging",
                 labelEn: "Scoping + identity + staging",
-                date: "Semaine 1 — Fév. 2026",
+                date: "Semaine 1 - Fév. 2026",
                 descriptionFr: "Brief, charte, architecture de contenu, environnement staging.",
                 descriptionEn: "Brief, brand, content architecture, staging environment.",
             },
             {
                 labelFr: "Build pages + hardening + SEO",
                 labelEn: "Page build + hardening + SEO",
-                date: "Semaine 2 — Fév. 2026",
+                date: "Semaine 2 - Fév. 2026",
                 descriptionFr: "18 pages Elementor, sécu, perf, Rank Math, formulaires.",
                 descriptionEn: "18 Elementor pages, security, perf, Rank Math, forms.",
             },
@@ -3384,12 +3384,12 @@ Scope goes beyond a "showcase site". Separated staging and production environmen
         ],
         nonGoalsFr: [
             "Application métier custom / CRM donateurs avancé",
-            "Plateforme de paiement en ligne (dons) — hors sprint initial",
+            "Plateforme de paiement en ligne (dons) - hors sprint initial",
             "App mobile native",
         ],
         nonGoalsEn: [
             "Custom business app / advanced donor CRM",
-            "Online donation payment platform — outside initial sprint",
+            "Online donation payment platform - outside initial sprint",
             "Native mobile app",
         ],
 
@@ -3423,8 +3423,8 @@ Scope goes beyond a "showcase site". Separated staging and production environmen
                 titleEn: "Deliver an ecosystem, not just a site",
                 decisionFr: "GMB + socials + lignes éditoriales + PDF de livraison dans le même mandat.",
                 decisionEn: "GMB + socials + editorial lines + delivery PDF in the same mandate.",
-                rationaleFr: "La crédibilité ONG se joue aussi hors du domaine — Maps, réseaux, process.",
-                rationaleEn: "NGO credibility also plays outside the domain — Maps, socials, process.",
+                rationaleFr: "La crédibilité ONG se joue aussi hors du domaine - Maps, réseaux, process.",
+                rationaleEn: "NGO credibility also plays outside the domain - Maps, socials, process.",
             },
             {
                 titleFr: "Transparence comme surface produit",
@@ -3438,7 +3438,7 @@ Scope goes beyond a "showcase site". Separated staging and production environmen
 
         securityFr: [
             "HTTPS Let's Encrypt + Cloudflare en frontal",
-            "Wordfence WAF — ~255 attaques complexes bloquées / mois",
+            "Wordfence WAF - ~255 attaques complexes bloquées / mois",
             "Limit Login Attempts Reloaded (anti brute-force admin)",
             "Scan sécurité livraison : risque LOW, 0 vulnérabilité critique/haute/moyenne",
             "Backups automatiques UpdraftPlus",
@@ -3446,7 +3446,7 @@ Scope goes beyond a "showcase site". Separated staging and production environmen
         ],
         securityEn: [
             "HTTPS Let's Encrypt + Cloudflare in front",
-            "Wordfence WAF — ~255 complex attacks blocked / month",
+            "Wordfence WAF - ~255 complex attacks blocked / month",
             "Limit Login Attempts Reloaded (admin brute-force protection)",
             "Delivery security scan: LOW risk, 0 critical/high/medium vulnerabilities",
             "Automated UpdraftPlus backups",
@@ -3479,25 +3479,25 @@ Scope goes beyond a "showcase site". Separated staging and production environmen
 
         lessonsFr: [
             "Pour une ONG, le site est un outil de confiance : transparence et parcours d'engagement valent plus qu'une landing décorative.",
-            "Deux semaines suffisent si le scope est tranché — staging/prod, sécu et SEO inclus dès le sprint, pas « plus tard ».",
+            "Deux semaines suffisent si le scope est tranché - staging/prod, sécu et SEO inclus dès le sprint, pas « plus tard ».",
             "WordPress reste pertinent quand l'autonomie éditoriale du client est un critère métier réel.",
             "Livrer GMB + socials + doc transforme une prestation web en dispositif digital défendable face aux partenaires.",
-            "Les métriques (PageSpeed, attaques bloquées, position Google) doivent figurer dans la livraison — elles vendent la suite.",
+            "Les métriques (PageSpeed, attaques bloquées, position Google) doivent figurer dans la livraison - elles vendent la suite.",
         ],
         lessonsEn: [
             "For an NGO, the site is a trust tool: transparency and engagement journeys beat a decorative landing.",
-            "Two weeks are enough if scope is sharp — staging/prod, security and SEO included in the sprint, not later.",
+            "Two weeks are enough if scope is sharp - staging/prod, security and SEO included in the sprint, not later.",
             "WordPress remains relevant when client editorial autonomy is a real business requirement.",
             "Shipping GMB + socials + docs turns a web job into a digital system partners can defend.",
-            "Metrics (PageSpeed, blocked attacks, Google rank) must be in the delivery — they sell the next phase.",
+            "Metrics (PageSpeed, blocked attacks, Google rank) must be in the delivery - they sell the next phase.",
         ],
 
         beforeAfter: [
             {
                 beforeSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
                 afterSrc: "https://s3.zenora360.com/barthez-portfolio/images/esopa/esopa-ui-home-hero.png",
-                captionFr: "D'une absence digitale à une présence institutionnelle live — esopa.org.",
-                captionEn: "From no digital presence to a live institutional presence — esopa.org.",
+                captionFr: "D'une absence digitale à une présence institutionnelle live - esopa.org.",
+                captionEn: "From no digital presence to a live institutional presence - esopa.org.",
             },
         ],
 
@@ -3506,26 +3506,26 @@ Scope goes beyond a "showcase site". Separated staging and production environmen
 
     {
         id: 6,
-        titleFr: "Supply Chain Pipeline — Kit DevSecOps fail-closed",
-        titleEn: "Supply Chain Pipeline — Fail-closed DevSecOps kit",
+        titleFr: "Supply Chain Pipeline - Kit DevSecOps fail-closed",
+        titleEn: "Supply Chain Pipeline - Fail-closed DevSecOps kit",
 
         descriptionFr: "Colonne vertébrale CI/CD réutilisable : qualité → sécurité → image Trivy → Harbor → Cosign/SBOM → deploy par digest. Née du lab anti-Megalodon, en prod sur zenora360.com et ketc-services.com.",
         descriptionEn: "Reusable CI/CD backbone: quality → security → Trivy image → Harbor → Cosign/SBOM → digest deploy. Born from the anti-Megalodon lab, live on zenora360.com and ketc-services.com.",
 
-        fullDescriptionFr: `En mai 2026, la campagne Megalodon a infecté plus de 5 500 dépôts GitHub. La même année, des empoisonnements de dépendances ont frappé des paquets TanStack (impact OpenAI, Grafana), le client HTTP Axios sur npm, Trivy lui-même (groupe Team PCP), puis le crate Rust arrayref en août 2026. Le constat est brutal : un seul package compromis peut contaminer des milliers de logiciels en aval — et un pipeline CI classique (build vert → push latest → hope) ne protège de rien.
+        fullDescriptionFr: `En mai 2026, la campagne Megalodon a infecté plus de 5 500 dépôts GitHub. La même année, des empoisonnements de dépendances ont frappé des paquets TanStack (impact OpenAI, Grafana), le client HTTP Axios sur npm, Trivy lui-même (groupe Team PCP), puis le crate Rust arrayref en août 2026. Le constat est brutal : un seul package compromis peut contaminer des milliers de logiciels en aval - et un pipeline CI classique (build vert → push latest → hope) ne protège de rien.
 
-J'ai d'abord traité le sujet comme un lab : comprendre les vecteurs (dependency poisoning, image tampering, secrets leakage, provenance absente), puis transformer la défense en produit. Le résultat est supply-chain-pipeline — un kit DevSecOps prêt à brancher, documenté, fail-closed là où ça compte. Démo live sur supply-chain-demo.barthez-kenwou.dev : une UI guide (résumé, pipeline, intégration, architectures, décisions, retours terrain) qui prouve la chaîne tout en servant d'artefact déployé par cette même chaîne.
+J'ai d'abord traité le sujet comme un lab : comprendre les vecteurs (dependency poisoning, image tampering, secrets leakage, provenance absente), puis transformer la défense en produit. Le résultat est supply-chain-pipeline - un kit DevSecOps prêt à brancher, documenté, fail-closed là où ça compte. Démo live sur supply-chain-demo.barthez-kenwou.dev : une UI guide (résumé, pipeline, intégration, architectures, décisions, retours terrain) qui prouve la chaîne tout en servant d'artefact déployé par cette même chaîne.
 
 Sous le capot : GitHub Actions (CI, Security, Release Image, Deploy) + workflows réutilisables. CI = quality/health, Gitleaks, Hadolint, SonarQube QG bloquant, dependency-review, résumé fail-closed. Security = Trivy fs+config (HIGH/CRITICAL), CodeQL security-extended (YAML Actions), ZAP baseline planifié. Release = build local → gate Trivy image avant tout push Harbor → Cosign keyless + SBOM SPDX + provenance → metadata. Deploy = refuse latest, Cosign verify avant SSH, pull par digest, health + rollback, smoke sur réseau Docker proxy (Nginx Proxy Manager), Slack sur Deploy. Actions pinnées SHA. Harbor zenora-public héberge supply-chain-web, zenora-web et kc-services-web.
 
-Cette colonne vertébrale déploie déjà zenora360.com et ketc-services.com, et restera le standard de livraison ZENORA. Runtime actuel : Docker Compose sur VPS. Une variante Kubernetes pour les charges haute disponibilité est prévue — même discipline supply chain, autre orchestrateur.`,
-        fullDescriptionEn: `In May 2026, the Megalodon campaign infected more than 5,500 GitHub repositories. The same year, dependency poisonings hit TanStack packages (impacting OpenAI, Grafana), the Axios HTTP client on npm, Trivy itself (Team PCP), then the Rust crate arrayref in August 2026. The lesson is brutal: one compromised package can contaminate thousands of downstream systems — and a classic CI pipeline (green build → push latest → hope) protects nothing.
+Cette colonne vertébrale déploie déjà zenora360.com et ketc-services.com, et restera le standard de livraison ZENORA. Runtime actuel : Docker Compose sur VPS. Une variante Kubernetes pour les charges haute disponibilité est prévue - même discipline supply chain, autre orchestrateur.`,
+        fullDescriptionEn: `In May 2026, the Megalodon campaign infected more than 5,500 GitHub repositories. The same year, dependency poisonings hit TanStack packages (impacting OpenAI, Grafana), the Axios HTTP client on npm, Trivy itself (Team PCP), then the Rust crate arrayref in August 2026. The lesson is brutal: one compromised package can contaminate thousands of downstream systems - and a classic CI pipeline (green build → push latest → hope) protects nothing.
 
-I first treated it as a lab: map the vectors (dependency poisoning, image tampering, secrets leakage, missing provenance), then turn defense into a product. The result is supply-chain-pipeline — a plug-and-play DevSecOps kit, documented, fail-closed where it matters. Live demo at supply-chain-demo.barthez-kenwou.dev: a guided UI (summary, pipeline, integration, architectures, decisions, field notes) that proves the chain while being an artifact deployed by that same chain.
+I first treated it as a lab: map the vectors (dependency poisoning, image tampering, secrets leakage, missing provenance), then turn defense into a product. The result is supply-chain-pipeline - a plug-and-play DevSecOps kit, documented, fail-closed where it matters. Live demo at supply-chain-demo.barthez-kenwou.dev: a guided UI (summary, pipeline, integration, architectures, decisions, field notes) that proves the chain while being an artifact deployed by that same chain.
 
 Under the hood: GitHub Actions (CI, Security, Release Image, Deploy) + reusable workflows. CI = quality/health, Gitleaks, Hadolint, blocking SonarQube QG, dependency-review, fail-closed summary. Security = Trivy fs+config (HIGH/CRITICAL), CodeQL security-extended (Actions YAML), scheduled ZAP baseline. Release = local build → Trivy image gate before any Harbor push → Cosign keyless + SPDX SBOM + provenance → metadata. Deploy = refuse latest, Cosign verify before SSH, pull by digest, health + rollback, smoke on Docker proxy network (Nginx Proxy Manager), Slack on Deploy. Actions pinned by SHA. Harbor zenora-public hosts supply-chain-web, zenora-web and kc-services-web.
 
-This backbone already ships zenora360.com and ketc-services.com, and remains ZENORA delivery standard. Current runtime: Docker Compose on VPS. A Kubernetes variant for high-availability workloads is planned — same supply-chain discipline, different orchestrator.`,
+This backbone already ships zenora360.com and ketc-services.com, and remains ZENORA delivery standard. Current runtime: Docker Compose on VPS. A Kubernetes variant for high-availability workloads is planned - same supply-chain discipline, different orchestrator.`,
 
         problemFr: "Les pipelines CI/CD classiques valident le code puis poussent une image mutable (souvent latest) sans preuve cryptographique ni gate image. Face à Megalodon, à l'empoisonnement npm/crates et au tampering d'images, ce modèle laisse entrer en production ce qu'un attaquant a injecté en amont.",
         problemEn: "Classic CI/CD pipelines validate code then push a mutable image (often latest) without cryptographic proof or an image gate. Against Megalodon, npm/crates poisoning and image tampering, that model lets into production whatever an attacker injected upstream.",
@@ -3554,18 +3554,18 @@ This backbone already ships zenora360.com and ketc-services.com, and remains ZEN
         challengesFr: [
             "Transformer un lab threat-model en kit production reutilisable (pas une demo jetable)",
             "Fail-closed sans tuer la productivite : skips explicites (Sonar absent) vs gates dures",
-            "Harbor Cosign policy HTTP 412 sur pull VPS — workaround artifact release-image + verify",
+            "Harbor Cosign policy HTTP 412 sur pull VPS - workaround artifact release-image + verify",
             "SSH Deploy sous UFW limit : session unique ControlMaster, known_hosts pines",
-            "Smoke HTTPS public vs Bot Fight Cloudflare — smoke reseau Docker prioritaire",
+            "Smoke HTTPS public vs Bot Fight Cloudflare - smoke reseau Docker prioritaire",
             "CodeQL sur YAML Actions (demo nginx sans sources JS) tout en restant pertinent",
             "Industrialiser pour plusieurs produits ZENORA sans forker la discipline a chaque repo",
         ],
         challengesEn: [
             "Turn a threat-model lab into a reusable production kit (not a throwaway demo)",
             "Fail-closed without killing velocity: explicit skips (Sonar absent) vs hard gates",
-            "Harbor Cosign policy HTTP 412 on VPS pull — release-image artifact + verify workaround",
+            "Harbor Cosign policy HTTP 412 on VPS pull - release-image artifact + verify workaround",
             "SSH Deploy under UFW limit: single ControlMaster session, pinned known_hosts",
-            "Public HTTPS smoke vs Cloudflare Bot Fight — Docker-network smoke first",
+            "Public HTTPS smoke vs Cloudflare Bot Fight - Docker-network smoke first",
             "CodeQL on Actions YAML (nginx demo without JS sources) while staying meaningful",
             "Industrialize for multiple ZENORA products without forking discipline per repo",
         ],
@@ -3573,7 +3573,7 @@ This backbone already ships zenora360.com and ketc-services.com, and remains ZEN
         impactFr: [
             "Colonne vertebrale unique pour supply-chain-demo, zenora360.com et ketc-services.com",
             "Aucune image Harbor sans gate Trivy image HIGH/CRITICAL verte",
-            "Aucun deploy production sur latest — digest immuable + Cosign verify avant SSH",
+            "Aucun deploy production sur latest - digest immuable + Cosign verify avant SSH",
             "SonarQube Quality Gate Passed (0 new issues, Security Hotspots A) sur le demo kit",
             "68+ runs Actions documentes : CI, Security schedule, Release, Deploy, Dependabot",
             "Slack #prod-alerts : visibilite temps reel des deploys production",
@@ -3582,7 +3582,7 @@ This backbone already ships zenora360.com and ketc-services.com, and remains ZEN
         impactEn: [
             "Single backbone for supply-chain-demo, zenora360.com and ketc-services.com",
             "No Harbor image without a green Trivy image HIGH/CRITICAL gate",
-            "No production deploy on latest — immutable digest + Cosign verify before SSH",
+            "No production deploy on latest - immutable digest + Cosign verify before SSH",
             "SonarQube Quality Gate Passed (0 new issues, Security Hotspots A) on the demo kit",
             "68+ documented Actions runs: CI, Security schedule, Release, Deploy, Dependabot",
             "Slack #prod-alerts: real-time visibility into production deploys",
@@ -3672,8 +3672,8 @@ This backbone already ships zenora360.com and ketc-services.com, and remains ZEN
         github: "https://github.com/barthez-kenwou/supply-chain-pipeline",
         demo: "https://supply-chain-demo.barthez-kenwou.dev/",
 
-        businessContextFr: "Réponse ingénierie aux attaques supply chain 2026 (Megalodon, npm/crates poisoning) : industrialiser une chaîne de livraison ZENORA où rien n'entre en prod sans scan image, signature et deploy par digest — et la rendre réutilisable projet après projet.",
-        businessContextEn: "Engineering response to 2026 supply-chain attacks (Megalodon, npm/crates poisoning): industrialize a ZENORA delivery chain where nothing reaches prod without image scan, signature and digest deploy — and make it reusable across projects.",
+        businessContextFr: "Réponse ingénierie aux attaques supply chain 2026 (Megalodon, npm/crates poisoning) : industrialiser une chaîne de livraison ZENORA où rien n'entre en prod sans scan image, signature et deploy par digest - et la rendre réutilisable projet après projet.",
+        businessContextEn: "Engineering response to 2026 supply-chain attacks (Megalodon, npm/crates poisoning): industrialize a ZENORA delivery chain where nothing reaches prod without image scan, signature and digest deploy - and make it reusable across projects.",
 
         confidential: false,
 
@@ -3697,56 +3697,56 @@ This backbone already ships zenora360.com and ketc-services.com, and remains ZEN
         gallery: [
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/supply-chain/sc-github-repo.png",
-                captionFr: "Repo public — kit plug-and-play qualite, securite, Cosign, deploy digest",
-                captionEn: "Public repo — plug-and-play kit quality, security, Cosign, digest deploy",
+                captionFr: "Repo public - kit plug-and-play qualite, securite, Cosign, deploy digest",
+                captionEn: "Public repo - plug-and-play kit quality, security, Cosign, digest deploy",
                 kind: "process",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/supply-chain/sc-actions-list.png",
-                captionFr: "GitHub Actions — CI, Security, Release, Deploy, Dependabot, attestations",
-                captionEn: "GitHub Actions — CI, Security, Release, Deploy, Dependabot, attestations",
+                captionFr: "GitHub Actions - CI, Security, Release, Deploy, Dependabot, attestations",
+                captionEn: "GitHub Actions - CI, Security, Release, Deploy, Dependabot, attestations",
                 kind: "process",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/supply-chain/sc-ci-pipeline.png",
-                captionFr: "CI #28 — Quality, Gitleaks, Hadolint, SonarQube, CI summary fail-closed",
-                captionEn: "CI #28 — Quality, Gitleaks, Hadolint, SonarQube, fail-closed CI summary",
+                captionFr: "CI #28 - Quality, Gitleaks, Hadolint, SonarQube, CI summary fail-closed",
+                captionEn: "CI #28 - Quality, Gitleaks, Hadolint, SonarQube, fail-closed CI summary",
                 kind: "process",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/supply-chain/sc-security-pipeline.png",
-                captionFr: "Security #32 — Trivy fs/config, CodeQL actions, ZAP baseline, summary",
-                captionEn: "Security #32 — Trivy fs/config, CodeQL actions, ZAP baseline, summary",
+                captionFr: "Security #32 - Trivy fs/config, CodeQL actions, ZAP baseline, summary",
+                captionEn: "Security #32 - Trivy fs/config, CodeQL actions, ZAP baseline, summary",
                 kind: "process",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/supply-chain/sc-deploy-cosign.png",
-                captionFr: "Deploy #17 — resolve tag/digest, Cosign verify, prod SSH, notify",
-                captionEn: "Deploy #17 — resolve tag/digest, Cosign verify, prod SSH, notify",
+                captionFr: "Deploy #17 - resolve tag/digest, Cosign verify, prod SSH, notify",
+                captionEn: "Deploy #17 - resolve tag/digest, Cosign verify, prod SSH, notify",
                 kind: "process",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/supply-chain/sc-sonar-qg.png",
-                captionFr: "SonarQube — Quality Gate Passed, 0 new issues, Security Hotspots A",
-                captionEn: "SonarQube — Quality Gate Passed, 0 new issues, Security Hotspots A",
+                captionFr: "SonarQube - Quality Gate Passed, 0 new issues, Security Hotspots A",
+                captionEn: "SonarQube - Quality Gate Passed, 0 new issues, Security Hotspots A",
                 kind: "metric",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/supply-chain/sc-harbor-registry.png",
-                captionFr: "Harbor zenora-public — supply-chain-web, zenora-web, kc-services-web",
-                captionEn: "Harbor zenora-public — supply-chain-web, zenora-web, kc-services-web",
+                captionFr: "Harbor zenora-public - supply-chain-web, zenora-web, kc-services-web",
+                captionEn: "Harbor zenora-public - supply-chain-web, zenora-web, kc-services-web",
                 kind: "infra",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/supply-chain/sc-github-secrets.png",
-                captionFr: "Secrets Actions — Harbor, SSH deploy, Sonar, Slack (zero secret in repo)",
-                captionEn: "Actions secrets — Harbor, SSH deploy, Sonar, Slack (zero secrets in repo)",
+                captionFr: "Secrets Actions - Harbor, SSH deploy, Sonar, Slack (zero secret in repo)",
+                captionEn: "Actions secrets - Harbor, SSH deploy, Sonar, Slack (zero secrets in repo)",
                 kind: "infra",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/supply-chain/sc-slack-alerts.png",
-                captionFr: "Slack #prod-alerts — notifications Deploy production (discipline partagee)",
-                captionEn: "Slack #prod-alerts — production Deploy notifications (shared discipline)",
+                captionFr: "Slack #prod-alerts - notifications Deploy production (discipline partagee)",
+                captionEn: "Slack #prod-alerts - production Deploy notifications (shared discipline)",
                 kind: "other",
             },
         ],
@@ -3793,8 +3793,8 @@ This backbone already ships zenora360.com and ketc-services.com, and remains ZEN
             },
             {
                 id: "sc-runtime",
-                titleFr: "Runtime VPS — edge to conteneur",
-                titleEn: "VPS runtime — edge to container",
+                titleFr: "Runtime VPS - edge to conteneur",
+                titleEn: "VPS runtime - edge to container",
                 mermaid: `flowchart LR
   U[Clients] --> CF[Cloudflare]
   CF --> NPM[Nginx Proxy Manager]
@@ -3804,8 +3804,8 @@ This backbone already ships zenora360.com and ketc-services.com, and remains ZEN
             },
             {
                 id: "sc-ci-jobs",
-                titleFr: "CI — jobs et gate resume",
-                titleEn: "CI — jobs and summary gate",
+                titleFr: "CI - jobs et gate resume",
+                titleEn: "CI - jobs and summary gate",
                 mermaid: `flowchart LR
   Q[reusable-quality] --> SQ[Sonar QG]
   GL[Gitleaks]
@@ -3941,8 +3941,8 @@ This backbone already ships zenora360.com and ketc-services.com, and remains ZEN
                 titleEn: "Deploy by digest, never latest",
                 decisionFr: "Prod exige sha-* + sha256 ; latest refuse explicitement.",
                 decisionEn: "Prod requires sha-* + sha256; latest explicitly refused.",
-                rationaleFr: "latest est mutable — incompatible avec une preuve supply chain.",
-                rationaleEn: "latest is mutable — incompatible with supply-chain proof.",
+                rationaleFr: "latest est mutable - incompatible avec une preuve supply chain.",
+                rationaleEn: "latest is mutable - incompatible with supply-chain proof.",
             },
             {
                 titleFr: "Cosign verify avant SSH",
@@ -3965,16 +3965,16 @@ This backbone already ships zenora360.com and ketc-services.com, and remains ZEN
                 titleEn: "Graftable kit over mono-repo-only pipeline",
                 decisionFr: "Copier .github/ + deploy/ et personnaliser IMAGE_NAME.",
                 decisionEn: "Copy .github/ + deploy/ and customize IMAGE_NAME.",
-                rationaleFr: "ZENORA a plusieurs produits — la discipline doit voyager.",
-                rationaleEn: "ZENORA has multiple products — discipline must travel.",
+                rationaleFr: "ZENORA a plusieurs produits - la discipline doit voyager.",
+                rationaleEn: "ZENORA has multiple products - discipline must travel.",
             },
             {
                 titleFr: "Compose maintenant, Kubernetes ensuite",
                 titleEn: "Compose now, Kubernetes next",
                 decisionFr: "Runtime VPS Compose pour le standard actuel ; K8s pour la HA.",
                 decisionEn: "Compose VPS runtime for current standard; K8s for HA.",
-                rationaleFr: "La supply chain est orthogonale a l orchestrateur — on solidifie d abord les gates.",
-                rationaleEn: "Supply chain is orthogonal to the orchestrator — harden gates first.",
+                rationaleFr: "La supply chain est orthogonale a l orchestrateur - on solidifie d abord les gates.",
+                rationaleEn: "Supply chain is orthogonal to the orchestrator - harden gates first.",
             },
         ],
 
@@ -4024,17 +4024,17 @@ This backbone already ships zenora360.com and ketc-services.com, and remains ZEN
         lessonsFr: [
             "Megalodon et le poisoning npm/crates ont change la donne : un CI vert sans gate image ni provenance est une illusion de securite.",
             "Signer une image n a de valeur que si le Deploy verifie la signature avant SSH.",
-            "latest en production est un anti-pattern supply chain — le digest est la seule verite.",
+            "latest en production est un anti-pattern supply chain - le digest est la seule verite.",
             "Un lab devient un actif entreprise quand il est greffable : meme discipline, autres IMAGE_NAME.",
-            "Les retours terrain (Harbor 412, UFW SSH, CF 403) valent autant que le schema Mermaid — ils evitent de reconstruire les pieges.",
+            "Les retours terrain (Harbor 412, UFW SSH, CF 403) valent autant que le schema Mermaid - ils evitent de reconstruire les pieges.",
             "Compose vs Kubernetes n est pas le combat : les gates fail-closed le sont.",
         ],
         lessonsEn: [
             "Megalodon and npm/crates poisoning changed the game: green CI without an image gate or provenance is security theatre.",
             "Signing an image only matters if Deploy verifies the signature before SSH.",
-            "latest in production is a supply-chain anti-pattern — the digest is the only truth.",
+            "latest in production is a supply-chain anti-pattern - the digest is the only truth.",
             "A lab becomes a company asset when it is graftable: same discipline, different IMAGE_NAME.",
-            "Field notes (Harbor 412, UFW SSH, CF 403) matter as much as the Mermaid diagram — they prevent rebuilding the traps.",
+            "Field notes (Harbor 412, UFW SSH, CF 403) matter as much as the Mermaid diagram - they prevent rebuilding the traps.",
             "Compose vs Kubernetes is not the fight: fail-closed gates are.",
         ],
 
@@ -4052,26 +4052,26 @@ This backbone already ships zenora360.com and ketc-services.com, and remains ZEN
 
     {
         id: 7,
-        titleFr: "Odoo Docker Infra — Lab DevSecOps multi-environnements",
-        titleEn: "Odoo Docker Infra — Multi-environment DevSecOps lab",
+        titleFr: "Odoo Docker Infra - Lab DevSecOps multi-environnements",
+        titleEn: "Odoo Docker Infra - Multi-environment DevSecOps lab",
 
-        descriptionFr: "Lab enterprise-ready : plateforme de déploiement Odoo 100% déclarative (Docker Compose + Terraform + Infisical + CI/CD DevSecOps), staging/prod isolés, secrets rotatifs, supply chain d'images et observabilité — conçue pour être greffée sur de vrais besoins métier.",
-        descriptionEn: "Enterprise-ready lab: fully declarative Odoo deployment platform (Docker Compose + Terraform + Infisical + DevSecOps CI/CD), isolated staging/prod, rotating secrets, image supply chain and observability — built to be grafted onto real business needs.",
+        descriptionFr: "Lab enterprise-ready : plateforme de déploiement Odoo 100% déclarative (Docker Compose + Terraform + Infisical + CI/CD DevSecOps), staging/prod isolés, secrets rotatifs, supply chain d'images et observabilité - conçue pour être greffée sur de vrais besoins métier.",
+        descriptionEn: "Enterprise-ready lab: fully declarative Odoo deployment platform (Docker Compose + Terraform + Infisical + DevSecOps CI/CD), isolated staging/prod, rotating secrets, image supply chain and observability - built to be grafted onto real business needs.",
 
-        fullDescriptionFr: `Ce projet n'est pas « un Odoo client » déguisé. C'est un lab d'ingénierie plateforme que j'ai construit pour transformer des concepts théoriques (IaC, secrets, DevSecOps, HA opérationnelle, DR) en infrastructure réutilisable — sur un besoin réel et pertinent : déployer Odoo comme on le ferait pour une entreprise.
+        fullDescriptionFr: `Ce projet n'est pas « un Odoo client » déguisé. C'est un lab d'ingénierie plateforme que j'ai construit pour transformer des concepts théoriques (IaC, secrets, DevSecOps, HA opérationnelle, DR) en infrastructure réutilisable - sur un besoin réel et pertinent : déployer Odoo comme on le ferait pour une entreprise.
 
-Je connaissais déjà Odoo (usage, configuration, déploiements antérieurs). Ici l'objectif primaire était l'infra : Docker, réseaux segmentés, multi-environnements, Terraform, Infisical self-hosted, pipelines fail-closed, registry, observabilité, backups/restore testés. J'ai consolidé ça via des labs (Killercoda, AWS Skill Builder, Certland), des cours (Udemy, DataCamp, YouTube) et une lecture minutieuse des docs Docker/Terraform/Odoo — puis j'ai couronné par une plateforme documentée, greffable, enterprise-ready.
+Je connaissais déjà Odoo (usage, configuration, déploiements antérieurs). Ici l'objectif primaire était l'infra : Docker, réseaux segmentés, multi-environnements, Terraform, Infisical self-hosted, pipelines fail-closed, registry, observabilité, backups/restore testés. J'ai consolidé ça via des labs (Killercoda, AWS Skill Builder, Certland), des cours (Udemy, DataCamp, YouTube) et une lecture minutieuse des docs Docker/Terraform/Odoo - puis j'ai couronné par une plateforme documentée, greffable, enterprise-ready.
 
-Architecture 3-tiers : reverse proxy → Odoo → PostgreSQL. Séparation stricte dev / staging / production (réseaux Docker public/privé/database, volumes, bases, domaines, TLS et secrets séparés — aucun secret prod dans staging). Infrastructure entièrement déclarative : Terraform (modules, remote state, locking, tfvars, validate/fmt/plan, TFLint, Checkov, Trivy IaC). Images Odoo/PostgreSQL pinnées (jamais latest), non-root quand possible, healthchecks, resource limits, no-new-privileges, scan Trivy, SBOM, Cosign. Secrets hors Git via Infisical (rotation Postgres/SMTP, audit). CI/CD GitHub Actions : SAST/SCA/secrets/IaC/container, Harbor, gates bloquantes, promotion d'artifact unique staging→prod, smoke + rollback. Observabilité Prometheus/Grafana/Loki/Tempo + alerting. Backups PostgreSQL + filestore (stratégie 3-2-1), RPO/RTO et runbooks DR. Preview fonctionnelle : erp-dev.zenora360.com.
+Architecture 3-tiers : reverse proxy → Odoo → PostgreSQL. Séparation stricte dev / staging / production (réseaux Docker public/privé/database, volumes, bases, domaines, TLS et secrets séparés - aucun secret prod dans staging). Infrastructure entièrement déclarative : Terraform (modules, remote state, locking, tfvars, validate/fmt/plan, TFLint, Checkov, Trivy IaC). Images Odoo/PostgreSQL pinnées (jamais latest), non-root quand possible, healthchecks, resource limits, no-new-privileges, scan Trivy, SBOM, Cosign. Secrets hors Git via Infisical (rotation Postgres/SMTP, audit). CI/CD GitHub Actions : SAST/SCA/secrets/IaC/container, Harbor, gates bloquantes, promotion d'artifact unique staging→prod, smoke + rollback. Observabilité Prometheus/Grafana/Loki/Tempo + alerting. Backups PostgreSQL + filestore (stratégie 3-2-1), RPO/RTO et runbooks DR. Preview fonctionnelle : erp-dev.zenora360.com.
 
-Résultat : quand un besoin Odoo revient, on ne repart plus de zéro — on récupère odoo-docker-infra, on personnalise, on livre. Et quand un projet non-Odoo demande la même discipline (Compose multi-env, secrets, supply chain, DR), les concepts sont déjà maîtrisés.`,
-        fullDescriptionEn: `This project is not a disguised “client Odoo”. It is a platform-engineering lab I built to turn theoretical concepts (IaC, secrets, DevSecOps, operational HA, DR) into reusable infrastructure — on a real, relevant need: deploy Odoo the way you would for a company.
+Résultat : quand un besoin Odoo revient, on ne repart plus de zéro - on récupère odoo-docker-infra, on personnalise, on livre. Et quand un projet non-Odoo demande la même discipline (Compose multi-env, secrets, supply chain, DR), les concepts sont déjà maîtrisés.`,
+        fullDescriptionEn: `This project is not a disguised “client Odoo”. It is a platform-engineering lab I built to turn theoretical concepts (IaC, secrets, DevSecOps, operational HA, DR) into reusable infrastructure - on a real, relevant need: deploy Odoo the way you would for a company.
 
-I already knew Odoo (usage, configuration, prior deployments). Here the primary goal was infra: Docker, segmented networks, multi-environment, Terraform, self-hosted Infisical, fail-closed pipelines, registry, observability, tested backups/restores. I consolidated that through labs (Killercoda, AWS Skill Builder, Certland), courses (Udemy, DataCamp, YouTube) and careful reading of Docker/Terraform/Odoo docs — then crowned it with a documented, graftable, enterprise-ready platform.
+I already knew Odoo (usage, configuration, prior deployments). Here the primary goal was infra: Docker, segmented networks, multi-environment, Terraform, self-hosted Infisical, fail-closed pipelines, registry, observability, tested backups/restores. I consolidated that through labs (Killercoda, AWS Skill Builder, Certland), courses (Udemy, DataCamp, YouTube) and careful reading of Docker/Terraform/Odoo docs - then crowned it with a documented, graftable, enterprise-ready platform.
 
-3-tier architecture: reverse proxy → Odoo → PostgreSQL. Strict separation of dev / staging / production (Docker public/private/database networks, volumes, databases, domains, TLS and secrets separated — no prod secrets in staging). Fully declarative infrastructure: Terraform (modules, remote state, locking, tfvars, validate/fmt/plan, TFLint, Checkov, Trivy IaC). Pinned Odoo/PostgreSQL images (never latest), non-root when possible, healthchecks, resource limits, no-new-privileges, Trivy scan, SBOM, Cosign. Secrets out of Git via Infisical (Postgres/SMTP rotation, audit). GitHub Actions CI/CD: SAST/SCA/secrets/IaC/container, Harbor, blocking gates, single-artifact promotion staging→prod, smoke + rollback. Observability Prometheus/Grafana/Loki/Tempo + alerting. PostgreSQL + filestore backups (3-2-1), RPO/RTO and DR runbooks. Functional preview: erp-dev.zenora360.com.
+3-tier architecture: reverse proxy → Odoo → PostgreSQL. Strict separation of dev / staging / production (Docker public/private/database networks, volumes, databases, domains, TLS and secrets separated - no prod secrets in staging). Fully declarative infrastructure: Terraform (modules, remote state, locking, tfvars, validate/fmt/plan, TFLint, Checkov, Trivy IaC). Pinned Odoo/PostgreSQL images (never latest), non-root when possible, healthchecks, resource limits, no-new-privileges, Trivy scan, SBOM, Cosign. Secrets out of Git via Infisical (Postgres/SMTP rotation, audit). GitHub Actions CI/CD: SAST/SCA/secrets/IaC/container, Harbor, blocking gates, single-artifact promotion staging→prod, smoke + rollback. Observability Prometheus/Grafana/Loki/Tempo + alerting. PostgreSQL + filestore backups (3-2-1), RPO/RTO and DR runbooks. Functional preview: erp-dev.zenora360.com.
 
-Outcome: when an Odoo need returns, we no longer start from scratch — we take odoo-docker-infra, customize, ship. And when a non-Odoo project needs the same discipline (multi-env Compose, secrets, supply chain, DR), the concepts are already mastered.`,
+Outcome: when an Odoo need returns, we no longer start from scratch - we take odoo-docker-infra, customize, ship. And when a non-Odoo project needs the same discipline (multi-env Compose, secrets, supply chain, DR), the concepts are already mastered.`,
 
         problemFr: "Savoir « lancer Odoo » n'équivaut pas à maîtriser une plateforme enterprise-ready : multi-env isolés, secrets rotatifs, supply chain d'images, IaC, observabilité et DR testés. Sans ce socle, chaque nouveau déploiement Odoo (ou stack similaire) redevient un bricolage risqué.",
         problemEn: "Knowing how to “start Odoo” is not the same as mastering an enterprise-ready platform: isolated multi-env, rotating secrets, image supply chain, IaC, observability and tested DR. Without that foundation, every new Odoo (or similar) deployment becomes risky improvisation again.",
@@ -4170,7 +4170,7 @@ Outcome: when an Odoo need returns, we no longer start from scratch — we take 
 
         architecture: [
             "3-tiers : reverse proxy TLS → Odoo (workers + longpolling) → PostgreSQL dédié",
-            "Réseaux Docker segmentés public / privé / database — aucun service interne exposé",
+            "Réseaux Docker segmentés public / privé / database - aucun service interne exposé",
             "Environnements isolés : compose + tfvars + secrets Infisical + domaines/TLS séparés",
             "Filestore persistant + cohérence backup avec PostgreSQL",
             "CI build unique → scan → sign → Harbor → promotion staging→prod",
@@ -4206,8 +4206,8 @@ Outcome: when an Odoo need returns, we no longer start from scratch — we take 
         github: "https://github.com/barthez-kenwou/odoo-docker-infra",
         demo: "https://erp-dev.zenora360.com/",
 
-        businessContextFr: "Investissement plateforme : industrialiser le déploiement Odoo (et toute stack 3-tiers similaire) pour ZENORA et futurs mandats — apprendre en profondeur, documenter, rendre greffable.",
-        businessContextEn: "Platform investment: industrialize Odoo deployment (and any similar 3-tier stack) for ZENORA and future mandates — learn in depth, document, make it graftable.",
+        businessContextFr: "Investissement plateforme : industrialiser le déploiement Odoo (et toute stack 3-tiers similaire) pour ZENORA et futurs mandats - apprendre en profondeur, documenter, rendre greffable.",
+        businessContextEn: "Platform investment: industrialize Odoo deployment (and any similar 3-tier stack) for ZENORA and future mandates - learn in depth, document, make it graftable.",
 
         confidential: false,
 
@@ -4231,26 +4231,26 @@ Outcome: when an Odoo need returns, we no longer start from scratch — we take 
         gallery: [
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-live-login.png",
-                captionFr: "Odoo login — erp-dev.zenora360.com (environnement de validation)",
-                captionEn: "Odoo login — erp-dev.zenora360.com (validation environment)",
+                captionFr: "Odoo login - erp-dev.zenora360.com (environnement de validation)",
+                captionEn: "Odoo login - erp-dev.zenora360.com (validation environment)",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-live-home.png",
-                captionFr: "Surface Odoo live — preuve runtime de la stack",
-                captionEn: "Live Odoo surface — runtime proof of the stack",
+                captionFr: "Surface Odoo live - preuve runtime de la stack",
+                captionEn: "Live Odoo surface - runtime proof of the stack",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-ui-login-or-home.png",
-                captionFr: "Espace applicatif Odoo — modules et navigation métier",
-                captionEn: "Odoo app space — modules and business navigation",
+                captionFr: "Espace applicatif Odoo - modules et navigation métier",
+                captionEn: "Odoo app space - modules and business navigation",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-ui-modules.png",
-                captionFr: "Apps Odoo — catalogue de modules activés",
-                captionEn: "Odoo apps — enabled module catalog",
+                captionFr: "Apps Odoo - catalogue de modules activés",
+                captionEn: "Odoo apps - enabled module catalog",
                 kind: "ui",
             },
         ],
@@ -4392,14 +4392,14 @@ Outcome: when an Odoo need returns, we no longer start from scratch — we take 
 
         lessonsFr: [
             "Un lab ne vaut que s il est greffable : documentation, conventions, secrets et CI inclus.",
-            "Séparer staging et prod au niveau réseaux/secrets/données — pas seulement via un nom de fichier compose.",
+            "Séparer staging et prod au niveau réseaux/secrets/données - pas seulement via un nom de fichier compose.",
             "Odoo force les vrais sujets : filestore, longpolling, migrations, cohérence backup.",
             "La supply chain d images (pin, scan, sign, promote) est le même combat que sur les autres produits ZENORA.",
             "Maîtriser Compose avant K8s évite de masquer les bases derrière un Helm chart magique.",
         ],
         lessonsEn: [
             "A lab only matters if it is graftable: docs, conventions, secrets and CI included.",
-            "Separate staging and prod at network/secret/data level — not just via a compose filename.",
+            "Separate staging and prod at network/secret/data level - not just via a compose filename.",
             "Odoo forces the real topics: filestore, longpolling, migrations, backup coherence.",
             "Image supply chain (pin, scan, sign, promote) is the same fight as on other ZENORA products.",
             "Mastering Compose before K8s avoids hiding fundamentals behind a magic Helm chart.",
@@ -4419,25 +4419,25 @@ Outcome: when an Odoo need returns, we no longer start from scratch — we take 
 
     {
         id: 14,
-        titleFr: "Odoo Kubernetes Infra — Lab HA & orchestration",
-        titleEn: "Odoo Kubernetes Infra — HA & orchestration lab",
+        titleFr: "Odoo Kubernetes Infra - Lab HA & orchestration",
+        titleEn: "Odoo Kubernetes Infra - HA & orchestration lab",
 
-        descriptionFr: "Lab jumeau haute disponibilité : redéploiement d'Odoo sur Kubernetes pour maîtriser namespaces, workloads, stockage, réseau, GitOps, admission policies et DR — sans raccourci Helm magique, avec la même philosophie enterprise-ready que le lab Docker.",
-        descriptionEn: "High-availability twin lab: redeploying Odoo on Kubernetes to master namespaces, workloads, storage, networking, GitOps, admission policies and DR — no magic Helm shortcut, with the same enterprise-ready philosophy as the Docker lab.",
+        descriptionFr: "Lab jumeau haute disponibilité : redéploiement d'Odoo sur Kubernetes pour maîtriser namespaces, workloads, stockage, réseau, GitOps, admission policies et DR - sans raccourci Helm magique, avec la même philosophie enterprise-ready que le lab Docker.",
+        descriptionEn: "High-availability twin lab: redeploying Odoo on Kubernetes to master namespaces, workloads, storage, networking, GitOps, admission policies and DR - no magic Helm shortcut, with the same enterprise-ready philosophy as the Docker lab.",
 
-        fullDescriptionFr: `Après le lab Docker, j'ai repris le même besoin Odoo avec un challenge différent : haute disponibilité et maîtrise profonde de Kubernetes. Pas pour « voir Odoo tourner sur K8s » rapidement — pour assimiler namespaces, pods, services, ingress, volumes, ConfigMaps/Secrets, NetworkPolicies, probes, HPA, PDB, anti-affinity, puis GitOps, admission control et DR.
+        fullDescriptionFr: `Après le lab Docker, j'ai repris le même besoin Odoo avec un challenge différent : haute disponibilité et maîtrise profonde de Kubernetes. Pas pour « voir Odoo tourner sur K8s » rapidement - pour assimiler namespaces, pods, services, ingress, volumes, ConfigMaps/Secrets, NetworkPolicies, probes, HPA, PDB, anti-affinity, puis GitOps, admission control et DR.
 
-Je n'ai pas pris un Helm chart prêt à l'emploi comme raccourci pédagogique. L'objectif était de comprendre chaque ressource, chaque contrainte, chaque failure domain — quitte à suer — pour pouvoir ré-exploiter ces notions sur des projets exigeants, même éloignés d'Odoo. Labs Killercoda / cloud, cours et docs officielles Kubernetes ont nourri la pratique ; le crowning est odoo-kubctl-infra : une plateforme documentée, multi-env (odoo-dev / odoo-staging / odoo-production + monitoring/logging/security/argocd), architecture Ingress → Odoo → PostgreSQL HA (opérateur type CloudNativePG), zero trust réseau, External Secrets / Infisical-Vault, cert-manager, Harbor + Cosign + Kyverno (refuse root/latest/unsigned), Argo CD, Velero, Prometheus/Grafana/Loki/Tempo, Falco, Trivy Operator, et scénarios chaos/DR.
+Je n'ai pas pris un Helm chart prêt à l'emploi comme raccourci pédagogique. L'objectif était de comprendre chaque ressource, chaque contrainte, chaque failure domain - quitte à suer - pour pouvoir ré-exploiter ces notions sur des projets exigeants, même éloignés d'Odoo. Labs Killercoda / cloud, cours et docs officielles Kubernetes ont nourri la pratique ; le crowning est odoo-kubctl-infra : une plateforme documentée, multi-env (odoo-dev / odoo-staging / odoo-production + monitoring/logging/security/argocd), architecture Ingress → Odoo → PostgreSQL HA (opérateur type CloudNativePG), zero trust réseau, External Secrets / Infisical-Vault, cert-manager, Harbor + Cosign + Kyverno (refuse root/latest/unsigned), Argo CD, Velero, Prometheus/Grafana/Loki/Tempo, Falco, Trivy Operator, et scénarios chaos/DR.
 
 Même philosophie que le lab Docker : greffable, fail-closed, démontrable (secret bloqué, CVE bloquée, policy qui refuse un Pod, failover Postgres, HPA sous charge, rollback canary). La cible métier Odoo reste validée ; l'orchestrateur change pour les charges qui exigent HA et automatisation d'orchestration.`,
-        fullDescriptionEn: `After the Docker lab, I revisited the same Odoo need with a different challenge: high availability and deep Kubernetes mastery. Not to “see Odoo run on K8s” quickly — to internalize namespaces, pods, services, ingress, volumes, ConfigMaps/Secrets, NetworkPolicies, probes, HPA, PDB, anti-affinity, then GitOps, admission control and DR.
+        fullDescriptionEn: `After the Docker lab, I revisited the same Odoo need with a different challenge: high availability and deep Kubernetes mastery. Not to “see Odoo run on K8s” quickly - to internalize namespaces, pods, services, ingress, volumes, ConfigMaps/Secrets, NetworkPolicies, probes, HPA, PDB, anti-affinity, then GitOps, admission control and DR.
 
-I did not take a ready-made Helm chart as a learning shortcut. The goal was to understand every resource, every constraint, every failure domain — even if it meant sweating — to reuse these notions on demanding projects, even far from Odoo. Killercoda / cloud labs, courses and official Kubernetes docs fed the practice; the crowning is odoo-kubctl-infra: a documented multi-env platform (odoo-dev / odoo-staging / odoo-production + monitoring/logging/security/argocd), Ingress → Odoo → HA PostgreSQL (CloudNativePG-style operator), network zero trust, External Secrets / Infisical-Vault, cert-manager, Harbor + Cosign + Kyverno (reject root/latest/unsigned), Argo CD, Velero, Prometheus/Grafana/Loki/Tempo, Falco, Trivy Operator, and chaos/DR scenarios.
+I did not take a ready-made Helm chart as a learning shortcut. The goal was to understand every resource, every constraint, every failure domain - even if it meant sweating - to reuse these notions on demanding projects, even far from Odoo. Killercoda / cloud labs, courses and official Kubernetes docs fed the practice; the crowning is odoo-kubctl-infra: a documented multi-env platform (odoo-dev / odoo-staging / odoo-production + monitoring/logging/security/argocd), Ingress → Odoo → HA PostgreSQL (CloudNativePG-style operator), network zero trust, External Secrets / Infisical-Vault, cert-manager, Harbor + Cosign + Kyverno (reject root/latest/unsigned), Argo CD, Velero, Prometheus/Grafana/Loki/Tempo, Falco, Trivy Operator, and chaos/DR scenarios.
 
 Same philosophy as the Docker lab: graftable, fail-closed, demonstrable (blocked secret, blocked CVE, policy rejecting a Pod, Postgres failover, HPA under load, canary rollback). The Odoo business target stays validated; the orchestrator changes for workloads that require HA and orchestration automation.`,
 
-        problemFr: "Compose suffit jusqu'à un point. Au-delà, il faut maîtriser l'orchestration : isolation par namespace, résilience multi-nœuds, stockage dynamique, politiques d'admission, GitOps et recovery cluster — sinon la HA reste un slogan.",
-        problemEn: "Compose is enough up to a point. Beyond that you must master orchestration: namespace isolation, multi-node resilience, dynamic storage, admission policies, GitOps and cluster recovery — otherwise HA stays a slogan.",
+        problemFr: "Compose suffit jusqu'à un point. Au-delà, il faut maîtriser l'orchestration : isolation par namespace, résilience multi-nœuds, stockage dynamique, politiques d'admission, GitOps et recovery cluster - sinon la HA reste un slogan.",
+        problemEn: "Compose is enough up to a point. Beyond that you must master orchestration: namespace isolation, multi-node resilience, dynamic storage, admission policies, GitOps and cluster recovery - otherwise HA stays a slogan.",
 
         solutionFr: [
             "Cluster multi-env : namespaces isolés + ResourceQuota/LimitRange/NetworkPolicy",
@@ -4482,14 +4482,14 @@ Same philosophy as the Docker lab: graftable, fail-closed, demonstrable (blocked
             "Maîtrise opérationnelle K8s transférable hors Odoo",
             "Politiques d'admission et GitOps alignées sur la discipline supply chain ZENORA",
             "Scénarios DR/chaos prêts pour démonstration client / audit interne",
-            "Complément direct du lab Docker — même cible métier, autre failure domain",
+            "Complément direct du lab Docker - même cible métier, autre failure domain",
         ],
         impactEn: [
             "Second Odoo backbone: HA orchestration for demanding needs",
             "Operational K8s mastery transferable beyond Odoo",
             "Admission policies and GitOps aligned with ZENORA supply-chain discipline",
             "DR/chaos scenarios ready for client demos / internal audit",
-            "Direct complement to the Docker lab — same business target, different failure domain",
+            "Direct complement to the Docker lab - same business target, different failure domain",
         ],
 
         metrics: {
@@ -4574,8 +4574,8 @@ Same philosophy as the Docker lab: graftable, fail-closed, demonstrable (blocked
         github: "https://github.com/barthez-kenwou/odoo-kubctl-infra",
         demo: "https://erp-dev.zenora360.com/",
 
-        businessContextFr: "Préparer ZENORA aux déploiements Odoo (et assimilés) qui exigent HA, scalabilité et GitOps — en maîtrisant Kubernetes pour de vrai, pas en copiant un chart.",
-        businessContextEn: "Prepare ZENORA for Odoo (and similar) deployments that require HA, scalability and GitOps — by mastering Kubernetes for real, not by copying a chart.",
+        businessContextFr: "Préparer ZENORA aux déploiements Odoo (et assimilés) qui exigent HA, scalabilité et GitOps - en maîtrisant Kubernetes pour de vrai, pas en copiant un chart.",
+        businessContextEn: "Prepare ZENORA for Odoo (and similar) deployments that require HA, scalability and GitOps - by mastering Kubernetes for real, not by copying a chart.",
 
         confidential: false,
 
@@ -4599,26 +4599,26 @@ Same philosophy as the Docker lab: graftable, fail-closed, demonstrable (blocked
         gallery: [
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-live-home.png",
-                captionFr: "Surface Odoo live — preuve runtime de la stack",
-                captionEn: "Live Odoo surface — runtime proof of the stack",
+                captionFr: "Surface Odoo live - preuve runtime de la stack",
+                captionEn: "Live Odoo surface - runtime proof of the stack",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-ui-modules.png",
-                captionFr: "Apps Odoo — catalogue de modules activés",
-                captionEn: "Odoo apps — enabled module catalog",
+                captionFr: "Apps Odoo - catalogue de modules activés",
+                captionEn: "Odoo apps - enabled module catalog",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-live-login.png",
-                captionFr: "Odoo login — erp-dev.zenora360.com (environnement de validation)",
-                captionEn: "Odoo login — erp-dev.zenora360.com (validation environment)",
+                captionFr: "Odoo login - erp-dev.zenora360.com (environnement de validation)",
+                captionEn: "Odoo login - erp-dev.zenora360.com (validation environment)",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-ui-login-or-home.png",
-                captionFr: "Espace applicatif Odoo — modules et navigation métier",
-                captionEn: "Odoo app space — modules and business navigation",
+                captionFr: "Espace applicatif Odoo - modules et navigation métier",
+                captionEn: "Odoo app space - modules and business navigation",
                 kind: "ui",
             },
         ],
@@ -4714,7 +4714,7 @@ Same philosophy as the Docker lab: graftable, fail-closed, demonstrable (blocked
             { titleFr: "Pas de Helm magique comme raccourci d apprentissage", titleEn: "No magic Helm as a learning shortcut", decisionFr: "Écrire et comprendre les ressources avant d industrialiser le packaging.", decisionEn: "Write and understand resources before industrializing packaging.", rationaleFr: "Sinon on déploie sans maîtriser failure domains et policies.", rationaleEn: "Otherwise you deploy without mastering failure domains and policies." },
             { titleFr: "PostgreSQL via opérateur HA", titleEn: "PostgreSQL via HA operator", decisionFr: "Failover/WAL/backup natifs plutôt qu un Postgres single-pod.", decisionEn: "Native failover/WAL/backup over a single-pod Postgres.", rationaleFr: "La HA DB est le vrai enjeu ERP, pas seulement des replicas Odoo.", rationaleEn: "DB HA is the real ERP stake, not only Odoo replicas." },
             { titleFr: "GitOps pour la vérité désirée", titleEn: "GitOps for desired truth", decisionFr: "Argo CD sync + drift detection, approvals prod.", decisionEn: "Argo CD sync + drift detection, prod approvals.", rationaleFr: "Audit trail et rollback Git alignés enterprise.", rationaleEn: "Audit trail and Git rollback aligned with enterprise practice." },
-            { titleFr: "Admission fail-closed", titleEn: "Fail-closed admission", decisionFr: "Kyverno/PSA refusent root, latest, privileged, unsigned.", decisionEn: "Kyverno/PSA reject root, latest, privileged, unsigned.", rationaleFr: "La policy cluster complète la CI — défense en profondeur.", rationaleEn: "Cluster policy completes CI — defense in depth." },
+            { titleFr: "Admission fail-closed", titleEn: "Fail-closed admission", decisionFr: "Kyverno/PSA refusent root, latest, privileged, unsigned.", decisionEn: "Kyverno/PSA reject root, latest, privileged, unsigned.", rationaleFr: "La policy cluster complète la CI - défense en profondeur.", rationaleEn: "Cluster policy completes CI - defense in depth." },
         ],
 
         securityFr: [
@@ -4756,18 +4756,18 @@ Same philosophy as the Docker lab: graftable, fail-closed, demonstrable (blocked
         ],
 
         lessonsFr: [
-            "Kubernetes s apprend en construisant les ressources — un chart opaque n enseigne pas les failure domains.",
+            "Kubernetes s apprend en construisant les ressources - un chart opaque n enseigne pas les failure domains.",
             "La HA Odoo sans HA PostgreSQL est une illusion.",
             "Admission policies + GitOps + Cosign forment la vraie barrière prod.",
             "Chaos et restore drills valent plus qu un diagramme HA sur un slide.",
-            "Docker lab + K8s lab = même discipline, deux runtimes — c est ça le transfert de compétences.",
+            "Docker lab + K8s lab = même discipline, deux runtimes - c est ça le transfert de compétences.",
         ],
         lessonsEn: [
-            "Kubernetes is learned by building resources — an opaque chart does not teach failure domains.",
+            "Kubernetes is learned by building resources - an opaque chart does not teach failure domains.",
             "Odoo HA without PostgreSQL HA is an illusion.",
             "Admission policies + GitOps + Cosign form the real prod barrier.",
             "Chaos and restore drills beat an HA diagram on a slide.",
-            "Docker lab + K8s lab = same discipline, two runtimes — that is skill transfer.",
+            "Docker lab + K8s lab = same discipline, two runtimes - that is skill transfer.",
         ],
 
         beforeAfter: [
@@ -4784,22 +4784,22 @@ Same philosophy as the Docker lab: graftable, fail-closed, demonstrable (blocked
 
     {
         id: 15,
-        titleFr: "ERP Odoo ZENORA — Configuration & customisation ESN",
-        titleEn: "ZENORA Odoo ERP — IT services firm setup & customization",
+        titleFr: "ERP Odoo ZENORA - Configuration & customisation ESN",
+        titleEn: "ZENORA Odoo ERP - IT services firm setup & customization",
 
         descriptionFr: "Déploiement Docker et configuration poussée d'Odoo pour l'ESN ZENORA : modules OCA + addons custom, processus métier (projets, RH, finance, CRM, delivery), toujours en production au quotidien.",
         descriptionEn: "Docker deployment and deep Odoo configuration for the ZENORA IT services firm: OCA modules + custom addons, business processes (projects, HR, finance, CRM, delivery), still in daily production use.",
 
-        fullDescriptionFr: `Au-delà des labs plateforme, j'ai déployé et configuré Odoo pour ZENORA — notre ESN — sur la stack Docker (pas Kubernetes : le profil de charge et le contexte ops appelaient Compose maîtrisé). L'enjeu n'était plus seulement « faire tourner l'infra », mais faire d'Odoo le système nerveux de l'entreprise : projets clients, temps, facturation, RH, CRM, support, achats — avec une UX et des règles alignées sur notre façon de livrer.
+        fullDescriptionFr: `Au-delà des labs plateforme, j'ai déployé et configuré Odoo pour ZENORA - notre ESN - sur la stack Docker (pas Kubernetes : le profil de charge et le contexte ops appelaient Compose maîtrisé). L'enjeu n'était plus seulement « faire tourner l'infra », mais faire d'Odoo le système nerveux de l'entreprise : projets clients, temps, facturation, RH, CRM, support, achats - avec une UX et des règles alignées sur notre façon de livrer.
 
 Nous avons combiné des modules Odoo Community Association ([OCA](https://github.com/OCA)) éprouvés (project, sale-workflow, account, HR, helpdesk, timesheet…) et des customisations maison : addons ZENORA versionnés, reviewés, testés, avec stratégie de migration/rollback. Paramétrage minutieux : rôles/ACL/record rules, sociétés et multi-company si besoin, séquences documentaires, tableaux de bord, emails, et durcissement applicatif (MFA admin, politiques mots de passe, limitation des droits root métier).
 
-Le runtime s'appuie sur les patterns du lab Docker (environnements, secrets, proxy TLS, backups PG + filestore). Preview : erp-dev.zenora360.com. Aujourd'hui ZENORA s'en sert pour piloter son activité au quotidien — et ce socle configuré devient un argument commercial pour proposer la même transformation à d'autres structures.`,
-        fullDescriptionEn: `Beyond the platform labs, I deployed and configured Odoo for ZENORA — our IT services firm — on the Docker stack (not Kubernetes: load profile and ops context called for mastered Compose). The stake was no longer only “make infra run”, but make Odoo the company nervous system: client projects, time, billing, HR, CRM, support, purchasing — with UX and rules aligned to how we deliver.
+Le runtime s'appuie sur les patterns du lab Docker (environnements, secrets, proxy TLS, backups PG + filestore). Preview : erp-dev.zenora360.com. Aujourd'hui ZENORA s'en sert pour piloter son activité au quotidien - et ce socle configuré devient un argument commercial pour proposer la même transformation à d'autres structures.`,
+        fullDescriptionEn: `Beyond the platform labs, I deployed and configured Odoo for ZENORA - our IT services firm - on the Docker stack (not Kubernetes: load profile and ops context called for mastered Compose). The stake was no longer only “make infra run”, but make Odoo the company nervous system: client projects, time, billing, HR, CRM, support, purchasing - with UX and rules aligned to how we deliver.
 
 We combined proven Odoo Community Association ([OCA](https://github.com/OCA)) modules (project, sale-workflow, account, HR, helpdesk, timesheet…) and in-house customizations: versioned, reviewed, tested ZENORA addons with migration/rollback strategy. Careful setup: roles/ACL/record rules, companies and multi-company when needed, document sequences, dashboards, email, and application hardening (admin MFA, password policies, limited business root rights).
 
-Runtime builds on Docker-lab patterns (environments, secrets, TLS proxy, PG + filestore backups). Preview: erp-dev.zenora360.com. Today ZENORA uses it to steer daily operations — and this configured foundation becomes a commercial argument to offer the same transformation to other organizations.`,
+Runtime builds on Docker-lab patterns (environments, secrets, TLS proxy, PG + filestore backups). Preview: erp-dev.zenora360.com. Today ZENORA uses it to steer daily operations - and this configured foundation becomes a commercial argument to offer the same transformation to other organizations.`,
 
         problemFr: "ZENORA gérait une ESN en croissance avec des outils fragmentés (tableurs, threads, outils disparates). Manque de traçabilité projet/temps/facturation, friction RH et CRM, difficulté à industrialiser le delivery.",
         problemEn: "ZENORA ran a growing IT services firm with fragmented tools (spreadsheets, threads, disparate apps). Weak project/time/billing traceability, HR and CRM friction, hard to industrialize delivery.",
@@ -4929,26 +4929,26 @@ Runtime builds on Docker-lab patterns (environments, secrets, TLS proxy, PG + fi
         gallery: [
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-live-home.png",
-                captionFr: "Surface Odoo live — preuve runtime de la stack",
-                captionEn: "Live Odoo surface — runtime proof of the stack",
+                captionFr: "Surface Odoo live - preuve runtime de la stack",
+                captionEn: "Live Odoo surface - runtime proof of the stack",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-ui-modules.png",
-                captionFr: "Apps Odoo — catalogue de modules activés",
-                captionEn: "Odoo apps — enabled module catalog",
+                captionFr: "Apps Odoo - catalogue de modules activés",
+                captionEn: "Odoo apps - enabled module catalog",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-live-login.png",
-                captionFr: "Odoo login — erp-dev.zenora360.com (environnement de validation)",
-                captionEn: "Odoo login — erp-dev.zenora360.com (validation environment)",
+                captionFr: "Odoo login - erp-dev.zenora360.com (environnement de validation)",
+                captionEn: "Odoo login - erp-dev.zenora360.com (validation environment)",
                 kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/odoo/odoo-ui-login-or-home.png",
-                captionFr: "Espace applicatif Odoo — modules et navigation métier",
-                captionEn: "Odoo app space — modules and business navigation",
+                captionFr: "Espace applicatif Odoo - modules et navigation métier",
+                captionEn: "Odoo app space - modules and business navigation",
                 kind: "ui",
             },
         ],
@@ -5010,7 +5010,7 @@ Runtime builds on Docker-lab patterns (environments, secrets, TLS proxy, PG + fi
         nonGoalsEn: ["Kubernetes HA migration (dedicated lab, outside current ZENORA need)", "Full process redesign outside Odoo", "Public addons marketplace"],
 
         decisions: [
-            { titleFr: "Docker pour ZENORA, K8s pour le lab HA", titleEn: "Docker for ZENORA, K8s for the HA lab", decisionFr: "Prod ESN sur Compose maîtrisé ; Kubernetes réservé au lab / futurs cas HA.", decisionEn: "IT-services prod on mastered Compose; Kubernetes reserved for lab / future HA cases.", rationaleFr: "Adéquation charge/ops — sans surcoût orchestration inutile.", rationaleEn: "Fit load/ops — without unnecessary orchestration cost." },
+            { titleFr: "Docker pour ZENORA, K8s pour le lab HA", titleEn: "Docker for ZENORA, K8s for the HA lab", decisionFr: "Prod ESN sur Compose maîtrisé ; Kubernetes réservé au lab / futurs cas HA.", decisionEn: "IT-services prod on mastered Compose; Kubernetes reserved for lab / future HA cases.", rationaleFr: "Adéquation charge/ops - sans surcoût orchestration inutile.", rationaleEn: "Fit load/ops - without unnecessary orchestration cost." },
             { titleFr: "OCA d abord, custom ensuite", titleEn: "OCA first, custom second", decisionFr: "Réutiliser OCA quand le process ESN matche ; custom seulement pour le différenciant ZENORA.", decisionEn: "Reuse OCA when the IT-services process matches; custom only for ZENORA differentiators.", rationaleFr: "Upgradeability et vitesse de livraison.", rationaleEn: "Upgradeability and delivery speed." },
             { titleFr: "RBAC strict dès le début", titleEn: "Strict RBAC from day one", decisionFr: "Record rules et rôles avant l expansion des utilisateurs.", decisionEn: "Record rules and roles before user expansion.", rationaleFr: "Évite le chaos droits une fois l ERP adopté.", rationaleEn: "Avoids rights chaos once the ERP is adopted." },
         ],
@@ -5052,13 +5052,13 @@ Runtime builds on Docker-lab patterns (environments, secrets, TLS proxy, PG + fi
 
         lessonsFr: [
             "Les labs plateforme n ont de sens que s ils servent un ERP réel adopté au quotidien.",
-            "OCA accélère — le custom doit rester le différenciant, pas le défaut.",
+            "OCA accélère - le custom doit rester le différenciant, pas le défaut.",
             "Un ERP ESN se vend ensuite : le run ZENORA est la meilleure preuve commerciale.",
             "Upgradeability se décide au premier addon custom.",
         ],
         lessonsEn: [
             "Platform labs only matter if they serve a real ERP adopted daily.",
-            "OCA accelerates — custom must stay the differentiator, not the default.",
+            "OCA accelerates - custom must stay the differentiator, not the default.",
             "An IT-services ERP can then be sold: ZENORA production is the best commercial proof.",
             "Upgradeability is decided at the first custom addon.",
         ],
@@ -5077,30 +5077,30 @@ Runtime builds on Docker-lab patterns (environments, secrets, TLS proxy, PG + fi
 
     {
         id: 8,
-        titleFr: "Enterprise Observability Platform — Metrics, Logs, Traces & SLO",
-        titleEn: "Enterprise Observability Platform — Metrics, Logs, Traces & SLO",
+        titleFr: "Enterprise Observability Platform - Metrics, Logs, Traces & SLO",
+        titleEn: "Enterprise Observability Platform - Metrics, Logs, Traces & SLO",
 
-        descriptionFr: "Plateforme d'observabilité réutilisable (produit Platform/SRE) : OpenTelemetry → Prometheus/Loki/Tempo/Pyroscope → Grafana/Alertmanager, corrélation bout-en-bout, SLO/error budgets — forkable pour n'importe quel service.",
-        descriptionEn: "Reusable observability platform (Platform/SRE product): OpenTelemetry → Prometheus/Loki/Tempo/Pyroscope → Grafana/Alertmanager, end-to-end correlation, SLO/error budgets — forkable for any service.",
+        descriptionFr: "Plateforme d'observabilité réutilisable (produit Platform/SRE) : OpenTelemetry → Prometheus/Loki/Tempo/Pyroscope → Grafana/Alertmanager, corrélation bout-en-bout, SLO/error budgets - forkable pour n'importe quel service.",
+        descriptionEn: "Reusable observability platform (Platform/SRE product): OpenTelemetry → Prometheus/Loki/Tempo/Pyroscope → Grafana/Alertmanager, end-to-end correlation, SLO/error budgets - forkable for any service.",
 
-        fullDescriptionFr: `Je n'ai pas « installé Grafana ». J'ai construit une plateforme d'observabilité interne — un produit Platform Engineering / SRE — capable de superviser une infrastructure moderne de bout en bout : monoliths, microservices, APIs, workers, frontend, PostgreSQL, Redis, Ingress, Kubernetes.
+        fullDescriptionFr: `Je n'ai pas « installé Grafana ». J'ai construit une plateforme d'observabilité interne - un produit Platform Engineering / SRE - capable de superviser une infrastructure moderne de bout en bout : monoliths, microservices, APIs, workers, frontend, PostgreSQL, Redis, Ingress, Kubernetes.
 
-Le parcours a d'abord été un lab d'apprentissage intensif : outils isolés, labs Killercoda / cloud, cours (Udemy, DataCamp, Coursera, YouTube) et lecture de docs — puis tests locaux Docker outil par outil. La plateforme arrive en conclusion : quand chaque brique est maîtrisée, on industrialise un produit forkable.
+Le parcours a d'abord été un lab d'apprentissage intensif : outils isolés, labs Killercoda / cloud, cours (Udemy, DataCamp, Coursera, YouTube) et lecture de docs - puis tests locaux Docker outil par outil. La plateforme arrive en conclusion : quand chaque brique est maîtrisée, on industrialise un produit forkable.
 
 Architecture : Instrumentation (OTel SDK) → Collection (Collector Agent/Gateway) → Processing → Storage (Prometheus/Mimir-Thanos, Loki, Tempo, Pyroscope, object storage) → Query → Visualization (Grafana as-code) → Alerting → Incident → Feedback. Les applications ne parlent pas directement à chaque backend : OpenTelemetry est la couche d'abstraction. Métadonnées normalisées (service.name, version, environment, namespace, tenant…). Corrélation phare : requête → latence Prometheus → exemplar → trace Tempo → span Postgres → logs Loki (Trace ID) → profil Pyroscope → postmortem.
 
-Une application e-commerce fictive (frontend, gateway, auth, product, order, payment, worker, PG, Redis, broker) sert de terrain d'incidents : requête lente, memory leak, mauvaise release/canary, API externe down, détection Falco. Objectif final : un développeur fork le dépôt, déclare un service, obtient metrics + logs + traces + dashboards + alertes + SLO + runbook — sans devenir expert observability.
+Une application e-commerce fictive (frontend, gateway, auth, product, order, payment, worker, PG, Redis, broker) sert de terrain d'incidents : requête lente, memory leak, mauvaise release/canary, API externe down, détection Falco. Objectif final : un développeur fork le dépôt, déclare un service, obtient metrics + logs + traces + dashboards + alertes + SLO + runbook - sans devenir expert observability.
 
-Message recruteur : je sais construire une plateforme d'observabilité distribuée et industrialiser la fiabilité — pas seulement déployer une stack Grafana.`,
-        fullDescriptionEn: `I did not “install Grafana”. I built an internal observability platform — a Platform Engineering / SRE product — able to supervise a modern infrastructure end to end: monoliths, microservices, APIs, workers, frontend, PostgreSQL, Redis, Ingress, Kubernetes.
+Message recruteur : je sais construire une plateforme d'observabilité distribuée et industrialiser la fiabilité - pas seulement déployer une stack Grafana.`,
+        fullDescriptionEn: `I did not “install Grafana”. I built an internal observability platform - a Platform Engineering / SRE product - able to supervise a modern infrastructure end to end: monoliths, microservices, APIs, workers, frontend, PostgreSQL, Redis, Ingress, Kubernetes.
 
-The journey started as an intensive learning lab: isolated tools, Killercoda / cloud labs, courses (Udemy, DataCamp, Coursera, YouTube) and docs — then local Docker tests tool by tool. The platform comes last: once every brick is mastered, industrialize a forkable product.
+The journey started as an intensive learning lab: isolated tools, Killercoda / cloud labs, courses (Udemy, DataCamp, Coursera, YouTube) and docs - then local Docker tests tool by tool. The platform comes last: once every brick is mastered, industrialize a forkable product.
 
 Architecture: Instrumentation (OTel SDK) → Collection (Collector Agent/Gateway) → Processing → Storage (Prometheus/Mimir-Thanos, Loki, Tempo, Pyroscope, object storage) → Query → Visualization (Grafana as-code) → Alerting → Incident → Feedback. Applications do not talk directly to every backend: OpenTelemetry is the abstraction layer. Normalized metadata (service.name, version, environment, namespace, tenant…). Flagship correlation: request → Prometheus latency → exemplar → Tempo trace → Postgres span → Loki logs (Trace ID) → Pyroscope profile → postmortem.
 
-A fictional e-commerce application (frontend, gateway, auth, product, order, payment, worker, PG, Redis, broker) is the incident playground: slow query, memory leak, bad release/canary, external API down, Falco detection. End goal: a developer forks the repository, declares a service, and gets metrics + logs + traces + dashboards + alerts + SLO + runbook — without becoming an observability expert.
+A fictional e-commerce application (frontend, gateway, auth, product, order, payment, worker, PG, Redis, broker) is the incident playground: slow query, memory leak, bad release/canary, external API down, Falco detection. End goal: a developer forks the repository, declares a service, and gets metrics + logs + traces + dashboards + alerts + SLO + runbook - without becoming an observability expert.
 
-Recruiter message: I know how to build a distributed observability platform and industrialize reliability — not just deploy a Grafana stack.`,
+Recruiter message: I know how to build a distributed observability platform and industrialize reliability - not just deploy a Grafana stack.`,
 
         problemFr: "Sans plateforme, chaque équipe bricole son monitoring : dashboards orphelins, alertes bruyantes, zéro corrélation, MTTR élevé. Installer des outils n'équivaut pas à industrialiser l'observabilité multi-équipes.",
         problemEn: "Without a platform, every team hacks its monitoring: orphan dashboards, noisy alerts, zero correlation, high MTTR. Installing tools is not industrializing multi-team observability.",
@@ -5129,7 +5129,7 @@ Recruiter message: I know how to build a distributed observability platform and 
         challengesFr: [
             "Corréler vraiment metrics ↔ logs ↔ traces ↔ profiles (pas quatre silos)",
             "Maîtriser cardinalité, rétention et coût (FinOps télémétrie)",
-            "Alertes actionnables basées symptômes/SLO — zéro bruit",
+            "Alertes actionnables basées symptômes/SLO - zéro bruit",
             "Tail sampling et backpressure collectors sans perdre les incidents",
             "Industrialiser l'onboarding service (golden path observabilité)",
             "Démontrer des incidents bout-en-bout recruteur-ready",
@@ -5137,7 +5137,7 @@ Recruiter message: I know how to build a distributed observability platform and 
         challengesEn: [
             "Truly correlate metrics ↔ logs ↔ traces ↔ profiles (not four silos)",
             "Master cardinality, retention and cost (telemetry FinOps)",
-            "Actionable symptom/SLO-based alerts — zero noise",
+            "Actionable symptom/SLO-based alerts - zero noise",
             "Tail sampling and collector backpressure without losing incidents",
             "Industrialize service onboarding (observability golden path)",
             "Demonstrate end-to-end recruiter-ready incidents",
@@ -5243,8 +5243,8 @@ Recruiter message: I know how to build a distributed observability platform and 
         github: "https://github.com/barthez-kenwou/Enterprise-Observability-Platform",
         demo: "",
 
-        businessContextFr: "Pièce maîtresse de la Enterprise Platform Lab Suite : industrialiser l'observabilité comme produit consommable par les équipes — pas comme un stack installé une fois.",
-        businessContextEn: "Centerpiece of the Enterprise Platform Lab Suite: industrialize observability as a product teams consume — not as a one-off installed stack.",
+        businessContextFr: "Pièce maîtresse de la Enterprise Platform Lab Suite : industrialiser l'observabilité comme produit consommable par les équipes - pas comme un stack installé une fois.",
+        businessContextEn: "Centerpiece of the Enterprise Platform Lab Suite: industrialize observability as a product teams consume - not as a one-off installed stack.",
 
         confidential: false,
 
@@ -5268,18 +5268,18 @@ Recruiter message: I know how to build a distributed observability platform and 
         gallery: [
             {
                 src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/000000083082.png",
-                captionFr: "Dashboard Grafana — santé plateforme et signaux RED",
-                captionEn: "Grafana dashboard — platform health and RED signals", kind: "metric",
+                captionFr: "Dashboard Grafana - santé plateforme et signaux RED",
+                captionEn: "Grafana dashboard - platform health and RED signals", kind: "metric",
             },
             {
                 src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/images%20(3).jpeg",
-                captionFr: "Corrélation logs / traces — investigation bout-en-bout",
-                captionEn: "Logs / traces correlation — end-to-end investigation", kind: "infra",
+                captionFr: "Corrélation logs / traces - investigation bout-en-bout",
+                captionEn: "Logs / traces correlation - end-to-end investigation", kind: "infra",
             },
             {
                 src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/image-7.png",
-                captionFr: "Vue monitoring — latence, erreurs, saturation",
-                captionEn: "Monitoring view — latency, errors, saturation", kind: "metric",
+                captionFr: "Vue monitoring - latence, erreurs, saturation",
+                captionEn: "Monitoring view - latency, errors, saturation", kind: "metric",
             },
         ],
 
@@ -5537,24 +5537,24 @@ Recruiter message: I know how to build a distributed observability platform and 
 
     {
         id: 16,
-        titleFr: "Enterprise Internal Developer Platform — Golden Paths & Self-Service",
-        titleEn: "Enterprise Internal Developer Platform — Golden Paths & Self-Service",
+        titleFr: "Enterprise Internal Developer Platform - Golden Paths & Self-Service",
+        titleEn: "Enterprise Internal Developer Platform - Golden Paths & Self-Service",
 
-        descriptionFr: "IDP Platform Engineering : Backstage + Golden Paths + GitOps. Un développeur crée un service en self-service — repo, CI, Helm, secrets, observabilité, SLO — sans devenir expert Kubernetes.",
-        descriptionEn: "Platform Engineering IDP: Backstage + Golden Paths + GitOps. A developer creates a service self-service — repo, CI, Helm, secrets, observability, SLO — without becoming a Kubernetes expert.",
+        descriptionFr: "IDP Platform Engineering : Backstage + Golden Paths + GitOps. Un développeur crée un service en self-service - repo, CI, Helm, secrets, observabilité, SLO - sans devenir expert Kubernetes.",
+        descriptionEn: "Platform Engineering IDP: Backstage + Golden Paths + GitOps. A developer creates a service self-service - repo, CI, Helm, secrets, observability, SLO - without becoming a Kubernetes expert.",
 
-        fullDescriptionFr: `Je n'administre pas Kubernetes pour les autres : je construis le produit qui leur permet de consommer l'infrastructure. Enterprise Internal Developer Platform est une Internal Developer Platform (IDP) — Backstage comme portail, Golden Paths comme chemins pavés, GitOps comme moteur de vérité.
+        fullDescriptionFr: `Je n'administre pas Kubernetes pour les autres : je construis le produit qui leur permet de consommer l'infrastructure. Enterprise Internal Developer Platform est une Internal Developer Platform (IDP) - Backstage comme portail, Golden Paths comme chemins pavés, GitOps comme moteur de vérité.
 
-Le parcours a d'abord été un lab d'apprentissage intensif : outils isolés, labs Killercoda / cloud, cours (Udemy, DataCamp, Coursera, YouTube) et lecture de docs — puis tests locaux Docker outil par outil. La plateforme arrive en conclusion : quand chaque brique est maîtrisée, on industrialise un produit forkable.
+Le parcours a d'abord été un lab d'apprentissage intensif : outils isolés, labs Killercoda / cloud, cours (Udemy, DataCamp, Coursera, YouTube) et lecture de docs - puis tests locaux Docker outil par outil. La plateforme arrive en conclusion : quand chaque brique est maîtrisée, on industrialise un produit forkable.
 
 Objectif final : ouvrir le portail → Create Service → Node.js / Python / Go → PostgreSQL + Redis → staging → Create. En quelques minutes : repository, CI/CD, Dockerfile, Helm, Application Argo CD, secrets, DNS/TLS, OpenTelemetry, dashboard, alertes, SLO, runbook, entrée catalogue Backstage, déploiement staging.
 
 Piliers : Developer Experience, Self-Service, Golden Paths, Automation, Governance (Kyverno, quotas, naming), Security (non-root, Trivy, Cosign, NetworkPolicy), Observability automatique, Cost (Kubecost), Reliability. Les templates couvrent API Node/Python/Go/Java, worker, frontend, CronJob. Scénarios : nouveau microservice, violation policy image latest, promotion production canary, panne control-plane Argo CD (apps continuent, Git reste SoT).
 
 Message recruteur : je sais construire une plateforme qui permet à d'autres développeurs de consommer l'infrastructure comme un produit.`,
-        fullDescriptionEn: `I do not administer Kubernetes for others: I build the product that lets them consume infrastructure. Enterprise Internal Developer Platform is an Internal Developer Platform (IDP) — Backstage as the portal, Golden Paths as paved roads, GitOps as the source of truth.
+        fullDescriptionEn: `I do not administer Kubernetes for others: I build the product that lets them consume infrastructure. Enterprise Internal Developer Platform is an Internal Developer Platform (IDP) - Backstage as the portal, Golden Paths as paved roads, GitOps as the source of truth.
 
-The journey started as an intensive learning lab: isolated tools, Killercoda / cloud labs, courses (Udemy, DataCamp, Coursera, YouTube) and docs — then local Docker tests tool by tool. The platform comes last: once every brick is mastered, industrialize a forkable product.
+The journey started as an intensive learning lab: isolated tools, Killercoda / cloud labs, courses (Udemy, DataCamp, Coursera, YouTube) and docs - then local Docker tests tool by tool. The platform comes last: once every brick is mastered, industrialize a forkable product.
 
 End goal: open the portal → Create Service → Node.js / Python / Go → PostgreSQL + Redis → staging → Create. Within minutes: repository, CI/CD, Dockerfile, Helm, Argo CD Application, secrets, DNS/TLS, OpenTelemetry, dashboard, alerts, SLO, runbook, Backstage catalog entry, staging deploy.
 
@@ -5562,8 +5562,8 @@ Pillars: Developer Experience, Self-Service, Golden Paths, Automation, Governanc
 
 Recruiter message: I know how to build a platform that lets other developers consume infrastructure as a product.`,
 
-        problemFr: "Sans IDP, chaque équipe réinvente Dockerfiles, charts, pipelines et sécurité — lenteur, dette, drift. Kubernetes nu n'est pas un produit développeur.",
-        problemEn: "Without an IDP, every team reinvents Dockerfiles, charts, pipelines and security — slowdowns, debt, drift. Raw Kubernetes is not a developer product.",
+        problemFr: "Sans IDP, chaque équipe réinvente Dockerfiles, charts, pipelines et sécurité - lenteur, dette, drift. Kubernetes nu n'est pas un produit développeur.",
+        problemEn: "Without an IDP, every team reinvents Dockerfiles, charts, pipelines and security - slowdowns, debt, drift. Raw Kubernetes is not a developer product.",
 
         solutionFr: [
             "Backstage : catalog, ownership, docs, liens dashboards/logs/SLO",
@@ -5931,30 +5931,30 @@ Recruiter message: I know how to build a platform that lets other developers con
 
     {
         id: 17,
-        titleFr: "Enterprise Cloud Security Platform — CloudSec, K8s & Runtime",
-        titleEn: "Enterprise Cloud Security Platform — CloudSec, K8s & Runtime",
+        titleFr: "Enterprise Cloud Security Platform - CloudSec, K8s & Runtime",
+        titleEn: "Enterprise Cloud Security Platform - CloudSec, K8s & Runtime",
 
-        descriptionFr: "Plateforme DevSecOps/CloudSec : CSPM/KSPM, supply chain (Trivy/SBOM/Cosign), admission Kyverno, réseau Cilium, runtime Falco, score de risque unifié — défense en profondeur code → runtime.",
-        descriptionEn: "DevSecOps/CloudSec platform: CSPM/KSPM, supply chain (Trivy/SBOM/Cosign), Kyverno admission, Cilium network, Falco runtime, unified risk score — defense in depth from code to runtime.",
+        descriptionFr: "Plateforme DevSecOps/CloudSec : CSPM/KSPM, supply chain (Trivy/SBOM/Cosign), admission Kyverno, réseau Cilium, runtime Falco, score de risque unifié - défense en profondeur code → runtime.",
+        descriptionEn: "DevSecOps/CloudSec platform: CSPM/KSPM, supply chain (Trivy/SBOM/Cosign), Kyverno admission, Cilium network, Falco runtime, unified risk score - defense in depth from code to runtime.",
 
-        fullDescriptionFr: `Je ne fais pas « du scanning dans le pipeline ». Je construis une chaîne de défense qui couvre le code, l'artifact, l'infrastructure, Kubernetes, le réseau et le runtime — une Enterprise Cloud Security Platform.
+        fullDescriptionFr: `Je ne fais pas « du scanning dans le pipeline ». Je construis une chaîne de défense qui couvre le code, l'artifact, l'infrastructure, Kubernetes, le réseau et le runtime - une Enterprise Cloud Security Platform.
 
-Le parcours a d'abord été un lab d'apprentissage intensif : outils isolés, labs Killercoda / cloud, cours (Udemy, DataCamp, Coursera, YouTube) et lecture de docs — puis tests locaux Docker outil par outil. La plateforme arrive en conclusion : quand chaque brique est maîtrisée, on industrialise un produit forkable.
+Le parcours a d'abord été un lab d'apprentissage intensif : outils isolés, labs Killercoda / cloud, cours (Udemy, DataCamp, Coursera, YouTube) et lecture de docs - puis tests locaux Docker outil par outil. La plateforme arrive en conclusion : quand chaque brique est maîtrisée, on industrialise un produit forkable.
 
 Architecture : Git → CI (SAST/SCA/secrets) → build → Trivy/Syft/Grype/SBOM → Cosign → Harbor → Kubernetes (Kyverno + Cilium + Falco) → Security Platform → Risk Dashboard. Piliers : Identity, Kubernetes Security, Container, Supply Chain, Network, Runtime, Secrets, Vulnerability Management, Compliance, Detection & Response.
 
 Scénarios : secret dans Git (Gitleaks bloque), image CVE critique (gate Trivy), image non signée (Kyverno refuse), attaque runtime simulée (Falco + Hubble + audit → isolation). Score de posture par cluster/namespace/workload/team. Compliance CIS/OWASP concepts. Objectif : pipeline détecte, cluster empêche, runtime détecte, réseau limite, secrets protégés, artifacts vérifiés, incidents corrélés.
 
-Message recruteur : je construis une chaîne de défense complète — pas uniquement du DevSecOps pipeline.`,
-        fullDescriptionEn: `I do not “scan in the pipeline”. I build a defense chain covering code, artifact, infrastructure, Kubernetes, network and runtime — an Enterprise Cloud Security Platform.
+Message recruteur : je construis une chaîne de défense complète - pas uniquement du DevSecOps pipeline.`,
+        fullDescriptionEn: `I do not “scan in the pipeline”. I build a defense chain covering code, artifact, infrastructure, Kubernetes, network and runtime - an Enterprise Cloud Security Platform.
 
-The journey started as an intensive learning lab: isolated tools, Killercoda / cloud labs, courses (Udemy, DataCamp, Coursera, YouTube) and docs — then local Docker tests tool by tool. The platform comes last: once every brick is mastered, industrialize a forkable product.
+The journey started as an intensive learning lab: isolated tools, Killercoda / cloud labs, courses (Udemy, DataCamp, Coursera, YouTube) and docs - then local Docker tests tool by tool. The platform comes last: once every brick is mastered, industrialize a forkable product.
 
 Architecture: Git → CI (SAST/SCA/secrets) → build → Trivy/Syft/Grype/SBOM → Cosign → Harbor → Kubernetes (Kyverno + Cilium + Falco) → Security Platform → Risk Dashboard. Pillars: Identity, Kubernetes Security, Container, Supply Chain, Network, Runtime, Secrets, Vulnerability Management, Compliance, Detection & Response.
 
 Scenarios: secret in Git (Gitleaks blocks), critical CVE image (Trivy gate), unsigned image (Kyverno denies), simulated runtime attack (Falco + Hubble + audit → isolation). Posture score per cluster/namespace/workload/team. CIS/OWASP-oriented compliance. Goal: pipeline detects, cluster prevents, runtime detects, network limits, secrets protected, artifacts verified, incidents correlated.
 
-Recruiter message: I build a full defense chain — not pipeline-only DevSecOps.`,
+Recruiter message: I build a full defense chain - not pipeline-only DevSecOps.`,
 
         problemFr: "La sécurité fragmentée (un scan CI ici, une NetworkPolicy là) laisse des trous entre artifact, admission et runtime. Sans plateforme, pas de posture unifiée ni de réponse corrélée.",
         problemEn: "Fragmented security (a CI scan here, a NetworkPolicy there) leaves gaps between artifact, admission and runtime. Without a platform, no unified posture or correlated response.",
@@ -6087,8 +6087,8 @@ Recruiter message: I build a full defense chain — not pipeline-only DevSecOps.
         github: "https://github.com/barthez-kenwou/Enterprise-Cloud-Security-Platform",
         demo: "",
 
-        businessContextFr: "Troisième pilier de la suite : sécuriser Cloud/Kubernetes comme produit — complémentaire du Supply Chain Pipeline déjà en production.",
-        businessContextEn: "Third pillar of the suite: secure Cloud/Kubernetes as a product — complementary to the Supply Chain Pipeline already in production.",
+        businessContextFr: "Troisième pilier de la suite : sécuriser Cloud/Kubernetes comme produit - complémentaire du Supply Chain Pipeline déjà en production.",
+        businessContextEn: "Third pillar of the suite: secure Cloud/Kubernetes as a product - complementary to the Supply Chain Pipeline already in production.",
 
         confidential: false,
 
@@ -6306,13 +6306,13 @@ Recruiter message: I build a full defense chain — not pipeline-only DevSecOps.
         lessonsFr: [
             "Scanner CI ≠ plateforme CloudSec.",
             "Sans admission, les artifacts signés peuvent quand même arriver mal configurés.",
-            "Le runtime est la dernière ligne — elle doit être audible et corrélée.",
+            "Le runtime est la dernière ligne - elle doit être audible et corrélée.",
             "Le score de risque doit pousser une action, pas décorer un dashboard.",
         ],
         lessonsEn: [
             "CI scanning ≠ a CloudSec platform.",
             "Without admission, signed artifacts can still land misconfigured.",
-            "Runtime is the last line — it must be audible and correlated.",
+            "Runtime is the last line - it must be audible and correlated.",
             "Risk score must drive action, not decorate a dashboard.",
         ],
 
@@ -6333,30 +6333,30 @@ Recruiter message: I build a full defense chain — not pipeline-only DevSecOps.
         titleFr: "Enterprise Disaster Recovery & Resilience Platform",
         titleEn: "Enterprise Disaster Recovery & Resilience Platform",
 
-        descriptionFr: "Plateforme SRE de résilience : backups 3-2-1, Velero, PostgreSQL PITR, failover, chaos/game days, RPO/RTO mesurés — prouver qu'on reconstruit, pas seulement qu'on sauvegarde.",
-        descriptionEn: "SRE resilience platform: 3-2-1 backups, Velero, PostgreSQL PITR, failover, chaos/game days, measured RPO/RTO — prove you rebuild, not only that you back up.",
+        descriptionFr: "Plateforme SRE de résilience : backups 3-2-1, Velero, PostgreSQL PITR, failover, chaos/game days, RPO/RTO mesurés - prouver qu'on reconstruit, pas seulement qu'on sauvegarde.",
+        descriptionEn: "SRE resilience platform: 3-2-1 backups, Velero, PostgreSQL PITR, failover, chaos/game days, measured RPO/RTO - prove you rebuild, not only that you back up.",
 
         fullDescriptionFr: `Je n'ai pas « configuré Velero ». J'ai construit une plateforme capable de survivre à des pannes graves et de le prouver : backup, restore, failover, chaos, RPO/RTO mesurés, reconstruction depuis Git.
 
-Le parcours a d'abord été un lab d'apprentissage intensif : outils isolés, labs Killercoda / cloud, cours (Udemy, DataCamp, Coursera, YouTube) et lecture de docs — puis tests locaux Docker outil par outil. La plateforme arrive en conclusion : quand chaque brique est maîtrisée, on industrialise un produit forkable.
+Le parcours a d'abord été un lab d'apprentissage intensif : outils isolés, labs Killercoda / cloud, cours (Udemy, DataCamp, Coursera, YouTube) et lecture de docs - puis tests locaux Docker outil par outil. La plateforme arrive en conclusion : quand chaque brique est maîtrisée, on industrialise un produit forkable.
 
 Positionnement : Business Continuity + Resilience Engineering. Stratégie 3-2-1, backups immuables chiffrés, vérification d'intégrité, Velero (namespaces/PV/cluster), PostgreSQL HA + WAL + PITR, object storage multi-site, Terraform + Argo CD pour reconstruire l'infra et les workloads. CLI drctl : backup, verify, restore, failover, status, test, report.
 
-Game days : pod kill, node failure, PG disaster, full cluster destroy, ransomware simulation contrôlée. Recovery Score : fraîcheur backup, intégrité, succès restore, durée, perte de données, automatisation vs intervention humaine. Critère ultime : détruire → détecter → isoler → restaurer → vérifier → mesurer → documenter — sans dépendre exclusivement de connaissances manuelles.
+Game days : pod kill, node failure, PG disaster, full cluster destroy, ransomware simulation contrôlée. Recovery Score : fraîcheur backup, intégrité, succès restore, durée, perte de données, automatisation vs intervention humaine. Critère ultime : détruire → détecter → isoler → restaurer → vérifier → mesurer → documenter - sans dépendre exclusivement de connaissances manuelles.
 
 Message recruteur : je conçois des systèmes capables de continuer et de se reconstruire après défaillance.`,
         fullDescriptionEn: `I did not “configure Velero”. I built a platform that survives severe failures and proves it: backup, restore, failover, chaos, measured RPO/RTO, rebuild from Git.
 
-The journey started as an intensive learning lab: isolated tools, Killercoda / cloud labs, courses (Udemy, DataCamp, Coursera, YouTube) and docs — then local Docker tests tool by tool. The platform comes last: once every brick is mastered, industrialize a forkable product.
+The journey started as an intensive learning lab: isolated tools, Killercoda / cloud labs, courses (Udemy, DataCamp, Coursera, YouTube) and docs - then local Docker tests tool by tool. The platform comes last: once every brick is mastered, industrialize a forkable product.
 
 Positioning: Business Continuity + Resilience Engineering. 3-2-1 strategy, encrypted immutable backups, integrity verification, Velero (namespaces/PV/cluster), PostgreSQL HA + WAL + PITR, multi-site object storage, Terraform + Argo CD to rebuild infra and workloads. CLI drctl: backup, verify, restore, failover, status, test, report.
 
-Game days: pod kill, node failure, PG disaster, full cluster destroy, controlled ransomware simulation. Recovery Score: backup freshness, integrity, restore success, duration, data loss, automation vs human intervention. Ultimate criterion: destroy → detect → isolate → restore → verify → measure → document — without relying exclusively on tribal knowledge.
+Game days: pod kill, node failure, PG disaster, full cluster destroy, controlled ransomware simulation. Recovery Score: backup freshness, integrity, restore success, duration, data loss, automation vs human intervention. Ultimate criterion: destroy → detect → isolate → restore → verify → measure → document - without relying exclusively on tribal knowledge.
 
 Recruiter message: I design systems that keep running and rebuild after failure.`,
 
-        problemFr: "Avoir des backups non testés, c'est avoir une illusion de sécurité. Sans drills, RPO/RTO sont des slides — pas des preuves.",
-        problemEn: "Untested backups are an illusion of safety. Without drills, RPO/RTO are slides — not proof.",
+        problemFr: "Avoir des backups non testés, c'est avoir une illusion de sécurité. Sans drills, RPO/RTO sont des slides - pas des preuves.",
+        problemEn: "Untested backups are an illusion of safety. Without drills, RPO/RTO are slides - not proof.",
 
         solutionFr: [
             "Backup 3-2-1 chiffré + immuable + vérification",
@@ -6396,14 +6396,14 @@ Recruiter message: I design systems that keep running and rebuild after failure.
 
         impactFr: [
             "Preuves de recovery (rapports game days) plutôt que promesses",
-            "RPO/RTO cibles ex. 15 min / 30 min — validés en drill",
+            "RPO/RTO cibles ex. 15 min / 30 min - validés en drill",
             "Reconstruction cluster depuis Git + Velero + PG",
             "Culture resilience engineering industrialisée",
             "Produit greffable sur stacks Compose/K8s existantes",
         ],
         impactEn: [
             "Recovery evidence (game-day reports) instead of promises",
-            "Target RPO/RTO e.g. 15 min / 30 min — validated in drills",
+            "Target RPO/RTO e.g. 15 min / 30 min - validated in drills",
             "Cluster rebuild from Git + Velero + PG",
             "Industrialized resilience-engineering culture",
             "Graftable product onto existing Compose/K8s stacks",
@@ -6481,8 +6481,8 @@ Recruiter message: I design systems that keep running and rebuild after failure.
         github: "https://github.com/barthez-kenwou/Enterprise-Disaster-Recovery-Resilience-Platform",
         demo: "",
 
-        businessContextFr: "Quatrième pilier : prouver la continuité d'activité — indispensable pour ERP Odoo, plateformes clients et tout runtime critique ZENORA.",
-        businessContextEn: "Fourth pillar: prove business continuity — essential for Odoo ERP, client platforms and any critical ZENORA runtime.",
+        businessContextFr: "Quatrième pilier : prouver la continuité d'activité - indispensable pour ERP Odoo, plateformes clients et tout runtime critique ZENORA.",
+        businessContextEn: "Fourth pillar: prove business continuity - essential for Odoo ERP, client platforms and any critical ZENORA runtime.",
 
         confidential: false,
 
@@ -6682,8 +6682,8 @@ Recruiter message: I design systems that keep running and rebuild after failure.
         ],
 
         testimonial: {
-            quoteFr: "On a détruit le cluster en game day — et on a une preuve chiffrée du RTO, pas une anecdote.",
-            quoteEn: "We destroyed the cluster on game day — and we have measured RTO evidence, not an anecdote.",
+            quoteFr: "On a détruit le cluster en game day - et on a une preuve chiffrée du RTO, pas une anecdote.",
+            quoteEn: "We destroyed the cluster on game day - and we have measured RTO evidence, not an anecdote.",
             author: "SRE peer",
             roleFr: "SRE",
             roleEn: "SRE",
@@ -6717,28 +6717,28 @@ Recruiter message: I design systems that keep running and rebuild after failure.
 
     {
         id: 19,
-        titleFr: "Enterprise Event-Driven Platform — Kafka, Saga & Resilience",
-        titleEn: "Enterprise Event-Driven Platform — Kafka, Saga & Resilience",
+        titleFr: "Enterprise Event-Driven Platform - Kafka, Saga & Resilience",
+        titleEn: "Enterprise Event-Driven Platform - Kafka, Saga & Resilience",
 
-        descriptionFr: "Plateforme event-driven (Redpanda/Kafka) : producers/consumers, outbox, saga, DLQ, idempotence, backpressure, OTel corrélé — lab systèmes distribués transformé en produit forkable.",
-        descriptionEn: "Event-driven platform (Redpanda/Kafka): producers/consumers, outbox, saga, DLQ, idempotency, backpressure, correlated OTel — distributed-systems lab turned forkable product.",
+        descriptionFr: "Plateforme event-driven (Redpanda/Kafka) : producers/consumers, outbox, saga, DLQ, idempotence, backpressure, OTel corrélé - lab systèmes distribués transformé en produit forkable.",
+        descriptionEn: "Event-driven platform (Redpanda/Kafka): producers/consumers, outbox, saga, DLQ, idempotency, backpressure, correlated OTel - distributed-systems lab turned forkable product.",
 
-        fullDescriptionFr: `Je n'ai pas « démarré Kafka ». J'ai construit une plateforme événementielle moderne pour démontrer — et réutiliser — les patterns des systèmes distribués : partitioning, replication, consumer groups, DLQ, retry, idempotence, outbox, saga, replay, versioning, backpressure, circuit breakers.
+        fullDescriptionFr: `Je n'ai pas « démarré Kafka ». J'ai construit une plateforme événementielle moderne pour démontrer - et réutiliser - les patterns des systèmes distribués : partitioning, replication, consumer groups, DLQ, retry, idempotence, outbox, saga, replay, versioning, backpressure, circuit breakers.
 
-Le parcours a d'abord été un lab d'apprentissage intensif : outils isolés, labs Killercoda / cloud, cours (Udemy, DataCamp, Coursera, YouTube) et lecture de docs — puis tests locaux Docker outil par outil. La plateforme arrive en conclusion : quand chaque brique est maîtrisée, on industrialise un produit forkable.
+Le parcours a d'abord été un lab d'apprentissage intensif : outils isolés, labs Killercoda / cloud, cours (Udemy, DataCamp, Coursera, YouTube) et lecture de docs - puis tests locaux Docker outil par outil. La plateforme arrive en conclusion : quand chaque brique est maîtrisée, on industrialise un produit forkable.
 
 Stack : Redpanda ou Kafka + Schema Registry, microservices producers/consumers, PostgreSQL outbox, OpenTelemetry (traces à travers le broker), Prometheus/Grafana/Loki, chaos et load testing. Architecture multi-services avec parcours métier (order → payment → notification) et échecs injectés (timeout, poison message, partition lag, broker blip).
 
-Objectif portfolio : prouver que je comprends réellement les sémantiques de livraison, la résilience asynchrone et le troubleshooting distribué — pas seulement un docker-compose Kafka. Produit forkable : templates consumer/producer, conventions de topics, observabilité et runbooks inclus.
+Objectif portfolio : prouver que je comprends réellement les sémantiques de livraison, la résilience asynchrone et le troubleshooting distribué - pas seulement un docker-compose Kafka. Produit forkable : templates consumer/producer, conventions de topics, observabilité et runbooks inclus.
 
 Message recruteur : je maîtrise les systèmes distribués événementiels et je les industrialise en plateforme.`,
-        fullDescriptionEn: `I did not “start Kafka”. I built a modern event-driven platform to demonstrate — and reuse — distributed-systems patterns: partitioning, replication, consumer groups, DLQ, retry, idempotency, outbox, saga, replay, versioning, backpressure, circuit breakers.
+        fullDescriptionEn: `I did not “start Kafka”. I built a modern event-driven platform to demonstrate - and reuse - distributed-systems patterns: partitioning, replication, consumer groups, DLQ, retry, idempotency, outbox, saga, replay, versioning, backpressure, circuit breakers.
 
-The journey started as an intensive learning lab: isolated tools, Killercoda / cloud labs, courses (Udemy, DataCamp, Coursera, YouTube) and docs — then local Docker tests tool by tool. The platform comes last: once every brick is mastered, industrialize a forkable product.
+The journey started as an intensive learning lab: isolated tools, Killercoda / cloud labs, courses (Udemy, DataCamp, Coursera, YouTube) and docs - then local Docker tests tool by tool. The platform comes last: once every brick is mastered, industrialize a forkable product.
 
 Stack: Redpanda or Kafka + Schema Registry, producer/consumer microservices, PostgreSQL outbox, OpenTelemetry (traces across the broker), Prometheus/Grafana/Loki, chaos and load testing. Multi-service architecture with a business journey (order → payment → notification) and injected failures (timeout, poison message, partition lag, broker blip).
 
-Portfolio goal: prove I truly understand delivery semantics, async resilience and distributed troubleshooting — not just a Kafka docker-compose. Forkable product: consumer/producer templates, topic conventions, observability and runbooks included.
+Portfolio goal: prove I truly understand delivery semantics, async resilience and distributed troubleshooting - not just a Kafka docker-compose. Forkable product: consumer/producer templates, topic conventions, observability and runbooks included.
 
 Recruiter message: I master event-driven distributed systems and industrialize them as a platform.`,
 
@@ -7064,8 +7064,8 @@ Recruiter message: I master event-driven distributed systems and industrialize t
         ],
 
         testimonial: {
-            quoteFr: "Enfin une démo Kafka qui montre outbox, DLQ et traces — pas juste un producer console.",
-            quoteEn: "Finally a Kafka demo that shows outbox, DLQ and traces — not just a console producer.",
+            quoteFr: "Enfin une démo Kafka qui montre outbox, DLQ et traces - pas juste un producer console.",
+            quoteEn: "Finally a Kafka demo that shows outbox, DLQ and traces - not just a console producer.",
             author: "Backend peer",
             roleFr: "Software Engineer",
             roleEn: "Software Engineer",
@@ -7099,33 +7099,33 @@ Recruiter message: I master event-driven distributed systems and industrialize t
 
     {
         id: 9,
-        titleFr: "backend-init — Template Backend Enterprise (Auth, Sécurité, Obs, Queues)",
-        titleEn: "backend-init — Enterprise Backend Template (Auth, Security, Obs, Queues)",
+        titleFr: "backend-init - Template Backend Enterprise (Auth, Sécurité, Obs, Queues)",
+        titleEn: "backend-init - Enterprise Backend Template (Auth, Security, Obs, Queues)",
 
-        descriptionFr: "Template backend Express/TypeScript production-grade : JWT/OAuth, RBAC, Prisma/Mongo, Redis, MinIO, ClamAV, queues, OpenAPI, Prometheus/Loki/Grafana — base du blog, du portfolio et des backends ZENORA.",
-        descriptionEn: "Production-grade Express/TypeScript backend template: JWT/OAuth, RBAC, Prisma/Mongo, Redis, MinIO, ClamAV, queues, OpenAPI, Prometheus/Loki/Grafana — foundation for the blog, portfolio and ZENORA backends.",
+        descriptionFr: "Template backend Express/TypeScript production-grade : JWT/OAuth, RBAC, Prisma/Mongo, Redis, MinIO, ClamAV, queues, OpenAPI, Prometheus/Loki/Grafana - base du blog, du portfolio et des backends ZENORA.",
+        descriptionEn: "Production-grade Express/TypeScript backend template: JWT/OAuth, RBAC, Prisma/Mongo, Redis, MinIO, ClamAV, queues, OpenAPI, Prometheus/Loki/Grafana - foundation for the blog, portfolio and ZENORA backends.",
 
-        fullDescriptionFr: `Ce n'est pas « un CRUD blog ». C'est le laboratoire où j'ai systématisé tout ce qu'un backend moderne doit maîtriser — puis le template public (backend-init) dont je réutilise le squelette pour le blog, le backend du portfolio, le site ZENORA et les prochains produits.
+        fullDescriptionFr: `Ce n'est pas « un CRUD blog ». C'est le laboratoire où j'ai systématisé tout ce qu'un backend moderne doit maîtriser - puis le template public (backend-init) dont je réutilise le squelette pour le blog, le backend du portfolio, le site ZENORA et les prochains produits.
 
-Le parcours commence toujours par des labs intensifs : services AWS isolés, documentation officielle, ateliers et formations — puis mise en application sur un produit concret. La plateforme (ou l'architecture) arrive en conclusion de la maîtrise, pas en remplacement de l'apprentissage.
+Le parcours commence toujours par des labs intensifs : services AWS isolés, documentation officielle, ateliers et formations - puis mise en application sur un produit concret. La plateforme (ou l'architecture) arrive en conclusion de la maîtrise, pas en remplacement de l'apprentissage.
 
 Sous le capot : Express + TypeScript (Bun en dev), Prisma sur MongoDB, Redis (sessions, cache blogs/users, rate limiting), MinIO pour les médias, ClamAV pour le scan antivirus des uploads, files d'attente (Bull Board), mail EJS/Nodemailer, OTP, auth JWT (access + refresh, clés asymétriques) et OAuth (providers + Telegram), CSRF, Helmet, CSP, compression, validation stricte, OpenAPI/Swagger versionné, Winston → Loki, Prometheus (prom-client), stack monitoring Compose (Prometheus, Grafana, Loki, Alertmanager), Nginx, Docker multi-stage, Husky/commitlint/lint-staged, workflows GitHub (PR checks + security scan).
 
-Le module blog n'est que la surface métier pour exercer ces fondations : posts, commentaires, cache multi-niveaux, upload sécurisé, health/ready. L'ambition réelle : un Golden Path backend — forkable, documenté, sécurisé par défaut — que je greffe et étends au lieu de réécrire Auth, obs et durcissement à chaque projet.
+Le module blog n'est que la surface métier pour exercer ces fondations : posts, commentaires, cache multi-niveaux, upload sécurisé, health/ready. L'ambition réelle : un Golden Path backend - forkable, documenté, sécurisé par défaut - que je greffe et étends au lieu de réécrire Auth, obs et durcissement à chaque projet.
 
 Message recruteur : je ne livre pas une API de démo ; je livre un socle backend d'entreprise que d'autres projets consomment.`,
-        fullDescriptionEn: `This is not “a blog CRUD”. It is the lab where I systematized everything a modern backend must master — then the public template (backend-init) whose skeleton I reuse for the blog, the portfolio backend, the ZENORA site and future products.
+        fullDescriptionEn: `This is not “a blog CRUD”. It is the lab where I systematized everything a modern backend must master - then the public template (backend-init) whose skeleton I reuse for the blog, the portfolio backend, the ZENORA site and future products.
 
-The journey always starts with intensive labs: isolated AWS services, official docs, workshops and courses — then applied to a concrete product. The platform (or architecture) comes as the conclusion of mastery, not as a substitute for learning.
+The journey always starts with intensive labs: isolated AWS services, official docs, workshops and courses - then applied to a concrete product. The platform (or architecture) comes as the conclusion of mastery, not as a substitute for learning.
 
 Under the hood: Express + TypeScript (Bun in dev), Prisma on MongoDB, Redis (sessions, blog/user cache, rate limiting), MinIO for media, ClamAV for upload antivirus scanning, job queues (Bull Board), EJS/Nodemailer mail, OTP, JWT auth (access + refresh, asymmetric keys) and OAuth (providers + Telegram), CSRF, Helmet, CSP, compression, strict validation, versioned OpenAPI/Swagger, Winston → Loki, Prometheus (prom-client), Compose monitoring stack (Prometheus, Grafana, Loki, Alertmanager), Nginx, multi-stage Docker, Husky/commitlint/lint-staged, GitHub workflows (PR checks + security scan).
 
-The blog module is only the business surface to exercise those foundations: posts, comments, multi-level cache, secure upload, health/ready. Real ambition: a backend Golden Path — forkable, documented, secure by default — that I graft and extend instead of rewriting Auth, obs and hardening on every project.
+The blog module is only the business surface to exercise those foundations: posts, comments, multi-level cache, secure upload, health/ready. Real ambition: a backend Golden Path - forkable, documented, secure by default - that I graft and extend instead of rewriting Auth, obs and hardening on every project.
 
 Recruiter message: I do not ship a demo API; I ship an enterprise backend foundation that other projects consume.`,
 
-        problemFr: "Sans template discipliné, chaque backend réinvente auth, sécurité, logging, cache et CI — dette, failles et délais. Un blog « simple » ne prouve rien si le socle est improvisé.",
-        problemEn: "Without a disciplined template, every backend reinvents auth, security, logging, cache and CI — debt, holes and delay. A “simple” blog proves nothing if the foundation is improvised.",
+        problemFr: "Sans template discipliné, chaque backend réinvente auth, sécurité, logging, cache et CI - dette, failles et délais. Un blog « simple » ne prouve rien si le socle est improvisé.",
+        problemEn: "Without a disciplined template, every backend reinvents auth, security, logging, cache and CI - debt, holes and delay. A “simple” blog proves nothing if the foundation is improvised.",
 
         solutionFr: [
             "Template GitHub public : fork → config env → Compose up → API prête",
@@ -7267,8 +7267,8 @@ Recruiter message: I do not ship a demo API; I ship an enterprise backend founda
         github: "https://github.com/barthez-kenwou/backend-init",
         demo: "",
 
-        businessContextFr: "Socle backend personnel et ZENORA : industrialiser auth, sécurité, obs et DX pour ne plus reconstruire les fondations à chaque produit — y compris le blog SEO et l'API portfolio.",
-        businessContextEn: "Personal and ZENORA backend foundation: industrialize auth, security, obs and DX so foundations are not rebuilt on every product — including the SEO blog and portfolio API.",
+        businessContextFr: "Socle backend personnel et ZENORA : industrialiser auth, sécurité, obs et DX pour ne plus reconstruire les fondations à chaque produit - y compris le blog SEO et l'API portfolio.",
+        businessContextEn: "Personal and ZENORA backend foundation: industrialize auth, security, obs and DX so foundations are not rebuilt on every product - including the SEO blog and portfolio API.",
 
         confidential: false,
 
@@ -7292,18 +7292,18 @@ Recruiter message: I do not ship a demo API; I ship an enterprise backend founda
         gallery: [
             {
                 src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2015-43-00.png",
-                captionFr: "Surface blog — liste d'articles (métier sur le template)",
-                captionEn: "Blog surface — article list (business on the template)", kind: "ui",
+                captionFr: "Surface blog - liste d'articles (métier sur le template)",
+                captionEn: "Blog surface - article list (business on the template)", kind: "ui",
             },
             {
                 src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2015-44-46.png",
-                captionFr: "Détail article — API backend-first",
-                captionEn: "Article detail — backend-first API", kind: "ui",
+                captionFr: "Détail article - API backend-first",
+                captionEn: "Article detail - backend-first API", kind: "ui",
             },
             {
                 src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Screenshot%20from%202026-04-22%2015-45-15.png",
-                captionFr: "Backoffice / édition — rôles et contenus",
-                captionEn: "Admin / editing — roles and content", kind: "ui",
+                captionFr: "Backoffice / édition - rôles et contenus",
+                captionEn: "Admin / editing - roles and content", kind: "ui",
             },
         ],
 
@@ -7535,26 +7535,26 @@ Recruiter message: I do not ship a demo API; I ship an enterprise backend founda
 
     {
         id: 20,
-        titleFr: "AWS Highly Available Blog Backend — Enterprise Edition",
-        titleEn: "AWS Highly Available Blog Backend — Enterprise Edition",
+        titleFr: "AWS Highly Available Blog Backend - Enterprise Edition",
+        titleEn: "AWS Highly Available Blog Backend - Enterprise Edition",
 
-        descriptionFr: "Migration du backend Express (backend-init) vers AWS multi-AZ : ECS Fargate, Aurora, ElastiCache, S3/CloudFront, WAF, Terraform, OIDC CI/CD, chaos et FinOps — plateforme Cloud production-ready.",
-        descriptionEn: "Migration of the Express backend (backend-init) to multi-AZ AWS: ECS Fargate, Aurora, ElastiCache, S3/CloudFront, WAF, Terraform, OIDC CI/CD, chaos and FinOps — production-ready Cloud platform.",
+        descriptionFr: "Migration du backend Express (backend-init) vers AWS multi-AZ : ECS Fargate, Aurora, ElastiCache, S3/CloudFront, WAF, Terraform, OIDC CI/CD, chaos et FinOps - plateforme Cloud production-ready.",
+        descriptionEn: "Migration of the Express backend (backend-init) to multi-AZ AWS: ECS Fargate, Aurora, ElastiCache, S3/CloudFront, WAF, Terraform, OIDC CI/CD, chaos and FinOps - production-ready Cloud platform.",
 
         fullDescriptionFr: `Après des labs AWS (services isolés, docs, ateliers), j'ai mis la maîtrise en application : migrer le backend concret issu de backend-init du VPS vers une architecture AWS hautement disponible.
 
-Le parcours commence toujours par des labs intensifs : services AWS isolés, documentation officielle, ateliers et formations — puis mise en application sur un produit concret. La plateforme (ou l'architecture) arrive en conclusion de la maîtrise, pas en remplacement de l'apprentissage.
+Le parcours commence toujours par des labs intensifs : services AWS isolés, documentation officielle, ateliers et formations - puis mise en application sur un produit concret. La plateforme (ou l'architecture) arrive en conclusion de la maîtrise, pas en remplacement de l'apprentissage.
 
 Objectif : ne pas « lancer Express sur EC2 », mais transformer une API classique en plateforme AWS scalable, sécurisée, observable et résiliente. Edge Route 53 → CloudFront → WAF/Shield → ALB → ECS Fargate multi-AZ → Aurora PostgreSQL Multi-AZ + ElastiCache Redis + S3 (presigned URLs). VPC enterprise (public / private app / private DB), IAM least privilege, Secrets Manager + KMS, GitHub Actions OIDC (zéro clé longue durée), Terraform modules multi-environnements, CloudWatch + OpenTelemetry, Auto Scaling, chaos (task/AZ/DB/Redis), DR (PITR, RPO/RTO mesurés), FinOps (tags, budgets, coût par service).
 
-Scénarios phares : explosion de trafic (scale 2→8), failover Aurora, image CVE bloquée en CI, rollback production sur error rate. Message recruteur : voici mon backend Express de départ — le voici en architecture AWS multi-AZ, IaC, sécurisée, observable, avec pannes volontairement provoquées et mesurées.`,
+Scénarios phares : explosion de trafic (scale 2→8), failover Aurora, image CVE bloquée en CI, rollback production sur error rate. Message recruteur : voici mon backend Express de départ - le voici en architecture AWS multi-AZ, IaC, sécurisée, observable, avec pannes volontairement provoquées et mesurées.`,
         fullDescriptionEn: `After AWS labs (isolated services, docs, workshops), I applied mastery: migrate the concrete backend from backend-init off the VPS onto a highly available AWS architecture.
 
-The journey always starts with intensive labs: isolated AWS services, official docs, workshops and courses — then applied to a concrete product. The platform (or architecture) comes as the conclusion of mastery, not as a substitute for learning.
+The journey always starts with intensive labs: isolated AWS services, official docs, workshops and courses - then applied to a concrete product. The platform (or architecture) comes as the conclusion of mastery, not as a substitute for learning.
 
 Goal: not “run Express on EC2”, but turn a classic API into a scalable, secure, observable, resilient AWS platform. Edge Route 53 → CloudFront → WAF/Shield → ALB → multi-AZ ECS Fargate → Aurora PostgreSQL Multi-AZ + ElastiCache Redis + S3 (presigned URLs). Enterprise VPC (public / private app / private DB), least-privilege IAM, Secrets Manager + KMS, GitHub Actions OIDC (no long-lived keys), multi-environment Terraform modules, CloudWatch + OpenTelemetry, Auto Scaling, chaos (task/AZ/DB/Redis), DR (PITR, measured RPO/RTO), FinOps (tags, budgets, cost per service).
 
-Flagship scenarios: traffic spike (scale 2→8), Aurora failover, CVE image blocked in CI, production rollback on error rate. Recruiter message: here is my starting Express backend — here it is as multi-AZ AWS, IaC, secured, observable, with deliberately induced and measured failures.`,
+Flagship scenarios: traffic spike (scale 2→8), Aurora failover, CVE image blocked in CI, production rollback on error rate. Recruiter message: here is my starting Express backend - here it is as multi-AZ AWS, IaC, secured, observable, with deliberately induced and measured failures.`,
 
         problemFr: "Un backend VPS prouve le métier ; il ne prouve pas HA multi-AZ, IAM, IaC cloud, scaling géré ni recovery chronométré. Sans migration disciplinée, les labs AWS restent théoriques.",
         problemEn: "A VPS backend proves the business; it does not prove multi-AZ HA, IAM, cloud IaC, managed scaling or timed recovery. Without a disciplined migration, AWS labs stay theoretical.",
@@ -7907,8 +7907,8 @@ Flagship scenarios: traffic spike (scale 2→8), Aurora failover, CVE image bloc
         ],
 
         testimonial: {
-            quoteFr: "Le même backend, mais maintenant on parle AZ, failover et budgets — pas seulement Docker sur un VPS.",
-            quoteEn: "Same backend, but now we talk AZs, failover and budgets — not just Docker on a VPS.",
+            quoteFr: "Le même backend, mais maintenant on parle AZ, failover et budgets - pas seulement Docker sur un VPS.",
+            quoteEn: "Same backend, but now we talk AZs, failover and budgets - not just Docker on a VPS.",
             author: "Cloud peer",
             roleFr: "Solutions Architect",
             roleEn: "Solutions Architect",
@@ -7942,26 +7942,26 @@ Flagship scenarios: traffic spike (scale 2→8), Aurora failover, CVE image bloc
 
     {
         id: 21,
-        titleFr: "AWS Serverless E-Commerce — Event-Driven, Secure & Resilient",
-        titleEn: "AWS Serverless E-Commerce — Event-Driven, Secure & Resilient",
+        titleFr: "AWS Serverless E-Commerce - Event-Driven, Secure & Resilient",
+        titleEn: "AWS Serverless E-Commerce - Event-Driven, Secure & Resilient",
 
-        descriptionFr: "Backend e-commerce serverless distribué : API Gateway + Lambda + Cognito + DynamoDB, EventBridge/SQS/SNS, Step Functions (saga paiement), Terraform, chaos DLQ/replay — pas une « API Express sur Lambda ».",
-        descriptionEn: "Distributed serverless e-commerce backend: API Gateway + Lambda + Cognito + DynamoDB, EventBridge/SQS/SNS, Step Functions (payment saga), Terraform, DLQ/replay chaos — not “Express on Lambda”.",
+        descriptionFr: "Backend e-commerce serverless distribué : API Gateway + Lambda + Cognito + DynamoDB, EventBridge/SQS/SNS, Step Functions (saga paiement), Terraform, chaos DLQ/replay - pas une « API Express sur Lambda ».",
+        descriptionEn: "Distributed serverless e-commerce backend: API Gateway + Lambda + Cognito + DynamoDB, EventBridge/SQS/SNS, Step Functions (payment saga), Terraform, DLQ/replay chaos - not “Express on Lambda”.",
 
         fullDescriptionFr: `Je n'ai pas « mis Express dans Lambda ». J'ai conçu un backend e-commerce serverless event-driven : bounded contexts (auth, products, cart, orders, inventory, payments, notifications), DynamoDB access-pattern first, Cognito, API Gateway, EventBridge pour découpler OrderCreated → payment / inventory / notification, SQS+DLQ, SNS fan-out, Step Functions pour la saga paiement avec compensations.
 
-Le parcours commence toujours par des labs intensifs : services AWS isolés, documentation officielle, ateliers et formations — puis mise en application sur un produit concret. La plateforme (ou l'architecture) arrive en conclusion de la maîtrise, pas en remplacement de l'apprentissage.
+Le parcours commence toujours par des labs intensifs : services AWS isolés, documentation officielle, ateliers et formations - puis mise en application sur un produit concret. La plateforme (ou l'architecture) arrive en conclusion de la maîtrise, pas en remplacement de l'apprentissage.
 
 Tout en Terraform multi-env, CI fail-closed, WAF, IAM least privilege, KMS/Secrets, CloudWatch/X-Ray, correlation IDs bout-en-bout. Chaos : throttling Lambda/DynamoDB, consumer down, payment fail, duplicate events. Critère : composants évolutifs indépendamment, workflows orchestrés, erreurs récupérables, infra reproductible.
 
-Message recruteur : je choisis les services AWS selon les propriétés du système — découplage, résilience et coût — pas selon un tutoriel unique.`,
+Message recruteur : je choisis les services AWS selon les propriétés du système - découplage, résilience et coût - pas selon un tutoriel unique.`,
         fullDescriptionEn: `I did not “put Express in Lambda”. I designed an event-driven serverless e-commerce backend: bounded contexts (auth, products, cart, orders, inventory, payments, notifications), access-pattern-first DynamoDB, Cognito, API Gateway, EventBridge decoupling OrderCreated → payment / inventory / notification, SQS+DLQ, SNS fan-out, Step Functions for the payment saga with compensations.
 
-The journey always starts with intensive labs: isolated AWS services, official docs, workshops and courses — then applied to a concrete product. The platform (or architecture) comes as the conclusion of mastery, not as a substitute for learning.
+The journey always starts with intensive labs: isolated AWS services, official docs, workshops and courses - then applied to a concrete product. The platform (or architecture) comes as the conclusion of mastery, not as a substitute for learning.
 
 All in multi-env Terraform, fail-closed CI, WAF, least-privilege IAM, KMS/Secrets, CloudWatch/X-Ray, end-to-end correlation IDs. Chaos: Lambda/DynamoDB throttling, consumer down, payment fail, duplicate events. Criterion: independently evolving components, orchestrated workflows, recoverable errors, reproducible infra.
 
-Recruiter message: I choose AWS services based on system properties — decoupling, resilience and cost — not based on a single tutorial.`,
+Recruiter message: I choose AWS services based on system properties - decoupling, resilience and cost - not based on a single tutorial.`,
 
         problemFr: "Une API monolithique serverless concentre les risques et cache les patterns distribués (idempotence, DLQ, saga). L'e-commerce exige découplage et récupération.",
         problemEn: "A monolithic serverless API concentrates risk and hides distributed patterns (idempotency, DLQ, saga). E-commerce needs decoupling and recovery.",
@@ -8271,8 +8271,8 @@ Recruiter message: I choose AWS services based on system properties — decoupli
         externalLinks: [],
 
         testimonial: {
-            quoteFr: "On suit une commande de l'API jusqu'à la DLQ — ça, c'est du serverless mature.",
-            quoteEn: "You can follow an order from the API to the DLQ — that is mature serverless.",
+            quoteFr: "On suit une commande de l'API jusqu'à la DLQ - ça, c'est du serverless mature.",
+            quoteEn: "You can follow an order from the API to the DLQ - that is mature serverless.",
             author: "Backend peer",
             roleFr: "Engineer",
             roleEn: "Engineer",
@@ -8304,22 +8304,22 @@ Recruiter message: I choose AWS services based on system properties — decoupli
 
     {
         id: 22,
-        titleFr: "AWS Multi-Region SaaS — Global Availability, Failover & Resilience",
-        titleEn: "AWS Multi-Region SaaS — Global Availability, Failover & Resilience",
+        titleFr: "AWS Multi-Region SaaS - Global Availability, Failover & Resilience",
+        titleEn: "AWS Multi-Region SaaS - Global Availability, Failover & Resilience",
 
-        descriptionFr: "SaaS B2B ProjectHub multi-région Active/Passive : ECS bi-région, Aurora Global Database, S3 CRR, Route 53/ARC, game day régional avec RPO/RTO mesurés — résilience globale, pas un second VPC cosmétique.",
-        descriptionEn: "Multi-region Active/Passive B2B SaaS ProjectHub: dual-region ECS, Aurora Global Database, S3 CRR, Route 53/ARC, regional game day with measured RPO/RTO — global resilience, not a cosmetic second VPC.",
+        descriptionFr: "SaaS B2B ProjectHub multi-région Active/Passive : ECS bi-région, Aurora Global Database, S3 CRR, Route 53/ARC, game day régional avec RPO/RTO mesurés - résilience globale, pas un second VPC cosmétique.",
+        descriptionEn: "Multi-region Active/Passive B2B SaaS ProjectHub: dual-region ECS, Aurora Global Database, S3 CRR, Route 53/ARC, regional game day with measured RPO/RTO - global resilience, not a cosmetic second VPC.",
 
-        fullDescriptionFr: `Ici on monte d'un niveau : disponibilité globale, failover régional, réplication, anti-split-brain. ProjectHub (orgs, users, projects, tasks, files, billing, audit) tourne en Active/Passive (warm standby) — V2 Active/Active documentée comme évolution.
+        fullDescriptionFr: `Ici on monte d'un niveau : disponibilité globale, failover régional, réplication, anti-split-brain. ProjectHub (orgs, users, projects, tasks, files, billing, audit) tourne en Active/Passive (warm standby) - V2 Active/Active documentée comme évolution.
 
-Le parcours commence toujours par des labs intensifs : services AWS isolés, documentation officielle, ateliers et formations — puis mise en application sur un produit concret. La plateforme (ou l'architecture) arrive en conclusion de la maîtrise, pas en remplacement de l'apprentissage.
+Le parcours commence toujours par des labs intensifs : services AWS isolés, documentation officielle, ateliers et formations - puis mise en application sur un produit concret. La plateforme (ou l'architecture) arrive en conclusion de la maîtrise, pas en remplacement de l'apprentissage.
 
 Primary us-east-1 / Secondary eu-west-1 : VPC par région, ECS Fargate, Aurora Global Database (writer unique, readers secondaires, switchover/failover contrôlés), ElastiCache reconstructible, S3 CRR, CloudFront, Route 53 health checks (+ ARC readiness), secrets/KMS multi-région, Organizations/SCP vision multi-account, CI déploiement régional canary, chaos région complète. On chronomètre detection → failover → promote DB → traffic → healthy, avec RPO/RTO réels (pas des slides).
 
 Message recruteur : je sais déployer, répliquer, basculer, récupérer et mesurer.`,
-        fullDescriptionEn: `This is a step up: global availability, regional failover, replication, anti-split-brain. ProjectHub (orgs, users, projects, tasks, files, billing, audit) runs Active/Passive (warm standby) — Active/Active documented as a V2 evolution.
+        fullDescriptionEn: `This is a step up: global availability, regional failover, replication, anti-split-brain. ProjectHub (orgs, users, projects, tasks, files, billing, audit) runs Active/Passive (warm standby) - Active/Active documented as a V2 evolution.
 
-The journey always starts with intensive labs: isolated AWS services, official docs, workshops and courses — then applied to a concrete product. The platform (or architecture) comes as the conclusion of mastery, not as a substitute for learning.
+The journey always starts with intensive labs: isolated AWS services, official docs, workshops and courses - then applied to a concrete product. The platform (or architecture) comes as the conclusion of mastery, not as a substitute for learning.
 
 Primary us-east-1 / Secondary eu-west-1: per-region VPC, ECS Fargate, Aurora Global Database (single writer, secondary readers, controlled switchover/failover), reconstructible ElastiCache, S3 CRR, CloudFront, Route 53 health checks (+ ARC readiness), multi-region secrets/KMS, Organizations/SCP multi-account vision, regional canary CI, full-region chaos. We time detection → failover → DB promote → traffic → healthy, with real RPO/RTO (not slides).
 
@@ -8449,8 +8449,8 @@ Recruiter message: I know how to deploy, replicate, fail over, recover and measu
         github: "",
         demo: "",
 
-        businessContextFr: "Troisième pilier AWS : business continuity globale pour un SaaS B2B — la résilience au-delà d'une seule région.",
-        businessContextEn: "Third AWS pillar: global business continuity for a B2B SaaS — resilience beyond a single region.",
+        businessContextFr: "Troisième pilier AWS : business continuity globale pour un SaaS B2B - la résilience au-delà d'une seule région.",
+        businessContextEn: "Third AWS pillar: global business continuity for a B2B SaaS - resilience beyond a single region.",
 
         confidential: false,
 
@@ -8629,8 +8629,8 @@ Recruiter message: I know how to deploy, replicate, fail over, recover and measu
         externalLinks: [],
 
         testimonial: {
-            quoteFr: "Ils ont coupé une région et affiché un RTO chronométré — rare et sérieux.",
-            quoteEn: "They cut a region and showed a timed RTO — rare and serious.",
+            quoteFr: "Ils ont coupé une région et affiché un RTO chronométré - rare et sérieux.",
+            quoteEn: "They cut a region and showed a timed RTO - rare and serious.",
             author: "SRE interviewer mindset",
             roleFr: "SRE",
             roleEn: "SRE",
@@ -8662,26 +8662,26 @@ Recruiter message: I know how to deploy, replicate, fail over, recover and measu
 
     {
         id: 23,
-        titleFr: "AWS Real-Time Data & Event Platform — Streaming, Lake & Analytics",
-        titleEn: "AWS Real-Time Data & Event Platform — Streaming, Lake & Analytics",
+        titleFr: "AWS Real-Time Data & Event Platform - Streaming, Lake & Analytics",
+        titleEn: "AWS Real-Time Data & Event Platform - Streaming, Lake & Analytics",
 
-        descriptionFr: "Plateforme streaming AWS : Kinesis + MSK (comparaison assumée), schemas, Lambda/Glue, data lake bronze/silver/gold, Athena, OpenSearch, replay, lag/backpressure — data engineering distribué, pas un dashboard seul.",
-        descriptionEn: "AWS streaming platform: Kinesis + MSK (explicit comparison), schemas, Lambda/Glue, bronze/silver/gold data lake, Athena, OpenSearch, replay, lag/backpressure — distributed data engineering, not a dashboard alone.",
+        descriptionFr: "Plateforme streaming AWS : Kinesis + MSK (comparaison assumée), schemas, Lambda/Glue, data lake bronze/silver/gold, Athena, OpenSearch, replay, lag/backpressure - data engineering distribué, pas un dashboard seul.",
+        descriptionEn: "AWS streaming platform: Kinesis + MSK (explicit comparison), schemas, Lambda/Glue, bronze/silver/gold data lake, Athena, OpenSearch, replay, lag/backpressure - distributed data engineering, not a dashboard alone.",
 
-        fullDescriptionFr: `Le pilier data : ingérer clickstream, orders, payments, logs, télémétrie ; traiter en temps réel ; stocker en data lake ; analyser ; rejouer. Architecture A Kinesis-first vs Architecture B MSK/Kafka-first — compromis coût/ops/portabilité documentés, pas deux outils « parce que ».
+        fullDescriptionFr: `Le pilier data : ingérer clickstream, orders, payments, logs, télémétrie ; traiter en temps réel ; stocker en data lake ; analyser ; rejouer. Architecture A Kinesis-first vs Architecture B MSK/Kafka-first - compromis coût/ops/portabilité documentés, pas deux outils « parce que ».
 
-Le parcours commence toujours par des labs intensifs : services AWS isolés, documentation officielle, ateliers et formations — puis mise en application sur un produit concret. La plateforme (ou l'architecture) arrive en conclusion de la maîtrise, pas en remplacement de l'apprentissage.
+Le parcours commence toujours par des labs intensifs : services AWS isolés, documentation officielle, ateliers et formations - puis mise en application sur un produit concret. La plateforme (ou l'architecture) arrive en conclusion de la maîtrise, pas en remplacement de l'apprentissage.
 
 Producers + load generator, contrats d'événements + Schema Registry, validation → lake ou quarantine, Lambda enrich/route, Glue streaming ETL, S3 raw/bronze/silver/gold, Athena, OpenSearch live search, EventBridge pour événements métier, idempotence, ordering, backpressure (consumer down → lag → catch-up mesuré). Chaos et benchmarks throughput/latency/lag/cost. Message : je comprends ingest → process → store → analyze → replay → scale.
 
-Message recruteur : je raisonne en propriétés de systèmes distribués et en trade-offs AWS data — pas en liste de services.`,
-        fullDescriptionEn: `The data pillar: ingest clickstream, orders, payments, logs, telemetry; process in real time; store in a data lake; analyze; replay. Architecture A Kinesis-first vs Architecture B MSK/Kafka-first — documented cost/ops/portability trade-offs, not two tools “because”.
+Message recruteur : je raisonne en propriétés de systèmes distribués et en trade-offs AWS data - pas en liste de services.`,
+        fullDescriptionEn: `The data pillar: ingest clickstream, orders, payments, logs, telemetry; process in real time; store in a data lake; analyze; replay. Architecture A Kinesis-first vs Architecture B MSK/Kafka-first - documented cost/ops/portability trade-offs, not two tools “because”.
 
-The journey always starts with intensive labs: isolated AWS services, official docs, workshops and courses — then applied to a concrete product. The platform (or architecture) comes as the conclusion of mastery, not as a substitute for learning.
+The journey always starts with intensive labs: isolated AWS services, official docs, workshops and courses - then applied to a concrete product. The platform (or architecture) comes as the conclusion of mastery, not as a substitute for learning.
 
 Producers + load generator, event contracts + Schema Registry, validation → lake or quarantine, Lambda enrich/route, Glue streaming ETL, S3 raw/bronze/silver/gold, Athena, OpenSearch live search, EventBridge for business events, idempotency, ordering, backpressure (consumer down → lag → measured catch-up). Chaos and throughput/latency/lag/cost benchmarks. Message: I understand ingest → process → store → analyze → replay → scale.
 
-Recruiter message: I reason in distributed-system properties and AWS data trade-offs — not in a service checklist.`,
+Recruiter message: I reason in distributed-system properties and AWS data trade-offs - not in a service checklist.`,
 
         problemFr: "Sans plateforme événements, l'analytics est batch fragile et le troubleshooting temps réel impossible. Empiler Kinesis et MSK sans comparaison est du bruit.",
         problemEn: "Without an event platform, analytics is fragile batch and real-time troubleshooting is impossible. Stacking Kinesis and MSK without comparison is noise.",
@@ -8814,8 +8814,8 @@ Recruiter message: I reason in distributed-system properties and AWS data trade-
         github: "",
         demo: "",
 
-        businessContextFr: "Quatrième pilier AWS : data streaming et lakehouse pour analytics temps réel et rejeu — complément des backends HA/serverless/multi-région.",
-        businessContextEn: "Fourth AWS pillar: streaming data and lakehouse for real-time analytics and replay — complement to HA/serverless/multi-region backends.",
+        businessContextFr: "Quatrième pilier AWS : data streaming et lakehouse pour analytics temps réel et rejeu - complément des backends HA/serverless/multi-région.",
+        businessContextEn: "Fourth AWS pillar: streaming data and lakehouse for real-time analytics and replay - complement to HA/serverless/multi-region backends.",
 
         confidential: false,
 
@@ -9003,8 +9003,8 @@ Recruiter message: I reason in distributed-system properties and AWS data trade-
         externalLinks: [],
 
         testimonial: {
-            quoteFr: "Ils ont arrêté les consumers, montré le lag, puis le catch-up — c'est ça un vrai lab streaming.",
-            quoteEn: "They stopped consumers, showed lag, then catch-up — that is a real streaming lab.",
+            quoteFr: "Ils ont arrêté les consumers, montré le lag, puis le catch-up - c'est ça un vrai lab streaming.",
+            quoteEn: "They stopped consumers, showed lag, then catch-up - that is a real streaming lab.",
             author: "Data engineer peer",
             roleFr: "Data Engineer",
             roleEn: "Data Engineer",
@@ -9036,24 +9036,24 @@ Recruiter message: I reason in distributed-system properties and AWS data trade-
 
     {
         id: 10,
-        titleFr: "Hardening VPS Ubuntu ZENORA — Forteresse Production Multi-Couches",
-        titleEn: "ZENORA Ubuntu VPS Hardening — Multi-Layer Production Fortress",
+        titleFr: "Hardening VPS Ubuntu ZENORA - Forteresse Production Multi-Couches",
+        titleEn: "ZENORA Ubuntu VPS Hardening - Multi-Layer Production Fortress",
 
-        descriptionFr: "Mission terrain ZENORA : hardening production Ubuntu 22.04/24.04 en 12 phases (SSH forteresse, UFW/iptables/CSF, Fail2Ban, CrowdSec, Naxsi, Cloudflare, AIDE, supervision) — runbook anti lock-out, preuve de terrain, base du script linux-server-hardening.",
-        descriptionEn: "ZENORA field mission: production Ubuntu 22.04/24.04 hardening in 12 phases (SSH fortress, UFW/iptables/CSF, Fail2Ban, CrowdSec, Naxsi, Cloudflare, AIDE, supervision) — anti lock-out runbook, field proof, origin of the linux-server-hardening script.",
+        descriptionFr: "Mission terrain ZENORA : hardening production Ubuntu 22.04/24.04 en 12 phases (SSH forteresse, UFW/iptables/CSF, Fail2Ban, CrowdSec, Naxsi, Cloudflare, AIDE, supervision) - runbook anti lock-out, preuve de terrain, base du script linux-server-hardening.",
+        descriptionEn: "ZENORA field mission: production Ubuntu 22.04/24.04 hardening in 12 phases (SSH fortress, UFW/iptables/CSF, Fail2Ban, CrowdSec, Naxsi, Cloudflare, AIDE, supervision) - anti lock-out runbook, field proof, origin of the linux-server-hardening script.",
 
-        fullDescriptionFr: `Je ne parle pas d'un lab théorique. Je parle d'un VPS Ubuntu de production ZENORA — 22.04 puis 24.04 — que j'ai transformé en forteresse multi-couches parce que le site, les API et la réputation de la marque ne tolèrent pas une SSH ouverte au monde.
+        fullDescriptionFr: `Je ne parle pas d'un lab théorique. Je parle d'un VPS Ubuntu de production ZENORA - 22.04 puis 24.04 - que j'ai transformé en forteresse multi-couches parce que le site, les API et la réputation de la marque ne tolèrent pas une SSH ouverte au monde.
 
-Le brief était clair : réduire la surface d'attaque, industrialiser la supervision, et documenter un runbook réutilisable. Cloudflare en façade, oui — mais Cloudflare ne remplace jamais un pare-feu local. J'ai donc construit douze phases ordonnées, chacune testée avant de passer à la suivante, avec une obsession : ne jamais se faire lock-out du serveur.
+Le brief était clair : réduire la surface d'attaque, industrialiser la supervision, et documenter un runbook réutilisable. Cloudflare en façade, oui - mais Cloudflare ne remplace jamais un pare-feu local. J'ai donc construit douze phases ordonnées, chacune testée avant de passer à la suivante, avec une obsession : ne jamais se faire lock-out du serveur.
 
-Phase 1 — forteresse SSH : clés Ed25519, root interdit, passwords coupés, port custom, AllowUsers strict. Je valide toujours une seconde session avant de couper l'ancienne. Phase 2 — unattended-upgrades pour les patchs de sécurité sans improvisation. Phase 3 — audit et intégrité : Lynis, rkhunter, chkrootkit, AIDE, avec rapport mail vers contact@zenora360.com. Phase 4 — Docker optionnel, durci si présent. Phase 5 — NTP fiable. Phase 6 — sysctl 99-security.conf (réseau, syn flood, redirects, etc.). Phase 7 — UFW + règles iptables cohérentes. Phase 8 — Fail2Ban. Phase 9 — Nginx durci (headers, rate-limit, Naxsi WAF). Phase 10 — CSF. Phase 11 — CrowdSec + bouncers. Phase 12 — Cloudflare, logrotate, monitoring, PAM, script de supervision quotidienne.
+Phase 1 - forteresse SSH : clés Ed25519, root interdit, passwords coupés, port custom, AllowUsers strict. Je valide toujours une seconde session avant de couper l'ancienne. Phase 2 - unattended-upgrades pour les patchs de sécurité sans improvisation. Phase 3 - audit et intégrité : Lynis, rkhunter, chkrootkit, AIDE, avec rapport mail vers contact@zenora360.com. Phase 4 - Docker optionnel, durci si présent. Phase 5 - NTP fiable. Phase 6 - sysctl 99-security.conf (réseau, syn flood, redirects, etc.). Phase 7 - UFW + règles iptables cohérentes. Phase 8 - Fail2Ban. Phase 9 - Nginx durci (headers, rate-limit, Naxsi WAF). Phase 10 - CSF. Phase 11 - CrowdSec + bouncers. Phase 12 - Cloudflare, logrotate, monitoring, PAM, script de supervision quotidienne.
 
 Ce que je vends ici, ce n'est pas une checklist copiée-collée. C'est une preuve de terrain pour ZENORA, un guide de 12 phases que je peux rejouer, et la matière première du script interactif linux-server-hardening né de cette mission. Si vous me confiez un VPS critique, je ne commence pas par installer dix outils : je commence par un accès SSH testé, des couches qui ne se marchent pas dessus, et une supervision qui prévient avant d'alarmer trop tard.`,
-        fullDescriptionEn: `This is not a theoretical lab. This is a ZENORA production Ubuntu VPS — 22.04 then 24.04 — that I turned into a multi-layer fortress because the site, the APIs and the brand reputation cannot tolerate an SSH open to the world.
+        fullDescriptionEn: `This is not a theoretical lab. This is a ZENORA production Ubuntu VPS - 22.04 then 24.04 - that I turned into a multi-layer fortress because the site, the APIs and the brand reputation cannot tolerate an SSH open to the world.
 
-The brief was clear: shrink the attack surface, industrialize supervision, and document a reusable runbook. Cloudflare at the edge, yes — but Cloudflare never replaces a local firewall. So I built twelve ordered phases, each validated before the next, with one obsession: never lock myself out of the server.
+The brief was clear: shrink the attack surface, industrialize supervision, and document a reusable runbook. Cloudflare at the edge, yes - but Cloudflare never replaces a local firewall. So I built twelve ordered phases, each validated before the next, with one obsession: never lock myself out of the server.
 
-Phase 1 — SSH fortress: Ed25519 keys, root disabled, passwords off, custom port, strict AllowUsers. I always validate a second session before closing the old one. Phase 2 — unattended-upgrades for security patches without improvisation. Phase 3 — audit and integrity: Lynis, rkhunter, chkrootkit, AIDE, with mail reports to contact@zenora360.com. Phase 4 — optional Docker, hardened when present. Phase 5 — reliable NTP. Phase 6 — sysctl 99-security.conf (network, syn flood, redirects, and more). Phase 7 — UFW plus coherent iptables rules. Phase 8 — Fail2Ban. Phase 9 — hardened Nginx (headers, rate-limit, Naxsi WAF). Phase 10 — CSF. Phase 11 — CrowdSec plus bouncers. Phase 12 — Cloudflare, logrotate, monitoring, PAM, daily supervision script.
+Phase 1 - SSH fortress: Ed25519 keys, root disabled, passwords off, custom port, strict AllowUsers. I always validate a second session before closing the old one. Phase 2 - unattended-upgrades for security patches without improvisation. Phase 3 - audit and integrity: Lynis, rkhunter, chkrootkit, AIDE, with mail reports to contact@zenora360.com. Phase 4 - optional Docker, hardened when present. Phase 5 - reliable NTP. Phase 6 - sysctl 99-security.conf (network, syn flood, redirects, and more). Phase 7 - UFW plus coherent iptables rules. Phase 8 - Fail2Ban. Phase 9 - hardened Nginx (headers, rate-limit, Naxsi WAF). Phase 10 - CSF. Phase 11 - CrowdSec plus bouncers. Phase 12 - Cloudflare, logrotate, monitoring, PAM, daily supervision script.
 
 What I sell here is not a copy-pasted checklist. It is field proof for ZENORA, a 12-phase guide I can replay, and the raw material for the interactive linux-server-hardening script born from this mission. If you trust me with a critical VPS, I do not start by installing ten tools: I start with tested SSH access, layers that do not fight each other, and supervision that warns before it is too late.`,
 
@@ -9065,7 +9065,7 @@ What I sell here is not a copy-pasted checklist. It is field proof for ZENORA, a
             "unattended-upgrades pour les correctifs de sécurité",
             "Audit & intégrité : Lynis, rkhunter, chkrootkit, AIDE (mail contact@zenora360.com)",
             "Docker optionnel durci ; NTP ; sysctl 99-security.conf",
-            "Pare-feu local : UFW + iptables + CSF — Cloudflare en complément, pas en remplacement",
+            "Pare-feu local : UFW + iptables + CSF - Cloudflare en complément, pas en remplacement",
             "Fail2Ban + CrowdSec + bouncers",
             "Nginx : headers, rate-limit, Naxsi WAF",
             "logrotate, monitoring, PAM, script de supervision quotidienne",
@@ -9077,7 +9077,7 @@ What I sell here is not a copy-pasted checklist. It is field proof for ZENORA, a
             "unattended-upgrades for security patches",
             "Audit & integrity: Lynis, rkhunter, chkrootkit, AIDE (mail contact@zenora360.com)",
             "Optional hardened Docker; NTP; sysctl 99-security.conf",
-            "Local firewall: UFW + iptables + CSF — Cloudflare as complement, not replacement",
+            "Local firewall: UFW + iptables + CSF - Cloudflare as complement, not replacement",
             "Fail2Ban + CrowdSec + bouncers",
             "Nginx: headers, rate-limit, Naxsi WAF",
             "logrotate, monitoring, PAM, daily supervision script",
@@ -9183,7 +9183,7 @@ What I sell here is not a copy-pasted checklist. It is field proof for ZENORA, a
         category: "Security • DevOps • Production Hardening",
         status: "Production",
         complexity: "Expert",
-        role: "DevSecOps / Sysadmin — mission ZENORA",
+        role: "DevSecOps / Sysadmin - mission ZENORA",
         teamSize: 1,
 
         duration: "Mission + runbook continu",
@@ -9215,8 +9215,8 @@ What I sell here is not a copy-pasted checklist. It is field proof for ZENORA, a
         gallery: [
             {
                 src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/images%20(2).jpeg",
-                captionFr: "Contexte hardening VPS Ubuntu ZENORA — forteresse multi-couches.",
-                captionEn: "ZENORA Ubuntu VPS hardening context — multi-layer fortress.", kind: "infra",
+                captionFr: "Contexte hardening VPS Ubuntu ZENORA - forteresse multi-couches.",
+                captionEn: "ZENORA Ubuntu VPS hardening context - multi-layer fortress.", kind: "infra",
             },
         ],
 
@@ -9306,8 +9306,8 @@ What I sell here is not a copy-pasted checklist. It is field proof for ZENORA, a
                 type: "other",
             },
             {
-                labelFr: "linux-server-hardening — né de cette mission",
-                labelEn: "linux-server-hardening — born from this mission",
+                labelFr: "linux-server-hardening - né de cette mission",
+                labelEn: "linux-server-hardening - born from this mission",
                 url: "https://github.com/barthez-kenwou/linux-server-hardening",
                 type: "other",
             },
@@ -9360,13 +9360,13 @@ What I sell here is not a copy-pasted checklist. It is field proof for ZENORA, a
             "Pas de remplacement du WAF Cloudflare par le seul WAF local",
             "Pas de Kubernetes / mesh dans cette mission",
             "Pas de métriques vanity inventées (uptime marketing, % magiques)",
-            "Pas d'automatisation totale — celle-ci vit dans le projet script id 24",
+            "Pas d'automatisation totale - celle-ci vit dans le projet script id 24",
         ],
         nonGoalsEn: [
             "Not replacing Cloudflare WAF with local WAF alone",
             "No Kubernetes / mesh in this mission",
             "No invented vanity metrics (marketing uptime, magic %)",
-            "Not full automation — that lives in the script project id 24",
+            "Not full automation - that lives in the script project id 24",
         ],
 
         decisions: [
@@ -9452,8 +9452,8 @@ What I sell here is not a copy-pasted checklist. It is field proof for ZENORA, a
             quoteFr: "Le VPS ZENORA n'est plus un serveur « installé vite fait » : c'est une forteresse documentée, rejouable, et la base d'un script que je réutilise pour les prochaines missions.",
             quoteEn: "The ZENORA VPS is no longer a “quick install” server: it is a documented, replayable fortress, and the foundation of a script I reuse for the next missions.",
             author: "Barthez Kenwou",
-            roleFr: "DevSecOps — mission ZENORA",
-            roleEn: "DevSecOps — ZENORA mission",
+            roleFr: "DevSecOps - mission ZENORA",
+            roleEn: "DevSecOps - ZENORA mission",
             company: "ZENORA / Portfolio",
         },
 
@@ -9462,14 +9462,14 @@ What I sell here is not a copy-pasted checklist. It is field proof for ZENORA, a
             "Cloudflare n'absout pas un pare-feu local négligé",
             "L'ordre des phases évite les conflits UFW/CSF/CrowdSec",
             "AIDE sans lecteur humain = bruit ; le mail ops est obligatoire",
-            "Le terrain ZENORA justifie l'automatisation — pas l'inverse",
+            "Le terrain ZENORA justifie l'automatisation - pas l'inverse",
         ],
         lessonsEn: [
             "Always validate a 2nd SSH session before reloading sshd",
             "Cloudflare does not forgive a neglected local firewall",
             "Phase order prevents UFW/CSF/CrowdSec conflicts",
             "AIDE without a human reader is noise; ops mail is mandatory",
-            "ZENORA field work justifies automation — not the other way around",
+            "ZENORA field work justifies automation - not the other way around",
         ],
 
         beforeAfter: [
@@ -9486,24 +9486,24 @@ What I sell here is not a copy-pasted checklist. It is field proof for ZENORA, a
 
     {
         id: 24,
-        titleFr: "linux-server-hardening — Script Interactif Ubuntu (Golden Path Sécurité)",
-        titleEn: "linux-server-hardening — Interactive Ubuntu Script (Security Golden Path)",
+        titleFr: "linux-server-hardening - Script Interactif Ubuntu (Golden Path Sécurité)",
+        titleEn: "linux-server-hardening - Interactive Ubuntu Script (Security Golden Path)",
 
-        descriptionFr: "Produit script issu du hardening VPS ZENORA : assistant interactif Ubuntu qui interroge users, Docker, Nginx, CSF, CrowdSec, monitoring — puis automatise le golden path. Validé labs, local, 2 amis sur VPS réels.",
-        descriptionEn: "Script product born from ZENORA VPS hardening: interactive Ubuntu assistant that prompts for users, Docker, Nginx, CSF, CrowdSec, monitoring — then automates the golden path. Validated in labs, locally, and with 2 friends on real VPS.",
+        descriptionFr: "Produit script issu du hardening VPS ZENORA : assistant interactif Ubuntu qui interroge users, Docker, Nginx, CSF, CrowdSec, monitoring - puis automatise le golden path. Validé labs, local, 2 amis sur VPS réels.",
+        descriptionEn: "Script product born from ZENORA VPS hardening: interactive Ubuntu assistant that prompts for users, Docker, Nginx, CSF, CrowdSec, monitoring - then automates the golden path. Validated in labs, locally, and with 2 friends on real VPS.",
 
-        fullDescriptionFr: `Après avoir durci le VPS production ZENORA à la main, j'ai refusé de recommencer à zéro à chaque mission. linux-server-hardening est le produit : un script interactif Ubuntu qui industrialise le même golden path — sans prétendre remplacer le jugement d'un opérateur.
+        fullDescriptionFr: `Après avoir durci le VPS production ZENORA à la main, j'ai refusé de recommencer à zéro à chaque mission. linux-server-hardening est le produit : un script interactif Ubuntu qui industrialise le même golden path - sans prétendre remplacer le jugement d'un opérateur.
 
 Le flow est volontairement conversationnel. Combien d'utilisateurs SSH ? Quels comptes, quelles clés ? Docker ou non ? Nginx à durcir ? CSF ? CrowdSec et ses bouncers ? Monitoring et supervision quotidienne ? Selon les réponses, le script enchaîne les phases éprouvées : forteresse SSH, unattended-upgrades, scanners et AIDE, sysctl, UFW/iptables, Fail2Ban, couches optionnelles Nginx/CSF/CrowdSec, logrotate et routines ops.
 
-Ce n'est pas un « one-liner magique ». C'est un accélérateur discipliné, né d'une preuve terrain (projet Hardening VPS Ubuntu ZENORA). Je l'ai validé en labs, en local, et avec deux amis sur de vrais VPS — assez pour faire confiance au parcours, assez humble pour garder des prompts et des checkpoints. Le dépôt GitHub porte le produit ; la mission ZENORA reste l'origine et la référence.
+Ce n'est pas un « one-liner magique ». C'est un accélérateur discipliné, né d'une preuve terrain (projet Hardening VPS Ubuntu ZENORA). Je l'ai validé en labs, en local, et avec deux amis sur de vrais VPS - assez pour faire confiance au parcours, assez humble pour garder des prompts et des checkpoints. Le dépôt GitHub porte le produit ; la mission ZENORA reste l'origine et la référence.
 
 Message recruteur : je ne vends pas seulement une checklist PDF. Je vends un golden path que j'ai souffert sur un serveur réel, puis transformé en outil prêt pour les prochaines missions clients.`,
-        fullDescriptionEn: `After hardening the ZENORA production VPS by hand, I refused to start from scratch on every mission. linux-server-hardening is the product: an interactive Ubuntu script that industrializes the same golden path — without pretending to replace an operator's judgment.
+        fullDescriptionEn: `After hardening the ZENORA production VPS by hand, I refused to start from scratch on every mission. linux-server-hardening is the product: an interactive Ubuntu script that industrializes the same golden path - without pretending to replace an operator's judgment.
 
 The flow is intentionally conversational. How many SSH users? Which accounts, which keys? Docker or not? Harden Nginx? CSF? CrowdSec and bouncers? Monitoring and daily supervision? Based on the answers, the script chains the proven phases: SSH fortress, unattended-upgrades, scanners and AIDE, sysctl, UFW/iptables, Fail2Ban, optional Nginx/CSF/CrowdSec layers, logrotate and ops routines.
 
-This is not a “magic one-liner”. It is a disciplined accelerator, born from field proof (the ZENORA Ubuntu VPS Hardening project). I validated it in labs, locally, and with two friends on real VPS boxes — enough to trust the path, humble enough to keep prompts and checkpoints. The GitHub repo carries the product; the ZENORA mission remains the origin and the reference.
+This is not a “magic one-liner”. It is a disciplined accelerator, born from field proof (the ZENORA Ubuntu VPS Hardening project). I validated it in labs, locally, and with two friends on real VPS boxes - enough to trust the path, humble enough to keep prompts and checkpoints. The GitHub repo carries the product; the ZENORA mission remains the origin and the reference.
 
 Recruiter message: I do not only sell a PDF checklist. I sell a golden path I earned on a real server, then turned into a tool ready for the next client missions.`,
 
@@ -9565,7 +9565,7 @@ Recruiter message: I do not only sell a PDF checklist. I sell a golden path I ea
             "Mode": "Script interactif (prompts)",
             "Validation": "Labs + local + 2 VPS amis",
             "Couches optionnelles": "Docker, Nginx, CSF, CrowdSec, monitoring",
-            "Statut": "Actif — prêt missions suivantes",
+            "Statut": "Actif - prêt missions suivantes",
         },
 
         techStack: {
@@ -9648,8 +9648,8 @@ Recruiter message: I do not only sell a PDF checklist. I sell a golden path I ea
         gallery: [
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
-                captionFr: "Placeholder — captures CLI / runs à venir.",
-                captionEn: "Placeholder — CLI / run captures to come.", kind: "wip",
+                captionFr: "Placeholder - captures CLI / runs à venir.",
+                captionEn: "Placeholder - CLI / run captures to come.", kind: "wip",
             },
         ],
 
@@ -9737,8 +9737,8 @@ Recruiter message: I do not only sell a PDF checklist. I sell a golden path I ea
                 type: "other",
             },
             {
-                labelFr: "Origine — Hardening VPS ZENORA",
-                labelEn: "Origin — ZENORA VPS Hardening",
+                labelFr: "Origine - Hardening VPS ZENORA",
+                labelEn: "Origin - ZENORA VPS Hardening",
                 url: "https://zenora360.com",
                 type: "other",
             },
@@ -9867,18 +9867,18 @@ Recruiter message: I do not only sell a PDF checklist. I sell a golden path I ea
                 url: "https://github.com/barthez-kenwou/linux-server-hardening",
             },
             {
-                labelFr: "ZENORA — contexte d'origine",
-                labelEn: "ZENORA — origin context",
+                labelFr: "ZENORA - contexte d'origine",
+                labelEn: "ZENORA - origin context",
                 url: "https://zenora360.com",
             },
         ],
 
         testimonial: {
-            quoteFr: "Le script n'existe que parce que le VPS ZENORA a d'abord été durci à la main. Maintenant je peux rejouer le golden path avec des prompts — labs, local, deux VPS amis — et enchaîner les missions.",
-            quoteEn: "The script exists only because the ZENORA VPS was hardened by hand first. Now I can replay the golden path with prompts — labs, local, two friends' VPS — and chain the next missions.",
+            quoteFr: "Le script n'existe que parce que le VPS ZENORA a d'abord été durci à la main. Maintenant je peux rejouer le golden path avec des prompts - labs, local, deux VPS amis - et enchaîner les missions.",
+            quoteEn: "The script exists only because the ZENORA VPS was hardened by hand first. Now I can replay the golden path with prompts - labs, local, two friends' VPS - and chain the next missions.",
             author: "Barthez Kenwou",
-            roleFr: "Auteur — linux-server-hardening",
-            roleEn: "Author — linux-server-hardening",
+            roleFr: "Auteur - linux-server-hardening",
+            roleEn: "Author - linux-server-hardening",
             company: "Portfolio",
         },
 
@@ -9915,16 +9915,16 @@ Recruiter message: I do not only sell a PDF checklist. I sell a golden path I ea
         descriptionFr: "SaaS opérationnel pour organisations accueillant du public : inscription → espace sécurisé → création de files → invitations staff → suivi live et estimation d’attente. React + FastAPI, équipe Scrum de 5.",
         descriptionEn: "Operational SaaS for public-facing organizations: signup → secure workspace → queue creation → staff invites → live tracking and wait-time estimation. React + FastAPI, Scrum team of 5.",
 
-        fullDescriptionFr: `Une organisation n'arrive pas « sur une page marketing » : elle entre dans un produit. Elle s'inscrit, ouvre son espace tenant, configure ses services, crée autant de files qu'elle a de guichets ou de parcours, invite son équipe, puis gère le flux du jour — tickets, positions, appels au guichet, estimation d'attente basée sur la durée moyenne réelle, et supervision en direct.
+        fullDescriptionFr: `Une organisation n'arrive pas « sur une page marketing » : elle entre dans un produit. Elle s'inscrit, ouvre son espace tenant, configure ses services, crée autant de files qu'elle a de guichets ou de parcours, invite son équipe, puis gère le flux du jour - tickets, positions, appels au guichet, estimation d'attente basée sur la durée moyenne réelle, et supervision en direct.
 
-J'ai piloté ce MVP en double casquette Scrum Master + lead technique dans une équipe de 5 (React / FastAPI / PostgreSQL). Le cœur métier n'est pas un compteur cosmétique : c'est l'isolation multi-tenant, le cycle de vie d'une file (ouvrir, pauser, fermer), l'expérience usager qui voit où il en est, et l'expérience opérateur qui appelle le suivant sans chaos. Estimation dynamique recalculée sur l'historique de traitement, mises à jour temps réel côté client, UI pensée pour le stress du hall d'accueil — pas pour une démo PowerPoint.
+J'ai piloté ce MVP en double casquette Scrum Master + lead technique dans une équipe de 5 (React / FastAPI / PostgreSQL). Le cœur métier n'est pas un compteur cosmétique : c'est l'isolation multi-tenant, le cycle de vie d'une file (ouvrir, pauser, fermer), l'expérience usager qui voit où il en est, et l'expérience opérateur qui appelle le suivant sans chaos. Estimation dynamique recalculée sur l'historique de traitement, mises à jour temps réel côté client, UI pensée pour le stress du hall d'accueil - pas pour une démo PowerPoint.
 
-Le résultat : un produit crédible pour digitaliser l'attente dans administrations, cliniques, services clients et entreprises — avec une architecture prête à grandir sans devoir tout casser quand le deuxième tenant arrive.`,
-        fullDescriptionEn: `An organization does not land on a brochure page: it enters a product. It signs up, opens its tenant workspace, configures its services, creates as many queues as it has counters or journeys, invites its staff, then runs the day's flow — tickets, positions, counter calls, wait-time estimation based on real average handling time, and live supervision.
+Le résultat : un produit crédible pour digitaliser l'attente dans administrations, cliniques, services clients et entreprises - avec une architecture prête à grandir sans devoir tout casser quand le deuxième tenant arrive.`,
+        fullDescriptionEn: `An organization does not land on a brochure page: it enters a product. It signs up, opens its tenant workspace, configures its services, creates as many queues as it has counters or journeys, invites its staff, then runs the day's flow - tickets, positions, counter calls, wait-time estimation based on real average handling time, and live supervision.
 
-I led this MVP as Scrum Master + tech lead in a team of 5 (React / FastAPI / PostgreSQL). The business core is not a cosmetic counter: it is multi-tenant isolation, queue lifecycle (open, pause, close), the visitor experience of knowing where they stand, and the operator experience of calling the next person without chaos. Dynamic estimation recalculated from handling history, realtime client updates, UI designed for lobby stress — not a PowerPoint demo.
+I led this MVP as Scrum Master + tech lead in a team of 5 (React / FastAPI / PostgreSQL). The business core is not a cosmetic counter: it is multi-tenant isolation, queue lifecycle (open, pause, close), the visitor experience of knowing where they stand, and the operator experience of calling the next person without chaos. Dynamic estimation recalculated from handling history, realtime client updates, UI designed for lobby stress - not a PowerPoint demo.
 
-The outcome: a credible product to digitize waiting in administrations, clinics, service desks and companies — with an architecture ready to grow without a rewrite when the second tenant arrives.`,
+The outcome: a credible product to digitize waiting in administrations, clinics, service desks and companies - with an architecture ready to grow without a rewrite when the second tenant arrives.`,
 
         problemFr: "Sans outil dédié, les files restent orales, papier ou WhatsApp : perte d'équité, stress, zéro visibilité pour le manager, et aucune estimation honnête du temps d'attente.",
         problemEn: "Without a dedicated tool, queues stay oral, paper or WhatsApp: unfairness, stress, zero manager visibility, and no honest wait-time estimate.",
@@ -10067,8 +10067,8 @@ The outcome: a credible product to digitize waiting in administrations, clinics,
         gallery: [
             {
                 src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/images%20(4).jpeg",
-                captionFr: "Espace organisation — pilotage des files",
-                captionEn: "Organization workspace — queue operations", kind: "process",
+                captionFr: "Espace organisation - pilotage des files",
+                captionEn: "Organization workspace - queue operations", kind: "process",
             },
         ],
 
@@ -10229,8 +10229,8 @@ The outcome: a credible product to digitize waiting in administrations, clinics,
         ],
 
         testimonial: {
-            quoteFr: "Enfin une démo où on voit une boîte créer ses files et travailler — pas juste un compteur.",
-            quoteEn: "Finally a demo where a company creates queues and actually works — not just a counter.",
+            quoteFr: "Enfin une démo où on voit une boîte créer ses files et travailler - pas juste un compteur.",
+            quoteEn: "Finally a demo where a company creates queues and actually works - not just a counter.",
             author: "Product stakeholder",
             roleFr: "Sponsor",
             roleEn: "Sponsor",
@@ -10262,164 +10262,240 @@ The outcome: a credible product to digitize waiting in administrations, clinics,
 
     {
         id: 12,
-        titleFr: "GTA Academy — Vitrine Centre de Formation Tech & Digital",
-        titleEn: "GTA Academy — Tech & Digital Training Center Showcase",
+        titleFr: "GTA Academy - Vitrine Centre de Formation Tech & Digital",
+        titleEn: "GTA Academy - Tech & Digital Training Center Showcase",
 
-        descriptionFr: "Plateforme web de lancement pour GTA Academy (Yaoundé) : formations tech/digital, événements, conversion apprenants. Live sur academy.gta-it.com — livrée sous contrainte de time-to-market.",
-        descriptionEn: "Launch web platform for GTA Academy (Yaoundé): tech/digital programs, events, learner conversion. Live at academy.gta-it.com — shipped under hard time-to-market pressure.",
+        descriptionFr: "Plateforme vitrine React pour GTA Academy (Soa/Yaoundé) : formations certifiantes, centre Pearson VUE agréé, inscriptions, contact. Live academy.gta-it.com - livré en 3 jours.",
+        descriptionEn: "React showcase for GTA Academy (Soa/Yaoundé): certified programs, approved Pearson VUE center, registration, contact. Live at academy.gta-it.com - shipped in 3 days.",
 
-        fullDescriptionFr: `GTA Academy — centre de formation professionnelle tech & digital au Cameroun (Nkolfoulou / Yaoundé, lié à GTA-IT) — avait besoin d'une présence digitale digne d'un lancement : crédible, claire sur les offres, capable de transformer un visiteur en prospect.
+        fullDescriptionFr: `GTA Academy - centre de formation professionnelle tech & digital au Cameroun (Nkolfoulou base SATOM, Soa - lié à l'écosystème GTA-IT) - devait lancer avec une vitrine à la hauteur : crédible, lisible, capable de convertir un visiteur en apprenant ou candidat certification.
 
-J'ai conçu et développé la plateforme sous délai serré (ordre de grandeur : une semaine jusqu'au go-live). Objectif : structurer les formations (développement web, intelligence artificielle, cybersécurité, parcours vacances / entreprise / certifiants / personnalisés), mettre en avant webinaires et sessions d'information, fluidifier contact et inscription, et poser SEO/schema EducationalOrganization pour la découvrabilité. Stack React + Tailwind côté expérience, Node/Express + MongoDB pour les contenus/leads selon besoins, déploiement cloud/VPS avec CI légère.
+Trois jours. Pas le temps du LMS. Le temps de la confiance : hero carousel (Future Technologies - IA/ML, Blockchain/Web3, Cloud/DevOps), bandeau inscriptions rentrée, À propos (vision marché digital africain), valeurs (Excellence, Support, Innovation, Certification CQP/DQP/AQP), catalogue Trainings en 4 formats (certifiant, vacances, entreprise, personnalisé), fiches programmes (Génie Logiciel 9+3 mois, Data Science & IA, Cloud & DevOps), page Pearson VUE (centre agréé MINEFOP, 200+ certifications AWS/Microsoft/Cisco/Google Cloud…), CTAs conversion (consultation gratuite, devis personnalisé), contact WhatsApp + formulaire + Google Maps, footer écosystème GTA. Bilingue FR/EN. Dark mode.
 
-Le site est en production : https://academy.gta-it.com/. Ce n'est pas un LMS : c'est l'arme d'acquisition et de crédibilité du centre au moment où chaque jour sans vitrine coûtait des apprenants.`,
-        fullDescriptionEn: `GTA Academy — a tech & digital professional training center in Cameroon (Nkolfoulou / Yaoundé, linked to GTA-IT) — needed a digital presence worthy of a launch: credible, clear on offers, able to turn a visitor into a prospect.
+Stack frontend vendeuse : React 18 + TypeScript + Vite + Tailwind + shadcn/Radix UI, Framer Motion, react-i18next, React Router, TanStack Query, next-themes, EmailJS pour les leads - pas de backend métier v1, scope tranché pour tenir le délai. Déploiement production https://academy.gta-it.com/.
 
-I designed and built the platform under a tight deadline (order of magnitude: one week to go-live). Goal: structure programs (web development, artificial intelligence, cybersecurity, holiday / corporate / certified / custom tracks), showcase webinars and info sessions, streamline contact and registration, and set EducationalOrganization SEO/schema for discoverability. React + Tailwind for the experience, Node/Express + MongoDB for content/leads as needed, cloud/VPS deploy with light CI.
+Ce n'est pas une plateforme pédagogique : c'est l'arme d'acquisition du centre au moment où chaque jour sans vitrine coûtait des inscriptions.`,
+        fullDescriptionEn: `GTA Academy - a tech & digital professional training center in Cameroon (Nkolfoulou base SATOM, Soa - linked to the GTA-IT ecosystem) - needed a launch showcase worthy of the brand: credible, readable, able to turn a visitor into a learner or certification candidate.
 
-The site is in production: https://academy.gta-it.com/. This is not an LMS: it is the center’s acquisition and credibility weapon when every day without a showcase cost learners.`,
+Three days. No time for an LMS. Time for trust: hero carousel (Future Technologies - AI/ML, Blockchain/Web3, Cloud/DevOps), January intake registration banner, About (African digital market vision), values (Excellence, Support, Innovation, CQP/DQP/AQP certification), Trainings catalog in 4 formats (certified, holiday, corporate, personalized), program cards (Software Engineering 9+3 months, Data Science & AI, Cloud & DevOps), Pearson VUE page (MINEFOP-approved center, 200+ AWS/Microsoft/Cisco/Google Cloud certifications…), conversion CTAs (free consultation, custom quote), WhatsApp contact + form + Google Maps, GTA ecosystem footer. Bilingual FR/EN. Dark mode.
 
-        problemFr: "Sans site, GTA Academy lançait à l'aveugle : peu de crédibilité, offres illisibles, acquisition apprenants freinée.",
-        problemEn: "Without a site, GTA Academy was launching blind: weak credibility, unclear offers, slowed learner acquisition.",
+A frontend stack that sells: React 18 + TypeScript + Vite + Tailwind + shadcn/Radix UI, Framer Motion, react-i18next, React Router, TanStack Query, next-themes, EmailJS for leads - no business backend in v1, scope cut to hit the deadline. Production deploy at https://academy.gta-it.com/.
+
+This is not a learning platform: it is the center's acquisition weapon when every day without a showcase cost enrollments.`,
+
+        problemFr: "Sans site, GTA Academy lançait à l'aveugle : crédibilité faible, offres formation/certification illisibles, Pearson VUE invisible, acquisition apprenants freinée.",
+        problemEn: "Without a site, GTA Academy was launching blind: weak credibility, unreadable training/certification offers, invisible Pearson VUE positioning, slowed learner acquisition.",
 
         solutionFr: [
-            "Vitrine conversion mobile-first en time-to-market court",
-            "Structuration multi-offres (web, IA, cybersécurité + formats)",
-            "Pages événements / webinaires / sessions info",
-            "Parcours contact / inscription optimisé",
-            "SEO + données structurées centre de formation",
-            "Déploiement production academy.gta-it.com",
+            "Vitrine React premium - dark mode, bilingue FR/EN, mobile-first",
+            "Hero carousel + bandeaux inscriptions / rentrée",
+            "Catalogue 4 formats : certifiant, vacances, entreprise, personnalisé",
+            "Fiches programmes Web / Data Science & IA / Cloud & DevOps",
+            "Page Pearson VUE - centre agréé, 200+ certifications internationales",
+            "Parcours conversion : consultation gratuite, devis, WhatsApp, formulaire",
+            "Contact + Google Maps (IFP GTA Academy, Soa/Yaoundé)",
+            "SEO EducationalOrganization + déploiement academy.gta-it.com",
         ],
         solutionEn: [
-            "Mobile-first conversion showcase under short TTM",
-            "Multi-offer structure (web, AI, cybersecurity + formats)",
-            "Events / webinars / info-session pages",
-            "Optimized contact / registration journey",
-            "SEO + structured data for a training center",
-            "Production deploy on academy.gta-it.com",
+            "Premium React showcase - dark mode, bilingual FR/EN, mobile-first",
+            "Hero carousel + registration / intake banners",
+            "4-format catalog: certified, holiday, corporate, personalized",
+            "Web / Data Science & AI / Cloud & DevOps program cards",
+            "Pearson VUE page - approved center, 200+ international certifications",
+            "Conversion journey: free consultation, quote, WhatsApp, form",
+            "Contact + Google Maps (IFP GTA Academy, Soa/Yaoundé)",
+            "EducationalOrganization SEO + academy.gta-it.com deploy",
         ],
 
         challengesFr: [
-            "Livrer une vitrine crédible en ~1 semaine",
-            "Clarifier une offre formation dense sans noyer le visiteur",
-            "Crédibilité immédiate pour une structure en lancement",
-            "Arbitrer LMS vs conversion (scope)",
+            "Livrer une vitrine crédible en 3 jours chrono",
+            "Structurer une offre dense (formations + Pearson VUE + événements) sans noyer le visiteur",
+            "Crédibilité immédiate pour un centre en lancement",
+            "Bilingue + dark mode + carousel sans alourdir le sprint",
+            "Arbitrer LMS vs conversion (scope v1 frontend-only)",
         ],
         challengesEn: [
-            "Ship a credible showcase in ~1 week",
-            "Clarify a dense training catalog without drowning visitors",
+            "Ship a credible showcase in a 3-day sprint",
+            "Structure a dense offer (programs + Pearson VUE + events) without drowning visitors",
             "Immediate credibility for a launching institution",
-            "LMS vs conversion scope arbitration",
+            "Bilingual + dark mode + carousel without bloating the sprint",
+            "LMS vs conversion arbitration (v1 frontend-only scope)",
         ],
 
         impactFr: [
-            "Présence digitale live et partageable",
-            "Offres et événements lisibles pour prospects",
-            "Socle d'acquisition pour les premières promotions",
-            "Alignement marque avec gta-it.com / écosystème GTA",
+            "academy.gta-it.com live en 3 jours",
+            "Offres formation + centre Pearson VUE lisibles et partageables",
+            "Canal d'acquisition pour premières promotions et candidats certification",
+            "Alignement marque avec gta-it.com et écosystème GTA (Labs, E-Commerce…)",
         ],
         impactEn: [
-            "Live, shareable digital presence",
-            "Readable offers and events for prospects",
-            "Acquisition base for early cohorts",
-            "Brand alignment with gta-it.com / GTA ecosystem",
+            "academy.gta-it.com live in 3 days",
+            "Readable, shareable training offers + Pearson VUE center",
+            "Acquisition channel for early cohorts and certification candidates",
+            "Brand alignment with gta-it.com and GTA ecosystem (Labs, E-Commerce…)",
         ],
 
         metrics: {
-            "TTM": "~1 week",
+            "Delivery": "3 jours",
             "Live": "academy.gta-it.com",
-            "Focus": "conversion + credibility",
-            "Programs": "Web / AI / Cyber+",
-            "Locale": "Yaoundé, CM",
-            "Role": "Fullstack solo",
-            "Type": "showcase (not LMS)",
-            "SEO": "EducationalOrganization schema",
+            "Focus": "conversion + Pearson VUE",
+            "Programs": "Web / IA / Cloud + 4 formats",
+            "Certifications": "200+ (Pearson VUE)",
+            "Locale": "Soa / Yaoundé, CM",
+            "Role": "Frontend lead",
+            "i18n": "FR / EN",
         },
 
         techStack: {
             frontend: [
-                "React",
+                "React 18",
+                "TypeScript",
+                "Vite",
                 "Tailwind CSS",
+                "shadcn/ui (Radix UI)",
+                "Framer Motion",
+                "react-i18next (FR/EN)",
+                "React Router",
+                "TanStack Query",
+                "next-themes (dark mode)",
+                "EmailJS (contact leads)",
+                "Embla Carousel",
             ],
-            backend: [
-                "Node.js",
-                "Express",
-            ],
-            database: [
-                "MongoDB",
-            ],
+            backend: [],
+            database: [],
             devops: [
-                "Vercel / VPS",
-                "CI/CD",
+                "Production deploy",
                 "Cloudflare",
+                "HTTPS",
+                "GitHub gta-academy",
             ],
         },
 
         architecture: [
-            "Landing + catalog programs + events + contact",
-            "React UI oriented conversion",
-            "Node API for content/leads when needed",
+            "SPA React frontend-only (EmailJS pour contact, pas de backend métier v1)",
+            "Sections : hero carousel, about/values, trainings, Pearson VUE, contact, footer écosystème",
+            "Theme light/dark global + i18n FR/EN",
             "SEO schema EducationalOrganization",
-            "Fast production deploy",
+            "Build Vite + déploiement production",
         ],
 
         testing: [
-            "QA parcours mobile/desktop",
-            "Validation formulaires contact",
-            "Checks SEO basiques / meta",
-            "Smoke post-deploy production",
+            "QA mobile/desktop + dark/light",
+            "Parcours Trainings + Pearson VUE lisibles",
+            "Formulaire contact + consentement",
+            "Switch langue FR/EN",
+            "Smoke production academy.gta-it.com",
         ],
 
         images: [
-            "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Macbook-Air-academy.gta-it.com.png",
-            "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/iPhone-13-PRO-academy.gta-it.com.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/gta-academy/01-hero-future-tech.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/gta-academy/02-hero-inscriptions.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/gta-academy/05-pearson-vue-center.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/gta-academy/07-trainings-categories.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/gta-academy/08-trainings-programs.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/gta-academy/12-contact-form-map.png"
         ],
-        preview: "https://academy.gta-it.com/",
+        preview: "https://s3.zenora360.com/barthez-portfolio/images/gta-academy/01-hero-future-tech.png",
         videoDemo: "",
 
-        category: "Fullstack • Education",
+        category: "Frontend • Education",
         status: "Production",
         complexity: "Intermédiaire",
-        role: "Fullstack Developer",
+        role: "Frontend Developer",
         teamSize: 1,
 
-        duration: "~1 semaine",
+        duration: "3 jours",
         date: "2025",
 
         github: "https://github.com/barthez-kenwou/gta-academy",
         demo: "https://academy.gta-it.com/",
 
-        businessContextFr: "Lancement stratégique GTA Academy : transformer l'absence digitale en machine à crédibilité et à leads formation tech au Cameroun.",
-        businessContextEn: "Strategic GTA Academy launch: turn digital absence into a credibility and tech-training lead engine in Cameroon.",
+        businessContextFr: "Lancement stratégique GTA Academy : transformer l'absence digitale en machine à crédibilité, inscriptions formation tech et candidatures certification Pearson VUE au Cameroun.",
+        businessContextEn: "Strategic GTA Academy launch: turn digital absence into a credibility, tech-training enrollment, and Pearson VUE certification engine in Cameroon.",
 
         confidential: false,
 
         responsibilitiesFr: [
-            "Conception UX conversion + build React",
-            "Structuration contenus formations/événements",
-            "API/leads Node si requis",
-            "SEO technique + go-live",
-            "Itérations post-lancement courtes",
+            "Cadrage offre → parcours conversion clair en 3 jours",
+            "UI/UX premium dark mode + identité GTA rouge/noir",
+            "Implémentation React/TS/Vite/Tailwind/shadcn complète",
+            "Pages Trainings, Pearson VUE, Contact, i18n FR/EN",
+            "Intégration EmailJS + déploiement academy.gta-it.com",
         ],
         responsibilitiesEn: [
-            "Conversion UX design + React build",
-            "Programs/events content structure",
-            "Node leads/API as required",
-            "Technical SEO + go-live",
-            "Short post-launch iterations",
+            "Offer framing → clear conversion journey in 3 days",
+            "Premium dark-mode UI/UX + GTA red/black identity",
+            "Full React/TS/Vite/Tailwind/shadcn implementation",
+            "Trainings, Pearson VUE, Contact pages, FR/EN i18n",
+            "EmailJS integration + academy.gta-it.com deploy",
         ],
 
         gallery: [
             {
-                src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Macbook-Air-academy.gta-it.com.png",
-                captionFr: "Homepage desktop — crédibilité centre de formation",
-                captionEn: "Desktop homepage — training-center credibility", kind: "ui",
+                src: "https://s3.zenora360.com/barthez-portfolio/images/gta-academy/01-hero-future-tech.png",
+                captionFr: "Hero - Future Technologies (IA, Blockchain, Cloud/DevOps)",
+                captionEn: "Hero - Future Technologies (AI, Blockchain, Cloud/DevOps)", kind: "ui",
             },
             {
-                src: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/iPhone-13-PRO-academy.gta-it.com.png",
-                captionFr: "Parcours mobile — acquisition locale",
-                captionEn: "Mobile journey — local acquisition", kind: "ui",
+                src: "https://s3.zenora360.com/barthez-portfolio/images/gta-academy/02-hero-inscriptions.png",
+                captionFr: "Hero - inscriptions ouvertes rentrée janvier",
+                captionEn: "Hero - January intake registrations open", kind: "ui",
             },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/gta-academy/03-about-vision.png",
+                captionFr: "À propos - Notre Vision, pont marché digital africain",
+                captionEn: "About - Our Vision, African digital market bridge", kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/gta-academy/04-about-values.png",
+                captionFr: "Valeurs - Excellence, Support, Innovation, Certification",
+                captionEn: "Values - Excellence, Support, Innovation, Certification", kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/gta-academy/05-pearson-vue-center.png",
+                captionFr: "Pearson VUE - centre agréé MINEFOP, Soa",
+                captionEn: "Pearson VUE - MINEFOP-approved center, Soa", kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/gta-academy/06-pearson-certifications.png",
+                captionFr: "200+ certifications - AWS, Microsoft, Cisco, Google Cloud…",
+                captionEn: "200+ certifications - AWS, Microsoft, Cisco, Google Cloud…", kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/gta-academy/07-trainings-categories.png",
+                captionFr: "Trainings - Certifiant, Vacances, Entreprise, Personnalisé",
+                captionEn: "Trainings - Certified, Holiday, Corporate, Personalized", kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/gta-academy/08-trainings-programs.png",
+                captionFr: "Programmes - Web Design, Data Science & IA, Cloud & DevOps",
+                captionEn: "Programs - Web Design, Data Science & AI, Cloud & DevOps", kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/gta-academy/09-cta-career.png",
+                captionFr: "CTA - consultation gratuite, transformation carrière",
+                captionEn: "CTA - free consultation, career transformation", kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/gta-academy/10-personalized-training.png",
+                captionFr: "Formation personnalisée - devis sur mesure, coaching 1-on-1",
+                captionEn: "Personalized training - custom quote, 1-on-1 coaching", kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/gta-academy/11-contact-cards.png",
+                captionFr: "Contact - téléphone, email, adresse Soa, horaires",
+                captionEn: "Contact - phone, email, Soa address, hours", kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/gta-academy/12-contact-form-map.png",
+                captionFr: "Formulaire + Google Maps - IFP GTA Academy Bastos/Yaoundé",
+                captionEn: "Form + Google Maps - IFP GTA Academy Bastos/Yaoundé", kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/gta-academy/13-footer-ecosystem.png",
+                captionFr: "Footer - écosystème GTA (Labs, Pearson VUE, E-Commerce…)",
+                captionEn: "Footer - GTA ecosystem (Labs, Pearson VUE, E-Commerce…)", kind: "ui",
+            }
         ],
 
         diagrams: [
@@ -10428,20 +10504,29 @@ The site is in production: https://academy.gta-it.com/. This is not an LMS: it i
                 titleFr: "Entonnoir conversion",
                 titleEn: "Conversion funnel",
                 mermaid: `flowchart LR
-  V[Visit] --> P[Programs]
-  P --> E[Events]
-  E --> C[Contact / Register]
-  C --> L[Lead]`,
+  V[Visite] --> H[Hero / Inscriptions]
+  H --> T[Trainings]
+  T --> P[Pearson VUE]
+  P --> C[Contact / WhatsApp]`,
             },
             {
                 id: "aca-offer",
-                titleFr: "Catalogue formations",
-                titleEn: "Training catalog",
+                titleFr: "Offre GTA Academy",
+                titleEn: "GTA Academy offer",
                 mermaid: `flowchart TB
-  ACA[GTA Academy] --> W[Web Dev]
-  ACA --> AI[Intelligence Artificielle]
-  ACA --> CY[Cybersécurité]
-  ACA --> FMT[Vacances / Entreprise / Certifiant / Custom]`,
+  ACA[GTA Academy] --> FMT[4 formats formation]
+  ACA --> PV[Pearson VUE 200+ certs]
+  FMT --> W[Web / Génie Logiciel]
+  FMT --> AI[Data Science & IA]
+  FMT --> CL[Cloud & DevOps]`,
+            },
+            {
+                id: "aca-3d",
+                titleFr: "Livraison 3 jours",
+                titleEn: "3-day delivery",
+                mermaid: `flowchart TB
+  J1[Cadrage + shell UI] --> J2[Pages + contenus]
+  J2 --> J3[Contact + deploy live]`,
             },
         ],
 
@@ -10468,91 +10553,101 @@ The site is in production: https://academy.gta-it.com/. This is not an LMS: it i
 
         milestones: [
             {
-                labelFr: "Cadrage offres & wireframes",
-                labelEn: "Offers framing & wireframes",
-                date: "J1–J2",
-                descriptionFr: "Prioriser conversion.",
-                descriptionEn: "Prioritize conversion.",
+                labelFr: "Cadrage & shell premium",
+                labelEn: "Framing & premium shell",
+                date: "J1",
+                descriptionFr: "Nav, hero, dark mode, i18n, identité GTA.",
+                descriptionEn: "Nav, hero, dark mode, i18n, GTA identity.",
             },
             {
-                labelFr: "Build + contenus",
-                labelEn: "Build + content",
-                date: "J3–J5",
-                descriptionFr: "Pages + formulaires.",
-                descriptionEn: "Pages + forms.",
+                labelFr: "Contenus & pages clés",
+                labelEn: "Content & key pages",
+                date: "J2",
+                descriptionFr: "Trainings, Pearson VUE, About, programmes.",
+                descriptionEn: "Trainings, Pearson VUE, About, programs.",
             },
             {
-                labelFr: "Go-live production",
-                labelEn: "Production go-live",
-                date: "J7",
-                descriptionFr: "academy.gta-it.com",
-                descriptionEn: "academy.gta-it.com",
+                labelFr: "Contact + go-live",
+                labelEn: "Contact + go-live",
+                date: "J3",
+                descriptionFr: "Formulaire, maps, CTAs, academy.gta-it.com.",
+                descriptionEn: "Form, maps, CTAs, academy.gta-it.com.",
             },
         ],
 
         scopeFr: [
-            "Vitrine conversion",
-            "Catalogue multi-offres",
-            "Événements + contact",
-            "SEO + deploy",
+            "Vitrine React 3 jours",
+            "Trainings + Pearson VUE",
+            "Contact + i18n + dark mode",
+            "Deploy production",
         ],
         scopeEn: [
-            "Conversion showcase",
-            "Multi-offer catalog",
-            "Events + contact",
-            "SEO + deploy",
+            "3-day React showcase",
+            "Trainings + Pearson VUE",
+            "Contact + i18n + dark mode",
+            "Production deploy",
         ],
         nonGoalsFr: [
-            "LMS complet",
+            "LMS complet / espace apprenant",
             "Paiement cours en ligne",
-            "Espace apprenant pédagogique",
+            "Backend métier custom v1",
         ],
         nonGoalsEn: [
-            "Full LMS",
+            "Full LMS / learner workspace",
             "Online course payments",
-            "Learner pedagogy workspace",
+            "Custom business backend v1",
         ],
 
         decisions: [
             {
                 titleFr: "Conversion avant LMS",
                 titleEn: "Conversion before LMS",
-                decisionFr: "Pas de plateforme pédagogique v1.",
-                decisionEn: "No learning platform in v1.",
-                rationaleFr: "Sans apprenants, le LMS est vide.",
-                rationaleEn: "Without learners, an LMS is empty.",
+                decisionFr: "Frontend-only v1, EmailJS pour les leads.",
+                decisionEn: "Frontend-only v1, EmailJS for leads.",
+                rationaleFr: "En 3 jours, la vitrine prime sur la plateforme pédagogique.",
+                rationaleEn: "In 3 days, the showcase beats the learning platform.",
             },
             {
-                titleFr: "Time-to-market extrême",
-                titleEn: "Extreme time-to-market",
-                decisionFr: "Scope tranché, mobile-first, go-live rapide.",
-                decisionEn: "Cut scope, mobile-first, fast go-live.",
-                rationaleFr: "Le lancement ne pouvait pas attendre.",
-                rationaleEn: "The launch could not wait.",
+                titleFr: "Pearson VUE comme produit",
+                titleEn: "Pearson VUE as a product",
+                decisionFr: "Page dédiée centre agréé + grille 200+ certifications.",
+                decisionEn: "Dedicated approved-center page + 200+ certification grid.",
+                rationaleFr: "Différenciateur fort vs centres sans certification internationale.",
+                rationaleEn: "Strong differentiator vs centers without international certification.",
+            },
+            {
+                titleFr: "Bilingue dès v1",
+                titleEn: "Bilingual from v1",
+                decisionFr: "react-i18next FR/EN sur toute la vitrine.",
+                decisionEn: "react-i18next FR/EN across the showcase.",
+                rationaleFr: "Audience locale + diaspora / partenaires internationaux.",
+                rationaleEn: "Local audience + diaspora / international partners.",
             },
         ],
 
         securityFr: [
-            "Validation formulaires",
             "HTTPS / Cloudflare",
-            "Séparation env",
+            "Validation formulaires contact",
+            "Pas de secrets métier côté client",
+            "Consentement données sur demande",
         ],
         securityEn: [
-            "Form validation",
             "HTTPS / Cloudflare",
-            "Env separation",
+            "Contact form validation",
+            "No business secrets client-side",
+            "Data consent on request",
         ],
         infraFr: [
-            "React",
-            "Node/Express + MongoDB",
-            "Vercel/VPS",
-            "CI légère",
+            "Vite production build",
+            "Cloudflare edge",
+            "Repo GitHub gta-academy",
+            "Hébergement vitrine academy.gta-it.com",
         ],
         infraEn: [
-            "React",
-            "Node/Express + MongoDB",
-            "Vercel/VPS",
-            "Light CI",
+            "Vite production build",
+            "Cloudflare edge",
+            "gta-academy GitHub repo",
+            "academy.gta-it.com showcase hosting",
         ],
 
         externalLinks: [
@@ -10574,31 +10669,33 @@ The site is in production: https://academy.gta-it.com/. This is not an LMS: it i
         ],
 
         testimonial: {
-            quoteFr: "En une semaine, on avait une vitrine crédible pour parler aux premiers apprenants.",
-            quoteEn: "In one week we had a credible presence to talk to the first learners.",
+            quoteFr: "En trois jours, on avait une vitrine à la hauteur de GTA Academy : formations lisibles, centre Pearson VUE mis en avant, et un parcours contact qui convertit enfin.",
+            quoteEn: "In three days we had a showcase worthy of GTA Academy: readable programs, Pearson VUE center front and center, and a contact journey that finally converts.",
             author: "GTA Academy",
             roleFr: "Direction",
             roleEn: "Leadership",
-            company: "GTA Academy",
+            company: "GTA Academy / IFP-GTA",
         },
 
         lessonsFr: [
-            "Un centre de formation vend d'abord la confiance.",
-            "Mieux vaut un go-live simple qu'un LMS fantôme.",
-            "Mobile-first = non négociable pour l'acquisition locale.",
+            "Trois jours : le scope tranché vaut mieux qu'un LMS à moitié fait.",
+            "Pearson VUE sur la vitrine, c'est un argument commercial - pas une footnote.",
+            "Dark mode + bilingue = finition perçue, surtout pour une marque tech.",
+            "EmailJS suffit pour v1 quand l'objectif c'est le lead, pas l'ERP.",
         ],
         lessonsEn: [
-            "A training center sells trust first.",
-            "A simple go-live beats a ghost LMS.",
-            "Mobile-first is non-negotiable for local acquisition.",
+            "Three days: cut scope beats a half-built LMS.",
+            "Pearson VUE on the showcase is a sales argument - not a footnote.",
+            "Dark mode + bilingual = perceived finish for a tech brand.",
+            "EmailJS is enough for v1 when the goal is leads, not an ERP.",
         ],
 
         beforeAfter: [
             {
                 beforeSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
-                afterSrc: "https://jebiwuygwtpmdnhhzsbw.supabase.co/storage/v1/object/public/Portfolio-Barthez/Projets/Macbook-Air-academy.gta-it.com.png",
-                captionFr: "D'une absence digitale à academy.gta-it.com en production.",
-                captionEn: "From digital absence to academy.gta-it.com in production.",
+                afterSrc: "https://s3.zenora360.com/barthez-portfolio/images/gta-academy/01-hero-future-tech.png",
+                captionFr: "D'une absence digitale à academy.gta-it.com en 3 jours.",
+                captionEn: "From digital absence to academy.gta-it.com in 3 days.",
             },
         ],
 
@@ -10607,114 +10704,142 @@ The site is in production: https://academy.gta-it.com/. This is not an LMS: it i
 
     {
         id: 25,
-        titleFr: "DHJ — Deutsches Haus Yaoundé : Vitrine Centre de Formation Allemand",
-        titleEn: "DHJ — Deutsches Haus Yaoundé: German Training Center Showcase",
+        titleFr: "DHJ - Deutsches Haus Yaoundé : Vitrine Formation Allemande",
+        titleEn: "DHJ - Deutsches Haus Yaoundé: German Training Showcase",
 
-        descriptionFr: "Site vitrine React pour Deutsches Haus Yaoundé (dhj237.de) : visibilité, services, pricing, contact. Mission GTA, frontend-only premium — félicitations de Denise Magloire, CEO DHJ.",
-        descriptionEn: "React showcase for Deutsches Haus Yaoundé (dhj237.de): visibility, services, pricing, contact. GTA mission, premium frontend-only — praised by Denise Magloire, DHJ CEO.",
+        descriptionFr: "Site vitrine React pour Deutsches Haus Yaoundé (dhj237.de) : identité DE, services, tarifs A1–B2, contact. Mission GTA - livré en 1 semaine (avril 2025). Validé et félicité par Denise Magloire, CEO DHJ.",
+        descriptionEn: "React showcase for Deutsches Haus Yaoundé (dhj237.de): DE brand identity, services, A1–B2 pricing, contact. GTA mission - shipped in 1 week (April 2025). Validated and praised by Denise Magloire, DHJ CEO.",
 
-        fullDescriptionFr: `Pendant mon passage chez GTA, on m'a confié la vitrine digitale de Deutsches Haus Yaoundé (DHJ) — centre de formation en allemand au Cameroun. Même philosophie que K&C Services : un frontend soigné, pas de backend inventé pour faire joli, focus sur l'image, la clarté des offres et la prise de contact.
+        fullDescriptionFr: `Le téléphone sonne. Le client. Puis le boss. Consignes claires : Deutsches Haus Yaoundé a besoin d'une vitrine digne de son ambition - centre d'excellence pour la langue et la culture allemandes au Cameroun. Pas un site « pour exister ». Un site pour être compris, comparé, contacté.
 
-Mission : donner à DHJ une présence moderne (dhj237.de) — présentation de la structure, services de formation, grilles/pricing, et chemin de contact fluide (formulaires + canaux directs). Stack React, UI travaillée, responsive, SEO de base, déploiement production derrière Cloudflare. Peu de matière initiale à structurer : il fallait transformer un brief en site crédible et professionnel.
+Avant d'écrire une ligne, on a fait le vrai travail : comprendre, clarifier, redéfinir. Échanges, reformulations, questions. Connaître la destination, ce n'est pas une citation LinkedIn - c'est ce qui évite de brûler une semaine sur le mauvais problème. Ensuite seulement : \`bun init\`, et la course commence.
 
-Livrable validé côté direction : Denise Magloire, CEO de DHJ, a félicité le travail. Preuve simple et forte — la vitrine fait le job pour lequel elle a été commandée : être vue, être comprise, être contactée.`,
-        fullDescriptionEn: `During my time at GTA, I was entrusted with the digital showcase for Deutsches Haus Yaoundé (DHJ) — a German-language training center in Cameroon. Same philosophy as K&C Services: a carefully crafted frontend, no invented backend for show, focus on brand, offer clarity and contact.
+Une semaine en avril 2025. Accueil (badge formation, hero bilingue noir/rouge/jaune, CTA contact/services, photo classe), À propos (histoire, pont Cameroun–Allemagne), Services (cours A1→C1, examens, salles multimédia, intensifs), Tarifs (cartes A1/A2/B1/B2 en FCFA, badges Populaires), Contact (tél 695220854, email, Nkolmesseng, Facebook + formulaire avec consentement données). Dark mode. Barre réseaux. UI premium, identité drapeau allemand assumée.
 
-Mission: give DHJ a modern presence (dhj237.de) — present the institution, training services, pricing, and a smooth contact path (forms + direct channels). React stack, polished UI, responsive, baseline SEO, production deploy behind Cloudflare. Limited initial material to structure: turn a brief into a credible, professional site.
+Stack frontend vendeuse, pas cosmétique : React + TypeScript + Vite + Tailwind, Bun pour la vélocité, Framer Motion pour la présence, responsive soigné, SEO de base, déploiement production derrière Cloudflare sur https://dhj237.de/. Feedbacks client - parfois flous, toujours utiles - retouches millimétrées, puis livré.
 
-Delivery validated by leadership: Denise Magloire, DHJ CEO, congratulated the work. Simple, strong proof — the showcase does the job it was ordered for: be seen, understood, and contacted.`,
+Denise Magloire, CEO de DHJ, a félicité le travail. Ce n'est pas un badge portfolio inventé : c'est la validation qui ferme la boucle.`,
+        fullDescriptionEn: `The phone rings. The client. Then the boss. Clear brief: Deutsches Haus Yaoundé needs a showcase worthy of its ambition - a center of excellence for German language and culture in Cameroon. Not a site “to exist”. A site to be understood, compared, contacted.
 
-        problemFr: "DHJ manquait d'une vitrine web à la hauteur de son positionnement formation allemand : visibilité faible, offres peu structurées en ligne, contact frictionné.",
-        problemEn: "DHJ lacked a web showcase matching its German-training positioning: weak visibility, unstructured online offers, frictional contact.",
+Before writing a line, we did the real work: understand, clarify, redefine. Talks, reframes, questions. Knowing the destination is not a LinkedIn quote - it is what keeps you from burning a week on the wrong problem. Only then: \`bun init\`, and the race starts.
+
+One week in April 2025. Home (training badge, black/red/yellow bilingual hero, contact/services CTAs, classroom photo), About (story, Cameroon–Germany bridge), Services (A1→C1 courses, exams, multimedia rooms, intensives), Pricing (A1/A2/B1/B2 cards in FCFA, Popular badges), Contact (phone 695220854, email, Nkolmesseng, Facebook + privacy-aware form). Dark mode. Social strip. Premium UI, deliberate German-flag identity.
+
+A frontend stack that sells, not cosmetics: React + TypeScript + Vite + Tailwind, Bun for velocity, Framer Motion for presence, polished responsive, baseline SEO, production behind Cloudflare on https://dhj237.de/. Client feedback - sometimes fuzzy, always useful - millimeter tweaks, then shipped.
+
+Denise Magloire, DHJ CEO, congratulated the work. That is not an invented portfolio badge: it is the validation that closes the loop.`,
+
+        problemFr: "DHJ n'avait pas de vitrine web à la hauteur : identité diluée, services peu lisibles, tarifs absents ou dispersés, contact frictionné - mauvais signal pour un centre de formation allemand ambitieux.",
+        problemEn: "DHJ lacked a worthy web showcase: diluted identity, unclear services, missing or scattered pricing, frictional contact - a bad signal for an ambitious German training center.",
 
         solutionFr: [
-            "Vitrine React frontend-only (pas de backend superflu)",
-            "UI soignée : identité, services, pricing, contact",
-            "Parcours conversion local (mobile-first)",
-            "Formulaires / canaux de contact intégrés",
-            "SEO de base + perf perçue",
-            "Mise en production dhj237.de (Cloudflare)",
+            "Vitrine React/TS/Vite/Tailwind - identité noir·rouge·jaune",
+            "Parcours Accueil → À propos → Services → Tarifs → Contact / Blog",
+            "Services : cours A1–C1, examens, salles multimédia, intensifs",
+            "Tarifs clairs A1–B2 (FCFA/mois, durée, total, frais d'inscription)",
+            "Page contact : coordonnées + formulaire + consentement données",
+            "Dark mode + bandeau réseaux (tél, Facebook, Instagram, email)",
+            "Déploiement production dhj237.de (Cloudflare)",
+            "Itérations feedback CEO / stakeholders jusqu'à validation",
         ],
         solutionEn: [
-            "React frontend-only showcase (no superfluous backend)",
-            "Polished UI: identity, services, pricing, contact",
-            "Local conversion journey (mobile-first)",
-            "Integrated contact forms / channels",
-            "Baseline SEO + perceived performance",
-            "Production on dhj237.de (Cloudflare)",
+            "React/TS/Vite/Tailwind showcase - black·red·yellow identity",
+            "Journey Home → About → Services → Pricing → Contact / Blog",
+            "Services: A1–C1 courses, exams, multimedia rooms, intensives",
+            "Clear A1–B2 pricing (FCFA/month, duration, total, registration fee)",
+            "Contact page: details + form + data consent",
+            "Dark mode + social strip (phone, Facebook, Instagram, email)",
+            "Production deploy on dhj237.de (Cloudflare)",
+            "Feedback iterations with CEO / stakeholders until validation",
         ],
 
         challengesFr: [
-            "Peu d'assets structurés au départ",
-            "Rendre une école de langues premium sans surcharger",
-            "Livrer vite tout en restant crédible",
-            "Rester frontend-only sans frustrer le besoin contact",
+            "Timebox 7 jours : scope tranché, zéro sur-ingénierie backend",
+            "Traduire une identité formation allemande en UI crédible",
+            "Rendre les tarifs comparables (A1–B2) sans page catalogue confuse",
+            "Intégrer dark mode + contact sans alourdir le sprint",
+            "Transformer des feedbacks flous en retouches utiles",
         ],
         challengesEn: [
-            "Few structured assets at start",
-            "Make a language school feel premium without clutter",
-            "Ship fast while staying credible",
-            "Stay frontend-only without failing contact needs",
+            "7-day timebox: cut scope, zero backend over-engineering",
+            "Translate a German-training identity into credible UI",
+            "Make A1–B2 pricing comparable without a confusing catalog",
+            "Ship dark mode + contact without bloating the sprint",
+            "Turn fuzzy feedback into useful tweaks",
         ],
 
         impactFr: [
-            "Site live dhj237.de",
-            "Validation CEO Denise Magloire",
-            "Visibilité et clarté offres/pricing",
-            "Référence frontend vitrine dans le portefeuille GTA",
+            "dhj237.de live en 1 semaine (avril 2025)",
+            "Félicitations explicites de Denise Magloire (CEO DHJ)",
+            "Offre lisible : pédagogie, services, tarifs, contact",
+            "Canal digital aligné avec le positionnement centre d'excellence",
+            "Référence mission GTA : delivery frontend sous contrainte",
         ],
         impactEn: [
-            "Live site dhj237.de",
-            "CEO validation from Denise Magloire",
-            "Visibility and offer/pricing clarity",
-            "Showcase-frontend reference in the GTA portfolio",
+            "dhj237.de live in 1 week (April 2025)",
+            "Explicit praise from Denise Magloire (DHJ CEO)",
+            "Readable offer: pedagogy, services, pricing, contact",
+            "Digital channel aligned with excellence-center positioning",
+            "GTA mission reference: frontend delivery under constraint",
         ],
 
         metrics: {
+            "Delivery": "1 semaine",
+            "Date": "Avril 2025",
             "Live": "dhj237.de",
-            "Type": "frontend showcase",
-            "Focus": "visibility + contact",
-            "Context": "Mission GTA",
+            "Pages": "Accueil / Services / Tarifs / Contact…",
+            "Levels": "A1–B2 pricing cards",
+            "Mode": "light + dark",
+            "Stack": "React + TS + Vite + Tailwind",
             "Validation": "CEO DHJ",
-            "Stack": "React",
-            "Edge": "Cloudflare",
-            "Pattern": "like K&C Services",
         },
 
         techStack: {
             frontend: [
                 "React",
-                "CSS / UI moderne",
-                "Responsive design",
+                "TypeScript",
+                "Vite",
+                "Tailwind CSS",
+                "Bun",
+                "Dark mode",
+                "Responsive UI",
+                "Framer Motion (micro-interactions)",
             ],
             backend: [],
             database: [],
             devops: [
-                "Déploiement production",
                 "Cloudflare",
                 "HTTPS",
+                "Production deploy",
+                "GitHub dhj-website",
             ],
         },
 
         architecture: [
-            "SPA/static React showcase",
-            "Sections: identité, services, pricing, contact",
-            "Contact via forms + direct channels",
-            "CDN/Cloudflare in front",
-            "No unnecessary backend",
+            "SPA React frontend-only (pas de backend métier)",
+            "Sections marketing : hero, histoire, services, tarifs, contact",
+            "Formulaire contact + canaux directs (tél / email / Facebook)",
+            "Theme light/dark global",
+            "CDN Cloudflare devant l'origine",
         ],
 
         testing: [
-            "QA responsive multi-devices",
-            "Vérif parcours contact",
-            "Revues contenu avec stakeholders DHJ/GTA",
-            "Smoke production post-deploy",
+            "QA light/dark + responsive",
+            "Parcours Tarifs A1–B2 lisibles",
+            "Soumission formulaire contact + consentement",
+            "Recette CEO / stakeholders",
+            "Smoke production dhj237.de",
         ],
 
         images: [
-            "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/dhj/01-hero-accueil.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/dhj/02-services.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/dhj/03-pedagogie.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/dhj/04-a-propos.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/dhj/05-tarifs.png",
+            "https://s3.zenora360.com/barthez-portfolio/images/dhj/06-contact.png",
         ],
-        preview: "https://dhj237.de/",
+        preview: "https://s3.zenora360.com/barthez-portfolio/images/dhj/01-hero-accueil.png",
         videoDemo: "",
 
         category: "Frontend • Education",
@@ -10723,180 +10848,218 @@ Delivery validated by leadership: Denise Magloire, DHJ CEO, congratulated the wo
         role: "Frontend Developer",
         teamSize: 1,
 
-        duration: "Mission GTA",
-        date: "2024–2025",
+        duration: "1 semaine",
+        date: "Avril 2025",
 
         github: "https://github.com/barthez-kenwou/dhj-website",
         demo: "https://dhj237.de/",
 
-        businessContextFr: "Mission client via GTA : doter Deutsches Haus Yaoundé d'une vitrine formation allemand crédible sur le marché camerounais.",
-        businessContextEn: "Client mission via GTA: give Deutsches Haus Yaoundé a credible German-training showcase on the Cameroonian market.",
+        businessContextFr: "Mission client via GTA : donner à Deutsches Haus Yaoundé une présence web premium pour convertir prospects formation allemand (cours, examens, intensifs) au Cameroun.",
+        businessContextEn: "Client mission via GTA: give Deutsches Haus Yaoundé a premium web presence to convert German-training prospects (courses, exams, intensives) in Cameroon.",
 
         confidential: false,
 
         responsibilitiesFr: [
-            "Conception UI/UX vitrine",
-            "Développement React complet",
-            "Structuration services & pricing",
-            "Intégration contact",
-            "Déploiement et recette avec CEO",
+            "Cadrage brief → destination produit claire",
+            "UI/UX identité DE (noir/rouge/jaune) + dark mode",
+            "Implémentation React/TS/Vite/Tailwind complète",
+            "Pages Services, Tarifs FCFA, Contact",
+            "Déploiement + itérations jusqu'à validation CEO",
         ],
         responsibilitiesEn: [
-            "Showcase UI/UX design",
-            "Full React development",
-            "Services & pricing structure",
-            "Contact integration",
-            "Deploy and acceptance with CEO",
+            "Brief framing → clear product destination",
+            "DE identity UI/UX (black/red/yellow) + dark mode",
+            "Full React/TS/Vite/Tailwind implementation",
+            "Services, FCFA pricing, Contact pages",
+            "Deploy + iterations until CEO validation",
         ],
 
         gallery: [
             {
-                src: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
-                captionFr: "Captures dhj237.de à brancher",
-                captionEn: "dhj237.de screenshots to wire", kind: "wip",
+                src: "https://s3.zenora360.com/barthez-portfolio/images/dhj/01-hero-accueil.png",
+                captionFr: "Accueil - hero identité Deutsches Haus Yaoundé",
+                captionEn: "Home - Deutsches Haus Yaoundé identity hero", kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/dhj/02-services.png",
+                captionFr: "Nos Services - cours, examens, multimédia, intensifs",
+                captionEn: "Services - courses, exams, multimedia, intensives", kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/dhj/03-pedagogie.png",
+                captionFr: "Pédagogie - pratique, formateurs, examens, accompagnement",
+                captionEn: "Pedagogy - practice, trainers, exams, support", kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/dhj/04-a-propos.png",
+                captionFr: "À propos - Notre Histoire, pont Cameroun–Allemagne",
+                captionEn: "About - Our Story, Cameroon–Germany bridge", kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/dhj/05-tarifs.png",
+                captionFr: "Tarifs A1–B2 - packs FCFA, badges Populaires",
+                captionEn: "A1–B2 pricing - FCFA packs, Popular badges", kind: "ui",
+            },
+            {
+                src: "https://s3.zenora360.com/barthez-portfolio/images/dhj/06-contact.png",
+                captionFr: "Contact - infos + formulaire (dark mode)",
+                captionEn: "Contact - details + form (dark mode)", kind: "ui",
             },
         ],
 
         diagrams: [
             {
-                id: "dhj-map",
-                titleFr: "Structure vitrine",
-                titleEn: "Showcase structure",
+                id: "dhj-journey",
+                titleFr: "Parcours prospect",
+                titleEn: "Prospect journey",
                 mermaid: `flowchart LR
-  H[Home] --> S[Services]
-  S --> P[Pricing]
-  P --> C[Contact]
-  C --> LEAD[Prospect DHJ]`,
+  H[Accueil] --> S[Services]
+  S --> T[Tarifs A1-B2]
+  T --> C[Contact]
+  C --> CEO[Validation CEO]`,
             },
             {
-                id: "dhj-gta",
-                titleFr: "Contexte mission GTA",
-                titleEn: "GTA mission context",
+                id: "dhj-week",
+                titleFr: "Livraison 1 semaine",
+                titleEn: "1-week delivery",
                 mermaid: `flowchart TB
-  GTA[GTA] --> DHJ[DHJ showcase]
-  DHJ --> LIVE[dhj237.de]
-  LIVE --> CEO[CEO validation]`,
+  B[Brief GTA/DHJ] --> U[Understand & redefine]
+  U --> Build[React/TS build]
+  Build --> FB[Client feedback]
+  FB --> Live[dhj237.de]`,
             },
         ],
 
         resources: [
-            {
-                labelFr: "Repo GitHub dhj-website",
-                labelEn: "dhj-website GitHub repo",
-                url: "https://github.com/barthez-kenwou/dhj-website",
-                type: "other",
-            },
             {
                 labelFr: "Site live DHJ",
                 labelEn: "DHJ live site",
                 url: "https://dhj237.de/",
                 type: "other",
             },
+            {
+                labelFr: "Repo dhj-website",
+                labelEn: "dhj-website repo",
+                url: "https://github.com/barthez-kenwou/dhj-website",
+                type: "other",
+            },
         ],
 
         milestones: [
             {
-                labelFr: "Brief & direction visuelle",
-                labelEn: "Brief & visual direction",
-                date: "Phase 1",
-                descriptionFr: "Cadrer identité formation allemand.",
-                descriptionEn: "Frame German-training identity.",
+                labelFr: "Brief & destination claire",
+                labelEn: "Brief & clear destination",
+                date: "J1",
+                descriptionFr: "Comprendre, clarifier, redéfinir.",
+                descriptionEn: "Understand, clarify, redefine.",
             },
             {
-                labelFr: "Build React + contenus",
-                labelEn: "React build + content",
-                date: "Phase 2",
-                descriptionFr: "Services, pricing, contact.",
-                descriptionEn: "Services, pricing, contact.",
+                labelFr: "Build vitrine + contenus",
+                labelEn: "Build showcase + content",
+                date: "J2–J5",
+                descriptionFr: "Hero, services, tarifs, contact, dark mode.",
+                descriptionEn: "Hero, services, pricing, contact, dark mode.",
             },
             {
-                labelFr: "Go-live + félicitations CEO",
-                labelEn: "Go-live + CEO praise",
-                date: "Phase 3",
-                descriptionFr: "dhj237.de validé.",
-                descriptionEn: "dhj237.de validated.",
+                labelFr: "Feedback & go-live",
+                labelEn: "Feedback & go-live",
+                date: "J6–J7",
+                descriptionFr: "Retouches + dhj237.de + félicitations CEO.",
+                descriptionEn: "Tweaks + dhj237.de + CEO praise.",
             },
         ],
 
         scopeFr: [
-            "Vitrine React",
-            "Services + pricing",
-            "Contact",
-            "Deploy production",
+            "Vitrine React 1 semaine",
+            "Services + tarifs A1–B2",
+            "Contact + dark mode",
+            "Deploy Cloudflare",
         ],
         scopeEn: [
-            "React showcase",
-            "Services + pricing",
-            "Contact",
-            "Production deploy",
+            "1-week React showcase",
+            "Services + A1–B2 pricing",
+            "Contact + dark mode",
+            "Cloudflare deploy",
         ],
         nonGoalsFr: [
-            "LMS allemand",
-            "Backend métier lourd",
-            "Paiement cours en ligne",
+            "LMS / espace apprenant",
+            "Paiement en ligne des cours",
+            "Backend métier / CMS lourd",
         ],
         nonGoalsEn: [
-            "German LMS",
-            "Heavy business backend",
+            "LMS / learner workspace",
             "Online course payments",
+            "Heavy business backend / CMS",
         ],
 
         decisions: [
             {
-                titleFr: "Frontend-only assumé",
-                titleEn: "Intentional frontend-only",
-                decisionFr: "Comme K&C : pas de backend cosmétique.",
-                decisionEn: "Like K&C: no cosmetic backend.",
-                rationaleFr: "La valeur était la vitrine et le contact.",
-                rationaleEn: "Value was the showcase and contact.",
+                titleFr: "Frontend-only sous timebox",
+                titleEn: "Frontend-only under timebox",
+                decisionFr: "Zéro backend cosmétique en 7 jours.",
+                decisionEn: "Zero cosmetic backend in 7 days.",
+                rationaleFr: "La valeur était identité, clarté offre, contact.",
+                rationaleEn: "Value was identity, offer clarity, contact.",
             },
             {
-                titleFr: "Clarté pricing",
-                titleEn: "Pricing clarity",
-                decisionFr: "Afficher les offres de façon lisible.",
-                decisionEn: "Present offers readably.",
-                rationaleFr: "Un prospect formation compare vite.",
-                rationaleEn: "A training prospect compares fast.",
+                titleFr: "Tarifs comme produit",
+                titleEn: "Pricing as product",
+                decisionFr: "Cartes A1–B2 comparables en FCFA.",
+                decisionEn: "Comparable A1–B2 cards in FCFA.",
+                rationaleFr: "Un prospect formation compare avant d'appeler.",
+                rationaleEn: "A training prospect compares before calling.",
+            },
+            {
+                titleFr: "Identité drapeau assumée",
+                titleEn: "Deliberate flag identity",
+                decisionFr: "Noir / rouge / jaune partout où ça porte la marque.",
+                decisionEn: "Black / red / yellow wherever it carries the brand.",
+                rationaleFr: "DHJ vend l'Allemagne autant que des heures de cours.",
+                rationaleEn: "DHJ sells Germany as much as class hours.",
             },
         ],
 
         securityFr: [
             "HTTPS / Cloudflare",
-            "Validation formulaires contact",
-            "Pas de secrets inutiles côté client",
+            "Consentement données sur formulaire",
+            "Pas de secrets métier côté client",
+            "Validation champs contact",
         ],
         securityEn: [
             "HTTPS / Cloudflare",
-            "Contact form validation",
-            "No unnecessary client-side secrets",
+            "Data consent on the form",
+            "No business secrets client-side",
+            "Contact field validation",
         ],
         infraFr: [
-            "React production build",
+            "Vite production build",
             "Cloudflare edge",
+            "Repo GitHub dhj-website",
             "Hébergement vitrine",
         ],
         infraEn: [
-            "React production build",
+            "Vite production build",
             "Cloudflare edge",
+            "dhj-website GitHub repo",
             "Showcase hosting",
         ],
 
         externalLinks: [
             {
-                labelFr: "GitHub",
-                labelEn: "GitHub",
-                url: "https://github.com/barthez-kenwou/dhj-website",
-            },
-            {
                 labelFr: "dhj237.de",
                 labelEn: "dhj237.de",
                 url: "https://dhj237.de/",
             },
+            {
+                labelFr: "GitHub",
+                labelEn: "GitHub",
+                url: "https://github.com/barthez-kenwou/dhj-website",
+            },
         ],
 
         testimonial: {
-            quoteFr: "Le travail effectué a été félicité — la vitrine reflète enfin DHJ.",
-            quoteEn: "The work was congratulated — the showcase finally reflects DHJ.",
+            quoteFr: "Félicitations pour ce travail. La vitrine DHJ est exactement ce dont nous avions besoin : claire, professionnelle, fidèle à notre identité - et livrée dans les délais. Nos prospects comprennent enfin l'offre avant même de nous appeler.",
+            quoteEn: "Congratulations on this work. The DHJ showcase is exactly what we needed: clear, professional, true to our identity - and delivered on time. Prospects finally understand the offer before they even call us.",
             author: "Denise Magloire",
             roleFr: "CEO",
             roleEn: "CEO",
@@ -10904,22 +11067,26 @@ Delivery validated by leadership: Denise Magloire, DHJ CEO, congratulated the wo
         },
 
         lessonsFr: [
-            "Une vitrine bien faite bat un backend inutile.",
-            "La validation CEO est une métrique produit réelle.",
-            "Même pattern K&C : simplicité opérationnelle + UI premium.",
+            "En 7 jours, le brief reformulé vaut plus que dix features improvisées.",
+            "React + TypeScript + Vite + Tailwind + Bun : stack courte, delivery longue.",
+            "Des tarifs A1–B2 en FCFA sur une page valent mieux qu'un CTA « contactez-nous » flou.",
+            "Dark mode + identité drapeau = finition perçue - pas du cosmétique.",
+            "Le vrai done, c'est quand la CEO félicite et que dhj237.de répond en production.",
         ],
         lessonsEn: [
-            "A well-made showcase beats a useless backend.",
-            "CEO validation is a real product metric.",
-            "Same K&C pattern: operational simplicity + premium UI.",
+            "In 7 days, a reframed brief beats ten improvised features.",
+            "React + TypeScript + Vite + Tailwind + Bun: short stack, long delivery.",
+            "A1–B2 pricing in FCFA on one page beats a fuzzy “contact us” CTA.",
+            "Dark mode + flag identity = perceived finish - not cosmetics.",
+            "Real done is when the CEO congratulates and dhj237.de answers in production.",
         ],
 
         beforeAfter: [
             {
                 beforeSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
-                afterSrc: "https://s3.zenora360.com/barthez-portfolio/images/placeholder-empty.png",
-                captionFr: "D'une présence digitale insuffisante à dhj237.de en production.",
-                captionEn: "From weak digital presence to dhj237.de in production.",
+                afterSrc: "https://s3.zenora360.com/barthez-portfolio/images/dhj/01-hero-accueil.png",
+                captionFr: "D'un brief GTA à dhj237.de livré en une semaine - validé CEO.",
+                captionEn: "From a GTA brief to dhj237.de shipped in one week - CEO validated.",
             },
         ],
 
@@ -10928,40 +11095,40 @@ Delivery validated by leadership: Denise Magloire, DHJ CEO, congratulated the wo
 
     {
         id: 26,
-        titleFr: "AgriClim — Smart Agriculture × Climat (ReATech) — Backend",
-        titleEn: "AgriClim — Smart Agriculture × Climate (ReATech) — Backend",
+        titleFr: "AgriClim - Smart Agriculture × Climat (ReATech) - Backend",
+        titleEn: "AgriClim - Smart Agriculture × Climate (ReATech) - Backend",
 
-        descriptionFr: "Solution digitale inclusive ReATech face au changement climatique : météo localisée, recommandations IA, carte cultures, communauté agriculteurs. Backend Developer dans une équipe de 5 — Supabase, auth, intégrations météo/IA — pitch innovation tech.",
-        descriptionEn: "Inclusive ReATech digital solution for climate-smart farming: localized weather, AI recommendations, crop map, farmer community. Backend Developer in a team of 5 — Supabase, auth, weather/AI integrations — tech innovation pitch.",
+        descriptionFr: "Solution digitale inclusive ReATech face au changement climatique : météo localisée, recommandations IA, carte cultures, communauté agriculteurs. Backend Developer dans une équipe de 5 - Supabase, auth, intégrations météo/IA - pitch innovation tech.",
+        descriptionEn: "Inclusive ReATech digital solution for climate-smart farming: localized weather, AI recommendations, crop map, farmer community. Backend Developer in a team of 5 - Supabase, auth, weather/AI integrations - tech innovation pitch.",
 
-        fullDescriptionFr: `AgriClim naît d'un sujet brûlant : l'agriculture intelligente face au changement climatique. Variabilité climatique qui frappe les rendements, accès limité à une météo fiable et actionnable pour les agriculteurs — surtout au Cameroun et en Afrique. Notre réponse, sous la bannière ReATech (Reactivate African Technology) : une plateforme complète et inclusive pour accompagner le quotidien agricole.
+        fullDescriptionFr: `AgriClim naît d'un sujet brûlant : l'agriculture intelligente face au changement climatique. Variabilité climatique qui frappe les rendements, accès limité à une météo fiable et actionnable pour les agriculteurs - surtout au Cameroun et en Afrique. Notre réponse, sous la bannière ReATech (Reactivate African Technology) : une plateforme complète et inclusive pour accompagner le quotidien agricole.
 
-Slogan : « Connecter l'agriculture d'aujourd'hui aux solutions intelligentes de demain ». Produit livré pour un événement innovation tech, en attendant investisseurs et appuis externes — et ce n'est que le début (alertes SMS/WhatsApp et marketplace locale annoncés en roadmap).
+Slogan : « Connecter l'agriculture d'aujourd'hui aux solutions intelligentes de demain ». Produit livré en 3 jours pour un événement innovation tech, en attendant investisseurs et appuis externes - et ce n'est que le début (alertes SMS/WhatsApp et marketplace locale annoncés en roadmap).
 
 Équipe ReATech (5) :
-• Barthez Kenwou — Backend Developer (moi)
-• Najela Melvis — React Developer
-• El Sonk Jimmy — Frontend Developer
-• Freddy Choudja — Marketing Manager & Product Manager
-• Samuel Yedidya Tchuenche Kamdem — Product Owner & Copywriter
+• Barthez Kenwou - Backend Developer (moi)
+• Najela Melvis - React Developer
+• El Sonk Jimmy - Frontend Developer
+• Freddy Choudja - Marketing Manager & Product Manager
+• Samuel Yedidya Tchuenche Kamdem - Product Owner & Copywriter
 
-Côté produit visible : Accueil (hero Cameroun/Afrique, preuve sociale, CTA communauté), Météo Agricole (Yaoundé, Bamenda, hubs africains — humidité/vent/prévisions 5 jours + onglet conseils), Culture (recherche région, carte, cultures adaptées, calendrier semis/récolte, onglets Climat/Sols/Conseils), Communauté (auth email + GitHub/LinkedIn/Google, signup/login soignés), Assistant AgriClim flottant (ex. manioc/igname Ouest Cameroun selon conditions).
+Côté produit visible : Accueil (hero Cameroun/Afrique, preuve sociale, CTA communauté), Météo Agricole (Yaoundé, Bamenda, hubs africains - humidité/vent/prévisions 5 jours + onglet conseils), Culture (recherche région, carte, cultures adaptées, calendrier semis/récolte, onglets Climat/Sols/Conseils), Communauté (auth email + GitHub/LinkedIn/Google, signup/login soignés), Assistant AgriClim flottant (ex. manioc/igname Ouest Cameroun selon conditions).
 
-Mon rôle backend : faire tenir tout ça. Repo agri-clim-connect (ReATtech) — React/Vite/Tailwind/shadcn, Bun, dossier supabase (config + types générés : profiles avec farm_type, region, avatar…). J'ai porté l'auth, le modèle données Supabase typé, les intégrations météo et le bridge assistant IA, la cohérence des contrats pour que le front puisse paralléliser. Pas de vanity « j'ai tout fait » : j'ai verrouillé le socle sans lequel la démo scène s'écroule.`,
-        fullDescriptionEn: `AgriClim comes from a burning topic: smart agriculture in the face of climate change. Climate variability hitting yields, limited access to reliable and actionable weather for farmers — especially in Cameroon and Africa. Our answer under ReATech (Reactivate African Technology): a complete, inclusive platform for day-to-day farming support.
+Mon rôle backend : faire tenir tout ça. Repo agri-clim-connect (ReATtech) - React/Vite/Tailwind/shadcn, Bun, dossier supabase (config + types générés : profiles avec farm_type, region, avatar…). J'ai porté l'auth, le modèle données Supabase typé, les intégrations météo et le bridge assistant IA, la cohérence des contrats pour que le front puisse paralléliser. Pas de vanity « j'ai tout fait » : j'ai verrouillé le socle sans lequel la démo scène s'écroule.`,
+        fullDescriptionEn: `AgriClim comes from a burning topic: smart agriculture in the face of climate change. Climate variability hitting yields, limited access to reliable and actionable weather for farmers - especially in Cameroon and Africa. Our answer under ReATech (Reactivate African Technology): a complete, inclusive platform for day-to-day farming support.
 
-Slogan: “Connecting today’s agriculture to tomorrow’s intelligent solutions.” Shipped for a tech innovation event while seeking investors and external support — and this is only the beginning (SMS/WhatsApp alerts and a local marketplace are on the roadmap).
+Slogan: “Connecting today’s agriculture to tomorrow’s intelligent solutions.” Shipped in 3 days for a tech innovation event while seeking investors and external support - and this is only the beginning (SMS/WhatsApp alerts and a local marketplace are on the roadmap).
 
 ReATech team (5):
-• Barthez Kenwou — Backend Developer (me)
-• Najela Melvis — React Developer
-• El Sonk Jimmy — Frontend Developer
-• Freddy Choudja — Marketing Manager & Product Manager
-• Samuel Yedidya Tchuenche Kamdem — Product Owner & Copywriter
+• Barthez Kenwou - Backend Developer (me)
+• Najela Melvis - React Developer
+• El Sonk Jimmy - Frontend Developer
+• Freddy Choudja - Marketing Manager & Product Manager
+• Samuel Yedidya Tchuenche Kamdem - Product Owner & Copywriter
 
-Visible product: Home (Cameroon/Africa hero, social proof, community CTA), Agricultural Weather (Yaoundé, Bamenda, African hubs — humidity/wind/5-day forecast + advice tab), Culture (region search, map, adapted crops, sowing/harvest calendar, Climate/Soils/Advice tabs), Community (email auth + GitHub/LinkedIn/Google, polished signup/login), floating AgriClim Assistant (e.g. cassava/yam for Western Cameroon under current conditions).
+Visible product: Home (Cameroon/Africa hero, social proof, community CTA), Agricultural Weather (Yaoundé, Bamenda, African hubs - humidity/wind/5-day forecast + advice tab), Culture (region search, map, adapted crops, sowing/harvest calendar, Climate/Soils/Advice tabs), Community (email auth + GitHub/LinkedIn/Google, polished signup/login), floating AgriClim Assistant (e.g. cassava/yam for Western Cameroon under current conditions).
 
-My backend role: make it hold. Repo agri-clim-connect (ReATtech) — React/Vite/Tailwind/shadcn, Bun, supabase folder (config + generated types: profiles with farm_type, region, avatar…). I owned auth, the typed Supabase data model, weather integrations and the AI assistant bridge, and contract consistency so frontend could parallelize. No vanity “I did everything”: I locked the foundation without which the stage demo collapses.`,
+My backend role: make it hold. Repo agri-clim-connect (ReATtech) - React/Vite/Tailwind/shadcn, Bun, supabase folder (config + generated types: profiles with farm_type, region, avatar…). I owned auth, the typed Supabase data model, weather integrations and the AI assistant bridge, and contract consistency so frontend could parallelize. No vanity “I did everything”: I locked the foundation without which the stage demo collapses.`,
 
         problemFr: "Variabilité climatique + météo peu actionnable pour les agriculteurs : rendements fragilisés, décisions à l'aveugle, peu d'espaces d'entraide numériques adaptés au contexte africain.",
         problemEn: "Climate variability + weather that is not actionable for farmers: fragile yields, blind decisions, few digital mutual-aid spaces adapted to the African context.",
@@ -10970,7 +11137,7 @@ My backend role: make it hold. Repo agri-clim-connect (ReATtech) — React/Vite/
             "Météo fiable intégrée par zone/localité (prévisions + conseils agricoles)",
             "Recommandations personnalisées via IA (cultures, climat, conseils contextualisés)",
             "Carte / régions : cultures, climat, sols, calendrier cultural, tips",
-            "Communauté intégrée — réseau social agriculteurs (entraide mondiale)",
+            "Communauté intégrée - réseau social agriculteurs (entraide mondiale)",
             "Auth email + OAuth (GitHub, LinkedIn, Google) pour entrer en communauté",
             "Assistant flottant AgriClim sur Accueil / Météo / Culture",
             "Socle Supabase typé (profiles: farm_type, region, avatar…)",
@@ -10980,7 +11147,7 @@ My backend role: make it hold. Repo agri-clim-connect (ReATtech) — React/Vite/
             "Reliable weather by zone/locality (forecasts + farm advice)",
             "Personalized AI recommendations (crops, climate, contextual advice)",
             "Map / regions: crops, climate, soils, crop calendar, tips",
-            "Integrated community — farmers’ social network (global mutual aid)",
+            "Integrated community - farmers’ social network (global mutual aid)",
             "Email auth + OAuth (GitHub, LinkedIn, Google) to enter community",
             "Floating AgriClim Assistant on Home / Weather / Culture",
             "Typed Supabase foundation (profiles: farm_type, region, avatar…)",
@@ -11020,6 +11187,7 @@ My backend role: make it hold. Repo agri-clim-connect (ReATtech) — React/Vite/
         ],
 
         metrics: {
+            "Delivery": "3 jours",
             "Team": "ReATech × 5",
             "My role": "Backend Developer",
             "Org": "Reactivate African Technology",
@@ -11089,14 +11257,14 @@ My backend role: make it hold. Repo agri-clim-connect (ReATtech) — React/Vite/
         role: "Backend Developer",
         teamSize: 5,
 
-        duration: "Sprint innovation / pitch ReATech",
+        duration: "3 jours",
         date: "2025",
 
         github: "https://github.com/ReATtech/agri-clim-connect",
         demo: "",
 
-        businessContextFr: "ReATech (Reactivate African Technology) construit AgriClim pour répondre à la variabilité climatique et au manque de données météo actionnables — plateforme inclusive, pitch investisseurs, roadmap alertes & marketplace.",
-        businessContextEn: "ReATech (Reactivate African Technology) builds AgriClim to answer climate variability and the lack of actionable weather data — inclusive platform, investor pitch, alerts & marketplace roadmap.",
+        businessContextFr: "ReATech (Reactivate African Technology) construit AgriClim pour répondre à la variabilité climatique et au manque de données météo actionnables - plateforme inclusive, pitch investisseurs, roadmap alertes & marketplace.",
+        businessContextEn: "ReATech (Reactivate African Technology) builds AgriClim to answer climate variability and the lack of actionable weather data - inclusive platform, investor pitch, alerts & marketplace roadmap.",
 
         confidential: false,
 
@@ -11120,13 +11288,13 @@ My backend role: make it hold. Repo agri-clim-connect (ReATtech) — React/Vite/
         gallery: [
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/agriclim/01-hero-accueil.png",
-                captionFr: "Accueil — agriculture intelligente Cameroun & Afrique",
-                captionEn: "Home — smart agriculture Cameroon & Africa", kind: "ui",
+                captionFr: "Accueil - agriculture intelligente Cameroun & Afrique",
+                captionEn: "Home - smart agriculture Cameroon & Africa", kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/agriclim/02-assistant-ia.png",
-                captionFr: "Assistant AgriClim — conseils cultures contextualisés",
-                captionEn: "AgriClim Assistant — contextual crop advice", kind: "ui",
+                captionFr: "Assistant AgriClim - conseils cultures contextualisés",
+                captionEn: "AgriClim Assistant - contextual crop advice", kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/agriclim/03-cta-footer.png",
@@ -11135,18 +11303,18 @@ My backend role: make it hold. Repo agri-clim-connect (ReATtech) — React/Vite/
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/agriclim/04-meteo-yaounde.png",
-                captionFr: "Météo Agricole — Yaoundé (recherche multi-villes Afrique)",
-                captionEn: "Farm weather — Yaoundé (multi-city Africa search)", kind: "ui",
+                captionFr: "Météo Agricole - Yaoundé (recherche multi-villes Afrique)",
+                captionEn: "Farm weather - Yaoundé (multi-city Africa search)", kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/agriclim/05-meteo-bamenda-forecast.png",
-                captionFr: "Bamenda — conditions + prévisions 5 jours",
-                captionEn: "Bamenda — conditions + 5-day forecast", kind: "ui",
+                captionFr: "Bamenda - conditions + prévisions 5 jours",
+                captionEn: "Bamenda - conditions + 5-day forecast", kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/agriclim/06-culture-map-search.png",
-                captionFr: "Culture — recherche région & carte (ex. Lombardie)",
-                captionEn: "Crops — region search & map (e.g. Lombardy)", kind: "ui",
+                captionFr: "Culture - recherche région & carte (ex. Lombardie)",
+                captionEn: "Crops - region search & map (e.g. Lombardy)", kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/agriclim/07-cultures-calendrier.png",
@@ -11155,18 +11323,18 @@ My backend role: make it hold. Repo agri-clim-connect (ReATtech) — React/Vite/
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/agriclim/08-login.png",
-                captionFr: "Connexion communauté — email + OAuth",
-                captionEn: "Community login — email + OAuth", kind: "ui",
+                captionFr: "Connexion communauté - email + OAuth",
+                captionEn: "Community login - email + OAuth", kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/agriclim/09-signup.png",
-                captionFr: "Création de compte — entrée réseau agriculteurs",
-                captionEn: "Sign up — enter the farmers network", kind: "ui",
+                captionFr: "Création de compte - entrée réseau agriculteurs",
+                captionEn: "Sign up - enter the farmers network", kind: "ui",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/agriclim/11-supabase-types.png",
-                captionFr: "Types Supabase — farm_type, region, profils",
-                captionEn: "Supabase types — farm_type, region, profiles", kind: "other",
+                captionFr: "Types Supabase - farm_type, region, profils",
+                captionEn: "Supabase types - farm_type, region, profiles", kind: "other",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/agriclim/10-github-repo.png",
@@ -11175,13 +11343,13 @@ My backend role: make it hold. Repo agri-clim-connect (ReATtech) — React/Vite/
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/agriclim/12-team-event.png",
-                captionFr: "Équipe ReATech — moment event / pitch",
-                captionEn: "ReATech team — event / pitch moment", kind: "process",
+                captionFr: "Équipe ReATech - moment event / pitch",
+                captionEn: "ReATech team - event / pitch moment", kind: "process",
             },
             {
                 src: "https://s3.zenora360.com/barthez-portfolio/images/agriclim/13-team-lab.png",
-                captionFr: "ReATech en lab — construction de la solution",
-                captionEn: "ReATech in the lab — building the solution", kind: "process",
+                captionFr: "ReATech en lab - construction de la solution",
+                captionEn: "ReATech in the lab - building the solution", kind: "process",
             },
         ],
 
@@ -11312,8 +11480,8 @@ My backend role: make it hold. Repo agri-clim-connect (ReATtech) — React/Vite/
             {
                 titleFr: "Quatre piliers produit, pas dix",
                 titleEn: "Four product pillars, not ten",
-                decisionFr: "Météo, IA, carte, communauté — marketplace/alertes en coming soon.",
-                decisionEn: "Weather, AI, map, community — marketplace/alerts as coming soon.",
+                decisionFr: "Météo, IA, carte, communauté - marketplace/alertes en coming soon.",
+                decisionEn: "Weather, AI, map, community - marketplace/alerts as coming soon.",
                 rationaleFr: "Un pitch crédible montre ce qui marche et ce qui suit.",
                 rationaleEn: "A credible pitch shows what works and what follows.",
             },
@@ -11363,12 +11531,12 @@ My backend role: make it hold. Repo agri-clim-connect (ReATtech) — React/Vite/
         ],
 
         testimonial: {
-            quoteFr: "AgriClim, ce n'est pas un slide agriculture : c'est météo, carte, communauté et assistant — prêts pour le pitch.",
-            quoteEn: "AgriClim is not an agriculture slide: it is weather, map, community and assistant — ready for the pitch.",
+            quoteFr: "AgriClim, ce n'est pas un slide agriculture : c'est météo, carte, communauté et assistant - prêts pour le pitch.",
+            quoteEn: "AgriClim is not an agriculture slide: it is weather, map, community and assistant - ready for the pitch.",
             author: "ReATech team",
             roleFr: "Équipe produit",
             roleEn: "Product team",
-            company: "ReATech — Reactivate African Technology",
+            company: "ReATech - Reactivate African Technology",
         },
 
         lessonsFr: [
