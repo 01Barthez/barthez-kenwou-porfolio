@@ -53,7 +53,7 @@ export function AdminLoginPage() {
   };
 
   return (
-    <div className="relative min-h-svh overflow-hidden bg-background text-foreground">
+    <div className="relative min-h-svh overflow-hidden bg-background text-foreground pt-[env(safe-area-inset-top)]">
       {/* Atmosphere — restrained, not purple-glow spam */}
       <div
         aria-hidden
@@ -183,7 +183,7 @@ export function AdminLoginPage() {
               />
               <button
                 type="button"
-                className="absolute right-2.5 top-[1.85rem] z-30 rounded-md p-1.5 text-muted-foreground hover:text-foreground"
+                className="absolute right-1.5 top-[1.55rem] z-30 flex size-11 items-center justify-center rounded-md text-muted-foreground hover:text-foreground"
                 onClick={() => setShowPassword((v) => !v)}
                 aria-label={showPassword ? 'Hide password' : 'Show password'}
               >

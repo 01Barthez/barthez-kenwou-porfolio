@@ -41,6 +41,30 @@ export function AdminDashboardPage() {
   const unread = store.contactResponses.filter((m) => m.status === 'new').length;
   const pendingTestimonials = store.testimonials.filter((t) => t.status === 'pending').length;
 
+  const attention = [
+    unread > 0
+      ? {
+          href: adminPath('contact-responses'),
+          title: fr ? 'Messages à traiter' : 'Messages to triage',
+          detail: `${unread} ${fr ? 'non lus' : 'unread'}`,
+          tone: 'warning' as const,
+        }
+      : null,
+    pendingTestimonials > 0
+      ? {
+          href: adminPath('testimonials'),
+          title: fr ? 'Avis en attente' : 'Reviews pending',
+          detail: `${pendingTestimonials} ${fr ? 'à valider' : 'to approve'}`,
+          tone: 'primary' as const,
+        }
+      : null,
+  ].filter(Boolean) as Array<{
+    href: string;
+    title: string;
+    detail: string;
+    tone: 'warning' | 'primary';
+  }>;
+
   const pulse = [
     {
       label: fr ? 'Projets live' : 'Live projects',
@@ -66,21 +90,53 @@ export function AdminDashboardPage() {
   ];
 
   return (
-    <div className="space-y-10">
+    <div className="space-y-8 md:space-y-10">
       <AdminPageHeader title={fr ? 'Tableau de bord' : 'Dashboard'} />
 
+      {/* Mobile-first: what needs you now */}
+      {attention.length > 0 ? (
+        <section className="space-y-2 md:hidden">
+          <h2 className="text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">
+            {fr ? 'À traiter' : 'Needs you'}
+          </h2>
+          <div className="space-y-2">
+            {attention.map((item) => (
+              <Link
+                key={item.href}
+                to={item.href}
+                className={cn(
+                  'flex min-h-14 items-center justify-between gap-3 rounded-xl border px-4 py-3',
+                  'active:scale-[0.99] transition-transform',
+                  item.tone === 'warning'
+                    ? 'border-amber-500/30 bg-amber-500/10'
+                    : 'border-primary/30 bg-primary/10',
+                )}
+              >
+                <div>
+                  <p className="text-sm font-semibold">{item.title}</p>
+                  <p className="text-xs text-muted-foreground">{item.detail}</p>
+                </div>
+                <span className="text-lg text-muted-foreground">→</span>
+              </Link>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
       {/* Quiet pulse strip */}
-      <section className="grid gap-px overflow-hidden rounded-xl border border-border/70 bg-border/70 sm:grid-cols-2 lg:grid-cols-4">
+      <section className="grid gap-px overflow-hidden rounded-xl border border-border/70 bg-border/70 grid-cols-2 lg:grid-cols-4">
         {pulse.map((item) => (
           <Link
             key={item.href}
             to={item.href}
-            className="bg-card px-5 py-5 transition-colors hover:bg-muted/30"
+            className="min-h-[5.5rem] bg-card px-4 py-4 transition-colors active:bg-muted/40 sm:px-5 sm:py-5 hover:bg-muted/30"
           >
-            <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">
+            <p className="text-[10px] font-medium uppercase tracking-[0.14em] text-muted-foreground sm:text-[11px]">
               {item.label}
             </p>
-            <p className="mt-2 text-2xl font-semibold tracking-tight tabular-nums">{item.value}</p>
+            <p className="mt-2 text-xl font-semibold tracking-tight tabular-nums sm:text-2xl">
+              {item.value}
+            </p>
             {item.hint ? (
               <Badge variant="warning" className="mt-2">
                 {item.hint}
@@ -93,8 +149,8 @@ export function AdminDashboardPage() {
       </section>
 
       {/* Analytics */}
-      <section className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
-        <div className="rounded-xl border border-border/70 bg-card/50 p-5 sm:p-6">
+      <section className="grid gap-4 sm:gap-6 lg:grid-cols-[1.2fr_0.8fr]">
+        <div className="rounded-xl border border-border/70 bg-card/50 p-4 sm:p-6">
           <div className="flex items-baseline justify-between gap-3">
             <h2 className="text-sm font-semibold tracking-tight">
               {fr ? 'Audience · 7 jours' : 'Audience · 7 days'}
@@ -104,20 +160,22 @@ export function AdminDashboardPage() {
             </span>
           </div>
 
-          <div className="mt-6 grid grid-cols-3 gap-4">
+          <div className="mt-5 grid grid-cols-3 gap-3 sm:mt-6 sm:gap-4">
             {[
               { k: fr ? 'Visiteurs' : 'Visitors', v: analyticsMock.visitors7d },
               { k: fr ? 'Pages vues' : 'Pageviews', v: analyticsMock.pageviews7d },
               { k: 'Bounce', v: analyticsMock.bounce },
             ].map((m) => (
               <div key={m.k}>
-                <p className="text-[11px] text-muted-foreground">{m.k}</p>
-                <p className="mt-1 text-xl font-semibold tabular-nums tracking-tight">{m.v}</p>
+                <p className="text-[10px] text-muted-foreground sm:text-[11px]">{m.k}</p>
+                <p className="mt-1 text-lg font-semibold tabular-nums tracking-tight sm:text-xl">
+                  {m.v}
+                </p>
               </div>
             ))}
           </div>
 
-          <div className="mt-8 grid gap-6 sm:grid-cols-2">
+          <div className="mt-6 grid gap-5 sm:mt-8 sm:grid-cols-2 sm:gap-6">
             <div>
               <p className="text-[11px] font-medium uppercase tracking-[0.12em] text-muted-foreground">
                 {fr ? 'Articles' : 'Articles'}
@@ -127,7 +185,7 @@ export function AdminDashboardPage() {
                   <li key={row.slug} className="flex items-center justify-between gap-3 text-sm">
                     <Link
                       to={adminPath('blogs')}
-                      className="truncate text-foreground/90 hover:text-primary"
+                      className="truncate py-0.5 text-foreground/90 hover:text-primary"
                     >
                       {row.slug}
                     </Link>
@@ -145,7 +203,7 @@ export function AdminDashboardPage() {
                   <li key={row.id} className="flex items-center justify-between gap-3 text-sm">
                     <Link
                       to={adminPath('projects', String(row.id))}
-                      className="truncate text-foreground/90 hover:text-primary"
+                      className="truncate py-0.5 text-foreground/90 hover:text-primary"
                     >
                       {row.label}
                     </Link>
@@ -156,14 +214,14 @@ export function AdminDashboardPage() {
             </div>
           </div>
 
-          <p className="mt-6 text-[11px] leading-relaxed text-muted-foreground">
+          <p className="mt-5 text-[11px] leading-relaxed text-muted-foreground sm:mt-6">
             {fr
               ? 'Chiffres illustratifs — brancher l’API Plausible CE pour du live.'
               : 'Illustrative figures — wire Plausible CE API for live data.'}
           </p>
         </div>
 
-        <div className="rounded-xl border border-border/70 bg-card/50 p-5 sm:p-6">
+        <div className="rounded-xl border border-border/70 bg-card/50 p-4 sm:p-6">
           <h2 className="text-sm font-semibold tracking-tight">
             {fr ? 'Pages fortes' : 'Top pages'}
           </h2>
@@ -183,12 +241,12 @@ export function AdminDashboardPage() {
         </div>
       </section>
 
-      {/* Compact inventory */}
+      {/* Compact inventory — larger chips on mobile */}
       <section>
         <h2 className="mb-3 text-[11px] font-medium uppercase tracking-[0.14em] text-muted-foreground">
           {fr ? 'Inventaire' : 'Inventory'}
         </h2>
-        <div className="flex flex-wrap gap-2">
+        <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-wrap">
           {[
             { href: adminPath('skills'), n: store.skills.length, fr: 'Compétences', en: 'Skills' },
             {
@@ -220,12 +278,12 @@ export function AdminDashboardPage() {
               key={item.href}
               to={item.href}
               className={cn(
-                'inline-flex items-center gap-2 rounded-full border border-border/70 bg-card/60 px-3 py-1.5 text-xs',
-                'transition-colors hover:border-primary/35 hover:bg-muted/40',
+                'inline-flex min-h-12 items-center justify-between gap-2 rounded-xl border border-border/70 bg-card/60 px-3 py-2.5 text-xs sm:min-h-0 sm:rounded-lg sm:py-1.5',
+                'transition-colors active:bg-muted/50 hover:border-primary/35 hover:bg-muted/40',
               )}
             >
-              <span className="font-semibold tabular-nums">{item.n}</span>
               <span className="text-muted-foreground">{fr ? item.fr : item.en}</span>
+              <span className="font-semibold tabular-nums">{item.n}</span>
             </Link>
           ))}
         </div>

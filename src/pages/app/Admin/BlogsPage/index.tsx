@@ -119,7 +119,7 @@ export function AdminBlogsPage() {
             header: fr ? 'Catégorie' : 'Category',
             render: (r) => <Badge variant="secondary">{r.category}</Badge>,
           },
-          { key: 'date', header: fr ? 'Date' : 'Date' },
+          { key: 'date', header: fr ? 'Date' : 'Date', hideOnMobile: true },
           {
             key: 'isPublished',
             header: fr ? 'Public' : 'Public',
@@ -140,12 +140,13 @@ export function AdminBlogsPage() {
             <Button
               size="icon-sm"
               variant="ghost"
+              className="size-11 md:size-8"
               title={fr ? 'Lien public' : 'Public link'}
               onClick={() => copyPublicLink(r)}
             >
               <Copy className="size-3.5" />
             </Button>
-            <Button size="icon-sm" variant="ghost" asChild title={fr ? 'Ouvrir' : 'Open'}>
+            <Button size="icon-sm" variant="ghost" className="size-11 md:size-8" asChild title={fr ? 'Ouvrir' : 'Open'}>
               <a href={`/blog/${r.slug || r.id}`} target="_blank" rel="noreferrer">
                 <ExternalLink className="size-3.5" />
               </a>
@@ -153,17 +154,18 @@ export function AdminBlogsPage() {
             <Button
               size="icon-sm"
               variant="ghost"
+              className="size-11 md:size-8"
               title={fr ? 'Dupliquer' : 'Duplicate'}
               onClick={() => duplicate(r)}
             >
               <Plus className="size-3.5" />
             </Button>
-            <Button size="icon-sm" variant="ghost" asChild>
+            <Button size="icon-sm" variant="ghost" className="size-11 md:size-8" asChild>
               <Link to={adminPath('blogs', r.id)}>
                 <Pencil className="size-3.5" />
               </Link>
             </Button>
-            <Button size="icon-sm" variant="ghost" onClick={() => setPending(r)}>
+            <Button size="icon-sm" variant="ghost" className="size-11 md:size-8" onClick={() => setPending(r)}>
               <Trash2 className="size-3.5 text-destructive" />
             </Button>
           </>

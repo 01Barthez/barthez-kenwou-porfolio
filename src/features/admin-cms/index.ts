@@ -34,6 +34,8 @@ export type { MediaUrlListEditorProps } from './ui/MediaUrlListEditor.ui';
 
 export { MediaCoverField } from './ui/MediaCoverField.ui';
 
+export { AdminStickyActions } from './ui/AdminStickyActions.ui';
+
 export { KeyValueEditor } from './ui/KeyValueEditor.ui';
 export type { KeyValueEditorProps, KeyValueRecord } from './ui/KeyValueEditor.ui';
 

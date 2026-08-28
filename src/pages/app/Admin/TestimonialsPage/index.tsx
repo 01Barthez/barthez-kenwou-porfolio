@@ -271,6 +271,7 @@ export const AdminTestimonialsPage: React.FC = () => {
           {
             key: 'source',
             header: fr ? 'Source' : 'Source',
+            hideOnMobile: true,
             render: (r) => (
               <span className="text-xs text-muted-foreground">{r.source || 'admin'}</span>
             ),

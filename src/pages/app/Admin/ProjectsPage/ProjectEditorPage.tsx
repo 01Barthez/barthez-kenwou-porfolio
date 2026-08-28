@@ -6,6 +6,7 @@ import type { IProject, IProjectDiagram, IProjectGalleryItem } from '@/entities/
 import {
   AdminPageHeader,
   AdminSectionCard,
+  AdminStickyActions,
   BilingualField,
   BilingualStringListEditor,
   Field,
@@ -121,22 +122,22 @@ export const AdminProjectEditorPage: React.FC = () => {
   const diagrams = draft.diagrams || [];
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 pb-24 md:pb-0">
       <AdminPageHeader
         title={isNew ? (fr ? 'Nouveau projet' : 'New project') : fr ? 'Éditer le projet' : 'Edit project'}
         actions={
-          <div className="flex gap-2">
-            <Button variant="outline" asChild>
+          <AdminStickyActions>
+            <Button variant="outline" asChild className="flex-1 md:flex-none">
               <Link to={adminPath('projects')}>
                 <ArrowLeft className="size-4" />
                 {fr ? 'Retour' : 'Back'}
               </Link>
             </Button>
-            <Button onClick={save}>
+            <Button onClick={save} className="flex-[1.4] md:flex-none">
               <Save className="size-4" />
               {fr ? 'Enregistrer' : 'Save'}
             </Button>
-          </div>
+          </AdminStickyActions>
         }
       />
 

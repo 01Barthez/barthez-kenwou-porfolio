@@ -6,6 +6,7 @@ import type { IBlog } from '@/entities/blogs/model/blog.type';
 import {
   AdminPageHeader,
   AdminSectionCard,
+  AdminStickyActions,
   BilingualField,
   Field,
   MarkdownEditor,
@@ -81,22 +82,22 @@ export const AdminBlogEditorPage: React.FC = () => {
   };
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 pb-24 md:pb-0">
       <AdminPageHeader
         title={isNew ? (fr ? 'Nouvel article' : 'New article') : fr ? 'Éditer l’article' : 'Edit article'}
         actions={
-          <div className="flex gap-2">
-            <Button variant="outline" asChild>
+          <AdminStickyActions>
+            <Button variant="outline" asChild className="flex-1 md:flex-none">
               <Link to={adminPath('blogs')}>
                 <ArrowLeft className="size-4" />
                 {fr ? 'Retour' : 'Back'}
               </Link>
             </Button>
-            <Button onClick={save}>
+            <Button onClick={save} className="flex-[1.4] md:flex-none">
               <Save className="size-4" />
               {fr ? 'Enregistrer' : 'Save'}
             </Button>
-          </div>
+          </AdminStickyActions>
         }
       />
 

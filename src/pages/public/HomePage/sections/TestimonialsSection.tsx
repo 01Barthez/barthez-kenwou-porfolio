@@ -1,6 +1,5 @@
 import { TestimonialCard } from '@/entities/testimonies';
-import { isPublicTestimonial } from '@/entities/testimonies/lib/isPublicTestimonial';
-import { useAdminCmsStore } from '@/features/admin-cms';
+import { usePublicTestimonials } from '@/entities/testimonies/hooks/usePublicTestimonials';
 import { useLanguageStore } from '@/shared/state/useLanguageStore';
 import { useThemeStore } from '@/shared/state/useThemeStore';
 import { Image } from '@/shared/ui/Image';
@@ -16,7 +15,7 @@ export const TestimonialsSection: React.FC = () => {
   const { language } = useLanguageStore();
   const theme = useThemeStore((s) => s.theme);
   const isDark = theme === 'dark';
-  const testimonials = useAdminCmsStore((s) => s.testimonials.filter(isPublicTestimonial));
+  const testimonials = usePublicTestimonials();
 
   if (testimonials.length === 0) return null;
 

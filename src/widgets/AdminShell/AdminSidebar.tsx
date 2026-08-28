@@ -68,7 +68,7 @@ export function AdminSidebar() {
                   isActive={isNavActive(location.pathname, adminDashboardItem.path)}
                   tooltip={fr ? adminDashboardItem.labelFr : adminDashboardItem.labelEn}
                   className={cn(
-                    'h-10 rounded-lg font-medium',
+                    'h-11 rounded-lg font-medium',
                     isNavActive(location.pathname, adminDashboardItem.path) &&
                       'bg-sidebar-accent shadow-xs',
                   )}
@@ -103,7 +103,7 @@ export function AdminSidebar() {
                         asChild
                         isActive={active}
                         tooltip={label}
-                        className="rounded-md"
+                        className="h-11 rounded-md"
                       >
                         <Link to={item.path}>
                           <span
@@ -129,7 +129,7 @@ export function AdminSidebar() {
       <SidebarFooter className="border-t border-sidebar-border/50 p-3">
         <Button
           variant="ghost"
-          className="h-10 w-full justify-start gap-2 rounded-lg px-2 text-muted-foreground hover:text-destructive group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:px-0"
+          className="h-11 w-full justify-start gap-2 rounded-lg px-2 text-muted-foreground hover:text-destructive group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:px-0"
           onClick={() => {
             logout();
             navigate(ADMIN_LOGIN, { replace: true });

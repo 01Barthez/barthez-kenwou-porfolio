@@ -121,8 +121,8 @@ export function AdminProjectsPage() {
             header: 'Status',
             render: (r) => <Badge variant="secondary">{r.status}</Badge>,
           },
-          { key: 'category', header: fr ? 'Catégorie' : 'Category' },
-          { key: 'date', header: fr ? 'Date' : 'Date' },
+          { key: 'category', header: fr ? 'Catégorie' : 'Category', hideOnMobile: true },
+          { key: 'date', header: fr ? 'Date' : 'Date', hideOnMobile: true },
           {
             key: 'isPublished',
             header: fr ? 'Public' : 'Public',
@@ -143,12 +143,13 @@ export function AdminProjectsPage() {
             <Button
               size="icon-sm"
               variant="ghost"
+              className="size-11 md:size-8"
               title={fr ? 'Lien public' : 'Public link'}
               onClick={() => copyPublicLink(r)}
             >
               <Copy className="size-3.5" />
             </Button>
-            <Button size="icon-sm" variant="ghost" asChild>
+            <Button size="icon-sm" variant="ghost" className="size-11 md:size-8" asChild>
               <a href={`/projects/${r.id}`} target="_blank" rel="noreferrer">
                 <ExternalLink className="size-3.5" />
               </a>
@@ -156,17 +157,18 @@ export function AdminProjectsPage() {
             <Button
               size="icon-sm"
               variant="ghost"
+              className="size-11 md:size-8"
               title={fr ? 'Dupliquer' : 'Duplicate'}
               onClick={() => duplicate(r)}
             >
               <Plus className="size-3.5" />
             </Button>
-            <Button size="icon-sm" variant="ghost" asChild>
+            <Button size="icon-sm" variant="ghost" className="size-11 md:size-8" asChild>
               <Link to={adminPath('projects', String(r.id))}>
                 <Pencil className="size-3.5" />
               </Link>
             </Button>
-            <Button size="icon-sm" variant="ghost" onClick={() => setPending(r)}>
+            <Button size="icon-sm" variant="ghost" className="size-11 md:size-8" onClick={() => setPending(r)}>
               <Trash2 className="size-3.5 text-destructive" />
             </Button>
           </>

@@ -1,11 +1,25 @@
-import { Outlet } from 'react-router-dom';
-import { SidebarInset, SidebarProvider } from '@/shared/ui/sidebar';
+import { Outlet, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+import { SidebarInset, SidebarProvider, useSidebar } from '@/shared/ui/sidebar';
 import { AdminSidebar } from './AdminSidebar';
 import { AdminHeader } from './AdminHeader';
+import { AdminMobileDock } from './AdminMobileDock';
+
+function CloseMobileNavOnRouteChange() {
+  const location = useLocation();
+  const { setOpenMobile, isMobile, openMobile } = useSidebar();
+
+  useEffect(() => {
+    if (isMobile && openMobile) setOpenMobile(false);
+  }, [location.pathname, isMobile, openMobile, setOpenMobile]);
+
+  return null;
+}
 
 export function AdminLayout() {
   return (
     <SidebarProvider defaultOpen>
+      <CloseMobileNavOnRouteChange />
       <AdminSidebar />
       <SidebarInset className="flex h-svh max-h-svh flex-col overflow-hidden bg-background">
         <div
@@ -21,11 +35,13 @@ export function AdminLayout() {
 
         <AdminHeader />
 
-        <main className="relative min-h-0 flex-1 overflow-y-auto">
-          <div className="mx-auto w-full max-w-6xl px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
+        <main className="relative min-h-0 flex-1 overflow-y-auto overscroll-contain">
+          <div className="mx-auto w-full max-w-6xl px-4 py-5 pb-[calc(6.5rem+env(safe-area-inset-bottom))] sm:px-6 md:py-6 md:pb-8 lg:px-8 lg:py-8">
             <Outlet />
           </div>
         </main>
+
+        <AdminMobileDock />
       </SidebarInset>
     </SidebarProvider>
   );
